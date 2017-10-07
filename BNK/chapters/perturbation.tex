@@ -1,0 +1,1550 @@
+%!TEX root = ../DSGEnotes.tex
+\chapter{扰动法}
+\label{sec:ptb}
+
+\section{扰动法简介}
+\label{sec:ptb-intro}
+
+
+%假定一个经济系统中，典型个体追求个体的期望效用最大化。追求效用最大化的行为基于期望福利水平$E U(y)$，和$x$的分布todo{补一个reference}。
+
+
+%对$U(y)$做关于$\bar{y}$的二阶近似
+%\begin{equation*}
+%  U(y) \approx U(\bar{y}) + U_y(\bar{y}) \left( y - \bar{y} \right) + \frac{1}{2} U_{yy}{\bar{y}} \left( y - \bar{y} \right)^2 + O^3,
+%\end{equation*}
+%两侧同时取期望值，得福利函数
+% \begin{equation}
+%   \label{eq:ptb-uy-2nd-approx}
+%   E U(y)  \approx U(\bar{y}) + U_y(\bar{y}) E \left( y - \bar{y} \right) + \frac{1}{2} U_{yy}(\bar{y}) E \left( y - \bar{y} \right)^2 + O^3.
+% \end{equation}
+%
+% 若是采用\eqref{sec:solution-talor-series-expansion-2}的非期望形式，会产生错误的结论。
+%
+% 为了说明这一点，对\eqref{sec:solution-talor-series-expansion-2}做二阶近似，有
+% \begin{equation*}
+%   Ey \approx \bar{y} + \frac{1}{2} f_{xx}(\bar{x}) var(x) + O^3,
+% \end{equation*}
+% 代回福利方程有\eqref{eq:ptb-uy-2nd-approx}
+% \begin{equation*}
+% \begin{split}
+%     E U(y) & \approx U(\bar{y}) + U_y(\bar{y}) (y - \bar{y}) + \frac{1}{2} U_{yy}(\bar{y}) (y-\bar{y})^2 + O^3 \\
+%     & =
+% \end{split}
+% \end{equation*}
+
+对于DSGE模型的非线性系统，另一种求解方法是扰动法(perturbation)，即根据隐函数定理(implicit function theorem)，围绕经济系统的非随机稳定状态做TSE(泰勒级数展开 Taylor Series Expansion)\footnote{需要指出的是，扰动法的算法有多种，这里以宏观经济学研究中得到广泛采用的方法为例。}。扰动法在经济学研究中的应用\footnote{扰动法在物理学和自然科学中得到广泛应用，至少可以上溯到19世纪。随着20世纪上半叶量子力学的发展，扰动法更成为自然科学研究的核心方法之一，相关介绍可见\cite{Simmonds:2013vz, Bender:2013vk}。}，可以追溯至\cite{Judd:1993dh}\footnote{关于采用扰动法进行经济学研究的严格数学证明，如可解性等，以及更高级的求解技术如Padé近似等，可见\cite{Judd:1998uy, Judd:2001bl, Jin:2002HV}。}，从那时起至今二十多年间，扰动法在宏观经济学研究中受到越来越多的重视，主要原因有四。
+\begin{enumerate}
+  \item 解的精确度。一方面在近似点附近，扰动法的局部解的精确度常常是比较高的，另一方面扰动法生成的状态变量值也具有较好的全局解特性\citep{Judd:1998uy, Judd:2001bl, Caldara:2012fr}，并且扰动法的解还可以较方便地交由其他求解方法做进一步处理，如价值方程的迭代，见第\ref{sec:pta-value-function-perturbation}节。
+  \item 解的经济意义。扰动法的近似解相对直观易懂，例如DSGE模型的二阶近似解中含有一个外生冲击的冲击标准差项，会对经济系统的动态路径产生影响，这呼吁经济政策制定者采取有效的预防措施。而相反地，持有确定性等价(certainty equivalence)假定的一阶线性近似法(第\ref{sec:rational-exp-chap}章)，由于无法将外生技术冲击的波动纳入到分析框架中，从而在分析福利、风险等问题上存在不足。
+  \item 如前所述，传统线性求解技术基本上类似于一阶线性扰动法，这这些前期研究的宝贵经验能够为我们研究高阶扰动求解法提供帮助。
+  \item 一批新的计算程序有助于显著提高高阶扰动法数值计算的效率，如\href{https://www.mathworks.com/}{Matlab}平台下的\href{http://www.dynare.org}{Dynare} (以及一个独立软件平台\href{http://www.dynare.org/documentation-and-support/dynarepp}{Dynare++})，\href{http://www.wolfram.com}{Mathematica}平台下的\href{http://www.ericswanson.us/perturbation.html}{Perturbation AIM}等。
+\end{enumerate}
+
+\section{分析框架}
+\label{sec:pta-perturbation-framework}
+扰动法致力于近似求解状态——空间系统$\mathcal{H}(d) = \bm{0}$，其中$d:\Omega \rightarrow \mathcal{R}^{m}$表示由一系列均衡条件和预算约束条件组成的方程系统，对应$n$个状态变量组成的向量$\bm{x}$以及相关系数$\theta$。求解的基本思路是对围绕状态变量的非随机稳定点做泰勒级数展开。以二阶泰勒级数展开为例：
+\begin{equation}
+  \label{eq:ptb-tse-2nd-example}
+  d_i^2(\bm{x},\theta) = \theta_{i,0} + \theta_{i,1} (\bm{x}-\bm{x}_0)^{\top} +  (\bm{x}-\bm{x}_0) \theta_{i,2} (\bm{x}-\bm{x}_0)^{\top}, \quad i=1,2,\ldots m,
+\end{equation}
+其中
+\begin{itemize}
+  \item $\bm{x}^{\top}$表示向量$\bm{x}$的转置，
+  \item $\bm{x}_0$表示非随机稳态，
+  \item $\theta_{i,0}$是一个矢量，
+  \item $\theta_{i,1}$是一个n维向量，
+  \item $\theta_{i,2}$是一个$n \times n$矩阵，
+  \item 系数$\theta_{i,0}, \theta_{i,1}, \theta_{i,2}$可根据隐函数定理，由$d$的导数求得。
+\end{itemize}
+
+与传统线性近似法相比(\citep{King:1988bk,King:1988kf,King:2002ih}，本文第\ref{sec:rational-exp-chap}章)，线性近似与一阶扰动法基本等同。而更高阶扰动法是将一阶扰动(近似线性)化的经济系统结构一般化到更一般的形式，引入额外项，从而使得近似式具有更高的解释效力。
+\begin{remark}[扰动法的线性化和对数线性化]
+  通常来说，线性化是指对状态变量(或对状态变量针对模型中的某些量做预处理后)进行线性调整。类似地，对数线性化描述状态变量距离其稳定状态的对数偏离程度，以某一变量$x \in \bm{x}$举例，定义$\hat{x} = \log \left(x / \bar{x} \right)$，其中$\bar{x}$是稳态值。则二阶近似
+  \begin{equation*}
+    d_i^2(\hat{\bm{x}},\theta) = \theta_{i,0} + \theta_{i,1} (\hat{\bm{x}} - \hat{\bm{x}}_0)^{\top} +  (\hat{\bm{x}} - \hat{\bm{x}}_0) \theta_{i,2} (\hat{\bm{x}} - \hat{\bm{x}}_0)^{\top}, \quad i=1,2,\ldots m,
+  \end{equation*}
+  如果$x_0$是确定性稳态，我们有$\hat{\bm{x}}_0 = 0$，则对于$\forall x \in \bm{x}$上式可改写为
+
+  \begin{equation*}
+      d_i^2(\hat{\bm{x}},\theta) = \theta_{i,0} + \theta_{i,1} \hat{\bm{x}}^{\top} +  \hat{\bm{x}} \theta_{i,2} \hat{\bm{x}}_0^{\top}, \quad i=1,2,\ldots m,
+  \end{equation*}
+  比起线性化来，对数线性化形式的系统解更容易解读，并且有时候更精确\todo{补一个reference}。
+\end{remark}
+
+\begin{remark}[常规扰动和奇异扰动]
+  有时候我们需要区分常规扰动和奇异扰动。
+
+  常规扰动(regular perturbations)往往指，外部环境的一个小变动引发经济系统解的一个小变动，例如新凯恩斯主义模型中，一个货币政策冲击(标准差的变化)印发经济系统均衡路径的变化，进而带来产出、通胀等内生变量的小变化\citep{Gali:2005gp,Woodford:2011ks}。DSGE模型大多数研究常规扰动的经济现象，本论文也以常规扰动的介绍为主。
+
+  奇异扰动法(singular perturbations)往往指，外部环境的小变动引发经济系统的大波动，如市场出清价格。如不完全竞争市场模型中，一种新资产的出现可能带来经济系统解的大调整，对于研究金融市场摩擦和/或不完全竞争市场的经济学家来说，就需要予以额外关注\citep{Judd:1993dh}。\cite{Judd:1998uy} 介绍了如何采用分叉法(bifurcation)求解奇异扰动的经济系统问题。
+\end{remark}
+
+\section{求解方法}
+\label{sec:pta-perturabation-method}
+
+\subsection{状态——空间形式}
+\label{sec:pta-perturabation-method-ssr}
+在第\ref{sec:pta-perturbation-framework}节分析框架的基础上，我们来看如何将扰动法应用到求解典型经济系统中，主要参考自\cite{SchmittGroh:2004da}。
+
+对于由一系列均衡条件和预算约束条件构成的非线性经济系统，可以表述为如下含有期望的状态——空间形式 \begin{equation}
+\label{eq:pta-non-lin-sys-ssr}
+E_t \mathcal{H} (y, y', x, x') = 0,
+\end{equation}
+其中
+\begin{itemize}
+  \item $x,y$分别是$n_x \times 1$和$n_y \times
+1$的状态向量和控制向量，$n=n_x + n_y$，$x',y'$表示$t+1$期的变量。
+  \item 运算符$\mathcal{H}:
+\mathcal{R}^{n_y} \times \mathcal{R}^{n_y} \times \mathcal{R}^{n_x} \times
+\mathcal{R}^{n_x} \rightarrow \mathcal{R}^{n}$表示方程系统，其中部分方程含有期望项。
+  \item 状态向量$x$可以分解成两块，分别表示内生状态变量和外生变量：
+\begin{equation*} x = \begin{bmatrix}
+\underset{\left(n_x - n_{\varepsilon} \times 1\right)}{x_1} \\
+\underset{(n_{\varepsilon} \times 1)}{x_2} \end{bmatrix} \end{equation*}
+\end{itemize}
+
+\subsection{稳定状态}
+\label{sec:pta-non-lin-sys-steady-state}
+为了用扰动法分析经济系统\eqref{eq:pta-non-lin-sys-ssr}，首先要求得模型的非随机稳定状态，可表示为向量集合$(\bar{x}, \bar{y})$，满足
+\begin{equation}
+  \label{eq:pta-non-lin-sys-ssr-ss}
+  \mathcal{H} (\bar{y}, \bar{y}, \bar{x}, \bar{x}) = 0.
+\end{equation}
+通常来说，可以直接求得$(\bar{x}, \bar{y})$的解析解，或使用一些常规的非线性求解方法(见下文)，我们假定稳态解存在且唯一\footnote{的确存在着无解或存在多个解的可能，相关讨论见\cite{Galor:2007uw}。}。此外，也可能系统不存在唯一的稳态解，而是有一个均衡路径解(BGP, Balanced Growth Path)，即模型中的内生变量，除了劳动力等少量例外之外，以大于$0$的某一相同速度增长，这就需要对变量做scaling (或称为去趋势detrending)，以便在随后进一步应用局部扰动法。具体说来，设
+\begin{equation*}
+  \hat{x}_t = \frac{x_t}{\mu_t},
+\end{equation*}
+其中$\mu_t$是含有趋势的变量，如某一有偏技术进步过程，用额外一个方程来表示。经过scale或称detrend处理后的$\hat{x}_t$可代回系统中做扰动法处理，并且如果有必要，在下一阶段的近似求解及方针过程中，将趋势重新加回来，变成$x_t$。DSGE模型中对变量做scaling处理的例子可见如\cite{FernandezVillaverde:2007ta, Christiano:2010wla}。
+
+在求解稳态$(\bar{x}, \bar{y})$时，有些小窍门可以使得计算过程更简单。举三个例子。
+\subsubsection{系统缩减}
+ \label{sec:ptb-tricks-ss-reduction}
+第一个例子是方程系统的缩减(system reduction)。将由$n$个方程，$n$个未知变量的原系统，通过替换掉其中一部分变量，缩减为含有$n'$个方程，$n'$个未知变量的新系统，$n' <n$。例如\cite{Christiano:2005ib}利用资本存量的运动式
+\begin{equation*}
+k_{t+1} = i_t + \left(1 - \delta \right) k_t
+\end{equation*}
+在经济系统模型中替换掉投资$i_t$。通过方程系统缩减，在下一步扰动法求解非线性系统过程中，工作复杂度进一步降低。如\cite{Sikorski:1985ew}便指出，方程系统维度的增加常伴随着求解过程复杂程度的指数上升。
+
+\subsubsection{变量标准化与参数赋值}
+第二个例子是通过变量的标准化(normalization)确定参数值。可将一个或数个变量设为固定值，进而其他变量是关于这几个固定变量有关的方程，对非线性系统进行简化。以简单的随机内生经济增长模型来说：先来看一个变量标准化的例子：典型家庭的效用函数表现为log CRRA形式
+\begin{equation*}
+  E_0 \sum_{t=0}^{\infty} \beta^t \left( \ln c_t - \psi \frac{l_t^{1+\eta}}{1+\eta} \right),
+\end{equation*}
+生产函数
+\begin{equation*}
+  y_t = A_t k_t^{\alpha} l_t^{1-\alpha},
+\end{equation*}
+资本存量的运动法则
+\begin{equation*}
+  k_{t+1} = i_t + (1-\delta) k_t = \left(yy_t - c_t \right) + (1-\delta) k_t.
+\end{equation*}
+
+通过计算FOC，可得模型一组静态最优条件，其中劳动力供应式
+\begin{equation*}
+  w_t = \psi c_t l_t^{\eta}.
+\end{equation*}
+
+可以将非随机稳态的劳动力供应予以标准化，设为$\bar{l} = 1$。对应地，由其他全部均衡条件构成的新系统中，内生变量均表示为与此标准化劳动量$\bar{l}$有关的函数。进而，通过静态优化条件，我们可以得到参数$\psi$的值
+\begin{equation*}
+  \psi = \frac{\bar{w}}{\bar{c} \bar{l}^{\eta}} = \frac{\bar{w}}{\bar{c}}.
+\end{equation*}
+
+\subsubsection{多变量标准化与参数赋值}
+第三个例子是多变量标准化。在上个模型已经引入$\bar{l}=1$的基础上，在引入第二个标准化，设$\bar{yy}=1$，从而
+\begin{equation*}
+  \bar{y}=1=\bar{A} \bar{k}^{\alpha} \bar{l}^{1-\alpha} = \bar{A} \bar{k}^{\alpha},
+\end{equation*}
+我们因此有
+\begin{align*}
+  &\bar{A} = \frac{1}{\bar{k}^{\alpha}}, \\
+  &\bar{w} = \left(1-\alpha \right) \frac{\bar{y}}{\bar{l}} = 1-\alpha.
+\end{align*}
+
+跨期消费的Euler方程变为
+\begin{equation*}
+  \frac{1}{\bar{c}} = \frac{1}{\bar{c}} \beta \left( 1 + \bar{r} - \delta \right),
+\end{equation*}
+因此
+\begin{equation*}
+  \bar{r} = \frac{1}{\beta} - 1 + \delta.
+\end{equation*}
+
+此外由于
+\begin{equation*}
+  \bar{r} = MPK = \alpha \frac{\bar{y}}{\bar{k}} = \frac{\alpha}{\bar{k}},
+\end{equation*}
+可得稳态资本存量和稳态消费
+\begin{align*}
+  &\bar{k} = \frac{\alpha}{\bar{r}} = \frac{\alpha}{\frac{1}{\beta} - 1 + \delta}, \\
+  &\bar{c} = \bar{y} - \delta \bar{k} = 1 - \delta \frac{\alpha}{\frac{1}{\beta} - 1 + \delta}.
+\end{align*}
+
+最后我们有
+\begin{equation*}
+  \psi = \frac{\bar{w}}{\bar{c}} = \frac{
+  1-\alpha
+  }{
+  1 - \delta \frac{\alpha}{\frac{1}{\beta} - 1 + \delta}
+  }.
+\end{equation*}
+
+\subsection{外生随机过程}
+设外生冲击变量$x_2$可以表示为如下过程
+\begin{equation}
+  \label{eq:pta-exo-shock-x2}
+  \bm{x}_2' = \bm{C}(\bm{x}_2) + \sigma \eta_{\varepsilon} \varepsilon ',
+\end{equation}
+其中
+\begin{itemize}
+  \item 运算符$\bm{C}$可能反映非线性关系。在这里假定围绕稳定状态$(\bar{x}, \bar{y})$所做的$\bm{C}$的Hessian matrix中，所有特征值绝对值都小于1。
+  \item $\varepsilon '$包含$n_{\varepsilon}$个外生波动，常假定为$\mathcal{N}(0,I)$，即均值为0，二阶矩小于$\infty$的分布。在研究中常常需要引入额外的矩限定条件。
+  \item $\eta_{\varepsilon}$是一个$n_{\varepsilon} \times n_{\varepsilon}$的关于波动$\varepsilon$的方差协方差矩阵，$\sigma \ge 0$是一个关于$\eta_{\varepsilon}$的扰动参数\citep{SchmittGroh:2004da}，我们将在随后深入讨论。
+\end{itemize}
+
+因此经验研究中，常将\eqref{eq:pta-exo-shock-x2}写成
+\begin{equation}
+  \label{eq:pta-exo-shock-x2-explicit}
+  \bm{x}_2' = \bm{C} \bm{x}_2 + \sigma \eta_{\varepsilon} \varepsilon ',
+\end{equation}
+其中$\bm{C}$是一个$n_{\varepsilon} \times n_{\varepsilon}$矩阵，其全部特征值绝对值小于1。
+
+\subsubsection{外生冲击的波动的线性特征}
+\eqref{eq:pta-exo-shock-x2}-\eqref{eq:pta-exo-shock-x2-explicit}均假定波动是以线性方式作用于随机过程$\bm{x}_2$的。这一假定看似随意，但不失一般特性。如我们不再假定这一线性关系，设
+\begin{equation*}
+  \bm{x}_{2,t} = \bm{D}(\bm{x}_{2,t-1}, \sigma \eta_{\varepsilon} \varepsilon_{t}).
+\end{equation*}
+
+将扰动$\varepsilon_{t}$写入经济系统$\bm{x}_{2,t}$中
+\begin{equation*}
+  \tilde{\bm{x}}_{2,t} = \begin{bmatrix} \bm{x}_{2,t-1} \\ \varepsilon_t \end{bmatrix}, \quad \tilde{\varepsilon}_{t} = \begin{bmatrix} {\bm{0}_{n_{\varepsilon} \times 1}} \\ \varepsilon_{t} \end{bmatrix},
+\end{equation*}
+则我们有
+\begin{equation*}
+  \bm{x}_{2,t} = \tilde{\bm{D}}(\tilde{\bm{x}}_{2,t}, \sigma \eta_{\varepsilon}).
+\end{equation*}
+
+外生随机冲击的过程，可以重新表示为
+\begin{equation*}
+  \begin{bmatrix}
+    \bm{x}_{2,t} \\ \varepsilon_{t+1}
+  \end{bmatrix}
+  = \begin{bmatrix}
+  \tilde{\bm{D}}(\tilde{\bm{x}}_{2,t}, \sigma \eta_{\varepsilon}) \\
+  0
+\end{bmatrix} + \begin{bmatrix}
+{\bm{0}_{n_{\varepsilon} \times 1}} \\ \varepsilon_{t+1}
+\end{bmatrix},
+\end{equation*}
+或者用递归形式来表示
+\begin{equation*}
+  \tilde{\bm{x}}_{2}' = \bm{C}(\tilde{\bm{x}}_{2}) + \tilde{\varepsilon}', \quad \tilde{\varepsilon} \sim iid (0,I).
+\end{equation*}
+
+举例来说明。时变波动性(time-varying volatility)对于理解总量层面上的变量变化具有重要影响\citep{Bloom:2009vg, FernandezVillaverde:2011us}。假定生产率是一个随机波动的过程，满足
+\begin{equation*}
+  \log a_t = \rho_a \log a_{t-1} + \lambda_t \nu_t,
+\end{equation*}
+其中波动$\nu_t \sim \mathcal{N}(0,1)$，波动的标准差$\lambda_t$表示为另一个自回归过程
+\begin{equation*}
+  \log \lambda_t = \bar{\lambda} + \rho_{\lambda} \log \lambda_{t-1} + \psi \eta_t, \quad \eta_t \sim \mathcal{N}(0,1).
+\end{equation*}
+
+需要指出的是，在这个模型中，扰动参数$\psi$不止影响生产率的波动$\nu_t$，还影响波动的标准差$\lambda_t$。
+
+时变波动模型中常常含有大量状态变量。对于每一个随机过程，都需要追踪其水平值及方差随时间的变化情况。这使得适合采用扰动法来做模型近似求解，求他方法如映射法等，则难以处理如此多的变量。
+
+此外需要指出的是，如\eqref{eq:pta-exo-shock-x2-explicit}所示，尽管一个模型可能有许多个冲击，但在模型设定上只需要一个扰动参数$\psi$即可，不同冲击的相对水平及联动(comovements)是由系数矩阵$\eta_{\varepsilon}$来调节的。如果$\sigma = 0$，则模型回到确定性经济增长模型中去。
+
+\subsubsection{扰动参数的讨论}
+\eqref{eq:pta-exo-shock-x2-explicit}的经济模型中，引入扰动参数$\sigma$反映随机过程的标准差。然而事实上这并不是唯一的建模方案。首先，在模型中其他位置用其他参数来反映波动，可能会使得模型的解更加精确，和/或模拟结果与现实情况更贴近，如\cite{Hansen:2008bh}构建了一个含有Epstein-Zin偏好的经济模型，并围绕跨期弹性等于1时的点做扰动。其次，比起离散时间模型来，连续时间建模中对扰动参数的处理有所不同，并且后者在控制方差方面有优势。
+
+\subsubsection{扰动法近似解与仿真结果的稳定性}
+存在这样的可能：扰动法求得的近似解呈现收敛特征，但根据近似解所生成的仿真数据序列却是爆炸的。一种常见的处理方法如\cite{Samuelson:1970fg}和\cite{Jin:2002HV}等，在在外生过程的波动中引入一个有界的设定，从而避免扰动法近似解中可能存在的仿真结果稳定性问题。另一种新出现的方法称剪枝法，见下文。\todo{补一个reference。}
+
+\subsection{设想解}
+非线性经济系统\eqref{eq:pta-non-lin-sys-ssr}设想中的解，应该由如下一组方程构成，分别是控制变量的决策式和状态变量的决策式：
+\begin{align}
+  \label{eq:pta-non-lin-sys-guessed-dec-rule-y}
+  &\bm{y} = \bm{g}(\bm{x};\delta), \\
+  \label{eq:pta-non-lin-sys-guessed-dec-rule-x}
+  &\bm{x}' = \bm{h}(\bm{x};\delta) + \sigma \eta \varepsilon',
+\end{align}
+其中两个运算符$\bm{g}:\mathcal{R}^{n_x} \times \mathcal{R}^{+} \mapsto \mathcal{R}^{n_y}$，$\bm{h}:\mathcal{R}^{n_x} \times \mathcal{R}^{+} \mapsto \mathcal{R}^{n_x}$。系数矩阵$\eta$可做如下分解
+\begin{equation*}
+  \underset{(n_x \times n_{\varepsilon})}{\eta} =
+  \begin{bmatrix}
+    \underset{(n_x - n_{\varepsilon} \times n_{\varepsilon})}{\bm{0}} \\
+    \underset{(n_{\varepsilon} \times n_{\varepsilon})}{\eta_{\varepsilon}}
+  \end{bmatrix},
+\end{equation*}
+其中前半部分($n_x-n_{\varepsilon}$行)由当期状态决定，这些当期状态影响下一期的内生状态。后半部分($n_{\varepsilon}$行)由下一期的外生变量决定，下一期的外生变量由当期外生变量和下一期的波动共同决定。
+
+扰动法求解经济系统的目标是：围绕某一适当的不动点，对$\bm{g}$和$\bm{h}$做泰勒级数展开。分三个步骤逐次展开。
+
+步骤一，常用非随机稳态作为不动点，对应$\bm{x}_t \equiv \bar{\bm{x}}$，$\sigma = 0$。根据第\ref{sec:pta-non-lin-sys-steady-state}的方法，我们可以计算稳态值$(\bar{\bm{x}}, \bar{\bm{y}} )$。
+
+步骤二，将确定性稳态$(\bar{\bm{x}}; 0)$代入决策方程组\eqref{eq:pta-non-lin-sys-guessed-dec-rule-y}-\eqref{eq:pta-non-lin-sys-guessed-dec-rule-x}有
+\begin{align}
+  \label{eq:pta-guessed-dec-rule-y-ss}
+  &\bm{g}(\bar{\bm{x}};0) = \bar{\bm{y}},\\
+  \label{eq:pta-guessed-dec-rule-x-ss}
+  &\bm{h}(\bar{\bm{x}};0) = \bar{\bm{x}}.
+\end{align}
+
+步骤三，引入关于$\mathcal{H}$的未知解，定义为一个新的运算符$F: \mathcal{R}^{n_{x}+1} \mapsto \mathcal{R}^{n_x}$，式\eqref{eq:pta-non-lin-sys-ssr}改写为
+\begin{equation*}
+  \begin{split}
+    F(\bm{x},\sigma) &\equiv E_t \mathcal{H} \left(
+    \bm{y}',\bm{y},\bm{x}',\bm{x}
+    \right) \\
+    &= E_t \mathcal{H} \left(
+    \bm{g}\left( \bm{h}(x; \sigma) + \delta \eta \varepsilon'; \sigma \right),
+    \bm{g} \left(\bm{x}; \sigma \right),
+    \bm{h}(x;\sigma) + \delta \eta \varepsilon',
+    \bm{x}
+    \right) \\
+    &= \bm{0}.
+  \end{split}
+\end{equation*}
+
+由于$F(\bm{x};\sigma) = 0 \quad \forall \bm{x}, \sigma$，因此我们有
+\begin{equation}
+  \label{eq:pta-F-zero-case}
+  F_{x_i^{k} \sigma^{j}} (\bm{x};\sigma) = 0, \quad \forall x, \sigma, i, k, j,
+\end{equation}
+其中$F_{x_i^{k} \sigma^{j}} (\bm{x};\sigma)$表示用$F(\bm{x};\sigma)$对$\bm{x}$中第$i$个元素$x$求导$k$次，对$\sigma$求导$j$次，求导都是围绕$(\bm{x};\sigma)$进行的。根据模型定义，对于所有可能的状态$x \in \bm{x}$和扰动参数值$\sigma$，均应满足均衡条件$F(\cdot)=0$。
+
+这带来两个问题需要做进一步的讨论。
+\subsubsection{可求导性的探讨}
+\eqref{eq:pta-F-zero-case}成立的前提是假定在一个固定点，比如稳态$(\bar{x};0)$附近，$F(\cdot)$的所有导数都存在。在DSGE模型中，进入$F(\cdot)$的各个模块常常是平滑的，如效用函数、生产函数等，这使得该假定可以被接受\citep[pp463]{Judd:1998uy}\footnote{对这一假定的经验验证可能会较为复杂，需要做更深入的研究，可参考经典讨论如\cite{Santos:1992cp}。}。
+
+可求导性假定指出了扰动法适用范围的限制：如果在一个经济系统中，部分变量是离散的，或相关均衡条件不可导，便无法使用扰动法予以近似。此外有两点需要补充。第一，模型中出现的期望项，有时候会将看起来是时间离散的问题转化为时间连续的问题，举例来说，要不要上大学的决策可以有一个大学学费的随机冲击，或一个努力程度的变量(描述该学生学习或申请奖学金的努力程度)来平滑掉。第二，即便最坏的情况发生了，可求导性假定不成立，但这也并不是说扰动法完全没有价值——它仍然可以成为一个寻找替代求解方法的猜测值\todo{补一个ref}。
+
+\subsubsection{导数的计算}
+在扰动法近似求解过程中，导数的计算是核心环节之一，然而这往往是一项繁琐的工作，完全依手算较不明智，时间较长、错误率较高\cite[ch.7]{Judd:1998uy}。这时需要借助计算机和支持符号运算的计算软件，如Mathematica、Python等。因此现在常用结合二者优点的自动微分(AD, automatic differentiation)技术，将链式法则(chain rule)应用到一系列基本运算中区。自动微分法在DSGE模型中的运用，相关讨论可见\cite{Bastani:2008ha}。
+
+\subsection{一阶扰动}
+\label{pta-perturbation-first-order}
+围绕$(\bar{\bm{x}};0)$对$\bm{g}$和$\bm{h}$做一阶扰动有
+\begin{equation*}
+  \begin{split}
+    &\bm{y}' = \bm{g}(\bm{x};\sigma) = \bm{g}(\bar{\bm{x}}; 0) + \bm{g_x}(\bar{\bm{x}}; 0) (\bm{x} - \bar{\bm{x}})' + \bm{g_\sigma} (\bar{\bm{x}}; 0) \sigma\\
+    &\bm{x}' = \bm{h}(\bm{x};\sigma)= \bm{h}(\bar{\bm{x}}; 0) + \bm{h_x}(\bar{\bm{x}}; 0) (\bm{x} - \bar{\bm{x}})' + \bm{h_\sigma} (\bar{\bm{x}}; 0) \sigma,
+  \end{split}
+\end{equation*}
+结合\eqref{eq:pta-guessed-dec-rule-y-ss}-\eqref{eq:pta-guessed-dec-rule-x-ss}的稳态值，可得
+\begin{equation}
+  \label{eq:pta-gh-ss-int}
+  \begin{split}
+    &\bm{g}(\bm{x};\sigma) - \bar{\bm{y}}= \bm{g_x}(\bar{\bm{x}}; 0) (\bm{x} - \bar{\bm{x}})' + \bm{g_\sigma} (\bar{\bm{x}}; 0) \sigma\\
+    &\bm{h}(\bm{x};\sigma) - \bar{\bm{x}}=  \bm{h_x}(\bar{\bm{x}}; 0) (\bm{x} - \bar{\bm{x}})' + \bm{h_\sigma} (\bar{\bm{x}}; 0) \sigma,
+  \end{split}
+\end{equation}
+即，在已知$(\bar{\bm{x}},\bar{\bm{y}})$的基础上，只需要再得到四组未知系数的值，总共$n \times (n_x + 1)$个，我们便可测算出任意一点$(\bm{x};\sigma)$对应的$(\bm{x}',\bm{y}')$：
+\begin{equation*}
+  \begin{bmatrix}
+    \underset{(n_x \times n_y)}{\bm{g_x}(\bar{\bm{x}};0)} \\
+    \underset{(n_x \times n_x)}{\bm{h_x}(\bar{\bm{x}};0)} \\
+    \underset{(n_y)}{\bm{g_\sigma}(\bar{\bm{x}};0)} \\
+    \underset{(n_x)}{\bm{h_\sigma}(\bar{\bm{x}};0)} \\
+  \end{bmatrix}
+\end{equation*}
+
+这一系列未知系数，可以通过\eqref{eq:pta-F-zero-case}求得，具体来说，分两组
+\begin{itemize}
+  \item 利用$F_{x}(\bar{\bm{x}};0) = 0$($n \times n_x$个方程) 求得$\left( \bm{g}_{x}(\bar{\bm{x}};0), \bm{g}_{x}(\bar{\bm{x}};0)\right)$，
+  \item 利用$F_{\sigma}(\bar{\bm{x}};0) = 0$($n$个方程) 求得$\left( \bm{g}_{\sigma}(\bar{\bm{x}};0), \bm{g}_{\sigma}(\bar{\bm{x}};0)\right)$。
+\end{itemize}
+
+在做进一步求导之前，我们先介绍一下张量(tensor)的表示形式。
+
+\begin{remark}[张量形式]
+  张量(tensor)，或称爱因斯坦求和约定(Einstein summation notation)，常用于物理学研究中，致力于将执行扰动近似所需的代数计算工作维持在一个可控的范围内。这主要包括两部分：一是省略$\Sigma, \partial$等运算符号，二是省略求导所围绕的固定点的表述。在1个m维空间中，第n个张量是1个有n个index和$m^{n}$个元素的运算符，符合相关的转换规则。如在此例中，$\mathcal{H}$对$\bm{y}$求导形成一个$n \times n_{y}$的导数矩阵，$\left[\mathcal{H}\right]_{\alpha}^{i}$表示其中第$i$行第$\alpha$个元素。当前一个矩阵的下角标也是后一个矩阵的上角标时，我们常常省略求和符号，如
+  \begin{equation*}
+    \left[ \mathcal{H}_{y} \right]_{\alpha}^{i}
+    \left[ \bm{g}_{x} \right]^{\alpha}_{\beta}
+     \left[ \bm{h}_{x} \right]^{\beta}_{j} = \sum_{\alpha=1}^{n_y} \sum_{\beta = 1}^{n_x}
+     \frac{\partial \mathcal{H}^{i}}{\partial y^{\alpha}}
+     \frac{\partial \bm{g}^{\alpha}}{\partial x^{\beta}}
+     \frac{\partial \bm{h}^{\beta}}{\partial x^{j}}.
+  \end{equation*}
+
+  类似地，高阶导数常表示为$\left[ \mathcal{H}_{y'y'} \right]^{i}_{\alpha \gamma}$的形式。其中$\mathcal{H}_{y'y'}$是个$n$行，$n_y$列，$n_y$页的三围数组，$\left[ \mathcal{H}_{y'y'} \right]^{i}_{\alpha \gamma}$是二阶导数矩阵的第$i$行，第$\alpha$列，第$\gamma$页元素。
+\end{remark}
+
+\subsubsection{$F_x(\cdot)$的求解}
+先来看\eqref{eq:pta-F-zero-case}中的前半部分。$\left(\bm{g_x}(\bar{x};0), \bm{h_x}(\bar{x};0) \right)$构成$\left[F_x(\bar{x};0)\right]^{i}_{j}$的解，表示为
+\begin{equation}
+  \label{eq:pta-1stp-Fx-0}
+  \begin{split}
+    \left[F_x(\bar{x};0)\right]^{i}_{j} &=
+    \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+    \left[ \bm{g}_x \right]^{\alpha}_{\beta}
+    \left[ \bm{h}_x \right]^{\beta}_{j} \\
+    &+
+    \left[ \mathcal{H}_{y} \right]^{i}_{\alpha}
+    \left[ \bm{g}_x \right]^{\alpha}_{j}\\
+    &+
+    \left[ \mathcal{H}_{x'} \right]^{i}_{\beta}
+    \left[ \bm{h}_{x} \right]^{\beta}_{j} \\
+    &+
+    \left[ \mathcal{H}_{x} \right]^{i}_{j}\\
+    &=0, \\
+    &i=1,\ldots n, \quad j, \beta = 1, \ldots n_x, \quad \alpha = 1, \ldots n_y.
+  \end{split}
+\end{equation}
+
+\eqref{eq:pta-1stp-Fx-0}构成一个$n \times n_x$个方程组成的系统，其中含有一组系数和一组待解未知数。系数包含$\left(\underset{n\times n_y}{\left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}},\underset{n\times n_y}{\left[ \mathcal{H}_{y} \right]^{i}_{\alpha}},\underset{n\times n_x}{\left[ \mathcal{H}_{x'} \right]^{i}_{\beta}},\underset{n\times n_x}{\left[ \mathcal{H}_{x} \right]^{i}_{j}}\right)$。
+稳定状态$(\bar{\bm{x}};0)$对应$\left(\bar{\bm{y}}',\bar{\bm{y}},\bar{\bm{x}}',\bar{\bm{x}}\right)$，可以对$\mathcal{H}$分别求导数测算这组系数。未知数有$n \times n_x$个，由元素$\left(\underset{n_x \times n_x}{\bm{g}_x(\bar{\bm{x}};0)}, \underset{n_x \times n_x}{\bm{h}_x(\bar{\bm{x}};0)}\right)$构成。
+
+根据上述分析，可将方程系统\eqref{eq:pta-1stp-Fx-0}写为一个二次形式的矩阵系统
+\begin{equation}
+  \label{eq:pta-quadratic-matrix-form}
+  \underset{\tilde{n} \times \tilde{n}}{A} P^2 - \underset{\tilde{n} \times \tilde{n}}{B} P - \underset{\tilde{n} \times \tilde{n}}{C} = \underset{\tilde{n} \times \tilde{n}}{0},
+\end{equation}
+其中系数矩阵A,B,C包含$\left({\left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}},{\left[ \mathcal{H}_{y} \right]^{i}_{\alpha}},{\left[ \mathcal{H}_{x'} \right]^{i}_{\beta}},{\left[ \mathcal{H}_{x} \right]^{i}_{j}}\right)$。
+P包含待解未知数$\left[ \bm{h}_{x} \right]^{\beta}_{j}$，是与状态向量$\bm{x}$中内生状态向量$\bm{x}_1$的运动法则式有关的元素。
+
+至此我们可以采用标准的二次矩阵方程求解法来求$P$，如QZ分解法。
+\begin{remark}[QZ分解法求解二次矩阵方程系统]
+  \label{remark:pta-QZ-decomp}
+  援引\cite[pp.43-45]{Uhlig:1999vx}的方法。对于二次矩阵系统\eqref{eq:pta-quadratic-matrix-form}，定义两个矩阵
+  \begin{equation*}
+    \underset{2 \tilde{n} \times 2 \tilde{n}}{D} =
+    \begin{bmatrix}
+      A & \underset{\tilde{n} \times \tilde{n}}{0} \\
+      \underset{\tilde{n} \times \tilde{n}}{0} & \underset{\tilde{n} \times \tilde{n}}{I}
+    \end{bmatrix}, \quad
+    \underset{2 \tilde{n} \times 2 \tilde{n}}{D} =
+    \begin{bmatrix}
+      B & C \\
+      \underset{\tilde{n} \times \tilde{n}}{I} & \underset{\tilde{n} \times \tilde{n}}{0}
+    \end{bmatrix}.
+  \end{equation*}
+
+  定义两个酉矩阵(unitary matrix) $Q,Z$\footnote{满足条件$Q^{H}Q=Z^{H}Z=I_{2\tilde{n}}$，其中$H$表示埃米特转置。}。
+
+  设两个上三角矩阵$\Phi, \Sigma$，对角元素分别为$\phi_{ii}, \sigma_{ii}$。
+
+  对$D$和$F$分别作扩展Schur分解(QZ分解)：
+  \begin{equation*}
+    \begin{split}
+      &Q^{\top} \Sigma Z = D, \\
+      &Q^{\top} \Phi Z = F,
+    \end{split}
+  \end{equation*}
+  其中确保$\Sigma$和$\Phi$是对角矩阵，并且对角元素的比值$\left| \frac{\phi_{ii}}{\sigma_{ii}} \right|$按照从左上到右下的升序排列\footnote{这是因为，$\left| \frac{\phi_{ii}}{\sigma_{ii}} \right|$的每一种排列顺序，都存在一个QZ分解的解。}，从而可以将系统分为两部分，前半部分是稳定分块，对应$\left| \frac{\phi_{ii}}{\sigma_{ii}} \right| <1$；后半部分是不稳定分块，对应$\left| \frac{\phi_{ii}}{\sigma_{ii}} \right| >1$。在排序之后，可以将矩阵输入Mathematica，做QZ分解计算。测得的矩阵
+  \begin{equation*}
+    \underset{2 \tilde{n} \times 2 \tilde{n}}{Z} = \begin{bmatrix}
+    \underset{\tilde{n} \times \tilde{n}}{Z_{11}} &
+    \underset{\tilde{n} \times \tilde{n}}{Z_{12}} \\
+    \underset{\tilde{n} \times \tilde{n}}{Z_{21}} &
+    \underset{\tilde{n} \times \tilde{n}}{Z_{22}}
+    \end{bmatrix}.
+  \end{equation*}
+
+  进而我们有
+  \begin{equation*}
+    P = -Z_{21}^{-1}Z_{22}.
+  \end{equation*}
+
+  对于$2\tilde{n}$个扩展特征值比(generalized eigenvalue ratio) $\left| \frac{\phi_{ii}}{\sigma_{ii}} \right|$来说：
+  \begin{enumerate}
+    \item 如果稳定的扩展特征值比数量$< \tilde{n}$，那么P值存在且唯一，对于任何$\tilde{n}$维度向量中，有$\lim_{m\rightarrow \infty}P^{m} x \rightarrow \bm{0}$。
+    \item 如果稳定的扩展特征值比数量$> \tilde{n}$，那么P值可能有多个，我们选取任何一个满足如下条件的P值：$\tilde{n}$维度向量中，$\lim_{m\rightarrow \infty}P^{m} x \rightarrow \bm{0}$。
+  \end{enumerate}
+\end{remark}
+
+之所以会出现二次形式的矩阵系统，其原因在于，通常说来满足模型均衡条件的内生变量变化路径并不唯一，而是有很多\citep{Uhlig:1999vx, Galor:2007uw}，其中有一些是稳定路径，有一些是不稳定路径，而只有稳定路径才能满足适当的横截条件。显然，对于存在多重解的经济系统而言，我们需要找出其中的稳定路径解。许多DSGE模型中存在$\tilde{n}$个扩展特征根，从而确保系统有且只有1个稳定解。如$< \tilde{n}$，扩展特征根的数量不足，会导致均衡动态路径出现内在不稳定的状况。如$> \tilde{n}$，会存在太阳黑子现象\citep{Lubik:2003hk}。这段对解的存在性和唯一性的分析是基于一阶扰动近似而言的，但对高阶扰动近似过程也同样有效，换句话说：如果一阶扰动近似的解是唯一的(不唯一的)，则高阶扰动近似的解也是唯一的(不唯一的)。
+
+\begin{remark}[二次系统的递归分解]
+  对于\eqref{eq:pta-1stp-Fx-0}的经济系统，还可以分解为两部分，以递归形式分两步求解。第一步，定义一个分块系统
+  \begin{equation}
+    \label{eq:pta-1stp-Fx-0-recursive-1}
+    \begin{split}
+      \left[F_x(\bar{x};0)\right]^{i}_{j} &=
+      \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+      \left[ \bm{g}_x \right]^{\alpha}_{\beta}
+      \left[ \bm{h}_x \right]^{\beta}_{j} \\
+      &+
+      \left[ \mathcal{H}_{y} \right]^{i}_{\alpha}
+      \left[ \bm{g}_x \right]^{\alpha}_{j}\\
+      &+
+      \left[ \mathcal{H}_{x'} \right]^{i}_{\beta}
+      \left[ \bm{h}_{x} \right]^{\beta}_{j} \\
+      &+
+      \left[ \mathcal{H}_{x} \right]^{i}_{j}\\
+      &=0, \\
+      &i=1,\ldots n, \quad j, \beta = 1, \ldots \tilde{n}, \quad \alpha = 1, \ldots n_y.
+    \end{split}
+  \end{equation}
+与\eqref{eq:pta-1stp-Fx-0}相比，\eqref{eq:pta-1stp-Fx-0-recursive-1}的系统中未知数的数量减少了，从$n \times n_x$个变为$n \times \tilde{n}$个，由元素$\left(
+\underset{\tilde{n} \times n_y}{\bm{g}_{x}(\bar{\bm{x}};0)},
+\underset{\tilde{n} \times n_x}{\bm{h}_{x}(\bar{\bm{x}};0)}
+\right)$构成，二者都与$\tilde{n}$个内生变量$\bm{x}_1$有关。
+
+采用上文提到的办法，求得对应\eqref{eq:pta-1stp-Fx-0-recursive-1}系统的解$\left(
+\underset{\tilde{n} \times n_y}{\bm{g}_{x}(\bar{\bm{x}};0)},
+\underset{\tilde{n} \times n_x}{\bm{h}_{x}(\bar{\bm{x}};0)}
+\right)$。
+
+第二步，将前一步求得的解代入新系统
+\begin{equation}
+  \label{eq:pta-1stp-Fx-0-recursive-2}
+  \begin{split}
+    \left[F_x(\bar{x};0)\right]^{i}_{j} &=
+    \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+    \left[ \bm{g}_x \right]^{\alpha}_{\beta}
+    \left[ \bm{h}_x \right]^{\beta}_{j} \\
+    &+
+    \left[ \mathcal{H}_{y} \right]^{i}_{\alpha}
+    \left[ \bm{g}_x \right]^{\alpha}_{j}\\
+    &+
+    \left[ \mathcal{H}_{x'} \right]^{i}_{\beta}
+    \left[ \bm{h}_{x} \right]^{\beta}_{j} \\
+    &+
+    \left[ \mathcal{H}_{x} \right]^{i}_{j}\\
+    &=0, \\
+    &i=1,\ldots n, \quad j, \beta = \tilde{n} + 1, \ldots n_x, \quad \alpha = 1, \ldots n_y,
+  \end{split}
+\end{equation}
+并进一步求解与$n_{\varepsilon}$个外生随机变量$\bm{x}_{2}$有关的未知数，由元素$\left(
+\underset{n_{\varepsilon} \times n_y}{\bm{g}_{x}(\bar{\bm{x}};0)},
+\underset{n_{\varepsilon} \times n_x}{\bm{h}_{x}(\bar{\bm{x}};0)}
+\right)$构成。
+\end{remark}
+
+采用递归分解法求解二次系统，有三个优点。第一，可以显著改善计算时间：\eqref{eq:pta-1stp-Fx-0-recursive-1}比\eqref{eq:pta-1stp-Fx-0}减少了$n_{\varepsilon} \times n$个未知数的计算，待求解系统规模小了很多\citep{RubioRamirez:2008va}。
+第二，\eqref{eq:pta-1stp-Fx-0-recursive-2}的线性系统，比起\eqref{eq:pta-1stp-Fx-0}的非线性系统来，求解更为便利\todo{补一个ref，见下文的范例。}。第三，对于含有$n_x$个状态变量的向量$\bm{x}$而言，有时我们只需关注其中的$\tilde{n}$个内生变量而非全部。这取决于特定的研究目标，一个例子是，在一定的初始条件下，计算经济系统向某一稳定状态运动的确定性转移路径。另一个栗子是，基于一阶扰动近似解，描绘经济系统的冲击——响应机制。
+
+\subsubsection{$F_{\sigma}(\cdot)$的求解}
+再来看\eqref{eq:pta-F-zero-case}中的后半部分。$\left(\bm{g_\sigma}(\bar{x};0), \bm{h_{\sigma}}(\bar{x};0) \right)$构成$\left[F_{\sigma}(\bar{x};0)\right]^{i}$的解，表示为
+\begin{equation}
+  \label{eq:pta-1stp-Fsigma-0}
+  \begin{split}
+    \left[F_\sigma(\bar{x};0)\right]^{i} &= E_t \left\{ \right.
+    \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+    \left[ \bm{g}_x \right]^{\alpha}_{\beta}
+    \left[ \bm{h}_\sigma \right]^{\beta} \\
+    &+
+    \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+    \left[ \bm{g}_x \right]^{\alpha}_{\beta}
+    \left[ \eta \right]^{\beta}_{\phi}
+    \left[ \varepsilon' \right]^{\phi} \\
+    &+
+    \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+    \left[ \bm{g}_{\sigma} \right]^{\alpha} \\
+    &+
+    \left[ \mathcal{H}_{y} \right]^{i}_{\alpha}
+    \left[ \bm{g}_{\sigma} \right]^{\alpha} \\
+    &+
+    \left[ \mathcal{H}_{x'} \right]^{i}_{\beta}
+    \left[ \bm{h}_{\sigma} \right]^{\beta} \\
+    &+
+    \left[ \mathcal{H}_{x'} \right]^{i}_{\beta}
+    %\left[ \bm{g}_x \right]^{\alpha}_{\beta}
+    \left[ \eta \right]^{\beta}_{\phi}
+    \left[ \varepsilon' \right]^{\phi} \left.\right\}\\
+    &= 0, \\
+    &i=1,\ldots n, \quad \alpha = 1,\ldots n_y, \quad \beta = 1,\ldots n_x, \quad \phi = 1, \ldots n_{\varepsilon}.
+    % &+
+    % \left[ \mathcal{H}_{y} \right]^{i}_{\alpha}
+    % \left[ \bm{g}_x \right]^{\alpha}_{j}\\
+    % &+
+    % \left[ \mathcal{H}_{x'} \right]^{i}_{\beta}
+    % \left[ \bm{h}_{x} \right]^{\beta}_{j} \\
+    % &+
+    % \left[ \mathcal{H}_{x} \right]^{i}_{j}\\
+    % &=0, \\
+    % &i=1,\ldots n, \quad j, \beta = 1, \ldots n_x, \quad \alpha = 1, \ldots n_y.
+  \end{split}
+\end{equation}
+
+进而我们有
+\begin{equation}
+  \begin{split}
+    \left[F_\sigma(\bar{x};0)\right]^{i} =\left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+    \left[ \bm{g}_x \right]^{\alpha}_{\beta}
+    \left[ \bm{h}_\sigma \right]^{\beta} + \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+    \left[ \bm{g}_{\sigma} \right]^{\alpha} +
+    \left[ \mathcal{H}_{y} \right]^{i}_{\alpha}
+    \left[ \bm{g}_{\sigma} \right]^{\alpha} + \left[\bm{f}_{x'}\right]^{i}_{\beta} \left[ \bm{h}_{\sigma} \right]^{\beta} = 0,
+  \end{split}
+\end{equation}
+\eqref{eq:pta-1stp-Fsigma-0}构成一个$n$个方程组成的系统，是关于未知数$\left( \bm{g}_{\sigma}(\bar{x};\sigma), \bm{h}_{\sigma}(\bar{x};\sigma)\right)$的线性齐次方程组，唯一满足条件的解只能是：
+\begin{equation}
+  \label{eq:pta-1stp-Fsigma-solution}
+  \begin{split}
+    &\bar{\bm{g}}_{\sigma}(\bar{x};0)=0, \\
+    &\bar{\bm{h}}_{\sigma}(\bar{x};0)=0.
+  \end{split}
+\end{equation}
+
+\subsubsection{确定性等价条件}
+\label{sec:pta-certainty-equivalence-cond}
+\eqref{eq:pta-1stp-Fsigma-solution}代入\eqref{eq:pta-gh-ss-int}得
+\begin{equation}
+  \label{eq:pta-gh-ss-certainty-equiv}
+  \begin{split}
+    &\bm{g}(\bm{x};\sigma) - \bar{\bm{y}}= \bm{g_x}(\bar{\bm{x}}; 0) (\bm{x} - \bar{\bm{x}})',\\
+    &\bm{h}(\bm{x};\sigma) - \bar{\bm{x}}=  \bm{h_x}(\bar{\bm{x}}; 0) (\bm{x} - \bar{\bm{x}})'.
+  \end{split}
+\end{equation}
+这被称为确定性等价条件(certainty equivalence)。\cite{Simon:1956gj, Theil:1957jh}。根据确定性等价条件，模型的一阶近似解等于在完全期望条件下，或者$\sigma =0$条件下的解。确定性等价条件承认外生冲击对系统的决策式(decision rule)的影响，但它排除外生冲击的标准差(不确定性)对系统决策式的影响。
+
+确定性等价假定提出的理由很简单：典型个体的风险规避程度，通常可以通过concave效用函数的二阶求导给出，从而一阶扰动近似即可满足需要。但甚至早至\cite{Leland:1968go,Sandmo:1970by}的研究便已事出，为了应对不确定性带来的风险，储蓄等个人的预防性行为(precautionary behaviors)的分析只有对效用函数做三阶求导才能推得，换句话说，二阶以上的扰动近似是必要的。与之相比，一阶线性扰动近似只涉及到模型的均衡条件(尤其是效用函数的一阶导数，比如跨期消费决策的Euler方程)，以及对这些均衡条件的一阶求导(包括对效用函数的二次求导)，而不包含更高阶导数了。
+
+确定性等价存在以下几点不足：第一，难于分析不确定性给福利效果带来的影响。一方面模型的动态路径的确受到来自波动的方差(标准差)的影响，波动的方差本身即是波动的来源之一。但另一方面，模型中的行为人，基于确定性等价假定，无法采取预防性措施应对方差变化带来的不确定性风险，这使得相关福利分析难以进行。第二，对应于前一点，任何基于确定性等价的近似解，也因此无法用于评估资产的风险溢价。这并不符合最初构建模型时的设想：在一般均衡框架下，福利的测算和资产的定价二者之间存在着密切的关联，任何对前者的研究都自然涉及到后者\citep{Alvarez:2004ix}。第三，确定性等价假定使得研究者无法探讨波动(volatility)变化的经济效果。
+
+\begin{remark}[线性二次(LQR)法，近似LQR法，与扰动法]
+  \cite{Kydland:1982cd}及其后相当数量的研究，探讨另一种DSGE模型的求解方法，可称之为线性二次调节法(LQR, linear quadratic regulator)。对于一个最优控制问题，有$n_x$个状态变量$\bm{x}_t$，和$n_{u}$个控制变量$\bm{u}_t$，定义为$\bm{w}_t = \left[\bm{x}_t, \bm{u}_t\right]^{\top}$，是个$n_w = n_x + n_u$个维度的行向量。最优控制问题可以表示为
+  \begin{equation*}
+    \begin{split}
+      \max E_0 \sum_{t=0}^{\infty} \beta^t r(\bm{w}_t) \\
+      s.t. \quad \bm{x}_{t+1} = A(\bm{w}_t, \varepsilon_t),
+    \end{split}
+  \end{equation*}
+其中
+\begin{itemize}
+  \item 运算符r表示回报方程，
+  \item 运算符A汇总模型的均衡条件和预算约束条件，
+  \item $\varepsilon_t$为$n_{\varepsilon}$个冲击组成的向量，均值为$0$，方差$< \infty$\footnote{在这一状态——空间表示形式中，模型可以做适当扩展，以使$\varepsilon_{t}$也会对当期的回报方程，和当期变量(包括状态变量$\bm{x}_t$和当期控制变量$\bm{u}_t$在内)产生影响。}。
+\end{itemize}
+
+做两个假设。第一个假设是回报方程是二次形式的
+\begin{equation*}
+  r(\bm{w}_t) = B_0 + \underset{1 \times n_w}{B_1} \bm{w}_t + \bm{w}_t^{\top} \underset{n_w \times n_w}{B_w} \bm{w}_t.
+\end{equation*}
+第二个假设是A是线性形式的
+\begin{equation*}
+  \bm{x}_{t+1} = \underset{n_x \times n_w}{B_3} \bm{w}_{t+1} + \underset{n_x \times n_{\varepsilon}}{B_4} \varepsilon_t.
+\end{equation*}
+
+这便构成了一个随机贴现线性——二次控制问题(sthochastic discounted linear-quadratic regulator probelm)，有大量研究围绕这个问题做了深入探讨，可参考综述\cite{Anderson:1996tq,Hansen:2004va,Hansen:2013bv}。已知该问题的最优决策是个关于状态和冲击的线性方程
+\begin{equation*}
+  \bm{u}_t = F_{w} \bm{w}_t + F_{\varepsilon} \varepsilon_t,
+\end{equation*}
+其中$F_w$可用Ricatti方程来求解，$F_{\varepsilon}$可用Sylvester方程来求解\citep[pp.182-183,202-205]{Anderson:1996tq}。本讲义的第\ref{sec:linear-quardratic-control-intro}章也对求解方法做了介绍。$F_w$不受冲击的方差的影响，换句话说，如果$var(\varepsilon_t)=0$，那么最优决策问题简化为
+\begin{equation*}
+  \bm{u}_t = F_{w} \bm{w}_t.
+\end{equation*}
+
+最优控制问题中的LQR法，经济系统分为两个部分，分别计算$F_w$和$F_{\varepsilon}$，这使得研究者可以深入探讨一系列相关问题。然而需要指出的是，LQR法仍然属于一阶扰动法的一种，因此也持有确定性等价的假定，受到该假定不足的限制。
+
+\cite{Kydland:1982cd}构建经济模型来分析社会规划者问题，研究框架符合上述最优调节问题(optimal regulator problem)的范式，也因此可以求出关于$\bm{w}_t$的线性方程$A(\cdot)$。但在\cite{Kydland:1982cd}中，回报方程$r(\cdot)$并未设定成二次形式；他们只是对社会规划者的目标方程做了二次近似。大多数后续研究都使用类似的方法，对目标方程围绕稳态做TSE，可以归类称之为近似LQR问题。进而，可以用价值方程来求解近似LQR问题，见\cite{DiazGimenez:1999vx}。
+
+当$A(\cdot)$是线性的时，近似LQR问题的解，与对模型均衡条件做一阶扰动法近似的解，是相同的。原因很简单：导数总是唯一的，并且两种方法都致力于求得模型的近似线性解。然而，近似LQR法在学术界渐渐不受青睐，主要原因有：第一，DSGE的模型常常很难将$A(\cdot)$写为线性形式。第二，当经济体不是处于帕累托最优状态时，我们往往很难构建社会规划者问题。尽管的确有研究者常识构建调整社会规划者问题，引入一系列非最优的限制条件，如\cite{Benigno:2003bg}，但比起对模型均衡条件做扰动近似的方法而言，前者的工作量更多也更为复杂。第三个也许是更重要的原因，扰动法可以更便利地做高阶近似，引入非线性元素，打破确定性等价的假定，从而使得模型可以分析更多经济现象。我们将在下一节探讨二阶扰动法。
+\end{remark}
+
+\subsection{二阶扰动}
+在求得一阶扰动法的解之后，我们可以迭代求得二阶扰动的系统解。具体来说
+\begin{enumerate}
+  \item 对$\bm{g}(\bm{x};\sigma)$围绕$(\bar{\bm{x}};0)$做二阶近似：
+  \begin{equation}
+    \label{eq:pta-2nd-perturbation-g}
+    \begin{split}
+      \left[ \bm{g}(\bm{x};\sigma) \right]^{i} =&
+      \left[ \bm{g}(\bar{\bm{x}};0) \right]^{i}
+      + \left[\bm{g}_x(\bar{\bm{x}};0) \right]^{i}_{a}
+      \left[ \left( \bm{x} - \bar{\bm{x}}  \right) \right]_{a}
+      + \left[ \bm{g}_{\sigma} (\bar{\bm{x}};0) \right]^{i}_{\sigma}
+      \left[ \sigma \right] \\
+      &+ \frac{1}{2}
+      \left[ \bm{g}_{xx} (\bar{\bm{x}};0) \right]^{i}_{ab}
+      \left[ \left( \bm{x} - \bar{\bm{x}} \right) \right]_{a}
+      \left[ \left( \bm{x} - \bar{\bm{x}} \right) \right]_{b} \\
+      &+\frac{1}{2}
+      \left[ \bm{g}_{x \sigma} (\bar{\bm{x}};0) \right]^{i}_{a}
+      \left[ \left( \bm{x} - \bar{\bm{x}} \right) \right]_{a}
+      \left[ \sigma \right] \\
+      &+ \frac{1}{2}
+      \left[ \bm{g}_{\sigma x } (\bar{\bm{x}};0) \right]^{i}_{a}
+      \left[ \left( \bm{x} - \bar{\bm{x}} \right) \right]_{a}
+      \left[ \sigma \right] \\
+      &+ \frac{1}{2}
+      \left[ \bm{g}_{\sigma \sigma} (\bar{\bm{x}};0) \right]^{i}
+      \left[ \sigma \right]
+      \left[ \sigma \right],\\
+      &i=1\ldots n_y, \quad a,b=1,\ldots n_x.
+    \end{split}
+  \end{equation}
+  \item 对$\bm{h}(\bm{x};\sigma)$围绕$(\bar{\bm{x}};0)$做二阶近似：
+  \begin{equation}
+    \label{eq:pta-2nd-perturbation-h}
+    \begin{split}
+      \left[ \bm{h}(\bm{x};\sigma) \right]^{i} =&
+      \left[ \bm{h}(\bar{\bm{x}};0) \right]^{j}
+      + \left[\bm{h}_x(\bar{\bm{x}};0) \right]^{j}_{a}
+      \left[ \left( \bm{x} - \bar{\bm{x}}  \right) \right]_{a}
+      + \left[ \bm{g}_{\sigma} (\bar{\bm{x}};0) \right]^{i}_{\sigma} \\
+      &+ \frac{1}{2}
+      \left[ \bm{h}_{xx} (\bar{\bm{x}};0) \right]^{j}_{ab}
+      \left[ \left( \bm{x} - \bar{\bm{x}} \right) \right]_{a}
+      \left[ \left( \bm{x} - \bar{\bm{x}} \right) \right]_{b} \\
+      &+\frac{1}{2}
+      \left[ \bm{h}_{x \sigma} (\bar{\bm{x}};0) \right]^{j}_{a}
+      \left[ \left( \bm{x} - \bar{\bm{x}} \right) \right]_{a}
+      \left[ \sigma \right] \\
+      &+ \frac{1}{2}
+      \left[ \bm{h}_{\sigma x } (\bar{\bm{x}};0) \right]^{j}_{a}
+      \left[ \left( \bm{x} - \bar{\bm{x}} \right) \right]_{a}
+      \left[ \sigma \right] \\
+      &+ \frac{1}{2}
+      \left[ \bm{h}_{\sigma \sigma} (\bar{\bm{x}};0) \right]^{j}
+      \left[ \sigma \right]
+      \left[ \sigma \right],\\
+      &j=1\ldots n_x, \quad a,b=1,\ldots n_x.
+    \end{split}
+  \end{equation}
+\end{enumerate}
+
+两个方程系统中共有6个待求解未知数$\left( \bm{g}_{xx}, \bm{g}_{x \sigma}, \bm{g}_{\sigma \sigma} , \bm{h}_{xx}, \bm{h}_{x \sigma}, \bm{h}_{\sigma \sigma}\right)_{(\bar{\bm{x}};0)}$，可同样利用式\eqref{eq:pta-F-zero-case}求得。具体说来，分为三组：
+\begin{itemize}
+\item 利用$F_{xx}(\bar{\bm{x}};0) = 0$求解$\left( \bm{g}_{xx}(\bar{\bm{x}};0), \bm{h}_{xx}(\bar{\bm{x}};0) \right)$，
+\item 利用$F_{\sigma \sigma}(\bar{\bm{x}};0) = 0$求解$\left( \bm{g}_{\sigma \sigma}(\bar{\bm{x}};0), \bm{h}_{\sigma \sigma}(\bar{\bm{x}};0) \right)$，
+\item 利用$F_{\sigma x}(\bar{\bm{x}};0) = 0$求解$\left( \bm{g}_{\sigma x}(\bar{\bm{x}};0), \bm{h}_{\sigma x}(\bar{\bm{x}};0) \right)$。
+\end{itemize}
+
+\subsubsection{$F_{xx}(\cdot)$的求解}
+一阶导数$F_{x}(\cdot)=0$，式\eqref{eq:pta-1stp-Fx-0}的LHS表示为4个部分相加。因此二阶导数
+\begin{equation}
+  \label{eq:pta-F-zero-case-xx}
+    \left[F_{xx}(\bar{\bm{x}};0)\right]^{i}_{jk} = \mathcal{A} + \mathcal{B} + \mathcal{C} + \mathcal{D} = 0,
+\end{equation}
+其中
+  \begin{equation*}
+    \begin{split}
+      &\mathcal{A} =
+      \left(
+      \left[\mathcal{H}_{y'y'}\right]^{i}_{\alpha \gamma}
+      \left[\bm{g}_{x}\right]^{\gamma}_{\delta}
+      \left[\bm{h}_{x}\right]^{\delta}_{k}
+      + \left[\mathcal{H}_{y'y'}\right]^{i}_{\alpha \gamma}
+      \left[\bm{g}_{x}\right]^{\gamma}_{k}
+      + \left[\mathcal{H}_{y'x'}\right]^{i}_{\alpha \delta}
+      \left[ \bm{h}_{x} \right]^{\delta}_{k}
+      + \left[\mathcal{H}_{y'x}\right]^{i}_{\alpha k}
+      \right)
+      \left[ \bm{g}_{x} \right]^{\alpha}_{\beta}
+      \left[ \bm{h}_{x} \right]^{\beta}_{j}\\
+      &\qquad +
+      \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+      \left[ \bm{g}_{xx} \right]^{\alpha}_{\beta \delta}
+      \left[ \bm{h}_{x} \right]^{\delta}_{k}
+      \left[ \bm{h}_{x} \right]^{\beta}_{j}
+      + \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+      \left[ \bm{g}_{x} \right]^{\alpha}_{\beta}
+      \left[ \bm{h}_{xx} \right]^{\beta}_{j k},\\
+%    \end{split}
+%   \end{equation*}
+% \begin{equation*}
+% \begin{split}
+&  \mathcal{B} =
+  \left[\mathcal{H}_{yy'}\right]^{i}_{\alpha \gamma}
+  \left[\bm{g}_{x}\right]^{\gamma}_{\delta}
+  \left[\bm{h}_{x}\right]^{\delta}_{k}
+  + \left[\mathcal{H}_{yy}\right]^{i}_{\alpha \gamma}
+  \left[\bm{g}_{x}\right]^{\gamma}_{k}
+  + \left[\mathcal{H}_{yx'}\right]^{i}_{\alpha \delta}
+  \left[\bm{h}_{x}\right]^{\delta}_{k}
+  + \left[\mathcal{H}_{yx}\right]^{i}_{\alpha k}
+  \left[\bm{g}_{x}\right]^{\alpha}_{j}
+  + \left[\mathcal{H}_{y}\right]^{i}_{\alpha}
+  \left[\bm{g}_{xx}\right]^{\alpha}_{jk}, \\
+% \end{split}
+% \end{equation*}
+% \begin{equation*}
+%   \begin{split}
+&    \mathcal{C} = \left\{
+    \left[\mathcal{H}_{x'y'}\right]^{i}_{\beta \gamma}
+    \left[\bm{g}_{x}\right]^{\gamma}_{\delta}
+    \left[\bm{h}_{x}\right]^{\delta}_{k}
+    + \left[\mathcal{H}_{x'y}\right]^{i}_{\beta \gamma}
+    \left[\bm{g}_{x}\right]^{\gamma}_{k}
+    + \left[\mathcal{H}_{x'x'}\right]^{i}_{\beta \delta}
+    \left[\bm{h}_{x}\right]^{\delta}_{k}
+    + \left[\mathcal{H}_{x'x}\right]^{i}_{\beta k}
+     \right\}
+     \left[ \bm{h}_{x} \right]^{\beta}_{j}
+     + \left[\mathcal{H}_{x'}\right]^{i}_{\beta}
+     \left[\bm{h}_{xx}\right]^{\beta}_{j k},\\
+%     \end{split}
+% \end{equation*}
+% \begin{equation*}
+%   \begin{split}
+&    \mathcal{D}=
+    \left[\mathcal{H}_{xy'}\right]^{i}_{j \gamma}
+    \left[\bm{g}_{x}\right]^{\gamma}_{\delta}
+    \left[\bm{h}_{x}\right]^{\delta}_{k}
+    + \left[\mathcal{H}_{xy}\right]^{i}_{j \gamma}
+    \left[\bm{g}_{x}\right]^{\gamma}_{k}
+    + \left[\mathcal{H}_{xx'}\right]^{i}_{j \delta}
+    \left[\bm{h}_{x}\right]^{\delta}_{k}
+    + \left[\mathcal{H}_{xx}\right]^{i}_{j k},
+    \\&i=1,\ldots n, \quad j,k,\beta,\delta = 1, \ldots n_x, \quad \alpha, \gamma = 1, \ldots n_y.
+  \end{split}
+\end{equation*}
+
+上式中，所有$\mathcal{H}$的导数，以及关于$\bm{g}(\bar{\bm{x}};0)$和$\bm{h}(\bar{\bm{x}};0)$的一阶导数，都是已知数。因此上式是一个$n \times n_{x} \times n_{x}$个方程组成的系统，含有以$\bm{g}_{xx}$和$\bm{h}_{xx}$为元素的$(n_{x}+n_y)\times n_x \times n_x$个未知数。
+
+\subsubsection{$F_{\sigma \sigma (\cdot)}$的求解}
+一阶导数$F_{\sigma}(\cdot) =0$，式\eqref{eq:pta-1stp-Fsigma-0}的LHS表示为6个部分相加。因此二阶导数
+\begin{equation}
+  \label{eq:pta-F-zero-case-sigmasigma}
+    \left[F_{\sigma \sigma}(\bar{\bm{x}};0)\right]^{i} = \mathcal{A} + \mathcal{B} + \mathcal{C} + \mathcal{D} + \mathcal{E} + \mathcal{F}= 0,
+\end{equation}
+其中
+\begin{equation*}
+  \begin{split}
+    &\mathcal{A} =
+    \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+    \left[ \bm{g}_{x} \right]^{\alpha}_{\beta}
+    \left[ \bm{h}_{\sigma \sigma} \right]^{\beta},\\
+    &\mathcal{B} =
+    \left[ \mathcal{H}_{y'y'} \right]^{i}_{\alpha \gamma}
+    \left[ \bm{g}_{x} \right]^{\gamma}_{\delta}
+    \left[ \eta \right]^{\delta}_{\zeta}
+    \left[ \bm{g}_{x} \right]^{\alpha}_{\beta}
+    \left[ \eta \right]^{\beta}_{\phi}
+    \left[ I \right]^{\phi}_{\zeta}
+    + \left[ \mathcal{H}_{y'x'} \right]^{i}_{\alpha \delta}
+    \left[ \eta \right]^{\delta}_{\zeta}
+    \left[ \bm{g}_{x} \right]^{\alpha}_{\beta}
+    \left[ \eta \right]^{\beta}_{\phi}
+    \left[ \varepsilon' \right]^{\phi},\\
+    &\mathcal{C} =
+    \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+    \left[ \bm{g}_{\sigma \sigma} \right]^{\alpha},\\
+    &\mathcal{D} =
+    \left[ \mathcal{H}_{y} \right]^{i}_{\alpha}
+    \left[ \bm{g}_{\sigma \sigma} \right]^{\alpha},\\
+    &\mathcal{E} =
+    \left[ \mathcal{H}_{x'} \right]^{i}_{\beta}
+    \left[ \bm{h}_{\sigma \sigma} \right]^{\beta},\\
+    &\mathcal{F} =
+    \left[ \mathcal{H}_{x'y'} \right]^{i}_{\beta \gamma}
+    \left[ \bm{g}_{x} \right]^{\gamma}_{\delta}
+    \left[ \eta \right]^{\delta}_{\zeta}
+    %\left[ \bm{g}_{x} \right]^{\alpha}_{\beta}
+    \left[ \eta \right]^{\beta}_{\phi}
+    \left[ I \right]^{\phi}_{\zeta}
+    + \left[ \mathcal{H}_{x'x'} \right]^{i}_{\beta \delta}
+    \left[ \eta \right]^{\delta}_{\zeta}
+    %\left[ \bm{g}_{x} \right]^{\alpha}_{\beta}
+    \left[ \eta \right]^{\beta}_{\phi}
+    %\left[ \varepsilon' \right]^{\phi},\\
+    \left[ I \right]^{\phi}_{\zeta},\\
+    &i=1 \ldots n,\quad \alpha,\gamma = 1, \ldots n_y, \quad \beta, \delta = 1, \ldots n_x, \ldots \phi, \zeta = 1, \ldots n_{\varepsilon}.
+  \end{split}
+\end{equation*}
+
+上式是一个$n$个方程构成的线性系统，含有由$\bm{g}_{\sigma \sigma}$和$\bm{h}_{\sigma \sigma}$构成的$n$个未知数。
+
+不为零的$\bm{g}_{\sigma \sigma}$和$\bm{h}_{\sigma \sigma}$意味着对风险的纠正(correction for risk)：风险来自于经济系统对确定性等价的悖离。
+
+\subsubsection{$F_{\sigma x}(\cdot)$的求解}
+一阶导数$F_{\sigma}(\bar{x};0) =0$，式\eqref{eq:pta-1stp-Fsigma-0}进一补对$\bm{x}$求导，可得二阶导数
+\begin{equation}
+  \begin{split}
+  \label{eq:pta-F-zero-case-sigmax}
+  &\left[ F_{\sigma x} (\bar{\bm{x}};0) \right]^{i}_{j} =
+  \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+  \left[ \bm{g}_{x} \right]^{\alpha}_{\beta}
+  \left[ \bm{h}_{\sigma x} \right]^{\beta}{j}
+  + \left[ \mathcal{H}_{y'} \right]^{i}_{\alpha}
+  \left[ \bm{g}_{x} \right]^{\alpha}_{\gamma}
+  \left[ \bm{h}_{x} \right]^{\gamma}_{j}
+   +  \left[ \mathcal{H}_{y} \right]^{i}_{\alpha}
+   \left[ \bm{g}_{\sigma x} \right]^{\alpha}_{j}
+   + \left[ \mathcal{H}_{x'} \right]^{i}_{\beta}
+   \left[ \bm{h}_{\sigma x} \right]^{\beta}_{j}=0,\\
+   &i=1, \ldots n, \quad \alpha = 1, \ldots n_y, \quad \beta, \gamma, j = 1, \ldots n_x,
+\end{split}
+\end{equation}
+其中所有包括$\bm{g}_{\sigma}(\bar{\bm{x}};0),\bm{h}_{\sigma}(\bar{\bm{x}};0)$的项都等于0(确定性等价条件)。
+
+上式是一个$n \times n_x$个方程构成的线性系统，含有由$\bm{g}_{\sigma x}$和$\bm{h}_{\sigma x}$构成的$n \times n_x$个未知数。系统成立的条件需要满足
+\begin{equation}
+  \label{eq:pta-F-zero-case-sigmax-solution}
+  \begin{split}
+    \bm{g}_{\sigma x}{\bar{\bm{x}};0} = 0, \\
+    \bm{h}_{\sigma x}{\bar{\bm{x}};0} = 0.
+  \end{split}
+\end{equation}
+
+\subsection{更高阶扰动}
+如前文所介绍的那样，在1阶扰动近似解的基础上，我们可以继续迭代，依次求得$2，3\ldots n$阶的近似解。如果$\bm{g}$和$\bm{h}$在$\bar{\bm{x}}$附近有解，那么以$n$阶近似生成的一组变量时间序列将会有无限项，以某个半径$r$逐渐收敛到$\bar{\bm{x}}$。
+
+$r$可以无限大，此时的变量序列有可能收敛到任意一处。$r$也可以是个有限的值，此时变量序列的边界存在不可删除的奇异点。不幸的是，对大多数DSGE模型来说，收敛半径$r$的值是未知的，这方面尚需进一步深入的研究\citep{Swanson:2006gy, Aldrich:2011wz}。
+
+即便该变量序列是收敛的，以下2个问题也值得重视。
+\begin{enumerate}
+  \item 在一个$j$阶近似中，我们有可能会找不到$\bm{g}$和$\bm{h}$这两个决策式的``正确''形式。例如\cite{Aruoba:2006cz}的研究表明，在对一个随机内生经济增长模型做了5阶扰动近似后，所生成的两个近似决策式——消费的决定式和资本积累的决定式——不再是全局concave的，这与经济学理论的假设不符。并且它们都呈现出震荡特征(oscillating patterns)。
+
+  \item 随着扰动近似阶数的不断增加，近似解向某一个特定点(如稳定状态)的收敛，可能不是单调的。事实上我们可以较容易地构建这样一个模型，来说明当经济运行状况远离稳定状态时，$j+1$阶扰动近似的结果可能比$j$阶近似的结果更差。
+\end{enumerate}
+
+这2个问题都不是致命性的，但在实际研究开展过程中，它们的确值得研究者予以关注，并使用必要的检验方法，确保其负面效果最小化。例如，查验不同阶近似线性所生成的变量数据序列，与实际观测到的数据序列之间的近似程度。
+
+在后文中我们将讨论如何评估不同阶近似解的精确程度，以及是否有必要采取更高阶扰动来求近似解。例如，为了更好处理含有时变波动性的模型，我们需要至少3阶，甚至更高阶的扰动近似。再如\cite{Levintal:2017dm}便指出，对暗含灾难性风险的经济模型来说，至少5阶的扰动近似是必须的。
+
+\subsection{例}
+\label{sec:pta-example-ncgt}
+\subsubsection{模型设定}
+以经典的随机NCGT模型为例，介绍二阶扰动法的应用。假定$u(c_t)=\log c_t$，$\delta = 1$。经济模型构成一个非线性系统，由均衡条件(跨期消费决策的Euler方程)，预算约束条件和外生技术过程组成：
+\begin{equation*}
+  \begin{split}
+    &\frac{1}{c_t} = \beta E_t \frac{\alpha \exp(z_{t+1}) k_{t+1}^{\alpha - 1}}{c_{t+1}}, \\
+    &c_t + k_{t+1} = \exp(z_t) k_t^{\alpha}, \\
+    &z_t = \rho z_{t-1} + \eta \varepsilon_t.
+  \end{split}
+\end{equation*}
+
+$\delta=1$使得技术冲击的收入效果和替代效果互相抵消，并且消费和投资相对于产出的比例恒定。在此基础上，我们可以得到关于消费和资本积累的最优决策方程解析形式：
+\begin{equation}
+  \label{eq:pta-optimal-decision-rules-ana-c}
+  \begin{split}
+    &c_t = \left(1-\alpha \beta \right) \exp(z_t) k_t^{\alpha}, \\
+    &k_{t+1} = \alpha \beta \exp(z_t) k_{t}^{\alpha}
+  \end{split}
+\end{equation}
+
+现在，假定我们不知道解析形式的最优决策方程。构建猜测的最优决策方程为
+\begin{equation*}
+  \begin{split}
+    &c_t =c(k_t,z_t),\\
+    &k_{t+1} = k(k_t,z_t).
+  \end{split}
+\end{equation*}
+
+把猜测的决策方程代回均衡系统并做适当简化得
+\begin{equation}
+\label{eq:pta-ncgt-quilibrium}
+  \begin{split}
+    &\frac{1}{c(k_t,z_t)} = \beta E_t \frac{
+    \alpha \exp \left( \rho z_{t} + \eta \varepsilon_{t+1} \right) k(k_t,z_t)^{\alpha - 1}
+    }{
+    c\left(k(k_t,z_t),\rho z_{t} + \eta \varepsilon_{t+1}\right)
+    }, \\
+    %\label{eq:pta-ncgt-quilibrium-gdr-budget}
+    & c(k_t,z_t) + k(k_t,z_t) = \exp(z_t) \cdot k_t^{\alpha}.
+  \end{split}
+\end{equation}
+
+根据扰动法，将猜测的决策方程$c(\cdot),k(\cdot)$做关于扰动参数$\sigma$的近似：
+\begin{equation*}
+  \begin{split}
+    &c_t = c(k_t,z_t;\sigma),\\
+    &k_{t+1} = k(k_t,z_t;\sigma),
+  \end{split}
+\end{equation*}
+以及将扰动参数引入外生的技术过程
+\begin{equation*}
+  z_t = \rho z_{t-1} + \sigma \eta \varepsilon_t.
+\end{equation*}
+
+\subsubsection{稳定状态}
+很显然，当$\sigma = 0$或$z_t=0 \forall t$时，随机增长模型回复到传统的确定性增长模型中去\footnote{对于$z_t = 0 \forall t$的情况，可能由以下两个因素之一导致：初始状态$z_0 = 0$，或者随着$t \rightarrow \infty$, $z_t \rightarrow 0$。}。此时系统有且只有一个稳定状态，对应$(\bar{k},\bar{c})$，满足
+\begin{equation}
+  \label{eq:pta-ncgt-steady-state}
+  \begin{split}
+    &\bar{k} = k(\bar{k},0;0)=\left( \alpha \beta \right)^{\frac{1}{1-\alpha}},\\
+    &\bar{c} = c(\bar{c},0;0) = \left( \alpha \beta \right)^{\frac{\alpha}{1-\alpha}} - \left( \alpha \beta \right)^{\frac{1}{1-\alpha}}.
+  \end{split}
+\end{equation}
+
+\subsubsection{对模型做扰动近似}
+对猜测的消费决策方程和猜测的资本存量决策方程分别做二阶扰动展开，我们有
+\begin{equation}
+  \label{eq:pta-ncgt-gdr-c}
+\begin{split}
+    c_t =& c(k_t,z_t;\sigma) \\
+    =& \underbrace{\bar{c}}_{\text{0阶}}
+    + \underbrace{\left(c_k(k_t - \bar{k}) + c_z z_t + c_{\sigma} \sigma\right)}_{\text{1阶}} \\
+    &    + \underbrace{\frac{1}{2} c_{kk} \left(k_t-\bar{k}\right)^2 + c_{kz}(k_t - \bar{k})z_t + c_{k \sigma}(k_t - \bar{k})\sigma + \frac{1}{2}c_{zz}\left(z_t - \bar{z}\right)^2 + c_{z \sigma} z_t \sigma + \frac{1}{2}c_{\sigma \sigma}\sigma^2}_{{\text{2阶}}}.
+\end{split}
+\end{equation}
+
+\begin{equation}
+  \label{eq:pta-ncgt-gdr-k}
+\begin{split}
+    k_{t+1} =& k(k_t,z_t;\sigma) \\
+    =& \underbrace{\bar{k}}_{\text{0阶}}
+    + \underbrace{\left(k_k(k_t - \bar{k}) + k_z z_t + k_{\sigma} \sigma\right)}_{\text{1阶}} \\
+    &    + \underbrace{\frac{1}{2} k_{kk} \left(k_t-\bar{k}\right)^2 + k_{kz}(k_t - \bar{k})z_t + k_{k \sigma}(k_t - \bar{k})\sigma + \frac{1}{2}k_{zz}\left(z_t - \bar{z}\right)^2 + k_{z \sigma} z_t \sigma + \frac{1}{2}k_{\sigma \sigma}\sigma^2}_{{\text{2阶}}}.
+\end{split}
+\end{equation}
+
+与一阶近似线性展开相比，二阶展开项中包含关于经济系统的更多信息，是一阶近似所无法分析的，举例说明。
+\begin{enumerate}
+  \item 风险纠正。$c_{\sigma \sigma}\sigma^2, k_{\sigma \sigma}\sigma^2$对应风险纠正(correction for risk)，描述在面对不确定性时，经济系统的稳定能力。
+  \item 从对称到不对称。在一阶近似中，$c_{z}z_t$和$k_{z}z_t$项暗示着，对系统施加同等程度的一个正冲击和一个负冲击，产生的经济效果互为镜像。正因如此，基于一阶线性近似的DSGE研究常常只报告正负冲击之一的冲击响应(IRFs)：另一个冲击只有正负符号的不同。
+
+  而二阶近似则不同。交互项$c_{kz}(k_t - \bar{k})z_t$和$k_{kz}(k_t - \bar{k})z_t$ 意味着，外部冲击的经济效果不只取决于外生随机冲击程度的大小$z_{t}$，更与当期资本存量$k_t$有关，而后者是一个内生变量。经验研究表明，当衡量如一个金融部门外生冲击的效果时，很可能也需要考虑到同期经济体中的财产存量。
+
+\end{enumerate}
+
+为了求解\eqref{eq:pta-ncgt-gdr-c}-\eqref{eq:pta-ncgt-gdr-k}，我们需要得到两组值。一组是变量的稳定状态，已于\eqref{eq:pta-ncgt-steady-state}得到。另一组是决策方程的一阶和二阶导数，需要我们回到非线性均衡条件系统\eqref{eq:pta-ncgt-quilibrium}，改写为矩阵形式
+\begin{equation}
+  \label{eq:pta-ncgt-equilibrium-matrix}
+  \mathcal{H}(k_t,z_t;\sigma) =
+  \begin{bmatrix}
+    \frac{1}{c(k_t,z_t;\sigma)} - \beta E_t \frac{
+    \alpha \exp \left( \rho z_{t} + \eta \varepsilon_{t+1} \right) k(k_t,z_t;\sigma)^{\alpha - 1}
+    }{
+    c\left(k(k_t,z_t;\sigma),\rho z_{t} + \eta \varepsilon_{t+1}\right)
+    }\\
+    c(k_t,z_t;\sigma) + k(k_t,z_t;\sigma) - \exp(z_t) \cdot k_t^{\alpha}
+  \end{bmatrix}
+  =\begin{bmatrix}
+  0\\
+  0
+  \end{bmatrix},
+\end{equation}
+或者代入近似系统的运算符$F(\cdot)$，定义为关于$\mathcal{H}(\cdot)$的紧凑形式
+\begin{equation}
+  \label{eq:pta-ncgt-equilibrium-compact}
+  F(k_t,z_t;\sigma) = \mathcal{H}\left(
+  \underbrace{c(k_t,z_t;\sigma)}_{{1}},
+  \underbrace{c(k(k_t,z_t;\sigma),z_{t+1};\sigma)}_{2},
+  \underbrace{k_t}_{3},
+  \underbrace{k(k_t,z_t;\sigma)}_{4},
+  \underbrace{z_t}_{5};
+  \underbrace{\sigma}_{6}
+  \right),
+\end{equation}
+其中下角标编号1至6依次表示运算符$\mathcal{H}$中的元素。
+\subsubsection{一阶展开}
+围绕稳态$(\bar{k},0;0)$，对非线性系统$F(k_t,z_t;\sigma)$求一阶偏导
+\begin{equation*}
+  \begin{split}
+    &F_k = \mathcal{H}_1 c_k + \mathcal{H}_2 c_k k_k + \mathcal{H}_3 + \mathcal{H}_4 k_k = 0,\\
+    &F_z = \mathcal{H}_1 c_z + \mathcal{H}_2 \left( c_k k_z + c_z \rho \right) + \mathcal{H}_4 k_z + \mathcal{H}_5 = 0,\\
+    &F_{\sigma} = \mathcal{H}_1 c_{\sigma} + \mathcal{H}_2 \left( c_k k_{\sigma} + c_{\sigma}  \right) + \mathcal{H}_4 k_{\sigma} + \mathcal{H}_6 = 0,
+  \end{split}
+\end{equation*}
+其中$\mathcal{H}_{i},i=1,2 \ldots 6$表示$\mathcal{H}$对第$i$个元素求偏导。
+
+这构成了6个方程组成的系统\footnote{F有2个维度，3个一阶导数对应6个方程。}，对应6个系数$\mathcal{H}_{i}, i=1,2 \ldots 6$，6个代求解未知数$c_{k},c_z,k_k,k_z,c_{\sigma},k_{\sigma}$。
+
+求解过程分三步。第一步，求$c_k$,$k_k$。提取$F_k=0$和$F_z=0$对应的4个等式构成一个子系统，写为二次矩阵形式
+\begin{equation*}
+  \begin{split}
+    \begin{bmatrix}
+      \mathcal{H}_1^1 \\ \mathcal{H}_1^2
+    \end{bmatrix}
+    c_k
+    + \begin{bmatrix}
+    \mathcal{H}_2^1 \\ \mathcal{H}_2^2
+    \end{bmatrix}
+    c_k k_k
+    + \begin{bmatrix}
+    \mathcal{H}_3^1 \\ \mathcal{H}_3^2
+    \end{bmatrix}
+    + \begin{bmatrix}
+    \mathcal{H}_4^1 \\ \mathcal{H}_4^2
+    \end{bmatrix}
+    k_k
+    = \begin{bmatrix}
+    0 \\ 0
+    \end{bmatrix}
+  \end{split},
+\end{equation*}
+由\eqref{eq:pta-ncgt-equilibrium-matrix}的上半部分和下半部分可得，$\mathcal{H}_3^1 = 0$，$\mathcal{H}_2^2 = 0$，上式重写为
+\begin{equation}
+  \label{eq:pta-ncgt-fk-unknown-partition}
+  \begin{split}
+    \begin{bmatrix}
+      \mathcal{H}_1^1 \\ \mathcal{H}_1^2
+    \end{bmatrix}
+    c_k
+    + \begin{bmatrix}
+    \mathcal{H}_2^1 \\ 0
+    \end{bmatrix}
+    c_k k_k
+    + \begin{bmatrix}
+    0 \\ \mathcal{H}_3^2
+    \end{bmatrix}
+    + \begin{bmatrix}
+    \mathcal{H}_4^1 \\ \mathcal{H}_4^2
+    \end{bmatrix}
+    k_k
+    = \begin{bmatrix}
+    0 \\ 0
+    \end{bmatrix}
+  \end{split},
+\end{equation}
+
+\eqref{eq:pta-ncgt-fk-unknown-partition}中，提取下半部分
+\begin{equation*}
+  \begin{split}
+    &\mathcal{H}_1^2 c_k + \mathcal{H}_3^2 + \mathcal{H}_4^2 k_k =0,X\\
+    & \Rightarrow c_k = \frac{1}{\mathcal{H}_{1}^2} \left( \mathcal{H}_{4}^2 k_k \right) - \frac{\mathcal{H}_3^2}{\mathcal{H}_1^2},
+  \end{split}
+\end{equation*}
+代回上半部分，替换其中的$c_k$，我们有
+\begin{equation*}
+  \begin{split}
+    &\mathcal{H}_{1}^1 c_k + \mathcal{H}_2^1 c_k k_k + \mathcal{H}_4^1 k_k = 0, \\
+    &\Rightarrow -\frac{\mathcal{H}_2^1 \mathcal{H}_4^2}{\mathcal{H}_1^2} k_k + \left(
+    \mathcal{H}_4^2 - \frac{\mathcal{H}_1^1 \mathcal{H}_4^2 + \mathcal{H}_2^1 \mathcal{H}_3^2}{\mathcal{H}_1^2}
+    \right) k_k -
+    \frac{\mathcal{H}_1^1 \mathcal{H}_3^2}{\mathcal{H}_{1}^2}=0.
+  \end{split}
+\end{equation*}
+
+上式成为一个二次矩阵形式$A P^2 - B P - C = 0$，对应$k_k = P$。采用\cite{Uhlig:1999vx}的方法(见Remark \ref{remark:pta-QZ-decomp})，我们可以求得$k_k$的值，进而$c_k$。
+
+此外需要指出的是，二次矩阵系统的$P$值有两个，对应两种情况。
+\begin{enumerate}
+  \item $k_k >1$，此时的系统解是不稳定解。回顾一下资本的决策方程：
+  \begin{equation*}
+    k_{t+1} = \bar{k} + k_k \left(k_t - \bar{k} \right) \ldots,
+  \end{equation*}
+  很显然如果$k_k >1$，那么$t$期变量与稳态的偏离程度$k_t-\bar{k}$，会导致$t+1$期变量距稳态更大程度的偏离。
+  \item $0<k_k<1$，此时的系统解是稳定解，$t$期变量距稳态的偏离，在不考虑其他冲击影响的情况下，会在随后时间里逐渐收敛至稳态。
+\end{enumerate}
+
+第二步，将求得的$c_k$和$k_k$代入$F_z=0$的2个方程中，重复上一步的方法，求得$c_z$和$k_z$的值。需要指出的是，由$F_z=0$这2个方程所构成的子系统是线性的。
+
+第三步，将求得的$c_k,k_k,c_z,k_z$代入2个方程$F_\sigma = 0$中，构成一个线性齐次的关于$c_\sigma$和$k_{\sigma}$组成的系统。因此，系统解为$c_{\sigma}=0$和$k_{\sigma} = 0$。进而，我们得到一阶扰动法线性近似下的确定性等价条件。
+
+\subsubsection{二阶展开}
+下面，对$F(k_t,z_t;\sigma)$围绕稳态$(\bar{k},0;0)$做二阶线性近似，得到一组$6 \times 2=12$个方程组成的系统
+\begin{equation}
+  \begin{cases}
+    F_{kk}=0, \\
+    F_{kz}=F_{zk}=0,
+    F_{k\sigma}=F{\sigma k} =0,\\
+    F_{zz} = 0,\\
+    F_{z\sigma}=F_{\sigma z}=0,\\
+    F_{\sigma \sigma}=0,
+  \end{cases}
+\end{equation}
+其中的系数部分包括：
+\begin{itemize}
+  \item 稳态值：$(\bar{c}, \bar{k})$，已经求得。
+  \item 一阶导数的系数，包括两部分：
+  \begin{itemize}
+    \item $\left( c_k,k_k,c_z,k_z \right)$，已在前文中做一阶展开部分求得，是已知数。
+    \item $c_{\sigma} = k_{\sigma} = 0$，确定性等价条件。
+  \end{itemize}
+  \item 二阶导数的系数，包括两部分：
+  \begin{itemize}
+    \item $\left(c_{k \sigma}, k_{k \sigma}, c_{z \sigma}, k_{k \sigma}, \right)$，所有二次求导中含有$\sigma$的交互项，它们的值都为$0$；
+    \item $\left( c_{k k}, k_{k k}, c_{k z}, k_{k z}, c_{z z}, k_{z z}, c_{\sigma \sigma}, k_{\sigma \sigma} \right)$，是代求解系数。
+  \end{itemize}
+\end{itemize}
+
+基于上述分析，将一系列等于$0$的条件代回消费和资本的最优决策式\eqref{eq:pta-ncgt-gdr-c}-\eqref{eq:pta-ncgt-gdr-k}，我们有近似的最优决策式：
+\begin{equation}
+  \label{eq:pta-ncgt-gdr-c-approx}
+\begin{split}
+    c_t =& \bar{c} + c_k \left( k_t - \bar{k} \right) + c_z z_t \\
+    &+\frac{1}{2} c_{kk} \left( k_t - \bar{k} \right)^2 + c_{kz} \left( k_t - \bar{k} \right) z_t + \frac{1}{2} c_{zz} z_t^2 + \frac{1}{2} c_{\sigma \sigma} \sigma^2,
+\end{split}
+\end{equation}
+
+\begin{equation}
+  \label{eq:pta-ncgt-gdr-k-approx}
+\begin{split}
+    k_{t+1} =& \bar{k} + k_k \left( k_t - \bar{k} \right) + k_z z_t \\
+    &+\frac{1}{2} k_{kk} \left( k_t - \bar{k} \right)^2 + k_{kz} \left( k_t - \bar{k} \right) z_t + \frac{1}{2} k_{zz} z_t^2 + \frac{1}{2} k_{\sigma \sigma} \sigma^2.
+\end{split}
+\end{equation}
+
+\subsubsection{数值解}
+对于哪怕一个基准的随机经济增长模型，利用扰动法得到的近似系统\eqref{eq:pta-ncgt-gdr-c-approx}-\eqref{eq:pta-ncgt-gdr-k-approx}也已经较为复杂，难以表示为解析形式了。因此我们求助于数值方法。 下面分几个步骤分别介绍。
+第一步，参数校准。采用文献中常见的校准值。
+\begin{itemize}
+  \item $\delta =1$。折旧系数。如前文所述，这使得模型得以简化，但也因此使得模型经济与任何实际经济有较大不同。
+  \item $\beta = 0.99$。时间贴现。
+  \item $\alpha = 0.33$。资本的产出弹性。
+  \item $\rho = 0.95$。外生生产率自回归过程中的持续系数(persistence parameter)。
+  \item $\eta = 0.01$。生产率自回归过程中，波动的标准差。
+\end{itemize}
+
+第二步，计算稳定状态。将校准参数值代入\eqref{eq:pta-ncgt-steady-state}中得$\bar{c}=0.388$，$\bar{k}=0.188$。
+
+第三步，计算一阶、二阶扰动解。
+\begin{itemize}
+  \item 一阶扰动解。$c_k = 0.680$，$c_z = 0.388$，$k_k = 0.330$，$k_z = 0.188$。
+  \item 二阶扰动解。$c_{kk} = -2.420$，$c_{kz} = 0.680$, $c_{zz}=0.388$，$c_{\sigma \sigma} = 0$，$k_{kk} = -1.174$，$k_{kz}=0.330$，$k_{zz}=0.188$，$k_{\sigma \sigma} = 0$。其中$c_{\sigma \sigma} = k_{\sigma \sigma} = 0$的情况，我们将在下文中做进一步说明，见\todo{reference}。
+  \item 此外我们有$c_{\sigma} = k_{\sigma} = c_{k\sigma} = k_{k \sigma} = c_{z \sigma} = k_{z \sigma} = 0$ (理论模型中的确定性等价条件)。
+\end{itemize}
+
+第四步，关于消费和资本存量的近似决策式可由\eqref{eq:pta-ncgt-gdr-c-approx}-\eqref{eq:pta-ncgt-gdr-k-approx}求得。
+
+\begin{remark}[风险纠正系数的讨论]
+  \label{remark:correction-for-risk}
+  数值模拟过程中，两个风险纠正的系数值都是$0$，对应$(1/2)c_{\sigma \sigma} \sigma^2 = (1/2)k_{\sigma \sigma} \sigma^2 =0$。这个看似奇怪的结果是和标准的新古典主义经济增长模型的特性有关的：模型中的风险主要来自外生技术冲击造成的生产过程风险。面对这种风险，一方面从局部部门来说，典型家庭积累的资本越多，他所面对的风险就越大，另一方面从整体来说，经济体中唯一可以用作净储蓄的财产就是资本。因此，任何风险的增大(即技术冲击的标准差的增大)产生了两种相互对冲的效果：一方面尽量减缓资本积累以免受到明日生产过程风险的损害，另一方面尽量增加储蓄(资本积累)以应付未来可能出现的负面冲击。
+
+  两种效果对冲后对经济运行的影响，分两种情况来分析。第一种情况，如果构建经济模型时设定较低的风险厌恶度，对应CRRA效用函数如对数形式，则二者完全抵消，系统解只收到技术冲击的波动$z_t$影响，而不受到波动的标准差的影响。第二种情况，当风险厌恶度较高，或者存在着多种财产储蓄形式时——如模型中本国典型家庭还有另一种储蓄选择：购买外国债券，并且外国债券的收益与本国技术冲击之间并非完全替代关系——则风险纠正项便很可能是个显著不为0的值了。
+\end{remark}
+
+第五步，比较解析决策式与近似决策式。一个自然出现的问题就是：采用扰动法近似的决策式(近似系统解)，在多大程度上贴近原系统的解？我们用解析决策式来代表原系统，可得
+\begin{equation*}
+  \begin{split}
+    &c_t = 0.6734 \exp(z_t) k_t^{0.33}, \\
+    &k_{t+1} = 0.327 \exp(z_t) k_t^{0.33}.
+  \end{split}
+\end{equation*}
+
+画出解析决策式、一阶扰动近似决策式、二阶扰动近似决策式，不难看出：
+\begin{enumerate}
+  \item 在稳态$(\bar{k}=0.188)$附近，一阶近似的解几乎与解析解完全一致，但当$k_t$越是远离$\bar{k}$，二者的差异越明显：当$k_t=0.1412$时，偏差约$1\%$。
+  \item 比较起来，二阶近似解在全局内，与解析解相比更加贴近，如$k_t=0.1412$时，偏差约$0.13\%$。
+\end{enumerate}
+这表明，扰动法，尤其是高阶扰动法提供的近似解，具有更好的全局特性。
+
+\begin{remark}[扰动近似解的精确度检验]
+  $0.13\%$的偏差程度已经足够精确了，还是仍然太高？问题的答案取决于实际研究工作中的具体情况。例如，在商业周期研究中的精确度要求，通常低于关于福利水平的研究。其原因在于，在近似计算一系列矩的方差时(如消费的均值和方差等)，随着矩的不同，矩的误差也有所不同，各项误差之间有时会相互抵消一部分。而福利水平常常是一个关于财富分配的非线性方程，在近似计算分配状况时，一点微小的误差可能会引起福利水平近似值的较大变化，从而偏离实际值。
+\end{remark}
+
+\section{剪枝算法}
+\label{sec:pta-pruning-algorithm}
+如前文所述，通常来讲，越高阶的扰动近似解，与原非线性系统的贴近程度越高。但高阶扰动法带来的一个附属问题是，在实际研究中，尽管高阶扰动近似求得的线性决策方程的确是稳定的，但根据这个决策方程所生成的序列数据却有可能是不稳定的(爆炸的)。其原因在于，高阶扰动项在系统中加入了额外的不动点，从而使得围绕这些不动点所做的近似解变得不稳定了\citep{Kim:2008jw,denHaan:2012hv}。
+
+举例说明。假设某一资本的近似决策方程可表示为
+\begin{equation*}
+  k_{t+1} = a_0 + a_1 k_t + a_2 k_t^2 + \ldots + b_1 \varepsilon_t + \ldots,
+\end{equation*}
+为简化模型考虑，不列出技术外生冲击$z_t$的情形。以递归形式表述，上式可以改写为
+\begin{equation*}
+k_{t+1} = a_0 + a_1 \left( a_0 + a_1 k_{t-1} + a_2 k_{t-1}^2 \right) + a_2 \left( a_0 + a_1 k_{t-1} + a_2 k_{t-1}^2 \right)^2 + \ldots + b_1 \varepsilon_t + \ldots.
+\end{equation*}
+
+上式中涉及到$k_{t-1}$的3次甚至4次方。因此在仿真过程中，随着$t$越来越大，所生成的时间序列数据就越容易出现$\left( k_{t+1}-\bar{k} \right) \rightarrow \infty$的情况，即产生不稳定的爆炸路径。在这种情况下，GMM、SMM等无条件的矩匹配估计方法也不再适用了\footnote{关于GMM，SMM等方法在DSGE研究中的应用，可见\cite{RugeMurcia:2007ha}。}，原因在于它们需要满足一系列条件，如矩是平稳且有极限的，并且是非周期的遍历(ergodic)概率分布。
+
+鉴于这种情况，\cite{Kim:2008jw}提出要对近似解做剪枝(pruning)，即是说，在递归形式中去掉所有比近似解更高阶的项——以本例中的二阶扰动近似法为例，就是要删除一切高于二阶的状态项和/或扰动项。\cite{Kim:2008jw}证明由剪枝后的近似解所生成的时间序列数据，就不再出现爆炸路径的情况。
+
+\cite{Andreasen:2016cd}对\cite{Kim:2008jw}的剪枝法做了进一步扩展，应用到了任意高的阶数的情况。他们首先证明一个剪枝状态——空间系统中的确存在一阶以及二阶无条件矩，进而提供了关于这些一、二阶矩与冲击响应方程(IRFs)的闭合表达式(closed-form expressions)。其研究价值在于，可以省去研究者计算数值并进行仿真的工作：这些数据仿真已经被不少DSGE的扩展IRFs研究证明是不可靠的了\footnote{关于扩展IRFs的定义，可见如\cite{Koop:1996cs}。}。此外，\cite{Andreasen:2016cd}还讨论了更高阶无条件矩阵(如偏度skewness，峰度kurtosis)等的存在条件。
+
+\section{变量的变换}
+\label{sec:perturbation-change-variables}
+上文中介绍了，在扰动法求解DSGE模型过程中，可以用对数形式的变量而非变量本身作为研究对象。\cite{Jin:2002HV}介绍了对数线性化方法，作为一种变量的特殊变化形式，为什么要比变量本身更适合作为DSGE模型的研究对象，以及更通用的变量变换形式是怎么样的，如何更好的运用他们，更多讨论见\cite{FernandezVillaverde:2006hr}。这里简要介绍变量变换的通用方法及其用途。
+
+已知对于$d(x)$，围绕$a$点做TSE
+\begin{equation*}
+  d(x) \approx d(a) + \frac{\partial d(a)}{\partial a} (x - a) + H.O.T.
+\end{equation*}
+其中H.O.T.表示高阶展开项。据此，也可以将变量从$x$转换为反函数$Y(x)$，围绕$b=Y(a)$点做TSE
+\begin{equation*}
+  g(y) = h ( d( x (y))) = g(b) + \frac{\partial g(b)}{\partial b}(Y(x) - b) + H.O.T.
+\end{equation*}
+
+根据第一个等式，我们可以通过TSE求得关于状态$x$的近似方程$d(\cdot)$，进而求解运算符$\mathcal{H}(\cdot)$。那么同样地，在对$x$做变量变换后，根据第二个等式我们也能找到关于状态$Y(x)$的未知方程$g(\cdot)$，进而求解运算符$\mathcal{H}(\cdot)$。在进行近似线性化过程之前，变量变换工作首先将重心放在状态形式的选取上来，将原本是高度线性化的问题转化为接近线性的，从而提高扰动法求解的精度。
+
+\subsection{例1}
+以上文提到的随机内生经济增长模型为例，求资本积累的近似决定式，假定满足如下一阶扰动形式
+\begin{equation*}
+  k_{t+1} = \bar{k} + a_1 \left( k_t - \bar{k} \right) + b_1 z_t,
+\end{equation*}
+其中$a,b$系数通过对$F(k_t,z_t;\sigma)$求导得出，稳态$\bar{k}$也是已知。上式调整，化为总量形式
+\begin{equation}
+  \label{eq:pta-ncgt-var-level}
+  \left( k_{t+1}-\bar{k} \right) = a_1 \left( k_t - \bar{k} \right) + b_1 z_t.
+\end{equation}
+
+类似地，对\eqref{eq:pta-ncgt-var-level}做对数线性化
+\begin{equation}
+  \label{eq:pta-ncgt-var-loglin}
+  \begin{split}
+    &\log k_{t+1} - \log \bar{k} = a_2 \left( \log k_t - \log \bar{k} \right) + b_2 \cdot z_t, \\
+    &\Rightarrow \hat{k}_{t+1} = a_2 \hat{k}_t + b_2 z_t, \quad \hat{x}_t \equiv \log x_t - \log x_0.
+  \end{split}
+\end{equation}
+
+\begin{proposition}
+  \eqref{eq:pta-ncgt-var-level}和\eqref{eq:pta-ncgt-var-loglin}等价。
+\end{proposition}
+\begin{proof}
+  分三步予以证明。第一，已知变量的线性近似形式
+  \begin{equation*}
+    k_{t+1} = d(k_t, z_t ; \sigma) = d(\bar{k}, 0 ; 0) + d_1 (\bar{k}, 0;0) \left(k_t - \bar{k}\right) + d_2(\bar{k},0;0) z_t,
+  \end{equation*}
+  则我们有
+  \begin{equation*}
+    d_1(\bar{k},0;0) = a_1, \quad d_{2}(\bar{k}, 0;0) = b_1.
+  \end{equation*}
+
+  第二步，引入变量的变化，设$h = \log d$，其中$Y(x) = \log x$。则根据\cite{Judd:2003xy}我们有
+  \begin{equation*}
+    \log k_{t+1} - \log \bar{k} = d_1 (\bar{k},0;0) \left( \log k_t - \log \bar{k} \right) + \frac{1}{\bar{k}} d_2 (\bar{k},0;0) z_t.
+  \end{equation*}
+
+  第三步，比较上面两个等式，系数相等，我们有
+  \begin{equation*}
+    a_2 = a_1, \quad b_2 = \frac{1}{\bar{k}}b_1.
+  \end{equation*}
+\end{proof}
+
+这个例子中有3点值得注意。
+\begin{enumerate}
+  \item 从$(a_1,b_1)$到$(a_2,b_2)$的计算涉及到$\bar{k}$，而$\bar{k}$已经在对水平变量一阶扰动法求解中求得。因此，当我们求得了一节线性系统的近似解后，可以很方便得到变量变换(对数线性化)后的系统近似解。
+  \item 对于含有常规设定(如效用函数、生产函数等)的随机内生经济增长模型而言，通常来说无需引入其他额外加设，即可进行变量变换如对数线性化。
+  \item 变量变换可用于任何阶数的扰动近似。
+\end{enumerate}
+
+\subsection{例2}
+我们来看一个更通用的例子。已知某一系统围绕稳态$(x=a)$的一阶扰动近似解为
+\begin{equation*}
+  d(x) \approx d(a) + \frac{\partial d(a)}{\partial  a}(x-a),
+\end{equation*}
+那么对于$Y(x)$的反函数$X(y)$，围绕$b=Y(a)$，对变量变换后的新系统$g(y) = h(d(X(y)))$做一阶扰动，我们有
+\begin{equation*}
+  g(y) = h(d(X(y))) = g(b) + g_{\alpha}(b) \left( Y(x)^{\alpha} - b^{\alpha} \right),
+\end{equation*}
+其中$g_{\alpha} = \left[h\right]_A \left[d_i\right]^A \left[x\right]_{\alpha}^i$为张量形式，可由微积分运算中的链式法则求得。
+
+根据\cite{Judd:2003xy}的方法，我们可以把任一幂的近似式写为
+\begin{equation*}
+  k_{t+1}(k_t,z_t;\gamma, \zeta, \varphi)^{\gamma}-\bar{k}^{\gamma} = a_3 \left( k_t^{\zeta} - \bar{k}^{\zeta} \right) + b_3 z_t^{\varphi},
+\end{equation*}
+其中设$\varphi \ge 1$以确保$z_t^{\varphi}$是实数。
+
+幂形式方程的优点在于，我们只需要3个参数值$\gamma, \zeta, \varphi$就可以描述许多种非线性结构的系统。并且对于$\gamma \rightarrow 0, \zeta \rightarrow 0, \varphi \rightarrow 1$的情况，该方程求极限就变成了对数转换。此时作变量转换$h=d^{\gamma}, y=x^{\gamma}, x=y^{\frac{1}{\zeta}}$。此外，由于
+\begin{equation*}
+  k_{t+1}\left( k_t,z_t;\gamma, \zeta, \varphi \right)^{\gamma} - \bar{k}^{\gamma} = \frac{\gamma}{\zeta} \bar{k}^{\gamma - \zeta} a_1 \left( k_t^{\zeta} - \bar{k}^{\zeta} \right) + \frac{\gamma}{\varphi} \bar{k}^{\gamma - 1} z_t^{\varphi},
+\end{equation*}
+于是我们有
+\begin{equation*}
+  a_3 = \frac{\gamma}{\zeta} \bar{k}^{\gamma - \zeta} a_1, \quad b_3 = \frac{\gamma}{\varphi} \bar{k}^{\gamma - 1} b_1.
+\end{equation*}
+
+对于$\gamma = \zeta, \varphi = 1$的情况，系统中只有一个自由系数，则
+\begin{equation*}
+  k_{t+1} (k_t, z_t;\gamma)^{\gamma} - \bar{k}^{\gamma} = a_4 \left( k_t^{\zeta} - \bar{k}^{\zeta}\right) + b_4 z_t,
+\end{equation*}
+定义$\tilde{k}_{t+1} \equiv k_t^{\gamma} - \bar{k}^{\gamma}$，我们于是有
+\begin{equation}
+\label{eq:pta-k-kalman}
+  \tilde{k}_{t+1} = a_4 \tilde{k}_t + b_4 z_t,
+\end{equation}
+因此
+\begin{equation*}
+  a_4 = a_1, \quad b_4 = \bar{k}^{\gamma -1} b_1.
+\end{equation*}
+
+通过变量变换，将原本是非线性的方程系统转换为线性形式\eqref{eq:pta-k-kalman}，这有助于我们展开后续分析，以及采用卡曼滤波对模型做进一步的估计\todo{reference}。
+
+\subsection{最优变量变换：参数的选取}
+我们介绍了如何通过几个幂参数值的设定，对变量做变换，将DSGE模型用更通用的一阶线性形式表现出来。随后的问题就变成了，如何选取最合适的幂参数。参数取值可以遵循以下两个策略之一。第一是最优策略，致力于追求最高的精确度，基于似然方程等方法的经验研究，目标的确为追求最大化解，对应最高的精确度，但这往往导致计算成本过于高昂。第二是次优策略，将参数取值向最优方向做适度改进，以追求模型精度的适度提高。实际经验研究中往往采取后者，在精度提升和计算成本控制之间寻求平衡点。
+
+有鉴于此，\cite{FernandezVillaverde:2006hr}提出一个合理判定原则，致力于选取合适的参数值来改变变量值，通过尽可能减少Eruler方程的误差来提高模型解的精确度\footnote{此外他们还发现，最优参数值的选取还与经济模型外生冲击的标准差有关。这是一个重要发现：变量变换随着模型中不确定性程度的变化而调整。这又一次印证了确定性等价条件的不适用。}。
+
+\subsection{对数线性化和对数正态线性化}
+如前文所述，标准的对数线性近似法，常常是对差分变量取对数后做一阶扰动近似。金融学研究中有时也会遇到另一种对数正态线性化方法(lognormal-loglinearization)，二者有所不同，容易引起混淆，有必要建模做简要说明。
+
+假定经济模型中一个代表性家庭，效用函数和预算约束条件分别为
+\begin{equation*}
+  \begin{split}
+    &\max E_0 \sum_{t=0}^{\infty} \beta^t \log C_t, \\
+    &W_{t+1} = R_{t+1} (W_t - C_t),
+  \end{split}
+\end{equation*}
+其中$W_t$为总财富，其初始水平$W_0$是给定的。
+
+非线性均衡系统由一阶条件和预算约束条件组成：
+\begin{align*}
+      &\frac{1}{C_{t}} = \beta E_t \frac{1}{C_{t+1}} R_{t+1},\\
+      &W_{t+1} = R_{t+1} \left( W_t - C_t \right).
+\end{align*}
+
+
+因此稳定状态下我们有
+\begin{equation*}
+  \begin{split}
+    &R = \frac{1}{\beta}, \\
+    &W = \frac{1}{\beta} (W - C).
+  \end{split}
+\end{equation*}
+
+\subsubsection{(对数偏移形式的)对数线性化}
+定义$\hat{x}_t = x_t - x = \log X_t - \log X$表示对数变量$x_t$距离其稳态$x$的偏离。则对于Euler方程来说
+\begin{equation*}
+  \begin{split}
+    &\log C_{t+1} = \log C_t + \log R_{t+1} + \log \beta, \\
+     & \Rightarrow \log C + \left( \frac{C_{t+1} - C}{C} \right) = \log C + \left( \frac{C_{t} - C}{C} \right) + \log R + \left( \frac{R_{t+1} - R}{R} \right), \\
+     & \Rightarrow \hat{c}_{t+1} = \hat{c}_{t} + \hat{r}_{t+1}, \\
+     & \Rightarrow E_t \Delta \hat{c}_{t+1} = E_t \hat{r}_{t+1}.
+  \end{split}
+\end{equation*}
+
+对于预算约束条件来说
+\begin{equation*}
+  \begin{split}
+    &\log W_{t+1} = \log R_{t+1} + \log (W_t - C_t), \\
+    & \Rightarrow \log W + \left( \frac{W_{t+1} - W}{W}\right) = \log R + \left( \frac{R_{t+1} - R}{R}\right) + \log (W-C) + \left( \frac{\left(W_{t} - W\right)\left(C_{t} - C\right)}{W-C}\right),\\
+    & \Rightarrow E_t \hat{w}_{t+1} = E_t \hat{r}_{t+1} + \frac{\hat{w}_t w - \hat{c}_t c}{w - c}, \\
+    &\Rightarrow E_t \Delta \hat{w}_{t+1} = E_t \hat{r}_{t+1} + \left( 1 - \frac{1}{\rho} \right) \left( \hat{c}_t - \hat{w}_t \right), \quad \rho \equiv \frac{w-c}{w}.
+  \end{split}
+\end{equation*}
+
+\subsubsection{(对数形式的)对数线性化}
+由上两式可得，对数形式的线性化
+\begin{align}
+  \label{eq:pta-loglin-comp-ll-euler}
+    &E_t \Delta c_{t+1} = E_t r_{t+1} + \log \beta,\\ \label{eq:pta-loglin-comp-ll-budget}
+    &E_t \Delta w_{t+1} = E_t r_{t+1} + \left( 1 - \frac{1}{\rho} \right) \left(c_t - w_t \right) + \kappa, \quad \kappa \equiv -r - \left(1-\frac{1}{\rho} \right) \left( c - w \right).
+\end{align}
+
+\subsubsection{对数正态线性化}
+对数正态线性化下的预算约束条件式与对数线性化下的\eqref{eq:pta-loglin-comp-ll-budget}一致。但在Euler方程上的设定有所不同：它假定变量$\frac{C_t}{C_{t+1}}R_{t+1}$是对数正态分布的。对于任何一个对数正态分布的变量我们有
+\begin{equation*}
+  \log E_t X_t = E_t \log X_t + \frac{1}{2} Var_t \log X_t.
+\end{equation*}
+
+那么回到Euler方程我们有
+\begin{equation}
+  \label{eq:pta-loglin-comp-ln-euler}
+  \begin{split}
+    &1 = \beta E_t \left(\frac{C_t}{C_{t+1}}\right) R_{t+1},\\
+    &\Rightarrow 0 = \log \beta + \log E_t \left(\frac{C_t}{C_{t+1}}\right) R_{t+1}, \\
+    &\Rightarrow 0= \log \beta + E_t \log \left(\frac{C_t}{C_{t+1}}\right) R_{t+1} + \frac{1}{2} Var_t \log \left(\frac{C_t}{C_{t+1}}\right) R_{t+1}, \\
+    &\Rightarrow E_t \Delta c_{t+1} = \log \beta + E_t r_{t+1} + \underbrace{\frac{1}{2} \left[
+    var_t \Delta c_{t+1} + Var_t r_{t+1} - 2 Cov \left(\Delta c_{t+1}, r_{t+1}\right)
+    \right]}_{\chi}.
+   \end{split}
+\end{equation}
+
+由上可见，在对数正态线性化中，对于不含有期望的项，我们用标准对数线性化方法来处理；对于含有期望的项，我们假定它呈对数正态分布，其结果是一个确定的值，不涉及到泰勒级数展开的近似处理。
+
+\subsubsection{比较}
+  比较\eqref{eq:pta-loglin-comp-ll-euler}和\eqref{eq:pta-loglin-comp-ln-euler}可见，对数正态线性化中多出了一项$\chi$，使得确定性等价条件不成立。这一新特性使对数正态线性化具有易于解释的优点。如对于一种资产$i$和定价核(pricing kernel)$M_t$来说\footnote{关于定价核的介绍，可见如\cite[Ch.1]{Cochrane:2000tr}。}，则定价方程
+  \begin{equation*}
+    \begin{split}
+        &1 = E_t M_{t+1} R_{i,t+1}, \\
+        &\Rightarrow 0 = E_t \log \left( M_{t+1} R_{i,t+1} \right) + \frac{1}{2} Var_t \log \left( M_{t+1} R_{i,t+1}   \right),\\
+        &\Rightarrow E_t r_{i,t+1} = - E_t m_{t+1} - \frac{1}{2} Var_{t} m_{t+1} - Cov(m_{t+1}, r_{i,t+1}) - \frac{1}{2} Var_t r_{i,t+1}.
+       \end{split}
+  \end{equation*}
+
+此外对于无风险债券$f$来说，有
+\begin{equation*}
+  \begin{split}
+    &1=E_t M_{t+1} R_{f,t+1}, \\
+    &r_{f,t+1} = - E_t m_{t+1} - \frac{1}{2} Var_t m_{t+1}.
+  \end{split}
+\end{equation*}
+
+则两式相减我们可得回报
+\begin{equation*}
+  E_t r_{i,t+1} - r_{f,t+1} = -\frac{1}{2} Var_t r_{i,t+1} - Cov(m_{t+1}, r_{i,t+1}).
+\end{equation*}
+
+但对数正态线性化也存在一定不足：
+\begin{enumerate}
+  \item 我们不清楚在一个一般均衡模型中，变量$\frac{C_t}{C_{t+1}}R_{t+1}$在多大程度上是接近对数正态分布的。
+  \item 对数正态线性化过程中同时使用了两种方法，分别是对数正态假设和对数线性化。从扰动法的角度来看，这种处理方法并非逻辑自洽，缺乏坚实的理论支撑，在经验研究中也无法确保呈收敛态势。
+  \item 对数线性化中我们可以通过求解二次矩阵系统来计算全部相关系数。而在对数正态线性化中，只能通过计算二阶矩的状态来估计系数；然而对许多研究来说，如何计算这些二阶距，这是个问题。
+  \item 对数线性化很容易做更高阶的扰动近似，但对数正态线性化则很难做高阶近似。
+\end{enumerate}
+
+\section{价值方程迭代中的扰动法}
+\label{sec:pta-value-function-perturbation}
+某些情况下我们需要在DSGE模型中对价值方程做扰动，如当偏好呈现出递归特征时，或者当我们需要对福利效果做评估时。这个扰动的价值方程，可以用作很好的初始值猜测，供我们展开随后的价值方程迭代——如前文所述，在一些高维问题中，如果缺乏合适的初始值设定，跌倒过程的结果可能导致收敛过慢，甚至不收敛。这里举例说明对将扰动法应用到价值方程迭代过程中去。
+
+考虑这样一个价值方程问题\footnote{出于简化模型的考虑，上式中将$\log c_t$标准化(乘以$(1-\beta)$)，这样价值方程的稳态$V_{ss}=\log c$，其中$c$对应稳态消费水平。通过标准化，价值方程和模型的效用函数的单位相同。}:
+\begin{equation*}
+V(k_t,z_t) = \max_{c_t} \left[ (1-\beta) \log c_t + \beta E_t V(k_{t+1}, z_{t+1}) \right],
+\end{equation*}
+约束条件及外部冲击过程
+\begin{equation*}
+  \begin{split}
+    &c_t + k_{t+1} = \exp(z_t) k_t^{\alpha} + (1-\delta) k_t, \\
+    &z_t = \rho z_{t-1} + \eta \varepsilon_t, \quad \varepsilon_t \sim i.i.d \mathcal{N}(0,1).
+  \end{split}
+\end{equation*}
+
+引入扰动参数$\sigma$，将上式改写为
+\begin{equation*}
+  V(k_t,z_t; \sigma) = \max_{c_t} \left[ \log c_t + \beta E_t V\left(\exp(z_t)k_{t}^{\alpha} + (1-\delta) k_t - c_t, \rho z_t + \sigma \eta \varepsilon_{t+1}; \sigma \right) \right],
+\end{equation*}
+围绕确定性稳态$(\bar{k},0;0)$做二阶扰动近似，该问题的解由两部分构成：1个价值方程$V(k_t,z_t;\sigma)$和1个消费的策略方程$c(k_t,z_t;\sigma)$。
+
+先来看价值方程，
+\begin{equation*}
+  \begin{split}
+    V(k_t,z_t;\sigma) =& V_{ss} + V_{1,ss}(k_t - \bar{k}) + V_{2,ss}z_t + V_{3,ss}\sigma\\
+    &+\frac{1}{2}V_{11,ss}(k_t - \bar{k})^2 + V_{12,ss}(k_t - \bar{k})z_t + V_{13,ss}(k_t - \bar{k}) \sigma \\
+    &+\frac{1}{2}V_{22,ss}z_t^2 + V_{23,ss}z_t \sigma + \frac{1}{2} V_{33,ss}\sigma^2,
+  \end{split}
+\end{equation*}
+其中\begin{equation*}
+\begin{split}
+  &V_{ss} = V(\bar{k},0;0),\\
+  &V_{i,ss} = V_{i}(\bar{k},0;0), \quad i=1,2,3,\\
+  &V_{ij,ss} = V_{ij}(\bar{k},0;0), \quad i,j=1,2,3,\\
+  &V_{3,ss} = V_{13,ss}=V_{23,ss} =0, \quad \text{确定性等价条件}.
+\end{split}
+\end{equation*}
+
+由此价值方程的二阶扰动近似可以表示为
+\begin{equation}
+  \label{eq:pta-vf-2-perturbation}
+  \begin{split}
+    V(k_t,z_t;\sigma) =& V_{ss} + V_{1,ss}(k_t - \bar{k}) + V_{2,ss}z_t \\
+    &+\frac{1}{2}V_{11,ss}(k_t - \bar{k})^2 + V_{12,ss}(k_t - \bar{k})z_t +\frac{1}{2}V_{22,ss}z_t^2 + \frac{1}{2} V_{33,ss}\sigma^2,
+  \end{split}
+\end{equation}
+其中$V_{33,ss} \neq 0$，这与前面介绍随机新古典主义经济增长模型中 Remark \ref{remark:correction-for-risk}中，对效用函数做扩展Schur分解(LQ近似)的情况不同。
+
+类似地，消费的策略方程
+\begin{equation}
+  \label{eq:pta-c-1-perturbation}
+  \begin{split}
+    c_t = c(k_t,z_t;\sigma) = c_{ss}+ c_{1,ss}(k_t - \bar{k}) + c_{2,ss} z_t + c_{3,ss} \sigma,
+  \end{split}
+\end{equation}
+其中
+\begin{equation*}
+  \begin{split}
+    &c_{ss}=c(\bar{k},0;0), \\
+    &c_{i,ss}=c_{i}(\bar{k},0;0), \quad i=1,2,3,\\
+    &c_{3,ss}=0.
+  \end{split}
+\end{equation*}
+$c_{3,ss}=0$是由于，效用函数的一阶导数只与$V_{1,2}$有关\footnote{但也并不绝对，比如当模型中存在预防性消费(precautionary consumption)时，效用函数的一阶导数也需要考虑$V_{3}$，相关讨论见\cite{Kimball:1990jc}。}。
+
+对\eqref{eq:pta-vf-2-perturbation}和\eqref{eq:pta-c-1-perturbation}构成的系统求解，遵循常规算法：
+\begin{itemize}
+  \item 对线性项的系数，用$V_{ss}$依次对控制$c_t$，状态$k_t,z_t$和扰动参数$\sigma$求导，随后在$\sigma=0$的情况下求解。
+  \item 对二次项的系数，用$V_{ss}$做二次求导，引入上一环节求得的一阶系数，然后在$\sigma=0$的情况下求解。
+\end{itemize}
+
+对价值方程做扰动近似，有如下若干有点
+\begin{enumerate}
+  \item 可以测度经济周期波动产生的福利成本。在稳态$(k_t,z_t)=(\bar{k},0)$下我们有
+  \begin{equation*}
+    V(\bar{k},0;0)=V_{ss}+\underbrace{\frac{1}{2}V_{33,ss}\sigma^2}_{\text{福利成本}},
+  \end{equation*}
+  划线部分反映了在二阶层面上出现的福利成本，它是二者之差：一个是$V_{ss}=V(\bar{k},0)$，即在$(\bar{k},0)$的稳态下所测量的价值方程，此时我们知道正处于稳定状态。一个是$V(\bar{k},0;0)$的均衡状态下所测量的价值方程，此刻我们掌握更多信息，不只知道我们当前正处在稳定状态，更知道未来也会继续处在这一点上。
+
+  此外福利成本$V_{33,ss}$也并非在全部情况下都是负数。在一些情况下它甚至可能为正，如一个包括休闲决策的随机内生经济增长模型。进一步的模型描述及经验验证见\cite{Cho:2015ga}。
+
+  \item 方便将福利成本$V_{33,ss}$转换为消费单位，从经济学意义上来说更有意义。具体说来，定义系数$\tau$反映消费减少的量，使得家庭部门对于以下2个选项是无差异的：1是确定性条件下消费$(1-\tau) c_t$个单位，1是在不确定性条件下消费$c_t$，即$\tau$满足
+  \begin{equation*}
+    \log (1-\tau) c = \log c + \frac{1}{2} V_{33,ss}\sigma^2,
+  \end{equation*}
+\end{enumerate}
+其中使用到了$V_{ss}=\log c$的条件。整理得$\tau$的决定
+\begin{equation}
+  \label{eq:pta-tau-value}
+  \tau = 1 - \exp(\frac{1}{2} V_{33,ss}\sigma^2)
+\end{equation}
+
+数值解。采用与第\ref{sec:pta-example-ncgt}节一样的参数校准值，我们有
+\begin{equation}
+  \label{eq:pta-value-function-ncgt}
+  \begin{split}
+    &V = -0.540 + 0.026 ( k_t - 0.188) + 0.250 z_t - 0.069 (k_t - 0.188)^2,\\
+    &c_t = 0.388 + 0.680 (k_t - 0.188) + 0.388 z_t.
+  \end{split}
+\end{equation}
+其中第一，价值方程迭代的消费政策方程，与模型均衡条件下的扰动近似消费决策方程相同。第二，$V_{kz}=V_{zz}=V_{\sigma \sigma} =0$，针对这一组校准参数，经济周期波动的福利成本是$0$\footnote{均衡条件中消费决策方程$c_t = 0.673 \exp (z_t) k_t^{0.33}$，对应当期效用$u_t = log c_t = z_t + \log 0.673 + 0.33 \log k_t$。其中$z_t$的无条件均值是$0$，以及$\log k_t$的决策方程满足确定性等价条件，因此改变$z_t$的方差不会产生(无条件的)福利成本。}。
+
+初始值猜测。利用\eqref{eq:pta-value-function-ncgt}生成的初始值$V_0$做初始猜测值做后续价值方程迭代，可以较快出现收敛。
+
+或者采取混合策略。将两种方法共同作用于运算符$\mathcal{H}$，一个是模型均衡条件，一个是根据最优决策方程而估算的价值方程$V(k_t,z_t)= (1-\beta) \log c_t + \beta E_t V(k_{t+1}, z_{t+1})$。混合策略有助于以较低的计算成本对价值方程和决策方程作出近似\footnote{也可以将价值方程的若干导数对方在一起，如$(1-\beta) c_t^{-1} - \beta E_t V_{1,t+1} =0$等，进而寻找这个(由价值方程导数构成的)方程系统的扰动近似解。这种方法可能会对寻找价值方程的更高阶近似有帮助。}。

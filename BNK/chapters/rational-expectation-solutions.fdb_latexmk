@@ -1,0 +1,14 @@
+# Fdb version 3
+["xdvipdfmx"] 0 "rational-expectation-solutions.xdv" "rational-expectation-solutions.pdf" "rational-expectation-solutions" 0
+  "rational-expectation-solutions.xdv" 0 -1 0 "xelatex"
+  (generated)
+  "rational-expectation-solutions.pdf"
+["xelatex"] 1495004618 "rational-expectation-solutions.tex" "rational-expectation-solutions.xdv" "rational-expectation-solutions" 1495004618
+  "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1491389445 32192 c18bc721db8195c55b3f5b993e802bbf ""
+  "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1494309553 3746838 b083ca408913161712543dce434a05de ""
+  "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
+  "rational-expectation-solutions.aux" 1495004593 8 a94a2480d3289e625eea47cd1b285758 ""
+  "rational-expectation-solutions.tex" 1495004601 796 1b7ede13b161d60c180cdc6c19619b06 ""
+  (generated)
+  "rational-expectation-solutions.xdv"
+  "rational-expectation-solutions.log"

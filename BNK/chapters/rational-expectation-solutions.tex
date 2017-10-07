@@ -1,0 +1,1213 @@
+%!TEX root = ../DSGEnotes.tex
+\chapter{理性期望模型}
+\label{sec:rational-exp-chap}
+
+\section{简介}
+利用动态规划(dynamic programming)的方法求解Ramsey随机增长模型，一个核心假定是只存在一个典型的经济行为个体，他追求自身利益最大化的行为带来社会福利最大化。我们称这样的经济体为centralized economy，均衡状态处于Pareto optimality，这个经济行为人称为social planner。
+
+然而现实中更常见decentralized economy的情况，即存在异质的多个经济个体，他们的最大化目标各异，如厂商追求利润最大化，家庭追求效用最大化，劳动者做劳动——休闲的最优决策，等等。的确，根据福利经济学第二定律(the second fundamental theorem of welfare economics, \cite[p.151]{MasColell:1995ue})，在某些极端情况下，完全竞争的decentralized均衡状态可以导致social planner的Pareto optimality；但对于更一般的情况，当decentralized economies中存在局部摩擦如价格/工资粘性时，decentralized均衡并不必然导致centralized的Pareto optimality。换句话说，我们无法通过求解social planner问题来推得decentralized均衡。我们只能直接从不同异质经济个体的一阶条件(FOC)入手，构建这样一组线性随机一阶差分方程，即理性期望模型。
+
+求解理性期望模型的核心在于线性化：在将多阶自回归改写成一阶自回归形式之后，如何将原本是高度非线性的一阶自回归系统做线性近似。对于稍微复杂一些的系统而言，往往无法直接求得解析解，替代方案为：首先将模型变量围绕其稳定状态做对数线性化处理求得解析式；随后根据一定的数值算法，求解线性化方程组，将相关内生变量改写为自VAR形式。
+
+此种求解思路主要来自\cite{King:1988bk, King:1988kf}\footnote{此外可见\cite{King:1999jc}。}，大致说来分为四个步骤：
+\begin{enumerate}
+  \item 计算稳定状态，
+  \item 将解释变量围绕稳定状态做近似，求解析式，
+  \item 模型参数校准，
+  \item 根据数值算法求得政策方程，将内生变量与外生变量和前定变量联系起来。
+\end{enumerate}
+
+该思路在宏观经济研究中得到了较为广泛的应用，主要得益于其优点：存在多种可供选择的数值算法，可以在一定程度上近似非线性一阶条件的线性表达式，而只需要付出一定的计算机处理时间。也正因如此，该思路也存在着适用性的局限。
+\begin{enumerate}
+  \item 围绕稳定状态做对数线性近似，其前提假定是模型接近对数线性形式。而模型非线性的程度越高，模型的规模越大，考虑的因素越是多（比如消费者的风险厌恶程度越高，外生冲击的种类越多），对数线性近似导致的失真情况就越严重。
+  \item 稳定状态无法在模型内部求得，并且对于存在多重稳态的经济系统来说，情况会变的更复杂。
+\end{enumerate}
+
+\section{数值算法}
+针对一阶线性近似的变型系统，常见的数值算法，大致说来有\footnote{一个更为详尽的综述，见\citep{Milani:2012jt}。}
+\begin{enumerate}
+  \item 特征值——特征向量分解法(eigenvalue-eigenvector decomposition)
+
+  最早由\cite{Blanchard:1980gi}提出，因此也称为Blanchard-Kahn Algorithm。模型要求将所有内生变量分为两类，一类为状态变量，主要指前定变量。其他变量归入第二类跳跃变量(jump variables)。通过特征根——特征变量分解，该算法求得跳跃变量爆炸根(explosive root)的数量，进而判断系统解是否存在，以及是否唯一。见第\ref{sec:simple-BK-algorihtm}节。
+
+  对于满足一些假定条件的(比如非奇异方块矩阵)常规系数矩阵，特征根——特征向量分解法提供了一种较好的求解思路。由此优点出发，在算法方面，一些后续研究作出不断改进
+  \citep{King:1998hm, King:2002ko, Anderson:1985hh, Anderson:1998dp, Sims:2002jc, Klein:2000bc, Soderlind:1999kg}。
+  \item 未定系数法(undetermined coefficients)
+
+  最早由\cite{McCallum:1983fz}提出，随后的一系列重要扩展包括\cite{Uhlig:1999vx, Binder:1995uf, Christiano:2002uk}等。这种方法不再将变量区分为前定与非前定变量，根据未定系数近似系统的数值解。见第\ref{sec:simple-christiano-undetermined-coefficients}节。
+
+  其基本思路是：第一，假定系统存在1个解，根据这个解，内生变量是关于状态变量的线性方程，并且这个假定不能使完全随机的猜测。第二，将猜测解代回结构方程系统中，构建关于待定系数的方程组。第三，利用二次方程矩阵的解法，求得该方程组的解，进而整个线性系统的解。
+
+  未定系数法具有可操作性和计算速度等优势。但存在不足：第一，需要预先假定模型存在唯一解。第二，仅当系统中没有冗余变量时(系数矩阵的列线性不相关)，状态——空间表现形式处于最简规模，该方法才适用。否则值为0的特征值会导致泡沫解的出现\citep[p.57]{Canova:2011vi}。
+  \item 期望误差法(expectational errors)
+
+  由\cite{Sims:2002jc}提出，也不再做前定、非前定变量的区分，更可以进一步探讨理性期望下期望误差的性质。见第\ref{sec:simple-sims-expectational-errors}节。
+
+  \item 参数化期望算法(PEA, Parameterised Expectations Algorithm)，见第\ref{sec:simple-pea-algorithm}节。
+
+  \item Schur分解法(Schur Decomposition)，又称QZ分解法，作为更为通用的形式，主要用于奇异(不可逆)系数矩阵的情况\citep{King:1998hm, King:2002ko, Soderlind:1999kg, Klein:2000bc}，见第\ref{sec:simple-schur-decomp}节。
+
+\end{enumerate}
+
+大致说来，各种方法之间的主要区别在于
+\begin{itemize}
+  \item 构建稳定解模块的方式，
+  \item 求解过程中对理性期望的处理，
+  \item 保留多大部分的非线性成分，交给数值算法去近似处理，
+  \item 对前定和非前定变量的区分等。
+\end{itemize}
+
+根据\cite{King:1988bk, King:1988kf}的四步骤求解思路，第\ref{sec:simple-sto-grow-model}节首先建立一个简单的随机增长模型。在此基础上，第\ref{sec:simple-steady-state}节计算稳定状态，第\ref{sec:simple-loglin}节做对数线性化近似，第\ref{sec:simple-BK-algorihtm}-\ref{sec:simple-schur-decomp}节分别介绍几种主要的算法。
+
+\section{一个简单的随机增长模型}
+\label{sec:simple-sto-grow-model}
+在这样一个简单随机经济增长模型中，典型个体追求最大化问题
+\begin{align*}
+  & \max_{\{C_t\}} E \sum_{t=0}^{\infty} \beta^t \cdot \left(\frac{C_t^{1-\sigma}}{1-\sigma}\right), \quad \text{s.t.} \\
+& C_t + K_{t+1} = A_t \cdot K_{t}^{\alpha} + (1-\delta) \cdot K_{t}, \\
+& \ln A_t = \rho \cdot \ln A_{t-1} + \varepsilon_t, , \quad \varepsilon_{t} \sim i.i.d. (0, \sigma^2), 0<\rho < 1.
+\end{align*}
+模型的均衡解以$\{C_t,K_t,Y_t\}_{t=0}^{\infty}$的形式展现。
+
+求解一阶条件我们有
+\begin{equation*}
+  \begin{cases}
+    C_t^{-\sigma} &= \beta E \left[
+    C_{t+1}^{-\sigma} \cdot \left(\alpha \cdot A_{t+1} \cdot K_{t+1}^{\alpha - 1} + 1 - \delta \right)
+    \right] \\
+    C_t + K_{t+1} &= A_t \cdot K_t^{\alpha} + (1-\delta) \cdot K_t \\
+    \ln A_t &= \rho \cdot \ln A_{t-1} + \varepsilon_t
+  \end{cases}
+\end{equation*}
+
+\subsection{稳定状态}
+\label{sec:simple-steady-state}
+在稳定状态下我们有
+\begin{equation*}
+  \begin{bmatrix}
+    C_t \\
+    K_t \\
+    Y_t
+  \end{bmatrix} \equiv
+  \begin{bmatrix}
+    \bar{C} \\
+    \bar{K} \\
+    \bar{Y}
+    \end{bmatrix}, \quad A_t \equiv \bar{A} = 1, \quad \forall t.
+\end{equation*}
+
+进而我们有
+\begin{equation*}
+  \begin{cases}
+    1 &= \beta \cdot \left[
+    \alpha \cdot \bar{K}^{\alpha - 1} + (1-\delta)
+    \right], \\
+    \bar{C}+ \bar{K} &= \bar{K}^{\alpha} + (1-\delta) \cdot \bar{K}.
+  \end{cases}
+\end{equation*}
+
+整理后得稳定状态
+\begin{equation*}
+  \begin{cases}
+    \bar{C} &= \bar{K}^{\alpha} - \delta \cdot \bar{K}, \\
+    \bar{K} &= \left(
+    \frac{1-(1-\delta) \cdot \beta}{\alpha \cdot \beta}
+    \right)^{\frac{1}{\alpha - 1}}, \\
+    \bar{Y} &= \bar{K}^{\alpha}.
+  \end{cases}
+\end{equation*}
+
+\subsection{对数线性化}
+\label{sec:simple-loglin}
+对数线性的定义式可表示为，对于一个变量$X_t$：
+\begin{equation*}
+%  \label{eq:simple-log-lin-def}
+  \tilde{X_t} \equiv \frac{X_t - \bar{X}}{\bar{X}} \approx \ln X_{t} - \ln \bar{X},
+\end{equation*}
+
+对于含有不止一个变量的复杂方程$f(X_t,Y_t)$，对其稳定状态$(\bar{X}, \bar{Y})$做一阶泰勒级数展开的方式为
+\begin{equation*}
+  \ln f(X_t,Y_t) \approx \ln f(\bar{X}, \bar{Y}) + \left[\frac{
+  \frac{\partial f(X_t,Y_t)}{\partial X_t} |_{\{\bar{X},\bar{Y}\}}
+  }{f(\bar{X},\bar{Y})}\right] \cdot \left(X_t - \bar{X}\right) +
+  \left[\frac{
+  \frac{\partial f(X_t,Y_t)}{\partial Y_t} |_{\{\bar{X},\bar{Y}\}}
+  }{f(\bar{X},\bar{Y})}\right] \cdot \left(Y_t - \bar{Y}\right).
+\end{equation*}
+
+\subsubsection{外生技术冲击的对数线性化}
+\begin{equation}
+  \label{eq:simple-steady-state-tech-shock}
+  \tilde{A}_{t} \approx \rho \cdot \tilde{A}_{t-1} + \varepsilon_t.
+\end{equation}
+
+\subsubsection{Euler equation的对数线性化}
+等式两侧取对数
+\begin{equation*}
+  -\sigma \cdot \ln C_t = \ln \beta - \sigma \cdot E \ln C_{t+1} + E  \ln \left[\alpha \cdot A_{t+1} \cdot K_{t+1}^{\alpha - 1} + \left(1 - \delta \right)\right]
+\end{equation*}
+
+RHS第三部分，围绕$\{\bar{K}, \bar{A}\}$做一阶泰勒展开
+\begin{equation*}
+\begin{split}
+  &\ln \left[\alpha \cdot A_{t+1} \cdot K_{t+1}^{\alpha - 1} + \left(1 - \delta \right)\right] \\
+  & \approx \ln \left[\alpha \bar{A} \bar{K}^{\alpha - 1} + (1-\delta) \right]\\
+  &+ \frac{
+  \frac{\partial}{\partial \bar{K}} \left[\alpha \cdot \bar{A} \cdot \bar{K}^{\alpha - 1} + (1-\delta) \right] \cdot \frac{K_{t+1} - \bar{K}}{\bar{K}} \cdot \bar{K}
+  }
+  {
+  \alpha \cdot \bar{A} \cdot \bar{K}^{\alpha - 1} + (1-\delta)
+  }
+  + \frac{
+  \frac{\partial}{\partial \bar{A}} \left[\alpha \cdot \bar{A} \cdot \bar{K}^{\alpha - 1} + (1-\delta) \right] \cdot \frac{A_{t+1} - \bar{A}}{\bar{A}} \cdot \bar{A}
+  }
+  {
+  \alpha \cdot \bar{A} \cdot \bar{K}^{\alpha - 1} + (1-\delta)
+  } \\
+  &= \ln \left[\alpha \cdot \bar{A} \cdot \bar{K}^{\alpha - 1} + (1-\delta) \right] + \frac{
+  \alpha \cdot \bar{A} \cdot (\alpha - 1) \cdot \bar{K}^{\alpha - 1} \cdot \tilde{K}_{t+1}
+  + \alpha \cdot \bar{K}^{\alpha - 1} \cdot \bar{A} \cdot \tilde{A}_{t+1}
+  }{
+  \alpha \cdot \bar{A} \cdot \bar{K}^{\alpha - 1} + (1-\delta)
+  } \\
+  &= \ln \left[ \alpha \cdot \bar{A} \cdot \bar{K}^{\alpha - 1} + (1-\delta) \right]+ \frac{
+  \alpha \cdot \bar{K}^{\alpha -1} \cdot \left[ (\alpha - 1) \cdot \tilde{K}_{t+1} + \tilde{A}_{t+1}\right]
+  }{\alpha \cdot \bar{A} \cdot \bar{K}^{\alpha - 1} + (1-\delta)} \\
+  &= -\ln \beta + \left[1 - \beta \cdot (1-\delta)\right] \cdot \left[ (\alpha - 1) \cdot \tilde{K}_{t+1} + \tilde{A}_{t+1} \right],
+\end{split}
+\end{equation*}
+进而我们有
+\begin{equation}
+  \label{eq:simple-steady-state-euler}
+  -\sigma \cdot \tilde{C}_{t} = -\sigma \cdot \tilde{C}_{t+1} + \left[1 - \beta \cdot (1-\delta) \right] \cdot \left[ (\alpha - 1) \cdot \tilde{K}_{t+1} + \tilde{A}_{t+1}\right]
+\end{equation}
+
+\subsubsection{预算约束条件的对数线性化}
+等式两侧取对数
+\begin{equation*}
+  \ln (C_t + K_{t+1}) = \ln \left[ A_t \cdot K_t^{\alpha} + (1-\delta) \cdot K_t\right]
+\end{equation*}
+
+LHS $\Rightarrow$
+\begin{align*}
+  \ln (C_t + K_{t+1}) \approx \ln \left(\bar{C} + \bar{K} \right) + \frac{
+  \frac{C_t - \bar{C}}{\bar{C}} \cdot \bar{C} + \frac{K_{t+1} - \bar{K}}{\bar{K}} \cdot \bar{K}
+  }{\bar{C}+\bar{K}} = \ln \left(\bar{C} + \bar{K} \right) + \frac{\bar{C} \cdot  \tilde{C}_{t} + \bar{K} \cdot \tilde{K}_{t+1} }{\bar{C}+\bar{K}}.
+\end{align*}
+
+RHS $\Rightarrow$
+\begin{align*}
+  &\ln \left[ A_t \cdot K_t^{\alpha} + (1-\delta) \cdot K_t\right] \\ & \approx \ln \left[ \bar{A} \cdot \bar{K}^{\alpha} + (1-\delta) \cdot \bar{K} \right] + \frac{
+  \frac{\partial }{\partial \bar{K}} \left[\bar{A} \bar{K}^{\alpha} + (1-\delta) \cdot \bar{K}\right] \cdot \frac{K_t - \bar{K}}{\bar{K}} \cdot \bar{K}
+  }{\bar{A} \cdot \bar{K}^{\alpha} + (1-\delta) \cdot \bar{K} } +
+  \frac{
+  \frac{\partial }{\partial \bar{A}} \left[\bar{A} \bar{K}^{\alpha} + (1-\delta) \cdot \bar{K}\right] \cdot \frac{A_t - \bar{A}}{\bar{A}} \cdot \bar{A}
+  }{\bar{A} \cdot \bar{K}^{\alpha} + (1-\delta) \cdot \bar{K} }\\
+  &= \ln \left[ \bar{A} \cdot \bar{K}^{\alpha} + (1-\delta) \cdot \bar{K} \right] + \frac{
+  \left[ \alpha \cdot \bar{A} \cdot \bar{K}^{\alpha} + (1-\delta) \cdot \bar{K} \right] \cdot \tilde{K}_{t} + \bar{A} \cdot \bar{K}^{\alpha} \cdot \tilde{A}_{t}
+  }{
+  \bar{A} \cdot \bar{K}^{\alpha} + (1-\delta) \cdot \bar{K}
+  } \\
+  &=\ln \left[ \bar{A} \cdot \bar{K}^{\alpha} + (1-\delta) \cdot \bar{K}\right]+ \frac{\frac{1}{\beta} \cdot \bar{K} \cdot \tilde{K}_t + \bar{A} \cdot \bar{K}^{\alpha} \cdot \tilde{A}_t}{
+  \bar{A} \cdot \bar{K}^{\alpha} + (1-\delta) \cdot \bar{K}
+  } \\
+  &= \ln \left(
+  \bar{C}+\bar{K}
+  \right) +
+  \frac{
+  \frac{1}{\beta} \cdot \bar{K} \cdot \tilde{K}_t + \bar{K}^{\alpha} \cdot \tilde{A}_t
+  }{\bar{C}+\bar{K}}.
+\end{align*}
+
+$LHS=RHS \Rightarrow$
+\begin{equation*}
+  \bar{C} \cdot \tilde{C}_{t} + \bar{K} \cdot \tilde{K}_{t+1} = \frac{1}{\beta} \cdot \bar{K} \cdot  \tilde{K}_{t} + \bar{K}^{\alpha} \cdot \tilde{A}_t,
+\end{equation*}
+
+因此我们有
+\begin{equation}
+  \label{eq:simple-steady-state-budget}
+  \begin{split}
+  \tilde{K}_{t+1} &= -\frac{\bar{C}}{\bar{K}} \cdot \tilde{C}_t + \frac{1}{\beta} \cdot \tilde{K}_{t} + \bar{K}^{\alpha -1} \cdot \tilde{A}_{t}\\
+  &=-\frac{1-\beta \cdot \left[1-\delta \cdot (1-\alpha) \right]}{\alpha \cdot \beta} \cdot \tilde{C}_{t}+\frac{1}{\beta} \cdot \tilde{K}_{t} + \frac{1-\beta \cdot (1-\delta)}{\alpha \cdot \beta} \cdot \tilde{A}_{t}.
+  \end{split}
+\end{equation}
+
+\subsection{状态——空间表现形式}
+\label{sec:simple-state-space-form}
+一阶差分式\eqref{eq:simple-steady-state-tech-shock}、\eqref{eq:simple-steady-state-euler}、\eqref{eq:simple-steady-state-budget}共同描述这样一个动态的经济系统$\{ C_t, K_t, A_t\}_{t=0}^{\infty}$。可以将其改写为如下状态——空间表现形式(state-space representation)
+\begin{equation}
+  \label{eq:simple-state-space-rep}
+\begin{bmatrix}
+  1 & 0 & 0\\
+  0 & 1 & 0\\
+  0 & 0 & \sigma
+\end{bmatrix}
+E
+\begin{bmatrix}
+  \tilde{A}_{t+1} \\
+  \tilde{K}_{t+1} \\
+  \tilde{C}_{t+1}
+\end{bmatrix} =
+\begin{bmatrix}
+  \rho & 0 & 0 \\
+  \frac{1-\beta \cdot (1-\delta)}{\alpha \cdot \beta} &
+  \frac{1}{\beta} &
+  -\frac{1-\beta \cdot \left[1-\delta \cdot (1-\alpha) \right]}{\alpha \cdot \beta} \\
+  \rho \cdot \left[1 - \beta \cdot (1-\delta)\right] &
+  -\left( 1-\alpha \right) \cdot \left[1 - \beta \cdot (1-\delta)\right] &
+  \sigma
+\end{bmatrix}
+\begin{bmatrix}
+  \tilde{A}_{t} \\
+  \tilde{K}_{t} \\
+  \tilde{C}_{t}
+\end{bmatrix}.
+\end{equation}
+
+\section{特征值——特征方程分解法}
+\label{sec:simple-BK-algorihtm}
+
+\subsection{特征值——特征方程分解法}
+根据Blanchard-Kahn算法，要将经济系统中的$p+m+k$个变量分类。一类是$k$个外生变量$z_t$。一类是内生变量$x_t$。内生变量再分为$m$个控制变量(跳跃变量)$x_t^j$和$p$状态变量(前定变量)$x_t^s$。\eqref{eq:simple-state-space-rep}可以改写为
+\begin{equation}
+  \label{eq:simple-KBA-tau}
+  \mathcal{T}_0 E x_{t+1} = \mathcal{T}_1 x_t + \Psi z_t, \quad x_t \equiv \left[x_t^s \quad x_t^j \right]'.
+\end{equation}
+
+假定系数矩阵$\mathcal{T}_0$是可逆的，上式进一步调整为
+\begin{align}
+  \label{eq:simple-BKA-matrix-AB}
+%  \begin{split}
+    &E x_{t+1} = A x_{t} + B z_t, \quad \text{其中}
+    A \equiv \mathcal{T}_0^{-1} \mathcal{T}_1, \quad B \equiv \mathcal{T}_{0}^{-1} \Psi, \quad \text{或者} \nonumber \\
+    & E \begin{bmatrix}
+    \underset{p \times 1}{x_{t+1}^s} \\
+    \underset{m \times 1}{x_{t+1}^j}
+  \end{bmatrix} = \begin{bmatrix}
+  \underset{p \times p}{A_{11}} &
+  \underset{p \times m}{A_{12}} \\
+  \underset{m \times p}{A_{21}} &
+  \underset{m \times m}{A_{22}}
+  \end{bmatrix}
+  \begin{bmatrix}
+  \underset{p \times 1}{x_{t}^s} \\
+  \underset{m \times 1}{x_{t}^j}
+\end{bmatrix}
++ \begin{bmatrix}
+\underset{p \times k}{B_{1}} \\
+\underset{m \times k}{B_{2}}
+\end{bmatrix}
+\underset{k \times 1}{z_t}
+%  \end{split}
+\end{align}
+
+Blanchard-Kahn算法的核心就在于，对系数矩阵$A$做Jordan decomposition。对于可对角化(diagonalizable)的系数矩阵$A$，假定其特征向量是序列不相关的\footnote{对于n个长度为m的向量之间线性不相关，是指对于由这n个向量构成的$mxn$矩阵$X$来说，$det(x) \neq 0$。}，我们有$A P = P \Lambda$，改写为Jordan canonical form
+\begin{equation}
+  \label{simple-BKA-jordan}
+    A = P \Lambda P^{-1},
+\end{equation}
+其中$\Lambda$是对角矩阵，对角元素对应特征根$\Lambda_{ii} = \lambda_i$，其他元素均为$0$。$P$的每一列为对应$\lambda_i$的特征向量。我们用$\bar{p}$和$\bar{m}$来表示用稳定和不稳定特征根来为矩阵分块的情况，后面会简要探讨当$\bar{p} \neq p, \bar{m} \neq m$时可能会出现的问题，见第\ref{sec:simple-BKA-exist-unique}节。
+
+根据Blanchard-Kahn条件，不稳定特征根(即$|\lambda|>1$)的数量应该恰好等于经济系统中控制变量的数量，以确保相图中鞍点稳定性的存在。如果不稳定特征根的数量少于控制变量的数量，经济系统超稳定，出现未定问题(indeterminacy)\footnote{对未定经济系统问题的探讨，可见如\cite{Benhabib1999}。}。如果多于，经济系统爆炸性发展，会违反横截条件。一个较为详细的讨论见第\ref{sec:simple-BKA-exist-unique}节。
+
+在本章的动态Ramsey经济模型中，内生变量是二维的，由一个控制变量和一个前定状态变量构成。因此需要恰好有一个不稳定特征根和一个稳定特征根。
+
+将特征矩阵做进一步的分解，根据特征根绝对值从低到高做重新排列(相应地，需要调整特征矩阵的列)
+\begin{equation*}
+%  \label{simple-BKA-eigenvalue-decomp}
+  \Lambda = \begin{bmatrix}
+  \underset{\bar{p} \times \bar{p}}{\Lambda_{s}} & \underset{\bar{p} \times \bar{m}}{0} \\
+  \underset{\bar{m} \times \bar{p}}{0} & \underset{\bar{m} \times \bar{m}}{\Lambda_{e}}
+\end{bmatrix}, \quad P = \begin{bmatrix}
+P_{11} & P_{12} \\
+P_{21} & P_{22}
+\end{bmatrix}.
+\end{equation*}
+其中对角矩阵$\Lambda_s$($\Lambda_e$)的对角元素是绝对值小于(大于)$1$的特征根。系统\eqref{eq:simple-BKA-matrix-AB}由此改写为
+\begin{equation}
+  \label{eq:simple-BKA-matrix-wz}
+  E w_{t+1} = \Lambda w_{t} + \bar{B} z_t, \quad \text{其中} w_t \equiv P^{-1}x_t, \bar{B} \equiv P^{-1} B.
+\end{equation}
+
+对应地我们有
+\begin{equation*}
+  w_t = \begin{bmatrix}
+  \underset{\bar{p} \times 1}{w_{1,t}} \\
+  \underset{\bar{m} \times 1}{w_{2,t}}
+\end{bmatrix}, \quad \bar{B} = \begin{bmatrix}
+  \underset{\bar{p} \times \bar{k}}{\bar{B}_{1}}\\
+  \underset{\bar{m} \times {k}}{\bar{B}_{2}}
+\end{bmatrix}.
+\end{equation*}
+
+
+根据上述分析，由\eqref{eq:simple-BKA-matrix-wz}我们有
+\begin{subequations}
+  \begin{align}
+    \label{eq:simple-BKA-wsz}
+    E w_{1,t+1} &= \Lambda_s w_{1,t} + \bar{B}_1 z_t, \\
+    E w_{2,t+1} &= \Lambda_e w_{2,t} + \bar{B}_{2} z_t.
+    \label{simple-BKA-wez}
+  \end{align}
+\end{subequations}
+
+根据模型设定，\eqref{eq:simple-BKA-wsz}总是稳定的，因为$\Lambda_s$的对角元素由绝对值小于1的特征根构成。\eqref{simple-BKA-wez}是爆炸的，因为$\Lambda_e$的对角元素由绝对值大于1的特征根构成。因此我们先来考察\eqref{simple-BKA-wez}成立需要满足的条件。
+
+%\eqref{simple-BKA-wez}成立的条件只能是$w_{2,t} = 0$。下面
+我们对$w_{2,t}$做forward-looking迭代，求解等式。
+%\subsubsection{Forward-looking迭代}
+\eqref{simple-BKA-wez}意味着
+  \begin{align*}
+    w_{2,t} &= (\Lambda_e)^{-1} E w_{2,t+1} - \bar{B}_{2} z_t, \\
+    w_{2,t+1} &= (\Lambda_e)^{-1} E w_{2,t+2} - \bar{B}_{2} z_{t+1},\\
+    &\vdots \\
+    w_{2,t+T} &= (\Lambda_e)^{-1} E w_{2,t+T} - \bar{B}_{2} z_{t+T}.
+  \end{align*}
+
+根据forward-looking迭代我们有
+\begin{equation}
+  w_{2,t} = \lim_{T \rightarrow \infty} \Lambda_e^{-T} E (w_{2,t+T}) - \sum_{s=0}^{T} \Lambda_{e}^{-s-1} \bar{B}_2 E(z_{t+s}).
+\end{equation}
+
+由于$\Lambda_{e}$中所有对角元素绝对值都大于$1$，对于$T \rightarrow \infty$可得$\Lambda_{e}^{T} \rightarrow 0$，因此改写上式，$w_{2,t}$的值可以计算如下
+\begin{equation}
+  \label{eq:simple-BKA-forward-looking-iteration-w}
+    w_{2,t} = - \sum_{s=0}^{T} \Lambda_{e}^{-s-1} \bar{B}_2 E(z_{t+s}).
+\end{equation}
+
+回到反映$w_t$和$x_t$关系的\eqref{eq:simple-BKA-matrix-wz}中，根据定义
+\begin{equation*}
+  x_t \equiv P w_t  \Rightarrow \begin{bmatrix}
+  \underset{\bar{p} \times 1}{x_{1,t}} \\
+  \underset{\bar{m} \times 1}{x_{2,t}}
+\end{bmatrix} = \begin{bmatrix}
+  P_{11} & P_{12} \\
+  P_{21} & P_{22}
+\end{bmatrix} \begin{bmatrix}
+\underset{\bar{p} \times 1}{w_{1,t}} \\
+\underset{\bar{m} \times 1}{w_{2,t}}
+\end{bmatrix},
+\end{equation*}
+等价于
+\begin{subequations}
+\begin{align}
+  \label{eq:simple-BKA-xwp-1}
+  x_{1,t} &= P_{11} w_{1,t} + P_{12} w_{2,t}, \\
+  \label{eq:simple-BKA-xwp-2}
+  x_{2,t} &= P_{21} w_{1,t} + p_{22} w_{2,t}.
+\end{align}
+\end{subequations}
+
+如果假定$\bar{p}=p, \bar{m}=m$，即系统中控制变量的数量等于不稳定特征根的数量，并且假定$P_{11}$是可逆分块矩阵，则$x_{1,t}=x_t^s, x_{2,t}=x_t^j$，对于二者不相等的情况，见第\ref{sec:simple-BKA-exist-unique}节。对于最终形成Blanchard-Kahn算法的求解思路：
+\begin{enumerate}
+\item 从初始状态$t=0$出发，对应给定的$x_{t=0}^s$。
+\item 结合生成的$z_t$，根据\eqref{eq:simple-BKA-forward-looking-iteration-w}计算$w_{2,t}$：
+\begin{equation*}
+  w_{2,t} = - \sum_{s=0}^{T} \Lambda_{e}^{-s-1} \bar{B}_2 E(z_{t+s}).
+\end{equation*}
+
+\item 根据\eqref{eq:simple-BKA-xwp-1}得到$w_{1,t}$的值：
+\begin{equation*}
+  w_{1,t} = P_{11}^{-1} x_{t}^s - P_{11}^{-1} P_{12} w_{2,t},
+\end{equation*}
+其中前定变量$x_t^s$由上一期的状态求得。
+
+\item 根据\eqref{eq:simple-BKA-xwp-2}得到控制变量$x_{t}^j$的值，又称政策方程：
+\begin{equation*}
+  x_t^j = P_{21} w_{1,t} + P_{22} w_{2,t}.
+\end{equation*}
+
+\item 根据 \eqref{eq:simple-BKA-matrix-AB}得到$t+1$期状态变量的期望值$x_{t+1}^s$：
+\begin{equation*}
+  E x_{t+1}^s = A_{11} x_{t}^s + A_{12} x_{t}^j + B_1 z_t,
+\end{equation*}
+
+\item 重复以上步骤。
+\end{enumerate}
+
+\subsection{解的存在性以及唯一性}
+\label{sec:simple-BKA-exist-unique}
+如前文所述，当$p=\bar{p},m=\bar{m}$时，控制变量（状态变量）的数量等于爆炸（稳定）特征根的数量，此时系统均衡解存在且唯一。
+
+但当$m<\bar{m}$时，$p>\bar{p}$，情况有所不同。我们仍然可以根据\eqref{eq:simple-BKA-xwp-1}得到$w_{1,t}$的值，尽管$w_{1,t}$的值不唯一。但在根据\eqref{eq:simple-BKA-xwp-2}测算$x_{t}^j$时，会受到较大限制，比如在$t=0$时：
+\begin{equation*}
+x_{2,t_0} = P_{21} w_{1,t_0} + p_{22} w_{2,t_0},
+\end{equation*}
+此时，$x_{2,t_0}$的$\bar{m}$行中，最上面的$\bar{m} - m \equiv p - \bar{p}$行是状态变量，因此是提前给定的。这意味着我们没有足够数量的前定（状态）变量用于求解方程。换句话说，对整个经济系统而言，当跳跃变量的数量少于爆炸特征根时，系统的均衡解不存在。
+
+当$m>\bar{m}$时，$p<\bar{p}$，在$t=0$时\eqref{eq:simple-BKA-xwp-1}变为
+\begin{equation*}
+  w_{1,t_0}=P_{11}^{-1}x_{1,t_0}-P_{11}^{-1}P_{12}w_{2,t_0},
+\end{equation*}
+$x_{1,t_0}$的$\bar{p}$行中，最下面的$\bar{p}-p \equiv m - \bar{m}$行是跳跃变量，这会导致解出的$w_{1,t}$并不唯一。这意味着我们可以随意选择这$\bar{p}-p$行跳跃变量的初始值。换句话说，对整个经济系统而言，当跳跃变量的数量多于爆炸特征根时，系统可能存在无数个均衡解。
+
+\subsection{应用Blanchard-Kahn算法实例}
+以随机Ramsey增长模型\eqref{eq:simple-state-space-rep}为例，$z_t \equiv \tilde{A}_t, x_t^j \equiv \tilde{C}_t, x_t^s \equiv \tilde{K}_t$，
+\begin{equation*}
+\begin{bmatrix}
+  1 & 0 \\
+  (1-\alpha) \cdot [1-\beta \cdot (1-\delta)] & \sigma
+\end{bmatrix}
+E
+\begin{bmatrix}
+  \tilde{K}_{t+1} \\
+  \tilde{C}_{t+1}
+\end{bmatrix}
+= \begin{bmatrix}
+\frac{1}{\beta} & -\frac{1-\beta \cdot \left[1-\delta \cdot (1-\alpha) \right]}{\alpha \cdot \beta} \\
+0 & \sigma
+\end{bmatrix}
+\begin{bmatrix}
+  \tilde{K}_{t} \\
+  \tilde{C}_{t}
+\end{bmatrix} +
+\begin{bmatrix}
+  \frac{1-\beta \cdot (1-\delta)}{\alpha \cdot \beta} \\
+  \rho \cdot \left[ 1-\beta \cdot (1-\delta) \right]
+\end{bmatrix}
+\tilde{A}_t。
+\end{equation*}
+
+在Matlab中，首先定义系数$\beta, \alpha, \sigma, \delta, \rho$的值。
+\begin{lstlisting}[language=matlab,frame=single]
+  clear;
+
+  %参数设定
+  beta = 0.9;
+  alpha = 0.75;
+  sigma = 1;
+  delta = 0.3;
+  rho = 0.95;
+
+\end{lstlisting}
+
+进而计算稳定状态。
+\begin{lstlisting}[language=matlab,frame=single]
+  %稳态值
+  kbar = ((1-(1-delta)*beta)/(alpha * beta))^(1/(alpha - 1));
+  cbar = kbar^alpha - delta * kbar;
+  ybar = kbar^alpha;
+\end{lstlisting}
+根据测算结果，$\bar{K}=11.0766, \bar{C} = 2.7486, \bar{Y} = 6.0716$。
+
+输入矩阵$\mathcal{T}_0, \mathcal{T}_1, \mathcal{T}_2$：
+\begin{lstlisting}[language=matlab, frame=single]
+  %定义矩阵T0,T1,PSI
+  Tau0=zeros(2,2);
+  Tau1=zeros(2,2);
+  Psi=zeros(2,1);
+  Tau0(1,1)=1;
+  Tau0(1,2)=0;
+  Tau0(2,1)=(1-alpha) * (1-beta * (1-delta));
+  Tau0(2,2)=sigma;
+  Tau1(1,1)=1/beta;
+  Tau1(1,2)=-(1-beta * (1-delta * (1-alpha)))/(alpha * beta);
+  Tau1(2,1)=0;
+  Tau1(2,2)=sigma;
+  Psi(1,1)=(1-beta * (1-delta))/(alpha * beta);
+  Psi(2,1)=rho * (1-beta * (1-delta));
+\end{lstlisting}
+Matlab测算出的矩阵值如下：
+\begin{equation*}
+  \mathcal{T}_0 = \begin{bmatrix}
+  1.0000 &       0.0000 \\
+  0.0925 &  1.0000
+  \end{bmatrix},\quad
+  \mathcal{T}_1=\begin{bmatrix}
+  1.1111&   -0.2481 \\
+  0.0000&    1.0000
+  \end{bmatrix}, \quad
+  \Psi = \begin{bmatrix}
+  0.5481 \\
+  0.3515
+  \end{bmatrix}.
+\end{equation*}
+
+计算$A$和$B$：
+\begin{lstlisting}[language=matlab, frame=single]
+  %计算矩阵A,B
+  A=zeros(2,2);
+  B=zeros(2,2);
+  A = inv(Tau0) * Tau1;
+  B = inv(Tau0) * Psi;
+\end{lstlisting}
+测算结果：
+\begin{equation*}
+  A=\begin{bmatrix}
+  1.1111 &  -0.2481 \\
+  -0.1028 &   1.0230
+\end{bmatrix}, \quad B = \begin{bmatrix}
+0.5481 \\
+   0.3008
+\end{bmatrix}.
+\end{equation*}
+
+测算$A$的特征值和特征向量：
+\begin{lstlisting}[language=matlab, frame=single]
+%对A做Jordan decomposition，
+%分解为特征值和特征向量
+%对A做Jordan decomposition，
+%分解为特征值和特征向量
+[VE, Lambda] = eig(A); %MU储存特征值
+P=inv(VE); %P储存normalized特征向量
+\end{lstlisting}
+特征值和特征向量如下：
+\begin{equation*}
+  P=\begin{bmatrix}
+    0.7049&   -0.8340 \\
+    0.4805&    0.9806
+  \end{bmatrix}, \quad \Lambda = \begin{bmatrix}
+  1.2327    &     0 \\
+     0    & 0.9014
+  \end{bmatrix},
+\end{equation*}
+不难看出，$\lambda_{i},i=(1,2)$分别是不稳定和稳定的特征根，满足Blanchard-Kahn条件，系统是鞍点稳定的。
+
+将特征根矩阵沿着对角线元素（特征根）从低到高的顺序排列。
+
+\todo{to be finished...}
+
+
+\section{未定系数法}
+\label{sec:simple-christiano-undetermined-coefficients}
+根据\cite{Christiano:2002uk}，假定经济模型以这样的状态——空间形式表现
+
+\begin{equation}
+  \label{eq:simple-christiano-state-space}
+  \begin{split}
+    &\alpha_0 E x_{t+1} + \alpha_1 \cdot x_t + \alpha_2 \cdot x_{t-1} + \beta \cdot z_t = 0, \quad t \ge 0, \\
+    &z_t = R \cdot z_{t-1} + \varepsilon_t,
+  \end{split}
+\end{equation}
+其中
+\begin{itemize}
+  \item $\underset{n \times n}{x_{t}} \Rightarrow$ 在$t$时间决定的内生变量向量，$x_{-1}$是提前给定的。
+  \item $\underset{k \times 1}{z_t} \Rightarrow$ 外生技术冲击变量的向量，满足$\varepsilon_{t} \sim i.i.d.(0,\Sigma)$。
+  \item 系数矩阵$\underset{n \times n}{\alpha_0}, \underset{n \times n}{\alpha_1}, \underset{n \times n}{\alpha_2}, \underset{n \times k}{\beta}, \underset{k \times k}{R}$。
+\end{itemize}
+
+与第\ref{sec:simple-BK-algorihtm}节的Blanchard-Kahn法相比，未定系数法不再将内生变量做状态变量和跳跃变量的区分。好处是让算法（看起来）简化，但这种简化有一定的额外成本：需要预设全部状态变量的初始值$x_{t=0}$（与之相比，Blanchard-Kahn算法则只需要$x_{t=0}^s$）：如果初始时间的经济系统恰好完全处于稳定状态，这是没问题的；否则便只能针对每一个均衡方程，分别设定其对应变量的初始条件。
+
+\eqref{eq:simple-christiano-state-space}描述了这样一个经济系统，系统解表现为一个反馈机制：当前内生向量$x_t$与上期$x_{t-1}$和当期外生冲击$z_t$线性相关，因此假定下式
+\begin{equation}
+  \label{eq:simple-christiano-state-space-AB}
+  x_t = \underset{n \times n}{A} \cdot x_{t-1} + \underset{n \times k}{B} \cdot z_{t},
+\end{equation}
+在静态均衡条件下我们有$z_{t} \equiv 0 \quad \forall t$，这要求系数矩阵$A$的所有特征值绝对值都小于$1$\footnote{回忆一下Blanchard-Kahn算法中将内生变量分为状态和跳跃两部分；对应相同数量的系数矩阵稳定根和不稳定根。未定系数法中所有内生变量$x_t$都是在$t$期决定的，这使得我们不再有多余的自由度用于处理不稳定根。}。现在目标变成了，对于给定的初始值$x_{-1}$，找到系数矩阵$A,B$，使  \eqref{eq:simple-christiano-state-space-AB}与\eqref{eq:simple-christiano-state-space}一致。
+
+\subsection{模型范例}
+第\ref{sec:simple-sto-grow-model}节经济系统可改写为\eqref{eq:simple-christiano-state-space}形式，其中
+\begin{equation}
+  \begin{split}
+    &x_t = \begin{bmatrix}
+    \tilde{K}_{t+1} \\ \tilde{C}_{t+1}
+    \end{bmatrix}, \quad z_t = \tilde{A}_t, \quad R = \rho, \\
+    &\alpha_0 = \begin{bmatrix}
+    0 & 0 \\ 0 & \sigma
+    \end{bmatrix},
+    \quad \alpha_1 = \begin{bmatrix}
+    -1 & -\frac{1-\beta \cdot \left[ 1-\delta \cdot (1-\alpha) \right]}{\alpha \cdot \beta} \\
+    -(1-\alpha) \cdot \left[1-\beta \cdot (1-\delta)\right] & \delta
+  \end{bmatrix}, \quad \alpha_2 = \begin{bmatrix}
+  \frac{1}{\beta} & 0 \\
+  0 & 0
+\end{bmatrix}, \beta = \begin{bmatrix}
+\frac{1-\beta \cdot (1-\delta)}{\alpha \cdot \beta} \\
+\rho \cdot \left[ 1 - \beta \cdot (1-\delta) \right]
+\end{bmatrix}.
+  \end{split}
+\end{equation}
+
+\subsection{未定系数法求解}
+由\eqref{eq:simple-christiano-state-space-AB}得
+\begin{equation*}
+  \begin{split}
+    x_{t+1} &= A  x_t
+ + R  B z_t  = A (A x_{t-1} + B z_t ) + R B z_t = A^2 x_{t-1} + B(R+A) z_t.
+\end{split}
+\end{equation*}
+
+带回\eqref{eq:simple-christiano-state-space-AB}，用$x_{t-1}$替代$x_{t+1}$和$x_t$
+\begin{equation}
+  \label{eq:simple-christiano-mixed-state-space}
+  \underbrace{\left(\alpha_0 A^2 + \alpha_1 A + \alpha_2 \right)}_{\equiv \mathcal{A}} x_{t-1} + \underbrace{\left[\alpha_0 B (R + A) + \alpha_1 B + \beta \right]}_{\equiv \mathcal{B}} z_t = 0.
+\end{equation}
+
+Deterministic状态下，$E z_t = 0, \forall t$。  \eqref{eq:simple-christiano-mixed-state-space}成立需要满足$x_{t-1} = 0$或$\mathcal{A} = 0$。在现实经济世界中，$x_{t-1}=0$并无研究必要，因此需要满足$\mathcal{A} = 0$。换句话说，可以通过下式求得未定系数$A$的值
+\begin{equation}
+  \label{eq:simple-christiano-matrix-A}
+  \alpha_0 A^2 + \alpha_1 \cdot A + \alpha_2 = 0.
+\end{equation}
+
+在stochastic状态下，\eqref{eq:simple-christiano-mixed-state-space}成立还需要$\mathcal{B} = 0$。因此基于得到的$A$值，可通过下式求得$B$
+\begin{equation}
+  \label{eq:simple-christiano-matrix-B}
+  \alpha_0 B (R + A) + \alpha_1 B + \beta = 0.
+\end{equation}
+
+因此，问题的关键就成了如何通过二项式\eqref{eq:simple-christiano-matrix-A}求解$A$。或者更进一步：
+\begin{enumerate}
+  \item 存在性：是否存在$A$的解，以及如果存在的话，有几个，见第\ref{sec:simple-christiano-A-solution}节。
+  \item 唯一性：如果存在多个解，哪一个满足静态均衡约束条件，即全部特征值的绝对值均$<1$，见第\ref{sec:simple-christiano-A-solution-discussion}节。
+\end{enumerate}
+
+\subsection{求解系数矩阵A, B}
+\label{sec:simple-christiano-A-solution}
+\subsubsection{求解系数矩阵A}
+将deterministic状态下的\eqref{eq:simple-christiano-state-space}改写为如下AR(1)过程。已知
+\begin{equation*}
+  \begin{split}
+    &\alpha_0 x_{t+1} + \alpha_1 x_t + \alpha_2 x_{t-1}=0, \\
+    &x_t - x_t=0,
+  \end{split}
+\end{equation*}
+改写为矩阵形式
+\begin{equation}
+  \label{eq:simple-christiano-a-Y}
+\begin{split}
+  &\mathcal{T}_0 Y_{t+1} + \mathcal{T}_1 Y_t  = 0, \quad \forall t\ge 0, \\
+  & \underset{2n \times n}{Y_t} \equiv \begin{bmatrix}
+  x_t \\ x_{t-1}
+  \end{bmatrix},  \quad \mathcal{T}_0 = \begin{bmatrix}
+  \alpha_0 & 0_{n \times n}\\
+  0_{n \times n} & I_n
+\end{bmatrix}, \quad \mathcal{T}_1 = \begin{bmatrix}
+\alpha_1 & \alpha_2 \\
+-I_{n} & 0_{n \times n}
+\end{bmatrix},
+\end{split}
+\end{equation}
+其中值得注意的是，$Y_0$由$n$个初始状态$x_{-1}$所决定。
+
+做两个假定。首先假定$\mathcal{T}_0$可逆，因此$\alpha_0$也是可逆矩阵，由此\eqref{eq:simple-christiano-a-Y}改写为
+\begin{equation}
+  \label{eq:simple-christiano-Y-tau0}
+  {Y_{t+1}} = - \mathcal{T}_{0} \mathcal{T}_1 Y_t,
+\end{equation}
+其次，假定$\left( - \mathcal{T}_{0} \mathcal{T}_1 \right)$有$2n$个线性不相关的特征向量。
+
+基于这两个假定，我们可以采取特征值——特征向量分解方法：
+\begin{equation}
+  \label{eq:simple-christiano-tau0-tau1}
+  \underset{2n \times 2n}{- \mathcal{T}_{0} \mathcal{T}_1} = \underset{(2n \times 2n)}{P} \underset{(2n \times 2n)}{\Lambda} \underset{(2n \times 2n)}{P^{-1}},
+\end{equation}
+其中对角矩阵$\Lambda$的对角元素为$- \mathcal{T}_{0} \mathcal{T}_1$的特征值，$P$是对应的特征向量。
+
+假设$- \mathcal{T}_{0} \mathcal{T}_1$有$\bar{n}$个稳定特征值，构成分块对角矩阵$\Lambda_s$，余下的$2n - \bar{n}$个不稳定特征值构成分块对角矩阵$\Lambda_e$。重新排列$\Lambda$：
+\begin{equation*}
+  \underset{2n \times 2n}{\Lambda} = \begin{bmatrix}
+  \underset{\bar{n} \times \bar{n}}{\Lambda_s} &
+  \underset{\bar{n} \times (2n-\bar{n})}{0} \\
+  \underset{(2n - \bar{n}) \times \bar{n}}{0} &
+  \underset{(2n-\bar{n}) \times (2n-\bar{n})}{\Lambda{e}}
+  \end{bmatrix}.
+\end{equation*}
+
+对于\eqref{eq:simple-christiano-Y-tau0}- \eqref{eq:simple-christiano-tau0-tau1}，定义$W_{t} \equiv P^{-1} Y_t$，我们有
+\begin{equation}
+  \label{eq:simple-christiano-W-Lambda}
+  P^{-1} Y_t = \Lambda P^{-1} Y_{t-1} \Leftrightarrow W_{t} = \Lambda W_{t-1}.
+\end{equation}
+对\eqref{eq:simple-christiano-W-Lambda}做backward-looking迭代
+\begin{equation}
+\label{eq:simple-christiano-W-Lambda-s-e}
+\begin{split}
+    \underset{2n \times n}{W_t} &= \Lambda W_{t-1} = \Lambda (\Lambda W_{t-2}) = ... = \Lambda^t W_{t_0} \\
+    &= \begin{bmatrix}
+    \Lambda_s^t & 0\\
+    0 & \Lambda_e^t
+    \end{bmatrix} W_{t_0} = \begin{bmatrix}
+    \underset{\bar{n} \times \bar{n}}{\Lambda_s^t} & 0\\
+    0 & \underset{(2n-\bar{n}) \times (2n-\bar{n})}{\Lambda_e^t}
+    \end{bmatrix} \begin{bmatrix}
+    \underset{\bar{n} \times n}{W_{1,t_0}} \\
+    \underset{(2n-\bar{n}) \times n}{W_{2, t_0}}
+    \end{bmatrix}.
+\end{split}
+\end{equation}
+
+根据定义，$\{{x_t}\}_{t=0}^{\infty}$是平稳过程 $\Rightarrow$ $Y_t$是$x_t$的线性方程，$\{{Y_t}\}_{t=0}^{\infty}$是平稳过程 $\Rightarrow$ $W_t$是$Y_t$的线性方程，$\{{W_t}\}_{t=0}^{\infty}$是平稳过程。由于$\lim_{t \rightarrow \infty} \Lambda_s^t \approx 0$，$W_t$的前$\bar{n}$行一定是平稳的，初始$W_{1,t_0}$可以取任意值；由于$\lim_{t \rightarrow \infty} \Lambda_s^t \approx \infty$，$W_t$的后$2n - \bar{n}$行是不平稳的，式\eqref{eq:simple-christiano-W-Lambda-s-e}成立便要求初始$W_{2,t_0} = 0$。
+
+如果假定$\bar{n} \equiv n$，即\eqref{eq:simple-christiano-a-Y}中系数矩阵的稳定特征值的数量等于经济系统\eqref{eq:simple-christiano-state-space}中内生变量的数量(对于$\bar{n} \neq n$情况的讨论见第\ref{sec:simple-christiano-A-solution-discussion}节。)，我们有
+\begin{equation*}
+  \begin{bmatrix}
+    \underset{n \times n}{W_{1,t_0}} \\
+    \underset{n \times n}{W_{2,t_0}}
+  \end{bmatrix} = \begin{bmatrix}
+  \underset{n \times n}{\left(P^{-1}\right)_{11}} &
+  \underset{n \times n}{\left(P^{-1}\right)_{12}} \\
+  \underset{n \times n}{\left(P^{-1}\right)_{21}} &
+  \underset{n \times n}{\left(P^{-1}\right)_{22}}
+  \end{bmatrix} \begin{bmatrix}
+    \underset{n \times n}{x_0} \\
+    \underset{n \times n}{x_{-1}}
+  \end{bmatrix},
+\end{equation*}
+其中要求$W_{2,t_0} = 0$，即
+\begin{equation*}
+  \left(P^{-1}\right)_{21} x_0 + \left(P^{-1}\right)_{22} x_{-1} = 0.
+\end{equation*}
+对于可逆矩阵$\left(P^{-1}\right)_{21}$，上式改写为
+\begin{equation}
+  \label{eq:simple-christiano-x0-x1}
+x_0 = - \left( \left(P^{-1}\right)_{21} \right)^{-1} \left(P^{-1}\right)_{22} x_{-1},
+\end{equation}
+结合deterministic状态的\eqref{eq:simple-christiano-state-space-AB}与\eqref{eq:simple-christiano-x0-x1}，可得系数矩阵$A$
+\begin{equation}
+  \label{eq:simple-christiano-A-solution}
+  A=- \left( \left(P^{-1}\right)_{21} \right)^{-1} \left(P^{-1}\right)_{22}.
+\end{equation}
+
+\subsubsection{求解系数矩阵$B$}
+将求得的系数矩阵$A$代入\eqref{eq:simple-christiano-matrix-B}。对于$n \times k$的矩阵$B$和$\beta$，等式两侧向量化，我们有
+\begin{equation*}
+\begin{split}
+  0 &= \vect \left( \left( \alpha_0 A + \alpha_1 \right) B + \alpha_0 B R \right) + \vect (\beta) \\
+  &= \vect \left( \left( \alpha_0 A + \alpha_1 \right) B\right) + \vect \left( \alpha_0 B R \right)  + \vect(\beta) \\
+  &= \left[ I_{k} \otimes (\alpha_0 A + \alpha_1) \right] \vect(B) + \left( R^T \alpha_0 \right) \vect(B) + \vect(\beta) \\
+  &= \left[I_{k} \otimes (\alpha_0 A + \alpha_1) + R^T \alpha_0 \right] \vect (B) + \vect (\beta),
+\end{split}
+\end{equation*}
+其中$\vect$表示对矩阵向量化；$\otimes$表示Kronecker乘\footnote{对于矩阵$A \in \mathbb{R}^{k \times l}, B \in \mathbb{R}^{l \times m}, C \in \mathbb{R}^{m \times n}$，我们有矩阵向量化
+\begin{equation*}
+\vect(A) = \left[A_{1,1}, \ldots A{k,1}, A_{1,2}, \ldots A_{k,2}, \ldots A_{1,l}, \ldots A_{k,l}\right]^T,
+\end{equation*}
+以及以下向量化运算
+\begin{equation*}
+  \begin{split}
+    \vect(A+B) &= \vect(A) + \vect(B),\\
+    \vect(AB)&=\left( I_m \otimes A \right) \vect(B) = \left( B^T \otimes I_{k} \right) \vect(A), \\
+    \vect(ABC) &= \left(I_n \otimes AB \right) \vect(C) = \left(C^T \otimes A \right) \vect(B) = \left( C^T B^T \otimes I_k \right) \vect(A).
+  \end{split}
+\end{equation*}
+  }。进而我们有
+\begin{equation}
+  \label{eq:simple-christiano-B-solution}
+  \vect (B) = -\left[ I_k \otimes \left(\alpha_0 A + \alpha_1 \right)+ R' \otimes \alpha_0 \right]^{-1} \vect (\beta),
+\end{equation}
+
+
+\subsection{存在性及唯一性的探讨}
+\label{sec:simple-christiano-A-solution-discussion}
+如前文所述，$\bar{n} = n$时，经济系统存在唯一均衡解。我们需要做的是通过对初始状态$x_{t_0}$的选择，使得在$W_{t_0}=\left[\underset{\bar{n} \times n}{W_{1,t_0}^T}, \underset{\left(2n-\bar{n}\right) \times n}{W_{2,t_0}^T}\right]^T$当中(对应$W_{2,t_0}$的)后$2n-\bar{n}$行等于$0$。
+
+当$\bar{n} < n$时，$2n-\bar{n} > n$，我们需要使后$2n-\bar{n}$行等于0，但我们只有$n$个自由变量。此时均衡借不存在。
+
+当$\bar{n} > n$时，$2n-\bar{n} < n$，我们需要使后$2n-\bar{n}$行等于0，对应$n$个自由变量。这导致存在很多组$x_0$的值可以带来均衡，均衡解不唯一。
+
+
+\section{期望误差法}
+\label{sec:simple-sims-expectational-errors}
+根据\cite{Sims:2002jc}，假定经济模型以这样的状态——空间形式展现
+\begin{equation}
+  \label{eq:simple-sims-state-space}
+  \underset{(n \times n)}{\mathcal{T}_0} \underset{(n \times 1)}{x_t} = \underset{(n \times n)}{\mathcal{T}_{1}} x_{t-1} + \underset{(n \times k)}{\Psi} \underset{(k \times 1)}{u_t} + \underset{(n \times r)}{\Pi} \underset{(r \times 1)}{\eta_t}, \quad t \ge 0,
+\end{equation}
+其中
+\begin{itemize}
+  \item 向量$x_t$表示内生变量，对应系数矩阵$\mathcal{T}_0,\mathcal{T}_1$；$x_{-1}$是给定的。在期望误差法中，$x_t$包含一部分在$t$期对$t+1$期的期望值。
+  \item $u_t$表示外生随机冲击过程，假定$u_t \sim i.i.d. (0, \Sigma)$，对应系数矩阵$\Psi$，
+  \item $\eta_t = x_t - E_{t-1} x_t$是期望误差向量，反映$t$期实际状态$x_t$与$t-1$期对$t$期状态的期望的偏差，满足$E_t \eta_{t+1} = 0$，对应系数矩阵$\Pi$。
+\end{itemize}
+
+\subsection{模型范例}
+第\ref{sec:simple-sto-grow-model}节经济系统可改写为\eqref{eq:simple-sims-state-space}形式，其中
+\begin{equation}
+  \begin{split}
+    &x_{t} = \begin{bmatrix}
+    E_t \tilde{K}_{t+1} \\
+    \tilde{C}_t \\
+    E_t \tilde{C}_{t+1} \\
+    \tilde{A}_t
+  \end{bmatrix}, \quad u_t = \varepsilon_t, \quad \eta_t = \tilde{C}_t - E_{t-1} \tilde{C}_t, \\
+  & \mathcal{T}_0 = \begin{bmatrix}
+  1 & \frac{1-\beta \cdot \left[ 1-\delta \cdot \left( 1-\alpha \right) \right]}{\alpha \cdot \beta} & 0 & - \frac{1-\beta \cdot \left( 1-\delta \right)}{\alpha \cdot \beta} \\
+  \left( \alpha - 1 \right) \cdot \left[ 1-\beta \cdot \left( 1-\delta \right) \right] & \delta & -\delta & \rho \cdot \left[ 1-\beta \cdot \left( 1-\delta \right) \right] \\
+  0 & 0 & 0 & 1 \\
+  0 & 1 & 0 & 0
+ \end{bmatrix},\\
+ &\mathcal{T}_1 = \begin{bmatrix}
+ \frac{1}{\beta} & 0 & 0 & 0 \\
+ 0 & 0 & 0 & 0 \\
+ 0 & 0 & 0 & \rho \\
+ 0 & 0 & 1 & 0
+ \end{bmatrix}, \quad \Psi = \begin{bmatrix}
+ 0 \\ 0 \\ 1 \\ 0
+ \end{bmatrix}, \quad \Pi = \begin{bmatrix}
+ 0 \\ 0 \\ 0 \\ 1
+ \end{bmatrix}.
+  \end{split}
+\end{equation}
+
+\subsection{期望误差法求解}
+假定$\mathcal{T}_0$是可逆矩阵，\eqref{eq:simple-sims-state-space}可以改写为
+\begin{equation}
+  \label{eq:simple-sims-x-tau0-tau1}
+  \begin{split}
+    x_t &= \mathcal{T}_{0}^{-1} \mathcal{T}_1 x_{t-1} + \mathcal{T}_{0}^{-1} \left( \Psi u_t + \Pi \eta_t \right) \\
+    & =A x_{t-1} + \mathcal{T}_{0}^{-1} \left( \Psi u_t + \Pi \eta_t \right) , \\
+    &\text{其中 } \underset{n \times n}{A} \equiv \mathcal{T}_{0}^{-1} \mathcal{T}_{1}, x_0 \text{是给定的，并且} t \ge 1.
+  \end{split}
+\end{equation}
+
+进一步假定$A$的所有特征向量都是线性不相关的，由此我们可以对$A$做特征值——特征向量分解
+\begin{equation*}
+  A = \underset{n \times n}{P} {\Lambda} P^{-1},
+\end{equation*}
+代回\eqref{eq:simple-sims-x-tau0-tau1}，调整得
+\begin{equation}
+  \label{eq:simple-sims-w-A-Q}
+  \begin{split}
+  &P^{-1} x_{t} = P^{-1} \left( P \Lambda P^{-1} \right) x_{-1} + P^{-1} \mathcal{T}_{0}^{-1} \left( \Psi u_t + \Pi \eta_t \right), \text{进而}\\
+  &w_t = \Lambda w_{t-1} = Q \left( \Psi u_t + \Pi \eta_t \right), \text{其中} \\
+  &\underset{n \times n}{w_t} \equiv P^{-1} x_t, \quad \underset{n \times n}{Q} \equiv P^{-1} \mathcal{T}_0^{-1}.
+\end{split}
+\end{equation}
+
+类似地，将对角矩阵$\Lambda$按特征值从小到大顺序重新排列
+\begin{equation}
+  \label{eq:simple-sims-eigenvector-decomp}
+  \underset{n \times n}{\Lambda} = \begin{bmatrix}
+  \underset{\bar{n} \times \bar{n}}{\Lambda_s} & \underset{\bar{n} \times \left( n - \bar{n} \right)}{0} \\
+  \underset{\left( n - \bar{n} \right)  \times \bar{n}}{0} &  \underset{ \left( n - \bar{n} \right) \times \left( n - \bar{n}\right) }{\Lambda_e}
+  \end{bmatrix},
+\end{equation}
+其中$\Lambda_s$为绝对值小于1的特征值，设为$\bar{n} < n$个。
+
+根据\eqref{eq:simple-sims-eigenvector-decomp}，经济系统\eqref{eq:simple-sims-w-A-Q}可以改写为
+\begin{equation}
+  \label{eq:simple-sims-w}
+  \begin{bmatrix}
+    w_{1,t} \\
+    w_{2,t}
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    \underset{\bar{n} \times \bar{n}}{\Lambda_s} & \underset{\bar{n} \times \left( n - \bar{n} \right)}{0} \\
+    \underset{\left( n - \bar{n} \right)  \times \bar{n}}{0} &  \underset{ \left( n - \bar{n} \right) \times \left( n - \bar{n}\right) }{\Lambda_e}
+  \end{bmatrix}
+  \begin{bmatrix}
+    w_{1,t-1} \\
+    w_{2,t-1}
+  \end{bmatrix}
+  +
+  \begin{bmatrix}
+     Q_1 \\
+     Q_2
+  \end{bmatrix}
+  \left( \Psi u_t + \Pi \eta_t \right), \quad t \ge 1.
+\end{equation}
+
+上半部分为稳定分块，下半部分为不稳定分块。我们先从不稳定分块开始求解。
+
+\subsubsection{不稳定分块求解}
+提取不稳定分块
+\begin{equation*}
+  w_{2,t} = \Lambda_e w_{2,t-1} + Q_2 \left( \Psi u_t + \Pi \eta_t \right),
+\end{equation*}
+调整为前向形式
+\begin{equation}
+  \label{eq:simple-sims-w-foward-looking}
+  w_{2,t} = \Lambda_e^{-1} w_{2,t+1} - \Lambda_e^{-1} Q_2 \left( \Psi u_{t+1} + \Pi \eta_{t+1} \right),
+\end{equation}
+进一步调整为前向迭代形式
+\begin{equation}
+  \label{eq:simple-sims-w-foward-looking-iteration}
+  w_{2,t} = \underbrace{\lim_{T \rightarrow \infty} \Lambda_e^{-T} w_{2,t+1}}_{\mathcal{A}} - \underbrace{\sum_{s=1}^{T} \Lambda_e^{-s} Q_2 \left( \Psi u_{t+s} + \Pi \eta_{t+s} \right)}_{\mathcal{B}},
+\end{equation}
+其中等式右侧
+\begin{itemize}
+  \item $\mathcal{A} =0$。这是由于首先分块矩阵$\Lambda_{e}$对应的所有元素，即特征值的绝对值都大于$1$，$\Lambda_{e}^{\infty} \rightarrow 0$，其次静态均衡$E_{t} (w_{2,t+\infty})$是有界的。
+  \item $\mathcal{B} = 0$。这是由于首先$u_t$是个均值为0的随机过程，满足$E(u_t)=0$，其次在理性期望条件下，$\eta_t$的条件均值为0。
+\end{itemize}
+
+基于上述分析，我们有不稳定分块的值
+\begin{equation}
+  \label{eq:simple-sims-unstable-block-value}
+  w_{2,t} = 0.
+\end{equation}
+
+\subsubsection{稳定分块求解}
+提取稳定分块
+\begin{equation*}
+  \underset{\bar{n} \times n}{w_{1,t}} = \underset{\bar{n} \times \bar{n}}{\Lambda_s} w_{1,t-1} + \underset{\bar{n} \times n}{Q_1} \left( \underset{\left(\bar{n} \times k \right)}{\Psi} \underset{\left(k \times 1\right)}{u_{t}} + \underset{\left( n \times r \right)}{\Pi} \underset{\left(r \times 1 \right)}{\eta_{t}} \right).
+\end{equation*}
+
+为了得到$w_{1,t}$的值，我们首先需要替代期望误差$\eta_t$，随后求解稳定分块。
+
+\subsubsection{期望误差求解}
+假定$k=r$(对于$k \neq r$的讨论，见第\ref{sec:simple-sims-solution-exist-unique}节。)。基于\eqref{eq:simple-sims-w-foward-looking-iteration}-\eqref{eq:simple-sims-unstable-block-value}我们有
+\begin{equation}
+  \label{eq:simple-sims-x-solution-existence}
+  Q_2 \left( \Psi u_{t} + \Pi \eta_{t} \right) = 0,
+\end{equation}
+这意味着期望误差$\eta_t$随着同期外部冲击$u_t$的变化而反向变化，所谓``理性预期''。如果假定$Q_2 \Pi$是可逆矩阵，那么可以将$\eta_t$写为关于(并且只是关于)$u_t$的函数
+\begin{equation}
+  \label{eq:simple-sims-exo-disturbance-exp-errors}
+  \eta_t = -\left(Q_2 \Pi \right) ^{-1} Q_2 \Psi u_t.
+\end{equation}
+
+\subsubsection{稳定分块求解}
+$\eta_t$的决定式\eqref{eq:simple-sims-exo-disturbance-exp-errors}代回稳定分块决定式可得
+\begin{equation}
+  \label{eq:simple-sims-stable-block-value}
+  \begin{split}
+    w_{1,t} &= \Lambda_s w_{1,t-1} + Q_1 \left( \Psi u_{t} + \Pi \eta_{t} \right) \\
+    &= \Lambda_s w_{1,t-1} + Q_1 \left( \Psi - \Pi \left( Q_2 \Pi \right)^{-1} Q_2 \Psi \right) u_t.
+  \end{split}
+\end{equation}
+
+\subsubsection{内生变量向量$x_t$求解}
+联立两个分块$w_{1,t}, w_{2,t}$的解\eqref{eq:simple-sims-stable-block-value}与\eqref{eq:simple-sims-unstable-block-value}，经济系统\eqref{eq:simple-sims-w}可以进一步改写为
+\begin{equation*}
+  \begin{bmatrix}
+    w_{1,t} \\
+    w_{2,t}
+  \end{bmatrix} =
+  \begin{bmatrix}
+    \Lambda_s & 0 \\
+    0 & 0
+  \end{bmatrix}
+  \begin{bmatrix}
+    w_{1,t-1} \\
+    w_{2,t-1}
+  \end{bmatrix} +
+  \begin{bmatrix}
+    Q_1 \left( \Psi - \Pi \left( Q_2 \Pi \right)^{-1} Q_2 \Psi \right) \\
+    0
+  \end{bmatrix}
+  u_t.
+\end{equation*}
+
+根据定义式\eqref{eq:simple-sims-w-A-Q}用$x_t$替代上式中的$w_t$，可得$x_t$的解
+\begin{equation}
+\label{eq:simple-sims-x}
+  x_t = P
+  \begin{bmatrix}
+    \Lambda_s & 0 \\
+    0 & 0
+  \end{bmatrix} P^{-1} x_{t-1}
++ P
+  \begin{bmatrix}
+    Q_1 \left( \Psi - \Pi \left( Q_2 \Pi \right)^{-1} Q_2 \Psi \right) \\
+    0
+  \end{bmatrix}
+  u_t.
+\end{equation}
+
+\subsection{存在性及唯一性的探讨}
+\label{sec:simple-sims-solution-exist-unique}
+如前文所述，经济系统存在均衡解的条件由\eqref{eq:simple-sims-x-solution-existence}给出：根据该方程，期望误差$\eta_t$根据出现的外生冲击$u_t$而灵活调整。如果经济系统中对$\eta_t$的限定条件太多—— 导致$\eta_t$无法灵活调整，均衡解可能不存在。
+
+如果$r<k$，即对于$\eta_t$向$u_t$的调整存在过多的限定条件，这可能会使得系统解不存在。换句话说，经济系统有解的充分必要条件是：$r \ge k$，即$Q_2 \Psi$的列空间包含在$Q_2 \Pi$的列空间内。
+
+如果$r>k$，即对于$\eta_t$向$u_t$的调整存在过多的限定条件，这可能会使得存在多个$\eta_t$同时满足式\eqref{eq:simple-sims-exo-disturbance-exp-errors}，对应的只是唯一的$Q_2 \Pi \eta_t$，而非唯一的$\eta_t$。多重$\eta_t$值使得我们有多个$Q_1 \Pi \eta_t$，对应\eqref{eq:simple-sims-stable-block-value}中多个稳定分块矩阵$w_t$(进而$x_t$)的解。为了使系统存在唯一解，需要使$Q_1 \Pi$的行空间包含在$Q_2 \Pi$内，即存在这样一个矩阵$\Phi$满足$Q_1 \Pi = \Phi _2 \Pi$。
+
+
+\section{参数化期望法}
+\label{sec:simple-pea-algorithm}
+
+参数化期望法(PEA)最早由\cite{denHaan:1990bt}提出。PEA所依赖的渐进式趋同结果，由\cite{Marcet:1989do, Marcet:1994vw, Marcet:1999kj}等人所讨论。算法方面，\cite{denHaan:1994ej}提出精确度测试；\cite{Christiano:2000bw}等人讨论了网格算法。基于\cite{denHaan:1990bt}，本节介绍PEA算法的基本思路和一个简单范例。
+
+大多数动态经济学模型建立在一个或一组Euler方程的基础上。这个(些)Euler方程将一组当期变量和一组未来期变量的条件期望联系在一起，如
+\begin{equation}
+  \label{eq:simple-pea-simple}
+  f(x_t) = E_t h(x_{t+1}, u_{t+1}, z_t),
+\end{equation}
+其中$\{x_t, u_t, z_t\}$分别代表当前$t$期的内生变量，状态变量和随机扰动。$E_t$表示在当前$t$期，对未来时间期比如$t+1$状态的条件期望。对于经验模型来说，研究的重点在于选取合适的显函数形式来描述$f()$以及$h()$，对于非线性系统来说，难点在于如何对之作线性近似，以求得系统的解。
+
+一个常见的求解思路是后向求解法。简单来说，根据这个思路，如果\eqref{eq:simple-pea-simple}可以改写为
+\begin{equation*}
+  x_t = f^{-1} \left(E_{t} h(x_{t+1}, u_{t+1}, z_t)\right),
+\end{equation*}
+那么在我们知道了方程$f^{-1}$近似形式的情况下，一旦我们得到未来期的条件期望$E_{t} h(x_{t+1}, u_{t+1}, z_t)$，便可以后向求解当前期的$x_t$。换句话说，一旦我们知道了$x_{t+1}$的值，便可以后向求得$x_{t}$。
+
+与之相反，PEA法的求解思路是前向的，致力于用已知的$x_{t}$求解$x_{t+1}$：即便$E_{t} h(x_{t+1}, u_{t+1}, z_t)$是一个关于$x_{t+1}$的函数，可是从定义来看，它仍然是由经济个体在$t$时刻的决策$x_t$所决定的。因此，PEA用前向递归的方式，基于当前期已知信息，求解未来期的经济系统，将\eqref{eq:simple-pea-simple}改写为
+\begin{equation}
+  \label{eq:simple-pea-basic-thinking}
+  E_t h(x_{t+1}, u_{t+1}, z_t) = m(\beta, Z_{t}^{1})，
+\end{equation}
+其中$Z_t^1$是$t$期状态变量的集合。换句话说，PEA假定未来期的期望值是关于当前期已知信息集的函数，当前期已知信息集包括前定变量和当期冲击等。根据这一假定，对未来的期望得以``参数化''。
+
+PEA法成功与否的关键有两点：
+\begin{itemize}
+  \item 能提供多大的精确程度，基于当期信息集，用$m()$来近似参数化期望$E_t h()$。$\Rightarrow$ \cite{denHaan:1990bt}假定$m()$是多项式形式，多项式$m()$近似$E_t h()$的精确度？
+  \item 参数向量$\beta$的精确度。提高多项式的非线性程度有助于提升近似精读，然而进一步的精确度提升更离不开参数向量$\beta$的估计。
+\end{itemize}
+
+\subsection{参数化期望法示例}
+假定一个典型的随机增长模型，经济个体需要做效用最大化决策
+\begin{equation*}
+  \max_{c_t} E_t \sum_{t=0}^{\infty} \beta^{t} \frac{c_{t}^{1-\sigma}}{1-\sigma},
+\end{equation*}
+约束条件
+\begin{equation}
+  \label{eq:simple-pea-max-problem-budget-constraint}
+  c_t + k_t - \mu k_{t-1} = A_t k_{t-1}^{\alpha},
+\end{equation}
+其中
+\begin{equation*}
+  \ln A_{t+1} = \rho \ln A_t + \varepsilon_t
+\end{equation*}
+表示随机技术冲击，$\beta$表示时间贴现，$1-\mu$表示折旧率，$\sigma$表示风险规避系数。FOC $\Rightarrow$
+\begin{equation*}
+  MU_{c_t} = \beta E_t R_{t+1} MU_{c_{t+1}},
+\end{equation*}
+其中$MU_{c_t}$表示$t$期消费带来的边际效用。上式也可表示为如下Euler方程形式
+\begin{equation}
+  \label{simple-pea-euler-eq}
+  c_t^{-\sigma} = \beta E_t \left[c_{t+1}^{-\sigma} \left( \alpha A_{t+1} k_t^{\alpha -1} + \mu \right)\right].
+\end{equation}
+
+根据PEA法，将右侧的期望值改写为一个与$t$期状态变量有关的多项式方程$m()$，状态变量包括$t-1$期前定变量$k_{t-1}$和当期技术冲击$A_t$，上式因而改写为
+\begin{equation}
+  \label{eq:simple-pea-euler-consumption}
+  c_t^{-\sigma} = \beta m(k_{t-1}, A_t, \delta),
+\end{equation}
+对应系数变量$\delta$。
+
+假定多项式$m(\cdot)$以一阶显函数形式表现如下\footnote{也可以用更高阶显函数的形式设定$m()$，如\begin{equation*}
+m(k_{t-1}, A_t; \delta) = \delta_1 k_{t-1}^{\delta_2} A_t^{\delta_3} \left( k_{t-1} A_t \right)^{\delta_4} \left( k_{t-1}^{2} \right)^{\delta_t} \left( A_t^2 \right)^{\delta_6}.
+\end{equation*}}
+\begin{equation}
+  \label{eq:simple-pea-coeff-model}
+  m(k_{t-1}, A_t; \delta) = \delta_1 k_{t-1}^{\delta_2} A_t^{\delta_3},
+\end{equation}
+随后，为向量$\delta$赋一组初始值，基于初始值，PEA进行迭代，直到逼近``真实的''系数值位置。
+
+在给定以下三组信息
+\begin{itemize}
+  \item 初始资本存量$k_{t=0}$，
+  \item 在利用计算机生成的一组随机游走时间序列中挑选$A_{t=1}$，
+  \item 初始赋值$\delta_{1}, \delta_{2}, \delta_{3}$
+\end{itemize}
+之后，我们可以根据\eqref{eq:simple-pea-euler-consumption}求得$c_{t=1}$。下一步，利用预算约束式\eqref{eq:simple-pea-max-problem-budget-constraint}可生成$k_{t=1}$。自此我们有了经济系统在第1期$t=1$的全部信息$\{c_{t=1},k_{t=1},A_{t=1}\}$。
+
+对于$t=2$，重复上述过程
+\begin{itemize}
+  \item 在利用计算机生成的同一组随机游走时间序列中挑选$A_{t=2}$，
+  \item 根据\eqref{eq:simple-pea-euler-consumption}求得$c_{t=2}$，
+  \item 根据\eqref{eq:simple-pea-max-problem-budget-constraint}求得$k_{t=2}$，
+\end{itemize}
+以此类推，直到第$t=n$期。
+
+对于给定的$\{\delta\}$和技术冲击时间序列$A_t$，利用PEA方法生成的$\{k_t, c_t, y_t\}_{t=1}^{n}$，并不总是与Euler描述的经济个体期望相一致。个体基于当期信息对未来期作出期望，并采取行动如\eqref{eq:simple-pea-euler-consumption}以致力于实现这种期望，但实际导致的结果往往与当初的Euler方程期望\eqref{simple-pea-euler-eq}相悖。
+
+随后的工作就变为，选取``正确''的系数$\{\delta\}$，使得
+\begin{equation}
+  \label{simple-pea-parameter-criteria}
+  E_t \left[ c _{t+1}^{-\sigma} \left( \alpha A_{t+1} k_{t}^{\alpha} + u \right)\right] - \delta_1 k_{t-1}^{\delta_2} A_{t}^{\delta_3} = \nu_t \approx 0,
+\end{equation}
+参数选取的标准：选取合适的$\{\delta\}$组合，使得生成的经济时间序列数据中，对应$\min \sum \nu_t^2$。这就涉及到非线性最小二乘法(NLS)：首先猜测一组$\{\delta_1, \delta_2, \delta_3\}$，利用其生成一组$\{c_t, k_t, y_t\}$，运行NLS回归测算$\min \sum \nu_t^2$对应的$\{\delta_1', \delta_2', \delta_3'\}$。$\delta$和$\delta'$的差异反映了基于对未来期期望的行为，在未来期未必会产生如当初所设想的结果。这就需要修正我们的预测模型，主要通过调整系数$\delta$来实现：
+将$\{\delta_1', \delta_2', \delta_3'\}$替代原有的$\{\delta_1, \delta_2, \delta_3\}$，生成新的一组时间序列数据，NLS测算$\min \sum \nu_t^2$对应的$\{\delta_1'', \delta_2'', \delta_3''\}$，重复上述过程，直到$\sum \nu_t^2 \approx 0$，此时$\delta$达到不动点，从经济意义上来说，消费者通过预测方程产生当期消费需求，当期消费需求又引出未来期消费需求，这一组消费需求都证明了最初的预测方程是正确的。
+
+可以从学习算法(learning algorithm)的角度来理解PEA。在初始阶段，经济系统中的行为人持有有限信息。他知道一阶条件(Euler方程)的形式，但不知道如何合理展开当期行动以符合这种期望。行为人只有通过试错法，形成、并逐次调整自己的行动，这构成一个学习过程：起初他只掌握少量当前状态变量的信息，只能凭直觉猜测作出行动，并对未来做初步的预测。随着信息掌握的越来越丰富，他得意不断修正作出的直觉猜测，使得预测越来越精确，可以更多地凭经验行事，更少地依赖直觉（直觉和经验作为互补品），直到对未来的预测$E_t \left[ c _{t+1}^{-\sigma} \left( \alpha A_{t+1} k_{t}^{\alpha} + u \right)\right]$与实际情况$c _{t+1}^{-\sigma} \left( \alpha A_{t+1} k_{t}^{\alpha} + u \right)$相吻合。
+
+\section{Schur分解法}
+\label{sec:simple-schur-decomp}
+上文提到了一系列求解非线性系统的算法，如特征值分解法、未定系数法、期望误差法等。它们的展开都依赖于这样的假设条件：$\mathcal{T}_0$是非奇异矩阵(可逆的)，进而$\mathcal{T}_1$是可对角化的矩阵。该假设有助于将经济系统转化为更易于处理的标量方程组的形式。
+
+
+
+然而对于更为一般的形式，$\mathcal{T}_0$是奇异矩阵的情况，我们无法将经济系统对角化。此时就需要介绍Schur分解法(又称QZ分解法，见第\ref{sec:simple-schur-decomp-matrix}节。)，将经济系统三角化。本节简要介绍Schur分解法在求解非线性经济系统中的应用。
+
+\subsection{Schur分解的定义}
+
+对于这样一个非线性经济系统
+\begin{equation}
+  \label{eq:simple-schur-econ-system-def}
+  \mathcal{T}_0 x_{t+1} = \mathcal{T}_1 x_t, \quad t \ge 0, \quad x_t \in \mathbb{R}^{n \times n},
+\end{equation}
+其中$x_{t=0}$为给定的初始状态。假定存在
+\begin{itemize}
+  \item 两个酉矩阵$Q,Z$ (unitary matrix，即满足$Q Q^T = Z Z^T = I$)，和
+  \item 两个上三角矩阵$\Omega, \Lambda$，分别对应对角元素$\omega_{ii}, \lambda_{ii}$，
+\end{itemize}
+使得满足
+\begin{equation}
+  \label{eq:simple-schur-def-t0-t1}
+  \mathcal{T}_0 = Q^T \Omega Z, \quad \mathcal{T}_1 = Q^T \Lambda Z,
+\end{equation}
+我们称这种方法为Schur分解法，其中$\Omega, \Lambda$分别又称为系数矩阵$\mathcal{T}_0, \mathcal{T}_1$的Schur式(Schur form)\footnote{考虑到现实经济世界的特性，我们暂不考虑复根的情况。}。
+
+%系数矩阵$\mathcal{T}_0, \mathcal{T}_1$的存在，使得
+这样一个非线性经济系统的的广义特征根解集(generalized eigenvalue set)为$\left( \frac{\lambda_{ii}}{\omega_{ii}} \right)$，分子为系数矩阵$\mathcal{T}_1$的特征根三角矩阵$\Lambda$的对角元素，分母为系数矩阵$\mathcal{T}_0$的特征根三角矩阵$\Omega$的对角元素；两组对角元素的绝对值均经过从左上到右下升序重新排列。
+
+根据Schur分解法，我们可以利用系数矩阵$\mathcal{T}_0, \mathcal{T}_1$来测算$Q, Z, \Omega, \Lambda$，并进一步求得经济系统的解。
+\eqref{eq:simple-schur-econ-system-def}左乘$Q$，整理得
+\begin{equation}
+  \label{eq:simple-schulr-def-Q-x-Z}
+  \Omega Z^T x_{t+1} = \Lambda Z^T x_t \Rightarrow \Omega w_{t+1} = \Lambda_t w_t, \quad t \ge 0,
+\end{equation}
+其中定义了变量
+\begin{equation}
+  \label{eq:simple-schur-def-w-x-Z}
+  w_t \equiv Z^T x_t,
+\end{equation}
+可见\eqref{eq:simple-schulr-def-Q-x-Z}是一个关于$\left\{ w \right\}_{t}$的(三角矩阵)系统。新系统的特征根对角矩阵中，对角元素的特征根的绝对值$\left| \frac{\lambda_{ii}}{\omega_{ii}} \right|$从左上到右下升序排列。据此可将新系统分为两部分：1个稳定分块矩阵$w_{1,t}$，对应$\left| \frac{\lambda_{ii}}{\omega_{ii}} \right| < 1$，和1个爆炸分块矩阵$w_{2,t}$，对应$\left| \frac{\lambda_{ii}}{\omega_{ii}} \right| >1$，\eqref{eq:simple-schulr-def-Q-x-Z}因此改写为
+\begin{equation}
+  \label{eq:simple-schulr-def-Q-x-Z-decomp}
+  \begin{bmatrix}
+    \Omega_{11} & \Omega_{12} \\
+    0 & \Omega_{22}
+  \end{bmatrix} \begin{bmatrix}
+  w_{1,t+1} \\ w_{2,t+1}
+\end{bmatrix} = \begin{bmatrix}
+    \Lambda_{11} & \Lambda_{12} \\
+    0 & \Lambda_{22}
+\end{bmatrix} \begin{bmatrix}
+w_{1,t} \\ w_{2,t}
+\end{bmatrix}.
+\end{equation}
+
+\subsection{爆炸分块矩阵的解}
+\eqref{eq:simple-schulr-def-Q-x-Z-decomp}中的爆炸分块可以表示为
+\begin{equation*}
+  \Omega_{22} w_{2,t+1} = \Lambda_{22} w_{2,t},
+\end{equation*}
+根据模型设定，上三角矩阵$\Lambda$的对角分块$\Lambda_{22}$是非奇异矩阵，因此我们有
+\begin{equation*}
+  w_{2,t} = \Lambda_{22}^{-1} \Omega_{22} w_{2,t+1},
+\end{equation*}
+进一步做前向迭代有
+\begin{equation}
+  \label{eq:simple-schur-explo-block-forward-iteration}
+  w_{2,t} = \lim_{T \rightarrow \infty} \left( \Lambda_{22}^{-1} \Omega_{22} \right)^T w_{2,t+T}.
+\end{equation}
+
+\eqref{eq:simple-schur-explo-block-forward-iteration}中，一方面系数矩阵$\left( \Lambda_{22}^{-1} \Omega_{22} \right)$的特征根矩阵，对角元素$\left(\frac{\omega_{ii}}{\lambda_{ii}} \right)$ 对应原系统广义特征根$\left(\frac{\lambda_{ii}}{\omega_{ii}} \right)$的倒数，在爆炸分块中，$\left| \frac{\omega_{ii}}{\lambda_{ii}} \right| <1$，因此 $\left( \frac{\omega_{ii}}{\lambda_{ii}} \right)^T \rightarrow 0$。另一方面，经济系统的稳定性要求$\lim_{T \rightarrow \infty} \left(w_{w,t+T}\right) < \infty $。由此我们有，在稳定均衡条件下，\eqref{eq:simple-schur-explo-block-forward-iteration}成立需要满足条件
+\begin{equation}
+  \label{eq:simple-schur-explo-solution-w2-0}
+  w_{2,t} = 0.
+\end{equation}
+
+\subsection{稳定分块矩阵的解}
+\eqref{eq:simple-schulr-def-Q-x-Z-decomp}中的稳定分块
+\begin{equation*}
+  \Omega_{11} w_{1,t+1} + \Omega_{12} w_{2,t+1} = \Lambda_{11} w_{1,t} + \Lambda_{12} w_{2,t},
+\end{equation*}
+引入爆炸分块的解\eqref{eq:simple-schur-explo-solution-w2-0}得
+\begin{equation*}
+  \Omega_{11} w_{1,t+1} = \Lambda_{11} w_{1,t},
+\end{equation*}
+类似地，根据模型设定，上三角矩阵$\Omega$的对角分块$\Omega_{11}$是非奇异矩阵，因此我们有
+\begin{equation*}
+  w_{1,t} = \Omega_{11}^{-1} \Lambda_{11} w_{1,t-1},
+\end{equation*}
+进一步做后向迭代得
+\begin{equation}
+  \label{eq:simple-schur-stable-block-backward-iteration}
+  w_{1,t} = \left( \Omega_{11}^{-1} \Lambda_{11}\right)^t w_{1,t=0},
+\end{equation}
+其中$w_{1,t=0}$由已知的初始状态$x_{t=0}$得到。
+
+\subsection{原经济系统的解}
+合并稳定分块和爆炸分块的解\eqref{eq:simple-schur-stable-block-backward-iteration}\eqref{eq:simple-schur-explo-solution-w2-0}，可得新系统$w_t$的解。在此基础上，考虑到酉矩阵$Z$的可逆性，根据\eqref{eq:simple-schur-def-w-x-Z}可进一步测得原经济系统$x_t$的解：
+\begin{equation}
+  \label{simple-schur-system-xt-solution}
+  x_t = Z w_t = Z \begin{bmatrix} w_{1,t} \\ w_{2,t} \end{bmatrix} = Z \begin{bmatrix}
+  \left( \Omega_{11}^{-1} \Lambda_{11}\right)^t w_{1,t=0} \\
+  0
+  \end{bmatrix}.
+\end{equation}

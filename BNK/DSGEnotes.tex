@@ -1,0 +1,218 @@
+%!TEX program = xelatex
+%\documentclass[authoryear,12pt]{book}
+%\usepackage{xeCJK}
+%\setCJKmainfont[BoldFont={SimHei}]{SimSun}
+%\setCJKsansfont{SimHei}
+%\setCJKmonofont{[simfang.ttf]}
+%\setCJKfamilyfont{zhsong}{SimSun}
+%\setCJKfamilyfont{zhhei}{SimHei}
+%\setCJKfamilyfont{zhfs}{[simfang.ttf]}
+
+%\documentclass[UTF8,adobefonts]{ctexbook} % 采用Adobe字体
+%\documentclass[10pt,a4paper,twoside,openright,UTF8]{ctexbook} % 采用Adobe字体
+
+\documentclass[10pt,a4paper,UTF8]{ctexbook} % 采用Adobe字体
+%10pt,a4paper,twoside,openright,titlepage,fleqn,               headinclude,,footinclude,BCOR5mm,numbers=noenddot,cleardoublepage=empty,               tablecaptionabove, UTF8
+%\setmainfont{CMU Serif}
+
+\pagestyle{plain}
+\usepackage{xeCJK, fontspec}
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,authoryear,1p,times]{elsarticle}
+%% \documentclass[final,authoryear,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,authoryear,3p,times]{elsarticle}
+%% \documentclass[final,authoryear,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,authoryear,5p,times]{elsarticle}
+%% \documentclass[final,authoryear,5p,times,twocolumn]{elsarticle}
+
+%% if you use PostScript figures in your article
+%% use the graphics package for simple commands
+%% \usepackage{graphics}
+%% or use the graphicx package for more complicated commands
+ \usepackage{graphicx}
+%% or use the epsfig package if you prefer to use the old commands
+%% \usepackage{epsfig}
+
+% Table packages:
+% Multi-page tables and rotating:
+    \usepackage{longtable,rotating}
+% Allows use of three-part tables:
+    \usepackage{threeparttable}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+\usepackage{amsmath,  amsthm, mathtools, amssymb, bm}
+\DeclareMathOperator{\vect}{vec}
+
+%% The numcompress package shorten the last page in references.
+%% `nodots' option removes dots from firstnames in references.
+\usepackage[nodots]{numcompress}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{csquotes}
+\usepackage{natbib}
+%\usepackage[backend=biber,style=numeric-comp]{biblatex}
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+%\usepackage{lineno}
+% for Matlab code
+\usepackage{listings}
+%\lstset{language=matlab,frame=single}
+\usepackage{verbatim}
+%\usepackage{verbatimbox} % use  \begin{verbbox} instead of \begin{verbatim} in case a frame box is needed.
+%\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+% for Mathematica code
+%\usepackage{mmacells}
+\usepackage[titletoc]{appendix}
+\usepackage{chngcntr}
+\usepackage{etoolbox}
+\usepackage{lipsum}
+\AtBeginEnvironment{subappendices}{%
+\chapter*{附录}
+\addcontentsline{toc}{chapter}{Appendices}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+}
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%% round  -  round parentheses are used (default)
+%% square -  square brackets are used   [option]
+%% curly  -  curly braces are used      {option}
+%% angle  -  angle brackets are used    <option>
+%% semicolon  -  multiple citations separated by semi-colon (default)
+%% colon  - same as semicolon, an earlier confusion
+%% comma  -  separated by comma
+%% authoryear - selects author-year citations (default)
+%% numbers-  selects numerical citations
+%% super  -  numerical citations as superscripts
+%% sort   -  sorts multiple citations according to order in ref. list
+%% sort&compress   -  like sort, but also compresses numerical citations
+%% compress - compresses without sorting
+%% longnamesfirst  -  makes first citation full author list
+%%
+
+% \biboptions{}
+%\usepackage[nolists]{endfloat}
+\usepackage{marginnote}
+%marginparwidth (E) is the width of the margin note,
+%marginparsep (D) is the separation between the paragraph and the margin note,
+\usepackage[top=3cm, bottom=3cm, outer=3cm, inner=3cm, heightrounded,marginparwidth=3cm, marginparsep=0.5cm]{geometry}
+%\usepackage[top=Bcm, bottom=Hcm, outer=Ccm, inner=Acm, heightrounded, marginparwidth=Ecm, marginparsep=Dcm]{geometry}
+%\usepackage{geometry}
+\usepackage[colorinlistoftodos, shadow]{todonotes}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%\fancyhead[LE,RO]{\slshape \rightmark}
+%\fancyhead[LO,RE]{\slshape \leftmark}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{24pt}
+
+
+%\usepackage{ntheorem}
+\newtheorem{theorem}{Theorem}[chapter]
+%\newtheorem{example}{Example}[chapter]
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{algorithm}{Algorithm}[chapter]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{remark}{Remark}[chapter]
+
+
+%\title{ DSGE模型笔记 }
+%\author{朱彦元 \thanks{同济大学，中德工程学院。\href{mailto:yyz@tongji.edu.cn}{yyz@tongji.edu.cn}。}}
+\usepackage{imakeidx}
+\usepackage[linkcolor=red,citecolor=red]{hyperref}
+\makeindex[columns=1]
+%\makeindex[intoc,columns=1]
+
+
+
+
+\newmuskip\pFqmuskip
+
+%一组用于生成hypergeometric function的代码，使用形式为
+%$\pFq{3}{2}{a,b,c}{d,e}{z}$
+\newcommand*\pFq[6][8]{%
+  \begingroup % only local assignments
+  \pFqmuskip=#1mu\relax
+  % make the comma math active
+  \mathcode`\,=\string"8000
+  % and define it to be \pFqcomma
+  \begingroup\lccode`\~=`\,
+  \lowercase{\endgroup\let~}\pFqcomma
+  % typeset the formula
+  {}_{#2}F_{#3}{\left(\genfrac..{0pt}{}{#4}{#5};#6\right)}%
+  \endgroup
+}
+\newcommand{\pFqcomma}{\mskip\pFqmuskip}
+\usepackage{cool}
+
+
+
+
+\begin{document}
+%\maketitle
+\input{./chapters/titlepage.tex}
+\tableofcontents{}
+
+\input{./chapters/preface.tex}
+\part{模型构建}
+\input{./chapters/basic-BNK.tex}
+\input{./chapters/medium-DSGE.tex}
+% %\part{中等规模的动态随机一般均衡模型}
+\input{./chapters/MSDSGE.tex}
+% %\part{DSGE with banking sector}
+\input{./chapters/DSGE-banking.tex}
+% %\part{Cash in advance DSGE}
+\input{./chapters/DSGE-CIA.tex}
+%\part{Optimal Linear-quadratic control}
+%
+%
+\part{模型求解}
+\input{./chapters/solution-strategies.tex}
+\input{./chapters/optimal-control.tex}
+\input{./chapters/rational-expectation-solutions.tex}
+\input{./chapters/perturbation.tex}
+\input{./chapters/rational-expectation-solutions-2.tex}
+\input{./chapters/projection.tex}
+\input{./chapters/projection-appendices.tex}
+%\input{./chapters/projection-appendices-2.tex}
+%\input{./chapters/projection-appendices-3.tex}
+\input{./chapters/bem-fem.tex}
+
+\part{模型估计}
+
+\part{附录}
+\begin{appendices}
+\appendixpage
+\noappendicestocpagenum
+\addappheadtotoc
+%\appendix
+\input{./chapters/appendix01.tex}
+\input{./chapters/PK.tex}
+\input{./chapters/KNKNCE.tex}
+\end{appendices}
+\newpage{}
+\bibliographystyle{model4-names}
+%\bibliographystyle{elsarticle-harv}
+\bibliography{./refs/papers}
+\listoffigures
+\listoftables
+\listoftodos
+\printindex
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% coding: utf-8
+%%% TeX-master: t
+%%% End:

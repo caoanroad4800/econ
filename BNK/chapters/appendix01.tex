@@ -1,0 +1,395 @@
+\chapter{Medium-Sized DSGE模型的附录}
+\section{scaled variables}
+\label{scaled-variables}
+中性技术冲击$z_t$的增速
+\begin{equation}
+  \label{eq:scaled-growth-neutral-shock}
+  \mu_{z,t} \equiv \frac{z_t}{z_{t-1}}.
+\end{equation}
+
+investment-specific技术冲击$\Psi_t$的增速
+\begin{equation}
+  \label{eq:scaled-growth-investment-shock}
+  \mu_{\Psi,t} \equiv \frac{\Psi_t}{\Psi_{t-1}}.
+\end{equation}
+
+结合式\eqref{eq:ztplus-zt-Psi}和式  \eqref{eq:scaled-growth-investment-shock}可得，生产成本系数$z_t^+$的增速
+\begin{equation}
+  \label{eq:scaled-growth-fixed-cost-shock}
+  \mu_{z^+,t} \equiv \frac{z^+_{t+1}}{z^+_{t}} = \mu_{\Psi,t}^{\frac{\alpha}{1-\alpha}} \cdot \mu_{z,t}.
+\end{equation}
+
+physical capital stock
+\begin{equation}
+  \label{eq:scaled-physical-capital}
+  \bar{k}_{t+1} \equiv \frac{\bar{K}_{t+1}}{z_t^{+} \cdot \Psi_{t}}.
+\end{equation}
+
+physical capital service
+\begin{equation}
+  \label{eq:scaled-physical-capital-service}
+  k_{t+1} \equiv \frac{K_{t+1}}{z_{t}^+ \cdot \Psi_{t}}.
+\end{equation}
+
+投资品
+\begin{equation}
+  \label{eq:scaled-investment-goods}
+  i_t \equiv \frac{I_t}{z_t^+ \cdot \Psi_{t}}.
+\end{equation}
+
+消费品
+\begin{equation}
+  \label{eq:scaled-consumption-goods}
+  c_t \equiv \frac{C_t}{z_t^+}.
+\end{equation}
+
+政府支出
+\begin{equation}
+  \label{eq:scaled-government-consumption}
+  g_t \equiv \frac{G_t}{z_t^+}.
+\end{equation}
+
+产出
+\begin{equation}
+  \label{eq:scaled-product}
+  y_t \equiv \frac{Y_t}{z_t^+}.
+\end{equation}
+
+实际工资水平
+\begin{equation}
+  \label{eq:scaled-real-wage}
+  \bar{w}_t \equiv \frac{W_t}{z_t^+ \cdot P_t}.
+\end{equation}
+
+实际资本租金
+\begin{equation}
+  \label{eq:real-rental-rate-capital}
+  \bar{r}_t^k \equiv \Psi_t \cdot r_t^k.
+\end{equation}
+
+t+1时刻形成的资本存量，在t时期的价格
+\begin{equation}
+  \label{eq:scaled-physical-capital-price}
+  p_{k',t} \equiv \Psi_t \cdot P_{k',t}.
+\end{equation}
+
+\subsection{几个没写完的说明}
+
+生产成本系数的调整
+\begin{equation}
+  \label{eq:scaled-produc-cost-adj-coef}
+  \psi_{z_t^+, t} \equiv v_t \cdot P_t \cdot z_t^+,
+\end{equation}
+其中$v_t$表示家庭优化问题中，名义预算约束条件的Lagrangian乘子，它等于额外1单位货币收入带来的边际效用；$v_t \cdot P_t$因此等于额外1单位消费带来的边际效用。
+
+中间产品生产厂商调整后的产品价格
+\begin{equation}
+  \label{eq:scaled-intm-good-price}
+  \tilde{p}_t \equiv \frac{\tilde{P}_t}{P_t}.
+\end{equation}
+
+劳动者联盟调整后的工资
+\begin{equation}
+  \label{eq:scaled-labor-union-price}
+  \tilde{w}_t \equiv \frac{\tilde{W}_t}{W_t}.
+\end{equation}
+
+通货膨胀率
+\begin{equation}
+  \label{eq:scaled-price-inflation}
+  1+\pi_t \equiv \frac{P_t}{P_{t-1}}.
+\end{equation}
+
+工资增速
+\begin{equation}
+  \label{eq:scaled-wage-inflation}
+  1+\pi_{w,t} \equiv \frac{W_t}{W_{t-1}}
+\end{equation}
+
+
+\section{Frisch elasticity of labor supply}
+\label{sec:Frish-elasticity}
+\subsection{定义}
+Frisch elasticity of labor supply是指在保持财富的边际效用不变的情况下，工资和劳动力供应之间的弹性\citep{Frisch:1932wk}\footnote{此外还有Marshallian elasticity of labor supply（保持收入不变的情况下），和Hicksian elasiticity of labor supply（保持效用水平不变的情况下）等。}。Frisch弹性$\eta^{\lambda}$的定义式可以表示如下
+\begin{equation*}
+  \eta^{\lambda} = \frac{\partial n}{\partial w} \cdot \frac{w}{n} ||_{\lambda},
+\end{equation*}
+其中$||_{\lambda}$表示保持财富的边际效用不变。
+
+定义式。考虑如下consumer problem
+\begin{align*}
+  &\max_{\{c_t,a_{t+1},n_t\}} \sum_{t=0}^{\infty} \beta^t \cdot E_t U(c_t,n_t), \\
+    &st. \quad c_t + a_{t+1} = (1+r) \cdot a_t + w_t \cdot n_t.
+\end{align*}
+
+建Lagrangian
+\begin{equation*}
+  \mathcal{L} = \sum_{t=0}^{\infty} \beta^t E_t \left\{U(c_t,n_t) + \lambda_t \cdot \left[c_t + a_{t+1} = (1+r) \cdot a_t + w_t \cdot n_t \right]\right\} .
+\end{equation*}
+
+FOCs
+\begin{align}
+\label{eq:Frisch-FOC-c}
+  &\frac{\partial \mathcal{L}}{\partial c_t}=0 \Rightarrow U_{c,t}=\lambda_t,\\
+\label{eq:Frisch-FOC-n}
+  &\frac{\partial \mathcal{L}}{\partial n_t}=0 \Rightarrow U_{n,t}=-\lambda_t \cdot w_t,\\
+\label{eq:Frisch-FOC-a}
+  &\frac{\partial \mathcal{L}}{\partial a_{t+1}}=0 \Rightarrow \beta \cdot E_t \lambda_{t+1} \cdot (1+r) =\lambda_t.
+\end{align}
+
+式\eqref{eq:Frisch-FOC-c}-\eqref{eq:Frisch-FOC-c}$\Rightarrow$
+\begin{align}
+\label{eq:Frisch-FOC-c-lambda-w}
+  &\frac{\partial U(c_t(\lambda_t, w_t),n(\lambda_t, w_t))}{\partial c_t} = \lambda_t,\\
+\label{eq:Frisch-FOC-n-lambda-w}
+  &\frac{\partial U(c_t(\lambda_t, w_t),n(\lambda_t, w_t))}{\partial n_t} = -\lambda_t \cdot w_t.
+\end{align}
+
+式\eqref{eq:Frisch-FOC-c}-\eqref{eq:Frisch-FOC-n}对$w_t$求导得
+\begin{align}
+\label{eq:Frisch-FOC-U-c-w}
+  &\frac{\partial U_{c,t}}{\partial w_t} = 0 \Rightarrow U_{cc,t} \cdot \frac{\partial c_t}{\partial w_t} + U_{cn,t} \cdot \frac{\partial n_t}{\partial w_t} = 0,\\
+\label{eq:Frisch-FOC-U-n-w}
+  &\frac{\partial U_{n,t}}{\partial w_t} = -\lambda_t \Rightarrow U_{cn,t} \cdot \frac{\partial c_t}{\partial w_t} + U_{nn,t} \cdot \frac{\partial n_t}{\partial w_t} = -\lambda_t.
+\end{align}
+
+可见式\eqref{eq:Frisch-FOC-U-c-w}-\eqref{eq:Frisch-FOC-U-n-w}是有两个未知变量$\left(\frac{\partial c_t}{w_t},\frac{\partial n_t}{\partial w_t}\right)$的两个方程组。利用式\eqref{eq:Frisch-FOC-n}替代$\lambda_t$，解得
+\begin{equation}
+  \label{eq:Frisch-ela}
+  \frac{\partial n_t}{\partial w_t} = \frac{\lambda_t \cdot U_{cc,t}}{U_{cn}^2 - U_{cc,t} \cdot U_{nn,t}} = \frac{- \frac{U_{n,t}}{w_t} \cdot U_{cc,t}}{U_{cn}^2 - U_{cc,t} \cdot U_{nn,t}}
+\end{equation}
+
+因此Frisch elasticity等于
+\begin{equation}
+  \label{eq:Frisch-ela-consumption-example}
+  \eta^{\lambda} = \frac{\partial n_t}{\partial w_t} \cdot \frac{w_t}{n_t} = \frac{U_{n,t}}{n_t \cdot \left[U_{nn,t}-\left(\frac{U_{cn,t}^2}{U_{cc,t}}\right)\right]}.
+\end{equation}
+
+\subsection{举例}
+举例，消费者问题：$\max \beta^t \cdot E_t U_{c_t,n_t}$，$U_{c_t,n_t} = \ln c_t - \alpha \cdot \frac{n_t^{1+\frac{1}{\nu}}}{1+\frac{1}{\nu}}$, subject to $c_t + a_{t+1} = (1+r) \cdot a_t + w_t \cdot n_t$。
+
+FOCs:
+\begin{align}
+\label{Frisch-example-FOC-c}
+\frac{1}{c_t} &= \lambda_t,\\
+\label{Frisch-example-FOC-n}
+n_t &= \left(\frac{\lambda_t \cdot w_t}{\alpha}\right)^{\nu}.
+\end{align}
+
+\begin{equation}
+  \label{eq:Frisch-example-partial-n-w}
+  \frac{\partial n_t}{\partial w_t} = \nu \cdot \left(\frac{\lambda_t}{\alpha}\right)^{\nu} \cdot w_t^{\nu -1}.
+\end{equation}
+
+Frisch elasticity of labor supply因此等于
+\begin{equation}
+  \label{eq:Frisch-example-ela}
+  \eta^{\lambda} = \frac{\partial n_t}{\partial w_t} \cdot \frac{w_t}{n_t} = \nu.
+\end{equation}
+
+\section{调节成本的常见设定形式及比较}
+\label{sec:adjustment-cost-types-compar}
+经验研究需要将调节成本函数$F(\cdot)$改写为显函数形式，常见的有三种形式
+\begin{enumerate}
+\item  线性调节成本。设$S$近似为常数，式\eqref{eq:adjustment-cost-func-CEE}改写为
+\begin{equation}
+\label{eq:adjustment-cost-lin}
+F = constant \cdot I_t,
+\end{equation}
+即调节成本和投资之间呈线性关系，$constant$是常数。
+\item 投资调节成本。最早可见\cite{Lucasjoin:1971hx}，后经\cite{Hayashi:1982bc}作进一步模型化。
+\begin{equation}
+\label{eq:adjustment-cost-capital}
+F = I_t - \frac{S''}{2} \cdot \left(\frac{I_t}{\bar{K}_t} - \delta \right)^2 \cdot \bar{K}_{t},
+\end{equation}
+\item 资本调节成本。最早可见\cite{Christiano:2005ib}，如式\eqref{eq:adjustment-cost-func-CEE}所示。
+\end{enumerate}
+
+
+
+\subsection{家庭部门优化条件}
+\label{sec:adj-cost-hh-optimisation}
+在capital adjustment cost设定下，家庭部门优化条件表示为通过选择投入组合$\{ C_t, I_t, \Delta_t, B_{t+1}, \bar{K}_{t+1}\}$，基于给定的预算约束式\eqref{eq:HH-opt-prob-budget-constraint}、资本积累式\eqref{eq:phy-cap-accumu-cap-adj-cost}和资本净收益式\eqref{eq:capital-net-payment}，来追求式\eqref{eq:hh-utility-C-t-h-int}效用函数最大化。
+
+建Lagrangian
+\begin{align*}
+\mathcal{L}_t =&E_0 \sum_{t=0}^{\infty} \beta^t \{\left[\log(C_t - b \cdot C_{t-1}) - A \cdot \int_{0}^{1} \frac{h_{t}(j)^{1+\eta}}{1+\eta} dj\right] \\
+&+\lambda_{1,t} \cdot \left[
+\int_{0}^{1} W_{t}(j) \cdot h_{t}(j) dj + X^k_t \cdot \bar{K}_t
+ + R_{t-1} \cdot B_t - P_t \cdot \left(C_t + \frac{1}{\Psi_t} \cdot I_t \right) - B_{t+1} - P_t \cdot P_{k',t} \cdot \Delta_t
+\right] \\
+&+\lambda_{2,t} \cdot \left[
+(1-\delta) \cdot \bar{K}_t + \left[I_t - \frac{S''}{2} \cdot \left(\frac{I_t}{\bar{K}_t} - \delta \right)^2  \cdot \bar{K}_{t}\right] + \Delta_t - \bar{K}_{t+1}
+\right] \\
+&+\lambda_{3,t} \cdot \left[
+ u_{t+1} \cdot P_{t+1} \cdot r_{t+1}^k - \frac{P_{t+1}}{\psi_{t+1}} \cdot a(u_{t+1}) - X_{t+1}^k
+\right]\}
+\end{align*}
+
+FOCs:
+\begin{equation}
+\label{HH-capadj-prob-FOC-C}
+\frac{\mathcal{L}_t}{\partial C_t} =0 \Rightarrow \lambda_{1,t} = \frac{U_{C,t}}{P_t},
+\end{equation}
+
+\begin{equation}
+\label{HH-capadj-prob-FOC-I}
+\frac{\mathcal{L}_t}{\partial I_t} =0 \Rightarrow \lambda_{1,t} \cdot P_t = \lambda_{2,t} \cdot \left[1-S''\cdot \left(\frac{I_t}{\bar{K}_t}- \delta \right)\right],
+\end{equation}
+
+\begin{equation}
+\label{HH-capadj-prob-FOC-Delta}
+\frac{\mathcal{L}_t}{\partial \Delta_t} =0 \Rightarrow \lambda_{1,t} \cdot P_t \cdot P_{k',t} = \lambda_{2,t},
+\end{equation}
+
+\begin{equation}
+\label{HH-capadj-prob-FOC-B}
+\frac{\mathcal{L}_t}{\partial B_{t+1}} =0 \Rightarrow \beta \cdot E_t \lambda_{1,t+1} \cdot R^k_t = \lambda_{1,t},
+\end{equation}
+
+\begin{align}
+\label{HH-capadj-prob-FOC-barK}
+&\frac{\mathcal{L}_t}{\partial \bar{K}_{t+1}} =0 \Rightarrow \beta \cdot E_{t} \lambda_{1,t+1} \cdot X^k_{t+1} = \lambda_{2,t} \nonumber \\
+&+ \beta \cdot E_t \lambda_{2,t+1} \cdot \left[
+\frac{S''}{2} \cdot \left(
+\frac{I_{t+1}}{\bar{K}_{t+1}} - \delta
+\right)^2
+- S'' \cdot \left(\frac{I_{t+1}}{\bar{K}_{t+1}} - \delta\right) \cdot \frac{I_{t+1}}{\bar{K}_{t+1}}
+-(1-\delta)
+\right].
+\end{align}
+
+联立式\eqref{HH-capadj-prob-FOC-I}、式\eqref{HH-capadj-prob-FOC-Delta}得
+\begin{equation}
+\label{eq:HH-capadj-prob-FOC-pkt-q}
+P_{k',t} = \frac{1}{1-S'' \cdot \left(\frac{I_t}{\bar{K}_t} - \delta\right)}.
+\end{equation}
+
+式\eqref{HH-capadj-prob-FOC-barK}改写为
+\begin{align*}
+\lambda_{2,t} &= \beta \cdot E_t \lambda_{1,t+1} \cdot X^k_{t+1} + \beta \cdot E_t \cdot \lambda_{2,t+1 }\cdot \mathcal{H}_{t+1}, \nonumber \\
+&\mathcal{H}_{t+1}\equiv \left[
+(1-\delta) +S'' \cdot \left(\frac{I_{t+1}}{\bar{K}_{t+1}} - \delta\right) \cdot \frac{I_{t+1}}{\bar{K}_{t+1}}-\frac{S''}{2} \cdot \left(
+\frac{I_{t+1}}{\bar{K}_{t+1}} - \delta
+\right)^2
+\right],
+\end{align*}
+$\mathcal{H}_{t+1}$反映每1单位$\bar{K}_{t+1}$的增加，可能导致$\bar{K}_{t+2}$的增加。等式两侧同时除以$\lambda_{1,t}$得
+\begin{equation*}
+\frac{\lambda_{2,t}}{\lambda_{1,t}} = \frac{\beta \cdot E_t \cdot \lambda_{1,t+1}}{\lambda_{1,t}}\cdot X^k_{t+1} +\frac{\beta \cdot E_{t} \lambda_{2,t+1}}{\beta \cdot E_{t} \lambda_{2,t+1}} \cdot \frac{\beta \cdot E_{t} \lambda_{2,t+1}}{\lambda_{1,t}} \cdot \mathcal{H}_{t+1},
+\end{equation*}
+进一步整理得
+\begin{equation}
+\label{HH-capadj-prob-FOC-lambda1-2}
+\frac{U_{C,t}}{\beta \cdot E_t U_{C,t+1}} = \frac{\frac{X^k_{t+1}}{P_{t+1}} + P_{k',t+1} \cdot %\left[
+%(1-\delta) +S'' \cdot \left(\frac{I_{t+1}}{\bar{K}_{t+1}} - \delta\right) \cdot \frac{I_{t+1}}{\bar{K}_{t+1}}-\frac{S''}{2} \cdot \left(
+%\frac{I_{t+1}}{\bar{K}_{t+1}} - \delta
+%\right)^2
+%\right]
+\mathcal{H}_{t+1}
+}{P_{k',t}}
+\end{equation}
+
+\subsection{比较线性和非线性调节成本}
+\label{sec:adj-cost-comp-lin-nonlin}
+式\eqref{HH-capadj-prob-FOC-lambda1-2}以Euler equation的形式反映家庭的跨期消费行为决策。定义投资的回报率(rental rate of return on investment) $R^k_{t+1}$
+\begin{equation}
+\label{eq:adj-cost-return-investment}
+R^k_{t+1} = \frac{x^k_{t+1} + \left[
+(1-\delta) + S''\cdot \left(\frac{I_{t+1}}{\bar{K}_{t+1}} - \delta \right) \cdot \frac{I_{t+1}}{\bar{K}_{t+1}} - \frac{S''}{2} \cdot \left(\frac{I_{t+1}}{\bar{K}_{t+1}} - \delta \right)^2
+\right] \cdot P_{k',t+1}}{P_{k',t}},
+\end{equation}
+其中$x^k_{t+1} \equiv \frac{X^k_{t+1}}{P_{t+1}}$表示实际的cash payment，$X^k_{t+1}$由式\eqref{eq:capital-net-payment}给出。RHS分母$P_{k',t}$表示每一单位新增$\bar{K}_t$的市场价格，由式\eqref{eq:HH-capadj-prob-FOC-pkt-q}给出。RHS分子中$P_{k',t+1}$是以消费品形式表示的每一单位$\bar{K}_{t+2}$资本存量的市场价格，乘以$[\cdot]$之后转化为消费品形式。
+
+在充分竞争的要素市场上，额外一单位资本的价格取决于其边际产出，即
+\begin{equation}
+\begin{split}
+P_{k',t} &= - \frac{d C_t}{d \bar{K}_{t+1}} \nonumber \\
+&=  - \frac{d C_t}{d I_t} \cdot \frac{d I_t}{d \bar{K}_{t+1}} \nonumber \\
+&=\frac{1}{\frac{d \bar{ K}_{t+1}}{d I_t}} \nonumber \\
+&=1\text{(线性调节成本)，或者} \nonumber \\
+&\frac{1}{1-S''\cdot\left(\frac{I_t}{\bar{K}_{t} - \delta}\right)}\text{(资本调节成本)},
+\end{split}
+\end{equation}
+其中$\frac{d C_t}{d I_t}$为消费和实物资本积累(投资)之间的边际技术替代率(MRTS)，由式\eqref{eq:output-expenditures}-\eqref{eq:investment-goods-homo}给出；$\frac{I_t}{\bar{K}_{t+1}}$为投资和实物资本积累之间的边际技术替代率(MRTS)，由式\eqref{eq:phy-cap-accumu-cap-adj-cost}给出。这样，模型中Tobin's q与$P_{k',t}$相关，为资本的市场价格除以投资品的价格，其中资本的市场价格等于完全竞争市场假定下的资本的边际成本。或者定义
+\begin{equation}
+\label{eq:tobin-q-sims-2015}
+q_t \equiv \frac{\lambda_{2,t}}{\lambda_{1,t}} = P_t \cdot P_{k',t},
+\end{equation}
+后一等号由式\eqref{HH-capadj-prob-FOC-Delta}得。拉格朗日乘子$\lambda_{1,t}$、$\lambda_{2,t}$分别表示额外1单位实物资本和消费的边际效用(影子价格)。$\lambda_{2,t}/\lambda_{1,t}$因此表示为了在明天多拥有1单位的实物资本，个人愿意放弃多少单位的当前消费，即资本相对于消费的价格。
+
+\subsection{比较投资调节成本和资本调节成本}
+\label{sec:adj-cost-comp-inv}
+VAR-based evidence：通过对actual data的observation可以看出，在一个正的货币冲击发生后，一方面实际利率持久走低，另一方面投资却呈现出hump-shaped pattern。为了让模型能够更好解释这一现象，就需要在建构模型的时候，使得\eqref{eq:adj-cost-return-investment}中的真实回报率$R^k_{t}$随着扩张性货币政策冲击而降低。情境分析如下。
+\begin{enumerate}
+\item 如果$S''=0$，即不存在adjustment cost。此时$q_t = p_{k',t}=0$，式\eqref{eq:adj-cost-return-investment}中唯一能让$R^k_{t+1}$下降的便是$x^k_{t+1}$，此时
+\begin{enumerate}
+\item 若rate of return on capital $RROC \approx (1-\alpha) \cdot K_{t+1}^{\alpha-1} \cdot H_{t+1}^{1-\alpha} + (1-\delta) \approx 1/\beta$，稳定状态下，不考虑经济增长情况下的年均$RROC \approx 1.03$，剩余的内生部分的RROC只占全部RROC的很小一部分。这意味着，为了让RROC下降一小部分，需要让内生RROC($K_{t+1}^{\alpha-1} \cdot H_{t+1}^{1-\alpha}$)下降非常大的一部分，这意味着需要让投资大幅度增加——而在在现实中很难做到：一方面投资的大幅度上升会压迫消费发生大幅度下降，可是现实世界中消费并没有发生如此大的降低\footnote{膏按：habit formation？ 见第\ref{sec:hh-consumption-habit-formation}节。}；另一方面作为流量的投资的大幅度变化，也只能导致作为存量的实物资本的小幅度提升。
+\item VAR based evidence表明，正的货币政策冲击发生后，就业上升，这意味着hours worked $H_t$上升，这会迫使内生RROC上升，压迫实物资本存量，调低投资的回报率。
+\end{enumerate}
+
+总之，不引入调节成本的模型，会产生反事实结论：正的货币政策冲击发生后，投资反而会大幅度扩张，而现实数据观测中并未支持这一结论。
+\item 如果$S'' >0$，则内生RROC要比$S''=0$情况下的内生RROC大得多，这是由于当调节成本存在时，资本这就速度加快，实物资本存量降低，资本的边际产出、进而边际回报变大。分两种情况来说明。
+\begin{enumerate}
+\item 资本调节成本+$S'' >0$的设定如式\eqref{eq:adjustment-cost-capital}，一次正货币政策冲击所产生的响应有
+\begin{enumerate}
+\item contemporary response of investment $I_t$，即投资响应中最大的一次响应发生在冲击产生的当期而非随后。
+\item a hump-shaped response of capital price $P_{k',t}$。这是由于受到即时变化的投资流响应的影响：一个正的货币政策冲击会产生持续数个时间段的$P_{k',t+1}/pP_{k',t}$上升。将这一现象带回式\eqref{eq:adj-cost-return-investment}可见，对未来$P_{k',t+1}$的语气上升，及对投资收益率的预期上升，会导家庭产生追加投资的冲动，且短期内这种冲动更强，出现hump shaped，这使得在均衡状态下，冲击出现当期的投资响应最强，随后减弱。
+\end{enumerate}
+
+\item 投资调节成本$+ S'' >0$的设定如式\eqref{eq:adjustment-cost-func-CEE}，投资响应是hump shaped且最大响应发生在shock出现的时间之后而非当期。这是由于相比资本调节成本设定而言，投资调节成本设定下，当期投资相对于上期投资若想要发生大规模变动，其调节成本会变得更高。hump shaped impulse responses of investment导致当期growth rate相对于上期growth rate呈现更强的正相关，且至少会持续一小段时期。
+\end{enumerate}
+\end{enumerate}
+
+% \newpage{}
+% \section{国际贸易考试题}
+% 2015-2016学年第一学期，经济工程专业2013级。考试时间120分钟，试卷总分数100分。
+
+% \subsection{家庭效用最大化问题}
+% 假定一代表性家庭追求一生的效用最大化。从收入方面来看，它通过向生产部门提供劳动力$N_t$赚取工资$W_t$；在$t-1$期购买债券$B_t$，在当前时间周期$t$可以获得收益$(1+i_{t-1})\cdot B_t$，其中$i_t$表示债券利率；收取（中间产品生产部门的）利润$Div_t$;净税收$P_t \cdot Tax_t$。从支出方面来看，它的全部收入一部分用于消费$P_t \cdot C_t$，一部分用于购买债券$B_{t+1}$以供未来获得利息收入。
+
+% 假定消费者的效用函数
+% \begin{equation*}
+% %  \label{eq:test-1}
+%   U(C_t,N_t) = \ln(C_t - b \cdot C_{t-1}) - \psi \cdot \frac{N_t^{1+\eta}}{1+\eta},
+% \end{equation*}
+% 其中系数$b >0$表示消费带来的效用不只与当期消费有关，还与上期消费有关（habit formation）。问：
+
+% \begin{enumerate}
+% \item 写出表示家庭的预算约束条件，并作简要说明。（5分）
+% \item 写出家庭一生效用最大化的拉格朗日函数。（5分）
+% \item 求解拉格朗日函数的一阶最大化条件。（7分）
+% \item 家庭劳动力供应由什么因素决定？如何解释？（5分）
+% \item 家庭跨期消费决策是什么？如何解释？（7分）
+% \item 拉格朗日乘子的经济学含义？（5分）
+% \end{enumerate}
+
+% \subsection{产品生产部门的问题}
+% 1)假定生产部门分为两部分，一部分为最终产品生产部门，一部分为中间产品生产部门。最终产品生产部门是完全竞争的，只有一个生产者，选取各种中间产品投入$Y_t(i),i\in[0,1]$从事生产活动，生产函数
+% \begin{equation*}
+% %  \label{eq:test-final-product}
+%   Y_t = \left[\int_{0}^{1} Y_t(i)^{\frac{\epsilon -1}{\epsilon}} di\right]^{\frac{\epsilon}{\epsilon -1}}
+% \end{equation*}
+% $Y_t(i)$投入品价格是$P_t(i)$；产出$Y_t$的价格是$P(t)$。请写出最终产品厂商的利润最大化问题，求解对中间产品投入$Y_t(i)$的决定是，以及最终产品价格$P_t$和中间产品$P_t(i)$的关系。（17分）
+
+% 2)假定中间产品生产部门由若干个$i^{th}$商品生产者所组成，每一种中间产品均只有一个生产者，处于垄断竞争地位。中间产品$Y_t(i)$的生产函数可以表示为
+% \begin{equation*}
+%   Y_t(i) = A_t \cdot N_t(i)
+% \end{equation*}
+% 并且满足
+% \begin{equation*}
+%   N_t(i) = \int_{0}^{1} N_t(i) di
+% \end{equation*}
+% 根据现有条件和问题1）的结果，请写出最终的总量生产函数。并且回答：[总产出]和[中间产品产出之和]之间是什么关系？导致总产出和中间产品产出之和不一致的原因是什么？（17分）
+
+% \subsection{国际贸易背景下的关税问题}
+% 背景知识：美国近期大力推动跨太平洋战略经济伙伴关系协定(Trans -Pacific Partnership Agreement)；中国和韩国的自由贸易协定(FTA)于2015年正式生效，据韩方消息，中国有958种产品在中韩FTA正式生效后即实行了零关税。一系列自由贸易协定的签署，都旨在降低贸易伙伴之间的相互关税，提高相互贸易的程度。
+
+% \begin{enumerate}
+% \item 请结合李嘉图模型作简要的说明：
+%   \begin{enumerate}
+%   \item 国与国之间在何种情况下会出现相互贸易？这个情况是什么？(10分)
+%   \item 跨国贸易会导致一方变好另一方变坏，还是双方情况同时变坏，还是双方情况同时变得更好？为什么？（10分）
+%   \end{enumerate}
+% \item 从deadweight loss（社会净损失）的角度，简要说明，为什么降低关税会同时提高消费者剩余和生产者剩余？（12分）
+% \end{enumerate}

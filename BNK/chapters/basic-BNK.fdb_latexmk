@@ -1,0 +1,14 @@
+# Fdb version 3
+["xdvipdfmx"] 0 "basic-BNK.xdv" "basic-BNK.pdf" "basic-BNK" 0
+  "basic-BNK.xdv" 0 -1 0 "xelatex"
+  (generated)
+  "basic-BNK.pdf"
+["xelatex"] 1491916362 "basic-BNK.tex" "basic-BNK.xdv" "basic-BNK" 1491916362
+  "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1488495668 32024 319bf8a79fafbc1d95eafac6b6c6658b ""
+  "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1489565129 3558695 1f5dc7763b9117a4bfdeb769685ea702 ""
+  "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
+  "basic-BNK.aux" 1456385494 8 a94a2480d3289e625eea47cd1b285758 ""
+  "basic-BNK.tex" 1458827632 41525 83c8093a00c7ed8e83b4c096303bb64c ""
+  (generated)
+  "basic-BNK.xdv"
+  "basic-BNK.log"

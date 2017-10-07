@@ -1,0 +1,735 @@
+%!TEX root = ../DSGEnotes.tex
+%\subsubsection{伪逆矩阵}
+%\label{sec:simple-pseudo-intro}
+
+
+\begin{subappendices}
+%\section{Some title for an appendix-1}
+
+\section{Schur补和对称正(半)定矩阵}
+%\lipsum[4]
+\label{sec:simple-schur-decomp-matrix}
+
+\subsection{Schur补}
+\label{sec:simple-schur-decomp-method}
+本节作为\cite[A.5.5.5]{Boyd:2004jr}的详细说明。假定矩阵$M \in \mathbb{R}^{n \times n}$可做如下分解
+\begin{equation*}
+  \underset{n \times n}{M} = \begin{bmatrix}
+  \underset{p \times p}{A} & \underset{p \times q}{B} \\
+  \underset{q \times p}{C} & \underset{q \times q}{D}
+  \end{bmatrix}, \quad n= p + q, \quad p,q,n > 0.
+\end{equation*}
+
+Schur补的思路在于，通过去掉一个变量分块求解线性方程。假定一个线性系统$(x,y)$
+\begin{subequations}
+  \begin{align}
+    \label{eq:simple-schur-equation-sys-ABc}
+    &A x + B y = c, \\
+    \label{eq:simple-schur-equation-sys-CDd}
+    &C x + D y = d,
+  \end{align}
+\end{subequations}
+改写为矩阵形式
+\begin{equation}
+  \label{eq:simple-schur-equation-matrix-form}
+  \begin{bmatrix}
+    A & B \\ C & D
+  \end{bmatrix} \begin{bmatrix}
+  x \\ y
+\end{bmatrix} = \begin{bmatrix}
+c \\ d
+\end{bmatrix}.
+\end{equation}
+可以利用高斯消元法(Gaussian elimination)求得系统解。
+
+\subsubsection{A的Schur补以及系统解}
+假定$D$是可逆的，则\eqref{eq:simple-schur-equation-sys-CDd}改写为
+\begin{equation*}
+  y= D^{-1} \left( d - C x \right),
+\end{equation*}
+代回\eqref{eq:simple-schur-equation-sys-ABc}替代$y$得
+\begin{equation*}
+    \left(A-BD^{-1}C\right) x = c - B D^{-1} d.
+\end{equation*}
+
+进一步假定$\left(A-BD^{-1}C\right)$是可逆的，我们有系统解
+\begin{subequations}
+  \begin{align}
+    \label{eq:simple-schur-A-solution-x}
+    &x = \left(\underbrace{A-BD^{-1}C}_{\text{A 的 Schur补}}\right)^{-1} \left(c - BD^{-1}d\right), \\
+    \label{eq:simple-schur-A-solution-y}
+    &y=D^{-1} d - D^{-1} C \left( \left(\underbrace{A-BD^{-1}C}_{\text{A 的 Schur补}}\right)^{-1} \left(c - BD^{-1}d\right) \right).
+  \end{align}
+\end{subequations}
+
+我们将上式中标记出的$\left(A-BD^{-1}C\right)$定义为$M$中分块矩阵$A$的Schur补。
+
+采用$A$的Schur补，我们有
+\begin{equation*}
+  \begin{split}
+    &x = \left( A - BD^{-1} C \right)^{-1} c - \left( A - BD^{-1} C \right)^{-1} BD^{-1} d, \\
+    &y=-D^{-1} C \left( A - BD^{-1} C \right)^{-1} c + \left( D^{-1} + D^{-1} C \left( A - BD^{-1} C \right)^{-1} B D^{-1} \right) d,
+  \end{split}
+\end{equation*}
+改写为矩阵形式
+\begin{equation}
+  \label{eq:simple-schur-A-rewrite-M}
+  \begin{bmatrix}
+    x \\ y
+  \end{bmatrix} =
+  \begin{bmatrix}
+    \left( A - BD^{-1} C \right)^{-1} & - \left( A - BD^{-1} C \right)^{-1} BD^{-1} \\
+    -D^{-1} C \left( A - BD^{-1} C \right)^{-1} & \left(
+      D^{-1} + D^{-1} C \left( A - BD^{-1} C \right)^{-1} B D^{-1}
+    \right)
+  \end{bmatrix}
+  \begin{bmatrix}
+    c \\ d
+  \end{bmatrix},
+\end{equation}
+与\eqref{eq:simple-schur-equation-matrix-form}联立不难看出，
+\begin{equation}
+  \label{eq:simple-schur-equation-matrix-inverse}
+  \begin{bmatrix}
+    A & B \\ C & D
+  \end{bmatrix}^{-1}
+  =
+  \begin{bmatrix}
+    \left( A - BD^{-1} C \right)^{-1} & - \left( A - BD^{-1} C \right)^{-1} BD^{-1} \\
+    -D^{-1} C \left( A - BD^{-1} C \right)^{-1} & \left(
+      D^{-1} + D^{-1} C \left( A - BD^{-1} C \right)^{-1} B D^{-1}
+    \right)
+  \end{bmatrix}
+\end{equation}
+对式右侧做matrix reflection可得
+\begin{equation*}
+  \begin{split}
+    & \begin{bmatrix}
+      \left( A - BD^{-1} C \right)^{-1} & - \left( A - BD^{-1} C \right)^{-1} BD^{-1} \\
+      -D^{-1} C \left( A - BD^{-1} C \right)^{-1} & \left(
+        D^{-1} + D^{-1} C \left( A - BD^{-1} C \right)^{-1} B D^{-1}
+      \right)
+    \end{bmatrix} \\
+    =& \begin{bmatrix}
+    \left( A - BD^{-1} C \right)^{-1} & 0 \\
+    -D^{-1} C \left( A - BD^{-1} C \right)^{-1} & D^{-1}
+    \end{bmatrix}
+    \begin{bmatrix}
+      I & -BD^{-1} \\
+      0 & I
+    \end{bmatrix} \\
+    =& \begin{bmatrix}
+    I & 0 \\
+    -D^{-1} C & I
+    \end{bmatrix}
+    \begin{bmatrix}
+      \left( A - BD^{-1} C \right)^{-1} & 0 \\
+      0 & D^{-1}
+    \end{bmatrix}
+    \begin{bmatrix}
+      I & -BD^{-1} \\
+      0 & I
+    \end{bmatrix},
+  \end{split}
+\end{equation*}
+并且第三行三个矩阵中，上下三角矩阵都是可逆的；中间对角矩阵对角元素也是可逆的。
+
+代回\eqref{eq:simple-schur-equation-matrix-inverse}右侧，且等式两侧同时求逆运算，可以得到$M$的解
+\begin{equation}
+  \label{eq:simple-schur-equation-matrix-M}
+  M = \begin{bmatrix}
+    A & B \\ C & D
+  \end{bmatrix}= \begin{bmatrix}
+    I & BD^{-1} \\
+    0 & I
+  \end{bmatrix}
+  \begin{bmatrix}
+    A - BD^{-1} C  & 0 \\
+    0 & D
+  \end{bmatrix}
+  \begin{bmatrix}
+  I & 0 \\
+  D^{-1} C & I
+  \end{bmatrix}.
+\end{equation}
+
+即，利用A的Schur补求解系统，$(x,y)$的值由\eqref{eq:simple-schur-A-solution-x}-\eqref{eq:simple-schur-A-solution-y}给出，$M$的值由\eqref{eq:simple-schur-equation-matrix-M}给出。这种算法的好处在于，在假定$D$是可逆矩阵的情况下，只需要求得$A$的Schur补，即可求解系统。
+
+\subsubsection{D的Schur补以及系统解}
+类似地，若假定$A$是可逆的，
+\eqref{eq:simple-schur-equation-sys-ABc}改写为
+\begin{equation*}
+  x= A^{-1} \left( c - B y \right),
+\end{equation*}
+代回\eqref{eq:simple-schur-equation-sys-CDd}替代$x$得
+\begin{equation*}
+    \left( D - CA^{-1} B \right) y = D - C A^{-1} c.
+\end{equation*}
+
+进一步假定$\left( D - CA^{-1} B \right)$是可逆的，我们有系统解
+\begin{subequations}
+  \begin{align}
+    \label{eq:simple-schur-D-solution-y}
+    &y = \left( \underbrace{D - CA^{-1} B}_{\text{D 的 Schur补}}\right) \left( c - BD^{-1} d \right)\\
+    \label{eq:simple-schur-D-solution-x}
+    &y=A^{-1} c - A^{-1} B \left( \left(\underbrace{D-CA^{-1}B}_{\text{D 的 Schur补}}\right)^{-1} \left(d - CA^{-1}c\right) \right).
+  \end{align}
+\end{subequations}
+
+我们将上式中标记出的$\left(D - CA^{-1} B \right)$定义为$M$中分块矩阵$D$的Schur补。
+
+采用$D$的Schur补，我们有
+\begin{equation*}
+  \begin{split}
+    &x = \left(
+    A^{-1} + A^{-1} B \left(D - C A^{-1} B\right)^{-1} C A^{-1} \right)
+    c -
+    \left(
+    A^{-1} B  \left(D - C A^{-1} B\right)^{-1}
+    \right) d, \\
+    &y = - \left(D - C A^{-1} B\right)^{-1} C A^{-1} c +
+    \left(D - C A^{-1} B\right)^{-1} d,
+  \end{split}
+\end{equation*}
+改写为矩阵形式
+\begin{equation}
+  \label{eq:simple-schur-D-rewrite-M}
+  \begin{bmatrix}
+    x \\ y
+  \end{bmatrix} =
+  \begin{bmatrix}
+    A^{-1} + A^{-1} B \left(D - C A^{-1} B\right)^{-1} C A^{-1} &
+    -  A^{-1} B  \left(D - C A^{-1} B\right)^{-1} \\
+    - \left(D - C A^{-1} B\right)^{-1} C A^{-1} &
+    \left(D - C A^{-1} B\right)^{-1}
+  \end{bmatrix}
+  \begin{bmatrix}
+    c \\ d
+  \end{bmatrix},
+\end{equation}
+与\eqref{eq:simple-schur-equation-matrix-form}联立可见
+\begin{equation}
+  \label{eq:simple-schur-D-equation-matrix-inverse}
+  \begin{bmatrix}
+    A & B \\ C & D
+  \end{bmatrix}^{-1}
+  =
+  \begin{bmatrix}
+    A^{-1} + A^{-1} B \left(D - C A^{-1} B\right)^{-1} C A^{-1} &
+    -  A^{-1} B  \left(D - C A^{-1} B\right)^{-1} \\
+    - \left(D - C A^{-1} B\right)^{-1} C A^{-1} &
+    \left(D - C A^{-1} B\right)^{-1}
+  \end{bmatrix}
+\end{equation}
+对式右侧做matrix reflection可得
+\begin{equation*}
+  \begin{split}
+    &\begin{bmatrix}
+      A^{-1} + A^{-1} B \left(D - C A^{-1} B\right)^{-1} C A^{-1} &
+      -  A^{-1} B  \left(D - C A^{-1} B\right)^{-1} \\
+      - \left(D - C A^{-1} B\right)^{-1} C A^{-1} &
+      \left(D - C A^{-1} B\right)^{-1}
+    \end{bmatrix} \\
+    =&\begin{bmatrix}
+    A^{-1} & - A^{-1} B \left(D - C A^{-1} B\right)^{-1} \\
+    0 & \left(D - C A^{-1} B\right)^{-1}
+    \end{bmatrix}
+    \begin{bmatrix}
+      I & 0 \\
+      -CA^{-1} & I
+    \end{bmatrix} \\
+    =& \begin{bmatrix}
+    I & - A^{-1} B \\
+    0 & I
+    \end{bmatrix}
+    \begin{bmatrix}
+      A^{-1} & 0 \\
+      0 & \left(D - C A^{-1} B\right)^{-1}
+    \end{bmatrix}
+    \begin{bmatrix}
+      I & 0 \\
+      -C A^{-1} & I
+    \end{bmatrix},
+  \end{split}
+\end{equation*}
+同样地，第三行三个矩阵中，上下三角矩阵都是可逆的；中间对角矩阵对角元素也是可逆的。
+
+代回\eqref{eq:simple-schur-D-equation-matrix-inverse}右侧，且等式两侧同时求逆运算，可以得到$M$的解
+\begin{equation}
+  \label{eq:simple-schur-D-equation-matrix-M}
+  M = \begin{bmatrix}
+    A & B \\ C & D
+  \end{bmatrix}= \begin{bmatrix}
+    I & CA^{-1} \\
+    0 & I
+  \end{bmatrix}
+  \begin{bmatrix}
+    A  & 0 \\
+    0 & D - CA^{-1} B
+  \end{bmatrix}
+  \begin{bmatrix}
+  I & 0 \\
+  A^{-1} B & I
+  \end{bmatrix}.
+\end{equation}
+
+\subsection{利用Schur分解法判断可逆正定矩阵}
+对于符合第\ref{sec:simple-schur-decomp}描述的可逆矩阵$M$，假定其分块对角$A,D$都是可逆的，并且$C=B^T$，那么可以将其改写为如下类似于分块——对角矩阵的形式
+\begin{equation}
+  \label{eq:simple-schulr-howto-M}
+  \begin{split}
+  M &= \begin{bmatrix}
+  A & B \\ B^T & C
+  \end{bmatrix} \\
+  &= \begin{bmatrix}
+  I & BC^{-1} \\
+  0 & I
+  \end{bmatrix}
+  \begin{bmatrix}
+    A - BC^{-1}B^T & 0 \\
+    0 & C
+  \end{bmatrix}
+  \begin{bmatrix}
+    I & BC^{-1} \\
+    0 & I
+  \end{bmatrix}^{T}.
+\end{split}
+\end{equation}
+其中第二行利用了$A$的Schur补。我们可以利用这一分块对角形式，查看对称矩阵$M$是否是正定的，即$M \succ 0$。
+
+\begin{proposition}
+  对于任一对称矩阵$M = \begin{bmatrix}
+  A & B \\ B^{\top} &C \end{bmatrix} $，如果$C$是可逆的，则
+  \begin{enumerate}
+    \item 当且仅当\begin{equation*}
+    \begin{cases}
+      &C \succ 0, \quad \text{并且}\\
+      &A-BC^{-1}B^{\top} \succ 0
+    \end{cases}
+    \end{equation*}时，我们有$M \succ 0$。
+    \item 如果$C \succ 0$，那么当且仅当$A-BC^{-1}B^{\top} \succeq 0$时，我们有$M \succeq 0$。
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  略。
+\end{proof}
+
+\begin{proposition}
+  对于任一对称矩阵$M = \begin{bmatrix}
+  A & B \\ B^{\top} & C \end{bmatrix} $，如果$A$是可逆的，则
+\begin{enumerate}
+  \item 当且仅当\begin{equation*}
+  \begin{cases}
+    &A \succ 0, \quad \text{并且}\\
+    &C-B^{\top}AB \succ 0
+  \end{cases}
+  \end{equation*}时，我们有$M \succ 0$。
+  \item 如果$A \succ 0$，那么当且仅当$C-B^{\top}AB \succeq 0$时，我们有$M \succeq 0$。
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+  略。
+\end{proof}
+
+\subsection{利用Schur分解法判断可逆正半定矩阵}
+
+当$C$和$A$都是奇异分块矩阵，我们无法直接求得$C^{-1}$和$A^{-1}$。我们首先介绍判断方法，随后用该方法判断$M$是否是正半定的。
+\subsubsection{判定方法}
+
+\begin{enumerate}
+  \item （通常是nonconvex）的quadratic优化问题：对于满足一定形式的$x$和(非奇异)的$P$，式
+  \begin{equation*}
+    \min_{\{x\}} f(x) = \frac{1}{2} x^{\top} P x^{\top} + x^{\top} b
+  \end{equation*}
+  是否存在最小值，以及最小值是多少，见Proposition \ref{prop:simple-schur-quadratic-optim}。
+  \item 对于奇异的$P$，我们要计算其对角分块的伪逆矩阵和相应的Schur补，进而判断最小值，见Proposition \ref{prop:simple-schur-singular-optim}。
+  %我们要计算其伪逆矩阵$D^{\dagger}$，求得关于$A$的的Schur补$\left( A-BD^{\dagger}B^{\top} \right)$，进而判断$M$。或者，计算伪逆矩阵$A^{\dagger}$，求得关于$D$的Schur补$\left(D - B^{\top} A^{\dagger} B\right)$，进而判断$M$。\todo{refer to proposition 4.2}
+\end{enumerate}
+
+\begin{proposition}[非奇异系数矩阵(quadratic优化问题)]
+  \label{prop:simple-schur-quadratic-optim}
+如果$P$是一个对称的非奇异矩阵，那么只有当$P \succeq 0$时，方程$f(x) = \left(\frac{1}{2}\right) x^{\top} P x + x^{\top} b$才具有唯一的最优(极小)值$x^{\star}=P^{-1} b$，使得$f(x^{\star}) = f(P^{-1} b) = -\frac{1}{2} b^{\top} P^{-1} b$。
+\end{proposition}
+\begin{proof}
+  已知
+  \begin{equation*}
+    \frac{1}{2}\left( x + P^{-1} b \right)^{\top} P \left( x + P^{-1} b \right) = \frac{1}{2} x^{\top} P x + x ^{\top} b + \frac{1}{2} b^{\top} P^{-1} b,
+  \end{equation*}
+  因此我们有
+  \begin{equation}
+    \label{eq:simple-schur-quadratic-Pb}
+    f(x) = \frac{1}{2} x^{\top} P x + x^{\top} b = \frac{1}{2}\left( x + P^{-1} b \right)^{\top} P \left( x + P^{-1} b \right) - \frac{1}{2} b^{\top} P^{-1} b.
+  \end{equation}
+
+  如果假定$P$中有负的特征根$-\lambda, (\lambda > 0)$，对应特征向量$u$，根据定义我们有$P u = - \lambda u$。另一方面，设$x + P^{-1} b := \alpha u$，其中$\alpha$是任一不为$0$的实数。则我们有
+  \begin{equation*}
+\begin{split}
+&      \left( x + P^{-1} b \right)^{\top} P \left( x + P^{-1} b \right) =\left( \alpha u \right)^{\top} P \left( \alpha u \right) = \alpha^2 u^{\top} P u = \alpha^2 u^{\top} (-\lambda u) = - \alpha^2 \lambda \left\Vert u \right\Vert^{2},
+\end{split}
+  \end{equation*}
+其中$\left\Vert N \right\Vert$表示向量的范数(norm)。则\eqref{eq:simple-schur-quadratic-Pb}进一步改写为
+\begin{equation}
+  \label{eq:simple-schur-quadratic-uPb}
+  f(x) = \underbrace{- \frac{1}{2} \alpha^2 \lambda \left\Vert u \right\Vert^{2}}_{\ge 0} - \frac{1}{2}b^{\top} P^{-1} b,
+\end{equation}
+由于$\alpha$的取值可以至任意大，在$P$存在负的特征根的情况下$f(x)$不可能有最小值。
+
+因此，$f(x)$最小值存在的先决条件是满秩矩阵$P \succeq 0$。在$P \succeq 0$并且\eqref{eq:simple-schur-quadratic-Pb}右侧第一部分恒大于等于$0$(由\eqref{eq:simple-schur-quadratic-uPb}右侧第一部分恒大于等于$0$推得)的情况下，$f(\cdot)$的最小值只能出现在$x^{\star} = - P^{-1} b$，对应$f(x^{\star}) = - \frac{1}{2} b^{\top} P^{-1} b$。
+\end{proof}
+
+\begin{proposition}[奇异矩阵]
+  \label{prop:simple-schur-singular-optim}
+如果$P$是一个对称的奇异矩阵，那么只有当$P \succeq 0$并且$\left( I-PP^{\dagger}\right) b = 0$时，方程$f(x) = \left(\frac{1}{2}\right) x^{\top} P x + x^T b$才具有唯一的最优(极小)值$x^{\star} = - P^{\dagger} b$，使得$f(x^{\star}) = -\frac{1}{2} b^{\top} P^{\dagger} b$。
+
+进而，如果$P=U^T \Sigma U$是一个关于$P$的SVD，那么系统最优值$f(x^{\star})$对应$x \in \mathbb{R}^{n \times n}$：
+\begin{equation*}
+  x^{\star} = -P^{\dagger} b + U^{\top} \begin{bmatrix}0 \\ z \end{bmatrix}, \quad \text{对于任一 } \quad z \in \mathbb{R}^{n-r \times n-r}, \quad r:=rank(P).
+\end{equation*}
+\end{proposition}
+\begin{proof}
+  对不满秩$(r < n)$的奇异矩阵$P$做分块对角化
+  \begin{equation*}
+    P = U^{\top} \begin{bmatrix}
+    \Sigma_r & 0 \\ 0 & 0
+    \end{bmatrix} U,
+  \end{equation*}
+  其中$U$是正交矩阵，$\Sigma_r \in \mathbb{R}^{r \times r}$是可逆对角矩阵。由此可得
+  \begin{equation*}
+  \begin{split}
+    f(x) &= \frac{1}{2} x^{\top} P x + x^{\top} b \\
+    &= \frac{1}{2} x^{\top} U^{\top} \begin{bmatrix}
+    \Sigma_r & 0 \\ 0 & 0
+  \end{bmatrix} U x + x^{\top} U^{\top} U b \\
+  &= \frac{1}{2} \left( U x \right)^{\top} \begin{bmatrix}
+  \Sigma_r & 0 \\ 0 & 0
+\end{bmatrix} \left(U x\right) + \left( U x \right)^{\top} U b.
+  \end{split}
+  \end{equation*}
+
+  定义
+  \begin{equation*}
+    U x :=
+    \begin{bmatrix}
+    y \\ z
+    \end{bmatrix},
+    \quad U b :=
+    \begin{bmatrix}
+    c \\ d
+  \end{bmatrix}，
+  \quad y,c \in \mathbb{R}^{r},
+  \quad z,d \in \mathbb{R}^{(n-r) },
+  \end{equation*}
+  上式可进一步调整为
+  \begin{equation}
+    \label{eq:simple-schur-fx-y-c-d}
+  \begin{split}
+    f(x) &= \frac{1}{2} \begin{bmatrix}
+    y^{\top} & z^{\top}
+    \end{bmatrix} \begin{bmatrix}
+  \Sigma_r & 0 \\ 0 & 0
+  \end{bmatrix} \begin{bmatrix}
+  y \\ z
+  \end{bmatrix} + \begin{bmatrix}
+  y^{\top} & z^{\top}
+  \end{bmatrix} \begin{bmatrix}
+  c \\ d
+  \end{bmatrix} \\
+  &= \frac{1}{2} y^{\top} \Sigma_r y + y^{\top} c + z^{\top} d.
+  \end{split}
+  \end{equation}
+
+  根据\eqref{eq:simple-schur-fx-y-c-d}，我们逐次分析$f(x)$最小值存在的两个条件：
+  \begin{enumerate}
+    \item 对于$y =0$的情况，我们有$f(x) = z^{\top} d$，此时如果$d \neq 0$取任意值，$f(x)$将没有最小值。因此为了让$f(x)$有最小值，需要使$d = 0$。根据第\ref{sec:simple-pseudo}节可得，$U b= \begin{bmatrix} c \\ 0 \end{bmatrix}$，进而$b = range(P)$\footnote{第\ref{sec:simple-pseudo}节中的$U$对应本节中的$U^{\top}$。}；因此$f(x)$存在最小值的条件之一是$b=0$，等价于$\left(I-PP^{\dagger}\right) b = 0$。
+    \item  将$b=0$代回原式，我们有$f(x) = \frac{1}{2} y^{\top} \Sigma_r y + y^{\top} c$，由于分块矩阵$\Sigma_{r}$是可逆的，根据Proposition \ref{prop:simple-schur-quadratic-optim}， $f(x)$存在最小值的第二个条件是$\Sigma_{r} \succeq 0$，等价于$P \succeq 0$。
+  \end{enumerate}
+
+  假定$f(x)$最小值存在的两个条件都得到了满足。来看$x^{\star}$的取值。
+\begin{enumerate}
+
+  \item 对于$d=0$，\begin{equation*}
+  \frac{\partial f}{\partial y} = \Sigma_r y + c = 0,
+  \end{equation*}
+  可得$y^{\star} = -\Sigma_r ^{-1} c$.
+
+  \item 假定$z=0$，\begin{equation*}
+  U x^{\star} = \begin{bmatrix}
+  y^{\star} \\ z
+\end{bmatrix} = \begin{bmatrix}
+  -\Sigma_r ^{-1} c \\ 0
+\end{bmatrix},
+  \end{equation*}
+由正交矩阵性质我们有$U^{\top} = U^{-1}$，进而
+\begin{equation}
+\label{eq:simple-schulr-optimum-x-value}
+\begin{split}
+    x^{\star} &= - U^{-1}  \Sigma_r ^{-1} c \\
+    &= - U^{\top} \begin{bmatrix}
+    \Sigma_{r}^{-1} & 0 \\
+    0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+      c \\ 0
+    \end{bmatrix} \\
+    &= - U^{\top} \begin{bmatrix}
+    \Sigma_{r}^{-1} & 0 \\
+    0 & 0
+    \end{bmatrix} Ub \\
+    &= -P^{\dagger} b,
+\end{split}
+\end{equation}
+并且不难看出，任一$z \in R^{n-r}$对$x^{\star}=-P^{\dagger} b + U^{\top} \begin{bmatrix} 0 \\ z \end{bmatrix}$的取值都不产生影响。
+\end{enumerate}
+
+进一步看最优极小值$f(x^{\star})$
+\begin{equation}
+  \label{eq:simple-schulr-optimum-y-value}
+\begin{split}
+    f(x^{\star}) &= \frac{1}{2} (x^{\star})^{\top} P x^{\star} + (x^{\star})^{\top} b \\
+    &= \frac{1}{2} \left(-P^{\dagger} b\right)^{\top} P \left(-P^{\dagger} b\right) + \left(-P^{\dagger} b\right)^{\top} b \\
+    &= \frac{1}{2}  b^{\top} (P^{\dagger})^{\top} P P^{\dagger} b - b^{\top} (P^{\dagger})^{\top} b \\
+    &= b^{\top} \left(-\frac{1}{2} (P^{\dagger})^{\top} \right) b \\
+    &= -\frac{1}{2} b^{T} P^{\dagger} b,
+\end{split}
+\end{equation}
+并且同样地，任一$z \in R^{n-r}$对$f(x^{\star})$的取值也不产生影响。
+\end{proof}
+
+\subsubsection{判断$M$是否正半定}
+在此基础上，回到最初的问题上来：如何判断对称矩阵$M = \begin{bmatrix} A & B \\ B^{\top} &C\end{bmatrix}$是正半定矩的。
+
+这个问题等同于：判断方程$f(x,y)$是否有最小值：
+\begin{equation*}
+  f(x,y) = \begin{bmatrix} x^{\top} & y^{\top} \end{bmatrix}  \begin{bmatrix} A & B \\ B^{\top} & C\end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}
+\end{equation*}
+
+根据Proposition \eqref{prop:simple-schur-singular-optim}可知：对于给定的常数向量$y$，只有当$A \succeq 0, \left( I - A A^{\dagger} \right) B y=0, C-B^{\top} A^{\dagger} B \succeq 0$时，$f$存在最小值，最小值为
+\begin{equation*}
+  f(x^{\star}, y ) = - y^{\top} B^{\top} A^{\dagger} B y + y^{\top} C y = y^{\top} \left( C - B^{\top} A^{\top} B\right)y.
+\end{equation*}
+
+\begin{theorem}
+  \label{theorem:simple-schur-positivedef}
+  对于任一对称矩阵$M = \begin{bmatrix} A & B \\ B^{\top} & C\end{bmatrix}$，下述条件之间等价
+  \begin{enumerate}
+    \item $M \succeq 0$，
+    \item $A\succeq 0, (I-AA^{\dagger} B) =0, C- B^{\top} A^{\dagger} B \succeq 0$，
+    \item $C \succeq 0, (I-CC^{\dagger} B = 0), A - B^{\top} C^{\dagger} B \succeq 0$，
+  \end{enumerate}
+  并且可以对M做如下矩阵分解
+  \begin{equation*}
+    M = \begin{cases}
+      &  = \begin{bmatrix}
+      I & BC^{\dagger} \\ 0 & I
+      \end{bmatrix}
+      \begin{bmatrix}
+        A - BC^{\dagger} B^{T} & 0 \\ 0 & C
+      \end{bmatrix}
+      \begin{bmatrix}
+        I & 0 \\ C^{\dagger} B^{T} & I
+      \end{bmatrix}, \quad \text{或}\\
+      & = \begin{bmatrix}
+      I & 0 \\ B^{\top} A^{\dagger} & I
+      \end{bmatrix}
+      \begin{bmatrix}
+        A & 0  \\ 0 & C-B^{\top} A^{\dagger} B
+      \end{bmatrix}
+      \begin{bmatrix}
+        I & A^{\dagger} B \\ 0 & I
+      \end{bmatrix}.
+    \end{cases}
+  \end{equation*}
+\end{theorem}
+
+\section{伪逆矩阵}
+\label{sec:simple-pseudo}
+%\lipsum[4]
+又称Moore-Penrose Pseudo inverse。可见如\cite[Ch.5]{Bapat:2012ue}。
+
+\subsection{用SVD法做伪逆矩阵分解}
+\label{sec:simple-pseudo-svd}
+一个方块矩阵$M \in \mathbb{R}^{n \times n}$可以做如下SVD分解(singular value decomposition)，以求得伪逆矩阵$M^{\dagger}$
+\begin{equation*}
+  M = U \Sigma V^{\top},
+\end{equation*}
+其中
+\begin{itemize}
+  \item $U, V$是正交矩阵，$U$和$V$的column分别是$MM^{\top}$和$M^{\top}M$的特征向量。需要指出的是，对$M$做SVD，得到的$U$和$V$并不唯一。
+  \item 对角矩阵$\Sigma = diag (\sigma_1, \sigma_2, \ldots \sigma_r, 0, 0,\ldots 0)$:
+  \begin{itemize}
+    \item $\sigma_{1}, \sigma_2, \ldots \sigma_r$表示$M$的秩，并且$\sigma_1 \ge \sigma_2 \ge \ldots \sigma_r$。
+    \item $\sigma_i$ 表示$M$的奇异值。 $\sigma_i, i=0,1, \ldots r$表示$MM^{\top}$和$M^{\top}M$的非零特征值的平方根。
+  \end{itemize}
+\end{itemize}
+
+如果$M = U \Sigma V^{\top}$是某个$M$的SVD，则我们将$M$的伪逆矩阵$M^{\dagger}$定义如下
+\begin{equation}
+  M^{\dagger} = V \Sigma^{\dagger} U^{\top}, \quad \Sigma^{\dagger} = diag \left(\sigma_1^{-1}, \sigma_2^{-1}, \ldots \sigma_r^{-1}, \ldots 0, 0, \ldots 0 \right).
+\end{equation}
+
+不难看出，当$M$是满秩$(r = n)$的（等价于$M$是可逆的）时，$M^{\dagger} = M^{-1}$。因此$M^{\dagger}$是个$M$的``广义逆矩阵''。对$M$做SVD，$U$和$V$有所不同，但同一$M$只有唯一的$M^{\dagger}$与之相对应。此外，根据伪逆矩阵的性质，我们有$MM^{\dagger}M = M$, $M^{\dagger} M M^{\dagger} = M^{\dagger}$，并且$M$和$M^{\dagger}$都是对称矩阵；并且
+\begin{equation*}
+  \begin{cases}
+    MM^{\dagger} &=  U \Sigma V^{\top} V \Sigma^{\top} U^{\top} = U
+    \Sigma \Sigma^{\top} U^{\top} = U \begin{bmatrix}
+    I_r & 0 \\ 0 & 0_{n-r}
+  \end{bmatrix} U^{\top}, \\
+  M^{\dagger} M &= V \Sigma^{\dagger} U^{\top} U \Sigma V^{\top} = V \Sigma^{\dagger} \Sigma V^{\top} = V \begin{bmatrix}
+  I_r & 0 \\ 0 & 0_{n-r}
+\end{bmatrix} V^{\top},
+  \end{cases}
+\end{equation*}
+因此我们有
+\begin{equation*}
+  \begin{cases}
+    \left(M M^{\dagger}\right)^2 &= MM^{\dagger}, \\
+    \left(M^{\dagger} M \right)^2 &= M^{\dagger}M,
+    \end{cases}
+\end{equation*}
+即$\left(M M^{\dagger}\right)$和$\left(M^{\dagger} M \right)$是对称的正交投影：
+\begin{enumerate}
+  \item $MM^{\dagger}$是$range(M)$的正交投影，
+  \item $M^{\dagger} M$是$ker(M)^{\bot}$的正交投影，$ker(M)^{\bot}$表示$ker(M)$的正交补(orthogonal complement)。
+\end{enumerate}
+
+\begin{proof}
+  由于$range (M^{\dagger} M) \subseteq range(M)$，即$M^{\dagger} M$的值域是$M$值域的子集，则在$range(M)$值域中，对于任一$y = M x$，由于$MM^{\dagger} M = M$，我们有
+  \begin{equation*}
+    MM^{\dagger} y = MM^{\dagger} M x= M x = y,
+  \end{equation*}
+  因此$range(MM^{\dagger}) \subseteq range(M)$。此外，根据$MM^{\dagger} M = M \Rightarrow ker(M^{\dagger} M) \subseteq ker(M)$。因而有$ker(M^{\top}) = ker(M)$。
+
+  由于$M^{\dagger} M$是埃米特矩阵(Hermitian)，$range(M^{\dagger} M) = ker(M^{\dagger} M)^{\bot} = ker(M)^{\bot}$。
+\end{proof}
+
+值域$range (M) = range(MM^{\dagger})$中包括所有向量$y \in \mathbb{R}^{n \times n}$，满足$U^T y = \begin{bmatrix} z \\ 0 \end{bmatrix}, z \in \mathbb{R}^{r}$。
+\begin{proof}
+  对于$y=Mx$，我们有
+  \begin{equation*}
+      U^{\top} y = U^{\top} M x = U^{\top} U \Sigma V^{\top} x = \Sigma V^{\top} x = \begin{bmatrix}
+      \Sigma_{r} & 0 \\ 0 & 0_{n-r}
+    \end{bmatrix} V^{\top}  x = \begin{bmatrix} z \\ 0 \end{bmatrix},
+  \end{equation*}
+  反过来，如果$U^{\top} y = \begin{bmatrix} z \\ 0 \end{bmatrix}$，则我们首先有$y = U \begin{bmatrix} z \\ 0 \end{bmatrix}$，进而
+  \begin{equation*}
+    \begin{split}
+      MM^{\dagger} y &= U \begin{bmatrix}
+      I_r & 0 \\ 0 & 0_{n-r}
+    \end{bmatrix} U^{\top} y \\
+    &= U \begin{bmatrix}
+    I_r & 0 \\ 0 & 0_{n-r}
+  \end{bmatrix} U^{\top} U
+  \begin{bmatrix}
+  z \\ 0
+  \end{bmatrix} \\
+  & = U \begin{bmatrix}
+  I_r & 0 \\ 0 & 0_{n-r}
+\end{bmatrix}
+  \begin{bmatrix}
+  z \\ 0
+  \end{bmatrix} \\
+  & = U \begin{bmatrix}
+  z \\ 0
+  \end{bmatrix}，
+    \end{split}
+  \end{equation*}
+这说明$y \in range(M)$，即$y$在$M$的值域之中。
+\end{proof}
+
+类似地，值域$range(M^{\dagger} M) = ker(M)^{\bot}$中包括所有向量$y \in \mathbb{R}^{n \times n}$，满足$V^{\top} y = \begin{bmatrix} z \\ 0 \end{bmatrix}, z \in \mathbb{R}^{r \times r}$。
+\begin{proof}
+  对于$y = M^{\dagger} M U$，我们有
+  \begin{equation*}
+    y = M^{\dagger} M U = V \begin{bmatrix}
+    I_r & 0 \\ 0 & 0_{n-r}
+    \end{bmatrix}
+    V^{\top} U = V \begin{bmatrix} z \\ 0 \end{bmatrix}.
+  \end{equation*}
+
+  反过来，如果$V^{\top} y = \begin{bmatrix} z \\ 0 \end{bmatrix}$， 则$y = \begin{bmatrix} z \\ 0 \end{bmatrix}$，进而
+  \begin{equation*}
+    M^{\top} M V \begin{bmatrix} z \\ 0 \end{bmatrix} = V \begin{bmatrix}
+    I_r & 0 \\ 0 & 0_{n-r}
+  \end{bmatrix} V^{\top} V \begin{bmatrix} z \\ 0 \end{bmatrix} = V \begin{bmatrix}
+  I_r & 0 \\ 0 & 0_{n-r}
+\end{bmatrix} \begin{bmatrix} z \\ 0 \end{bmatrix} = y.
+  \end{equation*}
+
+  这说明$y \in range(M^{\dagger} M)$。
+\end{proof}
+
+\subsection{用SVD法做 M 的矩阵分解}
+\label{sec:simple-pseudo-svd-M}
+对于$M$是一个对称实矩阵的情况。每一个$M=U \Sigma V^{\top}$的SVD分解常常只有不超过1个$\Sigma$，但有多个$U$和$V$，并且通常来说不存在$U=V$的情况。然而，如果对称矩阵 $M \succeq 0$，那么
+\begin{enumerate}
+  \item $M$的特征值非负，
+  \item $M$的非零特征值数量，与奇异值数量相等，
+  \item 可以用SVD法分解：$M=U \Sigma V^{\top}$。
+\end{enumerate}
+如果$M$是一个对称复矩阵，结果与之相类似，除了此时\begin{enumerate}
+\item $U$和$V$是埃尔米特矩阵，并且
+\item $M^{\top} M$和$M M^{\top}$是埃尔米特正交映射。
+\end{enumerate}
+
+对于$M$是一个对称正规矩阵(normal matrix)的情况，即方块矩阵满足$M M^{\top} = M^{\top} M$，此时$M$的SVD分解与分块对角分解之间关系密切，并且$M$的伪逆矩阵可以直接由分块对角分解求得。
+\begin{proof}
+  对实正规矩阵$M$做分块对角分解：
+  \begin{equation*}
+  M = U \Lambda U^{\top},
+  \end{equation*}
+  其中$U$是正交矩阵，$\Lambda = diag\left(B_1, B_2, \ldots B_n \right)$是实系数分块对角矩阵。
+
+  分块$B_j, j=0,1,\ldots n$可以是下属两种形式之一。第一是一个$2 \times 2$的矩阵$ B_j = \begin{bmatrix} \lambda_{j} & - \mu_j \\ \mu_j & \lambda_j \end{bmatrix}$；第二是一个一维分块$B_j = \left( \lambda_j \right)$。
+
+  假定$B_1, B_2, \ldots B_p$是前一种形式，且$\lambda_{2p+1}, \lambda_{n}$是标量。我们已知$\lambda_j \pm i \mu_j$，并且$\lambda_{2p + k}$表示$A$的特征值。
+
+  令$\rho_{2j-1} = \rho_{2j} = \left( \lambda_j^2 + \mu_j^2 \right)^{1/2}\text{ for }j = 1, \ldots p$，以及$\rho _{2p+j} = \lambda_j$，并且假定这些分块已经按照降序排列$\rho_1 \ge \rho_2 \ge \ldots \ge \rho_n$。那么可见
+  \begin{equation*}
+    UU^{\top} = U^{\top} U = U \Lambda U^{\top} U \Lambda^{\top} U^{\top} = U \Lambda \Lambda^{\top} U^{\top},
+  \end{equation*}
+  并且
+  \begin{equation*}
+    \Lambda \Lambda^{\top} = diag(\rho_1^2, \rho_2^2, \ldots \rho_n^2),
+  \end{equation*}
+  因此可见：$M$的奇异值$\sigma_1 \ge \sigma_2 \ge \ldots \ge \sigma_n$就是矩阵$MM^{\top}$特征值的非负平方根$\rho_1 \ge \rho_2 \ge \ldots \rho_n$，满足$\sigma_j = \rho_j, 1 \le j \le n$。
+
+  接着定义对角矩阵
+  \begin{equation*}
+    \Sigma = diag(\sigma_1, \sigma_2, \ldots \sigma_r, 0, 0, \ldots ,0),
+  \end{equation*}
+  其中$r = rank(M)$，$\sigma_1 \ge \sigma_2 \ge \ldots \ge \sigma_r >0$，并且定义
+  \begin{equation*}
+    \Theta = diag(\sigma_1^{-1} B_1, \sigma_2^{-1} B_2, \ldots \sigma_p^{-1} B_p, 1, 1, \ldots, 1).
+  \end{equation*}
+
+  由此可见，$\Theta$是个正交矩阵，并且
+  \begin{equation*}
+    \Lambda = \Theta \Sigma = (B_1, B_2, \ldots, B_p, \lambda_{2p+1}, \lambda_{2p+2}, \ldots, \lambda_r, 0, 0, \ldots, 0).
+  \end{equation*}
+
+  进而
+  \begin{equation*}
+    \begin{split}
+      M &= U \lambda U^{\top} = U \Theta \Sigma U^{\top}.
+    \end{split}
+  \end{equation*}
+
+  由于$U$和$\Theta$都是正交矩阵，因此$V \equiv U \Theta$也是正交矩阵，并且$M = V \Sigma U^{\top}$是$M$的SVD。
+
+  根据SVD的性质我们有
+  \begin{equation*}
+    M = V \Sigma U^{\top} = U \Sigma^{\dagger} V^{\top} = U \Sigma^{\dagger} \Theta^{\top} U^{\top},
+  \end{equation*}
+  其中最后一个等式根据$V=U \Theta \Rightarrow V^{\top} = \Theta{\top} U^{\top}$。
+
+  $\Theta$是正交矩阵$\Rightarrow$ $\Theta^{\top} = \Theta^{-1}$ $\Rightarrow$ $\Sigma^{\dagger} \Theta^{\top} = \Sigma^{\dagger} \Theta^{-1} = \Lambda^{\dagger}$
+
+  因此我们有$M^{\dagger} = U \Lambda ^{\dagger} U^{\top}$。
+
+  来看$\Lambda^{\dagger}$的性质。如果我们将$\Lambda_r$写为$\Lambda_r = \left( B_1, B_2, \ldots, B_p, \lambda_{2p+1}, \ldots, \lambda_r \right)$，则$\Lambda$是可逆矩阵，并且$\Lambda^{\dagger} = \begin{bmatrix} \Lambda_r^{-1} & 0 \\ 0 & 0 \end{bmatrix}$。
+
+  由上可见，一个(实系数)正规矩阵$M$的伪逆矩阵，可以通过对$M$做分块对角分解求得。
+\end{proof}
+
+
+\end{subappendices}

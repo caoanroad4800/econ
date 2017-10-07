@@ -1,0 +1,14 @@
+# Fdb version 3
+["xdvipdfmx"] 0 "perturbation.xdv" "perturbation.pdf" "perturbation" 0
+  "perturbation.xdv" 0 -1 0 "xelatex"
+  (generated)
+  "perturbation.pdf"
+["xelatex"] 1500515576 "perturbation.tex" "perturbation.xdv" "perturbation" 1500515576
+  "/usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf" 1494087824 32646 eadc4ca26cdbe7105ac7c593aa8c4f72 ""
+  "/usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt" 1500446511 3705047 91b1b489906f1cf67082c7dc6e55591a ""
+  "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
+  "perturbation.aux" 1500515576 8 a94a2480d3289e625eea47cd1b285758 ""
+  "perturbation.tex" 1500515575 13516 d5b2c5edf3073b47060c1a8d287e8573 ""
+  (generated)
+  "perturbation.log"
+  "perturbation.xdv"

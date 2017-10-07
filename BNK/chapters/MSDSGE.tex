@@ -1,0 +1,1619 @@
+%!TEX root = ../DSGEnotes.tex
+\chapter{NK-DSGE模型}
+\label{sec:MSDSGE}
+
+\section{Intrduction}
+\label{sec:MSDSGE-intro}
+
+\subsection{模型中的六个生产部门}
+\label{sec:MSDSGE-sectors}
+\begin{enumerate}
+\item{劳动承包部门}。labor contractor，在充分竞争环境中，将家庭部门提供的异质劳动力转化为同质劳动力，供中间产品生产部门使用。
+\item{家庭部门}。存在一系列家庭，家庭行为包括
+\begin{enumerate}
+\item 供应(异质)劳动力给劳动力承包商
+\item 对应向下倾斜的需求曲线，决定(异质)劳动力的工资
+\item 投资于实物资本
+\item 做实物资本的使用率决策
+\item 将资本服务品租借给生产部门，赚取资本租金
+\item 消费，购买最终产品
+\item 购买政府部门的债券。
+\end{enumerate}
+\item{中间产品生产部门}。存在一系列中间产品生产部门，在垄断竞争环境中，使用来自家庭部门的资本服务品，和来自劳动承包商的劳动力投入，生产异质的中间产品，以供最终产品生产部门使用。
+\item{最终产品生产部门}。存在一个最终产品生产者，在充分竞争环境中，将中间产品生产部门生产的异质中间产品转化为最终产品，创造产出。
+\item{政府部门}。
+\begin{enumerate}
+\item 决定(外生)政府支出的规模
+\item 通过收取一揽子税和/或发放债券来平衡收支。
+\end{enumerate}
+\item{中央银行}。通过Taylor rule来推行货币政策。
+\end{enumerate}
+
+\subsection{几点说明}
+\begin{enumerate}
+\item cashless economy，效用函数中无cash。
+\item 中性的财政政策，政府收一揽子税和发债的目标是确保收支平衡。
+\item 打破利率的zero lower bound，即不再假定利率必须$\ge 0$。
+\item 假定是封闭经济体，无进出口\footnote{DSGE框架中加入进出口的框架，如\cite{Svensson:2010wq}。}。
+\end{enumerate}
+
+\section{解析模型}
+\label{sec:MSDSGE-model}
+\subsection{劳动承包部门}
+经济体中存在一系列异质化家庭，将它们标记为标准化的$l \in [0,1]$，每个家庭供应劳动力$N_t(l)$。劳动供应商将异质的$N_t(l)$打包为同质劳动$N_{d,t}$，以供生产部门使用。打包技术如下
+\begin{equation}
+\label{eq:MS-contractor-labor}
+N_{d,t} = \left(
+\int_{0}^{1} N_t(l)^{\frac{\epsilon_w -1}{\epsilon_w}} d l
+\right)^{\frac{\epsilon_w}{\epsilon_w -1}},
+\end{equation}
+其中$\epsilon_w$表示不同家庭$l$所提供劳动力之间的替代弹性，设$\epsilon_w >1$即它们是替代品。
+
+\subsubsection{对$l^{th}$劳动力的需求}
+劳动承包商的最大化问题。根据给定$\left\{ W_t, W_t(l)\right\}$和既定产出条件式\eqref{eq:MS-contractor-labor}，选择异质劳动力$\left\{ N_t(l) \right\}$以实现利润最大化。其中$W_t$表示总工资水平，$W_{t}(l)$表示$l^{th}$类型劳动力工资，
+\begin{equation*}
+\max_{N_t(l)} W_t \cdot N_{d,t} - \int_{0}^{1} W_t(l) \cdot N_t(l) d l.
+\end{equation*}
+
+FOC wrt $N_t(l)$
+\begin{equation*}
+\frac{\partial \left\{
+W_t \cdot \left[
+\int_{0}^{1} N_t(l)^{\frac{\epsilon_w -1}{\epsilon_w}} d l
+\right]^{\frac{\epsilon_w}{\epsilon_w -1}} - \int_{0}^{1} W_t(l) \cdot N_t(l) d l
+\right\}}{
+  \partial N_t(l)
+} = 0,
+\end{equation*}
+
+\begin{equation*}
+W_t \cdot \frac{\epsilon_w}{\epsilon_w -1} \cdot \left[ \cdot \right]^{\frac{1}{\epsilon_w -1}} \cdot \frac{\epsilon_w -1}{\epsilon_w} \cdot N_t(l)^{-\frac{1}{\epsilon_w}} = W_t(l),
+\end{equation*}
+
+\begin{equation*}
+W_t \cdot \frac{\epsilon_w}{\epsilon_w -1} \cdot N_{d,t}^{\frac{1}{\epsilon_w}} \cdot \frac{\epsilon_w -1}{\epsilon_w} \cdot N_t(l)^{-\frac{1}{\epsilon_w}} = W_t(l),
+\end{equation*}
+
+\begin{equation}
+\label{eq:MS-agg-wage-index}
+N_t(l) = N_{d,t} \cdot \left(\frac{W_t(l)}{W_t}\right)^{-\epsilon_w}.
+\end{equation}
+式\eqref{eq:MS-agg-wage-index}为(劳动承包商)对$l^{th}$家庭劳动力的需求函数，可见$N_t(l)$一方面取决于(生产部门)对$N_{d,t}$的需求，一方面取决于$l^{th}$劳动力的相对工资。
+
+\subsubsection{总工资水平}
+劳动承包商处于充分竞争环境中，利润为0。
+\begin{equation*}
+W_t \cdot N_{d,t} = \int_{0}^{1} W_t(l) N_t(l) d l.
+\end{equation*}
+
+引入式\eqref{eq:MS-agg-wage-index}替换掉$N_t(l)$
+\begin{equation*}
+W_t \cdot N_{d,t} = \int_{0}^{1} W_t(l)^{1-\epsilon_w} d l \cdot \left(W_t \cdot N_{d,t} \right)^{\epsilon_w}.
+\end{equation*}
+
+整理得总工资水平$W_t$的决定式，它是一个关于$W_t(l)$的函数
+\begin{equation}
+\label{MS-agg-wage-index}
+W_t^{1-\epsilon_w} = \int_0^1 W_t(l)^{1-\epsilon_w} dl.
+\end{equation}
+
+\subsubsection{工资分布指标}
+根据定义，家庭部门异质劳动力供应的加总为$N_t = \int_0^1 N_t(l) dl$，代入式\eqref{eq:MS-agg-wage-index}用$N_{d,t}$代替$N_t(l)$
+\begin{equation}
+\label{eq:MS-Nt-Ndt}
+N_t = N_{d,t} \cdot \int_0^1 \left(\frac{W_t(l)}{W_t}\right)^{-\epsilon_w} dl = N_{d,t} \cdot v^w_t,
+\end{equation}
+上式反映了家庭部门的总劳动供应和劳动承包商生产同质劳动之间的关系，其中
+\begin{equation}
+\label{eq:MS-wage-disper-index}
+v^w_t \equiv \int_{0}^1 \left(\frac{W_t(l)}{W_t}\right)^{-\epsilon_w}
+\end{equation}
+表示工资分布指标，衡量不同家庭劳动工资相对于总工资的差异程度，设$v^w_t \ge 1$。$v^w_t \rightarrow 1$，工资差异越小，劳动承包商的劳动供应$N_{d,t}$接近于家庭总劳动供应；反之亦然。
+
+\subsection{家庭部门}
+\label{sec:HH-sector}
+\begin{enumerate}
+\item 家庭部门存在Calvo工资摩擦，即$l^{th}$家庭的劳动力$N_t(l)$是异质的，这导致工资收入$W_t(l)$也是异质的\citep{Calvo:1983uqa, Erceg:2000dm}。
+\item 家庭$l$的效用$U_t(l)$来自于消费$C_t$和劳动(休闲)$N_t(l)$。家庭与家庭效用的不同仅体现在工资$W_t(l)$和劳动$N_t(l)$的差异上，其他条件相同。
+\item 家庭是实物资本的持有者，一方面决定利用实物资本的强度(capital utilization intensity, \cite{Greenwood:1988jn})，利用实物资本的强度越高，资本折旧率越大；另一方面决定将多少(利用率调整后的)资本服务租借给生产企业，以换取租金。
+\item 家庭决定购买政府债券的数量。
+\end{enumerate}
+
+\subsubsection{资本形成}
+实物资本积累式
+\begin{equation}
+\label{eq:MS-capital-accumulation}
+K_{t+1} = Z_t \cdot \left[
+1 - \frac{\kappa}{2} \cdot \left(\frac{I_t}{I_{t-1}} -1\right)^2
+\right] \cdot I_t + \left[
+1- \delta(u_t)
+\right] \cdot K_t,
+\end{equation}
+其中\begin{itemize}
+\item $Z_t$表示外部投资冲击，影响从流量投资向存量实物资本的转化效率。
+\item 常数$\kappa$反映投资的调整成本(adjustment cost, \cite{Lucasjoin:1971hx, Hayashi:1982bc})，我们取\cite{Christiano:2005ib}的设定形式。
+\item $u_t$表示实物资本的利用率。
+\item 折旧率变量$\delta(u_t)$的函数形式如下
+\begin{equation}
+\label{eq:MS-capital-depreciation}
+\delta(u_t) = \delta_0 + \delta_1 \cdot (u_t -1) + \frac{\delta_2}{2} \cdot \left(u_t -1\right)^2.
+\end{equation}
+\end{itemize}
+
+\subsubsection{资本服务品}
+家庭选择$u_t$和$K_t$，向生产部门供应资本服务(capital services)，函数形式如下
+\begin{equation}
+\label{eq:MC-hh-capital-services}
+\hat{K}_t = u_t \cdot K_t.
+\end{equation}
+
+\subsubsection{效用函数}
+$t$期效用函数
+\begin{equation}
+\label{eq:MS-hh-utility}
+U_t(l) = \ln \left(C_t - b \cdot C_{t-1} \right)- \psi_{t} \cdot \frac{N_{t}(l)^{1+\chi}}{1+\chi}
+\end{equation}
+其中
+\begin{itemize}
+\item 消费对效用的贡献表现为习惯形成(habit formation of consumption)，如\cite{Fuhrer:2000ez, Bouakez:2005da})，用参数$b \ge 0$来表示。$b \rightarrow 0$，上期消费习惯对当期效用的影响就越小。
+\item 消费和劳动(休闲)对效用的贡献是内部可分的(intratemporal separable)，如\cite{Christiano:2005ib})。参数$\chi$表示劳动力供应的Frisch弹性的倒数，见节\ref{sec:Frish-elasticity}。
+\item 外生的偏好冲击$\psi_t$影响家庭对消费带来的效用和劳动带来的负效用之间的权衡。
+\end{itemize}
+
+\subsubsection{预算约束条件}
+家庭预算约束条件，当期支出不得超过当期收入。
+\begin{equation}
+\label{sec:MC-hh-budget-constraint}
+P_t \cdot C_t + P_t \cdot I_t + B_{t+1} \le W_t(l) \cdot N_t(l) + R^n_t \cdot \hat{K}_t + \Pi^n_t - P_t \cdot T_t + \left(1+i_{t-1}\right) \cdot B_t,
+\end{equation}
+其中
+\begin{itemize}
+\item $P_t$表示价格水平。
+\item t期初，家庭购买$B_t$名义国债，t期末时，根据上一期名义利率$i_{t-1}$获得利息。
+\item 家庭以名义租金率$R^n_t$将资本服务品租借给生产部门。
+\item $\Pi^n_t$为(垄断竞争的中间产品)生产者的名义盈利，转回到作为资本所有者的家庭部门。
+\item $T_t$表示政府的一揽子税/转移支付。
+\end{itemize}
+
+\subsubsection{家庭最大化问题}
+$l^{th}$家庭决策为，选择$\left\{C_t, N_t(l), W_t(l), u_t, K_{t+1}, B_{t+1}, I_t\right\}$，以实现forward-looking形式的效用最大化
+\begin{align}
+&\max_{\left\{C_t, N_t(l), W_t(l), u_t, K_{t+1}, B_{t+1}, I_t\right\}} E_t \sum_{s=0}^{\infty} \beta^s \cdot \nu_{t+s} \cdot U_{t+s} \\
+\label{eq:MS-hh-max-problem}
+=&\max_{\left\{C_t, N_t(l), W_t(l), u_t, K_{t+1}, B_{t+1}, I_t\right\}} E_t \sum_{s=0}^{\infty} \beta^s \cdot \nu_{t+s} \cdot \left\{
+  \ln \left(C_{t+s} - b \cdot C_{t+s-1} \right) - \psi_{t+s} \cdot \frac{N_{t+s}(l)^{1+\chi}}{1+\chi}.
+\right\}
+\end{align}
+其中$\beta$为时间的折旧系数，$\nu_{t+s}$为外生inter-temporal偏好冲击。最大化的约束条件包括预算约束条件\eqref{sec:MC-hh-budget-constraint}，资本形成式\eqref{eq:MS-capital-accumulation}。效用表达式\eqref{eq:MS-hh-utility}中引入式\eqref{eq:MC-hh-capital-services}替换$\hat{K}_{t+s}$，引入式\eqref{eq:MS-agg-wage-index}替换$N_t(l)$。
+
+\subsubsection{与工资设定无关的一阶条件}
+将家庭最大化问题中，首先提取与工资设定无关的控制变量$\left\{C_t, u_t, K_{t+1}, B_{t+1}, I_t\right\}$，建Lagrangian
+\begin{equation*}
+\begin{split}
+\mathcal{L} = E_t \sum_{t=0}^{\infty} \beta^s \cdot \{ &\nu_{t+s} \cdot \ln \left( C_{t+s} - b \cdot C_{t+s-1}\right) + \ldots \\
+& + \lambda^n_{t+s}  \cdot [ W_{t+s}(l) \cdot N_{t+s}(l) + R^n_{t+s} \cdot u_{t+s} \cdot K_{t+s} + \Pi^n_{t+s} - P_{t+s} \cdot T_{t+s} + \left(1+i_{t+s-1}\right) \cdot B_{t+s} ] \\
+& + \mu_{t+s} \cdot \left[ Z_{t+s} \cdot \left(
+1 - \frac{\kappa}{2} \cdot \left(\frac{I_{t+s}}{I_{t+s-1}} -1\right)^2
+\right) \cdot I_{t+s} + \left(
+1- \delta(u_{t+s}) \right) \cdot K_{t+s} \right] \}
+\end{split}
+\end{equation*}
+
+FOC wrt $C_t$
+\begin{equation*}
+\frac{\partial \mathcal{L}}{\partial C_t} = 0 \Rightarrow
+\frac{\partial \nu_t \ln (C_t - b \cdot C_{t-1})}{\partial C_t} = \lambda^n_t \cdot P_t,
+\end{equation*}
+
+\begin{equation}
+\label{eq:MS-HH-FOC-C}
+\lambda^n_t \cdot P_t = \frac{\nu_t - b \cdot \beta \cdot E_t \nu_{t+1}}{C_t - b \cdot C_{t-1}}.
+\end{equation}
+
+FOC wrt $u_t$
+\begin{equation}
+\label{eq:MS-HH-FOC-u}
+\frac{\partial \mathcal{L}}{\partial u_t} = 0 \Rightarrow \lambda^n_t \cdot R^n_t = \mu_t \cdot \delta'(u_t) .
+\end{equation}
+
+FOC wrt $B_{t+1}$
+\begin{equation}
+\label{eq:MS-HH-FOC-B}
+\frac{\partial \mathcal{L}}{\partial B_{t+1}} = 0 \Rightarrow \lambda^n_t = \beta \cdot (1+i_t) \cdot E_t \lambda^n_{t+1}.
+\end{equation}
+
+FOC wrt $I_t$
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial I_t} = 0 \Rightarrow \lambda^n_t \cdot P_t  =& \frac{\partial \mu_t \cdot Z_t \cdot \left(\cdot \right) \cdot I_t}{\partial I_t}\\
+=& \mu_t \cdot Z_t \cdot \left[1-\frac{\kappa}{2} \cdot \left(\frac{I_t}{I_{t-1}} - 1 \right)^2\right] + \mu_t \cdot Z_t \cdot  I_t \cdot (-\frac{\kappa}{2}) \cdot 2 \cdot \left(\frac{I_t}{I_{t-1}} -1\right) \cdot \frac{1}{I_{t-1}} \\
+&+ \frac{\partial \beta \cdot E_t \left\{ \mu_{t+1} \cdot Z_{t+1}   \cdot I_{t+1} \cdot \left[1 - \frac{\kappa}{2} \cdot \left(\frac{I_{t+1}}{I_{t}} -1\right)^2 \right] \right\}}{\partial I_t} \\
+=& \mu_t \cdot Z_t \cdot \left[1-\frac{\kappa}{2} \cdot \left(\frac{I_t}{I_{t-1}} - 1 \right)^2\right] + Z_t \cdot u_t \cdot I_t \cdot (-\frac{\kappa}{2}) \cdot 2 \cdot \left(\frac{I_t}{I_{t-1}} -1\right) \cdot \frac{1}{I_{t-1}} \\
+&+ \beta \cdot E_t \cdot Z_{t+1} \cdot \mu_{t+1} \cdot I_{t+1} \cdot \left(-\frac{\kappa}{2}\right) \cdot \left(\frac{I_{t+1}}{I_t}-1\right) \cdot \left(\frac{- I_{t+1}}{I_t^2}\right),
+\end{align*}
+
+\begin{equation}
+\label{eq:MS-HH-FOC-I}
+\begin{split}
+\lambda^n_t \cdot P_t =& Z_t \cdot \mu_t \cdot \left[
+  1 - \frac{\kappa}{2} \cdot \left(\frac{I_t}{I_{t-1}} -1\right)^2 - \kappa \cdot \left(\frac{I_t}{I_{t-1}} -1\right) \cdot \frac{I_t}{I_{t-1}}
+\right] \\
+&+ \beta \cdot E_t Z_{t+1} \cdot \mu_{t+1} \cdot \kappa \cdot \left(\frac{I_{t+1}}{I_{t}} -1\right) \cdot \left(\frac{I_{t+1}}{I_{t}} \right)^2.
+\end{split}
+\end{equation}
+
+FOC wrt $K_{t+1}$
+\begin{equation*}
+\frac{\partial \mathcal{L}}{\partial K_{t+1}} = 0 \Rightarrow \frac{\partial \lambda^n_t \cdot R^n_t \cdot u_t \cdot K_t}{\partial K_{t+1}} + \frac{\mu_t \cdot \left(1-\delta(u_t)\right) \cdot K_t}{\partial K_{t+1}} = \frac{\partial \mu_t \cdot K_{t+1}}{\partial K_{t+1}},
+\end{equation*}
+
+\begin{equation}
+\label{eq:MS-HH-FOC-K}
+\mu_t = \beta \cdot E_t \left\{
+  \lambda^n_{t+1} \cdot R^n_{t+1} \cdot u_{t+1} + \mu_{t+1} \cdot \left[1-\delta(u_{t+1})\right].
+\right\}
+\end{equation}
+
+将名义量式\eqref{eq:MS-HH-FOC-C}-\eqref{eq:MS-HH-FOC-I}折算为实际量。定义消费的边际效用$\lambda_t$和资本服务品的实际租金$R_t$如下
+\begin{equation}
+\label{eq:MS-lambda-n-lambda}
+\lambda_t \equiv \lambda^n_t \cdot P_t,
+\end{equation}
+
+\begin{equation}
+\label{eq:MS-R-n-R}
+R_t \equiv \frac{R^n_t}{P_t}.
+\end{equation}
+
+此外，定义通货膨胀率$\pi_t$如下
+\begin{equation}
+\label{eq:MS-inflation-definication}
+1+\pi_t \equiv \frac{P_{t}}{P_{t-1}}.
+\end{equation}
+
+我们有FOC wrt 消费(Euler equation)
+\begin{equation}
+\label{eq:MS-HH-FOC-C-real}
+\lambda_t = \frac{\nu_t}{C_t - b \cdot C_{t-1}} - b \cdot \beta \cdot E_t \frac{\nu_{t+1}}{C_{t+1} - b \cdot C_{t}}.
+\end{equation}
+
+FOC wrt 资本利用率
+\begin{equation}
+\label{eq:MS-HH-FOC-u-real}
+\lambda_t \cdot R_t = \mu_t \cdot \delta'(u_t).
+\end{equation}
+
+FOC wrt 债券
+\begin{equation}
+\label{eq:MS-HH-FOC-B-real}
+\lambda_t = \beta \cdot E_{t} \lambda_{t+1} \cdot \left(\frac{1+i_t}{1+\pi_{t+1}}\right).
+\end{equation}
+
+FOC wrt 投资
+\begin{equation}
+\label{eq:MS-HH-FOC-I-real}
+\begin{split}
+\lambda_t = &\mu_t \cdot Z_t \cdot \left\{
+  1 - \frac{\kappa}{2} \cdot \left(\frac{I_t}{I_{t-1}} -1\right)^2 - \kappa \cdot \left(\frac{I_t}{I_{t-1}} -1 \right) \cdot \left(\frac{I_t}{I_{t-1}} \right)
+\right\} \\
+&+ \beta \cdot E_t \mu_{t+1} \cdot Z_{t+1} \cdot \kappa \cdot \left(\frac{I_{t+1}}{I_{t}} -1 \right) \cdot \left(\frac{I_{t+1}}{I_{t}}\right)^2
+\end{split}
+\end{equation}
+
+FOC wrt 资本存量
+\begin{equation}
+\label{eq:MS-HH-FOC-K-real}
+\mu_t = \beta \cdot E_t \left\{
+  \lambda_{t+1} \cdot R_{t+1} \cdot u_{t+1} + \mu_{t+1} \cdot \left(1-\delta(u_{t+1})\right)
+\right\}
+\end{equation}
+
+现在来看有关工资设定部分的一阶条件。在任一时间，假定全部$l \in [0,1]$家庭中有$(1- \phi_w)$比例可以调整工资，设为$W_t^{\#}(l)$；有$\phi_w$比例不能调整工资，只能根据上期工资和上期通胀率制定当期工资，可表示如下
+\begin{equation}
+\label{eq:MS-wage-setting-guide}
+W_t(l) =
+\begin{cases}
+W_t^{\#}(l) & \mbox{能调整工资，概率$1-\phi_w$,} \\
+\left(1+\pi_{t-1}\right)^{\zeta_w} \cdot W_{t-1}(l) &\mbox{不能调整工资，概率$\phi_w$.}
+\end{cases}
+\end{equation}
+其中通货膨胀率的传导系数$0 \le \zeta_w \le 1$。
+
+\subsubsection{工资设定的backward indexation分析}
+假定某家庭$l$能够在$t$期调整价格至$W_t^{\#}(l)$，随后直到$t+s, s\ge 0$期均不能调整价格。根据式\eqref{eq:MS-wage-setting-guide}，随着$s=(0,1,2 \ldots \infty )$，$l$家庭的工资$W_{t+s}(l)$依次为
+\begin{align*}
+&W_t(l) = W_t^{\#}(l), \\
+&W_{t+1}(l) = (1+\pi_t)^{\zeta_w} \cdot W_{t}(l) =  (1+\pi_t)^{\zeta_w} \cdot W_{t}^{\#}(l), \\
+&W_{t+2}(l) = (1+\pi_{t+1})^{\zeta_w} \cdot W_{t+1}(l)
+= \left[
+\left(1+\pi_{t+1}\right) \cdot \left(1 + \pi_t \right)
+\right]^{\zeta_w} \cdot W_{t}^{\#}(j),\\
+&W_{t+3}(l) = (1+\pi_{t+2})^{\zeta_w} \cdot W_{t+2}(l)
+= \left[
+\left(1+\pi_{t+2}\right) \cdot \left(1+\pi_{t+1}\right) \cdot \left(1 + \pi_t \right)
+\right]^{\zeta_w} \cdot W_{t}^{\#}(j),\\
+& \ldots
+\end{align*}
+
+或者改写为
+\begin{equation}
+\label{eq:MS-updating-wage-recursion}
+\begin{split}
+W_{t+s}(l) &= \left[\prod_{j=0}^{s-1} \left(1+\pi_{t+j}\right)\right]^{\zeta_w} \cdot W_t^{\#}(l) \\
+&=\left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{\zeta_w} \cdot W_t^{\#}(l).
+\end{split}
+\end{equation}
+其中第二行根据式\eqref{eq:MS-inflation-definication}求得。该式描述$t+s$期，$l^{th}$家庭的工资与$t$期工资和往期通货膨胀（或往期价格水平）的关系。
+
+\subsubsection{涉及工资设定的一阶条件}
+$t$期有机会调整工资的家庭$l$，从forward-looking的角度，通过设定$W_t^{\#}(l)$追求$t$到$t+s$期的效用之和最大化，
+\begin{equation}
+\label{eq:MS-hh-utility-lagrangian-wage-setting}
+\max_{\left\{W_t^{\#}(l)\right\}} E_t \sum_{s=0}^{\infty} \left(\beta \cdot \phi_w \right)^{s} \cdot \left\{\nu_{t+s} \cdot
+\left[ \ldots  - \psi_{t+s} \cdot \frac{N_{t+s}(l)^{1+\chi}}{1+\chi}\right]
++ \lambda^n_t \cdot W_{t+s}(l) \cdot N_{t+s}(l)
+\right\},
+\end{equation}
+$W_t^{\#}(l)$信息在$t+s$期仍然有效的概率是$\phi_w^s$。$(\beta \cdot \phi_w)^s$为主观折旧系数。
+
+根据式\eqref{eq:MS-agg-wage-index}，用劳动承包商对$N_{d,t}$的需求代替异质劳动力供应$N_t(l)$；根据式\eqref{eq:MS-updating-wage-recursion}，用$t$期的调整工资$W_t^{\#}(l)$代替$t+s$期工资$W_{t+s}(l)$，得
+\begin{equation}
+N_{t+s}(l) = N_{d,t+s} \cdot \left(\frac{W_{t+s}(l)}{W_{t+s}}\right)^{- \epsilon_w} = N_{d,t+s} \cdot \left(\frac{W_{t}^{\#}(l)}{W_{t+s}}\right)^{- \epsilon_w} \cdot \left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{- \epsilon_w \cdot \zeta_w}.
+\end{equation}
+
+式\eqref{eq:MS-hh-utility-lagrangian-wage-setting}变为
+\begin{equation}
+\begin{split}
+E_t \sum_{s=0}^{\infty} \left(\beta \cdot \phi_w \right)^s \cdot \{ &
+  - \nu_{t+s} \cdot \psi_{t+s} \cdot \frac{N_{d,t+s}^{1+\chi}}{1+\chi} \cdot \left(\frac{W_t^{\#}(l)}{W_{t+s}}\right)^{-\epsilon_w \cdot (1+\chi)} \cdot \left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{-\epsilon_w \cdot \zeta_w \cdot (1+\chi)} \\
+& \lambda^n_{t+s} \cdot \left[
+\left(\frac{W_t^{\#}(l)}{W_{t+s}}\right)^{-\epsilon_w} \cdot
+\left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{-\epsilon_w \cdot \zeta_w} \cdot
+N_{d,t+s}
+\right] \}
+\end{split}
+\end{equation}
+
+求解一阶条件，整理得
+\begin{equation*}
+W_t^{\#}(l)^{1+\epsilon_w \cdot \chi}
+= \frac{\epsilon_w}{\epsilon -1} \cdot \frac{
+  E_t \sum_{s=0}^{\infty} \left(\beta \cdot \phi_w\right)^s \cdot  \nu_{t+s} \cdot \psi_{t+s} \cdot W_{t+s}^{\epsilon_w \cdot (1+\chi)} \cdot N_{d,t+s}^{1+\chi} \cdot \left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{-\epsilon_w \cdot \zeta_w \cdot (1+\chi)}
+}{
+  E_t \sum_{s=0}^{\infty} \left(\beta \cdot \phi_w\right)^s \cdot  \lambda^n_{t+s} \cdot W_{t+s}^{\epsilon_w} \cdot N_{d,t+s} \cdot \left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{\zeta_w \cdot (1-\epsilon_w)}
+}
+\end{equation*}
+式右侧与个体家庭$l$无关，可见$W_t^{\#}(l) = W_t^{\#}, \forall l$。定义两个辅助变量$H_{1,t}, H_{2,t}$，上式变为
+
+\begin{equation}
+\label{MS-wage-sharp-auxiliary-H}
+W_t^{\#, 1+\epsilon_w \cdot \chi} = \frac{\epsilon_w}{\epsilon_w - 1} \cdot \frac{H_{1,t}}{H_{2,t}},
+\end{equation}
+其中
+\begin{align}
+\label{eq:MS-hh-auxiliary-H1}
+H_{1,t} &\equiv E_t \sum_{s=0}^{\infty} \left(\beta \cdot \phi_w\right)^s \cdot  \nu_{t+s} \cdot \psi_{t+s} \cdot W_{t+s}^{\epsilon_w \cdot (1+\chi)} \cdot N_{d,t+s}^{1+\chi} \cdot \left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{-\epsilon_w \cdot \zeta_w \cdot (1+\chi)}, \\
+\label{eq:MS-hh-auxiliary-H2}
+H_{2,t} &\equiv E_t \sum_{s=0}^{\infty} \left(\beta \cdot \phi_w\right)^s \cdot  \lambda^n_{t+s} \cdot W_{t+s}^{\epsilon_w} \cdot N_{d,t+s} \cdot \left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{\zeta_w \cdot (1-\epsilon_w)}.
+\end{align}
+
+将名义量的式\eqref{eq:MS-hh-auxiliary-H2}-\eqref{MS-wage-sharp-auxiliary-H}改写为实际量。定义实际工资
+\begin{equation}
+\label{MS-hh-real-wage}
+w_t \equiv \frac{W_t}{P_t},
+\end{equation}
+两个辅助变量分别变为
+
+\begin{align}
+H_{1,t} &= E_t \sum_{s=0}^{\infty} \left(\beta \cdot \phi_w \right)^s \cdot  \nu_{t+s} \cdot \psi_{t+s} \cdot w_{t+s}^{\epsilon_w \cdot (1+\chi)} \cdot N_{d,t+s}^{1+\chi} \cdot \left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{-\epsilon_w \cdot \zeta_w \cdot (1+\chi)} \cdot P_{t+s}^{\epsilon_w \cdot \left(1+\chi\right)} \nonumber \\
+& = \nu_t \cdot \psi_t \cdot w_t^{\epsilon_w \cdot \left(1+\chi \right)} \cdot N_{d,t}^{1+\chi} \cdot P_t^{\epsilon_w \cdot \left(1+\chi\right)}+ \left(\beta \cdot \phi_w \right) \cdot E_t \left(\frac{P_t}{P_{t-1}}\right)^{-\epsilon_w \cdot \zeta_w \cdot (1+\chi)} \cdot H_{1,t+1} \nonumber \\
+\label{eq:MS-hh-auxiliary-H1-real}
+&=\nu_t \cdot \psi_t \cdot w_t^{\epsilon_w \cdot \left(1+\chi \right)} \cdot N_{d,t}^{1+\chi} \cdot P_t^{\epsilon_w \cdot \left(1+\chi\right)}+ \left(\beta \cdot \phi_w \right) \cdot E_t \left( 1+\pi_t \right)^{-\epsilon_w \cdot \zeta_w \cdot (1+\chi)} \cdot H_{1,t+1},
+\end{align}
+\begin{align}
+H_{2,t} &= E_t \sum_{s=0}^{\infty} \left(\beta \cdot \phi_w\right)^s \cdot  \lambda^n_{t+s} \cdot W_{t+s}^{\epsilon_w} \cdot N_{d,t+s} \cdot \left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{\zeta_w \cdot (1-\epsilon_w)} \nonumber \\
+&= \lambda_t \cdot w_t^{\epsilon_w} \cdot N_{d,t} \cdot P_t^{\epsilon_w -1} + \left(\beta \cdot \phi_w \right) \cdot E_t \left(\frac{P_t}{P_{t-1}}\right)^{\zeta_w \cdot (1-\epsilon_w)} \cdot H_{2,t+1} \nonumber \\
+\label{eq:MS-hh-auxiliary-H2-real}
+&= \lambda_t \cdot w_t^{\epsilon_w} \cdot N_{d,t} \cdot P_t^{\epsilon_w -1} + \left(\beta \cdot \phi_w \right) \cdot E_t \left( 1+\pi_t \right)^{\zeta_w \cdot (1-\epsilon_w)} \cdot H_{2,t+1}.
+\end{align}
+
+继续调整辅助变量，定义
+\begin{equation}
+\label{eq:MS-hh-auxiliary-h1}
+\begin{split}
+h_{1,t} \equiv \frac{H_{1,t}}{P_t^{\epsilon_w \cdot \left( 1+\chi \right)}} = & \nu_t \cdot \psi_t \cdot w_t^{\epsilon_w \cdot \left(1+\chi \right)} \cdot N_{d,t}^{1+\chi} \\
+&+ \left(\beta \cdot \phi_w \right) \cdot E_t \left( 1+\pi_t \right)^{-\epsilon_w \cdot \zeta_w \cdot (1+\chi)} \cdot \left(1+\pi_{t+1} \right)^{\epsilon_w \cdot \left(1+\chi \right)}\cdot h_{1,t+1},
+\end{split}
+\end{equation}
+
+\begin{equation}
+\label{eq:MS-hh-auxiliary-h2}
+\begin{split}
+h_{2,t} \equiv \frac{H_{2,t}}{P_t^{\epsilon_w - 1}} =& \lambda_t \cdot w_t^{\epsilon_w} \cdot N_{d,t} \\
+&+ \left(\beta \cdot \phi_w \right) \cdot E_t \left( 1+\pi_t \right)^{\zeta_w \cdot (1-\epsilon_w)} \cdot \left(1 + \pi_{t+1} \right)^{\epsilon_w -1}\cdot h_{2,t+1}.
+\end{split}
+\end{equation}
+
+式\eqref{MS-wage-sharp-auxiliary-H}进一步调整为
+\begin{equation}
+\label{eq:MS-reset-wage-real-auxiliary}
+w_t^{\#, 1+\epsilon_w \cdot \chi} = \frac{\epsilon_w}{\epsilon_w -1} \cdot \frac{h_{1,t}}{h_{2,t}},
+\end{equation}
+其中定义实际调整工资
+\begin{equation}
+\label{eq:MS-reset-wage-real}
+w_t^{\#} \equiv \frac{W_t^{\#}}{P_t}.
+\end{equation}
+
+式\eqref{eq:MS-hh-auxiliary-h1}-\eqref{eq:MS-reset-wage-real-auxiliary}一道构成了家庭调整工资的最优决策。
+
+\subsubsection{相对调整工资}
+出于研究的需要，我们常常更感兴趣于调整工资$w^{\#}$与当期总工资水平$w_t$的比值，而非$w^{\#}$值本身。因此定义一组新的辅助变量
+\begin{equation}
+\label{eq:MS-hh-auxiliary-hat-h1}
+\begin{split}
+\hat{h}_{1,t} \equiv& \frac{h_{1,t}}{w^{\#, \epsilon_w \cdot \left(1+\chi \right)}} \\
+=& \nu_t \cdot \psi_t \cdot \left(\frac{w_t}{w_t^{\#}}\right)^{\epsilon_w \cdot \left(1+\chi \right)} \cdot N_{d,t}^{1+\chi} \\
+&+ \left(\beta \cdot \phi_w \right) \cdot E_t \left( 1+\pi_t \right)^{-\epsilon_w \cdot \zeta_w \cdot (1+\chi)} \cdot \left(1+\pi_{t+1} \right)^{\epsilon_w \cdot \left(1+\chi \right)}\cdot \left(\frac{w^{\#}_{t+1}}{w^{\#}_{t}}\right)^{\epsilon_w \cdot \left( 1 + \chi \right)} \cdot \hat{h}_{1,t+1},
+\end{split}
+\end{equation}
+
+\begin{equation}
+\label{eq:MS-hh-auxiliary-hat-h2}
+\begin{split}
+\hat{h}_{2,t} \equiv & \frac{h_{2,t}}{w^{\#, \epsilon_w}} \\
+= & \lambda_t \cdot \left(\frac{w_t}{w_t^{\#}}\right)^{\epsilon_w} \cdot N_{d,t} \\
+&+ \left(\beta \cdot \phi_w \right) \cdot E_t \left( 1+\pi_t \right)^{\zeta_w \cdot (1-\epsilon_w)} \cdot \left(1 + \pi_{t+1} \right)^{\epsilon_w -1} \cdot \left(\frac{w^{\#}_{t+1}}{w^{\#}_{t}}\right)^{\epsilon_w} \cdot \hat{h}_{2,t+1}.
+\end{split}
+\end{equation}
+
+调整工资决定式\eqref{eq:MS-reset-wage-real-auxiliary}变为
+\begin{equation*}
+w_t^{\#, 1+\epsilon_w \cdot \chi} = \frac{\epsilon_w}{\epsilon_w -1} \cdot \frac{h_{1,t}}{h_{2,t}} = \frac{\epsilon_w}{\epsilon_w -1} \cdot \frac{
+  \frac{h_{1,t}}{w_{t}^{\#, \epsilon_w \cdot \left(1+\chi\right)}}
+}{
+  \frac{h_{2,t}}{w_{t}^{\#, \epsilon_w}}
+} \cdot \frac{
+  w_{t}^{\#, \epsilon_w \cdot \left(1+\chi\right)}
+  }{
+  w_{t}^{\#, \epsilon_w}
+  }，
+\end{equation*}
+
+整理得
+\begin{equation}
+\label{eq:MS-hh-reset-wage-hat-h12}
+w^{\#}_t = \frac{\epsilon_w}{\epsilon_w -1} \cdot \frac{
+  \hat{h}_{1,t}
+}{
+  \hat{h}_{2,t}
+}.
+\end{equation}
+
+这样，式\eqref{eq:MS-HH-FOC-C-real}-\eqref{eq:MS-HH-FOC-K-real}，以及\eqref{eq:MS-hh-auxiliary-hat-h1}-\eqref{eq:MS-hh-reset-wage-hat-h12}一道，描述了家庭的最优行为决策。
+
+\subsection{最终产品生产部门}
+经济体中存在一个最终产品生产者和一系列异质化的中间产品生产者$j \in [0,1]$，每个中间产品上生产一种中间产品$Y_t{j}$，以$P_t(j)$的价格提供给最终产品生产者。最终产品生产者将$Y_t{j}$打包为最终产出，满足投入产出关系
+\begin{equation}
+\label{MS-fp-output-rela}
+Y_t = \left(\int_{0}^{1} Y_t(j)^{\frac{\epsilon_p -1}{\epsilon_p}} dj\right)^{\frac{\epsilon_p}{\epsilon_p -1}},
+\end{equation}
+其中$\epsilon_p$表示不同中间产品之间的替代弹性， 设$\epsilon_p > 1$即它们是替代品。
+
+\subsubsection{对$j^{th}$中间产品的需求}
+在完全竞争市场假定下，最终产品生产者的利润最大化问题。根据给定价格$\{P_{t}(j)\}$，决定对中间产品$\{Y_t(j)\}$的需求，
+\begin{equation*}
+\max_{Y_t(j)} P_t \cdot Y_t - \int_{0}^{1} P_t(j) \cdot Y_t(j) dj,
+\end{equation*}
+引入式\eqref{MS-fp-output-rela}替代$Y_t$，FOC wrt $Y_t(j)$可得
+\begin{equation}
+\label{eq:MS-fp-intm-demand}
+Y_t(j) = \left(\frac{P_t(j)}{P_t}\right)^{-\epsilon_p} \cdot Y_t.
+\end{equation}
+
+\subsubsection{总价格水平}
+根据完全竞争假定，利润为$0$，
+\begin{equation*}
+P_t \cdot Y_t = \int_0^1 P_t(j) Y_t(j) dj,
+\end{equation*}
+引入\eqref{eq:MS-fp-intm-demand}，可得经济体的总价格水平
+\begin{equation}
+\label{eq:MS-fp-agg-price-index}
+P_t^{1-\epsilon_p} = \int_{0}^{1} P_t(j)^{1-\epsilon_p} dj.
+\end{equation}
+
+\subsection{中间产品生产部门}
+$j^{th}$中间产品生产者的产出函数
+\begin{equation}
+\label{eq:MS-intm-output-rela}
+Y_t(j) = A_t \cdot \hat{K}_t(j)^{\alpha} \cdot N_{d,t}(j)^{1-\alpha} - F,
+\end{equation}
+$F$代表固定成本，$F>0$意味着在垄断竞争的市场条件下，中间产品生产者的稳态利润为0，no negative production，使得no entry no exit。详见第\ref{sec:intm-production-sector}节。
+
+\subsubsection{生产的边际成本}
+$j^{th}$中间产品生产者的最大化问题可以描述为，以$R^n_t$的价格从家庭部门租用资本服务$\hat{K}_t(j)$，以$W_t$的价格从劳动承包商那里获取同质劳动$N_{d,t}(j)$；产出$Y_t(j)$以$P_t(j)$的价格出售给最终产品生产者以获取利润。市场摩擦的存在导致$j$无法随意调整产出品价格，但可以通过调整投入品的数量实现成本最小化
+\begin{equation*}
+\min_{\{\hat{K}_t(j), N_{d,t}(j)\}} W_t \cdot N_{d,t}(j) + R^n_t \cdot \hat{K}_{t}(j),
+\end{equation*}
+满足约束条件
+\begin{equation*}
+A_t \cdot \hat{K}_t(j)^{\alpha} \cdot N_{d,t}(j)^{1-\alpha} - F \ge \left( \frac{P_{t}(j)}{P_t} \right)^{-\epsilon_p} \cdot Y_t,
+\end{equation*}
+LHS表示中间产品的供应，RHS表示需求。
+
+建Lagrangian
+\begin{equation*}
+\mathcal{L} = W_t \cdot N_{d,t}(j) + R^n_t \cdot \hat{K}_t(j) - \varphi_t(j) \cdot \left[
+A_t \cdot \hat{K}_t(j)^{\alpha} \cdot N_{d,t}(j)^{1-\alpha} - F - \left( \frac{P_{t}(j)}{P_t} \right)^{-\epsilon_p} \cdot Y_t
+\right].
+\end{equation*}
+
+FOCs
+\begin{align*}
+\frac{\partial \mathcal{L}}{\partial N_{d,t}(j)} = 0 \Rightarrow & W_t = \varphi_t \cdot (1-\alpha) \cdot A_t \cdot \hat{K}_t(j)^{\alpha} \cdot N_{d,t}(j)^{1-\alpha},  \\
+\frac{\partial \mathcal{L}}{\partial \hat{K}_{t}(j)} = 0 \Rightarrow & R^n_t = \varphi_t \cdot \alpha \cdot A_t \cdot \hat{K}_t(j)^{\alpha -1 } \cdot N_{d,t}(j)^{1-\alpha} .
+\end{align*}
+
+两式相除可得
+\begin{equation*}
+\frac{W_t}{R^n_t} = \frac{1-\alpha}{\alpha} \cdot \frac{\hat{K}_t(j)}{N_{d,t}(j)},
+\end{equation*}
+即所有中间产品生产者，在外部给定的投入要素价格$\{W_t, R^n_t\}$下，会有相同的资本-劳动投入比，
+\begin{equation}
+\label{eq:MS-K-N-ration-j-ration-equiv}
+\frac{\hat{K}_t(j)}{N_{d,t}(j)} = \frac{\hat{K}_t}{N_{d,t}}, \quad \forall j.
+\end{equation}
+
+带回上式，消除异质化特征可得
+\begin{equation*}
+\frac{W_t}{R^n_t} = \frac{1-\alpha}{\alpha} \cdot \frac{\hat{K}_t}{N_{d,t}},
+\end{equation*}
+根据式\eqref{MS-hh-real-wage}、\eqref{MS-hh-real-wage}可以将上式改写为实际量
+\begin{equation}
+\label{eq:MS-intm-W-R-K-N}
+\frac{w_t}{R_t} = \frac{1-\alpha}{\alpha} \cdot \frac{\hat{K}_t}{N_{d,t}}.
+\end{equation}
+
+\subsubsection{对投入要素的需求}
+式\eqref{eq:MS-intm-W-R-K-N}带回$j^{th}$的生产函数，可得
+\begin{align*}
+Y_t(j) &= A_t \cdot \hat{K}_{t}(j)^{\alpha} \cdot \left[\frac{R^n_t}{W_t} \cdot \frac{1-\alpha}{\alpha} \cdot \hat{K}_{t}(j)\right]^{1-\alpha} \\
+&= A_t \cdot \left( \frac{W_t}{R^n_t} \right)^{- \left( 1 - \alpha \right) } \cdot \left(\frac{1-\alpha}{\alpha}\right)^{-\left( 1 - \alpha \right)} \cdot \hat{K}_{t}(j)- F,
+\end{align*}
+
+\begin{align*}
+Y_t(j) &= A_t \cdot \left[\frac{W_t}{R^n_t} \cdot \frac{\alpha}{1-\alpha} \cdot N_{d,t}(j)\right]^{\alpha} \cdot N_{d,t}^{1-\alpha} -F \\
+&=A_t \cdot \left( \frac{W_t}{R^n_t} \right)^{\alpha} \cdot \left(\frac{1-\alpha}{\alpha}\right)^{-\alpha} \cdot N_{d,t}(j)- F.
+\end{align*}
+
+整理可得中间产品生产者$j$对投入要素$\hat{K}_t(j), N_{d,t}(j)$的需求
+\begin{align}
+\label{eq:MS-intm-demand-K}
+\hat{K}_t(j) &= \frac{1}{A_t} \cdot \left(\frac{\hat{K}_t}{N_{d,t}}\right)^{1-\alpha} \cdot \left[Y_t(j) + F \right] , \\
+\label{eq:MS-intm-demand-N}
+N_{d,t}(j) &= \frac{1}{A_t} \cdot \left(\frac{\hat{K}_t}{N_{d,t}}\right)^{\alpha} \cdot \left[Y_t(j) + F \right] .
+\end{align}
+
+\subsubsection{边际成本}
+根据式\eqref{eq:MS-intm-demand-K}-\eqref{eq:MS-intm-demand-N}可求得$j$的成本函数
+\begin{equation}
+\label{eq:MS-intm-cost-nominal}
+Cost_t(j) = W_t \cdot N_{d,t}(j) + R^n_t \cdot \hat{K}_t(j).
+\end{equation}
+
+$j$生产额外1单位$Y_t(j)$的边际成本
+\begin{equation}
+\label{eq:MS-intm-marg-cost-nominal}
+\begin{split}
+MC_t(j) &= \frac{\partial Cost_t(j)}{\partial Y_t(j)}
+=W_t \cdot \frac{\partial N_{d,t}(j)}{\partial Y_t(j)} + R^n_t \cdot \frac{\partial \hat{K}_t(j)}{\partial Y_t(j)} \\
+&= \frac{1}{A_t} \cdot \left( \frac{\hat{K}_t}{N_{d,t}} \right)^{-\alpha} \cdot \left[
+  W_t + R^n_t \cdot \left( \frac{\hat{K}_t}{N_{d,t}} \right)
+\right]
+= \frac{1}{A_t} \cdot \left( \frac{\hat{K}_t}{N_{d,t}} \right)^{-\alpha} \cdot \left[
+  W_t + W_t \cdot \frac{\alpha}{1-\alpha}
+\right] \\
+&=\frac{W_t}{
+  \left( 1 - \alpha \right) \cdot A_t \cdot \left( \frac{\hat{K}_t}{N_{d,t}} \right)^{-\alpha}
+}.
+\end{split}
+\end{equation}
+
+类似地，RHS也不涉及$j^{th}$生产者的异质性特征，可见$MC_t(j) = MC_t$，$\forall j$。定义实际边际成本$mc_t(j)$如下
+\begin{equation}
+\label{eq:MS-intm-marg-cost-real}
+mc_t \equiv \frac{MC_t}{P_t} = \frac{w_t}{
+  \left( 1 - \alpha \right) \cdot A_t \cdot \left( \frac{\hat{K}_t}{N_{d,t}} \right)^{-\alpha}}
+\end{equation}
+
+\subsubsection{利润函数}
+根据product efficiency，每投入额外1单位某种投入要素的成本，应等于该要素的边际产出与边际成本的乘积
+\begin{align*}
+&W_t = MC_t \cdot \frac{\partial Y_t(j)}{\partial N_{d,t}(j)} = MC_t \cdot (1-\alpha) \cdot A_t \cdot \hat{K}_t(j)^{\alpha} \cdot N_{d,t}(j)^{-\alpha}, \\
+&R^n_t = MC_t \cdot \frac{\partial Y_t(j)}{\partial \hat{K}_t(j)} = MC_t \cdot \alpha \cdot A_t \cdot \hat{K}_t(j)^{\alpha - 1} \cdot N_{d,t}(j)^{1 -\alpha}.
+\end{align*}
+
+对于$N_{d,t}(j)$和$\hat{K}_t(j)$单位的要素投入来说，
+\begin{align*}
+&W_t \cdot N_{d,t}(j) = (1-\alpha) \cdot A_t \cdot \hat{K}_t(j)^{\alpha} \cdot N_{d,t}(j)^{1-\alpha}, \\
+&R^n_t \cdot \hat{K}_{t}(j) = \alpha \cdot A_t \cdot \hat{K}_t(j)^{\alpha - 1} \cdot N_{d,t}(j)^{1 -\alpha}.
+\end{align*}
+
+成本函数式\eqref{eq:MS-intm-cost-nominal}变为
+\begin{align*}
+Cost_t(j) &= W_t \cdot N_{d,t}(j) + R^n_t \cdot \hat{K}_t(j) \\
+&= MC_t \cdot A_t \cdot \hat{K}_t(j)^{\alpha} \cdot N_{d,t}(j)^{1-\alpha} \\
+&=MC_t \cdot \left(Y_t(j) + F \right).
+\end{align*}
+
+中间产品生产者$j$的利润式
+\begin{equation}
+\label{eq:MS-intm-profit-eq}
+\Pi^n_t(j)= P_t(j) \cdot Y_t(j) - MC_t \cdot Y_t(j) - MC_t \cdot F,
+\end{equation}
+
+
+
+在任一时间$t$，假定全部$j \in [0,1]$生产者中有$(1-\phi_p)$比例可以调整价格，设为$P_t^{\#}(j)$；有$\phi_p$比例不能调整，只能根据上期价格和上期通胀率制定当期产品价格，可表示如下
+\begin{equation}
+\label{eq:MS-price-setting-guide}
+P_t(l) =
+\begin{cases}
+P_t^{\#}(l) & \mbox{能调整价格，概率$1-\phi_p$,} \\
+\left(1+\pi_{t-1}\right)^{\zeta_p} \cdot P_{t-1}(l) &\mbox{不能调整价格，概率$\phi_P$.}
+\end{cases}
+\end{equation}
+其中通货膨胀率的传导系数$0 \le \zeta_p \le 1$。
+
+\subsubsection{价格设定的backward indexation分析}
+假定某生产者$j$能够在$t$期调整价格至$P_t^{\#}(j)$，随后直到$t+s, s\ge 0$期均不能调整价格。根据式\eqref{eq:MS-price-setting-guide}，随着$s=(0,1,2 \ldots \infty )$，$j$产品价格$P_{t+s}(j)$依次为
+\begin{align*}
+&P_t(j) = P_t^{\#}(j), \\
+&P_{t+1}(j) = (1+\pi_t)^{\zeta_p} \cdot P_{t}(l) =  (1+\pi_t)^{\zeta_p} \cdot P_{t}^{\#}(j), \\
+&P_{t+2}(j) = (1+\pi_{t+1})^{\zeta_p} \cdot P_{t+1}(j)
+= \left[
+\left(1+\pi_{t+1}\right) \cdot \left(1 + \pi_t \right)
+\right]^{\zeta_p} \cdot P_{t}^{\#}(j),\\
+&P_{t+3}(j) = (1+\pi_{t+2})^{\zeta_p} \cdot P_{t+2}(j)
+= \left[
+\left(1+\pi_{t+2}\right) \cdot \left(1+\pi_{t+1}\right) \cdot \left(1 + \pi_t \right)
+\right]^{\zeta_p} \cdot P_{t}^{\#}(j),\\
+& \ldots
+\end{align*}
+
+或者改写为
+\begin{equation}
+\label{eq:MS-updating-price-recursion}
+\begin{split}
+P_{t+s}(j) &= \left[\prod_{\rho=0}^{s-1} \left(1+\pi_{t+\rho}\right)\right]^{\zeta_p} \cdot P_t^{\#}(j) \\
+&=\left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{\zeta_p} \cdot P_t^{\#}(j).
+\end{split}
+\end{equation}
+该式描述$t+s$期，$j^{th}$产品价格与$t$期价格和往期通货膨胀（或往期价格水平）的关系。
+
+\subsubsection{利润最大化问题}
+$t$期有机会调整工资的中间产品生产者$j$，从forward-looking的角度，通过设定$P^{\#}_t(j)$追求从$t$到$t+s$期的利润最大化
+
+\begin{equation}
+\label{eq:MS-intm-prof-max-Pi}
+\max_{\{P_t^{\#}\}} E_t \sum_{s=0}^{\infty} \left(\beta \cdot \phi_p \right)^s \cdot \left(\frac{\lambda^{n}_{t+s}}{\lambda^{n}_{t}}\right) \cdot \Pi_{t+s}^n
+\end{equation}
+
+$\lambda^n_t$反映消费的边际效用。$t$期价格到$t+s$期仍然有影响的概率是$\phi_p^s$。$(\beta^s \cdot \lambda^n_{t+s}/\lambda^n_t)$表示名义的随机折旧系数。将式\eqref{eq:MS-updating-price-recursion}、\eqref{eq:MS-fp-intm-demand}代入式\eqref{eq:MS-intm-profit-eq}可得，
+\begin{equation}
+\label{eq:MS-intm-profit-t-s}
+\begin{split}
+\Pi_{t+s}^n =& P_{t+s}(j) \cdot Y_{t+s}(j) - MC_{t+s} \cdot Y_{t+s}(j) - MC_{t+s} \cdot F \\
+=& P_{t+s}(j) \cdot \left(\frac{P_{t+s}(j)}{P_{t+s}}\right)^{-\epsilon_p} \cdot Y_{t+s} - MC_{t+s} \cdot \left(\frac{P_{t+s}(j)}{P_{t+s}}\right)^{-\epsilon_p} \cdot Y_{t+s} - MC_{t+s} \cdot F \\
+=& P_{t+s}(j)^{1-\epsilon_p} \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s} - MC_{t+s} \cdot P_{t+s}(j)^{-\epsilon_p} \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s} - MC_{t+s} \cdot F \\
+=& \left[\left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{\zeta_p} \cdot P_t^{\#}(j)\right]^{1-\epsilon_p} \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s} \\
+&- MC_{t+s} \cdot \left[\left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{\zeta_p} \cdot P_t^{\#}(j)\right]^{-\epsilon_p} \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s} - MC_{t+s} \cdot F.
+\end{split}
+\end{equation}
+
+式\eqref{eq:MS-intm-profit-t-s}带回式\eqref{eq:MS-intm-prof-max-Pi}，最大化问题式变为
+\begin{equation}
+\label{eq:MS-intm-prof-max-Psharp}
+\begin{split}
+\max_{P_t^{\#}(j)} E_t \sum_{s=0}^{\infty} \left(\beta \cdot \phi_p \right)^s \cdot \frac{\lambda^n_{t+s}}{\lambda^n_{t}} \cdot \{&
+\left[\left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{\zeta_p} \cdot P_t^{\#}(j)\right]^{1-\epsilon_p} \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s} \\
+&- MC_{t+s} \cdot \left[\left(\frac{P_{t+s-1}}{P_{t-1}}\right)^{\zeta_p} \cdot P_t^{\#}(j)\right]^{-\epsilon_p} \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s} - MC_{t+s} \cdot F\}.
+\end{split}
+\end{equation}
+
+FOC wrt $P^{\#}_t(j)$
+\begin{equation*}
+\begin{split}
+&\left(1-\epsilon_p \right) \cdot E_t \sum_{s=0}^{\infty}  \left(\beta \cdot \phi_p \right)^s \cdot \frac{\lambda^n_{t+s}}{\lambda^n_{t}} \cdot \left(\frac{P_{t+s-1}}{P_{t-s}}\right)^{\zeta_p \cdot \left(1-\epsilon_p \right)} \cdot P_t^{\#, -\epsilon_p} \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s}\\
+&= -\epsilon_p \cdot E_t \sum_{s=0}^{\infty}  \left(\beta \cdot \phi_p \right)^s \cdot \frac{\lambda^n_{t+s}}{\lambda^n_{t}} \cdot MC_{t+s} \left(\frac{P_{t+s-1}}{P_{t-s}}\right)^{ - \zeta_p \cdot \epsilon_p } \cdot P_t^{\#, -\epsilon_p - 1} \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s},
+\end{split}
+\end{equation*}
+整理得
+\begin{equation*}
+P_t^{\#} = \frac{\epsilon_p}{\epsilon_p -1} \cdot \frac{
+  E_t \sum_{s=0}^{\infty}  \left(\beta \cdot \phi_p \right)^s \cdot \lambda^n_{t+s} \cdot MC_{t+s} \left(\frac{P_{t+s-1}}{P_{t-s}}\right)^{ - \zeta_p \cdot \epsilon_p } \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s}
+}{
+  E_t \sum_{s=0}^{\infty}  \left(\beta \cdot \phi_p \right)^s \cdot \lambda^n_{t+s} \cdot \left(\frac{P_{t+s-1}}{P_{t-s}}\right)^{\zeta_p \cdot \left(1-\epsilon_p \right)} \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s}
+},
+\end{equation*}
+引入式\eqref{eq:MS-lambda-n-lambda}和\eqref{eq:MS-intm-marg-cost-real}，上式改写为名义量形式。
+\begin{equation}
+\label{eq:MS-intm-price-sharp}
+P_t^{\#}(j) = \frac{\epsilon_p}{\epsilon_p -1} \cdot \frac{
+  E_t \sum_{s=0}^{\infty}  \left(\beta \cdot \phi_p \right)^s \cdot \lambda_{t+s} \cdot mc_{t+s} \cdot \left(\frac{P_{t+s-1}}{P_{t-s}}\right)^{ - \zeta_p \cdot \epsilon_p } \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s}
+}{
+  E_t \sum_{s=0}^{\infty}  \left(\beta \cdot \phi_p \right)^s \cdot \lambda_{t+s} \cdot \left(\frac{P_{t+s-1}}{P_{t-s}}\right)^{\zeta_p \cdot \left(1-\epsilon_p \right)} \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s}
+},
+\end{equation}
+类似地，RHS与个体$j$无关，$P^{\#}(j) = P^{\#}$, $\forall j$。定义两个辅助变量$X_{1,t},X_{2,t}$，上式变为
+\begin{equation}
+\label{eq:MS-intm-price-sharp-auxiliary}
+P_{t}^{\#} = \frac{\epsilon_p}{\epsilon_{p} - 1} \cdot \frac{X_{1,t}}{X_{2,t}},
+\end{equation}
+其中
+\begin{equation}
+\label{eq:MS-intm-auxiliary-X1}
+\begin{split}
+X_{1,t} &\equiv E_t \sum_{s=0}^{\infty}  \left(\beta \cdot \phi_p \right)^s \cdot \lambda_{t+s} \cdot mc_{t+s} \left(\frac{P_{t+s-1}}{P_{t-s}}\right)^{ - \zeta_p \cdot \epsilon_p } \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s} \\
+&= \lambda_t \cdot mc_t \cdot P_t^{\epsilon_p} \cdot Y_t + \left(\beta \cdot \phi_p \right) \cdot \left(1 + \pi_t\right)^{-\zeta_p \cdot \epsilon_p} \cdot E_t X_{1,t+1},
+\end{split}
+\end{equation}
+\begin{equation}
+\label{eq:MS-intm-auxiliary-X2}
+\begin{split}
+X_{2,t} &\equiv E_t \sum_{s=0}^{\infty}  \left(\beta \cdot \phi_p \right)^s \cdot \lambda_{t+s} \cdot \left(\frac{P_{t+s-1}}{P_{t-s}}\right)^{\zeta_p \cdot \left(1-\epsilon_p \right)} \cdot P_{t+s}^{\epsilon_p} \cdot Y_{t+s} \\
+&=\lambda_t \cdot P_{t}^{\epsilon_p -1} \cdot Y_t + \left(\beta \cdot \phi_p \right) \cdot
+\left(1 + \pi_t \right)^{\zeta_p \cdot \left( 1 - \epsilon_p \right)} \cdot E_t X_{2,t+1}.
+\end{split}
+\end{equation}
+
+继续调整辅助变量，定义
+\begin{align}
+\label{eq:MS-intm-auxiliary-x1}
+%\begin{split}
+x_{1,t} &= \frac{X_{1,t}}{P_t^{\epsilon_p}}
+=\lambda_t \cdot mc_t \cdot Y_t +\left( \beta \cdot \phi_p \right) \cdot \left( 1+\pi_t \right)^{-\zeta_p \cdot \epsilon_p} \cdot E_t \left( 1+\pi_{t+1} \right)^{\epsilon_p} \cdot x_{1,t+1} \\
+\label{eq:MS-intm-auxiliary-x2}
+x_{2,t} &= \frac{X_{2,t}}{P_{t}^{\epsilon_p -1}} = \lambda_t \cdot Y_t + \left(\beta \cdot \phi_p \right) \cdot
+\left(1 + \pi_t \right)^{\zeta_p \cdot \left( 1 - \epsilon_p \right)} \cdot E_t \left( 1 + \pi_{t+1} \right)^{\epsilon_p -1} x_{2,t+1}.
+%\end{split}
+\end{align}
+
+调整价格的决定式\eqref{eq:MS-intm-price-sharp-auxiliary}变为
+\begin{equation}
+\label{eq:MS-intm-price-sharp-x1-x2}
+P^{\#}_t = \frac{\epsilon_p}{\epsilon_p -1} \cdot P_t \cdot \frac{x_{1,t}}{x_{2,t}}.
+\end{equation}
+
+\subsubsection{调整价格的通胀率}
+定义调整价格的通胀率为
+\begin{equation}
+\label{eq:MS-intm-reset-price-inflation-def}
+\left(1+\pi_t^{\#}\right) \equiv \frac{P^{\#}}{P_{t-1}}.
+\end{equation}
+
+由式\eqref{eq:MS-intm-price-sharp-x1-x2}得调整价格通胀率表示的决定式
+\begin{equation}
+\label{eq:MS-intm-price-sharp-inflation-x1-x2}
+\left( 1+\pi^{\#}_t \right) = \frac{\epsilon_p}{\epsilon_p -1} \cdot \left(1 + \pi_t \right)\cdot \frac{x_{1,t}}{x_{2,t}}.
+\end{equation}
+
+\subsection{政府部门}
+\label{sec:Gov-spending}
+
+\subsubsection{政府支出}
+用$G_t$定义政府支出；设$\ln G_t$满足AR(1)过程
+\begin{equation}
+\label{eq:MS-gov-spending-ln}
+\ln G_t = (1-\rho_G) \cdot \ln G + \rho_G \cdot \ln G_{t-1} + s_g \cdot \varepsilon_{G,t},
+\end{equation}
+其中$G$表示稳定状态下的政府支出。$0 \le \rho_G <1$。$\varepsilon_{G,t}$表示政府支出的外生冲击，$s_G$表示这个外生冲击的标准差。
+
+\subsubsection{政府预算约束}
+政府部门的总支出不得超过总收入。总支出由当期政府支出$G_t$和以上期利率$i_{t-1}$价格支付的当期初发放债券$D_t$的利息组成。总收入由两部分构成，分别为(一揽子)税收$T_t$和当期新发放债券数量$\Delta D_{t+1} = D_{t+1}-D_{t}$。
+\begin{equation}
+\label{eq:MS-gov-budget-constraint}
+P_t \cdot G_t + i_{t-1} \cdot D_t \le P_t \cdot T_t + D_{t+1} - D_t,
+\end{equation}
+
+\subsection{中央银行}
+中央银行的货币政策，假定遵循partial adjustment形式的Taylor rule
+\begin{equation}
+\label{eq:MS-MP-taylor-rule-partial-adjust}
+i_t = \left( 1 - \rho_{i} \right) \cdot i + \rho_i \cdot i_{t-1} + \left( 1 - \rho_{i} \right) \cdot \left[
+\phi_\pi \cdot \left(\pi_t - \pi \right)
++ \phi_y \cdot
+\left(
+\ln Y_t - \ln Y_{t-1}
+\right)
+\right]
++ s_i \cdot \varepsilon_{i,t},
+\end{equation}
+类似地，设$0 \le \rho_i < 1$；$i$和$\pi$分别代表稳定状态下的利率和通胀率；假定经济体处于determinacy region，且$\phi_\pi > 0$，$\phi_{y} >0$。
+
+\subsection{总量层面的均衡}
+
+\subsubsection{总利润}
+经济总体层面，总利润$\Pi_t^n$来自$j$中间产品生产者的利润之和\footnote{最终产品部门假定为完全竞争的，利润为零。}，
+\begin{equation}
+\label{eq:MS-agg-profit}
+\begin{split}
+\Pi^n_t &= \int_{0}^1 \Pi^n_t(j) dj \\
+&= \int_{0}^1 \cdot \left[
+P_t(j) \cdot Y_t(j) - W_t \cdot N_{d,t}(j) - R^n_t \cdot \hat{K}_t(j)
+\right] dj \\
+&= \int_0^1 P_t(j) \cdot Y_t(j) dj - W_t \cdot \int_0^1 N_{d,t}(j) dj - R^n_t \cdot \int_{0}^{1}\hat{K}_{t}(j) dj\\
+&= \int_0^1 P_t(j) \cdot Y_t(j) dj - W_t \cdot N_{d,t} - R^n_t \cdot u_t \cdot \hat{K}_t,\\
+&= \left[\int_0^1 P_t(j)^{1-\epsilon_p} dj \right] \cdot P_t^{\epsilon_p} \cdot Y_t - W_t \cdot N_{d,t} - R^n_t \cdot u_t \cdot K_t \\
+&= P_t\cdot Y_t - W_t \cdot N_{d,t} - R^n_t \cdot u_t \cdot K_t
+\end{split}
+\end{equation}
+第二行用到了式\eqref{eq:MS-intm-profit-eq}。第四行用到了在市场出清的均衡条件下的假定，投入要素的总供给等于总需求
+\begin{align}
+\label{eq:MS-mkt-clearing-Ndt}
+&N_{d,t} = \int_{0}^{1} N_{d,t}(j) dj, \\
+\label{eq:MS-mkt-clearing-hatKdt}
+&\hat{K}_t = u_t \cdot K_t = \int_{0}^1 \hat{K}_{t}(j) dj.
+\end{align}
+第五行根据式\eqref{eq:MS-fp-intm-demand}，利用$Y_t$和相对价格代替对异质中间产品$Y_t(j)$的需求，以消除异质性。第六行根据式\eqref{eq:MS-fp-agg-price-index}，用总物价水平$P_t$替代中间产品价格$P_t(j)$以消除异质性。
+
+式\eqref{eq:MS-agg-profit}两侧同时除以$P_t$，可得实际利润表述式
+\begin{equation}
+\label{eq:MS-agg-profit-real}
+\Pi_t = Y_t - w_t \cdot N_{d,t} - R_t \cdot u_t \cdot K_t.
+\end{equation}
+
+\subsubsection{家庭总预算约束}
+家庭部门的总预算约束来自$l$个家庭预算约束的加总，总支出不得超过总收入。由式\eqref{sec:MC-hh-budget-constraint}得
+\begin{equation}
+\label{sec:MC-hh-agg-budget-constraint}
+\begin{split}
+&P_t \cdot C_t + P_t \cdot I_t + B_{t+1} \\
+&= \int_{0}^{1} W_t(l) \cdot N_{t}(l) dl + R^n_t \cdot u_t \cdot K_t + \Pi^n_t - P_t \cdot T_t + \left(1 + i_{t-1} \right) \cdot B_t \\
+&= \int_{0}^{1} W_t(l)^{1-\epsilon_w} \cdot W_t^{\epsilon_w} N_{d,t}dl + R^n_t \cdot u_t \cdot K_t + \Pi^n_t - P_t \cdot T_t + \left(1 + i_{t-1} \right) \cdot B_t \\
+&= W_t^{\epsilon_w} \cdot N_{d,t} \cdot \int^{1}_{0} W_{t}(l)^{1-\epsilon_w} dl + R^n_t \cdot u_t \cdot K_t + \Pi^n_t - P_t \cdot T_t + \left(1 + i_{t-1} \right) \cdot B_t \\
+&= W_t \cdot N_{d,t} + R^n_t \cdot u_t \cdot K_t + \Pi^n_t - P_t \cdot T_t + \left(1 + i_{t-1} \right) \cdot B_t \\
+&= P_t \cdot Y_t - P_t \cdot T_t +\left( 1 - i_{t-1} \right) \cdot B_t
+\end{split}
+\end{equation}
+
+第三行用到了式\eqref{eq:MS-agg-wage-index}，市场出清均衡下，用劳动承包者的同质劳动产出$N_{d,t}$替代家庭的劳动力供应$N_{t}(l)$，以消除异质性。第五行用根据式\eqref{MS-agg-wage-index}，利用总工资水平$W_{t}$替代异质家庭劳动力工资$W_t(l)$。第六行根据式\eqref{eq:MS-agg-profit}替代总利润$\Pi^n_t$。
+
+\subsubsection{总产出的使用}
+国债市场出清要求家庭部门持有全部政府债券，即$D_t \equiv B_t, \quad \forall t$。
+
+政府预算约束条件式\eqref{eq:MS-gov-budget-constraint}调整为
+\begin{equation*}
+P_t \cdot T_t = P_t \cdot G_t + \left( 1 + i_{t-1} \right) \cdot D_t - D_{t+1}.
+\end{equation*}
+
+家庭部门总预算约束条件式\eqref{sec:MC-hh-agg-budget-constraint}中用$D_t$替代$B_t$，调整得
+\begin{equation*}
+P_t \cdot T_t = P_t \cdot Y_t + \left( 1 - i_{t-1} \right) \cdot D_t - D_{t-1} - P_t \cdot C_t - P_t \cdot I_t.
+\end{equation*}
+
+两式联立可得总产出的使用
+\begin{equation}
+\label{MS-agg-accounting-indentity}
+Y_t = C_t + I_t + G_t.
+\end{equation}
+
+
+
+
+
+
+\subsubsection{总量生产函数}
+经济总体层面，$j$中间产品的总供应等于总需求。供应端由式\eqref{eq:MS-intm-output-rela}可得
+\begin{equation}
+\label{eq:MS-intm-agg-output-supply}
+\begin{split}
+&\int_{0}^{1} Y_t(j) dj = \int_{0}^1 \left[
+A_t \cdot \hat{K}_t(j)^{\alpha} \cdot N_{d,t}(j)^{1-\alpha} -F
+\right] dj \\
+&= A_t \cdot \left(\frac{\hat{K}_t}{N_{d,t}}\right)^{\alpha} \cdot \int_{0}^1 N_{d,t}(j) dj - F \\
+&= A_t \cdot \hat{K}_t^{\alpha} N_{d,t}^{1-\alpha} -F,
+\end{split}
+\end{equation}
+其中第二行利用了式\eqref{eq:MS-K-N-ration-j-ration-equiv}，第三行利用了式\eqref{eq:MS-mkt-clearing-Ndt}。
+
+需求端由式\eqref{eq:MS-fp-intm-demand}可得
+\begin{equation}
+\label{eq:MS-intm-agg-output-demand}
+\int^{1}_0 Y_t(j) dj = Y_t \cdot \int_{0}^{1} \left(\frac{P_t(j)}{P_t}\right)^{-\epsilon_p} dj
+\end{equation}
+
+定义一个价格分布指标$\nu^p_t$
+\begin{equation}
+\label{eq:MS-price-dispersion-index}
+\nu_t^p \equiv \int_{0}^{1} \left(\frac{P_t(j)}{P_t}\right)^{-\epsilon_p} dj.
+\end{equation}
+
+联立式\eqref{eq:MS-intm-agg-output-supply}-\eqref{eq:MS-intm-agg-output-demand}可得总量生产函数
+\begin{equation}
+\label{eq:MS-agg-prod-function}
+Y_t = \frac{A_t \cdot \hat{K}_t^{\alpha} \cdot N_{d,t}^{1-\alpha} - F}{\nu^p_t}.
+\end{equation}
+
+\subsubsection{价格分布指标的演化}
+根据Calvo assumption\citep{Calvo:1983uqa}，将式\eqref{eq:MS-price-setting-guide}引入式\eqref{eq:MS-price-dispersion-index}，可得价格分布指标随时间的演化，
+\begin{equation}
+\label{eq:MS-price-disp-index-evolution}
+\begin{split}
+\nu^p_t &\equiv \int_{0}^{1} \left(\frac{P_t(j)}{P_t}\right)^{-\epsilon_p} dj \\
+&= \int_0^{1-\phi_p} \left(\frac{P_t^{\#}}{P_t}\right)^{-\epsilon_p} dj
++ \int_{1-\phi_p}^{1} \cdot \left[
+\frac{
+  \left(1+\pi_{t-1}\right)^{\zeta_p} \cdot P_{t-1}(j)
+}{
+  P_t
+}
+\right]^{-\epsilon_p} dj \\
+&= \left(1-\phi_p\right) \cdot \int_0^1 \left(\frac{P_t^{\#}}{P_t}\right)^{-\epsilon_p} dj + \left(1+\pi_{t-1}\right)^{-\zeta_p \cdot \phi_p} \int_0^{\phi_p}
+\left(\frac{P_{t-1}(j)}{P_{t-1}}\right)^{-\epsilon_p} \cdot
+\left(\frac{P_{t-1}}{P_t}\right)^{-\epsilon_p} \\
+&= \left(1-\phi_p\right) \cdot \left(\frac{P_t^{\#}}{P_{t-1}}\right)^{-\epsilon_p} \cdot \left(\frac{P_{t-1}}{P_{t}}\right)^{-\epsilon_p}+
+\left(1+\pi_{t-1}\right)^{- \zeta_p \cdot \epsilon_p} \cdot
+\left(1+\pi_t\right)^{\epsilon_p} \cdot \phi_p \cdot
+\int_0^1 \left(\frac{P_{t-1}(j)}{P_{t-1}}\right)^{-\epsilon_p} dj\\
+&= \left(1-\phi_p\right) \cdot \left(\frac{1+\pi_{t}^{\#}}{1+\pi_t}\right)^{-\epsilon_p} + \phi_p \cdot
+\left(1+\pi_{t-1}\right)^{- \zeta_p \cdot \epsilon_p} \cdot
+\left(1+\pi_t\right)^{\epsilon_p} \cdot \phi_p \cdot
+\nu^p_{t-1}
+\end{split}
+\end{equation}
+
+\subsubsection{总物价水平的演化}
+根据Calvo assumption \citep{Calvo:1983uqa}，将式\eqref{eq:MS-price-setting-guide}引入式\eqref{eq:MS-fp-agg-price-index}，可得总物价水平随时间的演化
+
+\begin{equation*}
+\begin{split}
+P_t^{1-\epsilon_p} &= \int_0^1 P_t(j)^{1-\epsilon_p} dj \\
+&= \int_0^{1-\phi_p} P_t^{\#, 1-\epsilon_p} dj + \int_{1-\phi_p}^{1} \left(1+\pi_{t-1}\right)^{\zeta_p \cdot \left(1-\epsilon_p \right)} \cdot P_{t-1}(j)^{1-\epsilon_p} dj\\
+&=\left(1-\phi_p \right) \cdot P_t^{\#, 1-\epsilon_p} + \phi_p \cdot \left(1+\pi_{t-1}\right)^{\zeta_p \cdot \left(1-\epsilon_p\right)} \cdot \int_0^1 P_{t-1}(j)^{1-\epsilon_p} dj\\
+&=\left(1-\phi_p \right) \cdot P_t^{\#, 1-\epsilon_p} + \phi_p \cdot \left(1+\pi_{t-1}\right)^{\zeta_p \cdot \left(1-\epsilon_p\right)} \cdot P_{t-1}^{1-\epsilon_p},
+\end{split}
+\end{equation*}
+式两侧同时除以$P_{t-1}^{1-\epsilon_p}$，整理得
+\begin{equation}
+\label{eq:MS-agg-price-index-evolution}
+\left(1+\pi_t\right)^{1-\epsilon_p} = \left(1-\phi_p\right) \cdot \left(1+\pi_t^{\#}\right)^{1-\epsilon_p} + \phi_p \cdot \left(1+\pi_{t-1}\right)^{\zeta_p \cdot \left(1-\epsilon_p\right)}
+\end{equation}
+
+\subsubsection{总工资水平的演化}
+根据Calvo assumption\citep{Calvo:1983uqa}，将式\eqref{eq:MS-wage-setting-guide}引入式\eqref{eq:MS-wage-setting-guide}，可得总工资水平随时间的演化
+\begin{equation*}
+\begin{split}
+W_t^{1-\epsilon_w} &= \int_0^1 W_t(l)^{1-\epsilon_w} dl \\
+&=\int_0^{1-\phi_w} W_t(l)^{\#, 1-\epsilon_w} dl+ \int_{1-\phi_w}^{1} \left(1+\pi_{t-1}\right)^{\zeta_w \cdot \left(1-\epsilon_w\right)} \cdot W_{t-1}(l)^{1-\epsilon_w} dl \\
+&= \left(1-\phi_w \right) \cdot W_t^{\#, 1-\epsilon_w} + \left(1+\pi_{t-1}\right)^{\zeta_w \cdot \left(1-\epsilon_w\right)} \cdot \phi_w \cdot  \int_0^1 W_{t-1}(l)^{1-\epsilon_w} dl \\
+&=\left(1-\phi_w \right) \cdot W_t^{\#, 1-\epsilon_w} + \phi_w \cdot \left(1+\pi_{t-1}\right)^{\zeta_w \cdot \left(1-\epsilon_w\right)} \cdot W_{t-1}^{1-\epsilon_w},
+\end{split}
+\end{equation*}
+式两侧同时除以$P_t^{1-\epsilon_w}$化为实际量，整理得
+\begin{equation}
+\label{eq:MS-agg-wage-index-evolution}
+w_t^{1-\epsilon_w} = \left( 1-\phi_w \right) \cdot w_t^{\#, 1-\epsilon_w} + \phi_w \cdot \left(1+\pi_{t-1}\right)^{\zeta_w \cdot \left(1-\epsilon_w\right)} \cdot w_{t-1}^{1-\epsilon_w} \cdot \left(1 + \pi_t\right)^{- \left(1 - \epsilon_w \right)}
+\end{equation}
+
+\subsection{外生过程}
+模型中设定六个外生冲击，假定分为两组。第一组为政府支出冲击式\eqref{eq:MS-gov-spending-ln}、货币政策冲击式\eqref{eq:MS-MP-taylor-rule-partial-adjust}和影响劳动力供应的Intratemporal偏好冲击$\psi_t$，均假定为对数形式的AR(1)过程，伴随着非随机均值。$\psi_t$设定形式如下
+\begin{equation}
+\label{eq:MS-psi-shock}
+\ln \psi_t = \left(1-\rho_{\psi} \right) \cdot \ln \psi + \rho_{\psi} \cdot \ln \psi_{t-1} + s_{\psi} \cdot \varepsilon_{\psi, t}.
+\end{equation}
+
+第二组为产出效率冲击$A_t$、投资的边际效率冲击$Z_t$和影响消费和休闲所带来效用的Intertemporal偏好冲击$\nu_t$，均假定为对数形式的AR(1)，其非随机均值设定为1，对应的$\log(1)=0$，
+\begin{align}
+\label{eq:MS-A-shock}
+&\ln A_t = \rho_A \cdot \ln A_{t-1} + s_A \cdot \varepsilon_{A,t}, \\
+\label{eq:MS-Z-shock}
+&\ln Z_t = \rho_Z \cdot \ln Z_{t-1} + s_Z \cdot \varepsilon_{Z,t}, \\
+\label{eq:MS-v-shock}
+&\ln \nu_t = \rho_v \cdot \ln \nu_{t-1} + s_{\nu} \cdot \varepsilon_{\nu,t}.
+\end{align}
+
+\subsection{均衡条件的完整解集}
+根据模型设定，均衡状态由26个变量构成，对应26个方程，其中包括33个待决参数。
+
+26个变量有
+
+$\{
+ \lambda_t, \mu_t, C_t, i_t, \Pi_t, R_t, u_t, Z_t, I_t, v_t, \psi_t, w_t, w^{\#}_t, \hat{h}_{1,t}, \hat{h}_{2,t}, N_{d,t}, \hat{K}_t, K_{t}, mc_{t}, \pi^{\#}_t, x_{1,t}, x_{2,t}, Y_t, G_t, A_t, \nu^p_t
+\}$
+
+33个待决参数有
+
+$\{
+ \beta, b, \alpha, \delta_0, \delta_1, \delta_2, \pi, \kappa, \epsilon_w, \chi, \phi_w, \zeta_w, \alpha, \zeta_p, \phi_p, \epsilon_p, F, \rho_i, \phi_{\pi}, \phi_{y}, s_i, \rho_A, \rho_Z, \rho_G, \rho_v, \rho_{\psi}, s_A, s_Z, s_v, s_G, s_{\psi} \\, G, \psi
+\}$
+
+26个方程如下。
+来自于家庭部门经济行为决策的方程1-9；实物资本、资本服务品的形成方程10-11；生产部门经济行为方程12-20；政府部门外生支出方程21；中央银行部门货币政策方程22；余下4个外生冲击方程23-26。
+
+\begin{enumerate}
+\item 家庭部门FOC wrt 消费 (Euler equation) ，式\eqref{eq:MS-HH-FOC-C-real} $\Rightarrow$
+\begin{equation*}
+\lambda_t = \frac{\nu_t}{C_t - b \cdot C_{t-1}} - b \cdot \beta \cdot E_t \frac{\nu_{t+1}}{C_{t+1} - b \cdot C_{t}}.
+\end{equation*}
+
+\item 家庭部门FOC wrt 资本利用率，式\eqref{eq:MS-HH-FOC-u-real} $\Rightarrow$
+\begin{equation*}
+\lambda_t \cdot R_t = \mu_t \cdot \delta'(u_t).
+\end{equation*}
+
+\item 家庭部门FOC wrt 债券，式\eqref{eq:MS-HH-FOC-B-real} $\Rightarrow$
+\begin{equation*}
+\lambda_t = \beta \cdot E_{t} \lambda_{t+1} \cdot \left(\frac{1+i_t}{1+\pi_{t+1}}\right).
+\end{equation*}
+
+\item 家庭部门FOC wrt 投资，式\eqref{eq:MS-HH-FOC-I-real} $\Rightarrow$
+\begin{equation*}
+\begin{split}
+\lambda_t = &\mu_t \cdot Z_t \cdot \left\{
+  1 - \frac{\kappa}{2} \cdot \left(\frac{I_t}{I_{t-1}} -1\right)^2 - \kappa \cdot \left(\frac{I_t}{I_{t-1}} -1 \right) \cdot \left(\frac{I_t}{I_{t-1}} \right)
+\right\} \\
+&+ \beta \cdot E_t \mu_{t+1} \cdot Z_{t+1} \cdot \kappa \cdot \left(\frac{I_{t+1}}{I_{t}} -1 \right) \cdot \left(\frac{I_{t+1}}{I_{t}}\right)^2.
+\end{split}
+\end{equation*}
+
+\item 家庭部门FOC wrt 资本存量，式\eqref{eq:MS-HH-FOC-K-real} $\Rightarrow$
+\begin{equation*}
+\mu_t = \beta \cdot E_t \left\{
+  \lambda_{t+1} \cdot R_{t+1} \cdot u_{t+1} + \mu_{t+1} \cdot \left(1-\delta(u_{t+1})\right).
+\right\}
+\end{equation*}
+
+\item 家庭调整工资的设定，式\eqref{eq:MS-hh-reset-wage-hat-h12} $\Rightarrow$
+\begin{equation*}
+w^{\#}_t = \frac{\epsilon_w}{\epsilon_w -1} \cdot \frac{
+  \hat{h}_{1,t}
+}{
+  \hat{h}_{2,t}
+}.
+\end{equation*}
+
+\item 家庭调整工资的辅助变量之一，式\eqref{eq:MS-hh-auxiliary-hat-h1} $\Rightarrow$
+\begin{equation*}
+\begin{split}
+\hat{h}_{1,t} =& \nu_t \cdot \psi_t \cdot \left(\frac{w_t}{w_t^{\#}}\right)^{\epsilon_w \cdot \left(1+\chi \right)} \cdot N_{d,t}^{1+\chi} \\
+&+ \left(\beta \cdot \phi_w \right) \cdot E_t \left( 1+\pi_t \right)^{-\epsilon_w \cdot \zeta_w \cdot (1+\chi)} \cdot \left(1+\pi_{t+1} \right)^{\epsilon_w \cdot \left(1+\chi \right)}\cdot \left(\frac{w^{\#}_{t+1}}{w^{\#}_{t}}\right)^{\epsilon_w \cdot \left( 1 + \chi \right)} \cdot \hat{h}_{1,t+1},
+\end{split}
+\end{equation*}
+
+\item 家庭调整工资的辅助变量之二，式\eqref{eq:MS-hh-auxiliary-hat-h2} $\Rightarrow$
+\begin{equation*}
+\begin{split}
+\hat{h}_{2,t} = & \lambda_t \cdot \left(\frac{w_t}{w_t^{\#}}\right)^{\epsilon_w} \cdot N_{d,t} \\
+&+ \left(\beta \cdot \phi_w \right) \cdot E_t \left( 1+\pi_t \right)^{\zeta_w \cdot (1-\epsilon_w)} \cdot \left(1 + \pi_{t+1} \right)^{\epsilon_w -1} \cdot \left(\frac{w^{\#}_{t+1}}{w^{\#}_{t}}\right)^{\epsilon_w} \cdot \hat{h}_{2,t+1}.
+\end{split}
+\end{equation*}
+
+\item 总工资水平的演化，反映工资水平和调整工资水平的关系，式\eqref{eq:MS-agg-wage-index-evolution} $\Rightarrow$
+\begin{equation*}
+w_t^{1-\epsilon_w} = \left( 1-\phi_w \right) \cdot w_t^{\#, 1-\epsilon_w} + \phi_w \cdot \left(1+\pi_{t-1}\right)^{\zeta_w \cdot \left(1-\epsilon_w\right)} \cdot w_{t-1}^{1-\epsilon_w} \cdot \left(1 + \pi_t\right)^{- \left(1 - \epsilon_w \right)}
+\end{equation*}
+
+\item 实物资本的积累，式\eqref{eq:MS-capital-accumulation} $\Rightarrow$
+\begin{equation*}
+K_{t+1} = Z_t \cdot \left[
+1 - \frac{\kappa}{2} \cdot \left(\frac{I_t}{I_{t-1}} -1\right)^2
+\right] \cdot I_t + \left[
+1- \delta(u_t)
+\right] \cdot K_t.
+\end{equation*}
+
+\item 资本服务品的决定，式\eqref{eq:MC-hh-capital-services} $\Rightarrow$
+\begin{equation*}
+\hat{K}_t = u_t \cdot K_t.
+\end{equation*}
+
+\item 要素相对价格和资本-劳动比的关系，式\eqref{eq:MS-intm-W-R-K-N} $\Rightarrow$
+\begin{equation*}
+\frac{w_t}{R_t} = \frac{1-\alpha}{\alpha} \cdot \frac{\hat{K}_t}{N_{d,t}}.
+\end{equation*}
+
+\item 生产的边际成本，式\eqref{eq:MS-intm-marg-cost-real} $\Rightarrow$
+\begin{equation*}
+mc_t \equiv \frac{MC_t}{P_t} = \frac{w_t}{
+  \left( 1 - \alpha \right) \cdot A_t \cdot \left( \frac{\hat{K}_t}{N_{d,t}} \right)^{-\alpha}}.
+\end{equation*}
+
+\item 生产者调整价格的行为决策，以调整通胀率形式表示，式\eqref{eq:MS-intm-price-sharp-inflation-x1-x2} $\Rightarrow$
+\begin{equation*}
+\left( 1+\pi^{\#}_t \right) = \frac{\epsilon_p}{\epsilon_p -1} \cdot \left(1 + \pi_t \right)\cdot \frac{x_{1,t}}{x_{2,t}}.
+\end{equation*}
+
+\item 生产者调整价格的辅助变量之一，式\eqref{eq:MS-intm-auxiliary-x1} $\Rightarrow$
+\begin{equation*}
+x_{1,t} = \lambda_t \cdot mc_t \cdot Y_t +\left( \beta \cdot \phi_p \right) \cdot \left( 1+\pi_t \right)^{-\zeta_p \cdot \epsilon_p} \cdot E_t \left( 1+\pi_{t+1} \right)^{\epsilon_p} \cdot x_{1,t+1}.
+\end{equation*}
+
+\item 生产者调整价格的辅助变量之二，式\eqref{eq:MS-intm-auxiliary-x2} $\Rightarrow$
+\begin{equation*}
+x_{2,t} = \lambda_t \cdot Y_t + \left(\beta \cdot \phi_p \right) \cdot
+\left(1 + \pi_t \right)^{\zeta_p \cdot \left( 1 - \epsilon_p \right)} \cdot E_t \left( 1 + \pi_{t+1} \right)^{\epsilon_p -1} x_{2,t+1}.
+\end{equation*}
+
+\item 价格分布指标的演化，式\eqref{eq:MS-price-disp-index-evolution} $\Rightarrow$
+\begin{equation*}
+\nu^p_t = \left(1-\phi_p\right) \cdot \left(\frac{1+\pi_{t}^{\#}}{1+\pi_t}\right)^{-\epsilon_p} + \phi_p \cdot
+\left(1+\pi_{t-1}\right)^{- \zeta_p \cdot \epsilon_p} \cdot
+\left(1+\pi_t\right)^{\epsilon_p} \cdot \phi_p \cdot
+\nu^p_{t-1}.
+\end{equation*}
+
+\item 总物价水平的演化，反映通胀水平和调整价格通胀水平的关系，式\eqref{eq:MS-agg-price-index-evolution} $\Rightarrow$
+\begin{equation*}
+\left(1+\pi_t\right)^{1-\epsilon_p} = \left(1-\phi_p\right) \cdot \left(1+\pi_t^{\#}\right)^{1-\epsilon_p} + \phi_p \cdot \left(1+\pi_{t-1}\right)^{\zeta_p \cdot \left(1-\epsilon_p\right)}
+\end{equation*}
+
+
+
+
+\item 总产出的使用，式\eqref{MS-agg-accounting-indentity} $\Rightarrow$
+\begin{equation*}
+Y_t = C_t + I_t + G_t.
+\end{equation*}
+
+\item 外生政府支出，式\eqref{eq:MS-gov-spending-ln} $\Rightarrow$
+\begin{equation*}
+\ln G_t = (1-\rho_G) \cdot \ln G + \rho_G \cdot \ln G_{t-1} + s_g \cdot \varepsilon_{G,t}.
+\end{equation*}
+
+\item 部分调整Taylor法则形式的货币政策，式\eqref{eq:MS-MP-taylor-rule-partial-adjust} $\Rightarrow$
+\begin{equation*}
+i_t = \left( 1 - \rho_{i} \right) \cdot i + \rho_i \cdot i_{t-1} + \left( 1 - \rho_{i} \right) \cdot \left[
+\phi_\pi \cdot \left(\pi_t - \pi \right)
++ \phi_y \cdot
+\left(
+\ln Y_t - \ln Y_{t-1}
+\right)
+\right]
++ s_i \cdot \varepsilon_{i,t}.
+\end{equation*}
+
+\item 期内偏好冲击，影响劳动力供应，式\eqref{eq:MS-psi-shock} $\Rightarrow$
+\begin{equation*}
+\ln \psi_t = \left(1-\rho_{\psi} \right) \cdot \ln \psi + \rho_{\psi} \cdot \ln \psi_{t-1} + s_{\psi} \cdot \varepsilon_{\psi, t}.
+\end{equation*}
+
+\item 产出效率冲击，影响总产出，式\eqref{eq:MS-A-shock} $\Rightarrow$
+\begin{equation*}
+\ln A_t = \rho_A \cdot \ln A_{t-1} + s_A \cdot \varepsilon_{A,t}.
+\end{equation*}
+
+\item 投资冲击，影响投资的边际效率，式\eqref{eq:MS-Z-shock} $\Rightarrow$
+\begin{equation*}
+\ln Z_t = \rho_Z \cdot \ln Z_{t-1} + s_Z \cdot \varepsilon_{Z,t}.
+\end{equation*}
+
+\item 跨期偏好冲击，影响消费和休闲带来的效用，式\eqref{eq:MS-v-shock} $\Rightarrow$
+\begin{equation*}
+\ln \nu_t = \rho_v \cdot \ln \nu_{t-1} + s_{\nu} \cdot \varepsilon_{\nu,t}.
+\end{equation*}
+\end{enumerate}
+
+\subsection{非随机的稳定状态}
+来看如何求得相关解释变量的稳态值。
+
+\begin{enumerate}
+
+\item 式\eqref{eq:MS-HH-FOC-B-real} $\Rightarrow$
+\begin{equation*}
+\lambda = \beta \cdot \lambda \cdot \frac{1+i}{i+\pi},
+\end{equation*}
+
+调整得
+\begin{equation}
+\label{eq:MS-SS-HH-FOC-wrt-Bond}
+i = \left(\frac{1+\pi}{\beta}\right) - 1.
+\end{equation}
+
+\item 式\eqref{eq:MS-HH-FOC-I-real} $\Rightarrow$
+\begin{equation*}
+\lambda = \mu \cdot Z,
+\end{equation*}
+其中设稳定状态下，投资的边际效率冲击为$1$，
+\begin{equation}
+\label{eq:MS-SS-Z-equal-1}
+Z \equiv 1,
+\end{equation}
+整理得
+\begin{equation}
+\label{eq:MS-SS-shadow-price-equiv}
+\lambda = \mu,
+\end{equation}
+即Tobin's q = 1，详见第\ref{sec:adjustment-cost-types-compar}节。
+
+\item 设稳定状态下，资本利用率为$1$，
+\begin{equation}
+\label{eq:MS-SS-cap-util-equiv-1}
+u \equiv 1,
+\end{equation}
+式\eqref{eq:MS-capital-depreciation} $\Rightarrow$
+\begin{equation}
+\label{eq:MS-SS-depreciation-capital-tulization}
+\delta(u) = \delta_0,
+\end{equation}
+进而式\eqref{eq:MS-HH-FOC-K-real} $\Rightarrow$
+\begin{equation*}
+\mu = \beta \cdot \left[
+\lambda \cdot R \cdot u + \mu \cdot \left( 1 - \delta(u) \right]
+\right) = \beta \cdot
+\left(
+  \lambda \cdot R + \mu \cdot \left( 1 - \delta_0 \right)
+\right),
+\end{equation*}
+整理得
+\begin{equation}
+\label{MS-SS-interest-rate}
+R = \frac{1}{\beta} - \left( 1 - \delta_0 \right).
+\end{equation}
+
+\item 式\eqref{eq:MS-capital-depreciation} $\Rightarrow$
+\begin{equation}
+\label{eq:MS-SS-dep-rate-derivative}
+\delta'(u_t) = \delta_1 + \delta_2 \cdot \left(u_t - 1 \right),
+\end{equation}
+以及，若引入稳定状态下的假定式\eqref{eq:MS-SS-cap-util-equiv-1} $u \equiv 1$，上式变为
+\begin{equation}
+\label{eq:MS-SS-dep-rate-derivative-u-1}
+\delta'(1) = \delta_1.
+\end{equation}
+式\eqref{eq:MS-HH-FOC-u-real} $\Rightarrow$
+\begin{equation*}
+\lambda \cdot R  = \mu \cdot \delta_1,
+\end{equation*}
+引入式\eqref{eq:MS-SS-shadow-price-equiv}、式\eqref{MS-SS-interest-rate}，整理得
+\begin{equation}
+\label{eq:MS-SS-delta-1}
+\delta_1 = \frac{1}{\beta} - \left(1 - \delta_0 \right).
+\end{equation}
+
+\item 式\eqref{eq:MS-agg-price-index-evolution} $\Rightarrow$
+\begin{equation*}
+\left(1+\pi \right)^{1-\epsilon_p} = \left( 1 - \phi_p \right) \cdot \left( 1 + \pi^{\#} \right)^{1-\epsilon_p} + \phi_p \cdot \left(1+\pi \right)^{\zeta_p \cdot \left( 1 - \epsilon_p \right)},
+\end{equation*}
+整理得
+\begin{equation}
+\label{eq:MS-SS-agg-price-index-evolution}
+\left(1+\pi^{\#}\right) = \left[
+\frac{
+  \left(1+\pi\right)^{1-\epsilon_p} - \phi_p \cdot \left(1+\pi\right)^{\zeta_p \cdot \left(1-\epsilon_p\right)}
+}{
+  1-\phi_p
+}
+\right] ^{\frac{1}{1-\epsilon_p}},
+\end{equation}
+
+由式\eqref{eq:MS-SS-agg-price-index-evolution}不难看出，只有当$\pi = 0$(稳定状态下的通货膨胀为$0$)，或$\zeta_p = 1$(所有生产者都可以调整价格)，才能得到$\pi^{\#} = \pi$。
+
+\item 式\eqref{eq:MS-price-disp-index-evolution} $\Rightarrow$
+\begin{equation*}
+\nu^p = \left( 1 - \phi_p \right) \cdot \left(\frac{1+\pi^{\#}}{1+\pi}\right)^{-\epsilon_p} + \phi_p \cdot \left( 1 + \pi \right)^{\epsilon_p \cdot \left( 1 - \zeta_p \right)} \cdot \nu^p,
+\end{equation*}
+整理得
+\begin{equation}
+\label{eq:MS-SS-price-disp-evo}
+\nu^p = \frac{
+  \left(1-\phi_p \right) \cdot \left(\frac{1+\pi^{\#}}{1+\pi}\right)^{-\epsilon_p}
+}{
+  1 - \phi_p \cdot \left( 1 + \pi \right)^{\epsilon_p \cdot \left( 1 - \zeta_p \right)}
+}.
+\end{equation}
+
+同上分析，由式\eqref{eq:MS-SS-price-disp-evo}可见，只有当$\pi = 0$或$\zeta_p = 1$时，可得$\nu^p = 1$，即价格完全一致。
+
+\item 式\eqref{eq:MS-intm-auxiliary-x1}- \eqref{eq:MS-intm-auxiliary-x2} $\Rightarrow$
+
+\begin{align*}
+x_1  &= \lambda \cdot mc \cdot Y + \beta \cdot \phi_p \cdot \left( 1+\pi \right)^{- \zeta_p \cdot \epsilon_p } \cdot \left( 1+\pi \right)^{\epsilon_p } x_1, \\
+x_2 &= \lambda \cdot Y + \beta \cdot \phi_p \cdot \left( 1+\pi \right)^{\zeta_p \cdot \left( 1 - \epsilon_p \right)} \cdot \left( 1 + \pi \right)^{\epsilon_p -1} \cdot x_2,
+\end{align*}
+整理得
+\begin{align}
+\label{eq:MS-SS-intm-auxiliary-x1}
+x_1 &= \frac{
+  \lambda \cdot mc \cdot Y
+}{
+  1 - \beta \cdot \phi_p \cdot \left( 1 + \pi \right)^{\epsilon_p \cdot \left( 1 - \epsilon_p \right)}
+}, \\
+\label{eq:MS-SS-intm-auxiliary-x2}
+x_2 &= \frac{
+  \lambda \cdot Y
+}{
+  1 - \beta \cdot \phi_p \cdot \left( 1 + \pi \right)^{\left(\epsilon_p - 1 \right) \cdot \left(-1 + \zeta_p \right)}
+},
+\end{align}
+
+进而我们有
+\begin{equation}
+\label{eq:MS-SS-x1-ratio-x2}
+\frac{x_1}{x_2} = mc \cdot \frac{
+  1 - \beta \cdot \phi_p \cdot \left( 1 + \pi \right)^{\left(\epsilon_p - 1 \right) \cdot \left( -1 + \zeta_p \right)}
+}{
+  1 - \beta \cdot \phi_p \cdot \left( 1 + \pi \right)^{\epsilon_p \cdot \left( 1 - \zeta_p \right)}
+}.
+\end{equation}
+
+同上分析，由式\eqref{eq:MS-SS-x1-ratio-x2}可见，当$\pi=0$或$\zeta_p = 1$时，$mc = \frac{x_1}{x_2}$是个常量，厂商基于相同的边际成本定价。否则$\frac{x_1}{x_2}$是个变量，厂商在边际成本上做一个额外的price markup，作为定价依据。
+
+\item 对式\eqref{eq:MS-intm-price-sharp-inflation-x1-x2}求非随机稳态，并引入式\eqref{eq:MS-SS-x1-ratio-x2}可得
+\begin{equation*}
+\begin{split}
+\left( 1 + \pi^{\#} \right) &= \frac{\epsilon_p}{\epsilon_p -1} \cdot \left( 1 + \pi \right) \cdot \frac{x_1}{x_2} \\
+&= \frac{\epsilon_p}{\epsilon_p -1} \cdot \left( 1 + \pi \right) \cdot mc \cdot \frac{
+  1 - \beta \cdot \phi_p \cdot \left( 1 + \pi \right)^{\left(\epsilon_p - 1 \right) \cdot \left( -1 + \zeta_p \right)}
+}{
+  1 - \beta \cdot \phi_p \cdot \left( 1 + \pi \right)^{\epsilon_p \cdot \left( 1 - \zeta_p \right)}
+},
+\end{split}
+\end{equation*}
+
+整理可得稳态边际成本
+\begin{equation}
+\label{eq:MS-SS-marg-cost}
+mc = \frac{\epsilon_p - 1 }{\epsilon_p} \cdot \frac{1+\pi^{\#}}{1+\pi} \cdot \frac{
+  1 - \beta \cdot \phi_p \cdot \left( 1 + \pi \right)^{\epsilon_p \cdot \left( 1 - \zeta_p \right)}
+}{
+  1 - \beta \cdot \phi_p \cdot \left( 1 + \pi \right)^{\left( 1- \epsilon_p \right) \cdot \left( 1- \zeta_p \right)}
+}.
+\end{equation}
+
+\item 假定条件$u = 1$式\eqref{eq:MS-SS-Z-equal-1}
+引入式\eqref{eq:MC-hh-capital-services} $\Rightarrow$
+\begin{equation}
+\label{eq:MS-SS-capital-service-stock-equiv}
+\hat{K} = K.
+\end{equation}
+
+\item 式\eqref{eq:MS-SS-capital-service-stock-equiv}引入式\eqref{eq:MS-intm-W-R-K-N} $\Rightarrow$
+\begin{equation}
+\label{eq:MS-SS-K-Nd-ratio}
+\frac{\hat{K}}{N_{d}} = \frac{K}{N_d} = \frac{\alpha}{1-\alpha} \cdot \frac{w}{R}
+\end{equation}
+
+\item 关于固定成本$F$值的选取。模型设定中常见两种方案。第一种方案是设$F=0$，即不存在固定成本。对于$F \neq 0$的第二种方案，将F值设定为使得厂商的稳态利润为0。具体说来，式\eqref{eq:MS-agg-profit-real}对应的稳定状态
+\begin{equation*}
+\Pi = Y - w \cdot N_d - R \cdot K = 0,
+\end{equation*}
+其中利用到了$u=1$的条件式\eqref{eq:MS-SS-cap-util-equiv-1}。进而有
+\begin{equation}
+\label{eq:MS-SS-Y-Nd-ratio}
+\frac{Y}{N_d} = w + R \cdot \frac{K}{N_d}.
+\end{equation}
+
+\item 式\eqref{eq:MS-intm-W-R-K-N} $\Rightarrow$
+\begin{equation}
+\label{eq:MS-intm-R-mc}
+\begin{split}
+R_t &= w_t \cdot \frac{\alpha}{1 - \alpha} \cdot \left( \frac{\hat{K}_t}{N_{d,t}} \right)^{-1} \\
+&=mc_t \cdot \left(1 - \alpha \right) \cdot A_t \cdot \left( \frac{\hat{K}_t}{N_{d,t}} \right)^{\alpha} \cdot \frac{\alpha}{1 - \alpha} \cdot \left( \frac{\hat{K}_t}{N_{d,t}} \right)^{-1} \\
+&= \alpha \cdot A_t \cdot mc_t \cdot \left( \frac{\hat{K}_t}{N_{d,t}}\right) ^{\alpha - 1},
+\end{split}
+\end{equation}
+其中第二行根据式\eqref{eq:MS-intm-marg-cost-real}，用$mc_t$替代$w_t$。
+
+设稳定状态下，产出效率冲击为1(对数值为0)
+\begin{equation}
+\label{eq:MS-SS-A-1-equiv}
+A = 1,
+\end{equation}
+
+代入式\eqref{eq:MS-SS-A-1-equiv}的A，式\eqref{eq:MS-SS-capital-service-stock-equiv}以替代$\hat{K}$，根据式\eqref{eq:MS-SS-marg-cost}求得的$mc$。式\eqref{eq:MS-intm-R-mc}进一步调整为
+\begin{equation*}
+R = \alpha \cdot mc \cdot \left( \frac{K}{N_{d}}\right)^{\alpha - 1},
+\end{equation*}
+即稳定状态下的资本-劳动投入比表示为
+\begin{equation}
+\label{eq:MS-SS-intm-R-mc}
+\frac{K}{N_{d}} = \left(\frac{\alpha \cdot mc}{R} \right)^{\frac{1}{1-\alpha}}.
+\end{equation}
+
+\item 式\eqref{eq:MS-intm-marg-cost-real} $\Rightarrow$
+\begin{equation}
+\label{eq:MS-SS-intm-marg-cost-real}
+w = \left( 1-\alpha \right) \cdot mc \cdot \left( \frac{K}{N_d}\right)^{\alpha}.
+\end{equation}
+
+\item 式\eqref{eq:MS-agg-wage-index-evolution} $\Rightarrow$
+\begin{equation*}
+w^{1-\epsilon_w} = \left(1-\phi_w \right) \cdot w^{\#, 1-\epsilon_w} + \phi_w \cdot \left(1+\pi \right)^{\zeta_w \cdot \left( 1 - \epsilon_w \right)} \cdot \left( 1 + \pi \right)^{\epsilon_w - 1} \cdot w^{1 - \epsilon_w},
+\end{equation*}
+整理得
+\begin{equation}
+\label{eq:MS-SS-agg-wage-index-evolution}
+w^{\#} = \left\{
+  \frac{
+    w^{1-\epsilon_w} \cdot
+  \left[ 1 - \phi_w \cdot \left( 1+\pi \right)^{\left(\epsilon_w - 1\right) \cdot \left( 1 - \zeta_w \right)} \right]
+  }{
+    1-\phi_w
+  }
+\right\}^{\frac{1}{1-\epsilon_w}}.
+\end{equation}
+
+同上分析，由式\eqref{eq:MS-SS-agg-wage-index-evolution}可见，当$\pi = 0$或$\zeta_w = 1$(所有家庭都可以调整工资)时，可得$w^{\#} = w$。
+
+\item 设稳定状态下，影响跨期偏好冲击的变量对数为0,
+\begin{equation}
+\label{eq:MS-SS-nu-shock-1-equiv}
+\nu \equiv 1,
+\end{equation}
+
+式\eqref{eq:MS-SS-nu-shock-1-equiv}引入式\eqref{eq:MS-HH-FOC-C-real} $\Rightarrow$
+\begin{equation}
+\label{eq:MS-SS-HH-FOC-C-real}
+\begin{split}
+\lambda &= \frac{\nu}{c \cdot (1-b)} - b \cdot \beta \cdot \frac{\nu}{c \cdot (1-b)} \\
+&= \frac{1}{c} \cdot \frac{1 - b \cdot \beta}{1 - b}.
+\end{split}
+\end{equation}
+
+\item 式\eqref{eq:MS-capital-accumulation} $\Rightarrow$
+\begin{equation*}
+K = Z \cdot I + (1-\delta(u)) \cdot K,
+\end{equation*}
+引入式\eqref{eq:MS-SS-Z-equal-1}、式\eqref{eq:MS-SS-depreciation-capital-tulization}得
+\begin{equation}
+\label{eq:MS-SS-capital-accumulation}
+I = \delta_0 \cdot K.
+\end{equation}
+
+\item 式\eqref{MS-agg-accounting-indentity} $\Rightarrow$
+\begin{equation*}
+Y = C + I + G,
+\end{equation*}
+定义稳态的政府支出占全部GDP的比重$\omega \equiv \frac{G}{Y}$，引入式\eqref{eq:MS-SS-capital-accumulation}，上式变为
+\begin{equation*}
+\left( 1 - \omega \right) \cdot Y = C + I  C + \delta_0 \cdot K.
+\end{equation*}
+式两侧同时除以$N_{d}$得
+\begin{equation*}
+\left(1 - \omega \right) \cdot \frac{Y}{N_d}  = \frac{C}{N_{d}} + \delta_0 \cdot \frac{K}{N_{d}},
+\end{equation*}
+引入式\eqref{eq:MS-SS-Y-Nd-ratio}以替代$Y/N_d$，整理得
+\begin{equation}
+\label{eq:MS-SS-C-Nd-ratio}
+\begin{split}
+\frac{C}{N_d} &= \left( 1 - \omega \right) \cdot \left( \frac{Y}{N_d}\right) - \delta_0 \cdot \frac{K}{N_d} \\
+&= \left( 1 - \omega \right) \cdot \left( w + R \cdot \frac{K}{N_d}\right) - \delta_0 \cdot \frac{K}{N_d}
+\end{split}
+\end{equation}
+
+\item 式\eqref{eq:MS-hh-auxiliary-hat-h1}-\eqref{eq:MS-hh-auxiliary-hat-h2} $\Rightarrow$
+\begin{align*}
+\hat{h}_{1} &= \nu \cdot \psi \cdot \left(\frac{w}{w^{\#}}\right)^{\epsilon_w \cdot \left( 1 + \chi \right)} \cdot N_{d}^{1+\chi} + \beta \cdot \phi_w \cdot \left( 1 + \pi \right)^{-\zeta_w \cdot \epsilon_w \cdot \left(1 + \chi \right)} \cdot \left( 1 + \pi \right)^{\epsilon_w \cdot \left(1 + \chi \right)} \cdot \hat{h}_{1},\\
+\hat{h}_2 &= \lambda \cdot \left(\frac{w}{w^{\#}}\right)^{\epsilon_w} \cdot N_{d} + \beta \cdot \phi_w \cdot \left(1+\pi \right)^{\zeta_w \cdot \left( 1 - \epsilon_w \right)} \cdot \left(1+\pi \right)^{\epsilon_w - 1} \cdot \hat{h}_{2},
+\end{align*}
+整理得
+\begin{align}
+\label{eq:MS-SS-hh-auxiliary-hat-h1}
+\hat{h}_{1} &= \frac{
+  \nu \cdot \psi \cdot \left(\frac{w}{w^{\#}}\right)^{\epsilon_w \cdot \left( 1 + \chi \right)} \cdot N_{d}^{1+\chi}
+}{
+1 - \beta \cdot \phi_w \cdot \left( 1 + \pi \right)^{\epsilon_w \cdot \left( 1 - \zeta_w \right) \cdot \left(1 + \chi \right)}
+}, \\
+\label{eq:MS-SS-hh-auxiliary-hat-h2}
+\hat{h}_{2} &= \frac{
+  \lambda \cdot \left(\frac{w}{w^{\#}}\right)^{\epsilon_w} \cdot N_{d}
+}{
+  1 - \beta \cdot \phi_w \cdot \left( 1 + \pi \right)^{\left( 1 - \zeta_w \right) \cdot \left( \epsilon_w - 1\right)}
+},
+\end{align}
+进而，结合$\nu = 1$的稳态假定式\eqref{eq:MS-SS-nu-shock-1-equiv}我们有
+\begin{equation}
+\label{eq:MS-SS-hat-h1-ration-hat-h2}
+\frac{\hat{h}_{1}}{\hat{h}_{2}} =
+%\nu
+%\cdot
+\frac{\psi}{\lambda}
+\cdot \left(\frac{w}{w^{\#}}\right)^{\epsilon_w \cdot \chi} \cdot N_{d}^{\chi}
+\cdot \frac{
+  1 - \beta \cdot \phi_w \cdot \left( 1 + \pi \right)^{\left( 1 - \zeta_w \right) \cdot \left(\epsilon_w - 1 \right)}
+}{
+  1 - \beta \cdot \phi_w \cdot \left( 1 + \pi \right)^{\epsilon_w \cdot \left( 1 - \zeta_w \right) \cdot \left(1 + \chi \right)}
+  },
+\end{equation}
+
+\item 利用式\eqref{eq:MS-SS-hat-h1-ration-hat-h2}可得，式\eqref{eq:MS-hh-reset-wage-hat-h12} $\Rightarrow$
+\begin{equation}
+\label{eq:MS-SS-hh-reset-wage-hat-h12}
+\begin{split}
+w^{\#} &= \frac{\epsilon_w}{\epsilon_w -1} \cdot \frac{\hat{h}_{1}}{\hat{h}_{2}}  \\
+&= \frac{\epsilon_w}{\epsilon_w -1} \cdot
+\frac{\psi}{\lambda}
+\cdot \left(\frac{w}{w^{\#}}\right)^{\epsilon_w \cdot \chi} \cdot N_{d}^{\chi}
+\cdot \frac{
+  1 - \beta \cdot \phi_w \cdot \left( 1 + \pi \right)^{\left( 1 - \zeta_w \right) \cdot \left(\epsilon_w - 1 \right)}
+}{
+  1 - \beta \cdot \phi_w \cdot \left( 1 + \pi \right)^{\epsilon_w \cdot \left( 1 - \zeta_w \right) \cdot \left(1 + \chi \right)}
+  }
+\end{split}
+\end{equation}
+
+式\eqref{eq:MS-SS-hh-reset-wage-hat-h12}分两种情境分析。情境一，当$\pi = 0$时，$w = w^{\#}$，式子变为
+\begin{equation*}
+w^{\#} = \frac{\epsilon_w}{\epsilon_w -1} \cdot N_d^{\chi} = w,
+\end{equation*}
+整理得
+\begin{equation}
+\label{eq:MS-SS-mono-wage-pricing}
+w = \left[\frac{\epsilon_w}{\epsilon_w -1}\right] \cdot \left[ \frac{\psi}{\lambda} \cdot N_d^{\chi}\right],
+\end{equation}
+即垄断竞争条件下的稳态工资为一个markup(RHS前半部分)，乘以劳动和消费的边际替代率(RHS后半部分)。
+
+情景二，对于更通用的情况，将式改写为关于$N_d$的函数
+\begin{equation*}
+N_d^{\chi} = \frac{\epsilon_w - 1}{\epsilon_w} \cdot \frac{\lambda }{\psi} \cdot w^{\#} \cdot \left(\frac{w^{\#}}{w}\right)^{-\epsilon_w \cdot \chi} \cdot \frac{
+  1 - \beta \cdot \phi_w \cdot \left( 1 + \pi \right)^{\epsilon_w \cdot \left( 1 - \zeta_w \right) \cdot \left(1 + \chi \right)}
+}{
+  1 - \beta \cdot \phi_w \cdot \left( 1 + \pi \right)^{\left( 1 - \zeta_w \right) \cdot \left(\epsilon_w - 1 \right)}
+  },
+\end{equation*}
+引入式\eqref{eq:MS-SS-HH-FOC-C-real}以替代$\lambda$，两侧再同乘$N_d$得
+\begin{equation}
+\label{eq:MS-SS-Nd-ratio}
+N_d^{1+\chi} = \frac{\epsilon_w - 1}{\epsilon_w} \cdot \frac{N_d}{C} \cdot \frac{1}{\psi} \cdot \frac{1-b \cdot \beta}{1-b} \cdot w^{\#} \cdot \left(\frac{w^{\#}}{w}\right)^{-\epsilon_w \cdot \chi} \cdot \frac{
+  1 - \beta \cdot \phi_w \cdot \left( 1 + \pi \right)^{\epsilon_w \cdot \left( 1 - \zeta_w \right) \cdot \left(1 + \chi \right)}
+}{
+  1 - \beta \cdot \phi_w \cdot \left( 1 + \pi \right)^{\left( 1 - \zeta_w \right) \cdot \left(\epsilon_w - 1 \right)}
+  },
+\end{equation}
+其中$N_d/C$的值由式\eqref{eq:MS-SS-C-Nd-ratio}给出。
+
+\item 式\eqref{eq:MS-agg-prod-function} $\Rightarrow$
+\begin{equation*}
+Y \cdot \nu^p = A \cdot K^{\alpha} \cdot N_d^{1-\alpha} - F,
+\end{equation*}
+其中利用了式\eqref{eq:MS-SS-cap-util-equiv-1}、式\eqref{eq:MS-SS-A-1-equiv}和\eqref{eq:MS-SS-capital-service-stock-equiv}。进一步调整得
+\begin{equation}
+\label{eq:MS-SS-fixed-cost}
+F = N_d \cdot \left[ \left( \frac{K}{N_d} \right)^{\alpha} - \frac{Y}{N_d} \cdot \nu^p \right]，
+\end{equation}
+其中$K/N_d$，$Y/N_d$和$N_d$的值分别由式\eqref{eq:MS-SS-K-Nd-ratio}、\eqref{eq:MS-SS-Y-Nd-ratio}和\eqref{eq:MS-SS-Nd-ratio}测算而得。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+%$E_t$表示在$t$期对未来时间$t+n, n \ge 1$的期望。比如$E_t  C_{t+1}$意思就是，在$t$期，对下一时间周期$t+1$时消费$C_{t+1}$的期望值。$\beta$是时间折旧系数。
+
+%当涉及到在当前时间对未来时段的预估，就要用到$E_t$的期望，比如$\beta \cdot E_t \{C_{t+1}\}$。在随后的那组均衡条件解中，$E_t$往往省略掉，因为都是用跨一期的差分形式来做的。

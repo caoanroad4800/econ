@@ -1,0 +1,30 @@
+%!TEX program = xelatex
+%\documentclass[authoryear,12pt]{book}
+%\usepackage{xeCJK}
+%\setCJKmainfont[BoldFont={SimHei}]{SimSun}
+%\setCJKsansfont{SimHei}
+%\setCJKmonofont{[simfang.ttf]}
+%\setCJKfamilyfont{zhsong}{SimSun}
+%\setCJKfamilyfont{zhhei}{SimHei}
+%\setCJKfamilyfont{zhfs}{[simfang.ttf]}
+\documentclass{ctexart}
+\usepackage{amsmath}
+\begin{document}
+对于理想气体可逆的绝热过程，即$ d S = 0 $.
+\begin{align}
+\triangle H & = \int_{1}^{2} Vdp  \\
+        & = \int_{1}^{2} \frac{ p_{1} V_{1}^{\kappa}}{p^{\frac{1}{\kappa}}} dp & \left( p_{1} V_{1}^{\kappa} = p_{2} V_{2}^{\kappa} = p V^{\kappa} \right)   \\
+        & = \frac{ p_{1} V_{1}^{\kappa}}{-\frac{1}{\kappa}+1} \left(p_{2}^{-\frac{1}{\kappa}+1} - p_{1}^{-\frac{1}{\kappa}+1} \right)    \\
+        & = \frac{\kappa}{\kappa - 1} mRT_{1} \left( V_{1}^{\kappa-1} p_{2}^{-\frac{1}{\kappa}+1} - V_{1}^{\kappa-1} p_{1}^{-\frac{1}{\kappa}+1} \right) & \left(p_{1} V_{1} = mRT_{1}, p_{2} V_{2} = mRT_{2} \right)
+\end{align}
+但是根据$ c_{p} $的定义
+\begin{align}
+\triangle H & = c_{p} m \left( T_{2} - T_{1} \right) \\
+%\c_{p} & = \frac{\kappa R}{\kappa -1}
+%\triangle H & = \frac{\kappa}{\kappa -1 } m R T_{1} \left( \frac{T_{2}}{T_{1}} - 1 \right)
+\end{align}
+两个式子对比一下，就要求
+\begin{equation}
+\frac{T_{2}}{T_{1}} - 1 = V_{1}^{\kappa-1 } p_{2}^{-\frac{1}{\kappa}}} - V_{1}^{\kappa-1} p_{1}^{-\frac{1}{\kappa} }
+\end{equation}
+\end{document}

@@ -1,0 +1,377 @@
+%!TEX root = ../DSGEnotes.tex
+\chapter{线性二次最优控制}
+\label{sec:linear-quardratic-control-intro}
+多数情况下，均衡条件较为复杂，无法直接得出解析解。我们需要引入线性二次最优控制理论(optimal linear-quadratic control, LQ)，将均衡条件用状态-空间形式表现出来(state-space representation)。这里对线性二次最优控制论问题做简要介绍。
+
+假定一个经济系统，由一系列状态变量的向量$x_t$和一系列控制变量的向量$u_t$构成；$x_t$受到外生随机冲击$\varepsilon_t$的干扰，外生冲击的方差-协方差矩阵为$\sum$。这样一个线性二次最优控制问题可以表述如下：经济系统的决策者通过选择$u_t$来影响$x_t$的走向，由此我们来构建目标方程和状态转移方程。
+
+\section{目标方程和状态转移方程}
+目标方程(objective function)：
+\begin{equation}
+  \label{eq:LQC-obj-function}
+  \max_{\{u_t\}} E \sum_{t=0}^{\infty} \beta^t \left[ x_t^T R x_t + u_t^T Q u_t\right],
+\end{equation}
+其中$\beta$是时间贴现系数，对称矩阵$R$和$Q$分别对应目标方程中状态变量和控制变量的权重。
+
+状态转移方程(transition function)：
+\begin{equation}
+  \label{eq:LQC-trans-function}
+  x_{t+1}=A x_t + B u_t + \varepsilon_{t+1},
+\end{equation}
+当期状态由上期状态变量、上期控制变量所共同决定，二者的权重分别由矩阵$A$和$B$所反映。此外，当期状态还受到当期随机冲击的影响，假定是一个Gaussian过程$\{\varepsilon_{t}\}_{t=0}^{\infty} \sim \mathcal{N}(0,\Sigma)$。
+
+\section{价值方程}
+在给定时间贴现系数$\beta$的情况下，如果已知系数矩阵$A,B,R,Q$，我们可以求得系统的解。而对于系数矩阵未知的情况，问题则较为复杂。我们引入动态规划(dynamic programming, DP)的思路，定义价值方程$V(x_t)$表示当期状态变量的价值。结合状态转移方程\eqref{eq:LQC-trans-function}和目标方程\eqref{eq:LQC-obj-function}，迭代形式表现的价值方程(value function)优化问题如下
+\begin{align}
+  \label{eq:LQC-value-object}
+  V(x_t) &= \max_{\{u_t\}} \left\{
+  x_t^T R x_t + u_t^T Q u_t + \beta E[V(x_{t+1})]
+  \right\} \nonumber \\
+  &=\max_{\{u_t\}} \left\{
+  x_t^T R x_t + u_t^T Q u_t + \beta E[V(Ax_{t} + B u_{t} + \varepsilon_{t+1})]
+  \right\},
+\end{align}
+为了求解线性二次最优控制问题  \eqref{eq:LQC-value-object}，我们需要两方面信息。一是政策方程(policy function)的具体形式 $u_t = g(x_t)$，即基于当期状态，决策者如何选择最优控制变量，见第\ref{sec:linear-policy-function}节。二是基于当期状态，价值方程的具体形式。
+
+对于后者，方案设计如下：首先我们假设
+\begin{equation}
+  \label{eq:LQC-value-function}
+  V(x_t) = x_t^T P x_t + d,
+\end{equation}
+即价值方程是关于状态变量的二项式形式(第\ref{sec:LQC-lin-policy-quad-value-impli}节验证价值方程的二项式形式假设是否成立)，系数表示为幂等矩阵$P$，满足$P=P^T=P^2$，$d$是个常数矩阵。
+
+随后，将\eqref{eq:LQC-value-function}代回\eqref{eq:LQC-value-object}可得Bellman equation形式的价值方程
+\begin{align}
+  V(x_t)&=\max_{\{u_t\}} \left\{
+  x_t^T R x_t + u_t^T Q u_t + \beta E \left[
+  \left(A x_t + B u_t + \varepsilon_{t+1}\right)^T P \left(A x_t + B u_t + \varepsilon_{t+1}\right)  \right] + \beta d
+  \right\} \nonumber \\
+\label{eq:LQC-value-function-min-problem}
+  &\equiv \max_{\{u_t\}} \left\{
+  x_t^T R x_t + u_t^T Q u_t + \beta E \left[
+  \mathcal{X}  \right] + \beta d
+  \right\},
+\end{align}
+其中
+\begin{align*}
+  E [\mathcal{X}] = & x_t^T A^T P A x_t + x_t^T A^T P B u_t + u_t^T B^T P A x_t + u_t^T B^T P B u_t \\
+  & + \left(x_t^T A^T P \varepsilon_{t+1}  + u_t^T B^T P \varepsilon_{t+1} + \varepsilon_{t+1}^T P A x_t + \varepsilon_{t+1}^T P B u_t \right)+ \varepsilon_{t+1}^T P \varepsilon_{t+1},
+\end{align*}
+根据定义式$E[\varepsilon] = 0$，上式进一步简化为
+\begin{equation}
+  \label{eq:LQC-value-function-auxiliary-mathcalX}
+  E [\mathcal{X}] =  x_t^T A^T P A x_t + x_t^T A^T P B u_t + u_t^T B^T P A x_t + u_t^T B^T P B u_t + \varepsilon_{t+1}^T P \varepsilon_{t+1}.
+\end{equation}
+
+\subsection{一阶条件}
+决策者最优行为可由\eqref{eq:LQC-value-function-min-problem}的一阶条件求得
+\begin{align}
+  \frac{\partial V(x_t)}{\partial u_t} &=\frac{\partial u_t^T Q u_t}{\partial u_t} + \beta \frac{E[\mathcal X]}{\partial u_t} \nonumber \\
+  &= \frac{\partial u_t^T Q u_t}{\partial u_t} + \beta \left(
+  \frac{\partial x_t^T A^T P B u_t}{\partial u_t} + \frac{\partial u_t^T B^T P A x_t}{\partial u_t} + \frac{u_t^T B^T P B u_t}{\partial u_t} \right) \nonumber \\
+  \label{eq:LQC-value-function-FOC}
+  &=2Q u_t + 2 \beta B^T P A x_t + 2 \beta B^T P B u_t= 0,
+\end{align}
+其中为了求得最后一行等式，我们做一些矩阵运算见第\ref{sec:LQC-value-function-FOC-math}节。
+\subsubsection{计算一阶条件所需的部分矩阵运算}
+\label{sec:LQC-value-function-FOC-math}
+
+对于对称的常系数矩阵$\Gamma$，首先我们有\footnote{这是由于\begin{align*}
+  tr(d(u^T \Gamma u)) &= tr(d((u^T \Gamma)(u))) = tr(u^T \Gamma du + d(u^T \Gamma) u) = tr(u^T \Gamma du + d(u^T \Gamma)^T u) \\
+  &=tr(u^T \Gamma du) + tr(u^T + d(u^T \Gamma)) = tr(u^T \Gamma du) + tr(u^T \Gamma^T du) = tr(u^T (\Gamma + \Gamma^T) du).
+\end{align*}}
+\begin{equation*}
+  \frac{d}{du}(u^T \Gamma u)= u^T (\Gamma + \Gamma^T) = 2 \Gamma u,
+\end{equation*}
+于是
+\begin{align*}
+  &\frac{\partial u_t^T Q u_t}{\partial u_t} = 2 Q u_t, \\
+  &\frac{\partial u_t^T B^T P B u_t}{\partial u_t} = 2 B^T P B u_t.
+\end{align*}
+
+其次我们有\footnote{这是由于
+\begin{equation*}
+  tr(d u^T \Gamma) = tr(d(\Gamma^T u)^T) = tr(d (\Gamma^T u)).
+\end{equation*}}
+\begin{align*}
+  &\frac{d}{d u} \Gamma u = \Gamma^T, \\
+  &\frac{d}{d u} u^T \Gamma = \Gamma,
+\end{align*}
+于是
+\begin{equation*}
+  \frac{\partial x_t^T A^T P B u_t}{\partial u_t} + \frac{\partial u_t^T B^T P A x_t}{\partial u_t} = (x_t^T A^T P B)^T + (B^T P A x_t) = 2 B^T P A x_t.
+\end{equation*}
+
+\section{政策方程}
+\label{sec:linear-policy-function}
+重新整理\eqref{eq:LQC-value-function-FOC}，可以得到政策方程$u_t=g(x_t)$的近似线性表达形式
+\begin{equation}
+  \label{eq:LQC-linear-policy-func}
+  u_t = -\left(Q + \beta B^T P B\right)^{-1} \beta B^T P A x_t.
+\end{equation}
+
+换句话说，决策者的最优行为可以描述为如下政策方程：
+\begin{align}
+  \label{eq:LQC-linear-policy-function}
+  &u_t = -F x_t, \quad \text{其中}\\
+  \label{eq:LQC-linear-policy-F}
+  &F = \beta \left(Q + \beta B^T P B \right)^{-1} B^T P A.
+\end{align}
+
+基于政策方程\eqref{eq:LQC-linear-policy-function}，控制变量$u_t$随着观测到的状态$x_t$做线性调整，调整依据是系数矩阵$F$。$F$的确是一个非线性的函数形式，其值取决于两组矩阵：基础矩阵$A, B, Q$和(假设为二次形式)价值方程中的$P$。一旦我们算出$P$，便可以进一步算出$F$的值，从而求得政策方程的完整形式\footnote{另一种方案是，先求得F，根据F测算出P，如\cite[Ch.2]{Hansen:2004va}}。
+
+\subsection{政策方程满足确定性等价条件}
+\label{sec:LQC-policy-function-certainty-equivalence}
+政策方程的政策意义价值还在于，它不受外生随机冲击$\varepsilon$的干扰\footnote{除非以下情况出现：如第一，外生冲击彼此相关(所以我们要在模型设定中假设不相关)。第二，目标方程\eqref{eq:LQC-obj-function}并不是二次形式。}，这是由于在这样一个线性二次系统中，确定性等价(certainty equivalence)成立，见第\ref{sec:LQC-policy-function-certainty-equivalence}、\ref{sec:LQC-value-function-certainty-equivalence}节。
+
+\section{线性政策方程和二次价值方程}
+\label{sec:LQC-lin-policy-quad-value-impli}
+如前文所述，线性政策方程
+\eqref{eq:LQC-linear-policy-function}-\eqref{eq:LQC-linear-policy-F}
+是基于(假设的)二次价值方程
+\eqref{eq:LQC-value-function-min-problem}-\eqref{eq:LQC-value-function-auxiliary-mathcalX}
+得出的。现在我们反证，基于这样的线性政策方程的确可以得到二次形式的价值方程。一旦反证成功，我们便可以进一步求得$P$和$d$。
+
+将\eqref{eq:LQC-linear-policy-function}代入\eqref{eq:LQC-value-function-min-problem}\footnote{第三个等号所需条件：根据定义$P=P^T$，因此$x_t^T F^T B^T P A x_t$和$x_t^T A^T P B F x_t$都是标量，且满足\begin{equation*}
+x_t^T F^T B^T P A x_t = x_t^T A^T P B F x_t.
+\end{equation*}}
+\begin{align}
+  \label{eq:LQC-value-function-min-expand}
+  V(x_t) =& x_t^T R x_t + \left(-F x_t\right)^T Q \left(-F x_t\right) + \beta d  + \beta E[\varepsilon_{t+1}^T P \varepsilon_{t+1}] \nonumber \\
+  &+\beta E \left[
+  x_t^T A^T P A x_t + x_t^T A^T P B \left(-F x_t\right) + \left(-F x_t\right)^T B^T P A x_t + \left(-F x_t\right)^T B^T P B \left(-F x_t\right) \right] \nonumber \\
+  =& x_t^T R x_t + x_t^T F^T Q F x_t + \beta d  + \beta E[\varepsilon_{t+1}^T P \varepsilon_{t+1}] \nonumber \\
+  &+ \beta E\left[
+  x_t^T A^T P A x_t - x_t^T A^T P B F x_t - x_t^T F^T B^T P A x_t + x_t^T F^T B^T P B F x_t \right] \nonumber \\
+  =& x_t^T R x_t + x_t^T F^T Q F x_t + \beta E \left[
+  x_t^T A^T P A x_t - 2 x_t^T A^T P B F x_t + x_t^T F^T B^T P B F x_t \right] \nonumber \\
+  &+ \beta E[\varepsilon_{t+1}^T P \varepsilon_{t+1}] + \beta d.
+\end{align}
+
+联立\eqref{eq:LQC-value-function}和\eqref{eq:LQC-value-function-min-expand}，我们有
+\begin{equation*}
+\begin{cases}
+  d = \beta E[\varepsilon_{t+1}^T P \varepsilon_{t+1}] + \beta d, \\
+  x_t^T P x_t = x_t^T R x_t + x_t^T F^T Q F x_t + \beta E \left[
+  x_t^T A^T P A x_t - 2 x_t^T A^T P B F x_t + x_t^T F^T B^T P B F x_t \right].
+\end{cases}
+\end{equation*}
+
+\subsection{价值方程满足确定性等价条件}
+\label{sec:LQC-value-function-certainty-equivalence}
+来看第一个等式，整理可得\footnote{这是由于\begin{equation*}
+E[\varepsilon_{t+1}^T P \varepsilon_{t+1}] = tr(E[\varepsilon_{t+1}^T P \varepsilon_{t+1}]) = tr(P E[\varepsilon_{t+1}^T \varepsilon_{t+1}]) = tr(P E[\Sigma_{t+1}]).
+\end{equation*}}
+
+\begin{equation}
+  \label{eq:LQC-value-function-certainty-equivalence}
+  d = \frac{\beta}{1-\beta} tr(P \Sigma),
+\end{equation}
+可见随机冲击$\varepsilon$尽管对价值方程产生影响，但不是通过$F$至政策方程进而影响价值方程，而是通过常数项$d$影响价值方程的。因此，对于最优价值方程而言，确定性等价条件依然成立。
+
+\subsection{代数矩阵Riccati方程}
+第二个等式整理，并引入最优政策方程\eqref{eq:LQC-linear-policy-F}替换$F$得\footnote{最后一个等号的计算依据如下：
+\begin{align*}
+  &\beta A^T P B \left(\left(Q + \beta B^T P B \right)^{-1}\right)^T \left(Q + \beta B^T P B \right) \left(Q + \beta B^T P B \right)^{-1} \beta B^T P A \\
+  &=  \beta A^T P B \left(\left(Q + \beta B^T P B \right)^{T}\right)^{-1} \left(Q + \beta B^T P B \right) \left(Q + \beta B^T P B \right)^{-1} \beta B^T P A \\
+  &=  \beta A^T P B \left(\left(Q + \beta B^T P B \right)^{T}\right)^{-1} \left(Q + \beta B^T P B \right)^T \left(Q + \beta B^T P B \right)^{-1} \beta B^T P A \\
+  &= \beta^2 A^T P B \left(Q + \beta B^T P B \right)^{-1} B^T P A.
+\end{align*}
+}
+\begin{align}
+  P =& R + F^T Q F + \beta \cdot \left(A^T P A - 2 A^T P B F + F^T B^T P B F\right) \nonumber \\
+  =& R + \beta A^T P A - 2 \beta A^T P B F + F^T \left(Q + \beta B^T P B \right) F \nonumber \\
+  =& R + \beta A^T P A - 2 \beta A^T P B \left(Q + \beta B^T P B \right)^{-1} \beta B^T P A \nonumber \\
+  + & \beta A^T P B \left(\left(Q + \beta B^T P B \right)^{-1}\right)^T \left(Q + \beta B^T P B \right) \left(Q + \beta B^T P B \right)^{-1} \beta B^T P A \nonumber \\
+  \label{eq:LQC-alg-mat-Riccati-equation}
+  =& R + \beta A^T P A - \beta^2 A^T P B \left(Q + \beta B^T P B \right)^{-1} \beta B^T P A.
+\end{align}
+
+\eqref{eq:LQC-alg-mat-Riccati-equation}又称线性矩阵Riccati方程(linear matrix Riccati equation)，它表明价值方程中的$P$是个与基础矩阵$A,B,R,Q$有关的函数，呈非线性关系。
+
+此外，由\eqref{eq:LQC-alg-mat-Riccati-equation}可以看出，一个线性的最优政策方程\eqref{eq:LQC-linear-policy-function}-\eqref{eq:LQC-linear-policy-F}，的确预示着二次形式的价值方程  \eqref{eq:LQC-value-function},\eqref{eq:LQC-alg-mat-Riccati-equation}。
+
+\section{数值方法}
+在线性二次控制中，在利用解析法推得线性代数Riccati方程后，需要依赖数值计算的方法，对$P$的矩阵Riccati差分方程做迭代近似。假定期初猜测值为$P_{j}$，经过1次迭代，$P_{j+1}$的值更新至
+\begin{equation}
+  \label{eq:LQC-mat-Riccati-equation-iteration}
+  P_{j+1}=R + \beta A^T P_j A - \beta^2 A^T P_j B \left(Q + \beta B^T P B \right)^{-1} \beta B^T P_j A.
+\end{equation}
+
+重复迭代，直至$P$收敛到某一值。根据数值模拟的$P$值计算$F$值，进而得到最优政策方程和价值方程。
+
+\section{范例}
+假定这样一个线性二次控制问题。中央银行试图通过控制利率$r_t$来影响通货膨胀率$\pi_t$和产出$y_t$，收益方程(payoff function)
+\begin{equation}
+  \mathcal{L}_t=\pi_t^2 + y_t^2 + 0.1 r_t^2.
+\end{equation}
+
+经济系统的结构，由两个状态变量的运动定律构成
+\begin{subequations}
+  \begin{align}
+    \label{eq:LQC-example-pi-motion}
+    \pi_{t+1} &= 0.75 \pi_t - 0.5 r_t + \varepsilon_{\pi,t+1}, \\
+    \label{eq:LQC-example-y-motion}
+        y_{t+1} &= 0.25 y_t - 0.5 r_t + \varepsilon_{y,t+1}.
+  \end{align}
+\end{subequations}
+
+作为决策者，中央银行的最大化问题为
+\begin{equation*}
+  \max_{\{r_t\}} E \sum_{t=0}^{\infty} \beta^t \mathcal{L}_t ,\quad \text{ s.t.}     \eqref{eq:LQC-example-pi-motion}-\eqref{eq:LQC-example-y-motion}
+\end{equation*}
+
+\subsection{最优线性二次控制问题}
+将这一问题改写为最优线性二次控制的一般形式：
+\begin{align*}
+  \label{eq:LQC-example-LQ-form}
+  &\max_{\{u_t\}} E \sum_{t=0}^{\infty} \beta^t \left(x_t^T R x_t + u_t^T Q u_t\right), \\
+  &\text{ s.t. } x_{t+1} = A x_t + B u_t + \varepsilon_t,
+\end{align*}
+其中状态变量，控制变量，外生扰动变量分别用$x_t,u_t,\varepsilon_t$表示
+\begin{equation*}
+  x_t \equiv \begin{pmatrix}
+    \pi_t \\
+    y_t
+  \end{pmatrix},\quad
+  u_t \equiv r_t,\quad
+  \varepsilon_t = \begin{pmatrix}
+  \varepsilon_{\pi,t} \\
+  \varepsilon_{y,t}
+  \end{pmatrix},
+\end{equation*}
+基础系数矩阵$A,B,R,Q$分别为
+\begin{equation*}
+  A=\begin{pmatrix}
+  0.75 & 0 \\
+  0 & 0.25
+  \end{pmatrix}, \quad
+  B = \begin{pmatrix}
+  -0,5 \\ -0.5
+  \end{pmatrix}, \quad
+  R = \begin{pmatrix}
+  1 & 0 \\
+  0 & 1
+  \end{pmatrix}, \quad
+  Q=0.1.
+\end{equation*}
+
+如前文所述，我们需要使用数值方法，递归处理线性矩阵Riccati方程以近似价值方程系数矩阵$P$，进而测算政策方程的系数矩阵$F$，对应  \eqref{eq:LQC-mat-Riccati-equation-iteration} \eqref{eq:LQC-linear-policy-F}。
+
+%\subsection{Matlab程序说明}
+\subsection{Matlab程序}
+\begin{lstlisting}[language=Matlab]
+clear;
+%时间贴现系数的确定
+beta = 0.99;
+
+%定义矩阵
+R=zeros(2,2);
+Q=zeros(1,1);
+A=zeros(2,2);
+B=zeros(2,1);
+
+%为矩阵赋值
+R(1,1)=1;
+R(2,2)=1;
+Q(1,1)=0.1;
+A(1,1)=0.75;
+A(2,2)=0.25;
+B(1,1)=-0.5;
+B(2,1)=-0.5;
+
+%matrix Riccati equation迭代
+%d描述$P_j$和邻近迭代$P_{j+1}$之间元素的最大绝对值偏差
+d = 1;
+%i记录迭代次数
+i = 0;
+% 最大绝对值偏差d保存在D；迭代次数i保存在I
+D=0;
+I=0;
+%迭代P的初始值定义为P0
+%说明：定义P0和Q的非零值，为了使得linear matrix Riccati equation迭代操作中
+%$(Q+\beta B^T P_j B) \neq 0$. 只有这个值不等于0，才能使得该矩阵是可逆的。
+P0=zeros(2,2);
+P0(1,1)=-0.000001;
+P0(2,2)=-0.000001;
+
+
+format long
+
+%matrix Riccati Equation 迭代
+%迭代新生成的$P_{j+1}$写入矩阵P1。
+%两个P值的差值，写入矩阵Pd。
+%当d<0.0000000001时，迭代终止。否则继续进行。
+%每次迭代的d和i写入D和I，以备最终程序输出。
+while d > 0.0000000001
+P1 = R + beta * A' * P0 * A - beta^2 * A' * P0 * B * (inv(Q+beta * B' * P0 * B)) *  (B' * P0 * A);
+Pd = P1 - P0;
+d = max(abs(Pd));
+d = max(d');
+D=[D d];
+P0 = P1;
+i = i+1;
+I = [I i];
+end
+
+%根据迭代生成的P值，计算policy function的矩阵F
+P=P0;
+F = -inv(Q + beta * B' * P * B) * (beta * B' * P * A);
+ID = [I(2:length(I))' D(2:length(I))'];
+disp('       i                         d');
+disp(ID);
+disp('  SOLUTIONS');
+disp('F');
+disp(F);
+disp('P');
+disp(P);
+\end{lstlisting}
+
+\subsection{Matlab程序输出}
+运行Matlab程序，输出如下
+\begin{lstlisting}
+  i                         d
+1.000000000000000   1.000000938124847
+2.000000000000000   0.325234163624664
+3.000000000000000   0.080558191789241
+4.000000000000000   0.018875706161742
+5.000000000000000   0.004338686564976
+6.000000000000000   0.000992730600232
+7.000000000000000   0.000226907809828
+8.000000000000000   0.000051851748175
+9.000000000000000   0.000011848232754
+10.000000000000000   0.000002707312049
+11.000000000000000   0.000000618616947
+12.000000000000000   0.000000141352999
+13.000000000000000   0.000000032298933
+14.000000000000000   0.000000007380254
+15.000000000000000   0.000000001686376
+16.000000000000000   0.000000000385334
+17.000000000000000   0.000000000088048
+
+SOLUTIONS
+F
+0.744954171236066   0.175909878487998
+
+P
+1.430293038776173  -0.106183304364736
+-0.106183304364736   1.044189928712962
+\end{lstlisting}
+
+由此可得最优政策方程
+\begin{align}
+  &u_t = - F x_t, \quad r_t = -F \begin{pmatrix} \pi_t \\ y_t \end{pmatrix}, F = (0.745, 0.176)\\
+\label{eq:LQC-example-policy-function}
+  & r_t = 0.745 \pi_t + 0.176 y_t.
+\end{align}
+
+价值方程
+\begin{equation}
+  \label{eq:LQC-example-value-function}
+  V(\pi_t,y_t)= 1.430 \pi_t^2 + 1.044 y_t^2 - 0.212 y_t.
+\end{equation}
+
+根据最优政策方程，当通胀水平和/或产出水平高于稳定状态时，中央银行应当提高利率\footnote{注意式中的变量$z_t = (\tilde{z}_t - z)/z$，表示实际观测到的变量，相对于稳态水平的deviation。}。利率对通胀波动的响应幅度高于对产出波动的响应(0.745相对于0.176)，这与模型的假设条件有关：
+\eqref{eq:LQC-example-pi-motion}-\eqref{eq:LQC-example-y-motion}假定通胀波动比产出波动更为持久(0.75相对于0.25)，从而过去时段的物价波动，比起产出波动来，更有可能对当期经济系统产生影响。
+
+根据价值方程，首先同样地，通胀波动二次项的系数大于产出波动二次项的系数。交互项的系数为负，反映了当通胀和产出的波动同方向变化时，比如通货膨胀伴随产出增加（或通货紧缩伴随产出减少），中央银行更容易通过调节利率这一政策工具来稳定经济运行。反之，如果两种波动反方向变化，稳定经济运行将更为困难。

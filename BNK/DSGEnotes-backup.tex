@@ -1,0 +1,153 @@
+%!TEX program = xelatex
+%\documentclass[authoryear,12pt]{book}
+%\usepackage{xeCJK}
+%\setCJKmainfont[BoldFont={SimHei}]{SimSun}
+%\setCJKsansfont{SimHei}
+%\setCJKmonofont{[simfang.ttf]}
+%\setCJKfamilyfont{zhsong}{SimSun}
+%\setCJKfamilyfont{zhhei}{SimHei}
+%\setCJKfamilyfont{zhfs}{[simfang.ttf]}
+
+%\documentclass[UTF8,adobefonts]{ctexbook} % 采用Adobe字体
+\documentclass[10pt,a4paper,twoside,openright,UTF8]{ctexbook} % 采用Adobe字体
+%10pt,a4paper,twoside,openright,titlepage,fleqn,               headinclude,,footinclude,BCOR5mm,numbers=noenddot,cleardoublepage=empty,               tablecaptionabove, UTF8
+
+
+\pagestyle{plain}
+
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,authoryear,1p,times]{elsarticle}
+%% \documentclass[final,authoryear,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,authoryear,3p,times]{elsarticle}
+%% \documentclass[final,authoryear,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,authoryear,5p,times]{elsarticle}
+%% \documentclass[final,authoryear,5p,times,twocolumn]{elsarticle}
+
+%% if you use PostScript figures in your article
+%% use the graphics package for simple commands
+%% \usepackage{graphics}
+%% or use the graphicx package for more complicated commands
+ \usepackage{graphicx}
+%% or use the epsfig package if you prefer to use the old commands
+%% \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+\usepackage{amsmath, amsthm}
+
+%% The numcompress package shorten the last page in references.
+%% `nodots' option removes dots from firstnames in references.
+\usepackage[nodots]{numcompress}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{threeparttable}
+\usepackage{multirow}
+\usepackage{natbib}
+%\usepackage[backend=biber,style=numeric-comp]{biblatex}
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers after \end{frontmatter}.
+\usepackage{lineno}
+\usepackage[titletoc]{appendix}
+%% natbib.sty is loaded by default. However, natbib options can be
+%% provided with \biboptions{...} command. Following options are
+%% valid:
+
+%% round  -  round parentheses are used (default)
+%% square -  square brackets are used   [option]
+%% curly  -  curly braces are used      {option}
+%% angle  -  angle brackets are used    <option>
+%% semicolon  -  multiple citations separated by semi-colon (default)
+%% colon  - same as semicolon, an earlier confusion
+%% comma  -  separated by comma
+%% authoryear - selects author-year citations (default)
+%% numbers-  selects numerical citations
+%% super  -  numerical citations as superscripts
+%% sort   -  sorts multiple citations according to order in ref. list
+%% sort&compress   -  like sort, but also compresses numerical citations
+%% compress - compresses without sorting
+%% longnamesfirst  -  makes first citation full author list
+%%
+
+% \biboptions{}
+%\usepackage[nolists]{endfloat}
+\usepackage{geometry}
+%\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+%\geometry{top=3cm,bottom=4cm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\slshape \rightmark}
+\fancyhead[LO,RE]{\slshape \leftmark}
+\fancyfoot[C]{\thepage}
+
+
+
+
+\author{朱彦元 \\ \href{mailto:yyz@tongji.edu.cn}{yyz@tongji.edu.cn}
+  \\
+  同济大学，中德工程学院}
+\title{ DSGE模型笔记 }
+%\subtitle{ （中德工程学院经济工程专业）}
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents{}
+\listoffigures
+\listoftables
+\newpage
+
+\input{./chapters/preface.tex}
+\input{./chapters/basic-BNK.tex}
+\input{./chapters/medium-DSGE.tex}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{appendices}
+\appendixpage
+\noappendicestocpagenum
+\addappheadtotoc
+%\appendix
+\input{./chapters/appendix01.tex}
+\end{appendices}
+\newpage{}
+\bibliographystyle{model4-names}
+%\bibliographystyle{elsarticle-harv}
+\bibliography{./refs/papers}
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% coding: utf-8
+%%% TeX-master: t
+%%% End:

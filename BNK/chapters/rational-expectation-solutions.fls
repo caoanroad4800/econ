@@ -1,0 +1,6 @@
+PWD /Users/YYZ/Documents/Programs/Projects/BNK/chapters
+INPUT /usr/local/texlive/2016/texmf.cnf
+INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt
+INPUT rational-expectation-solutions.tex
+OUTPUT rational-expectation-solutions.log

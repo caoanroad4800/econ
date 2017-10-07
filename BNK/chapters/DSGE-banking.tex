@@ -1,0 +1,529 @@
+%!TEX root = ../DSGEnotes.tex
+\chapter{DSGE with banking}
+\label{sec:BDSGE}
+
+\section{Introduction}
+
+
+将货币和资产价格纳入到一般均衡模型的分析框架中去，在DSGE模型中加入银行部门，主要基于\cite{Goodfriend:2007fq, Gilchrist:2007iv}的工作。\cite{Chadha:2008uh}对模型做了两点扩展，一是把政府(包括中央银行）部门的预算约束条件也考虑进来，二是对于受到流动性约束的家庭部门，对货币需求与银行部门的贷款供应的比值是变化的。进而\cite{Chadha:2012jl}进一步探讨了当央行对商业银行准备金所支付的利率，也可以作为宏观审慎政策的工具。
+
+\section{模型设定}
+
+\subsection{家庭及生产部门}
+家庭受到流动性约束，决定消费的数量以及劳动力的供应量。此外家庭消费不只取决于存款，也取决于他们可能从银行获得的贷款(流动性)。
+
+出于简化模型的考虑，家庭部门也是最终产品的生产者，追求利润最大化，生产活动表现为Cobb-Douglas形式，资本、劳动力投入和生产效率的冲击共同影响产出。产出品遵循标准的\cite{Yun:1996tx}设定，即为Calvo定价形式的垄断竞争\citep{Calvo:1983uqa}。
+
+家庭的效用函数
+\begin{equation}
+\label{eq:hh-utility-fu}
+U = E_0 \sum_{t=0}^{\infty} \beta^t \cdot \left[ \phi \cdot \log (c_t) + (1-\phi) \cdot \log(1-n_t^s - m_t^s) \right],
+\end{equation}
+其中
+\begin{itemize}
+  \item $c_t$表示实际消费，
+  \item $n_t^s$和$m_t^s$分别表示投入到产品生产和银行部门的劳动力供应，$1-n_t^s - m_t^s$进而表示休闲，
+  \item $0<\phi<1$区分消费和休闲带来的相对效用满足。
+\end{itemize}
+
+家庭效用取决于三个约束条件。第一为预算约束条件，对应拉格朗日乘子$\lambda_t$
+\begin{equation}
+  \label{eq:hh-bud-cons}
+  \begin{split}
+  &q_t \cdot (1-\delta) \cdot K_t + \frac{B_t}{P_t^A} + \frac{H_{t-1}}{P_t^A} + w_t \cdot \left( n_t^s + m_t^s \right) + c_t^A \cdot \left( \frac{P_t}{P_t^A} \right)^{1-\theta} \\
+  &- w_t \cdot \left( n_t + m_t \right) - \frac{H_t}{P_t^A} - tax_t - q_t \cdot K_{t+1} - \frac{B_{t+1}}{P_t^A \cdot \left(1 + R_t^B\right)}  - c_t = 0,
+  \end{split}
+  \end{equation}
+其中
+\begin{itemize}
+  \item $K_t$为$t$期初的实物资本存量，$q_t$为实物资本价格，$\delta$为实物资本折旧，
+  \item $B_{t+1}$为$t$期末家庭持有的债券量，$P_t^A$表示消费品价格指数，变量加上上角标$A$代表总量层面的因素，个体家庭视为给定条件。
+  \item $H_{t}$为$t$期末家庭持有的名义货币。
+  \item $w_t$表示实际工资，
+  \item $P_t$表示总物价水平，家庭作为垄断产品的生产者，所生产产品的需求替代弹性为$\theta$，生产活动需要雇佣劳动力$n_t$和$m_t$，
+  \item $tax_t$表示政府的实际税收，以一揽子税形式表示
+  \item $R_t^B$为政府债券的名义利率，由银行部门的贷款生产函数决定，见式\footnote{膏按：补一个reference。}。
+\end{itemize}
+
+第二为供应-需求的等价约束条件，家庭部门（最终产品生产部门）市场出清要求总产出等于总供应，对应拉格朗日乘子$\xi_t$
+\begin{equation}
+\label{eq:mkt-clearing-hh}
+K_t^{\eta} \cdot \left( A_{1,t} \cdot n_t \right)^{1-\eta} = c_t^A \cdot \left( \frac{P_t}{P_t^A} \right)^{-\theta}
+\end{equation}
+等式左侧为生产函数。$\eta$代表资本的产出弹性。$A_{1,t}$为产品生产中的技术冲击，均值增速为$\gamma$。
+
+第三为存款-货币的等价约束条件。
+
+货币出现在效用函数和模型中，充当交易媒介，要求家庭用所持有的货币支付当期消费支出。家庭持有的货币，假定全部以存款的形式保存在商业银行中。则假定家庭消费与存款呈现如下对应关系\footnote{已有大量经验研究，从微观层面上探讨银行的存款和贷款供应间的关系，如\cite{Kashyap2002}}
+\begin{equation}
+\label{eq:constraint-deposit-money}
+c_t = v_t \cdot \frac{D_t}{P_t^A},
+\end{equation}
+其中$D_t$表示名义存款，一定数量的存款最终被用于消费，以比例$v_t$表示。
+
+\subsection{银行部门}
+银行部门吸收家庭部门存款$D_t$，用途一是为家庭提供高能货币$H_t$(high-powered money)，满足家庭的消费需求；二是为家庭提供贷款$L_t$，满足家庭生产活动的资金需求，银行的资产负债平衡式
+\begin{equation}
+\label{eq:bank-deposit-loan-money}
+D_t = H_t + L_t.
+\end{equation}
+
+根据式\eqref{eq:constraint-deposit-money}和\eqref{eq:bank-deposit-loan-money}可以间接推得经济体对$H_t$的需求\footnote{进而，中央银行通过调整policy rate来引导商业银行的放贷行为，以满足这一需求；而不是通过诸如印钞等直接手段。}。假定
+\begin{equation}
+\label{eq:fractional-reserve-deposits-ratio}
+H_t = rr \cdot D_t,
+\end{equation}
+其中$0<rr<1$表示商业银行选择将多少比例的存款留用以满足家庭消费需求，设为常数。余下的$1-rr$部分可用于贷款$L_t$。联立式\eqref{eq:bank-deposit-loan-money}-\eqref{eq:bank-deposit-loan-money}可得储蓄和贷款之间的关系
+\begin{equation}
+\label{eq:bank-deposit-loan}
+D_t = \frac{L_t}{1-rr}.
+\end{equation}
+
+银行部门的贷款生产函数由此可以设定如下：以家庭部门提供的抵押品和银行部门的贷款监控为投入，以贷款为产出，满足关系
+\begin{equation}
+\label{eq:bank-loan-production-function}
+\frac{L_t}{P_t^A} = F \cdot \left(
+\underbrace{b_{t+1} + A_{3,t} \cdot k \cdot q_t \cdot K_{t+1}}_{\text{抵押品}}
+\right)^{\alpha} \cdot
+\left(
+\underbrace{A_{2,t} \cdot m_t}_{\text{贷款监控}}
+\right)^{1-\alpha},
+\end{equation}
+其中$0\le \alpha \le 1$表示抵押品的产出弹性，F表示贷款生产函数的中性技术水平，$b_{t+1}$为家庭的贴现实际债券
+\begin{equation}
+\label{eq:real-discounted-bonds}
+b_{t+1} = \frac{B_{t+1}}{P_t^A \cdot \left(1+R_t^B\right)}.
+\end{equation}
+式\eqref{eq:bank-loan-production-function}中第一个括号内表示抵押品，银行在发放贷款时，要求借款人（家庭）提供抵押担保，担保来自两部分，一为债券抵押$b_{t+1}$；二为实物资本抵押$q_t \cdot K_{t+1}$。相较于债券抵押品而言，实物资本抵押品需要大量额外的成本支出，包括物理状况检查、市场价格评估等，因此需要做折扣，以参数$0<k<1$来表示。此外实物资本品还受到均值为$0$的技术冲击的干扰，用$A_{3,t}$来表示\footnote{出于简化模型的考虑，我们假定均衡状态下不存在违约的情况。在不完全市场条件下，考虑违约的有限承诺情况可见\citep{Kocherlakota:1996jk}。}。
+
+第二个括号表示贷款监控，银行雇佣额外的劳动力$m_t$，监督借款人对贷款的利用情况，以降低风险。类似地，假定贷款监控也受技术冲击$A_{2,t}$干扰，均值的增速为$\gamma$。
+
+\subsection{政府(中央银行)部门}
+政府(包括中央银行)部门的当期预算约束条件为
+\begin{equation}
+\label{eq:gov-bud-cons-cb}
+Transfer_t = g_t - tax_{t} = \frac{H_t-H_{t-1}}{P_t^A} + \frac{\frac{B_{t+1}}{\left(1+R_t^B\right)}-B_t}{P_t^A},
+\end{equation}
+即政府的转移支付$Transfer_t$为全部支出$g_t$与收入$tax_{t}$之差。
+
+\subsection{技术冲击}
+\begin{align*}
+%\label{eq:tech-shcoks-a1t}
+A_{1,t} &= A_{1,0} \cdot \left(1+\gamma\right)^t, \\
+A_{2,t} &= A_{2,0} \cdot \left(1+\gamma\right)^t,
+\end{align*}
+为简化模型，设$A_{1,0}=A_{2,0}=1$，则我们有
+
+\begin{align}
+\label{eq:tech-shcoks-a1t}
+A_{1,t} &= \left(1+\gamma\right)^t, \\
+\label{eq:tech-shcoks-a2t}
+A_{2,t} &= \left(1+\gamma\right)^t.
+\end{align}
+
+此外
+\begin{equation}
+\label{eq:tech-shcoks-a3t}
+E(A_{3,t}) = 0.
+\end{equation}
+
+\subsection{实际消费}
+\eqref{eq:bank-deposit-loan} \eqref{eq:bank-loan-production-function} \eqref{eq:real-discounted-bonds}带回到\eqref{eq:constraint-deposit-money}可得实际消费
+\begin{equation}
+\label{eq:hh-real-consumption}
+\begin{split}
+c_t&= v_t \cdot \frac{D_t}{P_t^A} =\frac{v_t}{1-rr} \cdot \frac{L_t}{P_t^A} \\
+&=\frac{v_t}{1-rr} \cdot F \cdot
+\left(
+b_{t+1} + A_{3,t} \cdot k \cdot q_t \cdot K_{t+1}
+\right)^{\alpha} \cdot
+\left(
+A_{2,t} \cdot m_t
+\right)^{1-\alpha} \\
+&=v_t \cdot \frac{D_t}{P_t^A} =\frac{v_t}{1-rr} \cdot \frac{L_t}{P_t^A} \\
+&=\frac{v_t}{1-rr} \cdot F \cdot
+\left(
+\frac{B_{t+1}}{P_t^A \cdot \left(1+R_t^B\right)} + A_{3,t} \cdot k \cdot q_t \cdot K_{t+1}
+\right)^{\alpha} \cdot
+\left(
+A_{2,t} \cdot m_t
+\right)^{1-\alpha}.
+\end{split}
+\end{equation}
+
+
+结合式\eqref{eq:hh-real-consumption}，由银行部门贷款生产函数式\eqref{eq:bank-loan-production-function}可得抵押品$(b_{t+1} + A_{3,t} \cdot k \cdot q_t \cdot K_{t+1})$的边际产出
+\begin{equation}
+\label{eq:bank-loan-pf-marginal-collateral}
+\begin{split}
+&\frac{\partial{\left(L_t/P_t^A\right)}}{\partial \left(b_{t+1} + A_{3,t} \cdot k \cdot q_t \cdot K_{t+1}\right)} = \alpha \cdot \frac{\frac{L_t}{P_t^A}}{\left(b_{t+1} + A_{3,t} \cdot k \cdot q_t \cdot K_{t+1}\right)} =\frac{\Omega_t}{\frac{v_t}{1-rr}},
+\end{split}
+\end{equation}
+其中$\Omega_{t}$定义为
+\begin{equation}
+\label{eq:bank-def-omega}
+\Omega_t = \frac{\alpha \cdot c_t}{\left(b_{t+1} + A_{3,t} \cdot k \cdot q_t \cdot K_{t+1}\right)}.
+\end{equation}
+
+进而可得额外1单位(向金融部门)劳动力供应$m_t$，债券$B_{t+1}$，实物资本$K_{t+1}$导致消费$c_t$的边际变化
+\begin{equation}
+\label{eq:bank-marg-prod-c-m}
+\frac{\partial{c_t}}{\partial{m_t}} = \left(1-\alpha \right) \cdot A_{2,t} \cdot \frac{c_t}{m_t}.
+\end{equation}
+
+\begin{equation}
+\label{eq:bank-marg-prod-c-b}
+\frac{\partial{c_t}}{\partial{B_{t+1}}} = \frac{\Omega_t}{P_t^A \cdot \left(1+R_t^B \right)}.
+\end{equation}
+
+\begin{equation}
+\label{eq:bank-marg-prod-c-k}
+\frac{\partial{c_t}}{\partial{K_{t+1}}} = \Omega_t \cdot A_{3,t} \cdot k \cdot q_t.
+\end{equation}
+
+\section{一阶条件}
+%\subsection{一阶条件}
+建拉格朗日
+\begin{equation}
+\label{eq:hh-optimal-lagrangian}
+\begin{split}
+\mathcal{L} = E_0 \sum_{t=0}^{\infty} \beta^t \cdot & \left\{
+\left[
+  \phi \cdot \log (c_t) + (1-\phi) \cdot \log \left(1-n_t^s - m_t^s\right)
+\right] \right.\\
+&\left.  + \lambda_t \cdot  \left[ q_t \cdot (1-\delta) \cdot K_t + \frac{B_t}{P_t^A} + \frac{H_{t-1}}{P_t^A} + w_t \cdot \left( n_t^s + m_t^s \right) + c_t^A \cdot \left(\frac{P_t}{P_t^A}\right)^{1-\theta} \right. \right.\\
+&\left. \qquad \left.  - w_t \cdot \left( n_t + m_t \right) - \frac{H_t}{P_t^A} - tax_t - q_t \cdot K_{t+1} - \frac{B_{t+1}}{P_t^A \cdot \left(1 + R_t^B\right)}  - c_t \right] \right.\\
+& \left. +\xi_t \left[ \cdot K_t^{\eta} \cdot \left(A_{1,t} \cdot n_t \right)^{1-\eta} -  c_t^A \cdot \left(\frac{P_t}{P_t^A}\right)^{-\theta} \right] \right\}
+\end{split}
+\end{equation}
+
+家庭部门优化可以表示为
+\begin{equation*}
+\max_{\{m_t^s, n_t^s, m_t, n_t, P_{t}, K_{t+1}, B_{t+1}, c_t, H_t\}} \mathcal{L}.
+\end{equation*}
+
+FOC wrt $m_t^s$ 或 $n_t^s$，得劳动力的供应
+\begin{equation}
+\label{hh-opt-wrt-ms}
+\frac{\partial{\mathcal{L}}}{\partial{m_t^s}} = 0 \Rightarrow \lambda_t = \frac{1-\phi}{\left(1-n_t^s - m_t^s \right) \cdot w_t}.
+\end{equation}
+
+FOC wrt $m_t$，得银行部门对劳动力的需求
+\begin{equation}
+\label{hh-opt-wrt-m}
+\begin{split}
+\frac{\partial{\mathcal{L}}}{\partial{m_t}} = 0 \Rightarrow
+&\frac{\phi}{c_t} \cdot \frac{\partial c_t}{\partial m_t} - \lambda_t \cdot w_t - \lambda_t \cdot \frac{\partial c_t}{\partial m_t} = 0, \\
+&w_t = \left(\frac{\phi}{c_t \cdot \lambda_t} - 1 \right) \cdot \left(1-\alpha\right) \cdot A_{2,t} \cdot \frac{c_t}{m_t}.
+\end{split}
+\end{equation}
+
+FOC wrt $n_t$，得最终产品生产对劳动力的需求
+\begin{equation}
+\label{hh-opt-wrt-n}
+\frac{\partial{\mathcal{L}}}{\partial{n_t}} = 0 \Rightarrow w_t = \left(\frac{\xi_t}{\lambda_t}\right) \cdot A_{1,t} \cdot \left(1-\eta \right) \cdot \left(\frac{K_{t}}{A_{1,t} \cdot n_t}\right)^{\eta}.
+\end{equation}
+
+FOC wrt $P_t$，得影子价格的比值
+\begin{equation}
+\label{hh-opt-wrt-p}
+\frac{\partial{\mathcal{L}}}{\partial{P_t}} = 0 \Rightarrow \frac{\xi_t}{\lambda_t} = - \left(\frac{1- \theta} {\theta}\right) \cdot \left(\frac{P_t}{P_t^A} \right).
+\end{equation}
+
+FOC wrt $K_{t+1}$，得
+\begin{equation}
+\label{hh-opt-wrt-k}
+\begin{split}
+&\frac{\partial{\mathcal{L}}}{\partial{K_{t+1}}} = 0 \Rightarrow \\
+&\frac{\phi}{c_t} \cdot \frac{\partial c_t}{\partial K_{t+1}} + \beta \cdot E_t \lambda_{t+1} \cdot q_{t+1} \cdot (1-\delta) - \lambda_t \cdot q_t - \lambda_t \cdot \frac{\partial c_t}{\partial K_{t+1}} + \beta \cdot E_t \xi_{t+1} \cdot \eta \cdot \left(\frac{K_{t+1}}{A_{1,t+1} \cdot n_{t+1}}\right)^{\eta - 1} = 0, \\
+& \left(\frac{\phi}{\lambda_t \cdot c_t} - 1\right) \cdot \Omega_t \cdot A_{3,t} \cdot k \cdot q_t - q_t  + \beta \cdot \left(1-\delta \right) \cdot E_t \frac{\lambda_{t+1}}{\lambda_t} \cdot q_{t+1} + \beta \cdot \eta \cdot E_t \frac{\xi_{t+1}}{\lambda_{t+1}} \cdot \frac{\lambda_{t+1}}{\lambda_t} \cdot \left(\frac{K_{t+1}}{A_{1,t+1} \cdot n_{t+1}}\right)^{\eta - 1} = 0.
+\end{split}
+\end{equation}
+
+FOC wrt $B_{t+1}$，得
+\begin{equation}
+\label{hh-opt-wrt-b}
+\begin{split}
+& \beta \cdot E_t \left(\frac{\lambda_{t+1}}{P_{t+1}^A}\right) - \frac{\lambda_t}{P_t^A \cdot \left(1 + R_t^B \right)} + \phi \cdot \frac{1}{c_t} \cdot \frac{\partial c_t}{\partial B_{t+1}} - \lambda_t \cdot \frac{\partial c_t}{\partial B_{t+1}} = 0, \\
+& \left(\frac{\phi}{c_t \cdot \lambda_t} - 1 \right) \cdot \left[ \frac{\Omega_t}{P_t^A \cdot \left(1 + R_t^B \right)}\right] + \beta \cdot E_t \frac{\lambda_{t+1}}{\lambda_t} \cdot \frac{1}{P_{t+1}^A} - \frac{1}{P_t^A \cdot \left(1 + R_t^B \right)} = 0, \\
+& \left(\frac{\phi}{c_t \cdot \lambda_t} - 1 \right) \cdot \Omega_t + \beta \cdot E_t \frac{\lambda_{t+1}}{\lambda_t} \cdot \frac{P_t^A}{P_{t+1}^{A}} \cdot \left(1 + R_t^B \right) - 1 = 0.
+\end{split}
+\end{equation}
+
+FOC wrt $c_{t}$，得
+\begin{equation}
+\label{hh-opt-wrt-c}
+%\begin{split}
+\frac{U_{c,t}}{\lambda_t} - 1 = \frac{\phi}{c_t \cdot \lambda_t} - 1 = 0,
+%\end{split}
+\end{equation}
+其中$U_{c,t} = \phi/c_t$表示消费的边际效用，由式\eqref{eq:hh-utility-fu}推得。
+
+\section{均衡条件}
+\label{sec:banking-equilibra}
+综上，模型的均衡条件由14个等式构成：
+\begin{itemize}
+  \item 家庭部门的预算约束条件式\eqref{eq:hh-bud-cons},
+  \item 家庭部门生产活动的市场出清条件式\eqref{eq:mkt-clearing-hh},
+  \item 银行部门的资产负债平衡式\eqref{eq:bank-deposit-loan-money},
+  \item 消费存款平衡式\eqref{eq:constraint-deposit-money},
+  \item 商业银行的贷款管理(贷款生产函数)式\eqref{eq:bank-loan-production-function},
+    \item 反映贴现实际债券的变量$b_{t+1}$定义式\eqref{eq:real-discounted-bonds}，
+  \item 反映抵押品边际产出(放贷)的变量$\Omega_t$定义式\eqref{eq:bank-def-omega}，
+  \item 6个一阶条件式\eqref{hh-opt-wrt-ms}, \eqref{hh-opt-wrt-m}, \eqref{hh-opt-wrt-n}, \eqref{hh-opt-wrt-p}, \eqref{hh-opt-wrt-k}, \eqref{hh-opt-wrt-b}，
+  \item 政府(包括中央银行)部门的预算约束条件式\eqref{eq:gov-bud-cons-cb}。
+\end{itemize}
+
+随后的任务就变成了，在给定
+\begin{itemize}
+\item 3个外生技术冲击$\{A_{i,t}\}, i=1,2,3$，式\eqref{eq:tech-shcoks-a1t}, \eqref{eq:tech-shcoks-a2t}, \eqref{eq:tech-shcoks-a3t}，
+\item 由政策制定者设定的政策变量$\{H_t, g_t, b_t, \text{Transfer}_{t}\}$，
+\item 外生资本存量$K_{t}$\footnote{即是说在模型的均衡条件下，每一期资本存量均等于其稳态值$K_t = K$。需要指出的是，$K$本身是由模型所内生决定的。}，
+\end{itemize}
+
+的情况下， 探讨一组14个内生变量的变化，包括
+\begin{itemize}
+  \item 家庭部门的行为决策，包括消费、劳动力供应、购入债券$\{c, n, m, B\}$，
+  \item 银行部门的存贷款，以及抵押品对放贷的边际产出$\{D, L, \Omega\}$，
+  \item 政府(含中央银行)的税收$tax$，
+  \item 市场价格和利率，包括劳动力和资本价格，总物价水平，影子价格和国债利率$\{w, q, P, \lambda, \xi, R^B \}$。
+\end{itemize}
+
+\section{利率}
+第\ref{sec:banking-equilibra}节的均衡条件中，除了政府债券利率$R_t^B$之外，并不包括其他利率。这是由于根据模型设定，产品生产部门和银行最终由家庭运营，利润也归家庭所有。
+
+\subsection{资产市场基准利率}
+首先根据\cite{Goodfriend:2005ts}，假想存在一种完全无风险债券。由于无风险，因此借贷者不需要任何抵押品。根据家庭部门的最优消费——储蓄（投资）决策，这种债券的投资回报率反映该项投资的影子价格，我们设为基准利率$R_t^T$。
+基于家庭部门优化决策，无风险债券的利率$R_t^T$由类似于式\eqref{hh-opt-wrt-b}的方式决定：
+\begin{equation*}
+1+R_t^T =\frac{
+1 - \left(\frac{U_{c,t}}{\lambda_t} - 1 \right) \cdot \Omega_t
+}{
+  \beta \cdot E_t \frac{\lambda_{t+1}}{\lambda_{t}} \cdot \frac{P_t^A}{P_{t+1}^A}
+},
+\end{equation*}
+代入家庭的消费最优决策式\eqref{hh-opt-wrt-b}，调整得
+\begin{equation}
+\label{eq:banking-int-rate-t}
+1+R_t^T = \frac{1}{\beta} \cdot E_t \frac{\lambda_t}{\lambda_{t+1}} \cdot \frac{P^A_{t+1}}{P_t^A}.
+\end{equation}
+
+\subsection{抵押品收益率}
+\subsubsection{流动性债券收益率}
+无风险利率$R_t^T$定义式\eqref{eq:banking-int-rate-t}带回式\eqref{hh-opt-wrt-b}
+\begin{equation*}
+\frac{1+R_t^B}{1+R_t^T}=1-\left(
+\frac{U_{c,t}}{\lambda_t} - 1
+\right) \cdot \Omega_t.
+\end{equation*}
+
+
+$\frac{U_{c,t}}{\lambda_t}$用于比较消费的边际效用与投资的影子价格，可得$\left( \frac{\phi}{c_t \cdot \lambda_t}-1\right) >0$；$\Omega_t$用于近似描述抵押品的边际价值，根据式\eqref{eq:hh-real-consumption}中$0 < \alpha <1$可得$\Omega >0$。因此我们有$R_t^T > R_t^B$，二者之差反映了流动性债券的收益率，定义为$LSY_t^B$
+\begin{equation}
+\label{eq:banking-lqdt-yield-bond}
+LSY_t^B \equiv R_t^T - R_t^B \approx \left(
+\frac{\phi }{c_t \cdot \lambda_t} - 1
+\right) \cdot \Omega_t.
+\end{equation}
+
+\subsubsection{流动性资本收益率}
+
+如贷款生产函数式\eqref{eq:bank-loan-production-function}所定义，债券和实物资本都可以用于贷款抵押，而实物资本比起债券来具有成本劣势，用系数$0<k<1$表示。因此可定义流动性资本收益率$LSY_t^B$，基于式\eqref{eq:banking-lqdt-yield-bond}我们有\footnote{更为详尽的说明，见\cite{Goodfriend:2005ts}。}
+\begin{equation}
+\label{eq:banking-lqdt-yield-capital}
+LSY_t^K = k \cdot LSY_t^B = k \cdot \left(
+\frac{\phi }{c_t \cdot \lambda_t} - 1
+\right) \cdot \Omega_t.
+\end{equation}
+
+\subsection{银行间拆借利率（无抵押）}
+根据模型设定，某一商业银行可以在银行间市场以利率$R_t^{IB}$筹集资金，进而贷款给家庭部门，获得回报$R_t^T$。假定不存在套利行为，如果该银行的操作有利可图，即净收益可以弥补全部成本支出的话，上述情况即可能发生。
+
+如式\eqref{eq:bank-loan-production-function}所示，贷款成本包括抵押品成本和监控成本两部分。假定该银行在银行间市场向其他银行的借款无需抵押品，则成本主要指监控成本，即以工资$w_t$雇佣劳动力$m_t$对贷出给家庭部门的款项做监控的劳动成本支出。
+
+银行的最优行为表现为两阶段优化。第一阶段为成本最小化，无抵押贷款生产函数的实际边际成本等于劳动的市场价格(工资)，除以劳动投入的边际产出，后者由式\eqref{eq:bank-loan-production-function}求得：
+\begin{equation}
+\label{eq:banking-real-marginal-cost}
+\text{real marginal cost} = \frac{w_t}{\frac{\partial \left(\frac{L_t}{P_t^A}\right)}{\partial m_t}} = \frac{w_t \cdot m_t \cdot v_t}{(1-\alpha) \cdot (1-rr) \cdot c_t}.
+\end{equation}
+
+第二阶段，追求利润最大化的银行行为最终会使得下式成立
+\begin{equation}
+\label{eq:eq:banking-benchmark-interbank-rate}
+\left(1+ R_t^{IB}\right) \cdot \left(
+%\frac{w_t \cdot m_t \cdot v_t}{(1-\alpha) \cdot (1-rr) \cdot c_t}
+1+ \text{real marginal cost}
+\right) = 1+R_t^T,
+\end{equation}
+即银行间拆借利率$R_t^{IB}$乘以贷款的边际生产成本，等于基准利率$R_t^T$。类似地，整理可得
+\begin{equation}
+\label{eq:banking-interbank-rate}
+R_t^T - R_t^{IB} = \frac{w_t \cdot m_t \cdot v_t}{(1-\alpha) \cdot (1-rr) \cdot c_t}
+\end{equation}
+
+\subsection{贷款利率（有抵押）}
+实际由银行部门向非银行部门贷出的款项，往往是有抵押贷款。有抵押贷款的成本等于实际边际成本乘以监控的要素份额$(1-\alpha)$。利润最大化银行会令抵押贷款利率$R_t^L$的值等于
+\begin{equation*}
+  1+R_t^{L} = \left( 1+R_t^{IB} \right) \cdot \left[ 1+ (1-\alpha) \cdot \text{real marginal cost} \right],
+\end{equation*}
+即抵押贷款的利率应该等于无抵押的银行间拆借利率，乘以贷款监控的成本支出。进一步整理得
+\begin{equation}
+  \label{eq:banking-loan-rate}
+  \begin{split}
+  & 1+R_t^{L} = \left( 1+R_t^{IB} \right) \cdot \left( 1+ \frac{w_t \cdot m_t \cdot v_t}{\left( 1 - rr \right) \cdot c_t}\right), \\
+  & R_t^L - R_t^{IB} = \frac{w_t \cdot m_t \cdot v_t}{\left( 1 - rr \right) \cdot c_t} .
+  \end{split}
+\end{equation}
+
+\subsection{存款利率}
+银行的贷款来自于家庭部门储蓄(存款)$D_t$。全部存款中有$rr$比例作为高能货币$H_t$用于日常消费支出，不产生利息；余下$(1-rr)$部分可被银行作为贷款$L_t$。因此，存款利率$R_t^{D}$的值应为
+\begin{equation}
+  \label{eq:banking-deposit-rate}
+  %\begin{split}
+    \frac{R_t^{D}}{1-rr} = R_t^{IB},
+  %\end{split}
+\end{equation}
+即贷存比乘以无抵押银行间拆借利率。
+
+\subsection{外部融资溢价}
+
+\subsubsection{无抵押贷款的外部融资溢价}
+家庭部门向银行做无抵押贷款，需要支付的利息包括两部分，一为无抵押银行间拆借利率$R_t^{IB}$，一为银行贷款生产函数的实际边际成本式\eqref{eq:banking-real-marginal-cost}，二者之和应等于资产市场的无抵押贷款基准利率$R_t^T$。从这个意义上来说，贷款的实际边际成本即反映了无抵押贷款外部融资的溢价(un-collateralized external financial premium, UEFP)\footnote{关于外部融资溢价，见\cite{Bernanke1999}。}，我们用$R_t^T$和$R_t^{IB}$的利差来表示，由式\eqref{eq:banking-interbank-rate}得
+\begin{equation}
+  \label{eq:un-collateralized-external-financial-premium}
+  UEFP_t = \text{real marginal cost} = R_t^T - R_t^{IB} = \frac{w_t \cdot m_t \cdot v_t }{(1-\alpha) \cdot (1-rr) \cdot c_t}.
+\end{equation}
+
+
+\subsubsection{有抵押贷款的外部融资溢价}
+类似地，家庭向银行做抵押贷款，需要支付的利息包括两部分，一为银行间拆借利率$R_t^{IB}$，一为有抵押贷款生产函数的边际成本，二者之和应等于有抵押贷款利率$R_t^L$。此时有抵押贷款的边际成本反映了抵押贷款的外部融资溢价(collateralized external financial premium, CEFP)，我们用$R_t^L$和$R_t^{IB}$的利差来表示，由式\eqref{eq:banking-loan-rate}得
+\begin{equation}
+  \label{eq:collateralized-external-financial-premium}
+  CEFP_t = (1-\alpha) \cdot \text{real marginal cost} = R_t^L - R_t^{IB} =\frac{w_t \cdot m_t \cdot v_t }{(1-rr) \cdot c_t}
+\end{equation}
+
+\subsubsection{比较}
+联立~\eqref{eq:un-collateralized-external-financial-premium}-~\eqref{eq:collateralized-external-financial-premium}可得
+\begin{equation}
+  \label{eq:banking-efp-connection}
+  CEFP_t = (1-\alpha) \cdot UEFP_t
+\end{equation}
+外部融资溢价$CEFP_t< UEFP$，或利差$ (R_t^L-R_t^{IB})<(R_t^{T}-R_t^{IB})$，反映了家庭部门当提供抵押品时所做的借款，只需要支付贷款生产函数边际成本中的一部分$(1-\alpha)$，这一部分被银行用来对贷出款项做监控；余下的$\alpha$部分得以减免。
+
+\subsection{抵押品收益率与外部融资溢价的关联}
+由于我们假定银行部门是充分竞争的，并且银行的贷款生产函数是规模报酬不变的，那么均衡状态下银行的利润为$0$，即
+\begin{equation*}
+\underbrace{(R_t^{T}-R_t^{IB}) \cdot \frac{L_t}{P_t}}_{\text{利息收入}} = \underbrace{\underbrace{b_{t+1} \cdot LSY_t^{B}}_{\text{债券抵押品利息}} + \underbrace{q_t \cdot K_{t+1} \cdot LSY_t^K}_{\text{实物资本抵押品利息}} + \underbrace{w_{t} \cdot w_t}_{\text{监控成本支出}}}_{\text{成本支出}}.
+\end{equation*}
+从这个意义上来讲，$LSY_{t}^{B,K}$可以看做是银行支付给家庭部门借款人的\textquote{租金}：借款人向银行提供抵押品，抵押品作为投入要素进入银行部门的贷款生产函数中。抵押品的回报率因此低于假想中的无风险债券的基准利率$R_t^T$；两种利率之差体现了抵押品作为贷款生产函数的投入要素的回报，这种回报以利率优惠的形式，反映在银行对家庭借款人收取的贷款利息减免中。
+
+流动性抵押品的收益率，与外部融资溢价之间的关联，可以由式\eqref{eq:banking-lqdt-yield-capital}、\eqref{hh-opt-wrt-m}、\eqref{eq:collateralized-external-financial-premium}联立求得
+\begin{equation}
+  \label{eq:banking-efp-lsy-connection}
+  LSY_t^K = k \cdot LSY_t^B = k \cdot \frac{w_t \cdot m_t}{\left( 1 - \alpha \right) \cdot c_t} = k \cdot \left[ \frac{1-rr}{\left( 1 - \alpha \right) \cdot v_t} \right] \cdot CEFP_t.
+\end{equation}
+
+\section{稳定状态}
+\subsection{核心稳态系统}
+如前述，模型的均衡条件包括22个变量。假定稳定状态下是确定的(deterministic)并且
+\begin{enumerate}
+  \item 通胀率为零$P^A = P = 1$，
+  \item 资产价格$q = 1$，
+  \item $\text{Transfer} = g = \text{tax}= 0$。
+\end{enumerate}
+
+由式\eqref{eq:tech-shcoks-a1t}，\eqref{eq:tech-shcoks-a2t}，\eqref{eq:tech-shcoks-a3t}可得
+\begin{equation}
+  \label{eq:banking-ss-tech-shocks}
+  g_{A_1} = g_{A_2} = 1+ \gamma, g_{A_3} = 0,
+\end{equation}
+由式\eqref{eq:banking-ss-tech-shocks}可得，$\{ c_t,K_t,w_t,\lambda_t \}_{t=0}^{\infty}$的增速均为$1+\gamma$。
+
+根据定义式\eqref{eq:bank-def-omega}可知
+\begin{equation}
+  \label{eq:banking-ss-bank-def-omega}
+  \Omega = \frac{\alpha}{\frac{b}{c}+k \cdot \frac{K}{c}}
+\end{equation}
+
+\subsubsection{}
+根据一阶条件可知：
+
+式\eqref{hh-opt-wrt-ms} $\Rightarrow$
+\begin{equation}
+  \label{banking-ss-hh-opt-wrt-ms}
+  \lambda = \frac{1-\phi}{\left(1-n-m\right) \cdot w}
+\end{equation}
+
+式\eqref{hh-opt-wrt-m} $\Rightarrow$
+\begin{equation}
+  \label{banking-ss-hh-opt-wrt-m}
+  w = (1-\alpha) \cdot \left(\frac{\phi}{\lambda \cdot c} - 1 \right)  \cdot \frac{c}{m}
+\end{equation}
+
+式\eqref{hh-opt-wrt-p} $\Rightarrow$
+\begin{equation}
+  \label{banking-ss-hh-opt-wrt-p}
+  \frac{\xi}{\lambda} = - \frac{1-\theta}{\theta}
+\end{equation}
+
+式\eqref{hh-opt-wrt-n}结合式\eqref{banking-ss-hh-opt-wrt-p}$\Rightarrow$
+\begin{equation}
+  \label{banking-eq:ss-hh-opt-wrt-n}
+  w = - {\left( 1-\eta \right)} \cdot \frac{1-\theta}{\theta} \cdot   {\left( \frac{K}{n} \right)}^{\eta}
+\end{equation}
+
+式\eqref{hh-opt-wrt-k} $\Rightarrow$
+\begin{equation}
+  \label{banking-ss-hh-opt-wrt-k}
+  k \cdot \Omega \cdot {\left(
+  \frac{\phi}{\lambda \cdot c} - 1
+  \right)} - 1 + \frac{\beta}{1+\gamma} \cdot {\left[
+  {\left( 1 - \delta \right)} - \eta \cdot \frac{1-\theta}{\theta} \cdot {\left(\frac{K}{n}\right)}^{\eta - 1}
+  \right]} = 0
+\end{equation}
+
+\subsubsection{}
+家庭部门总预算约束式\eqref{eq:hh-bud-cons}改写为
+\begin{equation*}
+\begin{split}
+&q_t \cdot {\left[
+(1-\delta) \cdot K_t - K_{t+1}
+\right]}
+- {\left[
+\frac{H_{t}}{P_t^A} - \frac{H_{t-1}}{P_t^A} + \frac{B_{t+1}}{P_t^A \cdot (1+R_t^B)} - \frac{B_t}{P_t^A} + tax_t
+\right]} \\
+&+ w_t \cdot {\left[(n_t^s + m_t^s) - (n_t + m_t)\right]}
++ c_t^A \cdot {\left(\frac{P_t}{P_t^A}\right)}^{1-\theta} = c_t,
+\end{split}
+\end{equation*}
+其中等式左侧第二个中括号部分，根据政府部门的预算约束条件式\eqref{eq:gov-bud-cons-cb}等于$g_t$。第三个中括号，根据市场出清条件假定为$0$。第四部分，根据另一个市场出清条件式\eqref{eq:mkt-clearing-hh}予以替代，得
+\begin{equation*}
+%\begin{split}
+q_t \cdot {\left[
+(1-\delta) \cdot K_t - K_{t+1}
+\right]}
+- g_t
++ K_t^{\eta} \cdot (A_{1,t} \cdot n_t)^{1-\eta} \cdot \frac{P_t}{P_t^A} = c_t,
+%\end{split}
+\end{equation*}
+则稳定状态下我们有
+\begin{equation}
+  \label{eq:banking-ss-hh-opt-wrt-wac}
+  {\left(\frac{K}{n}\right)}^{\eta} - \delta \cdot {\left(\frac{K}{n}\right)} = \frac{c}{n}
+\end{equation}
+\subsubsection{}
+式\eqref{eq:hh-real-consumption} $\Rightarrow$
+\begin{equation}
+  \label{eq:banking-ss-hh-real-consumption}
+  1 = \frac{v \cdot F}{1-rr} \cdot {\left(
+\frac{b}{c} + k \cdot \frac{K}{c}
+  \right)}^{\alpha} \cdot {\left(
+\frac{m}{c}
+  \right)}^{1-\alpha}
+\end{equation}
+
+则22个变量的稳定状态系统，可以改写为含有7个核心变量$\{c,K,w,\lambda,\Omega,m,n\}$的7个方程组：
+\eqref{eq:banking-ss-bank-def-omega}，\eqref{banking-ss-hh-opt-wrt-ms}，\eqref{banking-ss-hh-opt-wrt-m}，
+\eqref{banking-eq:ss-hh-opt-wrt-n}，\eqref{banking-ss-hh-opt-wrt-k}，\eqref{eq:banking-ss-hh-opt-wrt-wac}， \eqref{eq:banking-ss-hh-real-consumption}。
+
+\subsection{稳定状态利率}

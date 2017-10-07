@@ -1,0 +1,11 @@
+{
+  "projectPath": "/Users/YYZ/Documents/Programs/Projects/BNK",
+  "title": "LaTeX-Plus Project",
+  "root": "chapters/DSGE-banking.tex",
+  "program": "pdflatex",
+  "latexmkOptions": "-bibtex -pdf -shell-escape",
+  "output": ".latex",
+  "openOutput": "true",
+  "postAction": "link",
+  "postPath": ""
+}
