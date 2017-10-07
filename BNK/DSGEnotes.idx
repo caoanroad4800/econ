@@ -147,107 +147,114 @@
 \indexentry{injection \dotfill 单射|hyperpage}{242}
 \indexentry{Cauchy sequnce \dotfill 柯西序列|hyperpage}{242}
 \indexentry{Céa lemma, \dotfill 齐亚引理|hyperpage}{243}
-\indexentry{LP space \dotfill LP空间|hyperpage}{244}
-\indexentry{Lesbegue space \dotfill 勒贝格空间|hyperpage}{244}
-\indexentry{Lebesgue integrable function \dotfill 勒贝格可积方程|hyperpage}{244}
-\indexentry{sigma!algebra \dotfill sigma代数|hyperpage}{244}
-\indexentry{complement \dotfill 补集|hyperpage}{244}
-\indexentry{union \dotfill 并集|hyperpage}{245}
-\indexentry{powerset \dotfill 幂集|hyperpage}{245}
-\indexentry{axiomatic set theory \dotfill 公理集合论|hyperpage}{245}
-\indexentry{ZFC axioms \dotfill ZFC集合论|hyperpage}{245}
-\indexentry{family of sets \dotfill 集族|hyperpage}{245}
-\indexentry{cardinality \dotfill 势|hyperpage}{245}
-\indexentry{intersection \dotfill 交集|hyperpage}{245}
-\indexentry{extended real number line \dotfill 扩展实数线|hyperpage}{245}
-\indexentry{measure \dotfill 测度|hyperpage}{245}
-\indexentry{countable additivity \dotfill 可数可加性|hyperpage}{245}
-\indexentry{sigma!additivity \dotfill sigma可加|hyperpage}{245}
-\indexentry{measurable space \dotfill 可测空间|hyperpage}{245}
-\indexentry{measurable sets \dotfill 可测集合|hyperpage}{245}
-\indexentry{triple 三元组|hyperpage}{245}
-\indexentry{measure!counting \dotfill 计数测度|hyperpage}{246}
-\indexentry{sigma!finite \dotfill sigma有限|hyperpage}{246}
-\indexentry{norm \dotfill 范数|hyperpage}{246}
-\indexentry{vector space \dotfill 向量空间|hyperpage}{246}
-\indexentry{zero vector \dotfill 零向量|hyperpage}{246}
-\indexentry{seminorm! \dotfill 半范数|hyperpage}{246}
-\indexentry{subadditivity \dotfill 次可加|hyperpage}{247}
-\indexentry{normed vector space \dotfill 赋范向量空间|hyperpage}{247}
-\indexentry{quotient space \dotfill 商空间|hyperpage}{247}
-\indexentry{equivalent norms \dotfill 等价范|hyperpage}{247}
-\indexentry{seminorm!trivial \dotfill 平凡半范数|hyperpage}{247}
-\indexentry{p-norm \dotfill p范数|hyperpage}{247}
-\indexentry{LP-norm \dotfill LP范数|hyperpage}{247}
-\indexentry{grid distance \dotfill 网格距离|hyperpage}{247}
-\indexentry{taxicab geometry \dotfill 出租车距离|hyperpage}{247}
-\indexentry{Manhattan distance \dotfill 曼哈顿距离|hyperpage}{247}
-\indexentry{Euclidean norm \dotfill 欧几里得范数|hyperpage}{247}
-\indexentry{L-infinity norm|hyperpage}{247}
-\indexentry{maximum norm \dotfill 最大范数|hyperpage}{247}
-\indexentry{uniform norm \dotfill 均匀范数|hyperpage}{247}
-\indexentry{Chebyshev distance \dotfill 切比雪夫距离|hyperpage}{247}
-\indexentry{sequence space!countably infinite dimensional \dotfill 可数无限维数列空间|hyperpage}{248}
-\indexentry{triangle inequality \dotfill 三角不等式|hyperpage}{249}
-\indexentry{Minkowski inequality \dotfill 闵可夫斯基不等式|hyperpage}{249}
-\indexentry{seminormed vector space \dotfill 半赋范向量空间|hyperpage}{249}
-\indexentry{Banach space \dotfill 巴拿赫空间|hyperpage}{250}
-\indexentry{Lebesgue space!weighted \dotfill 加权勒贝格空间|hyperpage}{250}
-\indexentry{Hilbert space \dotfill 希尔伯特空间|hyperpage}{251}
-\indexentry{inner product \dotfill 内积|hyperpage}{251}
-\indexentry{inner product space \dotfill 内积空间|hyperpage}{251}
-\indexentry{Cauchy sequences \unhbox \voidb@x \cleaders \hbox to.44em{\hss .\hss }\hfill \kern \z@ 柯西数列|hyperpage}{251}
-\indexentry{convergence!absolute \dotfill 绝对收敛|hyperpage}{252}
-\indexentry{completeness!Euclidean space \dotfill 完备性(欧几里得空间)|hyperpage}{252}
-\indexentry{complex plane \dotfill 复数平面|hyperpage}{252}
-\indexentry{complex modulus \dotfill 复数绝对值|hyperpage}{252}
-\indexentry{conjugate \dotfill 共轭复数|hyperpage}{252}
-\indexentry{Hermitian symmetric \dotfill 埃米特对称|hyperpage}{252}
-\indexentry{differentiability classification \dotfill 方程微分的类|hyperpage}{253}
-\indexentry{integration by parts \dotfill 分部积分公式|hyperpage}{253}
-\indexentry{Parseval theorem \dotfill 帕塞瓦尔定理|hyperpage}{254}
-\indexentry{Fourier series \dotfill 傅里叶级数|hyperpage}{254}
-\indexentry{closure \dotfill 闭包|hyperpage}{255}
-\indexentry{trace \dotfill 迹|hyperpage}{255}
-\indexentry{injection \dotfill 单射|hyperpage}{255}
-\indexentry{Dirichlet problem \index 狄利克雷问题|hyperpage}{255}
-\indexentry{Sobolev space!boundary value problem \dotfill 边界值问题(索伯列夫空间)|hyperpage}{256}
-\indexentry{Lipschitz boundary \dotfill 利普希茨边界|hyperpage}{256}
-\indexentry{surjection \dotfill 满射|hyperpage}{256}
-\indexentry{Bessel potential space \dotfill 贝塞尔位势空间|hyperpage}{256}
-\indexentry{extension theorem of Sobolev space \dotfill 延拓定理(所布偶列夫空间)|hyperpage}{257}
-\indexentry{embeddings \dotfill 嵌入|hyperpage}{257}
-\indexentry{complex interpolation space \dotfill 复数插值|hyperpage}{257}
-\indexentry{Sobolev–Slobodeckij spaces \dotfill 索伯列夫|hyperpage}{257}
-\indexentry{Hölder condition \dotfill 霍德尔条件|hyperpage}{257}
-\indexentry{Minkowski inequality \dotfill 闵可夫斯基不等式|hyperpage}{257}
-\indexentry{vector space!normed \dotfill 赋范向量空间|hyperpage}{257}
-\indexentry{triangle inequality \dotfill 三角不等式|hyperpage}{257}
-\indexentry{Hölder's inequality \dotfill 霍德尔不等式|hyperpage}{258}
-\indexentry{Minowski inequality!integral \dotfill 闵可夫斯基积分不等式|hyperpage}{258}
+\indexentry{boundary value problem \dotfill 边界值问题|hyperpage}{245}
+\indexentry{exterior algebra \dotfill 外代数|hyperpage}{245}
+\indexentry{self-adjoint operator|hyperpage}{245}
+\indexentry{divergence theorem \dotfill 高斯散度定理|hyperpage}{245}
+\indexentry{Ostrogradsky-Gauss theorem \dotfill 奥斯特罗格拉德斯基——高斯定理|hyperpage}{245}
+\indexentry{Gauss theorem \dotfill 高斯散度定理|hyperpage}{245}
+\indexentry{integration by parts \dotfill 分部积分|hyperpage}{246}
+\indexentry{Green identities!first 格林第一恒等式|hyperpage}{246}
+\indexentry{Green identities!second 格林第二恒等式|hyperpage}{246}
+\indexentry{Kronecker product \dotfill 克罗内乘积|hyperpage}{247}
+\indexentry{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件|hyperpage}{247}
+\indexentry{Neumann boundary value condition \dotfill 诺依曼边界值条件|hyperpage}{247}
+\indexentry{Robin boundary value condition \dotfill 罗宾边界值条件|hyperpage}{247}
+\indexentry{norm \dotfill 范数|hyperpage}{249}
+\indexentry{support \dotfill 支撑|hyperpage}{249}
+\indexentry{Hölder space \dotfill 霍德尔空间|hyperpage}{249}
+\indexentry{Lipschitz continuous function \dotfill 利普希茨连续方程|hyperpage}{249}
+\indexentry{Lipschitz hypograph \dotfill 利普希茨亚图|hyperpage}{249}
+\indexentry{Lipschitz domain \dotfill 利普希茨域|hyperpage}{249}
+\indexentry{index family \dotfill 索引族|hyperpage}{249}
+\indexentry{cover(topology) \dotfill 覆盖(拓扑学)|hyperpage}{249}
+\indexentry{|hyperpage}{249}
+\indexentry{Hölder continuous \dotfill 霍德尔连续|hyperpage}{250}
+\indexentry{piecewise smooth boundary \dotfill 分段平滑边界|hyperpage}{250}
+\indexentry{Lesbegue space \dotfill 勒贝格空间|hyperpage}{250}
+\indexentry{Lebesgue integrable function \dotfill 勒贝格可积方程|hyperpage}{250}
+\indexentry{sigma!algebra \dotfill sigma代数|hyperpage}{250}
+\indexentry{complement \dotfill 补集|hyperpage}{250}
+\indexentry{union \dotfill 并集|hyperpage}{250}
+\indexentry{powerset \dotfill 幂集|hyperpage}{250}
+\indexentry{axiomatic set theory \dotfill 公理集合论|hyperpage}{250}
+\indexentry{ZFC axioms \dotfill ZFC集合论|hyperpage}{250}
+\indexentry{family of sets \dotfill 集族|hyperpage}{250}
+\indexentry{cardinality \dotfill 势|hyperpage}{251}
+\indexentry{intersection \dotfill 交集|hyperpage}{251}
+\indexentry{extended real number line \dotfill 扩展实数线|hyperpage}{251}
+\indexentry{measure \dotfill 测度|hyperpage}{251}
+\indexentry{countable additivity \dotfill 可数可加性|hyperpage}{251}
+\indexentry{sigma!additivity \dotfill sigma可加|hyperpage}{251}
+\indexentry{measurable space \dotfill 可测空间|hyperpage}{251}
+\indexentry{measurable sets \dotfill 可测集合|hyperpage}{251}
+\indexentry{triple 三元组|hyperpage}{251}
+\indexentry{measure!counting \dotfill 计数测度|hyperpage}{252}
+\indexentry{sigma!finite \dotfill sigma有限|hyperpage}{252}
+\indexentry{norm \dotfill 范数|hyperpage}{252}
+\indexentry{vector space \dotfill 向量空间|hyperpage}{252}
+\indexentry{zero vector \dotfill 零向量|hyperpage}{252}
+\indexentry{seminorm! \dotfill 半范数|hyperpage}{252}
+\indexentry{subadditivity \dotfill 次可加|hyperpage}{252}
+\indexentry{normed vector space \dotfill 赋范向量空间|hyperpage}{253}
+\indexentry{quotient space \dotfill 商空间|hyperpage}{253}
+\indexentry{equivalent norms \dotfill 等价范|hyperpage}{253}
+\indexentry{seminorm!trivial \dotfill 平凡半范数|hyperpage}{253}
+\indexentry{p-norm \dotfill p范数|hyperpage}{253}
+\indexentry{LP-norm \dotfill LP范数|hyperpage}{253}
+\indexentry{grid distance \dotfill 网格距离|hyperpage}{253}
+\indexentry{taxicab geometry \dotfill 出租车距离|hyperpage}{253}
+\indexentry{Manhattan distance \dotfill 曼哈顿距离|hyperpage}{253}
+\indexentry{Euclidean norm \dotfill 欧几里得范数|hyperpage}{253}
+\indexentry{L-infinity norm|hyperpage}{253}
+\indexentry{maximum norm \dotfill 最大范数|hyperpage}{253}
+\indexentry{uniform norm \dotfill 均匀范数|hyperpage}{253}
+\indexentry{Chebyshev distance \dotfill 切比雪夫距离|hyperpage}{253}
+\indexentry{sequence space!countably infinite dimensional \dotfill 可数无限维数列空间|hyperpage}{254}
+\indexentry{triangle inequality \dotfill 三角不等式|hyperpage}{255}
+\indexentry{Minkowski inequality \dotfill 闵可夫斯基不等式|hyperpage}{255}
+\indexentry{vector space!normed \dotfill 赋范向量空间|hyperpage}{255}
+\indexentry{triangle inequality \dotfill 三角不等式|hyperpage}{255}
+\indexentry{Hölder inequality \dotfill 霍德尔不等式|hyperpage}{255}
+\indexentry{Hölder's inequality \dotfill 霍德尔不等式|hyperpage}{256}
+\indexentry{Minowski inequality!integral \dotfill 闵可夫斯基积分不等式|hyperpage}{256}
+\indexentry{seminormed vector space \dotfill 半赋范向量空间|hyperpage}{256}
+\indexentry{Banach space \dotfill 巴拿赫空间|hyperpage}{257}
+\indexentry{Lebesgue space!weighted \dotfill 加权勒贝格空间|hyperpage}{257}
+\indexentry{Hilbert space \dotfill 希尔伯特空间|hyperpage}{257}
+\indexentry{Cauchy sequences \unhbox \voidb@x \cleaders \hbox to.44em{\hss .\hss }\hfill \kern \z@ 柯西数列|hyperpage}{257}
+\indexentry{inner product \dotfill 内积|hyperpage}{258}
 \indexentry{inner product space \dotfill 内积空间|hyperpage}{258}
-\indexentry{Cauchy-Schwarz inequality \dotfill 柯西——施瓦茨不等式|hyperpage}{259}
-\indexentry{boundary value problem \dotfill 边界值问题|hyperpage}{261}
-\indexentry{exterior algebra \dotfill 外代数|hyperpage}{261}
-\indexentry{self-adjoint operator|hyperpage}{261}
-\indexentry{divergence theorem \dotfill 高斯散度定理|hyperpage}{261}
-\indexentry{Ostrogradsky-Gauss theorem \dotfill 奥斯特罗格拉德斯基——高斯定理|hyperpage}{261}
-\indexentry{Gauss theorem \dotfill 高斯散度定理|hyperpage}{261}
+\indexentry{convergence!absolute \dotfill 绝对收敛|hyperpage}{258}
+\indexentry{completeness!Euclidean space \dotfill 完备性(欧几里得空间)|hyperpage}{259}
+\indexentry{complex plane \dotfill 复数平面|hyperpage}{259}
+\indexentry{complex modulus \dotfill 复数绝对值|hyperpage}{259}
+\indexentry{conjugate \dotfill 共轭复数|hyperpage}{259}
+\indexentry{Hermitian symmetric \dotfill 埃米特对称|hyperpage}{259}
+\indexentry{dual space \dotfill 对偶空间|hyperpage}{260}
+\indexentry{Cauchy-Schwarz inequality \dotfill 柯西——施瓦茨不等式|hyperpage}{260}
+\indexentry{differentiability classification \dotfill 方程微分的类|hyperpage}{261}
+\indexentry{integration by parts \dotfill 分部积分公式|hyperpage}{262}
 \indexentry{integration by parts \dotfill 分部积分|hyperpage}{262}
-\indexentry{Green identities!first 格林第一恒等式|hyperpage}{262}
-\indexentry{Green identities!second 格林第二恒等式|hyperpage}{262}
-\indexentry{Kronecker product \dotfill 克罗内乘积|hyperpage}{263}
-\indexentry{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件|hyperpage}{263}
-\indexentry{Neumann boundary value condition \dotfill 诺依曼边界值条件|hyperpage}{263}
-\indexentry{Robin boundary value condition \dotfill 罗宾边界值条件|hyperpage}{263}
-\indexentry{norm \dotfill 范数|hyperpage}{265}
-\indexentry{support \dotfill 支撑|hyperpage}{265}
-\indexentry{Hölder space \dotfill 霍德尔空间|hyperpage}{265}
-\indexentry{Lipschitz continuous function \dotfill 利普希茨连续方程|hyperpage}{265}
-\indexentry{Lipschitz hypograph \dotfill 利普希茨亚图|hyperpage}{265}
-\indexentry{Lipschitz domain \dotfill 利普希茨域|hyperpage}{265}
-\indexentry{index family \dotfill 索引族|hyperpage}{265}
-\indexentry{cover(topology) \dotfill 覆盖(拓扑学)|hyperpage}{265}
-\indexentry{|hyperpage}{265}
-\indexentry{Hölder continuous \dotfill 霍德尔连续|hyperpage}{266}
-\indexentry{piecewise smooth boundary \dotfill 分段平滑边界|hyperpage}{266}
+\indexentry{generalized partial derivative \dotfill 广义偏导数|hyperpage}{262}
+\indexentry{Parseval theorem \dotfill 帕塞瓦尔定理|hyperpage}{264}
+\indexentry{Fourier series \dotfill 傅里叶级数|hyperpage}{264}
+\indexentry{closure \dotfill 闭包|hyperpage}{264}
+\indexentry{trace \dotfill 迹|hyperpage}{265}
+\indexentry{Poincaré inequality \dotfill 庞加莱不等式|hyperpage}{265}
+\indexentry{injection \dotfill 单射|hyperpage}{265}
+\indexentry{Dirichlet problem \index 狄利克雷问题|hyperpage}{265}
+\indexentry{Sobolev space!boundary value problem \dotfill 边界值问题(索伯列夫空间)|hyperpage}{265}
+\indexentry{Lipschitz boundary \dotfill 利普希茨边界|hyperpage}{265}
+\indexentry{surjection \dotfill 满射|hyperpage}{265}
+\indexentry{Bessel potential space \dotfill 贝塞尔位势空间|hyperpage}{266}
+\indexentry{extension theorem of Sobolev space \dotfill 延拓定理(所布偶列夫空间)|hyperpage}{266}
+\indexentry{embeddings \dotfill 嵌入|hyperpage}{266}
+\indexentry{complex interpolation space \dotfill 复数插值|hyperpage}{266}
+\indexentry{Sobolev–Slobodeckij spaces \dotfill 索伯列夫|hyperpage}{266}
+\indexentry{Hölder condition \dotfill 霍德尔条件|hyperpage}{266}
+\indexentry{Sobolev-Slobodeckij norm \dotfill Sobolev-Slobodeckij范数|hyperpage}{266}
+\indexentry{Sobolev-Slobodeckij seminorm \dotfill Sobolev-Slobodeckij半范数|hyperpage}{267}
+\indexentry{dual space \dotfill 对偶空间|hyperpage}{267}
+\indexentry{embedding theorem of Sobolev space \dotfill 索伯列夫空间的嵌入定理|hyperpage}{267}
+\indexentry{norm equivalence theorem of Sobolev space|hyperpage}{267}

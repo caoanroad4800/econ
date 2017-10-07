@@ -48,9 +48,10 @@
 %% The amsthm package provides extended theorem environments
 \usepackage{amsmath,  amsthm, mathtools, amssymb, bm}
 \DeclareMathOperator{\vect}{vec}
-
+\newcommand{\sgn}{\operatorname{sgn}}
 %% The numcompress package shorten the last page in references.
 %% `nodots' option removes dots from firstnames in references.
+%\usepackage{bigfoot}
 \usepackage[nodots]{numcompress}
 \usepackage{url}
 \usepackage{multirow}
@@ -118,7 +119,7 @@
 
 %\usepackage{ntheorem}
 \newtheorem{theorem}{Theorem}[chapter]
-%\newtheorem{example}{Example}[chapter]
+\newtheorem{example}{Example}[chapter]
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{algorithm}{Algorithm}[chapter]
 \newtheorem{corollary}{Corollary}[theorem]
