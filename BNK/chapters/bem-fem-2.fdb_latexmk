@@ -1,0 +1,14 @@
+# Fdb version 3
+["xdvipdfmx"] 0 "bem-fem-2.xdv" "bem-fem-2.pdf" "bem-fem-2" 0
+  "bem-fem-2.xdv" 0 -1 0 "xelatex"
+  (generated)
+  "bem-fem-2.pdf"
+["xelatex"] 1507995362 "bem-fem-2.tex" "bem-fem-2.xdv" "bem-fem-2" 1507995362
+  "/usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf" 1494087824 32646 eadc4ca26cdbe7105ac7c593aa8c4f72 ""
+  "/usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt" 1507047950 3705030 c2937aef7673799b7c512fffaf7ce16f ""
+  "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
+  "bem-fem-2.aux" 1507995288 8 a94a2480d3289e625eea47cd1b285758 ""
+  "bem-fem-2.tex" 1507995360 859 c066ef8d0f9c951da6526c9703e759f7 ""
+  (generated)
+  "bem-fem-2.xdv"
+  "bem-fem-2.log"

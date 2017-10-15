@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: DSGEnotes.aux
 The style file: model4-names.bst
-Reallocated field_info (elt_size=4) to 10083 items from 5000.
+Reallocated field_info (elt_size=4) to 10106 items from 5000.
 Database file #1: ./refs/papers.bib
 Warning--missing institution in Aldrich:2011wz
 Warning--missing institution in Andreasen:2016cd
@@ -27,45 +27,45 @@ Warning--missing institution in Murchison:2006wc
 `journal' is a missing field, not a string, for entry Wood:1975vn
 while executing---line 1514 of file model4-names.bst
 Warning--empty journal in Wood:1975vn
-You've used 221 entries,
+You've used 222 entries,
             2973 wiz_defined-function locations,
-            1898 strings with 37065 characters,
-and the built_in function-call counts, 162279 in all, are:
-= -- 14284
-> -- 3894
-< -- 197
-+ -- 1516
-- -- 1288
-* -- 17942
-:= -- 23220
-add.period$ -- 684
-call.type$ -- 221
-change.case$ -- 1523
-chr.to.int$ -- 223
-cite$ -- 234
-duplicate$ -- 12749
-empty$ -- 13184
-format.name$ -- 1919
-if$ -- 31419
+            1904 strings with 37274 characters,
+and the built_in function-call counts, 162817 in all, are:
+= -- 14325
+> -- 3912
+< -- 199
++ -- 1523
+- -- 1294
+* -- 18004
+:= -- 23301
+add.period$ -- 688
+call.type$ -- 222
+change.case$ -- 1529
+chr.to.int$ -- 224
+cite$ -- 235
+duplicate$ -- 12787
+empty$ -- 13222
+format.name$ -- 1930
+if$ -- 31519
 int.to.chr$ -- 8
 int.to.str$ -- 1
-missing$ -- 1905
-newline$ -- 1108
-num.names$ -- 900
-pop$ -- 2057
+missing$ -- 1915
+newline$ -- 1114
+num.names$ -- 904
+pop$ -- 2071
 preamble$ -- 1
-purify$ -- 1307
+purify$ -- 1313
 quote$ -- 0
-skip$ -- 3217
+skip$ -- 3230
 stack$ -- 0
-substring$ -- 14026
-swap$ -- 7216
-text.length$ -- 25
+substring$ -- 14037
+swap$ -- 7248
+text.length$ -- 26
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1848
+type$ -- 1854
 warning$ -- 13
-while$ -- 1115
+while$ -- 1118
 width$ -- 0
-write$ -- 3035
+write$ -- 3050
 (There were 5 error messages)

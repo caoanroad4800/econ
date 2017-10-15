@@ -814,9 +814,9 @@ $\hookrightarrow$
 \label{sec:poly-gauss-quadrature}
 在前面的章节中，我们用$\lambda$符号来表示变量。随后我们改用$x$，主要原因是打字起来方便。。。。
 
-\begin{theorem}[高斯积公式]
+\begin{theorem}[高斯求积公式]
   \label{theorem:poly-gauss-quadrature-def}
-  如果在区间$(a,b)$中有一个连续方程$f(x)$，对应$a<x_1<x_2< \ldots < x_n$的$n$个点。那么存在且只存在一个($\le n-1$次的)多项式$p$，使得$p(x_i) = f(x_i)$，那么可用高斯积公式(Gauss quadrature formula)\index{Gauss quadrature formula \dotfill 高斯积公式}来近似$f(x)$的值，满足
+  如果在区间$(a,b)$中有一个连续方程$f(x)$，对应$a<x_1<x_2< \ldots < x_n$的$n$个点。那么存在且只存在一个($\le n-1$次的)多项式$p$，使得$p(x_i) = f(x_i)$，那么可用高斯积公式(Gauss quadrature formula)\index{Gauss quadrature formula \dotfill 高斯求积公式}来近似$f(x)$的值，满足
   \begin{equation}
     \label{eq:poly-gauss-quadrature-def}
     \int_a^b w(x) f(x) \, dx = \sum_{i=1}^n \lambda_{n,i} f(x_i), \quad \lambda_{n,i}:= \int_a^b \frac{w(x) p_n(x)}{\left( x-x_i \right) p'_n(x_i)} \, dx, i=1,2,\ldots,n.

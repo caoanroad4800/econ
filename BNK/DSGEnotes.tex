@@ -49,6 +49,7 @@
 \usepackage{amsmath,  amsthm, mathtools, amssymb, bm}
 \DeclareMathOperator{\vect}{vec}
 \newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\supp}{\operatorname{supp}}
 %% The numcompress package shorten the last page in references.
 %% `nodots' option removes dots from firstnames in references.
 %\usepackage{bigfoot}
@@ -119,11 +120,11 @@
 
 %\usepackage{ntheorem}
 \newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lemma}[theorem]
 \newtheorem{example}{Example}[chapter]
 \newtheorem{definition}{Definition}[chapter]
 \newtheorem{algorithm}{Algorithm}[chapter]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}{Lemma}[chapter]
 \newtheorem{proposition}{Proposition}[chapter]
 \newtheorem{remark}{Remark}[chapter]
 
@@ -189,7 +190,7 @@
 %\input{./chapters/projection-appendices-2.tex}
 %\input{./chapters/projection-appendices-3.tex}
 \input{./chapters/bem-fem.tex}
-
+\input{./chapters/bem-fem-2.tex}
 \part{模型估计}
 
 \part{附录}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{221}
+\begin{thebibliography}{222}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -884,6 +884,15 @@
 \newblock \bibinfo{title}{{Perturbation methods for general dynamic stochastic
   models }}.
 \newblock \bibinfo{publisher}{Bank of England}, \bibinfo{year}{2002}.
+%Type = Book
+\bibitem[{Jovanovi{\'c} and S{\"u}li(2014)}]{Jovanovic:2014iy}
+\bibinfo{author}{Jovanovi{\'c}\xfnm[ B.S.]}, \bibinfo{author}{S{\"u}li\xfnm[
+  E.]}.
+\newblock \bibinfo{title}{{Analysis of Finite Difference Schemes: For Linear
+  Partial Differential Equations with Generalized Solutions}}.
+\newblock volume~\bibinfo{volume}{46}.
+\newblock \bibinfo{address}{London}: \bibinfo{publisher}{Springer London},
+  \bibinfo{year}{2014}.
 %Type = Article
 \bibitem[{Judd(1992{\natexlab{a}})}]{Judd:1992vv}
 \bibinfo{author}{Judd\xfnm[ K.L.]}.

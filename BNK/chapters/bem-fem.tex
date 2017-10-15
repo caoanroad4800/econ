@@ -41,7 +41,7 @@
     \label{eq:bvp-gauss-divergence-theorem}
     \int_{\Omega} \frac{\partial}{\partial x_i} f(x) \, dx = \int_{\Gamma} \left[ \gamma_0^{int} f(x) \right] n_i(x) \, d s_x, \quad i = 1,\ldots,d,
   \end{equation}
-  其中$\gamma_0^{int} f(x)$是某个给定方程$f(x), x\in \Omega$的内界迹(interior boundary trace)，满足
+  其中$\gamma_0^{int} f(x)$是某个给定方程$f(x), x\in \Omega$的内界迹(interior boundary trace, Theorem \ref{theorem:sobolev-manifold-trace-theorem})，满足
   \begin{equation}
     \label{eq:bvp-interior-boundary-trace}
     \gamma_0^{int} f(x) \coloneqq \lim_{\Omega \owns \tilde{x} \mapsto x \in \Gamma} f \left( \tilde{x} \right), \quad \forall x \in \Gamma = \partial \Omega.
@@ -282,7 +282,7 @@
 
 \begin{definition}[利普希茨域]
   \label{definition:bvp-lipschitz-domain-def}
-  某一个开集$\Omega \subset \mathbb{R}^d, d \ge 2$在满足如下条件时，被称为利普希茨域(Lipschitz domain)\index{Lipschitz domain \dotfill 利普希茨域}，或有利普希茨边界的域(domain with Lipschitz boundary)：
+可参考 \cite{Heinonen:2005wq}。  某一个开集$\Omega \subset \mathbb{R}^d, d \ge 2$在满足如下条件时，被称为利普希茨域(Lipschitz domain)\index{Lipschitz domain \dotfill 利普希茨域}，或有利普希茨边界的域(domain with Lipschitz boundary)：
   \begin{itemize}
     \item $\Omega$的边界$\Gamma = \partial \Omega$是紧凑的，并且
     \item $\exists$有限的索引族(index family)\index{index family \dotfill 索引族}  $\left\{W_j\right\}$和$\left\{ \Omega_j\right\}$，满足
@@ -399,7 +399,7 @@
   \end{equation*}
   \item 无限个可测集合的并集的测度
   \begin{itemize}
-    \item $\mu$是可数的次可加方程(countably subadditive)\todo{subadditivity, triangle inequality}。在$\Sigma$中的任何可数可测集合$\left\{E_n \right\}_{i=n}^{\infty}$(可以不满足两两不相交)，有
+    \item $\mu$是可数的次可加方程(countably subadditive)。在$\Sigma$中的任何可数可测集合$\left\{E_n \right\}_{i=n}^{\infty}$(可以不满足两两不相交)，有
     \begin{equation*}
       \mu \left( \bigcup_{n=1}^{\infty} E_n \right) \le \sum_{n=1}^{n} \mu(E_n).
     \end{equation*}
@@ -473,7 +473,7 @@
   \end{definition}
 
   \begin{definition}[等价范]
-    一个向量空间$V$中的两个范(或两个半范) $p$和$q$，当满足下述条件时，可称为等价范(equivalent norms)\index{equivalent norms \dotfill 等价范}：
+    一个向量空间$V$中的两个范(或两个半范) $p$和$q$，当满足下述条件时，可称为等价范(equivalent norms)\index{equivalence of norms \dotfill 范数等价}：
     \begin{equation*}
       c \, q(\bm{\nu}) \le p(\bm{\nu}) \le C \, q(\bm{\nu}), \quad \exists \text{实常数} c,C, \quad \forall \bm{\nu} \in V.
     \end{equation*}
@@ -601,19 +601,12 @@ $p = \infty$时，$l^{\infty}$范数
   事实上，2个可以扩展到更多个方程的情况，比如3个，即是说三角不等式(triangle inequality) \index{triangle inequality \dotfill 三角不等式}对于范数形式的可积方程$\| \cdot \|_{p}$依然成立，可由闵可夫斯基不等式(Minkowski inequality) \index{Minkowski inequality \dotfill 闵可夫斯基不等式}证得。它表明$L^p$空间是一个赋范向量空间(normed vector space)\index{vector space!normed \dotfill 赋范向量空间}。对于一个测度空间$\Omega \in L^{p}$，设$1 \le p \le \infty$，$u, \nu \in L^{p}(\Omega)$中的元素，此时我们有
 
 \begin{definition}[三角不等式]
+  \label{definition:triangle-inequality-def}
   $L^p(\Omega)$中的三角不等式(triangle inequality) \index{triangle inequality \dotfill 三角不等式}
   \begin{equation*}
   \| u + \nu \|_p \le \| u \|_p + \| v \|_p, \quad 1 < p < \infty
   \end{equation*}
 式中等号存在的条件当且仅当$u$和$\nu$是严格线性相关的，即$ \exists \lambda \ge 0 \Rightarrow u = \lambda \nu$，或者$\nu = 0$。
-\end{definition}
-
-\begin{definition}[霍德尔不等式]
-  \label{definition:hoelder-inequality-def}
-  霍德尔不等式(Hölder inequality)\index{Hölder inequality \dotfill 霍德尔不等式}可表示为
-  \begin{equation*}
-    \int_{\Omega} \left| u(x) \nu(x) \right| \, dx \le \|u\|_{L^p(\Omega)} + \|\nu\|_{L^p(\Omega)}
-  \end{equation*}
 \end{definition}
 
 \begin{definition}[闵可夫斯基不等式]
@@ -642,7 +635,7 @@ $\hookrightarrow$
 \end{equation*}
 可见$\|u+\nu\|_p$是有限范数。
 
-在证明了$\|u+\nu\|_p$范数有限后，我们有：如果$|u + \nu|_p=0$，闵可夫斯基不等式直接变为等号且成立。现在假定$|u + \nu|_p \neq 0$，使用三角不等式和霍德尔不等式(Hölder's inequality) \index{Hölder's inequality \dotfill 霍德尔不等式}，我们有
+在证明了$\|u+\nu\|_p$范数有限后，我们有：如果$|u + \nu|_p=0$，闵可夫斯基不等式直接变为等号且成立。现在假定$|u + \nu|_p \neq 0$，使用三角不等式和霍德尔不等式(Hölder's inequality, Definition \eqref{definition:hoelder-inequality-def}) \index{Hölder's inequality \dotfill 霍德尔不等式}，我们有
 \begin{equation*}
 \begin{split}
     \|u + \nu \|_p^p &= \left[ \left( \int |u + \nu|^p \, d \mu \right)^{\frac{1}{p}} \right]^{p} \\
@@ -662,7 +655,7 @@ $\hookrightarrow$
 \end{proof}
 \end{definition}
 
-  有时我们需要积分形式的闵可夫斯基不等式(Minkowski integral inequality)\index{Minowski inequality!integral \dotfill 闵可夫斯基积分不等式}：
+  有时我们需要积分形式的闵可夫斯基不等式(Minkowski integral inequality)\index{Minkowski inequality!integral \dotfill 闵可夫斯基积分不等式}：
 \begin{definition}[闵可夫斯基积分不等式]
   \label{sec:minkowski-ineq-int-def}
   假定存在两个$\sigma$可测度空间$(S_1, \mu_1)$和$(S_2, \mu_2)$，并且$F:S_1 \times S_2 \mapsto \mathbb{R}$是可测方程，那么我们有
@@ -1005,6 +998,7 @@ $H^s(\Omega)$中包括$L^p$空间中的具有弱可导性的平滑方程
 \end{definition}
 
 \subsubsection{广义积分}
+\label{sec:generalized-integration}
 我们定义$L^{1,\text{loc}}(\Omega)$为局部可积(locally integrable)的方程空间，即方程$u \in L^{1,\text{loc}}(\Omega)$在任意一个封闭有界子集$K \subset \Omega$中可导。
 
 例，设$\Omega = (0,1)$，$u(x)=\frac{1}{x}$。由于
@@ -1031,9 +1025,10 @@ $H^s(\Omega)$中包括$L^p$空间中的具有弱可导性的平滑方程
 \begin{definition}[广义偏导数]
   \label{definition:generalized-partial-derivative-def}
   设$u \in L^{1,\text{loc}}(\Omega)$。如果$\exists \, \nu \in L^{1,\text{loc}}(\Omega)$，使得满足
-  \begin{equation*}
+  \begin{equation}
+    \label{eq:generalized-partial-derivative-higher}
    \int_{\Omega} \nu(x) \varphi(x) \, dx =   -\int_{\Omega} u(x) \frac{\partial}{\partial x_i} \varphi(x) \, dx,
-  \end{equation*}
+  \end{equation}
   其中$\varphi(x) \in C^{\infty}_0(\Omega)$，那么我们说$\nu(x)$是$u(x)$在$\Omega$中关于$x_i$的广义偏导数(generalized partial derivative)\index{generalized partial derivative \dotfill 广义偏导数} ，写作$\nu(x) \coloneqq \partial u(x)/ \partial x_i$。
 
   类似地，$u$的第$\alpha$阶广义偏导数$\nu(x) = D^{\alpha}u(x)$记作
@@ -1068,21 +1063,22 @@ $H^s(\Omega)$中包括$L^p$空间中的具有弱可导性的平滑方程
   \end{cases}
 \end{equation*}
 
-则方程$u(x) = \left| x \right|$的1阶广义偏导数为
+则方程$u(x) = \left| x \right|$的1阶广义偏导数$\nu(x)$为
 \begin{equation*}
-  \frac{\partial}{\partial x}u(x) = \sgn(x) \in L^{1,\text{loc}}(\Omega).
+  \nu(x) \coloneqq \frac{\partial}{\partial x}u(x) = \sgn(x) \in L^{1,\text{loc}}(\Omega).
 \end{equation*}
 
-递归方法计算2阶广义偏导数：$\because$
-\begin{equation*}
+递归方法计算2阶广义偏导数：
+\begin{equation}
+  \label{eq:sobolev-distribution-sgnx}
   \int_{-1}^{1}\sgn(x) \frac{\partial}{\partial x} \varphi(x) = -\int_{-1}^{0} \frac{\partial}{\partial x} \varphi(x) \, dx
   + \int_{0}^1 \frac{\partial}{\partial x} \varphi(x) \, dx = -2 \varphi(0),
-\end{equation*}
+\end{equation}
 然而$\nexists \nu \in L^{1,\text{loc}}(\Omega)$满足
 \begin{equation*}
-  \int_{-1}^{1} \nu(x) \, \varphi(x) \, dx = 2 \varphi(0), \forall \phi \in C_0^{\infty}(\Omega).
+  \int_{-1}^{1} \nu(x) \, \varphi(x) \, dx = 2 \varphi(0), \quad \forall \, \phi \in C_0^{\infty}(\Omega).
 \end{equation*}
-我们将在随后讨论$\sgn(x)$作为分布概念时的广义积分\todo{reference}。
+我们将在随后讨论$\sgn(x)$作为分布概念时的广义积分，见\pageref{sec:sobolev-space-distributions}页第\ref{sec:sobolev-space-distributions}节。
 
 
 \subsubsection{整数阶次的单维索伯列夫空间}
@@ -1160,134 +1156,24 @@ $H^k$空间可以定义如下：可由帕塞瓦尔定理(Parseval theorem)\index
 
 习惯上，我们将1个索伯列夫空间$W^{k,2}(\Omega)$写作希尔伯特空间形式$H^{k}(\Omega)$，对应范数$\big\| \cdot \big\|_{W^{k,2}}(\Omega)$。
 
-\subsubsection{空间方程的边界}
-如上文所述，$k=1,p=2$的索伯列夫空间$W^{1,2}(\Omega)$也可表示为$k=1$的希尔伯特空间$H^1(\Omega)$。在$H^1(\Omega)$中有一个非常重要的子空间$H_0^1 (\Omega)$，它定义为1个$H^1(\Omega)$中的闭包(closure)\index{closure \dotfill 闭包}，由$\Omega$中被封闭之称的无限可微方程组成。此时索伯列夫范数由前文的正式定义，缩减为下式
-\begin{equation*}
-  \Big\| f \Big\|_{H^1} = \left(
-  \int_{\Omega}
-  \left(
-  \left| f \right|^2 + | \triangledown f |^2
-  \right)
-  \right)^{\frac{1}{2}}
-\end{equation*}
-对应的有闭包索伯列夫空间$\mathring{W}^{k,p}(\Omega)$
-\begin{equation}
-  \label{eq:sobolev-space-closure-def}
-  \mathring{W}^{k,p}(\Omega) \coloneqq \overline{C^{\infty}_0 (\Omega)}^{
-  \| \cdot \|_{W^{k,p}(\Omega)}
-  }.
-\end{equation}
 
 
-当$\Omega$有正则边界(regular boundary)时，$H_0^1 (\Omega)$可以表示为由一组$H^1(\Omega)$中的方程组成的空间，这些方程的迹(traces)\index{trace \dotfill 迹}\todo{在下面做一个reference. $\#$Extension by zero}在边界上消失了。当$n=1$时，如果$\Omega=(a,b)$是个有界区间，则1维索伯列夫空间$H_0^1(a,b)$包括闭区间$[a,b]$中所有满足下列形式的连续方程
-\begin{equation*}
-  f(x) = \int_a^b f'(t) \, dt, \quad x \in [a,b],
-\end{equation*}
-其中导数在$ f'(t)$在$L^2(a,b)$区间中，且不可积。我们因此由$f(b)=f(a)=0$。
-
-当$\Omega$有界时，由庞加莱不等式(Poincaré inequality)\index{Poincaré inequality \dotfill 庞加莱不等式}\todo{Poincaré inequality}表明存在一个常数$C = C(\Omega)$，使满足
-\begin{equation*}
-  \int_{\Omega} \left| f \right|^2 \le C^2 \int_{\Omega} \left| \bigtriangledown f \right|^2, \quad f \in H_{0}^1(\Omega).
-\end{equation*}
-
-并且对应有界的$\Omega$，从$H_0^1 (\Omega)$到$L^2(\Omega)$的投影是紧凑单射(compact injection)\index{injection \dotfill 单射}。这一现象有助于我们理解狄利克雷问题(Dirichlet problem)\index{Dirichlet problem \index 狄利克雷问题}：事实上存在一个$L^2(\Omega)$的标准正交基方程(orthonormal basis)，方程的特征向量是满足狄利克雷边界条件(Dirichlet boundary condition, Definition \ref{definition:boundary-value-problem})的拉普拉斯算子(Laplace operator) $\bigtriangleup f$。
-
-\subsubsection{迹}
-如前所述，求解偏微分方程PDEs常用索伯列夫空间，而其中的关键是索伯列夫方程的边界值问题(boundary value problem)\index{Sobolev space!boundary value problem \dotfill 边界值问题(索伯列夫空间)}。如果$u \in C(\Omega)$，那么我们常用$u \big|_{\partial \Omega}$来表示边界值。由于在边界上的n维测度是$0$，我们需要借助下文的迹定理来求$u \in W^{k,p}(\Omega)$的边界值。
-
-\begin{theorem}[迹定理]
-  \label{theorem:sobolev-trace-theorem}
-假定$\Omega$有利普希茨边界(Lipschitz boundary, Definition \ref{definition:bvp-lipschitz-domain-def}，或参考 \cite{Heinonen:2005wq})\index{Lipschitz boundary \dotfill 利普希茨边界}。那么存在1个有界的线性算子$T: W^{1,p}(\Omega) \mapsto L^p(\partial \Omega)$，使
-\begin{equation*}
-  \begin{split}
-    &T \, u = u \big|_{\partial \Omega}, \quad u \in W^{1,p} \cap C(\bar{\Omega}), \\
-    &\Big\| T \, u \Big\|_{L^P(\partial \Omega)} \le c(p,\Omega) \Big\| u \Big\|_{W^{1,p}(\Omega)}, \quad u \in W^{1,p}(\Omega),
-  \end{split}
-\end{equation*}
-$T$称为迹算子(trace operator)，$Tu$称为$u$的迹(trace)。
-\end{theorem}
-
-严格意义来讲，迹定理把限制条件$u \big|_{\partial \Omega}$扩展到一个品行良好(well behaved) $\Omega$所对应的索伯列夫空间$W^{1,p}(\Omega)$中。通常来讲$T$并非满射的(surjective)\index{surjection \dotfill 满射}，但对于$1 < p < \infty$的情况，$T$映射到一个Sobolev-Slobodeckij 空间$W^{\left( 1 - \frac{1}{p}, p \right)}\left( \partial \Omega \right)$\todo{Sobolev-Slobodeckij 空间见下文$\#$ noninteger k的情况}。
-
-执行取迹操作使索伯列夫空间$W^{1,p}(\Omega)$损失了$\frac{1}{p}$单位的导数次项；含有零迹$Tu=0$的方程$u$也因此可以表示为
-\begin{equation*}
-  \begin{split}
-    &W_0^{1,p} (\Omega) = \left\{ u \in W^{1,p} (\Omega): Tu = 0\right\}, \text{其中}\\
-    &W_0^{1,p}(\Omega) :=
-    \left\{
-    u \in W^{1,p}(\Omega): \exists \left\{ u_m \right\}_{m=1}^{\infty} \in C_c^{\infty}(\Omega), \quad \text{使得} u_m \rightarrow u \, \text{in} \, W^{1,p}(\Omega)
-    \right\}.
-  \end{split}
-\end{equation*}
-
-换句话说，对于有利普希茨边界的$\Omega$，索伯列夫空间$W^{1,p}(\Omega)$中的零迹方程可由紧凑支撑的平滑方程予以近似。
-
-\subsubsection{分数次阶索伯列夫空间：贝塞尔位势空间法}
-关于分数次阶索伯列夫空间，可参考\cite{DiNezza:2012wk}。
-前面介绍的几种索伯列夫空间的情况，均假定$k \in \mathcal{N}$。然而有时候我们需要处理$k$是分数的情况(fractional order Sobolev space)。借助傅里叶乘子(Fulier multiplier)我们有
-\begin{equation*}
-  \begin{split}
-    &W^{k,p}(\mathbb{R}^n) = H^{k,p}(\mathbb{R}^n) :=
-    \left\{
-    f \in L^p(\mathbb{R}^n): \mathcal{F}^{-1}
-    \left[
-    \left( 1 + \left| \xi \right|^2 \right)^{\frac{k}{2}} \mathcal{F} f
-    \right] \in L^p(\mathbb{R}^n)
-    \right\},\\
-    & \Big\| f \Big\|_{H^{k,p} \left( \mathbb{R}^n \right)} := \Big\| \mathcal{F}^{-1} \left[
-     \left( 1 + \left| \xi \right|^2 \right)^{\frac{k}{2}}
-    \mathcal{F} f \right] \Big\|_{L^p(\mathbb{R}^n)}.
-  \end{split}
-\end{equation*}
-大致说来，有两种方法可以处理分数次阶索伯列夫空间，一种是贝塞尔位势空间法，一种是Sobolev-Slobodeckij空间法。
-\begin{definition}[贝塞尔位势空间]
-利用傅里叶分析法去理解索伯列夫空间，$k$可以不必是个正整数，而可以是任意正的实数$s \in \mathbb{R}^{+}$，比如分数。换句话说，非正整数的索伯列夫空间，又称贝塞尔位势空间(Bessel potential space)\index{Bessel potential space \dotfill 贝塞尔位势空间} $H^{s,p}$
-\begin{equation*}
-  H^{s,p}(\mathbb{R}^n) := \left\{
-  f \in L^p(\mathbb{R}^n): \mathcal{F}^-1 \left[
-  \left( 1 + \left| \xi \right|^2 \right)^{\frac{k}{2}}
- \mathcal{F} f \right] \in L^p(\mathbb{R}^n)
-  \right\}.
-\end{equation*}
-
-$H^s,p(\Omega)$可以是个限定方程$f$的集合$:H^{s,p}(\mathbb{R}^n) \mapsto \Omega$，集合中方程的范数为
-\begin{equation*}
-  \Big\| f \Big\|_{H^{s,p}(\Omega)} := \inf \left\{
-  \Big\| g \Big\|_{H^{s,p}(\mathbb{R}^n)}: g \in H^{s,p}(\mathbb{R}^n), g \big|_{\Omega} = f
-  \right\}.
-\end{equation*}
-\end{definition}
-
-利用索伯列夫空间的延拓定理(extension theorem of sobolev space)\index{extension theorem of Sobolev space \dotfill 延拓定理(所布偶列夫空间)} 可得，如果$\Omega$有均匀的$\mathbb{C}^k$边界，$k \in \mathbb{N}, 1 < p < \infty$，也可得$W^{k,p}(\Omega)$和$H^{k,p}(\Omega)$ (在范数的意义上)等价。从嵌入(embeddings, 定义\ref{definition:sobolev-spaces-embeddings}) 的角度看，
-\begin{equation*}
-  H^{k+1,p}(\mathbb{R}^n) \hookrightarrow H^{s',p}(\mathbb{R}^n) \hookrightarrow H^{s,p}(\mathbb{R}^n) \hookrightarrow H^{k,p}(\mathbb{R}^n), \quad k \le s \le s' \le k+1.
-\end{equation*}
-
-\begin{definition}[嵌入]
-  \label{definition:sobolev-spaces-embeddings}
-  数学上，嵌入(embedding) \index{embeddings \dotfill 嵌入}是指某个物件(instance) $X$被嵌入到另一个物件$Y$中去，用保留结构的映射(structure-preserving map)$f: X \mapsto Y$表示。这里的物件指数学结构，如群、子群等。所保留的具体数学``结构''因物件$X$和$Y$的种类而异。如在范畴论(category theorem)中，一个保留结构的映射往往称为一个态射(morphism)。
-\end{definition}
-
-通过这种方法，贝塞尔位势空间$H^{s,p}(\mathbb{R}^n)$以复数插值(complex interpolation space)\index{complex interpolation space \dotfill 复数插值} \todo{complex interpolation space}的形式夹在两个索伯列夫空间$H^{k+1,p}(\mathbb{R}^n)$和$H^{k,p}(\mathbb{R}^n)$之间，即从范数等价的意义上来说，下式成立
-\begin{equation*}
-\begin{split}
-  &\left[W^{k,p}(\mathbb{R}^n), W^{k+1,p}(\mathbb{R}^n))
-  \right]_{\theta} = H^{s,p}(\mathbb{R}^n), \\
-  &1 \le p \le \infty, \, 0 < \theta <1, \, s = (1-\theta) k + \theta (k+1) = k + \theta.
-\end{split}
-\end{equation*}
 
 \subsubsection{分数次阶索伯列夫空间：Sobolev-Slobodeckij空间法}
-另一种定义分数次阶索伯列夫空间的方法是Sobolev–Slobodeckij 空间\index{Sobolev–Slobodeckij spaces \dotfill 索伯列夫}。它是勒贝格空间中的霍德尔条件(Hölder condition)\index{Hölder condition \dotfill 霍德尔条件}\todo{霍德尔条件} 进一步一般化。
+\label{sec:sobolev-slobodeckij-space}
+关于分数次阶索伯列夫空间，可参考\cite{DiNezza:2012wk}。
+前面介绍的几种索伯列夫空间的情况，均假定$k \in \mathcal{N}$。然而有时候我们需要处理$k$是分数的情况(fractional order Sobolev space)。大致说来，有两种方法可以处理分数次阶索伯列夫空间，一种是Sobolev-Slobodeckij空间法，一种是贝塞尔位势空间法，后者需要一些关于分布的傅里叶变换知识，我们将在随后介绍，见\pageref{definition:bessel-potential-space}页 Definition \ref{definition:bessel-potential-space}。
 
-根据$W^{k,p(\Omega)}$或者$\mathring{W}^{k,p}(\Omega)$空间的定义\eqref{eq:sobolev-space-def}，\eqref{eq:sobolev-space-closure-def}以及相应的范数\eqref{eq:sobolev-space-norm-def}，
-对于$0 < s \in \mathbb{R}, $的情况，设$s = k + \kappa, k \in \mathbb{N}_0$，我们有Sobolev-Slobodeckij范数(Sobolev-Slobodeckij norm)\index{Sobolev-Slobodeckij norm \dotfill Sobolev-Slobodeckij范数}
+Sobolev–Slobodeckij 空间\index{Sobolev-Slobodeckij!space \dotfill Sobolev–Slobodeckij空间}是勒贝格空间中的霍德尔条件(Hölder condition, Definition \ref{definition:hoelder-inequality-def})\index{Hölder condition \dotfill 霍德尔条件} 的广义化。
+
+根据$W^{k,p(\Omega)}$或者$\mathring{W}^{k,p}(\Omega)$空间的定义\eqref{eq:sobolev-space-def}以及相应的范数\eqref{eq:sobolev-space-norm-def}，
+对于$0 < s \in \mathbb{R}, $的情况，设$s = k + \kappa, k \in \mathbb{N}_0$，我们有Sobolev-Slobodeckij范数(Sobolev-Slobodeckij norm)\index{Sobolev-Slobodeckij!norm \dotfill Sobolev-Slobodeckij范数}
 \begin{equation*}
   \|u\|_{W^{s,p}(\Omega)} \coloneqq \left\{
   \|u\|^{p}_{W^{k,p}(\Omega)} + \left| u \right|^{p}_{W^{s,p}(\Omega)}
   \right\}^{\frac{1}{p}},
 \end{equation*}
-其中$\left| u \right|^p_{W^{s,p}(\Omega)}$是Sobolev-Slobodeckij半范数(Sobolev-Slobodeckij norm)\index{Sobolev-Slobodeckij seminorm \dotfill Sobolev-Slobodeckij半范数}
+其中$\left| u \right|^p_{W^{s,p}(\Omega)}$是Sobolev-Slobodeckij半范数(Sobolev-Slobodeckij seminorm)\index{Sobolev-Slobodeckij!seminorm \dotfill Sobolev-Slobodeckij半范数}
 \begin{equation*}
   \left| u \right|^p_{W^{s,p}(\Omega)} = \sum_{\left| \alpha \right| = k} \int_{\Omega} \int_{\Omega} \frac{
   \big| D^{\alpha}u(x) - D^{\alpha} u(y) \big|^{p}
@@ -1311,7 +1197,7 @@ $H^s,p(\Omega)$可以是个限定方程$f$的集合$:H^{s,p}(\mathbb{R}^n) \maps
     }{
     \left| x - y \right|^{d + 2 \kappa}
     } \, dx \, dy, \\
-    & s=k+\kappa, k\in mathbb{N}_0, \kappa \in (0,1).
+    & s=k+\kappa, \, k\in \mathbb{N}_0, \, \kappa \in (0,1).
   \end{split}
 \end{equation}
 
@@ -1326,27 +1212,380 @@ $H^s,p(\Omega)$可以是个限定方程$f$的集合$:H^{s,p}(\mathbb{R}^n) \maps
 
 同样的，$\mathring{W}^{-s,p}(\Omega)$是$W^{-s,q}(\Omega)$的对偶空间。
 
-\subsubsection{索伯列夫空间的性质}
-介绍一些索伯列夫空间$W^{s,p}(\Omega)$的性质，这些性质有助于更好理解下文介绍的有界元法和有限元法。假定$s \in \mathbb{R}, p\in \mathbb{N}$，方程$u\in W^{s,p}(\Omega)$有界且连续。
+\subsubsection{索伯列夫空间的性质：嵌入定理}
+介绍一些索伯列夫空间$W^{s,p}(\Omega)$的性质，这些性质有助于更好理解下文介绍的有界元法和有限元法。第一个性质可表示为索伯列夫空间的嵌入定理，我们先从霍德尔不等式入手。
 
-第一个性质可表示为索伯列夫空间嵌入定理(embedding theorem of Sobolev)\index{embedding theorem of Sobolev space \dotfill 索伯列夫空间的嵌入定理}
-\begin{theorem}[索伯列夫空间的嵌入定理]
+\begin{definition}[霍德尔不等式]
+  \label{definition:hoelder-inequality-def}
+  霍德尔不等式(Hölder inequality)\index{Hölder inequality \dotfill 霍德尔不等式}可表示为
+  \begin{equation*}
+    \left| u(x) \nu(x) \right|_{1} \, \le \|u\|_p \,  \|\nu\|_q, \quad 1 \le p, q \le \infty, \frac{1}{p} + \frac{1}{q} = 1.
+  \end{equation*}
+\end{definition}
+\begin{proof}
+  见Definition \ref{definition:hoelder-inequality-generalization-def}。
+\end{proof}
+\begin{definition}[广义霍德尔不等式]
+  \label{definition:hoelder-inequality-generalization-def}
+  霍德尔不等式(Definition \ref{definition:hoelder-inequality-def}中向量的维度$n=1$。对于$n \ge 2$的情况，如$\left\{ u_i \right\}_{i=1}^{n}$，我们有广义霍德尔不等式(generalized Hölder inequality)\index{Hölder inequality!generalization \dotfill 广义霍德尔不等式}
+  \begin{equation}
+    \label{eq:hoelder-inequality-generalization-def}
+    \int_{\Omega} \big| \prod_{i=1}^{n} u(x_i)\big| \le \prod_{i=1}^{n} \big\| u \big\|_{p_i}, \quad p_i \ge 1, \sum_{i=1}^{n} \frac{1}{p_i}=1.
+  \end{equation}
+\end{definition}
+\begin{proof}
+  $n=1$时。略。
+
+  $n \ge 2$并且若$(n-1)$的情况。已知满足霍德尔不等式条件，我们的目标就成了，希望知道$n$的情况是否依然满足。分两种情况来分析。首先来看$n < \infty$，对应$p_n < \infty$。设
+  \begin{equation*}
+    p \coloneqq \frac{p_n}{p_n -1}, \, q \coloneqq p_n \Rightarrow \frac{1}{p} + \frac{1}{q} = 1.
+  \end{equation*}
+
+  此时我们有
+  \begin{equation*}
+    \begin{split}
+      \big\| \prod_{i=1}^{n} u_i \big\|_{1} & \le
+      \big\| \prod_{i=1}^{n-1} u_i \big\|_{p} \,
+      \big\| \prod_{i=1}^{n} u_n \big\|_{q} \\
+      & \le
+      \left(
+      \big\| \prod_{i=1}^{n-1} u_i^p  \big\|_{1}
+      \right)^{\frac{1}{p}} \,
+      \big\| u_n \big\|_{p_n},
+    \end{split}
+  \end{equation*}
+我们设$p_i^{'} \coloneqq \frac{p_i}{p}$，上式进一步变为
+\begin{equation*}
+\big\| \prod_{i=1}^{n} u_i \big\|_{1}  \le
+\left(
+\big\| \prod_{i=1}^{n-1} u_i^p  \big\|_{p_i^{'}}
+\right)^{\frac{1}{p}} \,
+\big\| u_n \big\|_{p_n},
+\end{equation*}
+进一步，已知
+\begin{equation*}
+  \begin{split}
+    \left(
+    \big\| \prod_{i=1}^{n-1} u_i^p  \big\|_{p_i^{'}}
+    \right)^{\frac{1}{p}} \equiv \left[
+    \prod_{i=1}^{n-1} \big| u_i \big|^{\left( p \cdot p_i^{'} \right)}
+    \right] ^{\left( \frac{1}{p_i^{'}}  \cdot \frac{1}{p} \right)} =
+    \prod_{i=1}^{n-1} \big\| u_i \big\|_{p_i},
+  \end{split}
+\end{equation*}
+则上式进一步变为
+\begin{equation*}
+  \begin{split}
+    \big\| \prod_{i=1}^{n} u_i \big\|_{1} & \le
+    \prod_{i=1}^{n-1} \big\| u_i  \big\|_{p_i} \, \big\| u_n \big\|_{p_n} = \prod_{i=1}^{n} \big\| u \big\|_{p_i}, \quad 2 \le n < \infty.
+  \end{split}
+\end{equation*}
+
+$n = \infty$的情况，
+\begin{equation*}
+  \because p_n = \infty \Rightarrow \sum_{i=1}^{n-1} \frac{1}{p_i} = 1,
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+      \therefore \big\| \prod_{i=1}^{n} u_i \big\| &\le \big\| \prod_{i=1}^{n-1} u_i \big\|_{1} \, \big\| u_n \|_{\infty}\\
+      &\le \prod_{i=1}^{n} \left\| u \right\|_{p_i}, \quad n = \infty.
+  \end{split}
+\end{equation*}
+\end{proof}
+
+
+第一个性质可表示为索伯列夫空间的嵌入定理(embedding theorem of Sobolev)\index{embedding theorem of Sobolev space \dotfill 索伯列夫空间的嵌入定理}。
+
+\begin{definition}[嵌入]
+  \label{definition:sobolev-spaces-embeddings}
+  数学上，嵌入(embedding) \index{embeddings \dotfill 嵌入}是指某个物件(instance) $X$被嵌入到另一个物件$Y$中去，用保留结构的映射(structure-preserving map)$f: X \mapsto Y$表示。这里的物件指数学结构，如群、子群等。所保留的具体数学``结构''因物件$X$和$Y$的种类而异。如在范畴论(category theorem)中，一个保留结构的映射往往称为一个态射(morphism)。
+\end{definition}
+
+\begin{theorem}[索伯列夫空间的嵌入定理$C=C(n,p)$]
   \label{theorem:sobolev-embedding-theorem}
-  设$\Omega \subset \mathbb{R}^d$是一个有界域，利普希茨边界$\partial \Omega$。空间维度$d$和$s$满足关系
-  \begin{equation*}
-    \begin{cases}
-      d \le s & p=1,\\
-      \frac{d}{p} < s & p >1.
-    \end{cases}
-  \end{equation*}
-
-  那么对于索伯列夫空间中的方程$u \in W^{s,p}(\Omega)$，我们可得$u \in C(\Omega)$，满足关系
-  \begin{equation*}
-    \| u \|_{L^{\infty}(\Omega)} \le c \| u \|_{W^{s,p}(\Omega)}, \quad \forall u \in W^{s,p}(\Omega).
-  \end{equation*}
+给定有界的开放集$\Omega \subset \mathbb{R}^n$，则
+\begin{equation*}
+  W_0^{1,p}(\Omega) \subset L^{\frac{np}{n-p}}(\Omega), \quad n \ge 3, \,  1 \le p < n,
+\end{equation*}
+并且$W_0^{1,p}(\Omega)$被连续嵌入到空间$L^{\frac{n-p}{np}}(\Omega)$中，以下一组关系始终满足
+\begin{equation}
+  \label{eq:sobolev-embeddings-theorem-constant-def}
+  \big\| u \big\|_{L^{\frac{np}{n-p}}(\Omega)} \le C(n,p)\, \big\| D u \big\|_{L^{p}(\Omega)}, \forall u \in W_0^{1,p}(\Omega),
+\end{equation}
+其中$C(n,p) \in (0,+\infty)$是个和$n,p$有关的常数，$D f = \left( D^{e_1} u, \ldots, D^{e_n} u\right) \in L^p(\Omega) \times \ldots \times L^p(\Omega)$。
 \end{theorem}
 \begin{proof}
-  略。参考\cite[Theorem 1.4.6]{Brenner:2008hf}，\cite[Theorem 3.26]{McLean:2000ta}。
+  参考\cite[Theorem 1.4.6]{Brenner:2008hf}，\cite[Theorem 3.26]{McLean:2000ta}。
+
+\begin{enumerate}
+
+  \item 证明对于$\forall \, u \in C_0^{\infty}$来说，\eqref{eq:sobolev-embeddings-theorem-constant-def}成立。由广义霍德尔不等式(Definition \ref{definition:hoelder-inequality-generalization-def})我们有，如果存在方程$u(x) \in L^{p}(\Omega)$，满足$u_j(x) \in L^{p_j}(\Omega), j=1,\ldots,m$，并且$\sum_{j=1}^{m}\frac{1}{p_j} =1$，那么
+\begin{equation}
+  \label{eq:sobolev-embedding-theorem-generalize-hoelder-ineq}
+  \int_{\Omega} u_1(x) \ldots u_m(x) \, dx \le \big\| u_1 \big\|_{L^{p_1} (\Omega)} \ldots \big\| u_m \big\|_{L^{p_m} (\Omega)}
+\end{equation}
+
+\item 在$p=1$时，由$u \in C_0^{\infty}(\Omega)$可知，方程$u(x)$可以表示为下述积分形式
+\begin{equation*}
+  \begin{split}
+  &u(x) = \int_{-\infty}^{x_i} D^{e_i} u \left(
+  x_1, \ldots, x_{i-1}, t, x_{i+1}, \ldots, x_n
+  \right) \, dt, \\
+  \hookrightarrow & \big| u(x) \big| \le \int_{-\infty}^{x_i} \big| D^{e_i} u \big| \, dt \le \int_{-\infty}^{\infty} \big| D^{e_i} u \big| \, d x_i, \\
+  \hookrightarrow & \big| u(x) \big|^{n} \le \prod_{i=1}^{n} \int_{-\infty}^{\infty} \big| D^{e_i} u \big| \, d x_i,
+\end{split}
+\end{equation*}
+从而我们有
+\begin{equation}
+  \label{eq:sobolev-embedding-ux-partial-n-1}
+  \big| u(x) \big|^{\frac{n}{n-1}} \le \left(
+  \prod_{i=1}^{n} \int_{-\infty}^{\infty} \big| D^{e_i} u \big| \, d x_i
+  \right)^{\frac{1}{n-1}}.
+\end{equation}
+
+下面对数列$x = \left\{ x_i \right\}_{i=1}^{n}$求偏导。先从$x_1$开始，根据\eqref{eq:sobolev-embedding-ux-partial-n-1}我们有
+\begin{equation}
+  \label{eq:sobolev-embedding-ux-partial-n-1-x1}
+  \begin{split}
+    \int_{-\infty}^{\infty}  \big| u(x) \big|^{\frac{n}{n-1}} \, d x_1
+    & \le \int_{-\infty}^{\infty}
+    \left(
+    \prod_{i=1}^{n} \int_{-\infty}^{\infty} \big| D^{e_i} u \big| \, d x_i
+    \right)^{\frac{1}{n-1}}
+    \, dx_1 \\
+    & = \left(
+    \int_{-\infty}^{\infty} \big| D^{e_1} f \big| \, d x_i
+    \right)^{\frac{1}{n-1}} \,
+    \int_{-\infty}^{\infty}
+    \left(
+    \prod_{i=2}^{n} \int_{-\infty}^{\infty} \big| D^{e_i} u \big| \, d x_i
+    \right)^{\frac{1}{n-1}}
+    \, dx_1 \\
+    & \le \left(
+    \int_{-\infty}^{\infty} \big| D^{e_1} f \big| \, d x_i
+    \right)^{\frac{1}{n-1}} \,
+    \prod_{i=2}^{n}
+    \left(
+     \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \big| D^{e_i} u \big| \, d x_i \, dx_1
+    \right)^{\frac{1}{n-1}}.
+  \end{split}
+\end{equation}
+
+在\eqref{eq:sobolev-embedding-ux-partial-n-1-x1}的基础上，继续对$x_2,\ldots x_n$作偏导，可得
+\begin{equation}
+  \label{eq:sobolev-embedding-ux-partial-n-1-xn}
+  \int_{\mathbb{R}^n} \big| u(x) \big|^{\frac{n}{n-1}} \, d x
+  \le \left(
+  \prod_{i=1}^{n} \int_{\mathbb{R}^n} \big| D^{e_i} u \big| \, d x_i
+  \right)^{\frac{1}{n-1}}.
+\end{equation}
+
+\eqref{eq:sobolev-embedding-ux-partial-n-1-xn} $\Rightarrow$
+\begin{equation*}
+\label{eq:sobolev-embedding-ux-partial-n-1-xn-p1}
+  \begin{split}
+    \big\| u(x) \big\|_{L^{\frac{n}{n-1}}(\Omega)} & \le \left(
+    \prod_{i=1}^{n} \int_{\mathbb{R}^n} \big| D^{e_i} u \big| \, d x_i
+    \right)^{\frac{1}{n}} \\
+    &\le \int_{\Omega} \left( \sum_{i=1}^{n} \big|
+    D^{e_i} u
+    \big| \right) \, dx \\
+    & \le \frac{1}{\sqrt{n}} \, \int_{\Omega} \big| D u \big| \, dx \\
+    & = \frac{1}{\sqrt{n}} \, \big\| D u\big\|_{L^{1}(\Omega)}, \quad \forall u \in C_0^{\infty}(\Omega).
+  \end{split}
+\end{equation*}
+
+\item 下面考虑$1<p<n$的情况。已知$u \in C_0^{\infty}(\Omega)$，则用$\left| u \right|^{\gamma}, \gamma >1$代替\eqref{eq:sobolev-embedding-ux-partial-n-1-xn-p1}中的$u$，我们有
+\begin{equation}
+\label{eq:sobolev-embedding-ux-partial-n-1-xn-p1n}
+  \big\| \left| u \right|^{\gamma} \big\|_{L^{\frac{n}{n-1}}(\Omega)}  \le \frac{1}{\sqrt{n}} \, \int_{\Omega} \big| D \left| u \right|^{\gamma} \big| \, dx = \frac{\gamma}{\sqrt{n}} \, \int_{\Omega} \big| u \big| ^{\gamma -1} \, \big| D u \big| \, dx,
+\end{equation}
+设$\frac{1}{p}+\frac{1}{q}=1, \, p,q > 0$，由霍德尔不等式(Definition \ref{definition:hoelder-inequality-generalization-def})得，\eqref{eq:sobolev-embedding-ux-partial-n-1-xn-p1n}$ \Rightarrow$
+\begin{equation}
+  \label{eq:sobolev-embedding-ux-partial-n-1-xn-p1n-gamma}
+  \begin{split}
+    &\big\| \left| u \right|^{\gamma} \big\|_{L^{\frac{n}{n-1}}(\Omega)}
+    \le \frac{\gamma}{\sqrt{n}} \, \int_{\Omega} \big| u \big| ^{\gamma -1} \, \big| D u \big| \, dx
+    \le \frac{\gamma}{\sqrt{n}} \,
+    \Big\| \left| u \right|^{\gamma -1} \Big\|_{q} \,
+    \Big\| D u \Big\|_{p}, \\
+    \hookrightarrow &
+    \big\| \left| u \right| \big\|_{L^{\frac{\gamma n}{n-1}}(\Omega)}^{\gamma}
+    \le \frac{\gamma}{\sqrt{n}} \,
+    \Big\| \left| u \right| \Big\|_{L^{q (\gamma - 1)}(\Omega)}^{\gamma -1} \,
+    \Big\| D u \Big\|_{p}.
+  \end{split}
+\end{equation}
+
+下面选取$\gamma$的值，使得
+\begin{equation*}
+  \gamma \frac{n}{n-1} \equiv (\gamma - 1) q \Longrightarrow \gamma = \frac{p(n-1)}{n-p} \Longrightarrow \gamma \frac{n}{n-1} \equiv (\gamma - 1) q = \frac{np}{n-p},
+\end{equation*}
+代入\eqref{eq:sobolev-embedding-ux-partial-n-1-xn-p1n-gamma}，调整得
+\begin{equation*}
+  \big\| u \big\|_{L^{\frac{np}{n-p}}(\Omega)} \le \frac{\gamma}{\sqrt{n}} \, \big\| D u \|_{p}, \quad \forall u \in C_0^{\infty}(\Omega),
+\end{equation*}
+联系\eqref{eq:sobolev-embeddings-theorem-constant-def}可得$C(n,p)$的值
+\begin{equation*}
+  C(n,p)=\frac{np-n}{\sqrt{n} (n-p)}.
+\end{equation*}
+
+\item 前面的论证过程均假设$u \in C_0^{\infty}$。如果现在假设$u_{\ell} \in W^{1,p}_{0}(\Omega)$，则我们利用$u_m \in C_0^{\infty}(\Omega)$来近似$u_{\ell} \in W^{1,p}(\Omega)$，将$u_{\ell}-u_m$代入\eqref{eq:sobolev-embeddings-theorem-constant-def}中。可见$\{ u_m \} \in L^{\frac{np}{n-p}}(\Omega)$是一个柯西数列。因此我们也能证明$u_{\ell} \in L^{\frac{np}{n-p}}(\Omega)$，并且满足条件\eqref{eq:sobolev-embeddings-theorem-constant-def}。
+\end{enumerate}
+\end{proof}
+
+前面讨论的都是$k=1$时，$n,p$变化，$C=C(n,p)$。现在来将$k$的变化也考虑进来，$C=C(k,n,p)$。
+\begin{corollary}[索伯列夫空间的嵌入定理$C=C(k,n,p)$]
+如果$kp < n$，则索伯列夫空间$W_0^{k,p}(\Omega)$连续嵌入到$L^{\frac{np}{n-kp}}(\Omega)$中，对应常数$C(k,n,p)$满足
+\begin{equation}
+  \label{eq:sobolev-embedding-theorem-c-k-n-p}
+  \big\| u \big\|_{L^{\frac{np}{n-kp}}(\Omega)} \le C(k,n,p) \, \big\| u \big\|_{W^{k,p}_0(\Omega)}.
+\end{equation}
+\end{corollary}
+\begin{proof}
+假设$k p < n$，$u \in W_0^{k,p}(\Omega)$。
+
+\begin{enumerate}
+  \item 根据$D^{\alpha} u \in L^{p}(\Omega), \, \forall \, \left| \alpha \right| \le k$，从索伯列夫不等式可得，对于$|\beta| \le k-1$
+  \begin{equation*}
+    \big\| D ^{\beta} u \big\|_{L^{p^{*}}(\Omega)} \le C \, \big\| u \big\|_{W^{k,p}(\Omega)}, \quad p^{*} \coloneqq \frac{np}{n-p}
+  \end{equation*}
+  因此有$u \in W^{k-1,p^{*}}(\Omega)$。
+
+  \item 用类似的方法，我们可以进一步证明$u \in W^{k-2,p^{**}}(\Omega)$，对于$|\gamma| \le k-2$
+  \begin{equation*}
+    \big\| D ^{\gamma} u \big\|_{L^{p^{**}}(\Omega)} \le C \, \big\| u \big\|_{W^{k,p^{*}}(\Omega)}, \quad p^{**} \coloneqq \frac{1}{p^{*}} - \frac{1}{n} = \frac{1}{p} - \frac{2}{n}.
+  \end{equation*}
+  \item 以此类推，最终经过$k$次迭代后，我们得以证明，对于$u \in W^{0,q}(\Omega) = L^{q}(\Omega)$，\eqref{eq:sobolev-embedding-theorem-c-k-n-p}成立
+  \begin{equation*}
+    \big\| u \big\|_{L^{\frac{np}{n-kp}}(\Omega)} \le C \, \big\| u \big\|_{W^{k,p}_0(\Omega)}, \quad \frac{1}{q} = \frac{1}{p} - \frac{k}{n}.
+  \end{equation*}
+\end{enumerate}
+\end{proof}
+
+前面讨论的是将$W_0^{k,p}(\Omega)$嵌入到$L^{p}(\Omega)$中去。如果$\Omega$是一个$C^{k}-domain$，则我们可以利用延拓算子$E$，将索伯列夫嵌入定理从$W_0^{k,p}(\Omega)$延伸到$W^{k,p}(\Omega)$空间。
+
+即是说，如果$u \in W^{k,p}(\Omega)$，则可以考虑一个$E u \in W_0^{k,p}(\Omega')$，其中$\Omega'$是$\Omega$的延拓(extension)，$\Omega$是$\Omega'$的限制(restriction)：$\Omega' \supset \Omega$。进而，如果$kp < n$，那么$W_0^{k,p}(\Omega') \in L^{\frac{np}{n-kp}}(\Omega')$。
+
+因此$u$属于限制$\Omega$所对应的勒贝格空间：$u \in L^{\frac{np}{n-kp}}(\Omega)$。
+
+一方面在$\Omega$中我们有$E u = u$，另一方面根据$\Omega$的具体情况我们有$\big\| E u \big\|_{W^{k,p} (\Omega')} \le C \, \big\| u \big\|_{W^{k,p}(\Omega)}$。所以我们有
+\begin{corollary}[索伯列夫空间的嵌入定理$C=C(k,n,p,\Omega)$]
+设$\Omega \subset \mathbb{R}^n$是一个有界的$C^k-domain$。如果$kp < n$，一系列索伯列夫空间$W^{k,p}(\Omega)$被依次嵌入到对应的$L^{\frac{np}{n-kp}}(\Omega)$空间中去。这几是说，存在某个常数$C=C(k,n,p,\Omega)$，使得
+\begin{equation}
+  \label{eq:sobolev-embedding-theorem-c-k-n-p-omega}
+  \big\| u \big\|_{L^{\frac{np}{n-kp}}(\Omega)} \le C \, \big\| u \big\|_{W^{k,p}(\Omega)}, \quad \forall \, u \in W^{1,p}(\Omega).
+\end{equation}
+\end{corollary}
+\begin{proof}
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{索伯列夫空间的性质：范数等价}
+第二个性质是索伯列夫空间的范数等价定理(norm equivalence theorem of Sobolev)\index{norm equivalence theorem of Sobolev space}。先来介绍范数等价的定义，以及一般意义上的范数等价定理。
+\begin{definition}[范数等价]
+  \label{definition:equivalence-norm-def}
+  一个向量空间$V \in \mathbb{F}=\mathbb{R}或\mathbb{C}$中有两个范数$\| \cdot \|_a$和$\| \cdot \|_b$。范数等价(equivalence of norms)\index{equivalence of norms \dotfill 范数等价}是指，$\| \cdot \|_b$总是在$\| \cdot \|_a$的某乘数倍范围之内，换句话说：存在正常数$c,C$使得$\forall x \in V$，都满足
+  \begin{equation*}
+    c \, \|x\|_a \le \|x\|_b \le C \, \| x \|_a.
+  \end{equation*}
+\end{definition}
+
+\begin{theorem}[范数等价定理]
+\label{theorem:equivalence-norm-theorem}
+$\exists V \in \mathbb{F}^{\infty}$，其中$\nu_1, \ldots \nu_n$是$V$的基，$n$是$V$的维度。因此每个$x \in V$都有唯一的表现形式，如
+\begin{equation}
+  \label{eq:norm-equivalence-def}
+  x = \sum_{i=1}^{n} x_i \nu_i,
+\end{equation}
+上述内积形式中，$\left\{ \nu_i \right\}_{i=1}^{n}$是标准正交基，$\left\{ x_i \right\}_{i=1}^{n}$是一组关于$\left\{ \nu_i \right\}_{i=1}^{n}$的坐标(标量)。
+
+定义$V$中的范数为
+\begin{equation*}
+  \| x \|_{*} \coloneqq \max_{i=1,\ldots,n} \left| x_i \right|,
+\end{equation*}
+我们将有范数$  \| x \|_{*}$的$V$称为完整向量空间(complete)。
+
+则范数等价定理为：$V \in \mathbb{F}^{\infty}$中的所有范是等价的。
+\end{theorem}
+\begin{proof}
+  使$\| x \|$为$V$中任一范数。我们的目标是证明$  \| x \|$和$  \| x \|_{*}$等价，即存在常数$c,C$使得不等式\eqref{eq:norm-equivalence-def}成立。分两步来证明。
+
+  第一步来看对$\|x\| \le C \, \|x\|_{*}$的证明。根据定义我们有
+  \begin{equation*}
+    \begin{split}
+      \| x \| &= \big\| \sum_{i=1}^n x_i \nu_i \big\| \\
+      &\le \sum_{i=1}^{n} \big\| x_i \nu_i \big\| =\sum_{i=1}^{n} \left| x_i \right| \, \| \nu_i \| \\
+      &\le \underbrace{n \, \max_{i=1,\ldots,n} \| \nu_i \|}_{\text{常数}} \, \max_{i=1,\ldots,n} \left| x_i \right|
+    \end{split}
+  \end{equation*}
+
+设常数$C \coloneqq n \, \max_{i=1,\ldots,n} \| \nu_i \|$，则上式变为
+\begin{equation*}
+  \begin{split}
+    &\| x \| \le C \, \max_{i=1,\ldots,n} \left| x_i \right|, \\
+    \hookrightarrow & \| x \| \le C \, \| x \|_{*}.
+  \end{split}
+\end{equation*}
+
+第二步，来看$c \, \| x \|_{*} \le \| x \|$的证明。首先需要证明$S=\left\{ x: \| x \|_{*}=1 \right\}$是个紧密空间(compact space)，方法为证明$S$完整且完全有界(totally bounded)。
+
+完整性的证明：由三角不等式(Definition \ref{definition:triangle-inequality-def})得
+\begin{equation*}
+  \| x \|_{*} - \| y \|_{*} \le \| x-y \|_{*},
+\end{equation*}
+
+$\hookrightarrow$方程$x:x \mapsto \|x\|_{*}$是连续的。
+
+$\hookrightarrow$连续方程$x$构成的向量空间$S$是$V$中的封闭子集。
+
+$\hookrightarrow$已知$V$是个完整空间，$\therefore V$的封闭子集$S$也是个完整空间。
+
+完全有界的证明：设$\varepsilon >0$，选则常数$m > 1/\varepsilon$。因此，$S$被$O(m^d) < \infty$个球体$B$的集合所覆盖，这些球都是半径为$1/m$，范数为$\| \cdot \|_{*}$，表示为
+\begin{equation*}
+  B_{j_1,\ldots,j_n} \coloneqq \left\{
+  \sum_{i=1}^{n} x_i \nu_i : \frac{j_i}{m}-\varepsilon < x_i < \frac{j_i}{m} + \varepsilon, \quad i=1,\ldots,m, \quad j_i = -m, \ldots,m,
+  \right\}
+\end{equation*}
+
+$\therefore S$完全有界。
+
+其次，设方程$f(x)=\|x\|, x \in [0,\infty)$。对于$x \in S$，我们有$f(x)$也是一个连续方程，这是由于
+\begin{equation*}
+  \begin{split}
+    \big\| f(x) - f(y) \big\| & \le \big\| \|x\| - \|y\| \big\|\\
+    & \le \big\| x  - y \big\|\\
+    & \le C \, \big\| x - y \big\|_{*}
+    \end{split}
+\end{equation*}
+
+$\therefore$紧密空间$S$中的方程$f$有最小值。
+
+最后，由$x \in S$得，设$c \coloneqq \min_{x \in S} f(x) > 0$。$x \in S \Rightarrow \frac{x}{\| x \|_{*}} \in S \Rightarrow$
+\begin{equation*}
+  f \left( \frac{x}{\| x \|_{*}} \right) \equiv \Big\| \frac{x}{\| x \|_{*}} \Big\| \ge c,
+\end{equation*}
+$\therefore \|x \| \ge c \|x\|_{*}.$
 \end{proof}
 
 当$k=1,p=2$时，索伯列夫空间$W^{1,2}(\Omega)$的范数\eqref{eq:sobolev-space-norm-def}变为
@@ -1363,31 +1602,1148 @@ $H^s,p(\Omega)$可以是个限定方程$f$的集合$:H^{s,p}(\mathbb{R}^n) \maps
 \begin{equation*}
   \left| u \right|_{W^{1,2}(\Omega)} = \| \triangledown u \|_{L^{2}(\Omega)},
 \end{equation*}
-则我们有索伯列夫空间的范数等价原理(norm equivalence theorem of Sobolev)\index{norm equivalence theorem of Sobolev space}
-\begin{theorem}[索伯列夫空间的范数等价原理]
+则我们有索伯列夫空间的范数等价定理。
+
+\begin{theorem}[索伯列夫空间的范数等价定理]
+  \label{theorem:sobolev-equivalence-norm-theorem}
   设一个有界的线性方程$f:W^{1,2}(\Omega) \mapsto \mathbb{R}$，满足
   \begin{equation*}
-    0 \le \left| f(u) \right| \le c_f \big\| u \big\|_{W^{1,2}(\Omega)}, \quad \forall \nu \in W^{1,2}(\Omega),
+    0 \le \left| f(u) \right| \le c_f \big\| u \big\|_{W^{1,2}(\Omega)}, \quad \forall u \in W^{1,2}(\Omega),
   \end{equation*}
-\end{theorem}
-$c_f$是个常数。如果对于某个常数$\iota$，$f(\iota) = 0 \text{iff.} \iota \equiv 0$，那么在$W^{1,2}(\Omega)$空间中，所有满足上述条件的方程$f$的范数是等价的：
+$c_f >0$是个常数。如果对于某个常数$\iota$，$f(\iota) = 0 \, \text{iff.} \, \iota \equiv 0$，那么在$W^{1,2}(\Omega)$空间中，所有满足上述条件的方程$f$的范数是等价的：
 \begin{equation}
   \label{eq:sobolev-norm-equivalence-theorem}
   \big\| u \big\|_{W^{1,2}(\Omega), f} \coloneqq \left\{ \left| f(u) \right|^2 + \big\| \triangledown u \big\|_{L^{2}(\Omega)}^2 \right\}^{\frac{1}{2}}.
 \end{equation}
+\end{theorem}
 
 \begin{proof}
-  根据前提假定，$f$是一个线性有界方程，则
+  首先证明$f(u) \le c_f \big\| u \big\|_{L^{2}(\Omega)}$：根据前提假定，$f$是一个线性有界方程，则
+  \begin{equation*}
+      \big\| u \big\|_{W^{1,2}(\Omega), f}^2 = \underbrace{
+      \left| f(u) \right|^2}_{\le c_f^2 \big\| u \big\|^2_{W^{1,2}(\Omega) }} + \underbrace{\big\| \triangledown u \big\|^2_{L^{2}(\Omega)}}_{\le \big\| u \big\|^2_{W^{1,2}(\Omega)}} \le \left(1+c_f^2\right) \big\| u \big\|^2_{L^{2}(\Omega)},
+  \end{equation*}
+则我们有
+\begin{equation*}
+  f(u) \le c_f \big\| u \big\|_{L^{2}(\Omega)}.
+\end{equation*}
+
+
+  第二步，对$\left|f(u) \ge 0\right|$的证明，较为间接。已知$\nexists c_0$使得满足下述条件
+  \begin{equation*}
+    \| u \|_{W^{1,2}(\Omega)} \le c_0 \underbrace{\|u \|_{W^{1,2}(\Omega), f}}_{ \equiv \|f(u)\|},
+  \end{equation*}
+则假设存在一个数列$\{u_n\}_{n \in \mathbb{N}} \in W^{1,2}(\Omega)$，满足
+\begin{equation*}
+n \le \frac{
+\big\|u_n\big\|_{W^{1,2}(\Omega)}
+}{\big\|u_n\big\|_{W^{1,2}(\Omega),f}}.
+\end{equation*}
+
+把$\{u_n\}_{n \in \mathbb{N}}$标准化为$\left\{\bar{u}_n\right\}_{n \in \mathbb{N}}$
+\begin{equation*}
+  \left\{ \bar{u}_n \right\}_{n \in \mathbb{N}} \coloneqq \frac{
+  u_n
+  }{
+  \big\| u_n \big\|_{W^{1,2}(\Omega)}
+  },
+\end{equation*}
+从而使得我们有
+\begin{equation*}
+  \begin{split}
+    &\big\| \bar{u}_n \big\|_{W^{1,2}(\Omega)}=1,\\
+    &\big\| \bar{u}_n \big\|_{W^{1,2}(\Omega), f} =
+    \frac{
+    \big\| u_n \big\|_{W^{1,2}(\Omega), f}
+    }{
+    \big\| u_n \big\|_{W^{1,2}(\Omega)}
+    } \le \frac{1}{n},
+  \end{split}
+\end{equation*}
+
+那么随着$n \rightarrow \infty$，
+\begin{equation*}
+  \begin{split}
+    \lim_{n \rightarrow \infty} \big\| \bar{u}_n \big\|_{W^{1,2}(\Omega), f} = \lim_{n \rightarrow \infty} \big| f(\bar{u}_n) \big| \le \lim_{n \rightarrow \infty} \left( \frac{1}{n} \right) =0,
+  \end{split}
+\end{equation*}
+代回\eqref{eq:sobolev-norm-equivalence-theorem}有
+\begin{equation*}
+\begin{split}
+  &\lim _{\bar{u}_n \rightarrow \infty} \big\| u \big\|_{W^{1,2}(\Omega), f} = \lim_{n \rightarrow \infty} \left\{ \left| f(\bar{u}_n) \right|^2 + \big\| \triangledown \bar{u}_n \big\|_{L^{2}(\Omega)}^2 \right\}^{\frac{1}{2}} ,\\
+  \hookrightarrow & \lim_{n \rightarrow \infty} \big\| \triangledown \bar{u}_n \big\|_{L^2(\Omega)}=0.
+\end{split}
+\end{equation*}
+
+由于标准化数列$\left\{ \overline{u}_n \right\}_{n \in \mathbb{N}}$在$W^{1,2}(\Omega)$中有界，以及由于$W^{1,2}(\Omega) \hookrightarrow L^2{\Omega}$的嵌入是紧凑的，则$\exists$ 子数列 $\left\{ \overline{u}_n' \right\}_{n' \in \mathbb{N}}  \subset \left\{ \overline{u}_n \right\}_{n \in \mathbb{N}} $，在$L^2(\Omega)$中收敛。
+
+若是定义
+\begin{equation*}
+  \overline{u} \coloneqq \lim_{n' \rightarrow \infty}\overline{u}_{n'} \in L^{2}(\Omega),
+\end{equation*}
+则我们有
+\begin{equation*}
+  \begin{split}
+    & \overline{u} \in W^{1,2}(\Omega), \\
+    & \big\| \triangledown \overline{u} \big\|_{L^2(\Omega)} = 0,
+  \end{split}
+\end{equation*}
+换句话说，$\overline{u}$是个常数。此外
+\begin{equation*}
+  0 \le \big| f(\overline{u}) \big| = \big| f \left( \lim_{n' \rightarrow \infty}  \overline{u}_{n'} \right) \big| =  \lim_{n' \rightarrow \infty} \big| f(\overline{u}_{n'})\big| = 0.
+\end{equation*}
+
+已知$\overline{u}$是个常数，$f(\overline{u}) = 0$，则我们有$\overline{u}=0$。\footnote{然而需要注意的是，这里有
+\begin{equation*}
+\big\|  \overline{u} \big\|_{W^{1,2}(\Omega)} = \lim_{n' \rightarrow \infty} \big\| \overline{u}_{n'} \big|_{W^{1,2}(\Omega)} = 1.
+\end{equation*}}
+
+\begin{equation*}
+  \therefore \big| f\left(u\right) \big| \ge \big| f\left(\overline{u} \right)\big| = 0.
+\end{equation*}
+
+对应地，已知$W^{1,2}(\Omega),W^{1,2}(\Gamma)$中的等价范分别为
+\begin{equation}
+  \label{eq:sobolev-equivalence-norm-w12omega}
+  \begin{split}
+    &\big\| u \big\|_{W^{1,2}(\Omega), \Omega} \coloneqq \left\{
+    \left[
+    \int_{\Omega} u(x) \, dx
+    \right]^2
+    + \big\| \triangledown u \big\|^2_{L^2(\Omega)}
+     \right\}^{\frac{1}{2}}, \\
+     &\big\| u \big\|_{W^{1,2}(\Omega), \Gamma} \coloneqq \left\{
+     \left[
+     \int_{\Gamma} u(x) \, ds_x
+     \right]^2
+     + \big\| \triangledown u \big\|^2_{L^2(\Omega)}
+      \right\}^{\frac{1}{2}},
+  \end{split}
+\end{equation}
+那么$\mathring{W}^{1,2}(\Omega)$中的等价范为$\big\| \triangledown u \big\|_{L^2(\Omega)}$。
+\end{proof}
+
+下面需要介绍庞加莱不等式。
+\begin{theorem}[庞加莱不等式$(u \in W_0^{k,p}(\Omega))$]
+  \label{theorem:poincare-inequality-def}
+  设一个有界域$\Omega \subset \mathbb{R}^n$。则存在$C_p=C(p,n,M) > 0$，使得$\quad \forall \, u \in W_0^{k,p}(\Omega)$都满足庞加莱不等式(Poincaré inequality) \index{Poincaré inequality \dotfill 庞加莱不等式}
+  \begin{equation}
+    \label{eq:poincare-inequality-def}
+    \big\| u \big\| _{L^p(\Omega)} \le C_p \big\| \triangledown u \big\|_{L^p(\Omega)}.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+  \item 证明对于$\forall \, u \in C_0^{\infty}(\Omega)，$\eqref{theorem:poincare-inequality-def}成立。
+
+  \item 若$u \in W^{1,p}(\Omega)$，则从$u$中选取某一数列$\left\{ u_k \right\} \subset C_0^{\infty}(\Omega)$，使得该数列随着$k \rightarrow \infty$而在$W^{1,p}$范数上收敛至$u$，即
+  \begin{equation*}
+\begin{split}
+  &\lim_{k \rightarrow \infty} \big\| u_k - u \big\|_{L^p(\Omega)}  = 0, \\
+  &\lim_{k \rightarrow \infty} \big\| \triangledown u_k - \triangledown u \big\|_{L^p(\Omega)} =0.
+\end{split}
+  \end{equation*}
+
+上式等价于
+\begin{subequations}
+\begin{equation}
+  \label{eq:poincare-inequality-uk-u}
+\lim_{k \rightarrow \infty} \big\| u_k \big\|_{L^p(\Omega)}
+= \big\| u \big\|_{L^p(\Omega)},
+\end{equation}
+\begin{equation}
+  \label{eq:poincare-inequality-uk-u-delta}
+\lim_{k \rightarrow \infty} \big\| \triangledown u_k \big\|_{L^p(\Omega)}
+= \big\| \triangledown u \big\|_{L^p(\Omega)}。
+\end{equation}
+\end{subequations}
+
+\item 既然对于数列$\left\{ u_k \right\}$中的每一个$u_k$都满足\eqref{eq:poincare-inequality-def}，则我们有以下一组不等式成立
+\begin{equation*}
+  \big\| u_k \big\| _{L^p(\Omega)} \le C_p \big\| \triangledown u_k \big\|_{L^p(\Omega)}, \quad \forall \, u_k \in C_0^{\infty},
+\end{equation*}
+从而当$k \rightarrow \infty$时，\eqref{eq:poincare-inequality-def}对$\forall \, u \in C_0^{\infty}(\Omega)$都成立。
+\end{enumerate}
+
+基于上述思路，来看$C_p$的值。由于在$\Gamma=\partial \Omega$上有$u(\bm{x})=0$，以$u=0$为边界，由散度定理(divergence theorem, Theorem \ref{theorem:bvp-gauss-divergence-theorem})有
+\begin{equation}
+  \label{eq:sobolev-poincare-divergence-use}
+  \begin{split}
+    &\int_{\Omega \cap \left\{ u > 0 \right\}} div(u^p \bm{x}) \, d \bm{x} = 0,\\
+    &\int_{\Omega \cap \left\{ u < 0 \right\}} div(u^p \bm{x}) \, d \bm{x} = 0,
+  \end{split}
+\end{equation}
+其中
+\begin{equation*}
+  div(u^p \bm{x}) = p \, u \, \triangledown u \cdot \bm{x} + n u^p.
+\end{equation*}
+
+\eqref{eq:sobolev-poincare-divergence-use}$\Rightarrow$
+\begin{equation}
+  \begin{split}
+    &\int_{\Omega \cap \left\{ u > 0 \right\}} u^p d \bm{x} = - \frac{p}{n} \int_{\Omega \cap \left\{ u > 0 \right\}} u^{p-1} \triangledown u \cdot \bm{x} \, d \bm{x}, \\
+    &\int_{\Omega \cap \left\{ u > 0 \right\}} u^p d \bm{x} = - \frac{p}{n} \int_{\Omega \cap \left\{ u > 0 \right\}} u^{p-1} \triangledown u \cdot \bm{x} \, d \bm{x}.
+  \end{split}
+\end{equation}
+
+$\Omega$有界 $\Rightarrow M \coloneqq \max_{\bm{x} \in \Omega}  \left| \bm{x} \right| < \infty$，则由施瓦茨不等式(Schwarz inequality) \index{Schwarz inequality \dotfill 施瓦茨不等式}我们有
+\begin{equation*}
+\begin{split}
+    \int_{\Omega \cap \left\{ u > 0 \right\}} u^p \, d \bm{x} &=
+    \Big| \frac{p}{n} \int_{\Omega \cap \left\{ u > 0 \right\}} u^{p-1} \, \triangledown u \cdot \bm{x} \, d \bm{x} \Big| \\
+    &\le \frac{p M}{n}
+    \left(
+    \int_{\Omega \cap \left\{ u > 0 \right\}} \big| u^{p-1} \big|^q \, d \bm{x}
+    \right)^{\frac{1}{q}} \,
+    \left(
+    \int_{\Omega \cap \left\{ u > 0 \right\}} \big| \triangledown u \big|^p \, d \bm{x}
+    \right)^{\frac{1}{p}}\\
+    &\le \frac{p M}{n}
+    \left(
+    \int_{\Omega \cap \left\{ u > 0 \right\}} \big| u^{p} \big|^q \, d \bm{x}
+    \right)^{\frac{1}{q}} \,
+    \big\| \triangledown u \big\|_{L^P(\Omega \cap \left\{ u > 0 \right\})},
+\end{split}
+\end{equation*}
+类似地，我们也有
+\begin{equation*}
+  \int_{\Omega \cap \left\{ u < 0 \right\}} u^p \, d \bm{x} \le \frac{p M}{n}
+  \left(
+  \int_{\Omega \cap \left\{ u < 0 \right\}} \big| u^{p} \big|^q \, d \bm{x}
+  \right)^{\frac{1}{q}} \,
+  \big\| \triangledown u \big\|_{L^P(\Omega \cap \left\{ u < 0 \right\})}.
+\end{equation*}
+
+上两式代回\eqref{eq:poincare-inequality-def}，可得常数$C_p$的值
+\begin{equation*}
+  C_p = \frac{p M}{n}
+\end{equation*}
+\end{proof}
+
+上面的分析主要针对$u \in W^{k,p}_{0}(\Omega)$的情况。我们可以进一步将庞加莱不等式扩展到$u \in W^{k,p}(\Omega)$的分析中。
+\begin{corollary}[庞加莱不等式$(u \in W^{k,p}(\Omega))$]
+  \label{corollary:poincare-inequality-unbounded-def}
+  $k=1$时，由
+  \begin{equation*}
+    \big\| u \big\|_{W^{1,p}(\Omega)} = \big\| \triangledown u \big\|_{L^p(\Omega)},
+  \end{equation*}
+  可得
+  \begin{equation*}
+    \big\| u \big\|_{W^{1,p}(\Omega)} =
+    \left(
+    \big\| u \big\|^{p}_{L^p(\Omega)}
+    +\big\| \triangledown u \big\|^p_{L^p(\Omega)}
+    \right)^{\frac{1}{p}},
+  \end{equation*}
+  因此庞加莱不等式为
+  \begin{equation}
+    \label{eq:poincare-inequality-unbounded-def}
+    \big\| \triangledown u \big\|^p_{L^p(\Omega)} \
+    \le \big\| u \big\|_{W^{1,p}(\Omega)}
+    \le \left(C_p^p + 1 \right)^{\frac{1}{p}}
+    \big\| \triangledown u \big\|_{L^p(\Omega)}, \quad \forall \, u \in W^{1,p}(\Omega).
+  \end{equation}
+\end{corollary}
+
+\subsubsection{索伯列夫空间的Bramble-Hilbert引理}
+\label{sec:sobolev-bramble-hilbert-lemma}
+第三个特征是索伯列夫空间的Bramble-Hilbert引理，它有助于我们分析(分段)多项式试探空间(trial space)的近似属性\citep[Sec 2.3.1]{Jovanovic:2014iy}。
+
+则根据庞加莱不等式\eqref{theorem:poincare-inequality-def}，等价范\eqref{eq:sobolev-equivalence-norm-w12omega}可以改写为
+\begin{equation}
+  \label{eq:sobolev-poincare-inequality}
+  \int_{\Omega} \big| u(x) \big|^2 \, dx  \le c_P \left\{
+  \left[
+  \int_{\Omega} u(x) \, dx
+  \right]^2
+  + \int_{\Omega} \left| \triangledown u(x) \right|^2 \, dx
+  \right\}, \quad \forall \, u \in W^{1,2}(\Omega).
+\end{equation}
+
+则我们有Bramble-Hilbert引理(Bramble-Hilbert Lemma)\index{Bramble-Hilbert Lemma \dotfill Bramble-Hilbert引理}
+\begin{lemma}[Bramble-Hilbert引理]
+  \label{lemma:bramble-hilbert-lemma}
+  设$k \in \mathbb{N}_0$，一个有界线性泛函$f:W^{k+1,2}(\Omega) \mapsto \mathbb{R}$满足
+  \begin{equation*}
+    \left| f(\nu) \right| \le c_f \, \| \nu \|_{W^{k+1,2}(\Omega)}, \quad \forall \, \nu \in W^{k+1,2}(\Omega).
+  \end{equation*}
+
+用$\mathcal{P}(\Omega)$表示所有在$\Omega$中定义的$k$次多项式。如果以下条件得到满足
+\begin{equation*}
+  f(q) = 0, \quad \forall \, q \in \mathcal{P}(\Omega),
+\end{equation*}
+那么我们可得
+\begin{equation}
+  \label{eq:bramble-hilbert-lemma}
+  \big| f(\nu) \big| \le C(C_p) \, C_f \, \big| \nu \big|_{W^{k+1},2}(\Omega),
+\end{equation}
+其中$C(C_p)$是一个与庞加莱不等式\eqref{eq:sobolev-poincare-inequality}中系数$C_p$有关的常数。
+\end{lemma}
+\begin{proof}
+  以$k=1$的情况为例做出证明($k >1$的情况，证明过程与之相似)，对应$\mathcal{P}_{1}(\Omega)$是在$\Omega$中定义的线性方程空间。此时我们有
+  \begin{equation*}
+    \big| f(\nu) \big| = \big| f(\nu) + f(q) \big| = \big| f(\nu + q) \big| \le C_f \big\| \nu + q \big\|_{W^{2,2}(\Omega)},
+  \end{equation*}
+  其中最后一个不等式来自于庞加莱不等式\eqref{eq:sobolev-poincare-inequality}。
+
+由索伯列夫空间的定义有
+\begin{equation*}
+\begin{split}
+    \big\| \nu + q \big\|_{W^{2,2}(\Omega)}^2 &=
+    \big\| \nu + q \big\|_{L^{2}(\Omega)}^2
+    + \big| \nu + q \big|_{W^{1,2}(\Omega)}^2
+    + \big| \nu + q \big|_{W^{2,2}(\Omega)}^2 \\
+    &= \big\| \nu + q \big\|_{L^{2}(\Omega)}^2
+    + \big\| \triangledown \left( \nu + q \right) \big\|_{L^{2}(\Omega)}^2
+    + \big| \nu \big|_{W^{2,2}(\Omega)}^2,
+\end{split}
+\end{equation*}
+其中最后一个等式，根据线性方程$q(x) \in \mathcal{P}_{1}(\Omega)$的二阶导数为0。再次使用庞加莱不等式\eqref{eq:sobolev-poincare-inequality}，上式变为
+\begin{equation}
+  \label{eq:bramble-hilbert-middle-vq}
+  \begin{split}
+    \big\| \nu + q \big\|_{W^{2,2}(\Omega)}^2
+    &=\big\| \nu + q \big\|_{L^{2}(\Omega)}^2
+    + \big\| \triangledown \left( \nu + q \right) \big\|_{L^{2}(\Omega)}^2
+    + \big| \nu \big|_{W^{2,2}(\Omega)}^2 \\
+    & \le C_p \left\{
+    \left[ \int_{\Omega} \left( \nu + q \right) \right]^2
+    + \big\| \triangledown \left( \nu + q \right) \big\|_{L^{2}(\Omega)}^2
+    \right\}
+    + \big\| \triangledown \left( \nu + q \right) \big\|_{L^{2}(\Omega)}^2
+    + \big| \nu \big|_{W^{2,2}(\Omega)}^2 \\
+    &= C_p \left[ \int_{\Omega} \left( \nu + q \right) \right]^2
+    +\left( 1+C_p \right) \underbrace{\big\| \triangledown \left( \nu + q \right) \big\|_{L^{2}(\Omega)}^2}
+    +\big| \nu \big|_{W^{2,2}(\Omega)}^2,
+  \end{split}
+\end{equation}
+对划线标记部分再次使用庞加莱不等式，有
+\begin{equation*}
+  \begin{split}
+    \big\| \triangledown \left( \nu + q \right) \big\|_{L^{2}(\Omega)}^2
+    &= \sum_{i=1}^{d} \int_{\Omega} \Big| \frac{\partial}{\partial x_i} \left[ \nu(x) + q(x) \right] \Big|^2 \, dx\\
+    & \le C_p \sum_{i=1}^{d} \left\{
+    \left[
+    \int_{\Omega} \frac{\partial}{\partial x_i} \left[ \nu(x) + q(x) \right]  \, dx
+    \right]^2
+    + \sum_{j=1}^{d} \int_{\Omega}
+    \left[
+    \frac{
+    \partial^2
+    }{
+    \partial x_i \, \partial x_j
+    }
+    \left[ \nu(x) + q(x) \right]
+    \right]^2 \, dx
+    \right\}\\
+    &= C_p \sum_{i=1}^{d} \left[
+    \int_{\Omega} \frac{
+    \partial
+    }{
+    \partial x_i
+    }
+    \left[ \nu(x) + q(x) \right] \, dx
+    \right]^2
+    + C_p \sum_{i=1}^{d} \sum_{j=1}^{d} \int_{\Omega}
+    \left[
+    \frac{
+    \partial^2
+    }{
+    \partial x_i \, \partial x_j
+    }
+    \left[ \nu(x) + q(x) \right]
+    \right]^2 dx \\
+    &= C_p \sum_{i=1}^{d} \left[
+    \int_{\Omega} \frac{
+    \partial
+    }{
+    \partial x_i
+    }
+    \left[ \nu(x) + q(x) \right] \, dx
+    \right]^2
+    + C_p \big| \nu \big|^2_{W^{2,2}(\Omega)},
+  \end{split}
+\end{equation*}
+代回\eqref{eq:bramble-hilbert-middle-vq}变为
+
+\begin{equation}
+  \label{eq:bramble-hilbert-middle-vqq}
+  \begin{split}
+    \big\| \nu + q \big\|_{W^{2,2}(\Omega)}^2 \le & C_p \left[ \underbrace{
+    \int_{\Omega} \left( \nu(x) + q(x) \right) dx
+    }
+    \right]^2
+    + \left[ \left( 1 + C_p \right) C_p \right] \sum_{i=1}^{d} \left[
+    \underbrace{
+    \int_{\Omega} \frac{
+    \partial
+    }{
+    \partial x_i
+    }
+    \left[ \nu(x) + q(x) \right] \, dx
+    }
+    \right]^2 \\
+    &+ \left[ 1 + \left( 1 + C_p \right) C_p \right]
+    \big| \nu \big|^2_{W^{2,2}(\Omega)}.
+  \end{split}
+\end{equation}
+
+给定$u(x) = \nu(x) + q(x) $，Bramble-Hilbert引理\eqref{eq:sobolev-poincare-inequality}若要成立，需要在\eqref{eq:bramble-hilbert-middle-vqq}中，通过选择$q(x) \in \mathcal{P}_{1}(\Omega)$的值，使得满足下两个条件
+\begin{subequations}
+  \begin{equation}
+    \label{eq:bramble-hilbert-middle-q0}
+    \int_{\Omega} \left[ \nu(x) + q(x) \right] dx=0,
+  \end{equation}
+  \begin{equation}
+    \label{eq:bramble-hilbert-middle-q1}
+    \int_{\Omega} \frac{
+    \partial
+    }{
+    \partial x_i
+    }
+    \left[ \nu(x) + q(x) \right] \, dx=0.
+  \end{equation}
+\end{subequations}
+
+这涉及到系数$a_0$和$a_i, i=1,\ldots,d$的值
+\begin{equation*}
+  q(x) = a_0 + \sum_{i=1}^{d} a_i x_i.
+\end{equation*}
+
+\eqref{eq:bramble-hilbert-middle-q1} $\Rightarrow$
+\begin{equation*}
+  \begin{split}
+    &\int_{\Omega} \frac{\partial}{\partial x_i} \nu(x) \, dx
+    + \int_{\Omega} \frac{\partial}{\partial x_i} q(x) \, dx
+    = 0, \\
+    \hookrightarrow &
+    \int_{\Omega} \frac{\partial}{\partial x_i} \nu(x) \, dx
+    + \left| \Omega \right| a_i = 0, \\
+    \hookrightarrow &
+    a_i = - \frac{1}{\left| \Omega \right|} \int_{\Omega} \frac{\partial}{\partial x_i} \nu(x) \, dx, \quad i = 1,\ldots,d.
+  \end{split}
+\end{equation*}
+
+\eqref{eq:bramble-hilbert-middle-q1}$\Rightarrow$
+\begin{equation*}
+  \begin{split}
+    &\int_{\Omega} \left[\nu(x)  +  a_0 + \sum_{i=1}^{d} a_i x_i \right] \, dx = 0, \\
+    \hookrightarrow &
+    + \left| \Omega \right| a_0 +  \int_{\Omega} \left[\nu(x)  +  \sum_{i=1}^{d} a_i x_i \right] \, dx = 0, \\
+    \hookrightarrow & a_0 = - \frac{1}{\left| \Omega \right|} \int_{\Omega} \left[\nu(x)  +  \sum_{i=1}^{d} a_i x_i \right] \, dx.
+  \end{split}
+\end{equation*}
+
+对于$k \in \mathbb{N}$的情况，证明过程同上。
+\end{proof}
+
+%!TEX root = ../DSGEnotes.tex
+
+\subsubsection{索伯列夫空间的分布}
+\label{sec:sobolev-space-distributions}
+由第\ref{sec:generalized-integration}节的介绍可见，并不是$L^{loc}(\Omega)$中的所有方程都有广义偏导数。然而可以从分布的角度来重新解读广义偏导数\citep{McLean:2000ta}。
+
+\begin{definition}[分布]
+  \label{definition:sobolev-distribution-def}
+  对于$\Omega \subseteq \mathbb{R}^d$，定义一个试探空间(test space)\index{test space \dotfill 试探空间} $\mathcal{D}(\Omega) \coloneqq C_0^{\infty}(\Omega)$，空间中的一个复值连续线性泛函$T \in \mathcal{D}(\Omega)$可以称为一个分布(distribution)\index{distribution \dotfill 分布}。$T$在$\mathcal{D}(\Omega)$中连续，是指对于$x \in \Omega$中的任何$\varphi_{k}(x) \rightarrow \varphi(x)$，
+  总有$\mathcal{D}'(\Omega)$中的$T(\varphi_k) \rightarrow T(\varphi)$；$\mathcal{D}'(\Omega) \subset \mathcal{D}(\Omega)$表示$\mathcal{D}(\Omega)$空间中，所有分布的集合。
+
+  对于$x \in \Omega, u(x) \in L^{1,loc}(\Omega)$，分布常常定义为
+  \begin{equation}
+    \label{eq:sobolev-distribution-regular-def}
+    T_u(\varphi) \coloneqq \int_{\Omega} u(x) \varphi(x) \, dx, \quad \varphi \in \mathcal{\phi}(\Omega).
+  \end{equation}
+
+  符合\eqref{eq:sobolev-distribution-regular-def}形式的分布，又称正则分布(regular distribution)\index{distribution!regular \dotfill 正则分布}。
+
+  正则分布中，局部可积方程$u(x) \in L^{1,loc}(\Omega)$由子集空间$\mathcal{D}'(\Omega)$予以识别。因此，$T_u(\varphi) \in \mathcal{D}'(\Omega)$有时也简写为$u \in \mathcal{D}'(\Omega)$。
+
+  不符合正则类型的分布，称为奇异分布(singular distribution)\index{distribution!singular \dotfill 奇异分布}。一种奇异分布的例子是狄拉克分布(Dirac distribution)\index{Dirac distribution \dotfill 狄拉克分布}：
+  \begin{equation*}
+    \label{eq:sobolev-distribution-dirac-distribution-def}
+    \delta_{x_0}(\varphi) = \varphi(x_0), \quad x_0 \in \Omega, \, \varphi \in \mathcal{D}(\Omega).
+  \end{equation*}
+\end{definition}
+
+现在我们回到式\eqref{eq:sobolev-distribution-sgnx}，来看如何计算$u(x)$的广义偏导数$\nu(x) \coloneqq \frac{\partial u(x)}{\partial x} = \sgn(x)$。根据分部积分法有
+\begin{equation*}
+  \int_{-1}^{1} \nu(x) \frac{\partial
+  }{\partial x} \varphi(x) \, dx = -2 \varphi(0) = - \int_{-1}^{1} \frac{\partial}{\partial x}\nu(x) \varphi(x) \, dx, \quad \forall \varphi(x) \in \mathcal{D}(\Omega),
+\end{equation*}
+可见分布意义上的$\nu(x)$的广义偏导数变为
+\begin{equation*}
+  \frac{\partial}{\partial x}\nu(x) = 2 \varphi(0) = \delta_{0}(\varphi) \in \mathcal{D}'(\Omega),
+\end{equation*}
+更高阶的广义偏导数为
+\begin{equation*}
+  \left( D^{\alpha} T_u  \right)(\varphi) = (-1)^{\left| \alpha \right|} T_u \left( D^{\alpha} \varphi \right), \quad \varphi \in \mathcal{D}(\Omega).
+\end{equation*}
+
+在掌握了分布的基本概念之后，下面介绍在满足一些关于$\Omega$的正则条件假设的情况下，$H^{s}(\Omega)$空间近似等价于$W^{s,2}(\Omega)$空间，其中$H^{s}(\Omega)$的基是分布的傅里叶变换。我们从急减方程(rapidly decreasing functions)空间$\mathcal{S} \left( \mathbb{R}^d \right)$开始，进而介绍傅里叶变换。
+
+\begin{definition}[急减方程空间]
+  我们将满足以下形式的方程$\varphi(x) \in C^{\infty}(\mathbb{R}^d)$称为急减方程(rapidly decreasing function)\index{rapidly decreasing function \dotfill 急减方程}:
+  \begin{equation*}
+    \big\|  \varphi \big\|_{k,\ell} \coloneqq
+    \sup_{x \in \mathbb{R}^d} \left( \left| x  \right|^k  \right)
+    \sum_{\left| \alpha \right| \le \ell } \big| D^{\alpha} \varphi(x) \big| < \infty, \quad k,\ell \in \mathbb{N}_0,
+  \end{equation*}
+  即是说，急减方程$\varphi(x)$和它的导数，比任意多项式的减速更快。
+
+  急减方程组成的空间，称为急减空间(rapidly decreasing space)\index{rapidly decreasing space \dotfill 急减空间}，表示为$\mathcal{S}(\mathbb{R}^b)$。
+
+  类似于$\mathcal{D}'(\Omega) \subset \mathcal{D}(\Omega)$，我们定义缓增分布空间(tempered distribution space)\index{tempered distribution space \dotfill 缓增分布空间} $\mathcal{S}'(\mathbb{R}^d) \subset \mathcal{S}(\mathbb{R}^d)$，作为全部复值线性泛函$T \in \mathcal{S}(\mathbb{R}^{d})$组成的子集。
+\end{definition}
+
+举例来说，对于方程$\varphi(x) \coloneqq \exp(- \left| x \right|^2)$，我们有
+\begin{equation*}
+    \varphi \in \mathcal{S}(\mathbb{R}^d), \quad \varphi \notin \mathcal{D}(\Omega) = C_0^{\infty}(\mathbb{R}^d).
+\end{equation*}
+
+\begin{definition}[傅里叶变换]
+  对于方程$\varphi(x) \in \mathcal{S}(\mathbb{R}^d)$，我们将傅里叶变换(Fourier transform)\index{Fourier transform! \dotfill 傅里叶变换} $\widehat{\varphi}(x) \in \mathcal{S}(\mathbb{R}^d)$ 定义如下
+  \begin{equation}
+    \label{eq:sobo-distri-fourier-transform-def}
+    \widehat{\varphi}(\xi) \coloneqq \left( \mathcal{F} \varphi \right)(\xi) =
+    \left( 2 \pi \right)^{-\frac{d}{2}} \int_{\mathbb{R}^d}
+    \exp \left[ - i \, \langle x, \xi \rangle \right] \,
+    \varphi(x) \, dx, \quad \xi \in \mathbb{R}^d,
+  \end{equation}
+  其中$\mathcal{F}$是可逆映射$\mathcal{F}:\mathcal{S}(\mathbb{R}^d) \mapsto \mathcal{S}(\mathbb{R}^d)$。
+
+  对应地，逆傅里叶变换(inverse Fourier transform)\index{Fourier transform!inverse \dotfill 逆傅里叶变换}为
+  \begin{equation}
+    \label{eq:sobo-distri-inverse-fourier-transform-def}
+    \left( \mathcal{F}^{-1} \widehat{\varphi} \right)(x) =
+    \left( 2 \pi \right)^{-\frac{d}{2}} \int_{\mathbb{R}^d}
+    \exp \left[ i \, \langle x, \xi \rangle \right] \,
+    \widehat{\varphi}(\xi) \, dx, \quad x \in \mathbb{R}^d.
+  \end{equation}
+
+通常来说，$\varphi \in \mathcal{D}(\mathbb{R}^d)$并不必然意味着$\widehat{\varphi} \in \mathcal{D}(\mathbb{R}^d)$。
+
+此外对于$\varphi \in \mathcal{S}(\mathbb{R}^d)$，我们进一步有
+\begin{subequations}
+  \begin{equation}
+  \label{eq:sobolev-distribution-fourier-higher-order-f}
+  D^{\alpha} \left( \mathcal{F} \varphi \right)(\xi) = (-i)^{\left| \alpha \right|} \mathcal{F}\left( x^{\alpha} \varphi \right) (\xi),
+\end{equation}
+\begin{equation}
+  \label{eq:sobolev-distribution-fourier-higher-order-xi}
+  \xi^{\alpha} \left( \mathcal{F} \varphi \right)(\xi) = (-i)^{\left| \alpha \right|} \mathcal{F} \left( D^{\alpha} \varphi \right) (\xi).
+\end{equation}
+\end{subequations}
+\end{definition}
+
+\begin{lemma}[傅里叶变换的旋转对称]
+  傅里叶变换保持旋转对称结构(rotational symmetries)\index{Fourier transform!rotational symmetries \dotfill 傅里叶变换的旋转对称}，即对于$u \in \mathbb{R}^d$，我们有
+  \begin{equation*}
+    \widehat{u}(\xi) = \widehat{u}(\left| \xi \right|), \forall \, \xi \in \mathbb{R}^{d}, \quad \text{iff. } \, u(x) = u(\left| x \right|), \forall \, x \in \mathbb{R}^d.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  先来看$d=2$的证明，对应极坐标系(polar coordinates)\index{polar coordinate system \dotfill 极坐标系}
+  \begin{equation*}
+    \xi = \begin{pmatrix}
+    \left| \xi \right| \, \cos \psi \\
+    \left| \xi \right| \, \sin \psi
+    \end{pmatrix},
+    \quad
+    x = \begin{pmatrix}
+    r \, \cos \phi \\
+    r \, \sin \phi
+    \end{pmatrix}.
+  \end{equation*}
+
+根据\eqref{eq:sobo-distri-fourier-transform-def}我们有
+\begin{equation}
+  \label{eq:sobo-fourier-transform-symmetry-2d-0}
+\begin{split}
+  \widehat{u} \left( \xi \right) &= \widehat{u}\left( \left| \xi \right|, \psi \right) \\
+  &=\frac{1}{2\pi} \int_{0}^{\infty} \int_{0}^{2 \pi}
+  \exp \left\{
+  - i \, r \, \left| \xi \right| \,
+  \left[
+  \cos \phi \, \cos \psi + \sin \phi \, \sin \psi
+  \right]
+  \right\} \,
+  u(r) \, r \, d \phi \, d r \\
+  &=\frac{1}{2\pi} \int_{0}^{\infty} \underbrace{\int_{0}^{2 \pi}
+  \exp \left\{
+  - i \, r \, \left| \xi \right| \,
+  \left[
+  \cos \left( \phi - \psi \right)
+  \right]
+  \right\} \,
+  u(r) \, r \, d \phi}_{\coloneqq \mathcal{A}} \, d r.
+\end{split}
+\end{equation}
+
+现在将坐标旋转$\psi_0 \in [0, 2 \pi]$度，变为$\psi + \psi_0$，定义$\widetilde{\phi} \coloneqq \phi - \psi_0$，  \eqref{eq:sobo-fourier-transform-symmetry-2d-0}变为
+\begin{equation}
+  \label{eq:sobo-fourier-transform-symmetry-2d-1}
+  \begin{split}
+    \widehat{u}\left(\left| \xi \right|, \psi + \psi_0 \right) &=
+    \frac{1}{2\pi} \int_{0}^{\infty} \int_{0}^{2 \pi}
+    \exp \left\{
+    - i \, r \, \left| \xi \right| \,
+    \left[
+    \cos \left( \phi - \psi_0 - \psi \right)
+    \right]
+    \right\} \,
+    u(r) \, r \, d \phi \, d r \\
+    &= \frac{1}{2\pi} \int_{0}^{\infty} \underbrace{\int_{-\psi_0}^{2 \pi - \psi_0}
+    \exp \left\{
+    - i \, r \, \left| \xi \right| \,
+    \left[
+    \cos \left( \widetilde{\phi} - \psi \right)
+    \right]
+    \right\} \,
+    u(r) \, r \, d \widetilde{\phi} }_{\coloneqq \mathcal{B}}\, d r
+  \end{split}
+\end{equation}
+
+比较上两式
+\begin{equation}
+\label{eq:sobo-fourier-transform-symmetry-2d-2}
+\begin{split}
+  & \int_{-\psi_0}^{0} \exp
+  \left[
+  - i \, r \, \left| \xi \right| \, \cos \left( \widetilde{\phi} - \psi \right)
+  \right] \, d \widetilde{\phi}
+  = \int_{2 \pi - \psi_0}^{2 \pi} \exp
+  \left[
+  - i \, r \, \left| \xi \right| \, \cos \left( \widetilde{\phi} - \psi \right)
+  \right] \, d \widetilde{\phi}, \\
+  \hookrightarrow & \mathcal{A} = \mathcal{B},\\
+  \hookrightarrow & \widehat{u}\left( \left| \xi \right|, \psi \right)
+  = \widehat{u} \left( \left| \xi \right|, \psi+\psi_0 \right), \quad \forall \psi_0 \in [0, 2\pi], \\
+  \hookrightarrow  & \widehat{u}(\xi) = \widehat{u} \left( \left| \xi \right| \right).
+\end{split}
+\end{equation}
+
+再来看$d=3$的证明，对应三维坐标系(spherical coordinates)\index{spherical coordinate system \dotfill 三维坐标系}
+\begin{equation*}
+  \xi = \begin{pmatrix}
+  \left| \xi \right| \, \cos psi \, \sin \vartheta\\
+  \left| \xi \right| \, \sin psi \, \sin \vartheta\\
+  \left| \xi \right| \, \cos \vartheta
+  \end{pmatrix}, \quad
+  x = \begin{pmatrix}
+  r \, \cos \phi \, \sin \theta \\
+  r \, \sin \phi \, \sin \theta \\
+  r \, \cos \theta
+  \end{pmatrix}.
+\end{equation*}
+
+根据\eqref{eq:sobo-distri-fourier-transform-def}我们有
+\begin{equation*}
+\begin{split}
+  \widehat{u} \left( \left| \xi \right|, \psi, \vartheta \right)
+  = \frac{1}{\left( 2 \pi \right)^{\frac{3}{2}}}
+  \int_{0}^{\infty} \int_{0}^{2 \pi} \int_{0}^{\pi}
+  & \exp \left\{
+  - i \, r \, \left| \xi \right| \,
+  \left[
+  \cos (\phi - \psi) \, \sin \theta \, \sin \vartheta
+  + \cos \theta \, \cos \vartheta
+  \right]
+  \right\} \, \\
+  & u(r) \, r^2 \, \sin \theta \, d \theta \, d \phi \, dr.
+\end{split}
+\end{equation*}
+
+由$d=2$时证得的\eqref{eq:sobo-fourier-transform-symmetry-2d-2}，我们有
+\begin{equation*}
+  \widehat{u} \left( \left| \xi \right|, \psi + \psi_0, \vartheta \right) = \widehat{u} \left( \left| \xi \right|, \psi , \vartheta \right), \quad \forall \, \psi_0 \in [0,2 \pi).
+\end{equation*}
+
+给定半径$\varrho$和一个$\vartheta \in [0,\pi)$，我们有$\widehat{u}(\xi) = \widehat{u} \left( \left| \xi \right| \right) = \widehat{u}(\varrho)$
+\begin{equation*}
+  \begin{split}
+  &\xi_1^2 + \xi_2^2 = \varrho^2 \sin^2 \vartheta,\\
+  &\xi_3 = \varrho \cos \vartheta.
+  \end{split}
+\end{equation*}
+
+对原三维坐标作变形，我们有$\widehat{u}(\xi) = \widehat{u}(\varrho)$
+\begin{equation*}
+  \begin{split}
+    & \xi_1^2 + \xi_3^2 = \varrho^2 \sin^2 \vartheta, \\
+    & \xi_2 = \varrho \cos \vartheta.
+  \end{split}
+\end{equation*}
+\end{proof}
+
+\begin{definition}[分布的傅里叶变换]
+  \label{definition:distribution-fourier-transform}
+  对于某一个缓增分布空间中的分布$T \in \mathcal{S}'(\mathbb{R}^d)$，其傅里叶变换$\widehat{T} \in \mathcal{S}'(\mathbb{R}^d)$可定义如下
+  \begin{equation*}
+    \widehat{T}(\varphi) \coloneqq T(\widehat{\varphi}), \quad \varphi \in \mathcal{S}(\mathbb{R}^d).
+  \end{equation*}
+
+  从$\mathcal{F}:\mathcal{S}'(\mathbb{R}^d) \mapsto \mathcal{S}(\mathbb{R}^d)$是一个可逆映射，逆傅里叶变换定义为
+  \begin{equation*}
+    \left( \mathcal{F}^{-1} T \right) (\varphi) \coloneqq T \left(\mathcal{F}^{-1} \varphi \right), \quad \varphi \in \mathcal{S}(\mathbb{R}^d).
+  \end{equation*}
+
+  分布的傅里叶变换，也满足\eqref{eq:sobolev-distribution-fourier-higher-order-f}-\eqref{eq:sobolev-distribution-fourier-higher-order-xi}。
+\end{definition}
+
+\begin{definition}[贝塞尔位势空间]
+  \label{definition:bessel-potential-space}
+对于$s \in \mathbb{R}, u \in \mathcal{S}(\mathbb{R}^d)$，定义一个有界的线性贝塞尔位势算子(Bessel potential operator)\index{Bessel potential operator \dotfill 贝塞尔位势算子} $\mathcal{J}: \mathcal{S}(\mathbb{R}^d) \mapsto \mathcal{S}(\mathbb{R}^d)$
+\begin{equation}
+  \label{eq:bessel-potential-operator-def}
+  \mathcal{J}^s u(x) \coloneqq \left( 2 \pi \right)^{- \frac{d}{2}}
+  \int_{\mathbb{R}^d}
+  \left( 1 + \left| \xi \right|^2 \right)^{\frac{s}{2}}
+  \widehat{u}(\xi)
+  \exp \left[ i \, \langle x, \xi \rangle \right] \, d \xi, \quad x \in \mathbb{R}^d.
+\end{equation}
+\end{definition}
+由傅里叶变换可得
+\begin{equation*}
+  \left( \mathcal{F} \mathcal{J}^s u \right)(\xi) = \underbrace{\left(
+  1 + \left| \xi \right|^2
+  \right)^{\frac{s}{2}}}
+  \left( \mathcal{F} u \right)(\xi),
+\end{equation*}
+可见在傅里叶空间中，$\mathcal{J}^s$执行的操作近似于傅里叶乘子(Fourier multiplier)，即对原式乘以一个与$\left| \xi \right|^s$有关的方程$\mathcal{O} \left( \left| \xi \right|^s \right)$。从这个意义上来讲，类似于\eqref{eq:sobolev-distribution-fourier-higher-order-xi}，我们可以将贝塞尔算子$\mathcal{J}^s$ 近似看做$s$阶微分符号。
+
+\begin{definition}[分布意义上的索伯列夫空间]
+  \label{definition:sobo-distribution-def}
+  在缓增分布空间(tempered distribution space) $\mathcal{S}'(\mathbb{R}^d)$中，给定分布$T \in \mathcal{S}'(\mathbb{R}^d)$。定义有界线性算子$\mathcal{J}^s: \mathcal{S}'(\mathbb{R}^d) \mapsto \mathcal{S}'(\mathbb{R}^d)$
+  \begin{equation*}
+  \left( \mathcal{J}^s T \right)(\varphi) \coloneqq T \left( \mathcal{J}^s \varphi \right), \quad \varphi \in \mathcal{S}(\mathbb{R}^d).
+  \end{equation*}
+
+  进而，分布意义上的索伯列夫空间$H^s(\mathbb{R}^d)$可以表示为，由全部分布$\nu \in \mathcal{S}'(\mathbb{R}^d)$所组成的内积空间，其中$\nu$满足$ \mathcal{J}^s \nu \in L^2(\mathbb{R}^d)$，内积形式表示为
+    \begin{equation*}
+    \langle u,\nu \rangle_{H^{s}(\mathbb{R}^d)} \coloneqq \langle \mathcal{J}^s u, \mathcal{J}^s \nu \rangle_{L^2(\mathbb{R}^d)},
+  \end{equation*}
+  对应范数
+  \begin{equation*}
+    \big\| u \big\|_{H^{s}(\mathbb{R}^d)}^2 \coloneqq \big\| \mathcal{J}^s \, u \big\|_{H^{s}(\mathbb{R}^d)}^2
+    = \int_{\mathbb{R}^d} \left( 1 + \left| \xi \right|^s \right)^{s} \,
+    \left| \widehat{u}(\xi) \right|^2 \, d \xi.
+  \end{equation*}
+\end{definition}
+
+\begin{theorem}[索伯列夫空间]
+  对于所有$s \in \mathbb{R}$，下式均成立
+  \begin{equation*}
+    H^{s}(\mathbb{R}^d) = W^{s,2}(\mathbb{R}^d).
+  \end{equation*}
+
+  对于有界域$\Omega \in \mathbb{R}^d$，我们将索伯列夫空间$H^s(\mathbb{R}^d)$定义如下形式
   \begin{equation*}
     \begin{split}
-      \big\| u \big\|_{W^{1,2}(\Omega), f}^2 &= \underbrace{
-      \left| f(u) \right|^2}_{\le c_f^2 \big\| u \big\|_{W^{1,2}(\Omega)^2 }} + \big\| \triangledown u \big\|^2_{L^{2}(\Omega)} \\
-        & \le c_f^2 \big\| u \big\|_{W^{1,2}(\Omega)}^2   +
-          \underbrace{\big\| \triangledown u \big\|^2_{L^{2}(\Omega)}}_{ \le \big\| u \big\|^2_{W^{1,2}(\Omega)}} \\
-      & \le \left(1+c_f^2 \right) \big\| u \big\|^2_{W^{1,2}(\Omega)},
+      & H^s(\Omega) \coloneqq \left\{ \nu = \widetilde{\nu} |_{\Omega} : \widetilde{\nu} \in H^{s}(\mathbb{R}^d) \right\}, \\
+       & \big\| \nu \big\|_{H^s(\Omega)} \coloneqq \inf_{\widetilde{\nu} \in H^{s}(\mathbb{R}^d),
+       \widetilde{\nu} |_{\Omega} = \nu}  \big\| \widetilde{\nu} \big\|_{H^s(\mathbb{R}^d)}.
     \end{split}
   \end{equation*}
-  换句话说，上式只有在常数$c_f \equiv 0$的条件下才能成立。
 
-  反方向的证明情况，较为间接\footnote{何止是间接......简直是曲折蜿蜒！}。（略）。
+    此外还可以对索伯列夫空间作如下定义
+    \begin{equation*}
+      \begin{split}
+        &\widetilde{H}^s(\Omega) := \overline{C_0^{\infty}(\Omega)}^{\| \cdot \|_{H^s(\mathbb{R}^d)}}, \\
+        & H_0^s(\Omega) = \overline{C_0^{\infty}(\Omega)}^{\| \cdot \|_{H^s(\Omega)}},
+      \end{split}
+    \end{equation*}
+    根据\cite[Theorem 3.33]{McLean:2000ta}，上述定义对于几乎全部$s \in \mathbb{R}_{+}$都成立。
+\end{theorem}
+
+\begin{theorem}
+  假定有一个利普希茨域(Definition \ref{definition:bvp-lipschitz-domain-def}) $\Omega \in \mathbb{R}^d$。对于$s \ge 0$我们有
+  \begin{equation*}
+    \widetilde{H}^{s}(\Omega) \in H_0^s(\Omega).
+  \end{equation*}
+
+  进一步有
+  \begin{equation*}
+    \widetilde{H}^{s}(\Omega) = H_0^s(\Omega), \quad s \notin \left\{ \frac{1}{2}, \frac{3}{2}, \frac{5}{2}, \ldots \right\}.
+  \end{equation*}
+
+  进一步有
+  \begin{equation*}
+    \widetilde{H}^{s}(\Omega) = \left[ H^{-s} (\Omega) \right]',
+    H^s(\Omega) = \left[ \widetilde{H}^{-s}(\Omega) \right]', \quad \forall s \in \mathbb{R}.
+  \end{equation*}
+\end{theorem}
+
+\begin{definition}[均匀法锥条件]
+\label{definition:uniform-cone-condition}
+两个索伯列夫空间$H^s(\Omega)$和$W^{s,2}(\Omega)$相等，即范式等价的充分条件是存在一个有界的线性延拓算子
+\begin{equation*}
+  E_{\Omega} : W^{2,s}(\Omega) \mapsto W^{2,s}(\mathbb{R}^d),
+\end{equation*}
+这要求存在一个有边界的域$\Omega \in \mathbb{R}^d$，这称为均匀法锥条件(uniform cone condition)\index{uniform cone condition \dotfill 均匀法锥条件}。
+\end{definition}
+\begin{proof}
+  略。见\cite[Theorem 4.6, 4.7]{Adams:2003wi}。
 \end{proof}
+
+\begin{theorem}
+  对于有界的利普希茨域$\Omega \subset \mathbb{R}^d$，我们有
+  \begin{equation*}
+    \begin{split}
+      &\big\| q \big\|_{L^2(\Omega)} \le C_1
+      \left\{
+      \big\| q \big\|_{H^{-1}(\Omega)} + \big\| \triangledown q \big\|_{\left[ H^{-1}(\Omega) \right]^d }
+      \right\}, \quad \forall q \in L^{2}(\Omega), \\
+      & \big\| q \big\|_{L^2(\Omega)} \le C_2
+      \big\| \triangledown q \big\|_{\left[ H^{-1}(\Omega)\right]^d}, \quad \forall q \in L^{2}(\Omega), \, \int_{\Omega} q(x) \, d x = 0.
+    \end{split}
+  \end{equation*}
+\end{theorem}
+
+我们可以用有界的线性算子表现从一个索伯列夫空间到另一个索伯列夫空间的映射，这涉及到插值空间。关于插值空间的介绍可见如\cite{Adams:2003wi}。这里介绍与有限元法关系较为密切的插值定理(interpolation theorem)\index{interpolation theorem \dotfill 插值定理}。
+\begin{theorem}[插值定理]
+  \label{theorem:sobolev-interpolation-theorem}
+  设一个有界的线性算子$A:H^{\alpha_1}(\Omega) \rightarrow H^{\beta}(\Omega)$，其范数为
+  \begin{equation*}
+    \big\| A \big\|_{\alpha_1,\beta} \coloneqq \sup_{0 \neq \nu \in H^{\alpha_1}(\Omega)} \frac{
+    \big\| A \, \nu \big\|_{H^{\beta} (\Omega)}
+    }{
+    \big\| \nu \big\|_{H^{\alpha_1}(\Omega)}
+    }.
+  \end{equation*}
+
+现在假设$\alpha_2 > \alpha_1$，对应有界线性算子$A:H^{\alpha_2}(\Omega) \rightarrow H^{\beta}(\Omega)$，范数
+\begin{equation*}
+  \big\| A \big\|_{\alpha_2,\beta} \coloneqq \sup_{0 \neq \nu \in H^{\alpha_2}(\Omega)} \frac{
+  \big\| A \, \nu \big\|_{H^{\beta} (\Omega)}
+  }{
+  \big\| \nu \big\|_{H^{\alpha_2}(\Omega)}
+  }.
+\end{equation*}
+
+则$A:H^{\alpha}(\Omega) \mapsto H^{\beta}(\beta), \, \forall \alpha \in \left[ \alpha_1, \alpha_2 \right]$都有界，对应范数
+\begin{equation*}
+  \big\| A \big\|_{\alpha, \beta} \le
+  \left(
+  \big\| A \big\|_{\alpha_1,\beta}
+  \right)^{\frac{\alpha - \alpha_2}{\alpha_1 - \alpha_2}} \,
+  \left(
+  \big\| A \big\|_{\alpha_2,\beta}
+  \right)^{\frac{\alpha - \alpha_1}{\alpha_2 - \alpha_1}}.
+\end{equation*}
+
+同样，设$A:H^{\alpha} \mapsto H^{\beta_1(\Omega)}$有界，对应范数$\big\| A \big\|_{\alpha, \beta_1}$。设$A:H^{\alpha} \mapsto H^{\beta_2(\Omega)}$有界，对应范数$\big\| A \big\|_{\alpha, \beta_2}$，$\beta_1 < \beta_2$。
+
+则$A:H^{\alpha} \mapsto H^{\beta(\Omega)}$有界$\, \forall \beta \in \left[ \beta_1, \beta_2 \right]$，对应范数
+\begin{equation*}
+  \big\| A \big\|_{\alpha, \beta} \le
+  \left(
+  \big\| A \big\|_{\alpha,\beta_1}
+  \right)^{\frac{\beta - \beta_2}{\beta_1 - \beta_2}} \,
+  \left(
+  \big\| A \big\|_{\alpha,\beta_2}
+  \right)^{\frac{\beta - \beta_1}{\beta_2 - \alpha_1}}.
+\end{equation*}
+\end{theorem}
+
+%!TEX root = ../DSGEnotes.tex
+\subsubsection{流形索伯列夫空间}
+
+\begin{definition}[流形]
+  流形(manifold)是局部具有欧式空间性质的空间，包括各种纬度的曲线曲面，例如球体、弯曲的平面等。流形的局部和欧式空间是同构的(局部线性)。流形学习假设所处理的数据点分布在嵌入于外维欧式空间的一个潜在的流形体上，或者说这些数据点可以构成这样一个潜在的流形体\footnote{从词源上来看，最早由黎曼给出了德文名称mannigfaltigkeit，英文翻译为manifold，字面意义为``多层''。中国第一个拓扑学家江泽涵把这个词翻译为``流形''，取自文天祥《正气歌》，``天地有正气，杂然赋流形''，其原始出处为《易经》，``大哉乾元，万物资始，乃统天。云行雨施，品物流形。'' }。
+\end{definition}
+
+设一个有边界的域$\Omega \subset \mathbb{R}^d,d=2,3$，其边界用$\Gamma = \partial \Omega$来表示。对$\Gamma$作局部分段参数化(piecewise parameterization)处理，对应一组低维空间$\mathbb{R}^{d-1}$中的参数域(parameter domain) $\mathcal{T}_i$：
+\begin{equation}
+  \label{sobolev-manifold-piecewise-parameterization}
+\begin{split}
+    &\Gamma = \bigcup_{i=1}^{J} \Gamma_i,\\
+    & \Gamma_i \coloneqq \left\{
+    x \in \mathbb{R}^d : x = \chi_{i}(\xi), \, \xi \in \mathcal{T}_i \subset \mathbb{R}^{d-1}
+    \right\}.
+\end{split}
+\end{equation}
+
+与\eqref{sobolev-manifold-piecewise-parameterization}同步，考虑一个单位数列$\left\{ \varphi_i \right\}_{i=1}^{p}$，其中$\varphi_i \in C_0^{\infty}(\mathbb{R}^d)$是非负的cutoff方程，满足
+\begin{equation}
+  \label{eq:sobolev-manifold-cutoff-func-def}
+  \begin{cases}
+    \sum_{i=1}^{J} \varphi_{i}(x)=1 & \text{对于} \, x \in \Gamma \\
+    \varphi_i(x) = 0  & \text{对于} \, x \in \Gamma \backslash \Gamma_i.
+  \end{cases}
+\end{equation}
+
+进而，在$\Gamma$中定义一个方程$\nu(x)$，满足
+\begin{equation}
+  \label{eq:sobolev-manifold-nu-x-def}
+  \begin{split}
+    &\nu(x) = \sum_{i=1}^{J} \varphi_i(x) \nu(x) = \sum_{i=1}^{J} \nu_i(x), \quad \text{对于} \, x \in \Gamma, \\
+    & \nu_i(x) \coloneqq \varphi_i(x) \, \nu(x).
+  \end{split}
+\end{equation}
+
+将关于$x$的局部分段参数化\eqref{sobolev-manifold-piecewise-parameterization}代入$\nu_i(x)$的定义式，我们可以定义一组新的方程$\left\{ \widetilde{\nu}_i(\xi) \right\}$，其中
+\begin{equation*}
+  \begin{split}
+    \nu_i(x) &= \varphi_i(x) \, \nu(x) \\
+    &= \varphi_i \left( \chi_i(\xi) \right) \, \nu \left( \chi_i(\xi) \right)  \\
+    & \eqqcolon \widetilde{\nu}_i(\xi), \quad \xi \in \mathcal{T}_i \subset \mathbb{R}^{d-1}.
+  \end{split}
+\end{equation*}
+
+通过这种方法，$\Omega \subset \mathbb{R}^{d}$中关于变量$x$的问题$\nu(x)$，被表示为分段参数域$\mathcal{T}_i \subset \mathbb{R}^{d-1}$中关于局部参数$\chi_i(\xi)$的问题$\widetilde{\nu}_i(\xi)$，后者使得我们可能建立相应的索伯列夫空间，进行分析。这要求$\tilde{\nu}_i$可导，即局部参数$\chi_i(\xi)$可导，满足链式法则(chain rule)\index{chain rule \dotfill 链式法则}\footnote{简单说来，链式法则可以表示为
+\begin{equation*}
+  f(g(x))' = f'(g(x)) \cdot g'(x).
+\end{equation*}}。如果要求$\left| s \right| \le k$次的导数，需要假定局部参数$\chi_i \in C^{k-1,1}(\mathcal{T}_i)$，例如，对于利普希茨域$\mathcal{T}_i$中的局部参数$\chi_i \in C^{0,1}(\mathcal{T}_i)$，我们需要研究对应的索伯列夫空间$H^s(\mathcal{T}_i), \left| s \right| \le 1$。
+
+\begin{definition}[流形索伯列夫空间($0 \le s \le k $)]
+进而对于$0 \le s \le k$，我们的研究对象是整个索伯列夫空间$H^s(\Gamma)$，其范数定义为
+\begin{equation}
+  \label{eq:sobolev-manifold-space-def}
+  \big\| \nu \big\|_{H_{\chi}^{s}(\Gamma)} \coloneqq \left\{
+  \sum_{i=1}^{J} \big\| \widetilde{\nu}_i \big\|_{H^{s}(\mathcal{T}_{i})}^{2}
+  \right\}^{\frac{1}{2}}.
+\end{equation}
+\end{definition}
+
+\begin{lemma}[流形索伯列夫空间的等价范($s=0$)]
+$s=0$时，流形索伯列夫空间$H_{\chi}^{0}(\Gamma)$的等价范为
+\begin{equation*}
+  \| \nu \|_{L^{2}(\Gamma)} \coloneqq \left\{
+  \int_{\Gamma} \big| \nu(x) \big|^2 \, d s_x
+  \right\} ^{\frac{1}{2}}.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+  首先来看$H_{\chi}^{0}(\Gamma)$空间。$s=0$时\eqref{eq:sobolev-manifold-space-def}$\Rightarrow$
+  \begin{equation*}
+    \begin{split}
+      \big\| \nu \big\|_{H_{\chi}^{0}(\Gamma)}^2 &=
+      \sum_{i=1}^{J} \big\| \widetilde{\nu}_i \big\|_{H^{0}(\mathcal{T}_{i})}^{2} \\
+      &= \sum_{i=1}^{J}
+      \int_{\Gamma_i} \left[
+      \varphi_i(\chi_i(\xi)) \, \nu(\chi_i(\xi))
+      \right]^2 \, d\xi.
+    \end{split}
+  \end{equation*}
+
+  再来看$L^{2}(\Gamma)$空间$\Rightarrow$
+  \begin{equation*}
+    \begin{split}
+      \big\| \nu \big\|_{L^{2}(\Gamma)}^2
+      &= \int_{\Gamma}
+      \left[ \nu(x) \right]^2 d s_x \\
+      &= \sum_{i=1}^{J} \int_{\Gamma_i} \varphi_i(x) \,
+      \left[ \nu(x) \right]^2 d s_x \\
+      &= \sum_{i=1}^{J} \int_{\Gamma_i} \varphi_i(\chi_i(\xi)) \,
+      \left[ \nu(\chi_i(\xi)) \right]^2 \, \left( \det \chi_i(\xi) \right) \, d \xi.
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+\begin{lemma}[流形索伯列夫空间的等价范($0 < s < 1$)]
+  $0 < s < 1$时，流形索伯列夫空间$H_{\chi}^{s}(\Gamma)$的等价范，可以用Sobolev-Slobodeckij范数 (Section \ref{sec:sobolev-slobodeckij-space})\index{Sobolev-Slobodeckij norm \dotfill Sobolev-Slobodeckij范数}来表示
+  \begin{equation*}
+    \left\| \nu \right\|_{H^s(\Gamma)} \coloneqq
+    \left\{
+    \big\| \nu \big\|_{L^{2}(\Gamma)}^2
+    + \int_{\Gamma} \int_{\Gamma}
+    \frac{
+    \left[ \nu(x) - \nu(y) \right]^2
+    }{
+    \left| x - y \right|^{d - 1 + 2s}
+    }
+    \, d s_x \, d s_y
+    \right\}^{\frac{1}{2}},
+  \end{equation*}
+  需要指出的是，上式并不是唯一一种定义等价范的方法。其他方法如，根据索伯列夫范数等价定理(Theorem \ref{theorem:sobolev-equivalence-norm-theorem} \index{equivalence of norms \dotfill 范数等价})，流形索伯列夫空间$H^{s=1/2}(\Gamma)$的等价范也可以写作
+  \begin{equation*}
+    \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma), \Gamma} \coloneqq \left\{
+    \left[
+    \int_{\Gamma} \nu(x) \, d s_x
+    \right]^2
+    + \int_{\Gamma} \int_{\Gamma}
+    \frac{
+    \left[ \nu(x) - \nu(y) \right]^2
+    }{
+    \left| x - y \right| ^{d}
+    }\,
+    d s_x \, d s_y
+    \right\}^{\frac{1}{2}}.
+  \end{equation*}
+\end{lemma}
+
+\begin{lemma}[流形索伯列夫空间的等价范($s < 0$)]
+$s<0$时的流形索伯列夫空间$H_{\chi}^{s}(\Gamma)$，可由其对偶空间(dual space)\index{dual space \dotfill 对偶空间} $H^{-s}_{\chi}(\Gamma)$进行分析
+\begin{equation*}
+  H^s(\Gamma) \coloneqq \left[ H^{-s}(\Gamma) \right]',
+\end{equation*}
+其范数为
+\begin{equation}
+  \label{eq:sobolev-manifold-dual-space-norm}
+\begin{split}
+  \big\| w \big\|_{H^{s}(\Gamma)} &\coloneqq \sup_{0 \neq \nu \in H^{-s} (\Gamma)}
+  \frac{
+  \langle w,\nu \rangle_{\Gamma}
+  }{
+  \big\| \nu \big\|_{H^{-s}(\Gamma)}
+  }\\
+  &= \sup_{0 \neq \nu \in H^{-s} (\Gamma)}
+  \frac{
+  \int_{\Gamma} w(x) \, \nu(x) \, d s_x
+  }{
+  \big\| \nu \big\|_{H^{-s}(\Gamma)}
+  },
+\end{split}
+\end{equation}
+其中$\langle w,\nu \rangle_{\Gamma}$表示对偶配对(duality pairing)\index{duality pairing \dotfill 对偶配对}。
+\end{lemma}
+
+\begin{lemma}[流形索伯列夫空间的开放子集]
+  对于充分平滑的边界$\Gamma = \partial \Omega$，设一个开放子集$\Gamma_0 \subset \Gamma$。则$H^s(\Gamma_0)$可以定义如下
+\begin{enumerate}
+
+  \item $s\ge0$时的索伯列夫空间$H^{s}(\Gamma_0)$及范数
+  \begin{equation*}
+    \begin{split}
+      &H^{s}(\Gamma_0) \coloneqq \left\{ \nu = \widetilde{\nu} \big|_{\Gamma_0} : \widetilde{\nu} \in H^{s}(\Gamma) \right\},\\
+      &\big\| \nu \big\|_{H^s(\Gamma_0)} \coloneqq \inf_{\widetilde{\nu} \in H^{s}(\Gamma) : \widetilde{\nu} |_{\Gamma_0} = \nu}  \big\| \widetilde{\nu} \big\|_{H^s(\Gamma)}
+    \end{split}
+  \end{equation*}
+
+\item $s<0$时，首先定义一个索伯列夫空间$\tilde{H}^{s}(\Gamma_0)$
+\begin{equation*}
+  \widetilde{H}^{s}(\Gamma_0) \coloneqq \left\{
+  \nu = \widetilde{\nu} \big|_{\Gamma_0}: \widetilde{\nu} \in H^s(\Gamma), \, \supp \widetilde{\nu} \subset \Gamma_0
+  \right\},
+\end{equation*}
+其中$\supp$表示支撑集(support)，是一个定义在集合$\Gamma_0$上的实值函数$\widetilde{\nu}$的子集，满足$\widetilde{\nu}$恰好在这个子集上非零\footnote{例如一个拓扑空间(如实值轴)$X$，连续方程$f \in X$。此时$\supp f$定义为这样一个闭集$C$，满足1)$f$在$X \backslash C$中为$0$；2)不存在$C$的真闭子集也满足这一条件，即$C$是所有这样的子集中最小的一个。}。进而利用对偶空间的属性
+\begin{equation*}
+\begin{split}
+    &H^s(\Gamma_0) \coloneqq \left[ \widetilde{H}^{-s} (\Gamma_0) \right]', \\
+    &\widetilde{H}^s(\Gamma_0) \coloneqq \left[ H^{-s} (\Gamma_0) \right].
+\end{split}
+\end{equation*}
+\end{enumerate}
+\end{lemma}
+
+\begin{lemma}[分段平滑索伯列夫空间]
+  对于某一封闭边界$\Gamma = \partial \Omega$，假定它是分段平滑的
+  \begin{equation*}
+    \Gamma = \bigcup_{i=1}^{J} \overline{\Gamma}_i, \quad \Gamma_i \cap \Gamma_j = \emptyset \,  \forall i \neq j.
+  \end{equation*}
+  对应的索伯列夫空间$H^s_{\text{pw}}(\Gamma)$及分段平滑方程的范数为：
+
+  \begin{enumerate}
+    \item $s>0 \Rightarrow$
+    \begin{equation*}
+      \begin{split}
+        & H^{s}_{\text{pw}}(\Gamma) \coloneqq \left\{ \nu \in L^{2}(\Gamma) : \nu |_{\Gamma_i} \in H^{s}(\Gamma_i), \, i=1,\ldots,J \right\}, \\
+        & \big\| \nu \big\|_{H^{s}_{\text{pw}}(\Gamma)} \coloneqq
+        \left\{
+        \sum_{i=1}^{J} \big\| \nu|_{\Gamma_i} \big\|_{H^s(\Gamma_i)}^2
+        \right\}^{\frac{1}{2}}.
+      \end{split}
+    \end{equation*}
+
+    \item $s < 0 \Rightarrow$
+    \begin{align}
+      \label{eq:sobolev-piecewise-snegative-def}
+      &H^{s}_{\text{pw}}(\Gamma) \coloneqq \Pi_{j=1}^{j} \widetilde{H}^{s}_{\Gamma_j}, \\
+      \label{eq:sobolev-piecewise-snegative-norm}
+      & \big\| w \big\|_{H^{s}_{\text{pw}(\Gamma)}} \coloneqq
+      \sum_{j=1}^{J} \big\| w|_{\Gamma_j} \big\|_{\widetilde{H}_{\text{pw}}(\Gamma_j)}.
+    \end{align}
+  \end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+  \eqref{eq:sobolev-piecewise-snegative-def}的分段平滑索伯列夫空间$H^{s}_{\text{pw}}(\Gamma), \, s<0$中，方程$w \in H^{s<0}_{\text{pw}}(\Gamma)$满足
+  \begin{equation*}
+    \big\| w \big\|_{H^P{s}(\Gamma)} \le \big\| w \big\|_{H^P_{\text{pw}}{s}(\Gamma)}
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  由对偶空间的定义\eqref{eq:sobolev-manifold-dual-space-norm}、扩展三角不等式等有
+  \begin{equation*}
+    \begin{split}
+      \big\| w \big\|_{H^s(\Gamma)} &=
+      \sup_{0 \neq \nu \in H^{-s} (\Gamma)}
+      \frac{
+      \big| \langle w,\nu\rangle_{\Gamma} \big|
+      }{
+      \big\| \nu \big\|_{H^{-s}(\Gamma)}
+      } \\
+      & \le \sup_{0 \neq \nu \in H^{-s} (\Gamma)}
+      \sum_{j=1}^{J}
+      \frac{
+      \big| \langle w,\nu\rangle_{\Gamma_j} \big|
+      }{
+      \big\| \nu \big\|_{H^{-s}(\Gamma_j)}
+      } \\
+      &\le  \sup_{0 \neq \nu \in H^{-s} (\Gamma)}
+      \sum_{j=1}^{J}
+      \frac{
+      \big| \langle w|_{\Gamma_j},\nu|_{\Gamma_j} \rangle_{\Gamma_j} \big|
+      }{
+      \big\| \nu|_{\Gamma_j} \big\|_{H^{-s}(\Gamma_j)}
+      } \\
+      &\le  \sum_{j=1}^{J}
+      \sup_{0 \neq \nu \in H^{-s} (\Gamma_j)}
+      \frac{
+      \big| \langle w|_{\Gamma_j},\nu|_{\Gamma_j} \rangle_{\Gamma_j} \big|
+      }{
+      \big\| \nu|_{\Gamma_j} \big\|_{H^{-s}(\Gamma_j)}
+      } \\
+      &= \big\| w \big\|_{H^{s}_{pw}(\Gamma)}.
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+对于一个利普希茨域$\Omega \subset \mathbb{R}^d$，其利普希茨边界可表示为$\Gamma = \partial \Omega$。对于$u(x) \in \Omega$，对应的内界迹(interior boundary trace)\index{interior boundary trace \dotfill 内界迹}为$\gamma_0^{int} u \in \Gamma$，见\eqref{eq:bvp-interior-boundary-trace}。则$H^s(\Omega)$和$H^s(\Gamma)$两个索伯列夫空间的关系，常用下述迹定理、逆迹定理予以描述。
+\begin{theorem}[索伯列夫空间的迹定理]
+  \label{theorem:sobolev-manifold-trace-theorem}
+  设$\Omega \subset \mathbb{R}^d$是一个$C^{k-1,1}$域，$\frac{1}{2} < s \le k$，则内界迹
+  \begin{equation*}
+    \gamma_0^{\text{int}} : H^s(\Omega) \mapsto H^{s - \frac{1}{2}}(\Gamma)
+  \end{equation*}
+  是有界的，满足
+  \begin{equation*}
+    \big\| \gamma_0^{\text{int}} \nu \big\|_{H^{s-\frac{1}{2}}(\Gamma)} \le C_T \, \big\| \nu \big\|_{H^{s}(\Omega)}, \quad \forall \, \nu \in H^{s}(\Omega).
+  \end{equation*}
+\end{theorem}
+
+\begin{lemma}
+  若$k=1, s \in ( \frac{1}{2}, 1]$，则我们可以利用Theorem \ref{theorem:sobolev-manifold-trace-theorem}求得迹算子$\gamma_0^{\text{int}} : H^s(\Omega) \mapsto H^{s - \frac{1}{2}}(\Gamma)$。
+
+  若$s \in (\frac{1}{2}, \frac{3}{2})$，该方法也适用\citep[Theorem 3.38]{McLean:2000ta}。
+\end{lemma}
+
+\begin{theorem}[索伯列夫空间的逆迹定理]
+  \label{theorem:sobolev-manifold-inverse-trace-theorem}
+  设$\Omega \subset \mathbb{R}^d$是一个$C^{k-1,1}$域，$\frac{1}{2} < s \le k$，则内界迹
+  \begin{equation*}
+    \gamma_0^{\text{int}} : H^s(\Omega) \mapsto H^{s - \frac{1}{2}}(\Gamma)
+  \end{equation*}
+  有一个连续的右逆算子
+  \begin{equation*}
+    \mathcal{\varepsilon}: H^{s-\frac{1}{2}}(\Gamma) \mapsto H^{S}(\Gamma),
+  \end{equation*}
+满足如下关系
+\begin{equation*}
+  \begin{split}
+    &\gamma_0^{\text{int}} \mathbb{\varepsilon} w = w, \quad \forall \, w \in H^{s-\frac{1}{2}}(\Gamma), \\
+    &\big\| \mathbb{\varepsilon} w \big\|_{H^{s}(\Omega)} \le C_{IT} \, \big\| w \big\|_{H^{s-\frac{1}{2}}(\Gamma)}, \quad \forall \, w \in H^{s-\frac{1}{2}}(\Gamma).
+  \end{split}
+\end{equation*}
+\end{theorem}
+
+\begin{definition}[索伯列夫迹空间]
+从这个意义上来说，对于某个索伯列夫空间$H^{s+\frac{1}{2}}(\Omega), s > 0$来说，它的迹空间可以表示为$H^{s}(\Gamma)$，对应的范数
+\begin{equation*}
+  \big\| \nu \big\|_{H^s(\Gamma), \gamma_0} \coloneqq
+  \inf_{V \in H^{s + \frac{1}{2}(\Omega)}, \gamma_0^{\text{int}} \, V = \nu} \, \big\| V \big\|_{H^{s + \frac{1}{2}}(\Omega)}.
+\end{equation*}
+\end{definition}
+
+需要指出的是，利普希茨域$\Omega \subset \mathbb{R}^d$中，只有当$|s| <1$时，以下范式等价$\| \nu \|_{H^{s}(\gamma), \gamma_0} = \| \nu \|_{H^{s}(\Gamma)}$。
