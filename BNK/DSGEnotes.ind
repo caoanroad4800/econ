@@ -1,10 +1,12 @@
 \begin{theindex}
 
+  \item adjoint operator\dotfill 伴随算子, \hyperpage{290}
   \item axiomatic set theory \dotfill 公理集合论, \hyperpage{250}
 
   \indexspace
 
-  \item Banach space \dotfill 巴拿赫空间, \hyperpage{257}
+  \item Banach space \dotfill 巴拿赫空间, \hyperpage{257}, 
+		\hyperpage{289}
   \item basis
     \subitem Chebyshev polynomial \dotfill 切比雪夫多项式(基), 
 		\hyperpage{183}
@@ -42,11 +44,13 @@
 		\hyperpage{206}
   \item Chu-Vandermonde summation \dotfill 朱世杰——范德蒙德求和公式, 
 		\hyperpage{200}, \hyperpage{221}
+  \item closed range theorem \dotfill 闭值域定理, \hyperpage{290}
   \item coercive form \dotfill 强制形式, \hyperpage{240}
   \item collocation
     \subitem  \dotfill 配点, \hyperpage{184}, \hyperpage{195}
     \subitem orthogonal \dotfill 正交配点, \hyperpage{184}, 
 		\hyperpage{195}
+  \item compact operator \dotfill 紧凑算子, \hyperpage{298}
   \item complement \dotfill 补集, \hyperpage{250}
   \item completeness
     \subitem Euclidean space \dotfill 完备性(欧几里得空间), 
@@ -59,6 +63,7 @@
   \item conditional density \dotfill 条件密度, \hyperpage{233}
   \item conjugate \dotfill 共轭复数, \hyperpage{259}
   \item continuous inverse \dotfill 连续逆, \hyperpage{242}
+  \item contraction mapping \dotfill 收缩映射, \hyperpage{288}
   \item convergence
     \subitem absolute \dotfill 绝对收敛, \hyperpage{258}
   \item countable additivity \dotfill 可数可加性, \hyperpage{251}
@@ -114,6 +119,8 @@
     \subitem inverse \dotfill 逆傅里叶变换, \hyperpage{276}
     \subitem rotational symmetries \dotfill 傅里叶变换的旋转对称, 
 		\hyperpage{276}
+  \item Fredholm alternative theorem \dotfill 弗雷德霍姆二择一定理, 
+		\hyperpage{299}
 
   \indexspace
 
@@ -148,6 +155,7 @@
     \subitem second 格林第二恒等式, \hyperpage{246}
   \item grid \dotfill 网格, \hyperpage{191}
   \item grid distance \dotfill 网格距离, \hyperpage{253}
+  \item Gårding inequality \dotfill Gårding不等式, \hyperpage{298}
 
   \indexspace
 
@@ -183,9 +191,11 @@
 
   \indexspace
 
+  \item iamge \dotfill 像, \hyperpage{290}
   \item index family \dotfill 索引族, \hyperpage{249}
   \item inf-sup condition \dotfill 上极限——下极限条件, 
 		\hyperpage{241}
+  \item injection \dotfill 内射, \hyperpage{299}
   \item injection \dotfill 单射, \hyperpage{242}
   \item inner product
     \subitem duality \dotfill 双内积, \hyperpage{240}
@@ -205,6 +215,7 @@
 
   \indexspace
 
+  \item kernel \dotfill 核, \hyperpage{289}
   \item Korn inequality \dotfill 科恩不等式, \hyperpage{241}
   \item Kronecker product \dotfill 克罗内乘积, \hyperpage{203}, 
 		\hyperpage{247}
@@ -219,7 +230,7 @@
   \item Lamé elasticity parameters \dotfill 拉梅弹性参数, 
 		\hyperpage{241}
   \item Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理, 
-		\hyperpage{241}
+		\hyperpage{241}, \hyperpage{288}, \hyperpage{296}
   \item Lebesgue integrable function \dotfill 勒贝格可积方程, 
 		\hyperpage{250}
   \item Lebesgue space
@@ -273,9 +284,11 @@
   \item normal distribution \dotfill 正态分布, \hyperpage{211}
   \item normed vector space \dotfill 赋范向量空间, 
 		\hyperpage{253}
+  \item null space \dotfill 零空间, \hyperpage{289}
 
   \indexspace
 
+  \item orthogonal complement \dotfill 正交补, \hyperpage{289}
   \item orthogonality condition
     \subitem Hermite polynomial \dotfill 正交条件(埃米特多项式), 
 		\hyperpage{212}
@@ -312,6 +325,8 @@
 		\hyperpage{197}, \hyperpage{199}
   \item Poincaré inequality \dotfill 庞加莱不等式, 
 		\hyperpage{272}
+  \item polar coordinate space \dotfill 极坐标空间, 
+		\hyperpage{290}
   \item polar coordinate system \dotfill 极坐标系, \hyperpage{277}
   \item polynomial
     \subitem Chebyshev, first kind \dotfill 第一类切比雪夫多项式, 
@@ -339,6 +354,7 @@
 
   \item r-refinement finite elements \dotfill r——改进(有限元分析), 
 		\hyperpage{193}
+  \item range \dotfill 值域, \hyperpage{290}
   \item rapidly decreasing function \dotfill 急减方程, 
 		\hyperpage{276}
   \item rapidly decreasing space \dotfill 急减空间, \hyperpage{276}
@@ -346,6 +362,11 @@
 		\hyperpage{179}
   \item Riemann-Stieltjes integral \dotfill 黎曼——斯蒂尔杰斯积分, 
 		\hyperpage{202}
+  \item Riesz map \dotfill 里兹映射, \hyperpage{287}
+  \item Riesz representation theorem \dotfill 里兹表现定理, 
+		\hyperpage{285}
+  \item Riesz-Schauder theorem \dotfill Riesz-Schauder定理, 
+		\hyperpage{299}
   \item Robin boundary value condition \dotfill 罗宾边界值条件, 
 		\hyperpage{247}
   \item Rodrigues formula

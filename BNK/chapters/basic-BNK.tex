@@ -157,13 +157,13 @@ FOC:
 \end{cases}
 \end{equation}
 
-根据模型假设，中间产品生产部门由于垄断产生的利润$\Pi_t$，流回到家庭部门，供消费以提升效用，满足跨期消费的Euler equation式\eqref{HH-FOC-euler-consumption}，设$\tilde{M}_{t+s} \equiv \beta^s \cdot \frac{U_{C,t+s}}{U_{C,t}}$作为discount factor。从$t$期向前直到$t+s$期，$j$不能自由调整价格的概率是$\phi^s$。此外，从$t$期向前直到$t+s$期，$j$不能自由调整价格的概率是$\phi^s$。
-由此，$j$生产者forward-looking的随机折旧因子为$\phi^s \cdot \tilde{M}_{t+s}$。
+根据模型假设，中间产品生产部门由于垄断产生的利润$\Pi_t$，流回到家庭部门，供消费以提升效用，满足跨期消费的Euler equation式\eqref{HH-FOC-euler-consumption}，设$\widetilde{M}_{t+s} \equiv \beta^s \cdot \frac{U_{C,t+s}}{U_{C,t}}$作为discount factor。从$t$期向前直到$t+s$期，$j$不能自由调整价格的概率是$\phi^s$。此外，从$t$期向前直到$t+s$期，$j$不能自由调整价格的概率是$\phi^s$。
+由此，$j$生产者forward-looking的随机折旧因子为$\phi^s \cdot \widetilde{M}_{t+s}$。
 
 先来看式\eqref{eq:intm-stick-prices}中$p^{\#}_j(j)$的决定。$t$期中间品生产者$j$的利润最大化问题表示为
 \begin{equation*}
   \begin{split}
-    &\max_{P_t(j)} E_t \sum_{s=0}^{\infty} \phi^s \cdot \tilde{M}_{t+s} \cdot \Pi_{t+s} \\
+    &\max_{P_t(j)} E_t \sum_{s=0}^{\infty} \phi^s \cdot \widetilde{M}_{t+s} \cdot \Pi_{t+s} \\
     &=\max_{P_t(j)} E_t \sum_{s=0}^{\infty} \left(\beta \cdot \phi \right)^s \cdot \frac{U_{C,t+s}}{U_{C,t}} \cdot \left[
       \frac{P_{t+s}(j)}{P_{t+s}} \cdot Y_{t+s}(j) - mc_{t+s} \cdot Y_{t+s}(j)
     \right]\\

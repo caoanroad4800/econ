@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: DSGEnotes.aux
 The style file: model4-names.bst
-Reallocated field_info (elt_size=4) to 10106 items from 5000.
+Reallocated field_info (elt_size=4) to 10198 items from 5000.
 Database file #1: ./refs/papers.bib
 Warning--missing institution in Aldrich:2011wz
 Warning--missing institution in Andreasen:2016cd
@@ -27,45 +27,45 @@ Warning--missing institution in Murchison:2006wc
 `journal' is a missing field, not a string, for entry Wood:1975vn
 while executing---line 1514 of file model4-names.bst
 Warning--empty journal in Wood:1975vn
-You've used 222 entries,
+You've used 226 entries,
             2973 wiz_defined-function locations,
-            1904 strings with 37274 characters,
-and the built_in function-call counts, 162817 in all, are:
-= -- 14325
-> -- 3912
-< -- 199
-+ -- 1523
-- -- 1294
-* -- 18004
-:= -- 23301
-add.period$ -- 688
-call.type$ -- 222
-change.case$ -- 1529
-chr.to.int$ -- 224
-cite$ -- 235
-duplicate$ -- 12787
-empty$ -- 13222
-format.name$ -- 1930
-if$ -- 31519
-int.to.chr$ -- 8
+            1921 strings with 37733 characters,
+and the built_in function-call counts, 165293 in all, are:
+= -- 14545
+> -- 3961
+< -- 201
++ -- 1544
+- -- 1310
+* -- 18266
+:= -- 23682
+add.period$ -- 700
+call.type$ -- 226
+change.case$ -- 1550
+chr.to.int$ -- 227
+cite$ -- 239
+duplicate$ -- 12983
+empty$ -- 13443
+format.name$ -- 1947
+if$ -- 31999
+int.to.chr$ -- 9
 int.to.str$ -- 1
-missing$ -- 1915
-newline$ -- 1114
-num.names$ -- 904
-pop$ -- 2071
+missing$ -- 1943
+newline$ -- 1134
+num.names$ -- 918
+pop$ -- 2095
 preamble$ -- 1
-purify$ -- 1313
+purify$ -- 1335
 quote$ -- 0
-skip$ -- 3230
+skip$ -- 3272
 stack$ -- 0
-substring$ -- 14037
-swap$ -- 7248
-text.length$ -- 26
+substring$ -- 14277
+swap$ -- 7331
+text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1854
+type$ -- 1881
 warning$ -- 13
-while$ -- 1118
+while$ -- 1132
 width$ -- 0
-write$ -- 3050
+write$ -- 3103
 (There were 5 error messages)
