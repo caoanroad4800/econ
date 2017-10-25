@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.4)  22 OCT 2017 16:59
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.4)  25 OCT 2017 17:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2769,7 +2769,7 @@ TU/STSong(0)/m/n/10 是 有 限 维 度 的，|  那 么 一 旦[]成 立，| []
 [245
 
 ]
-Overfull \hbox (23.62833pt too wide) detected at line 104
+Overfull \hbox (23.62833pt too wide) detected at line 103
 []
  []
 
@@ -2798,14 +2798,14 @@ Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;
 Missing character: There is no 。 in font [lmroman10-regular]:mapping=tex-text;!
  [272] [273] [274] [275] [276] [277] [278] [279]
 [280] [281] [282] [283] [284] [285] [286]
-Overfull \hbox (19.92088pt too wide) in paragraph at lines 3041--3042
+Overfull \hbox (19.92088pt too wide) in paragraph at lines 3042--3043
 []\TU/STSong(0)/m/n/10 证 明 $\OML/cmm/m/it/10 u \OMS/cmsy/m/n/10 2 \OML/cmm/m/it
 /10 X$ \TU/STSong(0)/m/n/10 是 最 小 化 问 题 和 变 分 问 题 的 唯 一 解。|  假 定 还 存 在 另 一 个 $[
 ] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X$\TU/STSong(0)/m/n/10 ，|  也 是[]和[]的
  []
 
 
-Overfull \hbox (2.14867pt too wide) in paragraph at lines 3124--3125
+Overfull \hbox (2.14867pt too wide) in paragraph at lines 3125--3126
 []\TU/STSong(0)/m/n/10 设 存 在 一 个 里 兹 映 射 \TU/lmr/m/n/10 (Riesz map) \TU/STSong(
 0)/m/n/10 算 子 $\OML/cmm/m/it/10 J \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 X[] \OMS/c
 msy/m/n/10 7! \OML/cmm/m/it/10 X$\TU/STSong(0)/m/n/10 ，|  满 足[]定 义。|  那 么 算 子 方
@@ -2813,24 +2813,24 @@ msy/m/n/10 7! \OML/cmm/m/it/10 X$\TU/STSong(0)/m/n/10 ，|  满 足[]定 义。|
  []
 
 [287] [288] [289] [290] [291] [292] [293] [294] [295] [296] [297]
-Overfull \hbox (2.57866pt too wide) in paragraph at lines 3911--3913
+Overfull \hbox (2.57866pt too wide) in paragraph at lines 3913--3915
 []\TU/STSong(0)/m/n/10 根 据 拉 克 斯 一 密 格 拉 蒙 定 理 \TU/lmr/m/n/10 (Theorem []12.14[
 ])\TU/STSong(0)/m/n/10 ，|  可 以 证 明 混 合 算 子 方 程 \TU/lmr/m/n/10 (\TU/STSong(0)/m/
 n/10 鞍 点 变 分 问 题\TU/lmr/m/n/10 )[]
  []
 
-[298]) (./chapters/bem-fem-2.tex) [299] [300
+[298] [299] [300] [301] [302] [303]) (./chapters/bem-fem-2.tex [304]) [305]
+[306
 
-] [301] [302] [303
+] [307] [308] [309
 
-] [304] [305
+] [310] [311
 
-]
-[306] (./chapters/appendix01.tex
+] [312] (./chapters/appendix01.tex
 第一章
-[307
+[313
 
-] [308]
+] [314]
 Overfull \hbox (39.62521pt too wide) in paragraph at lines 212--213
 []\TU/STSong(0)/m/n/10 在 \TU/lmr/m/n/10 capital adjustment cost \TU/STSong(0)/m
 /n/10 设 定 下，|  家 庭 部 门 优 化 条 件 表 示 为 通 过 选 择 投 入 组 合 $\OMS/cmsy/m/n/10 f\OML/cm
@@ -2838,65 +2838,65 @@ m/m/it/10 C[]; I[]; \OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; B[]; []\OMS/cmsy/m/
 n/10 g$\TU/STSong(0)/m/n/10 ，|
  []
 
-[309]
+[315]
 Overfull \hbox (13.77956pt too wide) detected at line 227
 []
  []
 
-[310] [311]) (./chapters/PK.tex [312]
+[316] [317]) (./chapters/PK.tex [318]
 第二章
-[313
+[319
 
-]) (./chapters/KNKNCE.tex [314]
+]) (./chapters/KNKNCE.tex [320]
 第三章
-[315
+[321
 
-] [316]
+] [322]
 Overfull \hbox (0.47757pt too wide) in paragraph at lines 68--69
 []\TU/STSong(0)/m/n/10 在 \TU/lmr/m/n/10 Marshallian \TU/STSong(0)/m/n/10 的 框 架 
 中，|  经 济 的 波 动 是 由 供 应 波 动 和 需 求 波 动 两 方 面 共 同 作 用 的 结 果。| \TU/lmr/m/n/10 Keyne
 s
  []
 
-[317] [318] [319]) [320] (./DSGEnotes.bbl [321
+[323] [324] [325]) [326] (./DSGEnotes.bbl [327
 
-] [322] [323] [324] [325]
-[326]
-Underfull \hbox (badness 1681) in paragraph at lines 834--840
+] [328] [329] [330] [331]
+[332]
+Underfull \hbox (badness 1681) in paragraph at lines 848--854
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[327] [328] [329] [330] [331] [332]) [333] [334
+[333] [334] [335] [336] [337] [338]) [339] [340
 
 ] (./DSGEnotes.lof)
 \tf@lof=\write8
 \openout8 = `DSGEnotes.lof'.
 
- [335]
-[336
+ [341]
+[342
 
 ] (./DSGEnotes.lot)
 \tf@lot=\write9
 \openout9 = `DSGEnotes.lot'.
 
- [337] [338
+ [343] [344
 
 ] (./DSGEnotes.tdo)
 \tf@tdo=\write10
 \openout10 = `DSGEnotes.tdo'.
 
- [339] [340
+ [345] [346
 
 ]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
 
-(./DSGEnotes.ind [341
+(./DSGEnotes.ind [347
 
-] [342] [343] [344] [345] [346
-\indexentry{残差方程(映射法)|hyperpage}{346}
-] [347]) [348]
+] [348] [349] [350] [351] [352
+\indexentry{残差方程(映射法)|hyperpage}{352}
+] [353]) [354]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 217.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
  (./DSGEnotes.aux)
@@ -2904,12 +2904,12 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 217.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 217.
  ) 
 Here is how much of TeX's memory you used:
- 46657 strings out of 492998
- 941649 string characters out of 6134491
- 1144184 words of memory out of 5000000
- 49895 multiletter control sequences out of 15000+600000
+ 46703 strings out of 492998
+ 943021 string characters out of 6134491
+ 1147065 words of memory out of 5000000
+ 49941 multiletter control sequences out of 15000+600000
  545437 words of font info for 123 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  62i,27n,104p,10415b,2356s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (348 pages, 5344344 bytes).
+Output written on DSGEnotes.xdv (354 pages, 5443436 bytes).

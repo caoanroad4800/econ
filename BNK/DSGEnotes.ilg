@@ -9,10 +9,10 @@ Scanning input file DSGEnotes.idx....
 !! Input index error (file = DSGEnotes.idx, line = 171):
    -- Illegal null field.
 
-!! Input index error (file = DSGEnotes.idx, line = 224):
+!! Input index error (file = DSGEnotes.idx, line = 225):
    -- Extra `@' at position 86 of first argument.
-done (291 entries accepted, 4 rejected).
-Sorting entries.....done (2512 comparisons).
-Generating output file DSGEnotes.ind....done (488 lines written, 0 warnings).
+done (295 entries accepted, 4 rejected).
+Sorting entries.....done (2632 comparisons).
+Generating output file DSGEnotes.ind....done (490 lines written, 0 warnings).
 Output written in DSGEnotes.ind.
 Transcript written in DSGEnotes.ilg.

@@ -67,7 +67,7 @@
   \item convergence
     \subitem absolute \dotfill 绝对收敛, \hyperpage{258}
   \item countable additivity \dotfill 可数可加性, \hyperpage{251}
-  \item cover(topology) \dotfill 覆盖(拓扑学), \hyperpage{249}
+  \item cover(topology) \dotfill 覆盖(拓扑学), \hyperpage{250}
   \item curse of dimensionality \dotfill 维度灾难, \hyperpage{187}
   \item curse of dimensionality \dotfill 维数灾难, \hyperpage{190}
   \item Céa lemma, \dotfill 齐亚引理, \hyperpage{243}
@@ -79,7 +79,7 @@
   \item dirac delta function \dotfill 狄拉克方程, \hyperpage{195}
   \item Dirac distribution \dotfill 狄拉克分布, \hyperpage{275}
   \item Dirichlet boundary value condition \dotfill 狄利克雷边界值条件, 
-		\hyperpage{247}
+		\hyperpage{247}, \hyperpage{301}
   \item Dirichlet condition
     \subitem  homogeneous 齐次狄利克雷条件, \hyperpage{241}
   \item distance function \dotfill 距离方程, \hyperpage{180}
@@ -151,7 +151,8 @@
   \item Gram-Schmidt orthogonality process \dotfill 格拉姆-施密特正交化过程, 
 		\hyperpage{203}
   \item Green identities
-    \subitem first 格林第一恒等式, \hyperpage{246}
+    \subitem first 格林第一恒等式, \hyperpage{246}, 
+		\hyperpage{300}
     \subitem second 格林第二恒等式, \hyperpage{246}
   \item grid \dotfill 网格, \hyperpage{191}
   \item grid distance \dotfill 网格距离, \hyperpage{253}
@@ -451,6 +452,7 @@
 		\hyperpage{227}
     \subitem the second kind Chebishev polynomial \dotfill 三项递推关系(第二类切比雪夫多项式), 
 		\hyperpage{227}
+  \item trace \dotfill 迹, \hyperpage{246}, \hyperpage{300}
   \item transition matrix \dotfill 转移矩阵, \hyperpage{188}
   \item transition probability \dotfill 转移概率, \hyperpage{188}
   \item triangle inequality \dotfill 三角不等式, \hyperpage{255}

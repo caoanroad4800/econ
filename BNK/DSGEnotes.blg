@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: DSGEnotes.aux
 The style file: model4-names.bst
-Reallocated field_info (elt_size=4) to 10198 items from 5000.
+Reallocated field_info (elt_size=4) to 10244 items from 5000.
 Database file #1: ./refs/papers.bib
 Warning--missing institution in Aldrich:2011wz
 Warning--missing institution in Andreasen:2016cd
@@ -12,6 +12,7 @@ while executing---line 1514 of file model4-names.bst
 Warning--empty journal in Ball:1964vi
 Warning--missing institution in Brubakk:2006vu
 Warning--empty pages in Clough:1999uo
+Warning--can't use both author and editor fields in Demkowicz:2006ww
 `journal' is a missing field, not a string, for entry Fornberg:1996to
 while executing---line 1514 of file model4-names.bst
 Warning--empty journal in Fornberg:1996to
@@ -27,45 +28,45 @@ Warning--missing institution in Murchison:2006wc
 `journal' is a missing field, not a string, for entry Wood:1975vn
 while executing---line 1514 of file model4-names.bst
 Warning--empty journal in Wood:1975vn
-You've used 226 entries,
+You've used 228 entries,
             2973 wiz_defined-function locations,
-            1921 strings with 37733 characters,
-and the built_in function-call counts, 165293 in all, are:
-= -- 14545
-> -- 3961
-< -- 201
-+ -- 1544
-- -- 1310
-* -- 18266
-:= -- 23682
-add.period$ -- 700
-call.type$ -- 226
-change.case$ -- 1550
-chr.to.int$ -- 227
-cite$ -- 239
-duplicate$ -- 12983
-empty$ -- 13443
-format.name$ -- 1947
-if$ -- 31999
+            1932 strings with 37958 characters,
+and the built_in function-call counts, 166796 in all, are:
+= -- 14682
+> -- 3981
+< -- 203
++ -- 1552
+- -- 1316
+* -- 18431
+:= -- 23894
+add.period$ -- 705
+call.type$ -- 228
+change.case$ -- 1561
+chr.to.int$ -- 229
+cite$ -- 242
+duplicate$ -- 13107
+empty$ -- 13581
+format.name$ -- 1955
+if$ -- 32297
 int.to.chr$ -- 9
 int.to.str$ -- 1
-missing$ -- 1943
-newline$ -- 1134
-num.names$ -- 918
-pop$ -- 2095
+missing$ -- 1960
+newline$ -- 1143
+num.names$ -- 926
+pop$ -- 2103
 preamble$ -- 1
-purify$ -- 1335
+purify$ -- 1345
 quote$ -- 0
-skip$ -- 3272
+skip$ -- 3304
 stack$ -- 0
-substring$ -- 14277
-swap$ -- 7331
+substring$ -- 14434
+swap$ -- 7397
 text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1881
-warning$ -- 13
-while$ -- 1132
+type$ -- 1896
+warning$ -- 14
+while$ -- 1144
 width$ -- 0
-write$ -- 3103
+write$ -- 3130
 (There were 5 error messages)

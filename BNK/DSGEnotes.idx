@@ -153,6 +153,7 @@
 \indexentry{divergence theorem \dotfill 高斯散度定理|hyperpage}{245}
 \indexentry{Ostrogradsky-Gauss theorem \dotfill 奥斯特罗格拉德斯基——高斯定理|hyperpage}{245}
 \indexentry{Gauss theorem \dotfill 高斯散度定理|hyperpage}{245}
+\indexentry{trace \dotfill 迹|hyperpage}{246}
 \indexentry{integration by parts \dotfill 分部积分|hyperpage}{246}
 \indexentry{Green identities!first 格林第一恒等式|hyperpage}{246}
 \indexentry{Green identities!second 格林第二恒等式|hyperpage}{246}
@@ -167,8 +168,8 @@
 \indexentry{Lipschitz hypograph \dotfill 利普希茨亚图|hyperpage}{249}
 \indexentry{Lipschitz domain \dotfill 利普希茨域|hyperpage}{249}
 \indexentry{index family \dotfill 索引族|hyperpage}{249}
-\indexentry{cover(topology) \dotfill 覆盖(拓扑学)|hyperpage}{249}
 \indexentry{|hyperpage}{249}
+\indexentry{cover(topology) \dotfill 覆盖(拓扑学)|hyperpage}{250}
 \indexentry{Hölder continuous \dotfill 霍德尔连续|hyperpage}{250}
 \indexentry{piecewise smooth boundary \dotfill 分段平滑边界|hyperpage}{250}
 \indexentry{Lesbegue space \dotfill 勒贝格空间|hyperpage}{250}
@@ -293,3 +294,6 @@
 \indexentry{Riesz-Schauder theorem \dotfill Riesz-Schauder定理|hyperpage}{299}
 \indexentry{Fredholm alternative theorem \dotfill 弗雷德霍姆二择一定理|hyperpage}{299}
 \indexentry{injection \dotfill 内射|hyperpage}{299}
+\indexentry{trace \dotfill 迹|hyperpage}{300}
+\indexentry{Green identities!first 格林第一恒等式|hyperpage}{300}
+\indexentry{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件|hyperpage}{301}

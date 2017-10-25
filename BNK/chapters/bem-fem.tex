@@ -3,7 +3,7 @@
 \label{sec:bem-fem-methods}
 
 \section{边界值问题：位势方程}
-
+\label{sec:bem-fem-potential-bvp}
 我们从二阶偏微分方程入手，介绍边界值问题(boundary value problem)\index{boundary value problem \dotfill 边界值问题}。一个合适的例子是位势方程(potential equation)。
 
 \subsection{偏微分算子及椭圆边界值问题}
@@ -26,10 +26,11 @@
 更进一步，如果$\forall x \in \Omega$该条件都成立，那么我们称$L$在$\Omega$上是椭圆的。
 
 如果存在一个一致下界(uniform lower bound) $\lambda_0 > 0$，满足
-\begin{equation*}
+\begin{equation}
+  \label{eq:bvp-def-uniformly-elliptic}
   \lambda_k (x) \ge \lambda_0, \quad \forall k = 1,\ldots,d, \, \forall x \in \Omega,
-\end{equation*}
-那么我们称$L$在$\Omega$上一致椭圆。
+\end{equation}
+那么我们称$L$在$\Omega$上一致椭圆(uniformly elliptic)。
 
 \subsection{边界条件}
 
@@ -41,7 +42,7 @@
     \label{eq:bvp-gauss-divergence-theorem}
     \int_{\Omega} \frac{\partial}{\partial x_i} f(x) \, dx = \int_{\Gamma} \left[ \gamma_0^{int} f(x) \right] n_i(x) \, d s_x, \quad i = 1,\ldots,d,
   \end{equation}
-  其中$\gamma_0^{int} f(x)$是某个给定方程$f(x), x\in \Omega$的内界迹(interior boundary trace, Theorem \ref{theorem:sobolev-manifold-trace-theorem})，满足
+  其中$\gamma_0^{int} f(x)$是某个给定方程$f(x), x\in \Omega$的内界迹(interior boundary trace, Theorem \ref{theorem:sobolev-manifold-trace-theorem})\index{trace \dotfill 迹}，满足
   \begin{equation}
     \label{eq:bvp-interior-boundary-trace}
     \gamma_0^{int} f(x) \coloneqq \lim_{\Omega \owns \tilde{x} \mapsto x \in \Gamma} f \left( \tilde{x} \right), \quad \forall x \in \Gamma = \partial \Omega.
@@ -75,8 +76,8 @@
   \label{eq:bvp-a-u-nu-inner-prod}
   \begin{split}
   a\left(u,\nu \right) &\coloneqq \sum_{i,j=1}^d \int_{\Omega} a_{ji}(x) \frac{\partial}{\partial x_i} u(x) \, \frac{\partial}{\partial x_j} \nu(x) \, dx \\
-  & = \int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx + \sum_{i,j=1}^{d} \int_{\Gamma} \underbrace{n_j(x) \left[ \gamma_0^{int} (x) \left( a_{ji}(x) \frac{\partial}{\partial x_i} u(x)\right) \right]} \left[ \gamma_0^{int} \nu(x) \right] \, d s_x,\\
-  & =\int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx + \int_{\Gamma} \underbrace{\left[ \gamma_1^{int} u(x) \right]} \left[ \gamma_0^{int} \nu(x) \right] \, d s_x,
+  & = \int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx + \sum_{i,j=1}^{d} \int_{\Gamma} \underbrace{n_j(x) \left[ \gamma_0^{\text{int}} (x) \left( a_{ji}(x) \frac{\partial}{\partial x_i} u(x)\right) \right]} \left[ \gamma_0^{\text{int}} \nu(x) \right] \, d s_x,\\
+  & =\int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx + \int_{\Gamma} \underbrace{\left[ \gamma_1^{\text{int}} u(x) \right]} \left[ \gamma_0^{\text{int}} \nu(x) \right] \, d s_x,
   \end{split}
 \end{equation}
 其中定义$\gamma_1^{int}$为内部共形导数(interior co-normal derivative, \cite{Mikhailov:2006vo, Mikhailov:2009wj, Ancona:2009bo})
@@ -89,9 +90,7 @@
 
 将格林第一恒等式\eqref{eq:bvp-a-u-nu-inner-prod}中的$u,\nu$互换位置，我们有
 \begin{equation*}
-  \begin{split}
   a\left(\nu,u \right) = \int_{\Omega} \left( L \, \nu \right)(x) \, u(x) \, dx + \int_{\Gamma} \left[ \gamma_1^{int} \nu(x) \right] \left[ \gamma_0^{int} u(x) \right] \, d s_x,
-  \end{split}
 \end{equation*}
 由上式和\eqref{eq:bvp-a-u-nu-inner-prod}我们有格林第二恒等式(Green's second identity)\index{Green identities!second 格林第二恒等式}: $\forall u,\nu \in \Omega$且$u,\nu$足够平滑
 \begin{equation}
@@ -173,7 +172,7 @@
 \subsection{诺依曼边界值问题}
 对于诺依曼边界值条件的解，其存在性和唯一性需要做进一步讨论。
 
-假定$\nu_1(x)=1, x \in \Omega$是关于$\nu_1(x)$的齐次诺依曼边界值问题的一个解，\eqref{eq:bvp-laplace-operator}、\eqref{eq:bvp-laplace-conformal-derivative} $\Rightarrow$
+假定$\nu_1(x)=1, x \in \Omega$是关于$\nu_1(x)$的齐次诺依曼边界值问题的一个解，\eqref{eq:bvp-laplace-operator}、\eqref{eq:bvp-laplace-conformal-derivative} $\Rightarrow$关于$u(x)$的诺依曼边界值问题
 \begin{equation}
   \label{eq:bvp-neumann-nu-homo}
   \begin{split}
@@ -182,7 +181,8 @@
   \end{split}
 \end{equation}
 
-则关于$u(x)$的诺依曼边界值问题可以描述如下：\eqref{eq:bvp-neumann-nu-homo}$\rightarrow$格林第二恒等式\eqref{eq:bvp-a-nu-u-green-2nd-identity} $\Rightarrow$
+\eqref{eq:bvp-neumann-nu-homo}
+代入格林第二恒等式\eqref{eq:bvp-a-nu-u-green-2nd-identity}可得正交条件
 \begin{equation}
   \label{eq:bvp-neumann-green-2}
   \int_{\Omega} \left( L \, u \right)(x) \, dx + \int_{\Gamma} \gamma_1^{int} u(x) \, d s_x = 0,
@@ -197,7 +197,7 @@
 \end{split}
 \end{equation}
 
-\eqref{eq:bvp-neumann-cond} $\rightarrow$ \eqref{eq:bvp-neumann-green-2}得正交条件
+对于给定的$f$和$g_N$，根据正交条件\eqref{eq:bvp-neumann-green-2}，我们可以假设诺依曼问题的可解性条件(solvability condition)
 \begin{equation}
   \label{eq:bvp-neumann-green-2-new}
   \int_{\Omega} f(x) \, dx + \int_{\Gamma} g_N(x) \, d s_x = 0.
@@ -888,7 +888,7 @@ $p = \infty$时对应的空间$L^{\infty}(S,\mu)$也可以用类似方法求得�
 不难看出，RHS满足三角不等式关系。则$L^q(\Omega)$和$L^p(\Omega)$构成一组对偶空间(dual space)\index{dual space \dotfill 对偶空间}。
 \end{definition}
 
-当$p=q=2$时，$L^2(\Omega)$就成为包括全部平方可积方程的空间。此时霍德尔不等式(Definition \ref{definition:hoelder-inequality-def})就变成了柯西——施瓦茨不等式。 d
+当$p=q=2$时，$L^2(\Omega)$就成为包括全部平方可积方程的空间。此时霍德尔不等式(Definition \ref{definition:hoelder-inequality-def})就变成了柯西——施瓦茨不等式。
 \begin{definition}[柯西——施瓦茨不等式]
   \label{definition:cauchy-schwarz-inequality}
   内积空间(见Definition \ref{definition:inner-product-space}) $\langle .,. \rangle : V \times V \mapsto \mathbb{F}$中，对于任意两个向量$\forall \bm{u}, \bm{\nu} \in V$，内积绝对值的平方，满足三角不等式
@@ -2445,9 +2445,9 @@ $\Omega$有界 $\Rightarrow M \coloneqq \max_{\bm{x} \in \Omega}  \left| \bm{x} 
 \end{equation*}
 \end{theorem}
 
-%!TEX root = ../DSGEnotes.tex
-\subsubsection{流形索伯列夫空间}
 
+\subsubsection{流形索伯列夫空间}
+\label{sec:sobolev-manifold-space}
 \begin{definition}[流形]
   流形(manifold)是局部具有欧式空间性质的空间，包括各种纬度的曲线曲面，例如球体、弯曲的平面等。流形的局部和欧式空间是同构的(局部线性)。流形学习假设所处理的数据点分布在嵌入于外维欧式空间的一个潜在的流形体上，或者说这些数据点可以构成这样一个潜在的流形体\footnote{从词源上来看，最早由黎曼给出了德文名称mannigfaltigkeit，英文翻译为manifold，字面意义为``多层''。中国第一个拓扑学家江泽涵把这个词翻译为``流形''，取自文天祥《正气歌》，``天地有正气，杂然赋流形''，其原始出处为《易经》，``大哉乾元，万物资始，乃统天。云行雨施，品物流形。'' }。
 \end{definition}
@@ -2727,7 +2727,7 @@ $s<0$时的流形索伯列夫空间$H_{\chi}^{s}(\Gamma)$，可由其对偶空�
   \end{equation*}
   有一个连续的右逆算子
   \begin{equation*}
-    \mathcal{\varepsilon}: H^{s-\frac{1}{2}}(\Gamma) \mapsto H^{S}(\Gamma),
+    \mathcal{\varepsilon}: H^{s-\frac{1}{2}}(\Gamma) \mapsto H^{s}(\Gamma),
   \end{equation*}
 满足如下关系
 \begin{equation*}
@@ -2748,9 +2748,10 @@ $s<0$时的流形索伯列夫空间$H_{\chi}^{s}(\Gamma)$，可由其对偶空�
 
 需要指出的是，利普希茨域$\Omega \subset \mathbb{R}^d$中，只有当$|s| <1$时，以下范式等价$\| \nu \|_{H^{s}(\gamma), \gamma_0} = \| \nu \|_{H^{s}(\Gamma)}$。
 
-%!TEX root = ../DSGEnotes.tex
+
 \section{变分法}
-弱形式边界值问题常常表现为带有算子方程(operator equations)的变分问题。对于变分问题，我们常将其表示为表面积位势和体积位势(surface and volume potentials)的偏微分方程，为了求解方程，就需要求得有界的积分算子方程的解，以建立完备的柯西数列解。本节介绍一些泛函分析的基本知识，进而探讨算子方程解得存在性和唯一性。
+\label{sec:variational-methods}
+弱形式边界值问题常常表现为带有算子方程(operator equations)的变分问题。对于变分问题，我们常将其表示为表面积位势和体积位势(surface and volume potentials)的偏微分方程，为了求解方程，就需要求得有界的积分算子方程的解，以建立完备的柯西数列解。本节介绍一些泛函分析的基本知识，进而探讨算子方程解的存在性和唯一性。
 
 \subsection{算子方程}
 \label{sec:variational-operator-equations}
@@ -3334,6 +3335,7 @@ $\im_{X} B$的性质，由闭值域定理(closed range theorem)\index{closed ran
 若可求解性条件\eqref{eq:var-stability-condition-equation}或\eqref{eq:var-stability-condition-eqivalence}得到满足，则算子方程\eqref{eq:var-stability-operator-equation}存在至少一个解$u \in X$。但解并不唯一：我们可以加入任一$u_0 \in \ker B$，使得$u + u_0$也是$B(u + u_0) = g$的解。因此我们需要引入额外的假设条件$u \in (\ker B)^{\bot}$，以确保解的唯一性。
 
 \begin{theorem}[算子方程解的唯一存在性]
+  \label{theorem:var-solution-exist-uniq}
   设希尔伯特空间$X$和$\Pi$。有界的线性算子$B: X \mapsto \Pi'$。假定已知稳定性条件
   \begin{equation}
     \label{eq:var-operators-stablility-conditions}
@@ -3462,7 +3464,7 @@ $\im_{X} B$的性质，由闭值域定理(closed range theorem)\index{closed ran
 \begin{proof}
   由已知条件$g \in \im_{X} B$可得，约束条件存在至少一个解$u_g \in X$满足$B u_g = g$。除此而外，我们还需要求得$u_0 \coloneqq u-u_g \in V_0$，作为以下算子方程的解
   \begin{equation*}
-    A u_0 = f - A u_0,
+    A u_0 = f - A u_g,
   \end{equation*}
   算子方程等价于以下变分问题
 \begin{equation*}
@@ -3998,3 +4000,416 @@ Gårding不等式的详细介绍，可参考\cite[Theorem 2.4]{Jovanovic:2014iy}
     \big\| u \big\|_{X} \le c \big\| D^{-1} f \big\|_{X} \le \tilde{c} \, \big\| f \big\|_{X'}.
   \end{equation*}
 \end{proof}
+
+
+\section{变分法求解边界值问题}
+\label{sec:variational-bvp}
+
+在介绍了常见的变分方法(第\ref{sec:variational-methods}节)之后，本届关注如何利用变分法分析求解二阶椭圆边界值问题，尤其是位势方程(potential equations， 第\ref{sec:bem-fem-potential-bvp}节)的边界值。应用变分法构建的边界值问题的若方程，是有限元分析的重要基础之一。
+
+\subsection{位势方程基本介绍}
+\label{sec:var-bvp-potential-equation}
+
+如第\ref{sec:bem-fem-potential-bvp}节所讨论，先介绍三个算子，分别为实值标量的偏微分算子\eqref{eq:bvp-self-adjoint-pde-operator}
+\begin{equation}
+  \label{eq:var-bvp-self-adjoint-pde-operator}
+  \left( L \, u \right)(x) \coloneqq - \sum_{i,j=1}^d \frac{\partial}{\partial x_j} \left[ a_{ji} (x) \frac{\partial}{\partial x_i} u(x)\right], \quad x \in \Omega \in \mathbb{R}^d,
+\end{equation}
+
+内界迹算子\index{trace \dotfill 迹}\eqref{eq:bvp-interior-boundary-trace}
+\begin{equation*}
+  \gamma_0^{int} u(x) \coloneqq \lim_{\Omega \owns \tilde{x} \mapsto x \in \Gamma} u \left( \tilde{x} \right), \quad x \in \Gamma = \partial \Omega,
+\end{equation*}
+
+与之相对应的内部共形导数\eqref{eq:bvp-int-conformal-derivative}
+\begin{equation}
+  \label{eq:var-bvp-int-conformal-derivative}
+  \gamma_1^{int}u(x) \coloneqq \lim_{\Omega \owns \tilde{x} \mapsto x \in \Gamma} \left[
+\sum_{i,j=1}^{d} n_j(x) a_{ji}\left( \tilde{x} \right) \frac{\partial}{\partial \tilde{x}_i} u \left( \tilde{x} \right)
+  \right], \quad x \in \Gamma = \partial \Omega.
+\end{equation}
+
+当$u, \nu \in H^1(\Omega)$时，$Lu \in \widetilde{H}^{-1}(\Omega)$，格林第一恒等式\index{Green identities!first 格林第一恒等式} \eqref{eq:bvp-a-u-nu-inner-prod}化简为
+\begin{equation}
+  \label{eq:var-bvp-green-1st-identity}
+\begin{split}
+    a\left(u,\nu \right) &=\int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx + \int_{\Gamma} \left[ \gamma_1^{int} u(x) \right]  \left[ \gamma_0^{int} \nu(x) \right] \, d s_x \\
+    &= \langle Lu, \nu \rangle_{\Omega} + \langle \gamma_1^{\text{int}} u, \gamma_0^{\text{int}} \nu \rangle_{\Gamma},
+\end{split}
+\end{equation}
+其中对称双线性泛函$a(.,.)$的定义
+\begin{equation}
+  \label{eq:var-bvp-bilinear-form-a-def}
+  a \left(u,\nu \right) \coloneqq \langle u, \nu \rangle = \sum_{i,j=1}^d \int_{\Omega} a_{ji}(x) \frac{\partial}{\partial x_i} u(x) \, \frac{\partial}{\partial x_j} \nu(x) \, dx
+\end{equation}
+
+\begin{lemma}
+  \label{lemma:var-bvp-aform-inequality}
+  假设$a_{ij} \in L^{\infty}(\Omega), \, i,j = 1,\ldots,d$满足
+  \begin{equation}
+    \label{eq:var-bvp-coeff-norm}
+    \big\| a \big\|_{L^{\infty}(\Omega)} \coloneqq \max_{i,j=1,\ldots,d} \, \sup_{x \in \Omega} \big| a_{ij}(x) \big|.
+  \end{equation}
+
+  那么我们可得线性形泛函$a(.,.): H^{1}(\Omega) \times H^{1}(\Omega) \mapsto \mathbb{R}$有界，并且满足
+  \begin{equation}
+    \label{eq:var-bvp-a-c2a-inequality}
+    \begin{split}
+    &\big| a (u, \nu) \big| \le c_2^A \, \big| u \big|_{H^{1}(\Omega)} \, \big| \nu \big|_{H^1(\Omega)}, \quad \forall u, \nu \in H^{1}(\Omega), \\
+    & c_2^A \coloneqq d \, \big\| a \big\|_{L^{\infty}(\Omega)}.
+  \end{split}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+  由\eqref{eq:var-bvp-bilinear-form-a-def}，\eqref{eq:var-bvp-coeff-norm}可得
+  \begin{equation*}
+    \begin{split}
+      \big| a \left(u,\nu \right) \big| &= \Big| \sum_{i,j=1}^d \int_{\Omega} a_{ji}(x) \frac{\partial}{\partial x_i} u(x) \, \frac{\partial}{\partial x_j} \nu(x) \, dx \Big| \\
+      & \le \big\| a \big\|_{L^{\infty}(\Omega)} \,
+      \int_{\Omega} \left\{
+      \sum_{i=1}^{d} \Big| \frac{\partial}{\partial x_i} \, u(x) \Big| \,
+      \sum_{j=1}^{d} \Big| \frac{\partial}{\partial x_j} \, \nu(x) \Big| \right\} \,
+      dx,
+      \end{split}
+  \end{equation*}
+连续两次使用柯西——施瓦茨不等式(Definition \ref{definition:cauchy-schwarz-inequality})，上式变为
+\begin{equation*}
+  \begin{split}
+    \big| a \left(u,\nu \right) \big|
+    & \le \big\| a \big\|_{L^{\infty}(\Omega)} \,
+    \left\{
+    \int_{\Omega}
+    \left[
+    \sum_{i=1}^{d} \Big| \frac{\partial}{\partial x_i} \, u(x) \Big|
+    \right]^2  dx
+    \right\}^{\frac{1}{2}} \,
+    \left\{
+    \int_{\Omega}
+    \left[
+    \sum_{j=1}^{d} \Big| \frac{\partial}{\partial x_j} \, \nu(x) \Big|
+    \right]^2  dx
+    \right\}^{\frac{1}{2}} \\
+    & \le \big\| a \big\|_{L^{\infty}(\Omega)} \,
+    \left\{
+    \int_{\Omega} d
+    \sum_{i=1}^{d}
+    \Big|
+    \frac{\partial}{\partial x_i} \, u(x) \Big|^2
+    dx
+    \right\}^{\frac{1}{2}} \,
+    \left\{
+    \int_{\Omega} d
+    \sum_{j=1}^{d}
+    \Big|
+    \frac{\partial}{\partial x_j} \, \nu(x) \Big|^2
+    dx
+    \right\}^{\frac{1}{2}} \, \\
+    & = \underbrace{d \, \big\| a \big\|_{L^{\infty}(\Omega)}}_{\eqqcolon c_2^A} \,
+    \big\| \triangledown u \big\|_{L^{2}(\Omega)} \,
+    \big\| \triangledown \nu \big\|_{L^{2}(\Omega)}. \, %\\
+    % & = c_2^A
+    % \big| u \big|_{H^{1}(\Omega)} \, \big| \nu \big|_{H^1(\Omega)},
+  \end{split}
+\end{equation*}
+\end{proof}
+
+可见，由Lemma \ref{lemma:var-bvp-aform-inequality}可得，\eqref{eq:var-bvp-a-c2a-inequality}又进一步表示为
+\begin{equation}
+  \label{eq:var-bvp-aform-inequality-norm}
+  \big| a \left(u,\nu \right) \, \big| \le c_2^A \, \big\| u \big\|_{H^{1}(\Omega)} \, \big\| \nu \big\|_{H^{1}(\Omega)}, \quad \forall u,\nu \in H^{1}(\Omega).
+\end{equation}
+
+\begin{lemma}[双线性算子的半椭圆特性]
+  \label{lemma:var-bvp-operator-ellipticity-property}
+  设$L$是一个如\eqref{eq:var-bvp-self-adjoint-pde-operator}所定义的一致椭圆偏微分算子。用双线性形式\eqref{eq:var-bvp-bilinear-form-a-def}形式表示，我们有
+  \begin{equation}
+    \label{eq:var-bvp-bilinear-a-nunu}
+    a(\nu,\nu) \ge \lambda_0 \, \big| \nu \big|_{H^{1}(\Omega)}^2, \quad \forall \nu \in H^{1}(\Omega),
+  \end{equation}
+  其中常数$\lambda_0 > 0$是一致椭圆的，见\eqref{eq:bvp-def-uniformly-elliptic}。
+\end{lemma}
+
+\begin{proof}
+  设一个$w_i(x)$
+  \begin{equation*}
+    w_i(x) \coloneqq \frac{\partial}{\partial x_i} \nu(x), \quad i=1,\ldots,d,
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      \hookrightarrow a(\nu, \nu) & = \sum_{i,j=1}^{d} \int_{\Omega}
+      a_{ji}(x) \frac{\partial}{\partial x_i} \nu(x) \frac{\partial}{\partial x_i} \nu(x)  \, dx \\
+      &= \int_{\Omega} \left[ A(x) w(x), w(x) \right] \, dx \\
+      & \ge \lambda_0 \int_{\Omega} \left[ w(x), w(x) \right] \, dx \\
+      & = \lambda_0 \, \big\| \triangledown \nu \big\|_{L^{2}(\Omega)}^2\\
+      & = \lambda_0 \big| \nu \big|_{H^1(\Omega)}^2.
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+\subsection{狄利克雷边界值问题1}
+\label{sec:var-bvp-dirichlet}
+
+\subsubsection{将狄利克雷边界值问题改写为变分问题}
+
+回顾一下第\ref{sec:bem-fem-potential-bvp}节的狄利克雷边界值问题\index{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件}
+\eqref{eq:bvp-extension-omega-cond}-\eqref{eq:bvp-extension-gamma-dirichlet}：基于给定的$f$和$g$，求解
+\begin{equation}
+  \label{eq:var-dbvp-problem}
+  \begin{split}
+    &(L u)(x) = f(x), \quad x \in \Omega, \\
+    &\gamma_0^{\text{int}} u(x) = g(x), \quad x \in \Gamma,
+  \end{split}
+\end{equation}
+对应弱形式下的流形空间
+\begin{equation}
+  \label{eq:var-dbvp-problem-manifold}
+\begin{split}
+  &V_g \coloneqq
+  \left\{
+  \nu \in H^{1}(\Omega): \gamma_0^{\text{int}} \nu(x) = g(x), \quad x \in \Gamma
+  \right\},\\
+  &V_0 = H_{0}^{1}(\Omega).
+\end{split}
+\end{equation}
+
+根据第\ref{sec:variational-methods}介绍的知识，我们可以将狄利克雷边界值问题\eqref{eq:var-dbvp-problem}-\eqref{eq:var-dbvp-problem-manifold}改写为变分问题：
+\begin{equation}
+  \label{eq:var-dbvp-variational-problem}
+  a(u,\nu) = \langle f, \nu \rangle_{\Omega}, \quad \forall \, \nu \in V_0,
+\end{equation}
+其中双线性泛函$a(u,\nu)$由格林第一恒等式\eqref{eq:var-bvp-green-1st-identity}定义。研究目标是寻找变分问题的解$u \in V_g$。由此狄利克雷边界问题表现为流形$V_g$中的一个附属条件，因此又称为基本边界条件(essential boundary conditions)。
+
+\subsubsection{解的存在性与唯一性}
+由上所述可以看出，狄利克雷边界值问题对应的变分问题，可以归入带限制条件的算子方程问题类型，可用相应的变分方法求解(第\eqref{sec:var-constraints}节)。借助Theorem \ref{theorem:var-constraint-solution-exist-uniq}和Corollary \ref{corollary:var-constraint-norm-equivalence}，我们可以证明$u \in V_g$存在且唯一。
+
+\begin{theorem}[狄利克雷边界值问题的弱形式解]
+  \label{theorem:var-dvbp-uniq-exist-solution}
+  给定$f \in H^{-1}(\Omega), g \in H^{\frac{1}{2}}(\Gamma)$，变分问题\eqref{eq:var-dbvp-problem}存在唯一的解$u \in H^{1}(\Omega)$，满足
+  \begin{equation}
+    \label{eq:var-dvbp-uniq-exist-solution}
+    \big\| u \big\|_{H^{1}(\Omega)} \le \frac{1}{c_1^A} \, \big\| f \big\|_{H^{-1}(\Omega)} + \left( 1 + \frac{c_2^A}{c_1^A} \right) c_{\text{IT}} \, \big\| g \big\|_{H^{\frac{1}{2}}(\Gamma)}.
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  与Theorem \ref{theorem:var-constraint-solution-exist-uniq}类似，假设解$u$由两部分相加而得，$u \coloneqq u_0 + u_g$，其中$u_g$是$\gamma_0^{\text{int}} u_g = g$的解，$u_0$是$\gamma_1^{\text{int}} (u_0 + u_g) = f$的解。显然，$u$的唯一存在，可由$u_g$和$u_0$的唯一存在所分别证得。
+\begin{enumerate}
+  \item 证明$u_g$的唯一存在性。根据给定条件$g \in H^{\frac{1}{2}}(\Gamma)$，应用逆迹定理\eqref{theorem:sobolev-manifold-inverse-trace-theorem}，可得存在唯一一个有界延拓$u_g \in H^{\Omega}$，满足
+  \begin{equation*}
+    \begin{split}
+      & \gamma_{0}^{\text{int}} u_g = g, \\
+      & \big\| u_g \big\|_{H^{1}(\Omega)} \le c_{\text{IT}} \, \big\| g \big\|_{H^{\frac{1}{2}}(\Gamma)}.
+    \end{split}
+  \end{equation*}
+
+  \item 在求得唯一解$u_g$的基础上，继续求唯一解$u_0$。变分问题\eqref{eq:var-dbvp-variational-problem}变为，寻找解$u_0 \in V_0 = H_{0}^{1}(\Omega)$，使满足新的变分问题
+  \begin{equation}
+    \label{eq:var-dbvp-variational-problem-u0}
+    a(u_0, \nu) = \langle f, \nu \rangle_{\Omega} - a (u_g, \nu), \quad \forall \, \nu \in V_0.
+  \end{equation}
+  \begin{enumerate}
+    \item 由范数等价定理(Theorem \ref{theorem:equivalence-norm-theorem}-\ref{theorem:sobolev-equivalence-norm-theorem}, \eqref{eq:sobolev-equivalence-norm-w12omega})得，$H^{1}(\Omega)$中的等价范为
+    \begin{equation*}
+%      \begin{split}
+        \big\| u_0 \big\|_{W^{1,2}(\Omega), \Gamma} = \left\{
+      \left[
+      \int_{\Gamma} \gamma_{0}^{\text{int}} u_0(x) \, ds_x
+      \right]^2
+      + \big\| \triangledown u_0 \big\|^2_{L^2(\Omega)}
+       \right\}^{\frac{1}{2}},
+%     \end{split}
+    \end{equation*}
+    即$a(.,.)$有界。
+
+    \item 由Lemma \ref{lemma:var-bvp-operator-ellipticity-property} \eqref{eq:var-bvp-bilinear-a-nunu}可得
+    \begin{equation}
+      \label{eq:var-bvp-operator-a-ellipticity}
+      \begin{split}
+        a(u_0,u_0) &\ge \lambda_0 \, \big| u_0 \big\|_{H^{1}(\Omega)} \\
+        &= \lambda_0 \, \big\| \triangledown u_0 \big\|_{W^{1,2}(\Omega), \Gamma}^2 \\
+        &\ge c_1^A \big\| u_0 \big\|_{H^1(\Omega)}^2,
+      \end{split}
+    \end{equation}
+    即$a(.,.)$是个$V_0$-椭圆算子。
+
+    \item $a(.,.)$有界且$V_0$-椭圆，满足拉克斯一密格拉蒙定理(Theorem \ref{theorem:lax-milgram-lemma})所需的前提条件，根据该定理，变分问题\eqref{eq:var-dbvp-variational-problem-u0}有唯一解$u_0 \in V_0$，满足
+    \begin{equation*}
+      \begin{split}
+        c_1^A \, \big\| u_0 \big\|_{H^1(\Omega)}^2 & \le a(u_0, u_0) \\
+        & = \langle f, u_0 \rangle_{\Omega} - a(u_g, u_0),
+      \end{split}
+    \end{equation*}
+    代入Lemma \ref{lemma:var-bilinear-form-to-A}，上式进一步变为
+    \begin{equation*}
+      \begin{split}
+        &c_1^A \, \big\| u_0 \big\|_{H^1(\Omega)}^2  \le
+        \left(
+        \big\| f \big\|_{H^{-1}(\Omega)} + c_2^A \, \big\| u_g \big\|_{H^{1}(\Omega)}
+        \right) \, \big\| u_0 \big\|_{H^{1}(\Omega)},\\
+        \hookrightarrow &
+        \big\| u_0 \big\|_{H^1(\Omega)} \le \frac{1}{c_1^A} \, \big\|f \big\|_{H^{-1}(\Omega)} + \frac{c_2^A}{c_1^A} \, \big\|u_g \big\|_{H^{1}(\Omega)}.
+      \end{split}
+    \end{equation*}
+  \end{enumerate}
+
+  \item 在此基础上我们有
+  \begin{equation}
+    \begin{split}
+      &\big\| u_0 \big\|_{H^1(\Omega)} + \big\| u_g \big\|_{H^1(\Omega)} \le
+      \frac{1}{c_1^A} \, \big\|f \big\|_{H^{-1}(\Omega)} + \left( 1+  \frac{c_2^A}{c_1^A} \right) \, \big\|u_g \big\|_{H^{1}(\Omega)}, \\
+      \hookrightarrow &\big\| u \big\|_{H^{1}(\Omega)} \le \frac{1}{c_1^A} \, \big\| f \big\|_{H^{-1}(\Omega)} + \left( 1 + \frac{c_2^A}{c_1^A} \right) c_{\text{IT}} \, \big\| g \big\|_{H^{\frac{1}{2}}(\Gamma)}.
+    \end{split}
+  \end{equation}
+\end{enumerate}
+\end{proof}
+
+\subsubsection{共形导数}
+变分问题\eqref{eq:var-dbvp-variational-problem}的唯一解$u \in V_g$，常常又称为狄利克雷边界值问题\eqref{eq:var-dbvp-problem}的弱形式解。在此基础上，对于$f \in \widetilde{H}^{-1}(\Omega)$，可通过构建变分问题进一步求解共形导数$\gamma_{1}^{\text{int}} u \in H^{-\frac{1}{2}(\Gamma)}$
+\begin{equation}
+  \label{eq:var-dbvp-conormal-problem}
+  \langle \gamma_{1}^{\text{int}} u, z \rangle _{\Gamma} = a(u,\varepsilon_z) - \langle f, \varepsilon_z \rangle_{\Omega}, \quad \forall \, z \in H^{\frac{1}{2}}(\Gamma),
+\end{equation}
+其中$\varepsilon_z$是逆迹定理Theorem \ref{theorem:sobolev-manifold-inverse-trace-theorem}所定义的有界延拓算子。\eqref{eq:var-dbvp-conormal-problem}的唯一可解条件由Theorem \ref{theorem:var-solution-exist-uniq}给出，由此我们可以假定如下稳定性条件
+\begin{equation}
+  \label{eq:var-dbvp-conormal-stability-condition}
+  \big\| w \big\|_{H^{-\frac{1}{2}}(\Gamma)} = \sup_{0 \neq z \in H^{\frac{1}{2}}(\Gamma)} \frac{
+  \langle w, z \rangle_{\Gamma}
+  }{
+  \big\| z \big\|_{H^{\frac{1}{2}}(\Gamma)}
+  }, \quad \forall \, w \in H^{-\frac{1}{2}(\Gamma)}.
+\end{equation}
+
+在此基础上我们有共形导数的解
+\begin{lemma}[共形导数的解]
+  \label{lemma:var-dbvp-conormal-solution}
+  设给定$f \in \widetilde{H}^{-1}(\Omega), g \in H^{\frac{1}{2}}(\Gamma)$，我们有$u \in H^{1}(\Gamma)$是狄利克雷边界值问题\eqref{eq:var-dbvp-variational-problem}的唯一解。
+
+  那么相应的共形导数$\gamma_{1}^{\text{int}} u \in H^{-\frac{1}{2}}(\Gamma)$满足
+  \begin{equation}
+    \label{eq:var-dbvp-conormal-solution}
+    \big\| \gamma_1^{\text{int}} u \big\|_{H^{-\frac{1}{2}}(\Gamma)}
+    \le c_{\text{IT}} \,
+    \left\{
+    \big\| f \big\|_{\widetilde{H}^{-1}(\Omega)} +
+    c_2^A \, \big| u \big|_{H^{1}(\Omega)}
+    \right\}.
+  \end{equation}
+\end{lemma}
+
+\begin{proof}
+  稳定性条件\eqref{eq:var-dbvp-conormal-stability-condition}$\Rightarrow$
+  \begin{equation*}
+    \big\| \gamma_1^{\text{int}} u \big\|_{H^{-\frac{1}{2}}(\Gamma)} =
+    \sup_{0 \neq z \in H^{\frac{1}{2}}(\Gamma)} \frac{
+    \langle \gamma_1^{\text{int}} u , z \rangle_{\Gamma}
+    }{
+    \big\| z \big\|_{H^{\frac{1}{2}}(\Gamma)}
+    },
+  \end{equation*}
+变分问题\eqref{eq:var-dbvp-conormal-problem}、Lemma \eqref{lemma:var-bilinear-form-to-A}$\Rightarrow$
+\begin{equation*}
+\begin{split}
+  \big\| \gamma_1^{\text{int}} u \big\|_{H^{-\frac{1}{2}}(\Gamma)} &=
+  \sup_{0 \neq z \in H^{\frac{1}{2}}(\Gamma)} \frac{
+  \big|
+  a(u,\varepsilon_z) - \langle f, \varepsilon_z \rangle_{\Omega}
+  \big|_{\Gamma}
+  }{
+  \big\| z \big\|_{H^{\frac{1}{2}}(\Gamma)}
+  },\\
+  &\le
+  \left\{
+  c_2^A \, \big| u \big|_{H^{1}(\Omega)} + \big\| f \big\|_{\widetilde{H}^{-1}(\Omega)}
+  \right\} \,
+  \underbrace{\sup_{0 \neq z \in H^{\frac{1}{2}}(\Gamma)}
+  \frac{
+  \big\| \varepsilon_z \big\|_{H^{1}(\Omega)}
+  }{
+  \big\| z \big\|_{H^{\frac{1}{2}}(\Gamma)}
+  }}_{\eqqcolon \mathcal{A}}
+\end{split}
+\end{equation*}
+
+由逆迹定理Theorem \ref{theorem:sobolev-manifold-inverse-trace-theorem}可得
+\begin{equation*}
+  \mathcal{A} \le c_{\text{IT}},
+\end{equation*}
+
+因此
+\begin{equation*}
+  \big\| \gamma_1^{\text{int}} u \big\|_{H^{-\frac{1}{2}}(\Gamma)}
+  \le c_{\text{IT}} \,
+    \left\{
+    \big\| f \big\|_{\widetilde{H}^{-1}(\Omega)} +
+    c_2^A \, \big| u \big|_{H^{1}(\Omega)}
+    \right\}.
+\end{equation*}
+\end{proof}
+
+\subsubsection{带有齐次偏微分方程的狄利克雷边界值问题弱解}
+\label{sec:var-dbvp-f0-solution}
+来考虑一类特殊的狄利克雷边界值问题，即含有齐次偏微分方程$f \equiv 0$的情况，其解$u$对于边界积分算子的分析具有重要意义。
+\begin{corollary}[带有齐次偏微分方程的狄利克雷边界值问题弱解]
+  \label{corollary:var-dbvp-f0-solution}
+  设$u \in H^{1}(\Omega)$是以下带有齐次偏微分方程的狄利克雷边界值问题的弱形式解
+  \begin{equation*}
+    \begin{split}
+      &\left( L u \right) (x) = 0, \quad x \in \Omega, \\
+      &\gamma_0^{\text{int}} u(x) = g(x), \quad x \in \Gamma,
+    \end{split}
+  \end{equation*}
+  其中$L$是一个一致椭圆的二阶偏微分算子。
+
+  那么我们有
+  \begin{equation}
+    \label{eq:var-dbvp-f0-solution}
+    a(u,u) \ge c \big\| \gamma_{1}^{\text{int}} u \big\|_{H^{-\frac{1}{2}}(\Gamma)}^2.
+  \end{equation}
+\end{corollary}
+\begin{proof}
+  \begin{enumerate}
+    \item 当$f \equiv 0$时，共形导数算子和逆迹的关系，由Lemma \ref{lemma:var-dbvp-conormal-solution}的  \eqref{eq:var-dbvp-conormal-solution}变为
+  \begin{equation*}
+    \big\| \gamma_1^{\text{int}} u \big\|_{H^{-\frac{1}{2}}(\Gamma)}^2
+    \le \left[ c_{\text{IT}} \,
+    c_2^A \right]^2
+    \, \big| u \big|_{H^{1}(\Omega)}^2.
+  \end{equation*}
+
+\item 由双线性算子的半椭圆特性Lemma \ref{lemma:var-bvp-operator-ellipticity-property} \eqref{eq:var-bvp-bilinear-a-nunu}可得
+\begin{equation*}
+  \lambda_0
+  \, \big| u \big|_{H^{1}(\Omega)}^2 \le a(u,u).
+\end{equation*}
+\end{enumerate}
+\end{proof}
+
+\subsubsection{狄利克雷边界值问题的强解简述}
+\label{sec:var-bvp-strong-solution}
+当$\Omega$是利普希茨域时，基于给定的$f$和$g$，我们可以引入更严格的假设条件，构建强形式的正则解如$u$、$\gamma_{1}^{\text{int}}u$等。
+
+\begin{theorem}
+  设$\Omega \in \mathbb{R}^d$是个有界的利普希茨域，边界为$\Gamma = \partial \Omega$。设$u \in H^{1}(\Omega)$是狄利克雷边界值问题的弱形式解
+  \begin{equation*}
+    \begin{split}
+      &(L u)(x) = f(x), \quad x \in \Omega,\\
+      &\gamma_{0}^{\text{int}} u(x) = g(x), \quad x \in \Gamma.
+    \end{split}
+  \end{equation*}
+
+  如果给定的$f$和$g$满足$f \in L^{2}(\Omega), g \in H^{1}(\Gamma)$，那么我们有$u \in H^{\frac{3}{2}}(\Omega), \gamma_{1}^{\text{int}} u \in L^{2}(\Gamma)$，并且
+  \begin{equation*}
+  \begin{split}
+  &\big\| u \big\|_{H^{\frac{3}{2}}(\Omega)} \le c_1
+  \left\{
+  \big\| f \big\|_{L^{2}(\Omega)} + H^{1}(\Gamma)
+  \right\},\\
+  & \big\| \gamma_{1}^{\text{int}} u \big\|_{L^{2}(\Gamma)} \le c_2 \left\{
+  \big\| f \big\|_{L^{2}(\Omega)} + H^{1}(\Gamma)
+  \right\}.
+  \end{split}
+  \end{equation*}
+\end{theorem}
+
+我们甚至可以使假定条件更加严格，如$\Gamma = \partial \Omega$是平滑或分段平滑的边界，$\Omega$是凹的，$f \in L^{2}(\Omega)$等。若$g = \gamma_{0}^{\text{int}} u $是方程解$u_g \in H^2(\Omega)$的迹，则我们有$u \in H^2(\Omega)$。更多强形式解的讨论，可见\cite{Demkowicz:2006ww,Demkowicz:2007ur}。

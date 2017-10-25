@@ -1,4 +1,4 @@
-\begin{thebibliography}{226}
+\begin{thebibliography}{228}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -141,9 +141,16 @@
 %Type = Article
 \bibitem[{Babu{\v s}ka(1971)}]{Babuska:1971fx}
 \bibinfo{author}{Babu{\v s}ka\xfnm[ I.]}.
-\newblock \bibinfo{title}{{Error-bounds for finite element method}}.
+\newblock \bibinfo{title}{{Error-Bounds for Finite Element Method}}.
 \newblock \bibinfo{journal}{Numerische Mathematik}
   \bibinfo{year}{1971};\bibinfo{volume}{16}(\bibinfo{number}{4}):\bibinfo{pages}{322--333}.
+%Type = Article
+\bibitem[{Babu{\v s}ka(1973)}]{Babuska:1973gu}
+\bibinfo{author}{Babu{\v s}ka\xfnm[ I.]}.
+\newblock \bibinfo{title}{{The Finite Element Method with Lagrangian
+  Multipliers}}.
+\newblock \bibinfo{journal}{Numerische Mathematik}
+  \bibinfo{year}{1973};\bibinfo{volume}{20}(\bibinfo{number}{3}):\bibinfo{pages}{179--192}.
 %Type = Article
 \bibitem[{Babu{\v s}ka and Suri(1994)}]{Babuska:1994jz}
 \bibinfo{author}{Babu{\v s}ka\xfnm[ I.]}, \bibinfo{author}{Suri\xfnm[ M.]}.
@@ -320,6 +327,13 @@
 \newblock \bibinfo{title}{{Convex Optimization}}.
 \newblock \bibinfo{publisher}{Cambridge University Press},
   \bibinfo{year}{2004}.
+%Type = Article
+\bibitem[{Bramble(1981)}]{Bramble:1981vv}
+\bibinfo{author}{Bramble\xfnm[ J.H.]}.
+\newblock \bibinfo{title}{{The Lagrange Multiplier Method for Dirichlet's
+  Problem}}.
+\newblock \bibinfo{journal}{Mathematics of Computation}
+  \bibinfo{year}{1981};\bibinfo{volume}{37}(\bibinfo{number}{155}):\bibinfo{pages}{1--11}.
 %Type = Book
 \bibitem[{Brenner and Scott(2008)}]{Brenner:2008hf}
 \bibinfo{author}{Brenner\xfnm[ S.C.]}, \bibinfo{author}{Scott\xfnm[ R.L.]}.
@@ -530,12 +544,12 @@
 \newblock \bibinfo{title}{{Bayesian macroeconometrics}}.
 \newblock \bibinfo{journal}{The Oxford handbook of Bayesian {\ldots}}
   \bibinfo{year}{2011};.
-%Type = Booklet
+%Type = Book
 \bibitem[{Demkowicz(2006)}]{Demkowicz:2006ww}
 \bibinfo{author}{Demkowicz\xfnm[ L.]}.
-\newblock \bibinfo{title}{{Computing with HP-Adaptive Finite Elements: Volume 1
-  One and Two Dimensional Elliptic and Maxwell Problems}}.
-\newblock \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{{Computing with HP-Adaptive Finite Elements: Volume I
+  One and Two Dimensional Elliptic and Maxwell Problems}},
+  \bibinfo{year}{2006}.
 %Type = Book
 \bibitem[{Demkowicz et~al.(2007)Demkowicz, Kurtz, Pardo, Paszenski, Rachowicz
   and Zdunek}]{Demkowicz:2007ur}
