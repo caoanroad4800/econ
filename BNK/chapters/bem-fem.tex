@@ -4413,3 +4413,198 @@ Gårding不等式的详细介绍，可参考\cite[Theorem 2.4]{Jovanovic:2014iy}
 \end{theorem}
 
 我们甚至可以使假定条件更加严格，如$\Gamma = \partial \Omega$是平滑或分段平滑的边界，$\Omega$是凹的，$f \in L^{2}(\Omega)$等。若$g = \gamma_{0}^{\text{int}} u $是方程解$u_g \in H^2(\Omega)$的迹，则我们有$u \in H^2(\Omega)$。更多强形式解的讨论，可见\cite{Demkowicz:2006ww,Demkowicz:2007ur}。
+
+\subsection{狄利克雷边界值问题2}
+\label{sec:var-bvp-dirichlet-lagrange}
+
+如第\ref{sec:var-mixed-formulations}节所述，狄利克雷边界值问题\eqref{eq:var-dbvp-problem}也可以改写为鞍点变分问题，即混合算子方程，共形导数对应拉格朗日乘子\citep{Babuska:1973gu, Bramble:1981vv}。
+
+从格林第一恒等式\eqref{eq:var-bvp-green-1st-identity}入手，设拉格朗日乘子
+\begin{equation*}
+  \lambda \coloneqq \gamma_1^{\text{int}} u \in H^{-\frac{1}{2}}(\Gamma),
+\end{equation*}
+
+进而鞍点变分问题表示为，寻找解$(u,\lambda) \in H^{1}(\Omega) \times H^{-\frac{1}{2}}(\Gamma)$，使得满足
+\begin{equation}
+  \label{eq:var-bvp-saddle-problem}
+  \begin{split}
+    a(u,\nu) - b(\nu,\lambda) &= \langle f,\nu \rangle_{\Omega} \quad \forall \nu \in H^{1}(\Omega),\\
+    b(u,\mu) &= \langle g, \mu \rangle_{\Gamma} \quad \forall \, \mu \in H^{-\frac{1}{2}}(\Gamma),
+  \end{split}
+\end{equation}
+其中定义了一个新的双线性泛函算子
+\begin{equation*}
+  b(\nu,\mu) \coloneqq \langle \gamma_{0}^{\text{int}} \nu, \mu \rangle_{\Gamma}, \quad (\nu,\mu) \in H^{1}(\Gamma) \times H^{-\frac{1}{2}}(\Gamma).
+\end{equation*}
+
+\subsubsection{解的唯一存在性}
+\label{sec:var-bvp-saddle-solution-uniq}
+鞍点变分形式的狄利克雷边界值问题\eqref{eq:var-bvp-saddle-problem}，解的存在性和唯一性，可由Theorem \ref{theorem:mixed-saddle-point-variational-problem}证得。使用该定理之前，需要确保两个前提条件得到满足。一是双线性泛函$a(.,.)$的椭圆特性，二是解的稳定性条件。
+\begin{enumerate}
+\item 椭圆性。类似于式\eqref{eq:var-bvp-operator-a-ellipticity}，由Lemma \ref{lemma:var-bvp-operator-ellipticity-property} \eqref{eq:var-bvp-bilinear-a-nunu}可得
+\begin{equation*}
+  a(.,.) \ge c_1^A \, \big\| \cdot \big\|_{H^{1}(\Omega)}^2,
+\end{equation*}
+此外由于
+\begin{equation*}
+  \ker B \coloneqq \left\{
+  \nu \in H^{1}(\Omega) : \langle \gamma_{0}^{\text{int}} \nu, \mu \rangle_{\Gamma} = 0, \quad \forall \, \mu \in H^{-\frac{1}{2}}(\Gamma)
+  \right\} = H_{0}^{1}(\Omega),
+\end{equation*}
+我们因此有，$a(.,.)$是一个$\ker B$-椭圆(或$H_{0}^{1}$-椭圆)的双线性形。(通常来说，我们需要求得一个扩展双线性形$\tilde{a}(.,.)$，使得满足$H^1(\Omega)$-椭圆性质，相关讨论见第\ref{sec:var-bvp-saddle-modified}节。)
+
+\item 解的稳定性条件可以表示为
+\begin{equation}
+  \label{sec:var-bvp-saddle-solution-stability}
+  c_S \big\| \mu \big\|_{H^{-\frac{1}{2}}(\Gamma)} \le
+  \sup_{0 \neq \nu \in H^{1}(\Omega)} \frac{
+  \langle \gamma_{0}^{\text{int}} \nu, \mu \rangle_{\Gamma}
+  }{
+  \big\| \nu \big\|_{H^{1}(\Omega)}
+  }, \quad \forall \, \mu \in H^{-\frac{1}{2}}(\Gamma),
+\end{equation}
+其证明见可见Lemma \ref{lemma:var-bvp-saddle-solution-stability}。
+
+\item 应用定理Theorem \ref{theorem:mixed-saddle-point-variational-problem}，求得鞍点变分问题的唯一解。
+\end{enumerate}
+
+\begin{lemma}[鞍点变分形式狄利克雷边界值问题解的稳定条件]
+  \label{lemma:var-bvp-saddle-solution-stability}
+  稳定条件\eqref{sec:var-bvp-saddle-solution-stability}成立。
+\end{lemma}
+\begin{proof}
+  已知给定的任一$\mu \in H^{-\frac{1}{2}}(\Gamma)$。由里兹表现定理(Theorem \ref{theorem:var-riesz-representation-theorem})可得，存在唯一的一个$u_{\mu} \in H^{\frac{1}{2}}(\Gamma)$，满足
+  \begin{equation*}
+    \begin{split}
+      & \langle u_{\mu}, \nu \rangle_{H^{\frac{1}{2}}(\Gamma)} = \langle \mu, \nu \rangle_{\Gamma} \quad \forall \, \nu \in H^{\frac{1}{2}}(\Gamma), \\
+      & \big\| u_{\mu} \big\|_{H^{\frac{1}{2}}(\Gamma)} = \big\| \mu \big\|_{H^{\frac{1}{2}}(\Gamma)}.
+    \end{split}
+  \end{equation*}
+
+  由逆迹定理Theorem \ref{theorem:sobolev-manifold-inverse-trace-theorem}可得，存在一个延拓算子$\varepsilon u_{\mu} \in H^{1}(\Omega)$，满足
+  \begin{equation*}
+    \big\| \varepsilon u_{\mu} \big\|_{H^{1}(\Omega)} \le c_{\text{IT}} \, \big\| u_{\mu} \big\|_{H^{\frac{1}{2}}(\Gamma)}.
+  \end{equation*}
+
+  那么，对于$\nu = \varepsilon u_{\mu} \in H^{1}(\Omega)$我们有
+  \begin{equation*}
+    \begin{split}
+      & \frac{
+      \langle \nu, \mu \rangle_{\Gamma}
+      }{
+      \big\| \nu \big\|_{H^{1}(\Omega)}
+      }
+      =
+      \frac{
+      \langle u_{\mu}, \mu \rangle_{\Gamma}
+      }{
+      \big\| \varepsilon u_{\mu} \big\|_{H^{1}(\Omega)}
+      }
+      =
+      \frac{
+      \langle u_{\mu}, u_{\mu} \rangle_{H^{\frac{1}{2}}(\Gamma)}
+      }{\big\| \varepsilon u_{\mu} \big\|_{H^{1}(\Omega)}}\\
+      & \ge \frac{1}{c_{\text{IT}}} \,
+      \big\| u_{\mu} \big\|_{H^{\frac{1}{2}}(\Gamma)}
+      = \frac{1}{c_{\text{IT}}} \,
+      \big\| u \big\|_{H^{- \frac{1}{2}}(\Gamma)}
+    \end{split}
+  \end{equation*}
+
+  $\therefore$稳定性条件\eqref{sec:var-bvp-saddle-solution-stability}成立。
+\end{proof}
+
+\subsubsection{调整鞍点变分问题}
+\label{sec:var-bvp-saddle-modified}
+需要注意的是，在鞍点变分问题\eqref{eq:var-dbvp-problem}中的双线性形式算子$a(.,.)$是$H_{0}^{1}(\Omega)$-椭圆的。我们常常需要将它扩展为一个$H^1(\Omega)$-椭圆的算子$\tilde{a}(.,.)$，对应新的调整鞍点变分问题。调整思路如下：
+
+已知，用拉格朗日乘子$\lambda \coloneqq \gamma_{1}^{\text{int}}u \in H^{-\frac{1}{2}}(\Gamma)$来描述问题解$u$的共形导数，那么利用格林第二恒等式\eqref{eq:bvp-a-nu-u-green-2nd-identity}，可得狄利克雷边界值问题的正交条件\eqref{eq:bvp-neumann-green-2}
+\begin{equation}
+\begin{split}
+  \label{eq:var-dbvp-modified-orthogonality-condition}
+  &\int_{\Omega} f(x) \, dx + \int_{\Gamma} \lambda(x) d s_x = 0, \\
+  \hookrightarrow &\int_{\Gamma} \lambda(x) d s_x \, \int_{\Gamma} \mu(x) \, d s_x = - \int_{\Omega} f(x) \, dx \, \int_{\Gamma} \mu(x) \, d s_x , \quad \forall \, \mu \in H^{-\frac{1}{2}}(\Gamma).
+\end{split}
+\end{equation}
+
+另一方面，根据狄利克雷边界条件有
+\begin{equation}
+  \label{eq:var-dbvp-modified-dirichlet-condition}
+  \begin{split}
+    &\gamma_{0}^{\text{int}} u = g, \\
+    \hookrightarrow & \int_{\Gamma} \gamma_{0}^{\text{int}} u(x) \, d s_x
+    = \int_{\Gamma} g(x) \, d s_x, \\
+    \hookrightarrow & \int_{\Gamma} \gamma_{0}^{\text{int}} u(x) \, d s_x \,
+    \int_{\Gamma} \gamma_{0}^{\text{int}} \nu(x) \, d s_x
+    = \int_{\Gamma} g(x) \, d s_x \,
+    \int_{\Gamma} \gamma_{0}^{\text{int}} \nu(x) \, d s_x, \quad \forall \, \nu \in H^{1}(\Omega).
+  \end{split}
+\end{equation}
+
+  将\eqref{eq:var-dbvp-modified-orthogonality-condition}、\eqref{eq:var-dbvp-modified-dirichlet-condition}代入\eqref{eq:var-bvp-saddle-problem}，得到调整鞍点变分问题：寻找解$(u,\lambda) \in H^{1}(\Omega) \times H^{-\frac{1}{2}}(\Gamma)$，使得$\forall \, (\nu, \mu) \in H^{1}(\Omega) \times H^{-\frac{1}{2}}(\Gamma)$均满足
+  \begin{equation}
+    \label{eq:var-bvp-saddle-modified-problem}
+    \begin{split}
+      \underbrace{
+      \int_{\Gamma} \gamma_{0}^{\text{int}} u(x) \, d s_x \,
+    \int_{\Gamma} \gamma_{0}^{\text{int}} \nu(x) \, d s_x + a(u,\nu)
+    }_{\eqqcolon \tilde{a}(u,\nu)}
+    - b(\nu,\lambda) &= \langle f,\nu \rangle_{\Omega}  + \int_{\Gamma} g(x) \, d s_x \,
+    \int_{\Gamma} \gamma_{0}^{\text{int}} \nu(x) \, d s_x,\\
+      b(u,\mu) + \int_{\Gamma} \lambda(x) d s_x \, \int_{\Gamma} \mu(x) \, d s_x  &= \langle g, \mu \rangle_{\Gamma} - \int_{\Omega} f(x) \, dx \, \int_{\Gamma} \mu(x) \, d s_x .
+    \end{split}
+  \end{equation}
+
+下面的问题就是，调整鞍点变分问题\eqref{eq:var-bvp-saddle-modified-problem}的解是否存在，是否唯一，以及是否与原鞍点变分问题\eqref{eq:var-bvp-saddle-problem}的解一致。换句话说，两个鞍点变分问题是否等价。
+\begin{theorem}[变分问题等价]
+  \label{theorem:var-dbvp-saddle-equivalance}
+  调整鞍点变分问题\eqref{eq:var-bvp-saddle-modified-problem}有唯一的解$(u,\lambda) \in H^{1}(\Omega) \times H^{-\frac{1}{2}}(\Gamma)$，并且与鞍点变分问题\eqref{eq:var-bvp-saddle-problem}的解一致。即，两个变分问题等价。
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+  \item 证明扩展双线性形$\tilde{a}(u,\nu)$有界。
+
+  $a(u,\nu)$有界$\Rightarrow$
+  \begin{equation*}
+    \tilde{a}(u,\nu) \coloneqq \int_{\gamma} \gamma_{0}^{\text{int}} u(x) d s_x \, \int_{\gamma} \gamma_{0}^{\text{int}} \nu(x) d s_x +  a(u,\nu), \quad \forall \, u,\nu \in H^{1}(\Omega)
+  \end{equation*}
+  有界。
+
+  \item 由$a(.,.)$的半椭圆性质(Lemma \ref{lemma:var-bvp-operator-ellipticity-property})和\eqref{eq:sobolev-equivalence-norm-w12omega}有
+  \begin{equation*}
+\begin{split}
+  \tilde{a}(\nu,\nu) &=
+  \left[
+  \int_{\Gamma} \gamma_{0}^{\text{int}} \nu(x) \, d s_x
+  \right]^2 + a(\nu,\nu) \\
+  & \ge \min\{1,\lambda_0\} \, \big\| \nu \big\|_{W^{1,2}(\Omega), \Gamma}^2 \\
+  & \ge c_1^{\tilde{A}} \, \big\| \nu \big\|_{H^1(\Omega)}^2, \quad \forall \, \nu \in H^{1}(\Omega),
+\end{split}
+  \end{equation*}
+  由此可得$\tilde{a}(u,\nu)$是$H^{1}(\Omega)$-椭圆。
+
+  \item 前提条件得到满足，可通过Theorem \ref{theorem:mixed-saddle-point-variational-problem}、Theorem \ref{theorem:mixed-saddle-point-variational-problem-solution}证得，调整鞍点变分问题\eqref{eq:var-bvp-saddle-modified-problem}有唯一解。
+
+  \item 对于$(\nu,\mu) \equiv (1,1)$的特殊情况，\eqref{eq:var-bvp-saddle-modified-problem}变为
+  \begin{equation*}
+    \begin{split}
+      \big| \Gamma \big| \, \int_{\Gamma} \gamma_{0}^{\text{int}} u(x) \, d s_x - \int_{\Gamma} \lambda(x) \, d s_x &= \int_{\Omega} f(x) \, d x + \big| \Gamma \big| \, \int_{\Gamma} g(x) \, d s_x,\\
+      \int_{\Gamma} \gamma_{0}^{\text{int}} u(x) \, d s_x
+      + \big| \Gamma \big| \, \int_{\Gamma} \lambda(x) \, d s_x &=
+      \int_{\Gamma} g(x) \, d s_x, - \big| \Gamma \big| \, \int_{\Omega} f(x) \, d x.
+    \end{split}
+  \end{equation*}
+进而
+  \begin{equation*}
+    \left( 1 + \big| \Gamma \big|^2 \right) \, \int_{\Gamma} \gamma_{0}^{\text{int}} u(x) d s_x = \left( 1 + \big| \Gamma \big|^2 \right) \, \int_{\Gamma} g(x) \, d s_x
+  \end{equation*}
+即\eqref{eq:var-dbvp-modified-dirichlet-condition}。从而有
+
+\begin{equation*}
+  \big| \Gamma \big\| \int_{\Gamma} \lambda(x) \, d s_x = - \big| \Gamma \big\| \int_{\Gamma} f(x) \, d s_x ,
+\end{equation*}
+即\eqref{eq:var-dbvp-modified-orthogonality-condition}。
+
+因此可见，$(u,\lambda)$也是鞍点变分问题\eqref{eq:var-bvp-saddle-problem}的解的解；两个问题等价。
+\end{enumerate}
+\end{proof}

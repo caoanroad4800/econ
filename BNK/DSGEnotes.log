@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.4)  25 OCT 2017 17:35
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.4)  25 OCT 2017 20:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2819,18 +2819,28 @@ Overfull \hbox (2.57866pt too wide) in paragraph at lines 3913--3915
 n/10 鞍 点 变 分 问 题\TU/lmr/m/n/10 )[]
  []
 
-[298] [299] [300] [301] [302] [303]) (./chapters/bem-fem-2.tex [304]) [305]
-[306
+[298] [299] [300] [301] [302] [303] [304] [305]
+Overfull \hbox (3.81883pt too wide) in paragraph at lines 4561--4562
+[][]\TU/lmr/bx/n/10 Theorem 12.25 \TU/lmr/m/n/10 (\TU/STSong(0)/m/n/10 变 分 问 题 
+等 价\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/STSong(0)/m/it/10 调 整 鞍 点 变 分 问 题[]有
+ 唯 一 的 解 $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u; ^^U\OT1/cmr/m/n/10 ) \OMS/cmsy/m
+/n/10 2 \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (
+) \OMS/cmsy/m/n/10 ^^B \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (^^@)$\TU/STSong(0)/
+m/it/10 ，|
+ []
 
-] [307] [308] [309
+[306]) (./chapters/bem-fem-2.tex) [307] [308
 
-] [310] [311
+] [309] [310] [311
 
-] [312] (./chapters/appendix01.tex
+] [312] [313
+
+]
+[314] (./chapters/appendix01.tex
 第一章
-[313
+[315
 
-] [314]
+] [316]
 Overfull \hbox (39.62521pt too wide) in paragraph at lines 212--213
 []\TU/STSong(0)/m/n/10 在 \TU/lmr/m/n/10 capital adjustment cost \TU/STSong(0)/m
 /n/10 设 定 下，|  家 庭 部 门 优 化 条 件 表 示 为 通 过 选 择 投 入 组 合 $\OMS/cmsy/m/n/10 f\OML/cm
@@ -2838,65 +2848,65 @@ m/m/it/10 C[]; I[]; \OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; B[]; []\OMS/cmsy/m/
 n/10 g$\TU/STSong(0)/m/n/10 ，|
  []
 
-[315]
+[317]
 Overfull \hbox (13.77956pt too wide) detected at line 227
 []
  []
 
-[316] [317]) (./chapters/PK.tex [318]
+[318] [319]) (./chapters/PK.tex [320]
 第二章
-[319
-
-]) (./chapters/KNKNCE.tex [320]
-第三章
 [321
 
-] [322]
+]) (./chapters/KNKNCE.tex [322]
+第三章
+[323
+
+] [324]
 Overfull \hbox (0.47757pt too wide) in paragraph at lines 68--69
 []\TU/STSong(0)/m/n/10 在 \TU/lmr/m/n/10 Marshallian \TU/STSong(0)/m/n/10 的 框 架 
 中，|  经 济 的 波 动 是 由 供 应 波 动 和 需 求 波 动 两 方 面 共 同 作 用 的 结 果。| \TU/lmr/m/n/10 Keyne
 s
  []
 
-[323] [324] [325]) [326] (./DSGEnotes.bbl [327
+[325] [326] [327]) [328] (./DSGEnotes.bbl [329
 
-] [328] [329] [330] [331]
-[332]
+] [330] [331] [332] [333]
+[334]
 Underfull \hbox (badness 1681) in paragraph at lines 848--854
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[333] [334] [335] [336] [337] [338]) [339] [340
+[335] [336] [337] [338] [339] [340]) [341] [342
 
 ] (./DSGEnotes.lof)
 \tf@lof=\write8
 \openout8 = `DSGEnotes.lof'.
 
- [341]
-[342
+ [343]
+[344
 
 ] (./DSGEnotes.lot)
 \tf@lot=\write9
 \openout9 = `DSGEnotes.lot'.
 
- [343] [344
+ [345] [346
 
 ] (./DSGEnotes.tdo)
 \tf@tdo=\write10
 \openout10 = `DSGEnotes.tdo'.
 
- [345] [346
+ [347] [348
 
 ]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
 
-(./DSGEnotes.ind [347
+(./DSGEnotes.ind [349
 
-] [348] [349] [350] [351] [352
-\indexentry{残差方程(映射法)|hyperpage}{352}
-] [353]) [354]
+] [350] [351] [352] [353] [354
+\indexentry{残差方程(映射法)|hyperpage}{354}
+] [355]) [356]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 217.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
  (./DSGEnotes.aux)
@@ -2904,12 +2914,12 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 217.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 217.
  ) 
 Here is how much of TeX's memory you used:
- 46703 strings out of 492998
- 943021 string characters out of 6134491
- 1147065 words of memory out of 5000000
- 49941 multiletter control sequences out of 15000+600000
+ 46707 strings out of 492998
+ 943182 string characters out of 6134491
+ 1147244 words of memory out of 5000000
+ 49945 multiletter control sequences out of 15000+600000
  545437 words of font info for 123 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  62i,27n,104p,10415b,2356s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (354 pages, 5443436 bytes).
+Output written on DSGEnotes.xdv (356 pages, 5463392 bytes).
