@@ -4122,12 +4122,12 @@ Gårding不等式的详细介绍，可参考\cite[Theorem 2.4]{Jovanovic:2014iy}
 
 \begin{lemma}[双线性算子的半椭圆特性]
   \label{lemma:var-bvp-operator-ellipticity-property}
-  设$L$是一个如\eqref{eq:var-bvp-self-adjoint-pde-operator}所定义的一致椭圆偏微分算子。用双线性形式\eqref{eq:var-bvp-bilinear-form-a-def}形式表示，我们有
+  设$L$是一个如\eqref{eq:var-bvp-self-adjoint-pde-operator}所定义的一致椭圆偏微分算子。用双线性形式$(a.,.)$ \eqref{eq:var-bvp-bilinear-form-a-def}表示，我们有
   \begin{equation}
     \label{eq:var-bvp-bilinear-a-nunu}
     a(\nu,\nu) \ge \lambda_0 \, \big| \nu \big|_{H^{1}(\Omega)}^2, \quad \forall \nu \in H^{1}(\Omega),
   \end{equation}
-  其中常数$\lambda_0 > 0$是一致椭圆的，见\eqref{eq:bvp-def-uniformly-elliptic}。
+  其中常数$\lambda_0 > 0$，见椭圆算子\eqref{eq:bvp-def-uniformly-elliptic}。
 \end{lemma}
 
 \begin{proof}
@@ -4139,10 +4139,11 @@ Gårding不等式的详细介绍，可参考\cite[Theorem 2.4]{Jovanovic:2014iy}
     \begin{split}
       \hookrightarrow a(\nu, \nu) & = \sum_{i,j=1}^{d} \int_{\Omega}
       a_{ji}(x) \frac{\partial}{\partial x_i} \nu(x) \frac{\partial}{\partial x_i} \nu(x)  \, dx \\
-      &= \int_{\Omega} \left[ A(x) w(x), w(x) \right] \, dx \\
-      & \ge \lambda_0 \int_{\Omega} \left[ w(x), w(x) \right] \, dx \\
-      & = \lambda_0 \, \big\| \triangledown \nu \big\|_{L^{2}(\Omega)}^2\\
-      & = \lambda_0 \big| \nu \big|_{H^1(\Omega)}^2.
+      &= \int_{\Omega} \left[ A \underline{w}(x), \underline{w}(x) \right] \, dx \\
+      & \ge \lambda_0 \int_{\Omega} \left[ \underline{w}(x), \underline{w}(x) \right] \, dx \\
+      & = \lambda_0 \, \big\| \triangledown \nu \big\|_{L^{2}(\Omega)}^2
+      = \lambda_0 \big\| \nu \big\|_{W^{1,2}(\Omega)}^2
+      = \lambda_0 \big\| \nu \big\|_{H^1(\Omega)}^2.
     \end{split}
   \end{equation*}
 \end{proof}
@@ -4195,7 +4196,7 @@ Gårding不等式的详细介绍，可参考\cite[Theorem 2.4]{Jovanovic:2014iy}
 \begin{proof}
   与Theorem \ref{theorem:var-constraint-solution-exist-uniq}类似，假设解$u$由两部分相加而得，$u \coloneqq u_0 + u_g$，其中$u_g$是$\gamma_0^{\text{int}} u_g = g$的解，$u_0$是$\gamma_1^{\text{int}} (u_0 + u_g) = f$的解。显然，$u$的唯一存在，可由$u_g$和$u_0$的唯一存在所分别证得。
 \begin{enumerate}
-  \item 证明$u_g$的唯一存在性。根据给定条件$g \in H^{\frac{1}{2}}(\Gamma)$，应用逆迹定理\eqref{theorem:sobolev-manifold-inverse-trace-theorem}，可得存在唯一一个有界延拓$u_g \in H^{\Omega}$，满足
+  \item 证明$u_g$的唯一存在性。根据给定条件$g \in H^{\frac{1}{2}}(\Gamma)$，应用逆迹定理Theorem \ref{theorem:sobolev-manifold-inverse-trace-theorem}，可得存在唯一一个有界延拓$u_g \in H^{\Omega}$，满足
   \begin{equation*}
     \begin{split}
       & \gamma_{0}^{\text{int}} u_g = g, \\
@@ -4608,3 +4609,214 @@ Gårding不等式的详细介绍，可参考\cite[Theorem 2.4]{Jovanovic:2014iy}
 因此可见，$(u,\lambda)$也是鞍点变分问题\eqref{eq:var-bvp-saddle-problem}的解的解；两个问题等价。
 \end{enumerate}
 \end{proof}
+
+\subsection{诺依曼边界值问题}
+\label{sec:var-nbvp-problem}
+
+
+\subsubsection{将诺依曼边界值问题改写为变分问题}
+回顾一下第\ref{sec:bem-fem-potential-bvp}节的诺依曼边界值问题\index{Neumann boundary value condition \dotfill 诺依曼边界值条件}\eqref{eq:bvp-extension-omega-cond}-\eqref{eq:bvp-extension-gamma-neumann}：基于给定的$f$和$g$，求解
+\begin{equation}
+  \label{eq:var-nbvp-problem}
+  \begin{split}
+    & \left( L u\right)(x) = f(x), \quad x\in \Omega,\\
+    & \gamma_{1}^{\text{int}} u(x) = g(x), \quad x \in \Gamma.
+  \end{split}
+\end{equation}
+
+假定$f$和$g$满足可求解性条件 \eqref{eq:bvp-neumann-green-2-new}
+\begin{equation}
+  \label{eq:var-nbvp-solvability-cond}
+  \int_{\Omega} f(x) \, dx + \int_{\Gamma} g(x) \, d s_x = 0.
+\end{equation}
+
+基于前文的分析可见，诺依曼边界值问题\eqref{eq:var-nbvp-problem}的解$u \in H^{1}(\Omega)$将与某一个常数有关。为了将此常数予以确定，可以在$H^{1}(\Omega)$中定义一个测试空间$H_{*}^{1}(\Omega)$，测试方程$\nu(x)$用于规模调节。
+\begin{equation}
+  \label{eq:var-nbvp-trial-space}
+  H_{*}^{1} (\Omega) \coloneqq \left\{ \nu \in H^{1}(\Omega): \int_{\Omega} \nu(x) \, dx = 0 \right\}.
+\end{equation}
+
+从而构建变分问题，求解$u \in H_{*}^{1}(\Omega)$使得满足
+\begin{equation}
+  \label{eq:var-nbvp-variational-problem}
+  a(u,\nu) = \langle f, \nu \rangle_{\Omega} + \langle g, \gamma_{0}^{\text{int}} \nu \rangle_{\Gamma}, \quad \forall \, \nu \in H_{*}^{1}(\Omega).
+\end{equation}
+
+\subsubsection{解的存在性与唯一性}
+\begin{theorem}[诺依曼边界值问题的变分法求解]
+  给定$f \in \tilde{H}^{-1}(\Omega), g \in H^{-\frac{1}{2}}(\Gamma)$，满足可求解性条件\eqref{eq:var-nbvp-solvability-cond}。
+
+  则诺依曼边界值的变分问题\eqref{eq:var-nbvp-variational-problem}存在唯一的解$u \in H_{*}^{1}(\Omega)$，满足
+  \begin{equation*}
+    \big\| u \big\|_{H^{1}(\Omega)} \le \frac{1}{\tilde{c}_1^A}
+    \left\{
+    \big\| f \big\|_{\widetilde{H}^{-1}(\Omega)} +
+    c_{T} \, \big\| g \big\|_{H^{-\frac{1}{2}}(\Gamma)}.
+    \right\}
+  \end{equation*}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+\item 证$a(.,.)$有界且椭圆。
+
+对于$\nu \in H_{*}^{1}(\Omega)$，它在$H^{1}(\Omega)$中的等价范，可由\eqref{eq:sobolev-equivalence-norm-w12omega}求得
+\begin{equation*}
+  \big\| \nu \big\|_{W^{1,2}(\Omega), \Omega} = \left\{
+  \left[
+  \int_{\Omega} \nu(x) \, dx
+  \right]^2
+  + \big\| \triangledown \nu \big\|^2_{L^2(\Omega)}
+   \right\}^{\frac{1}{2}},
+\end{equation*}
+进而利用Lemma \ref{lemma:var-bvp-operator-ellipticity-property}可得，
+\begin{equation}
+  \label{eq:var-nbvp-ellipticity}
+  a(\nu,\nu) \ge \lambda_0 \, \big\| \triangledown \nu \big\|_{W^{1,2}(\Omega), \Omega}^2 \ge \tilde{c}_{1}^{A} \, \big\| \nu \big\|_{H^{1}(\Omega)}^2, \quad \forall \nu \in H_{*}^{1}(\Omega),
+\end{equation}
+因此可得双线性形式$a(.,.)$的$H_{*}^{1}$-椭圆特性。
+
+\item 根据拉克斯一密格拉蒙定理(Theorem \ref{theorem:lax-milgram-lemma})，
+证明变分问题\eqref{eq:var-nbvp-variational-problem}存在唯一解。
+
+\item 将求得的变分问题唯一解$u \in H_{*}^{1}(\Omega)$代回椭圆条件
+\eqref{eq:var-nbvp-ellipticity}
+\begin{equation*}
+  \begin{split}
+    \widetilde{c}_{1}^{A} \, \big\| u \big\|_{H^1(\Omega)}^2 & \le a(u,u) = \langle f, u \rangle_{\Omega} + \langle g, \gamma_{0}^{\text{int}} u \rangle_{\Gamma} \\
+    & \le \big\| f \big\|_{\widetilde{H}^{-1}(\Omega)} \,
+    \big\| u \big\|_{H^{1}(\Omega)}
+    + \big\| g \big\|_{H^{- \frac{1}{2}}(\Gamma)} \,
+    \big\| \gamma_{0}^{\text{int}} u \big\|_{H^{\frac{1}{2}}(\Gamma)}.
+  \end{split}
+\end{equation*}
+
+由迹定理 Theorem \ref{theorem:sobolev-manifold-trace-theorem}得，上式变为
+\begin{equation*}
+  \begin{split}
+    \widetilde{c}_{1}^{A} \, \big\| u \big\|_{H^1(\Omega)}
+    \le \big\| f \big\|_{\widetilde{H}^{-1}(\Omega)} + \big\| g \big\|_{H^{-\frac{1}{2}}(\Gamma)} \,
+    c_{T} \big\| u \big\|_{H^{1}(\Gamma)}.
+  \end{split}
+\end{equation*}
+\end{enumerate}
+\end{proof}
+
+
+
+
+\subsubsection{鞍点变分问题}
+类似地，我们也可以构建一个与\eqref{eq:var-nbvp-variational-problem}等价的鞍点变分问题。此时，用于规模调节的测试空间$H_{*}^{1}(\Omega)$以副条件(side condition)的情况出现。使用一个拉格朗日乘子，寻找解$(u,\lambda) \in H^{1}(\Omega) \times \mathbb{R}$，满足
+\begin{equation}
+  \label{eq:var-nbvp-saddle-var}
+  \begin{split}
+    & a(u,\nu) + \lambda \int_{\Omega} \nu(x) \, d x =
+    \langle f, \nu \rangle_{\Omega} +
+    \langle g, \gamma_{0}^{\text{int}} \nu \rangle_{\Gamma}, \\
+    & \int_{\Omega} u(x) \, dx = 0, \quad \forall \, \nu \in H^{1}(\Omega).
+  \end{split}
+\end{equation}
+
+\begin{theorem}[诺依曼边界值问题的鞍点变分法求解]
+  \label{theorem:var-nbvp-saddle-var-solution}
+  诺依曼边界值的鞍点变分问题\eqref{eq:var-nbvp-saddle-var}有唯一解$(u,\lambda) \times H^{1}{\Omega} \times \mathbb{R}$。
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item 双线性形式$b(.,.)$有界
+    \begin{equation*}
+      b(\nu,\mu) \coloneqq \mu \, \int_{\Omega} \nu(x) \, dx, \quad \forall \, \nu \in H^{1}(\Omega), \mu \in \mathbb{R},
+    \end{equation*}
+并且有$\ker B = H_{*}^{1}(\Omega)$。
+
+    \item 进而由椭圆性\eqref{eq:var-nbvp-ellipticity}得，双线性形$a(.,.)$是$\ker B$-椭圆的。
+
+\item 证明满足稳定性条件
+\begin{equation}
+  \label{eq:var-nbvp-saddle-var-stability}
+  c_{S} \, \big| \mu \big| \le \sup_{0 \neq \nu \in H^{1}(\Omega)}
+  \frac{
+  b(\nu,\mu)
+  }{
+  \big\| \nu \big\|_{H^{1}(\Omega)}
+  }, \quad \forall \, \mu \in \mathbb{R}.
+\end{equation}
+
+对于任一给定的$\mu \in \mathbb{R}$， 定义$\nu^{*} \coloneqq \nu \in H^{1}(\Omega)$，可以证得\eqref{eq:var-nbvp-saddle-var-stability}，其中
+$ c_S = | \Omega |^{-\frac{1}{2}}$。
+
+\item 根据定理Theorem \ref{theorem:mixed-saddle-point-variational-problem}可求得，诺依曼边界值的鞍点变分问题存在唯一解$(u,\lambda) \in H^{1}(\Omega) \times \mathbb{R}$。
+
+\item 对于测试方程$\nu \equiv 1$的特殊情况，根据诺依曼边界值问题的可求解条件\eqref{eq:var-nbvp-solvability-cond}我们有拉格朗日乘子的值
+\begin{equation*}
+  \lambda = 0.
+\end{equation*}
+  \end{enumerate}
+\end{proof}
+
+
+
+\subsubsection{调整鞍点变分问题}
+如前所述，鞍点变分问题\eqref{eq:var-nbvp-saddle-var}也可以改写为一个新的鞍点变分问题：基于给定的任一$f \in \widetilde{H}^{-1}(\Omega), g \in H^{-\frac{1}{2}}(\Gamma)$，寻找$(u,\lambda) \in H^{1}(\Omega) \times \mathbb{R}$，使满足
+\begin{equation}
+\begin{split}
+  \label{eq:var-nbvp-saddle-modified-var}
+  &a(u,\nu) + \lambda \int_{\Omega} \nu(x) \, dx = \langle f, \nu \rangle_{\Omega} + \langle g, \gamma_{0}^{\text{int}} \nu \rangle_{\Gamma}, \\
+  & \int_{\Gamma} u(x) \, dx - \lambda = 0, \quad \forall \, \nu \in H^{1}(\Omega).
+\end{split}
+\end{equation}
+
+利用第二行等式求得拉格朗日乘子$\lambda \in \mathbb{R}$代入第一行，我们得到一个新的调整变分问题，寻找$u \in H^{1}(\Omega)$使满足
+\begin{equation}
+  \label{eq:var-nbvp-saddle-modified}
+  a(u,\nu) + \int_{\Omega}  u(x)  dx \, \int_{\Omega} \nu(x) dx =
+  \langle f,\nu \rangle_{\Omega} +
+  \langle g, \gamma_{0}^{\text{int}} \nu \rangle_{\Gamma}, \quad \forall \, \nu \in H^{1}(\Omega).
+\end{equation}
+
+\begin{theorem}[诺依曼边界值的调整变分问题解]
+  \label{theorem:var-nbvp-saddle-modified-solution}
+  基于给定的任一$f \in \widetilde{H}^{-1}(\Omega), g \in H^{-\frac{1}{2}}(\Gamma)$，调整变分问题\eqref{eq:var-nbvp-saddle-modified}有唯一的解$u \in H^{1}(\Omega)$。
+
+  如果给定的$f \in \widetilde{H}^{-1}(\Omega), g \in H^{-\frac{1}{2}}(\Gamma)$满足可求解条件\eqref{eq:var-nbvp-solvability-cond}，那么调整变分问题\eqref{eq:var-nbvp-saddle-modified}的解$u \in H_{*}^{1}(\Omega)$；换句话说，调整变分问题\eqref{eq:var-nbvp-saddle-modified}和变分问题\eqref{eq:var-nbvp-saddle-var}等价。
+\end{theorem}
+
+\begin{proof}
+  \begin{enumerate}
+  \item 由\eqref{eq:var-nbvp-saddle-modified}可见，调整双线性形$\widetilde{a}(.,.)$写为
+  \begin{equation*}
+    \widetilde{a}(u,\nu) \coloneqq a(u,\nu) + \int_{\Omega} u(x) \, dx \, \int_{\Omega} \nu(x) \, dx.
+  \end{equation*}
+
+  由$a(.,.)$的半椭圆属性Lemma \ref{lemma:var-bvp-operator-ellipticity-property}我们有
+  \begin{equation}
+    \label{eq:var-nbvp-modified-ellipticity}
+  \begin{split}
+      \widetilde{a}(\nu,\nu) &\ge \lambda_0 \, \big\| \triangledown \nu \big\|_{L^{2}(\Omega)}^2 + \left[ \int_{\Omega} \nu(x) dx \right]^2\\
+      &\ge \min\{\lambda_0, 1\} \, \big\| \nu \big\|_{W^{1,2}(\Omega), \Omega}^2 \\
+      & \ge \hat{c}_1^A \, \big\| \nu \big\|_{W^{1,2}(\Omega), \Omega}^2, \quad \forall \, \nu \in H^{1}(\Omega),
+  \end{split}
+  \end{equation}
+  可得$\widetilde{a}(.,.)$是$H^{1}(\Omega)$-椭圆且有界的。
+
+  \item 满足前提条件后，可由拉克斯一密格拉蒙定理(Theorem \ref{theorem:lax-milgram-lemma})证得，调整变分问题\eqref{eq:var-nbvp-saddle-modified}有唯一解$u \in H^{1}(\Omega)$。
+
+  \item 设测试方程$\nu(x) \equiv 1$。调整变分问题\eqref{eq:var-nbvp-saddle-modified}变为
+  \begin{equation*}
+    \begin{split}
+      \big| \Omega \big| \, \int_{\Omega} u(x) \, dx &=
+      \langle f, 1 \rangle_{\Omega}
+      + \langle g, 1 \rangle_{\Gamma}, \\
+      & = \int_{\Omega} f(x) \, d x + \int_{\Gamma} g(x) \, d s_x = 0,
+    \end{split}
+  \end{equation*}
+  其中最后一个等式用到可求解性条件\eqref{eq:var-nbvp-solvability-cond}。由此我们有$u \in H_{*}^{1}(\Omega)$，也是变分问题\eqref{eq:var-nbvp-saddle-var}的解；换句话说，两个问题等价。
+\end{enumerate}
+\end{proof}
+
+\subsubsection{诺依曼边界值问题的通解}
+利用变分法求解诺依曼边界值问题\eqref{eq:var-nbvp-problem}，所得到的$u \in H_{*}^{1}(\Omega)$是弱形式解。更一般意义上的通解$\widetilde{u} \in H^{1}(\Omega)$可写为
+\begin{equation*}
+  \widetilde{u} \coloneqq u + \alpha,
+\end{equation*}
+其中$\alpha \in \mathbb{R}$是任意常数。
