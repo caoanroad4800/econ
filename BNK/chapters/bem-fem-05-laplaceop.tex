@@ -1,9 +1,9 @@
 %!TEX root = ../DSGEnotes.tex
 \section{拉普拉斯算子的基本解}
-\label{bvp-laplace-fund-solutions}
+\label{sec:bvp-laplace-fund-solutions}
 
 \subsection{基本解}
-\label{bvp-fund-solutions}
+\label{sec:bvp-fund-solutions}
 
 回顾一下偏微分方程\eqref{eq:bvp-extension-omega-cond}
 \begin{equation*}
@@ -34,7 +34,7 @@
 
 将测试方程定义为$\nu(y) \coloneqq U^{*}(x,y)$，$u(x)$和$u(y)$的关系可以表示如下
 \begin{equation*}
-  \label{eq:bvp-fund-ux-uy}
+  %\label{eq:bvp-fund-ux-uy}
   \int_{\Omega} \left( L_{y} U^{*} \right) (x,y) u(y) \, dy = u(x), \quad \forall \, x \in \Omega,
 \end{equation*}
 那么偏微分方程\eqref{eq:bvp-extension-omega-cond}的解$u(x), x \in \Omega$，根据里兹表现定理\ref{theorem:var-riesz-representation-theorem}\index{Riesz representation theorem \dotfill 里兹表现定理}，可以改写为如下表现方程
@@ -51,7 +51,7 @@
   \item 连接$u(x)$和$u(y)$线性二次偏微分算子$\left(L_y U^{*} \right) (x,y)$，对应\eqref{eq:bvp-fund-var-ux-uy}。
 \end{itemize}
 
-对于前者，关键在于构建合适的边界积分式(boundary integral equations)\index{boundary integral equations \dotfill 边界积分等式}以生成完整柯西数列(complete cauchy data)，我们将在下一节讨论\todo{ref}。
+对于前者，关键在于构建合适的边界积分式(boundary integral equations)\index{boundary integral equations \dotfill 边界积分等式}以生成完整柯西数列(complete cauchy data)，我们将在第\ref{sec:bvp-integral-operators}节讨论。
 
 对于后者，从分布意义上来看，偏微分方程\eqref{eq:bvp-extension-omega-cond}的解$u(x)$可以理解为
 \begin{equation*}

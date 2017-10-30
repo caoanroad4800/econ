@@ -1,0 +1,1252 @@
+%!TEX root = ../DSGEnotes.tex
+\section{变分法}
+\label{sec:variational-methods}
+弱形式边界值问题常常表现为带有算子方程(operator equations)的变分问题。对于变分问题，我们常将其表示为表面积位势和体积位势(surface and volume potentials)的偏微分方程，为了求解方程，就需要求得有界的积分算子方程的解，以建立完备的柯西数列解。本节介绍一些泛函分析的基本知识，进而探讨算子方程解的存在性和唯一性。
+
+\subsection{算子方程}
+\label{sec:variational-operator-equations}
+
+假设一个希尔伯特空间$X$，空间中的内积形式$\langle .,.\rangle_{X}$，对应范数$\| \cdot \|_{X} = \sqrt{\langle .,.\rangle_{X}}$。$X$的对偶空间(dual space)表示为$X'$；$X$和$X'$以$\langle .,. \rangle$的形式呈对偶配对(duality pairing)。则我们有
+\begin{equation}
+  \label{eq:var-operator-norm}
+  \big\| f \big\|_{X'} = \sup_{0 \neq \nu \in X}
+  \frac{
+  \big| \langle f,\nu \rangle \big|
+  }{\| \nu \|_{X}}, \quad \forall \, f \in X'.
+\end{equation}
+
+定义一个有界的自伴随(self-adjoint)线性算子$A:X \mapsto X'$，满足
+\begin{equation}
+  \label{eq:var-operator-equation}
+  \big\| A \nu \big\|_{X'} \le C_2^A \, \| \nu \|_{X}, \quad \forall \, \nu \in X,
+\end{equation}
+$A$是自伴随的，是指
+\begin{equation}
+  \label{eq:var-operator-self-adjoint}
+  \langle A u, \nu \rangle = \langle  u, A \nu \rangle, \quad \forall \, u, \nu \in X.
+\end{equation}
+
+那么，边界值问题可以表示为，对于某个给定的$f \in X'$，寻找算子方程的解$u \in X$，使满足
+\begin{equation}
+  \label{eq:var-operator-eq-problem}
+  A u = f.
+\end{equation}
+
+算子方程\eqref{eq:var-operator-eq-problem}的解，通常难于直接求得。替代方案是建立一个变分问题，寻找变分问题的解$u \in X$，使满足
+\begin{equation}
+  \label{eq:var-operator-var-problem}
+  \langle Au,\nu \rangle = \langle f, \nu \rangle, \quad \forall \, \nu \in X.
+\end{equation}
+
+\begin{theorem}
+  \label{theorem:var-equivalance-solution-operator-var}
+  算子方程\eqref{eq:var-operator-eq-problem}的解$u \in X$，和变分问题\eqref{eq:var-operator-var-problem}的解$u \in X$，二者等价。
+\end{theorem}
+\begin{proof}
+  证明过程分为两个部分。
+  \begin{enumerate}
+    \item 显然，算子方程\eqref{eq:var-operator-eq-problem}的解$u \in X$，构成变分问题\eqref{eq:var-operator-var-problem}的解。
+
+    \item 反过来，假定已求得变分问题\eqref{eq:var-operator-var-problem}的解$u \in X$，由\eqref{eq:var-operator-norm}可得
+\begin{equation*}
+  \big\| A u - f \big\| _{X'} = \sup_{0 \neq \nu \in X}
+  \frac{
+  \big| \langle Au - f, \nu \rangle \big|
+  }{
+  \big\| \nu \big\|_{X}
+  },
+\end{equation*}
+代回\eqref{eq:var-operator-var-problem}可得
+\begin{equation*}
+  \big\| A u - f \big\| _{X'} = 0 \Rightarrow Au = f,
+\end{equation*}
+即是说$u \in X$同时也是算子方程\eqref{eq:var-operator-eq-problem}的解。
+\end{enumerate}
+\end{proof}
+
+基于算子$A$，可定义一个双线性映射(bilinear form) $a(u,\nu)$
+\begin{equation}
+\label{var-bilinear-form}
+  \begin{split}
+      & a(u,\nu) \coloneqq \langle Au, \nu \rangle, \quad \forall \, u,\nu \in X, \\
+      & A:X \mapsto X' \Rightarrow a(.,.):X \times X \mapsto \mathbb{R},
+  \end{split}
+\end{equation}
+反之亦然，通过双线性映射$a(u,\nu)$可以定义算子$A:X \mapsto X'$，见Lemma \ref{lemma:var-bilinear-form-to-A}。
+
+\begin{lemma}
+  \label{lemma:var-bilinear-form-to-A}
+  设一个有界的双线性映射$a(.,.): X \times X \mapsto \mathbb{R}$，满足
+  \begin{equation*}
+    \big| a(u,\nu) \big| \le C_2^A \, \big\| u \big\|_{X} \, \big\| \nu \big\|_{X}, \quad \forall \, u,\nu \in X.
+  \end{equation*}
+
+    对于其中任一$u \in X$，都存在一个元素$A u \in X'$，使得满足
+    \begin{equation*}
+      \langle Au, \nu \rangle = a(u,\nu), \forall \, \nu \in X.
+    \end{equation*}
+
+    则我们有：算子$A:X \mapsto X'$是一个有界的线性算子，满足
+    \begin{equation*}
+      \big\| A u \big\|_{X'} \le C_2^A \, \big\| u \big\|_{X}, \forall \, u \in X.
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+  对于任一给定的$u \in X$，我们定义一个$X$中的有界双线性映射$\langle f_u, \nu \rangle \coloneqq a(u,\nu)$，即我们有$f_u \in X'$。通过映射$u \in X \mapsto f_u \in X'$，我们定义一个线性算子$A: X \mapsto X'$，使得$A u = f_u \in X'$，并且满足
+  \begin{equation*}
+    \big\| Au \big\|_{X'} = \big\| f_u \big\|_{X'}
+    = \sup_{ 0 \neq \nu \in X}
+    \frac{
+      \big| \langle f_u,\nu \rangle \big|
+    }{
+    \big\| \nu \big\|_{X}
+    }
+    = \sup_{ 0 \neq \nu \in X}
+    \frac{
+      \big| a(u,\nu) \big|
+    }{
+    \big\| \nu \big\|_{X}
+    }
+    \le C_2^A \, \big\| u \big\|_{X}.
+  \end{equation*}
+\end{proof}
+
+因此我们可以把求解变分问题\eqref{eq:var-operator-var-problem}的工作，转化为求解下述最小化问题的工作。
+\begin{lemma}
+  \label{lemma:var-minimization-problem}
+  设线性算子$A:X \mapsto X'$是1)自伴随的，即$\langle A u ,\nu \rangle = \langle u, A \nu \rangle$，和2)正半定的，即$\langle A u, \nu \rangle \ge 0$，$\forall \, \nu \in X$。我们设一个泛函$F$
+  \begin{equation}
+    \label{eq:var-mini-functional-F}
+    F(\nu) \coloneqq \frac{1}{2} \langle A\nu, \nu \rangle - \langle f, \nu \rangle, \quad \forall \, \nu \in X.
+  \end{equation}
+
+那么变分问题\eqref{eq:var-operator-var-problem}的解$u \in X$，等价于如下最小化问题的解
+\begin{equation}
+  \label{eq:var-operator-min-problem}
+  F(u) = \min_{\nu \in X} F(\nu).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+  设$u,\nu \in X$，任一$t \in \mathbb{R}$。进而
+  \begin{equation*}
+    \begin{split}
+      F(u+t \nu)&= \frac{1}{2} \langle A(u+t\nu), u + t \nu \rangle - \langle f, u + t \nu \rangle \\
+      &= \frac{1}{2}
+      \left[
+      \langle A u, u \rangle + \langle A u, t \nu \rangle +
+      \langle A \nu, u \rangle + \langle A t \nu, t \nu \rangle
+      \right]
+      - \left[
+      \langle f, u \rangle + \langle f, t \nu \rangle
+      \right] \\
+      &= \frac{1}{2} \langle A u , u \rangle
+      + \frac{1}{2} t \langle A u, \nu \rangle
+      + \frac{1}{2} t \langle A u, \nu \rangle
+      + \frac{1}{2} t^2 \langle A \nu, \nu \rangle
+      - \langle f, u \rangle
+      - t \langle f , \nu \rangle \\
+      & = \left[
+      \frac{1}{2} \langle Au, u \rangle - \langle f,u \rangle
+      \right]
+      + t \left[ \langle Au,\nu \rangle - \langle f, \nu \rangle \right]
+      + \frac{1}{2} t^2 \langle  A \nu, \nu \rangle \\
+      &= F(u) + t \left[ \langle Au,\nu \rangle - \langle f, \nu \rangle \right]
+      + \frac{1}{2} t^2 \langle  A \nu, \nu \rangle.
+    \end{split}
+  \end{equation*}
+
+\begin{enumerate}
+\item 假设$u \in X$是变分问题\eqref{eq:var-operator-var-problem}的解，那么$\langle Au,\nu \rangle = \langle f, \nu \rangle$，上式变为
+\begin{equation*}
+  \begin{split}
+    &F(u+t \nu) = F(u) +  \underbrace{\frac{1}{2} t^2 \langle  A \nu, \nu \rangle}_{\ge 0}, \\
+    \hookrightarrow & F(u) \le F(u + t \nu), \quad \forall \, \nu \in X, t \in \mathbb{R},
+  \end{split}
+\end{equation*}
+由此可见$u \in X$同时也是最小化问题\eqref{eq:var-operator-min-problem}的解。
+
+\item 现在假设$u \in X$是最小化问题\eqref{eq:var-operator-min-problem}的解。那么以下条件也成立
+\begin{equation*}
+  \frac{d}{d t}F(u + t \nu)\big|_{t=0} = 0, \quad \forall \, \nu \in X,
+\end{equation*}
+由此可得
+\begin{equation*}
+  \langle A u , \nu \rangle = \langle f, \nu \rangle, \quad \forall \nu \in X,
+\end{equation*}
+可见$u \in X$同时也是变分问题\eqref{eq:var-operator-var-problem}的解。
+\end{enumerate}
+\end{proof}
+
+现在来证明变分问题\eqref{eq:var-operator-var-problem}、最小化问题\eqref{eq:var-operator-min-problem}的解$u \in X$存在且唯一，可由里兹表现定理证明。
+
+\begin{theorem}[里兹表现定理]
+  \label{theorem:var-riesz-representation-theorem}
+  任一线性有界泛函$f \in X'$均可表现为下述形式
+  \begin{equation*}
+    \langle f, \nu \rangle = \langle u,\nu \rangle_{X},
+  \end{equation*}
+  其中$u \in X$由$f \in X'$所唯一确定(uniquely determined)，并且满足
+  \begin{equation}
+    \label{eq:var-riesz-representation-theorem}
+    \big\| u \big\|_{X} = \big\| f \big\|_{X'},
+  \end{equation}
+  这称为里兹表现定理(Riesz representation theorem)\index{Riesz representation theorem \dotfill 里兹表现定理}。
+\end{theorem}
+
+\begin{proof}
+  设某一给定的泛函$f \in X'$，我们可以通过求解变分问题\eqref{eq:var-operator-var-problem}找到解$u \in X$
+  \begin{equation*}
+    \langle Au,\nu \rangle = \langle f, \nu \rangle, \quad \forall \, \nu \in X,
+  \end{equation*}
+并且根据Lemma \ref{lemma:var-minimization-problem}，这也等同于求解最小化问题\eqref{eq:var-operator-min-problem}
+\begin{equation*}
+  F(u) = \min_{\nu \in X} F(\nu),
+\end{equation*}
+其中泛函$F$由\eqref{eq:var-mini-functional-F}给出
+\begin{equation*}
+  F(\nu) \coloneqq \frac{1}{2} \langle A\nu, \nu \rangle - \langle f, \nu \rangle, \quad \forall \, \nu \in X.
+\end{equation*}
+
+\begin{enumerate}
+
+\item 证明$u \in X$是最小化问题和变分问题的解。\eqref{eq:var-mini-functional-F} $\Rightarrow$
+\begin{equation*}
+  \begin{split}
+    F(\nu) &=  \frac{1}{2} \langle  \nu, \nu \rangle_{X} - \langle f,\nu\rangle\\
+    &\ge \frac{1}{2} \big\| \nu \big\|_{X}^2 - \big\| f \big\|_{X'} \, \big\| \nu \big\|_{X} \\
+    &= \frac{1}{2} \underbrace{
+    \left[
+    \big\| \nu \big\|_{X} - \big\| f \big\|_{X'}
+    \right]^2}_{\ge 0} - \frac{1}{2} \big\| f \big\|_{X'}^2 \\
+    & \ge - \frac{1}{2} \big\| f \big\|_{X'}, \quad \forall \, \nu \in X,
+  \end{split}
+\end{equation*}
+可见$F(\nu), \forall \, \nu \in X$有下界(infimum)，定义为$\alpha$
+\begin{equation*}
+  \alpha \coloneqq \inf_{\nu \in X} F(\nu) \in \mathbb{R}.
+\end{equation*}
+
+设存在一个数列$\left\{ u_k \right\}_{k \in \mathbb{N}} \subset X$，随着$k \rightarrow \infty$，满足$F(u_k) \rightarrow \alpha$。由数列的性质可得
+\begin{equation*}
+  \big\| u_k - u_\ell \big\|_{X}^2 + \big\| u_k + u_\ell \big\|_{X}^2= 2 \left\{
+  \big\| u_k \big\|_{X}^{2} + \big\| u_\ell \big\|_{X}^{2}
+  \right\},
+\end{equation*}
+进而我们有$\big\| u_k - u_\ell \big\|_{X}^2 \ge 0$，以及
+\begin{equation*}
+  \begin{split}
+    &\big\| u_k - u_\ell \big\|_{X}^2 = 2   \big\| u_k  \big\|_{X}^2   + 2   \big\| u_\ell \big\|_{X}^2  -   \big\| u_k + u_\ell \big\|_{X}^2 \\
+    &= 4 \underbrace{\left\{
+    \frac{1}{2} \big\| u_k \big\|_{X}^2
+    - \langle f, u_k \rangle
+    \right\}}_{ = F(u_k)}
+    + 4 \underbrace{\left\{
+    \frac{1}{2} \big\| u_\ell \big\|_{X}^2
+    - \langle f, u_{\ell} \rangle
+    \right\}}_{ = F(u_{\ell})}
+    - 8 \left[
+    \frac{1}{2} \big\| \frac{1}{2} \left( u_k + u_{\ell} \right) \big\|_{X}^2
+    - \langle f, \frac{1}{2} \left( u_k + u_{\ell} \right) \rangle
+    \right]
+    \\
+    &=4 F(u_k) + 4 F(u_{\ell})
+        - 8 F \left( \frac{1}{2} \left( u_k + u_{\ell} \right) \right)\\
+    & \le 4 \alpha + 4 \alpha - 8 \alpha \rightarrow 0, \quad k,\ell \rightarrow \infty.
+  \end{split}
+\end{equation*}
+
+由此可见，$\left\{ u_k \right\}_{k \in \mathbb{N}}$是一个柯西数列(Cauchy sequence)。此外由于$X$是一个希尔伯特空间，我们得到极限值
+\begin{equation*}
+  u = \lim_{k \rightarrow \infty} u_k \in X.
+\end{equation*}
+
+对应得泛函$F(u)$的值，求解过程如下。由
+\begin{equation*}
+  \begin{split}
+    \left| F(u_k) - F(u) \right| & \le \big| F(u_k - u) \big| \\
+    & \le
+    \frac{1}{2} \big| \langle u_k, u_k \rangle_{X} - \langle u, u \rangle_{X} \big|
+    + \big| \langle f, u_k - u \rangle  \big| \\
+    & = \frac{1}{2}
+    \big|
+    \langle u_k, u_k - u \rangle_{X} + \langle u, u_k - u \rangle_{X}
+    \big|
+    + \big|
+    \langle f, u_k - u \rangle
+    \big| \\
+    &\le \left\{
+    \frac{1}{2} \big\| u_k \big\|_{X}
+    + \frac{1}{2} \big\| u \big\|_{X}
+    + \big\| f \big\|_{X'}
+    \right\} \, \big\| u_k - u \big\|_{X}
+  \end{split}
+\end{equation*}
+可得
+\begin{equation*}
+  F(u) = \lim_{k \rightarrow \infty} F(u_k) = \alpha.
+\end{equation*}
+
+可见$u \in X$是最小化问题\eqref{eq:var-mini-functional-F}和变分问题\eqref{eq:var-operator-var-problem}的解。
+
+\item 证明$u \in X$是最小化问题和变分问题的唯一解。假定还存在另一个$\tilde{u} \in X$，也是\eqref{eq:var-mini-functional-F}和\eqref{eq:var-operator-var-problem}的解，那么我们有
+\begin{equation*}
+  \langle \widetilde{u}, \nu \rangle_{X} = \langle f, \nu \rangle, \quad \forall \, \nu \in X.
+\end{equation*}
+
+将上式代回变分问题\eqref{eq:var-operator-var-problem}$\Rightarrow$
+\begin{equation*}
+  \langle u - \widetilde{u}, \nu \rangle_{X} = 0, \quad \forall \, \nu \in X.
+\end{equation*}
+
+若设$\nu = u - \tilde{u} \Rightarrow $
+\begin{equation*}
+  \big\| u - \widetilde{u} \big\|_{X}^2 = 0,
+\end{equation*}
+
+因此我们有$u = \widetilde{u}$，即$u \in X$是最小化问题和变分问题的唯一解。
+
+\item 证明范式等价$\big\| u \big\|_{X} = \big\| f \big\|_{X'}$。已知
+\begin{equation*}
+  \begin{split}
+    &\big\| u \big\|_{X}^2 = \langle u,u \rangle_X = \langle  f, u \rangle \le \big\| u \big\|_{X} \, \big\| f \big\|_{X'}, \\
+    &\hookrightarrow \big\| u \big\|_{X} \le \big\| f \big\|_{X'},
+  \end{split}
+\end{equation*}
+\begin{equation*}
+  \begin{split}
+    &\big\| f \big\|_{X'} = \sup_{0 \neq \nu \in X} \frac{
+    \big| \langle f, \nu \rangle \big|
+    }{
+    \big\| \nu \big\|_{X}
+    }
+    = \sup_{0 \neq \nu \in X}
+    \frac{
+    \big| \langle u, \nu \rangle _{X} \big|
+    }{
+    \big\| \nu \big\|_{X}
+    }
+    \le \big\| u \big\|_{X},
+  \end{split}
+\end{equation*}
+
+则我们有$\big\| u \big\|_{X} \le  \big\| f \big\|_{X'} \& \big\| f \big\|_{X'} \le \big\| u \big\|_{X} \Rightarrow \big\| u \big\|_{X} =  \big\| f \big\|_{X'}.$
+\end{enumerate}
+\end{proof}
+
+\begin{definition}[里兹映射]
+  \label{definition:var-riesz-map-def}
+  若里兹表现定理(Theorem \ref{theorem:var-riesz-representation-theorem})成立，那么我们将映射$J:X' \mapsto X, u = J f$称为里兹映射(Riesz map)\index{Riesz map \dotfill 里兹映射}，满足如下变分问题
+  \begin{equation}
+    \label{eq:var-riesz-map-def}
+    \langle Jf, \nu \rangle_{X} = \langle f, \nu \rangle, \quad \forall \, \nu \in X,
+  \end{equation}
+  并且其范数为
+  \begin{equation}
+    \label{eq:var-riesz-map-norm}
+    \big\| J f \big\|_{X} = \big\| f \big\|_{X'}.
+  \end{equation}
+\end{definition}
+
+%!TEX root = ../DSGEnotes.tex
+\subsection{椭圆算子}
+\label{sec:var-elliptic-operators}
+里兹表现定理(Theorem \ref{theorem:var-riesz-representation-theorem})探讨了算子方程\eqref{eq:var-operator-eq-problem}及变分问题\eqref{eq:var-operator-var-problem}的解$u \in X$的存在性以及唯一性。除此以外，为了确保解得唯一存在，我们还需要对算子$A$和双线性形式$a(.,.)$做出进一步设定。
+
+\begin{definition}[椭圆算子]
+  \label{definition:var-elliptic-operator-def}
+一个算子$A:X \mapsto X'$被称作$X$-椭圆算子，如果它满足
+\begin{equation}
+  \label{eq:var-elliptic-operator-def}
+  \langle A \nu, \nu \rangle \ge C_1^A \, \big\|\nu\big\|_{X}^2, \quad \forall \nu \in X,
+\end{equation}
+其中$0 \le C_1^A \in \mathbb{R}$。
+\end{definition}
+
+\begin{theorem}[拉克斯一密格拉蒙定理]
+  \label{theorem:lax-milgram-lemma}
+  \index{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理}设$A:X \mapsto X'$是一个有界的$X$-椭圆算子。对于任一$f \in X'$，算子方程\eqref{eq:var-operator-eq-problem}都存在一个唯一解$u \in X$，满足
+  \begin{equation}
+    \label{eq:lax-milgram-sulution-u}
+    \| u \|_{X} \le \frac{1}{C_1^A} \, \| f \|_{X'}.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  设存在一个里兹映射(Riesz map)算子$J:X' \mapsto X$，满足\eqref{eq:var-riesz-map-def}定义。那么算子方程\eqref{eq:var-operator-eq-problem}等价于下属定点方程
+  \begin{equation*}
+    u = u - \varrho J \left( A u - f \right) = T_{\varrho} u + \varrho J f,
+  \end{equation*}
+其中算子$T_{\varrho} \coloneqq I - \varrho J A : X \mapsto X$，参数$0 < \varrho \in \mathbb{R}$。对应范数
+\begin{equation}
+  \label{eq:var-lax-milgram-operator-tvarrho}
+  \begin{split}
+    \big\| T_{\varrho} u \big\|_{X}^2 &= \big\| (I = \varrho J A ) u \big\|_{X}^2 \\
+    &= \big\| u \big\|_{X}^2 - 2 \varrho \underbrace{\langle JAu, u \rangle_{X}}_{\eqqcolon \mathcal{A}} + \varrho^2 \underbrace{\big\| JAu\big\|_X^2}_{\eqqcolon \mathcal{B}} \\
+    & \le \left[1 - 2 \varrho C_1^A + \varrho^2 \left( C_2^A \right)^2 \right] \, \big\| u \big\|_{X}^2,
+  \end{split}
+\end{equation}
+其中，由里兹映射算子$J$的性质\eqref{eq:var-riesz-map-def}和$X$-椭圆算子$A$的性质\eqref{eq:var-elliptic-operator-def}我们有
+\begin{equation*}
+  \begin{split}
+    \mathcal{A} \coloneqq \langle JAu, u \rangle_{X} = \langle A u, u \rangle \ge C_1^A \, \| u \|_{X}^2,
+  \end{split}
+\end{equation*}
+由里兹映射算子$J$的范数\eqref{eq:var-riesz-map-norm}和$X$-椭圆算子$A$的范数\eqref{eq:var-operator-equation}我们有
+\begin{equation*}
+  \begin{split}
+    \mathcal{B} \coloneqq \big\| J A u \big\|_{X} = \big\| A u \big\|_{X'} \le C_2^A \, \| u \|_{X}.
+  \end{split}
+\end{equation*}
+
+若设$\varrho \in \left(0, \frac{2 C_1^A}{\left( C_2^A \right)^2} \right)$，则算子$T_{\varrho}$是一个$X$中的收缩映射(contraction mapping)\index{contraction mapping \dotfill 收缩映射}，并且由收缩映射定理(Banach's contraction mapping theorem, \cite{Palais:2007bo})可得，算子方程\eqref{eq:var-operator-eq-problem}的解$x \in X$是唯一的。进而，对于唯一的解$u \in X$，根据椭圆算子$A$的定义\eqref{eq:var-elliptic-operator-def}和里兹表现定理我们有
+\begin{equation*}
+  \begin{split}
+    C_1^A \, \big\| u \big\|_{X}^2 &\le \langle Au,u \rangle \\
+    &=\langle f, u \rangle \\
+    &\le \big\| f \big|_{X'} \, \big\| u \big\|_{X}.
+  \end{split}
+\end{equation*}
+\end{proof}
+
+根据拉克斯一密格拉蒙定理(Theorem \ref{theorem:lax-milgram-lemma})，我们可以定义一个逆算子$A^{-1}:X' \mapsto X$，有
+\begin{equation*}
+  \big\| A^{-1} f \big\|_{X} \le \frac{1}{C_1^A} \, \big\| f \big\|_{X'}, \quad \forall \, f \in X'.
+\end{equation*}
+\begin{lemma}[$X$-椭圆算子$A$的逆算子$A^{-1}$也是一个椭圆算子]
+设$A:X \mapsto X'$是一个有界\eqref{eq:var-operator-equation}，自伴随\eqref{eq:var-operator-self-adjoint}的$X$-椭圆算子\eqref{eq:lax-milgram-sulution-u}。那么对于$\forall \nu \in X$我们有
+\begin{equation*}
+  \langle A^{-1} f, f \rangle \ge \frac{1}{C_2^A} \, \big\| f \big\|_{X'}^2, \quad \forall \, f \in X'.
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+定义一个算子$B \coloneqq J A : X \mapsto X$，满足
+\begin{equation*}
+  \big\| B \nu \big\|_{X} = \big\| J A \nu \big\|_{X} = \big\| A \nu \big\|_{X'} \le C_2^A \, \big\| \nu \big\|_X, \quad \forall \, \nu \in X.
+\end{equation*}
+
+由于$\forall \, u,\nu \in X$，都有以下关系成立
+\begin{equation*}
+  \langle B u, \nu \rangle_{X} = \langle J A u, \nu \rangle = \langle A u, \nu \rangle = \langle u, A \nu \rangle = \langle u, J A \nu \rangle_{X} = \langle u, B \nu \rangle_{X},
+\end{equation*}
+可见$B$是一个自伴随的椭圆算子，满足
+\begin{equation*}
+  \langle B \nu, \nu \rangle_X = \langle A \nu, \nu \rangle \ge C_1^A \, \big\| \nu \big\|_{X}^2, \quad \forall \, \nu \in X.
+\end{equation*}
+
+因此可以定义一个可逆的自伴随算子$B^{\frac{1}{2}}$，满足$B = B^{\frac{1}{2}} \, B^{\frac{1}{2}}$，逆算子$B^{- \frac{1}{2}} \coloneqq \left( B^{\frac{1}{2}} \right)^{-1}$。对应的范数
+\begin{equation*}
+\begin{split}
+  &\big\| B^{\frac{1}{2}} \nu \big\|_{X}^2 = \langle B \nu, \nu \rangle_{X} \le \big\| B \nu \big\|_{X} \, \big\| \nu \big\|_X \le C_2^A \, \big\| \nu \big\|_X^{2}, \\
+  \hookrightarrow & \big\| B^{\frac{1}{2}} \nu \big\|_{X} \le \sqrt{C_2^A} \, \big\| \nu \big\|_X, \quad \forall \, \nu \in X.
+\end{split}
+\end{equation*}
+
+因此，对于任一$f \in X'$，我们有
+\begin{equation*}
+  \begin{split}
+    \| f \|_{X'} &= \sup_{0 \neq \nu \in X} \frac{
+    \big| \langle f,\nu \rangle \big|
+    }{
+    \big\| \nu \big\|_{X}
+    }\\
+    &= \sup_{0 \neq \nu \in X}
+    \frac{
+    \big| \langle J f, \nu \rangle_X \big|
+    }{
+    \big\| \nu \big\|_X
+    } \\
+    &= \sup_{0 \neq \nu \in X}
+    \frac{
+    \big| \langle B^{-\frac{1}{2}} J f, B^{\frac{1}{2}} \nu \rangle_X \big|
+    }{
+    \big\| \nu \big\|_X
+    } \\
+    &\le \sup_{0 \neq \nu \in X}
+    \frac{
+    \big\| B^{-\frac{1}{2}} J f \big\|_{X} \, \big\| B^{\frac{1}{2}} \nu \big\|_{X}
+    }{
+    \big\| \nu \big\|_X
+    } \\
+    &\le \sqrt{C_2^A} \, \big\| B^{-\frac{1}{2}} J f \big\|_{X},
+  \end{split}
+\end{equation*}
+进而
+\begin{equation*}
+  \big\| f \big\|_{X'}^2 \le C_2^A \big\| B^{-\frac{1}{2}} J f \big\|_{X}^2 = C_2^A \langle B^{-1} J f, J f \rangle_X = C_2^A \langle A^{-1} f, f \rangle,
+\end{equation*}
+其中我们使用到了如下关系
+\begin{equation*}
+  \begin{split}
+    \big\| B^{-\frac{1}{2}} J f \big\|_{X}^2 &= \big\| \left( B^{\frac{1}{2}} \right)^{-1} J f \big\|_{X}^2 \\
+    &= \langle B^{-1} J f, J f \rangle_{X} \\
+    &= \langle A^{-1} f , f \rangle.
+  \end{split}
+\end{equation*}
+\end{proof}
+
+\subsection{算子与稳定性条件}
+\label{sec:var-operator-stability-conditions}
+
+设$\Pi$是一个巴拿赫空间(Banach space)\index{Banach space \dotfill 巴拿赫空间}，设$B:X \mapsto \Pi'$是一个有界的线性算子，满足条件
+\begin{equation}
+  \label{eq:var-stability-operator-B}
+  \big\| B \nu \big\|_{\Pi'} \le C_2^B \, \big\| \nu \big\|_X, \quad \forall \nu \in X.
+\end{equation}
+
+算子$B$意味着如下双线性形式$b(.,.): X \times \Pi \mapsto \mathbb{R}$
+\begin{equation*}
+  b(\nu,q) \coloneqq \langle B \nu, q \rangle, \quad (\nu,q) \in X \times \Pi.
+\end{equation*}
+
+$B$的核或称零空间(kernel, null space)\index{kernel \dotfill 核}\index{null space \dotfill 零空间}定义为
+\begin{equation}
+  \label{eq:var-kernel-B-def}
+  \ker B \coloneqq \left\{ \nu \in X: B \nu = 0 \right\}.
+\end{equation}
+
+$\ker B$在希尔伯特空间$X$中的正交补(orthogonal complement)\index{orthogonal complement \dotfill 正交补}为
+\begin{equation}
+  \label{eq:var-ker-B-orthogonal-complement}
+  \left( \ker B \right)^{\bot} \coloneqq
+  \left\{
+  w \in X: \langle w, \nu \rangle_{X} = 0, \quad \forall \, \nu \in \ker B
+  \right\} \subset X.
+\end{equation}
+
+进而我们有$\ker B$的极空间(polar coordinate space)\index{polar coordinate space \dotfill 极坐标空间}
+\begin{equation}
+  \label{eq:var-ker-B-zero}
+  \left( \ker B \right)^{0} \coloneqq
+  \left\{
+  f \in X': \langle f, \nu \rangle = 0, \quad \forall \, \nu \in \ker B
+  \right\} \subset X'.
+\end{equation}
+
+对于某一给定的$g \in \Pi'$，我们想要求得以下算子方程的解$u \in X$
+\begin{equation}
+  \label{eq:var-stability-operator-equation}
+  B u = g.
+\end{equation}
+
+将$B:X \mapsto \Pi'$的值域或称像(range, image)\index{range \dotfill 值域} \index{iamge \dotfill 像}，定义为
+\begin{equation*}
+  \im_{X}B \coloneqq \left\{ B \nu \in \Pi', \quad \forall \, \nu \in X \right\}.
+\end{equation*}
+
+则算子方程\eqref{eq:var-stability-operator-equation}要求是可解的(solvability condition)，即要求$g$在B的值域中
+\begin{equation}
+  \label{eq:var-stability-condition-equation}
+  g \in \im_{X}B.
+\end{equation}
+
+将$B$的伴随算子(adjoint operator)\index{adjoint operator\dotfill 伴随算子}定义为$B':X \mapsto \Pi'$，满足
+\begin{equation*}
+  \langle \nu, B'q \rangle \coloneqq \langle B \nu, q \rangle, \quad \forall (\nu,q) \in X \times \Pi.
+\end{equation*}
+
+由$B$的性质  \eqref{eq:var-kernel-B-def}，\eqref{eq:var-ker-B-orthogonal-complement}，\eqref{eq:var-ker-B-zero}可得伴随算子$B'$的性质
+\begin{align}
+  \label{eq:var-kernel-Badj-def}
+  \ker B' & \coloneqq \left\{
+  q \in \Pi: \langle B \nu, q \rangle = 0, \forall \, \nu \in X
+  \right\}, \\
+  \label{eq:var-ker-Badj-orthogonal-complement}
+  \left( \ker B' \right)^{\bot} &\coloneqq \left\{
+  p \in \Pi : \langle p,q \rangle_{\Pi} = 0, \forall \, q \in \ker B'
+  \right\},\\
+  \label{eq:var-ker-Badj-zero}
+  \left( \ker B' \right)^{0} &\coloneqq \left\{
+  g \in \Pi' : \langle g, q \rangle = 0, \quad \forall \, q \in \ker B'
+  \right\}.
+\end{align}
+
+$\im_{X} B$的性质，由闭值域定理(closed range theorem)\index{closed range theorem \dotfill 闭值域定理}给出
+\begin{theorem}[闭值域定理]
+  \label{theorem:var-closed-range-theorem}
+  设$X$和$\Pi$是巴拿赫空间，有界线性算子$B:X \mapsto \Pi'$。则以下属性等价
+  \begin{itemize}
+    \item $\im_{X} B$是$\Pi'$中的闭集，
+    \item $\im_{\Pi} B'$是$X'$中的闭集，
+    \item $\im_{X} B = (\ker B')^0$，
+    \item $\im_{\pi} B' = (\ker B)^0$。
+  \end{itemize}
+\end{theorem}
+\begin{proof}
+  略。可参考\cite[Proposition 11.30]{Muscat:2014cc}。
+\end{proof}
+
+可求解性条件\eqref{eq:var-stability-condition-equation}$\Rightarrow$
+\begin{equation}
+  \label{eq:var-stability-condition-eqivalence}
+  \langle g, q \rangle = 0, \forall q \in \ker B' \subset \pi.
+\end{equation}
+
+若可求解性条件\eqref{eq:var-stability-condition-equation}或\eqref{eq:var-stability-condition-eqivalence}得到满足，则算子方程\eqref{eq:var-stability-operator-equation}存在至少一个解$u \in X$。但解并不唯一：我们可以加入任一$u_0 \in \ker B$，使得$u + u_0$也是$B(u + u_0) = g$的解。因此我们需要引入额外的假设条件$u \in (\ker B)^{\bot}$，以确保解的唯一性。
+
+\begin{theorem}[算子方程解的唯一存在性]
+  \label{theorem:var-solution-exist-uniq}
+  设希尔伯特空间$X$和$\Pi$。有界的线性算子$B: X \mapsto \Pi'$。假定已知稳定性条件
+  \begin{equation}
+    \label{eq:var-operators-stablility-conditions}
+    C_S \, \big\| \nu \|_{X} \le
+    \sup_{0 \neq q \in \Pi}
+    \frac{
+    \langle B \nu, q \rangle
+    }{
+    \big\| q \big\|_{\Pi}
+    }, \quad \forall \, \nu \in \left( \ker B \right)^{\bot},
+  \end{equation}
+  那么对于一个给定的$g \in \im_{X} B$，算子方程$B u = g$存在一个唯一的解$u \in \left( \ker B \right)^{\bot}$，满足
+  \begin{equation*}
+    \big\| u \big\|_{X} \le \frac{1}{C_S} \, \big\| g \big\|_{\Pi'}.
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  已知根据假设条件$g \in \im_{X} B$，算子方程$B u = g$存在唯一的一个解$u \in \left( \ker B \right)^{\bot}$，满足
+  \begin{equation*}
+    \langle B u , q \rangle = \langle g, q \rangle, \quad \forall \, q \in \Pi.
+  \end{equation*}
+
+  现在设存在第二个解$\bar{u} \in \left( \ker B \right)^{\bot}$，满足
+  \begin{equation*}
+    \langle B \bar{u} , q \rangle = \langle g, q \rangle, \quad \forall \, q \in \Pi,
+  \end{equation*}
+  则我们有
+  \begin{equation*}
+    \langle B ( u - \bar{u}) , q \rangle = 0, \quad \forall q \in \Pi.
+  \end{equation*}
+
+  显然$u - \bar{u} \in \left( \ker B \right)^{\bot} $也满足稳定性条件\eqref{eq:var-operators-stablility-conditions}
+  \begin{equation*}
+  \begin{split}
+    &0 \le C_S \, \big\| u - \bar{u} \|_{X} \le
+    \sup_{0 \neq q \in \Pi}
+    \frac{
+    \langle B \left( u - \bar{u} \right), q \rangle
+    }{
+    \big\| q \big\|_{\Pi}
+    }, \quad \forall \, \nu \in \left( \ker B \right)^{\bot} = 0,\\
+    \hookrightarrow & u = \bar{u}.
+  \end{split}
+  \end{equation*}
+
+  把唯一解$u$代回\eqref{eq:var-operators-stablility-conditions}我们有
+  \begin{equation*}
+\begin{split}
+  C_S \, \big\| u  \|_{X} &\le
+  \sup_{0 \neq q \in \Pi}
+  \frac{
+  \langle B u, q \rangle
+  }{
+  \big\| q \big\|_{\Pi}
+  } \\
+  & = \sup_{0 \neq q \in \Pi}
+  \frac{
+  \langle g, q \rangle
+  }{
+  \big\| q \big\|_{\Pi}
+  } \\
+  & \le \big\| g \big\|_{\Pi'}.
+\end{split}
+  \end{equation*}
+\end{proof}
+
+\subsection{含有限制条件的算子方程}
+\label{sec:var-constraints}
+经验研究中我们常常需要求得带有约束条件$B u = g$的算子方程$A u = f$的解。常见的求解思路分为四步。
+\begin{enumerate}
+\item 关于限定条件$B u = g$，假定可求解条件\eqref{eq:var-stability-condition-equation}成立
+\begin{equation*}
+  g \in \im_{X} B \coloneqq \left\{ B \nu \in \Pi', \quad \forall \, \nu \in X \right\}.
+\end{equation*}
+
+对于给定的$g \in \Pi'$，定义流形$V_g$
+\begin{equation*}
+  V_g \coloneqq \left\{ \nu \in X : B \nu = g \right\}.
+\end{equation*}
+
+此外我们定义零空间$V_0$
+\begin{equation*}
+  V_0 = \ker B \coloneqq \left\{ \nu \in X: B \nu = 0 \right\}.
+\end{equation*}
+
+\item 关于算子方程$A u = f$，同样假定可求解条件\eqref{eq:var-stability-condition-equation}成立
+\begin{equation*}
+  f \in \im_{V_g} A \coloneqq \left\{ A \nu \in X', \quad \forall \, \nu \in V_g \right\}.
+\end{equation*}
+
+对于给定的$f \in X'$，构建变分问题
+\begin{equation}
+  \label{eq:var-constrain-variational-problem}
+  \langle A u, \nu \rangle = \langle f, \nu \rangle, \quad \forall \, \nu \in V_0,
+\end{equation}
+求解该问题，得到解$u \in V_g$。
+
+\item 所求得解$u \in V_g$的唯一性，见Theorem \ref{theorem:var-constraint-solution-exist-uniq}。
+
+\item 对于唯一存在解$u \in V_g$，可以将$u$的范数，和给定的$f \in X', g \in \Pi'$的范数联系起来。
+
+假定对于给定的$g \in \im_{X} B$，$\exists \, u_g \in V_g$，我们有
+\begin{equation}
+  \label{eq:var-constraint-norm-equivalence}
+  \| u_g \|_{X} \le C_B \, \| g \|_{\Pi'}, \quad C_B > 0 \in \mathbb{R}.
+\end{equation}
+ ，则范数之间的关联见Corollary \ref{corollary:var-constraint-norm-equivalence}。
+\end{enumerate}
+
+\begin{theorem}[带约束算子方程解的唯一存在性]
+\label{theorem:var-constraint-solution-exist-uniq}
+  设一个有界线性$V_0$-椭圆算子$A:X \mapsto X'$
+  \begin{equation*}
+    \langle A \nu, \nu \rangle \ge C_1^A \, \big\| \nu \big\|_{X}^2, \quad \forall /, \nu \in V_0 \coloneqq \ker B,
+  \end{equation*}
+  其中$B:X \mapsto \Pi'$。并且有给定的$f,g$
+  \begin{equation}
+    \begin{split}
+      &f \in \im_{V_g} A \coloneqq \left\{ A \nu \in X', \quad \forall \, \nu \in V_g \right\}, \\
+      & g \in \im_{X} B \coloneqq \left\{ B \nu \in \Pi', \quad \forall \, \nu \in X \right\}.
+    \end{split}
+  \end{equation}
+
+那么作为带有约束条件$B u \ g$的算子方程$A u = f$，有且只有一个解$u \in X$。
+\end{theorem}
+\begin{proof}
+  由已知条件$g \in \im_{X} B$可得，约束条件存在至少一个解$u_g \in X$满足$B u_g = g$。除此而外，我们还需要求得$u_0 \coloneqq u-u_g \in V_0$，作为以下算子方程的解
+  \begin{equation*}
+    A u_0 = f - A u_g,
+  \end{equation*}
+  算子方程等价于以下变分问题
+\begin{equation*}
+  \langle A u_0, \nu \rangle = \langle f- A u_g, \nu \rangle, \quad \forall \nu \in V_0.
+\end{equation*}
+
+[存在性]由已知条件$f \in \im_{V_g} A$可得，$f - A u_g \in \im_{V_0} A$，那么方程$A u_0 = f - A u_g$至少存在一个解$u_0 \in V_0$。
+
+[唯一性]现在来证明$u_0 \in V_0$是唯一的。设$\bar{u}_0 \in V_0$是算子方程的另一个解，满足$A \bar{u}_0 = f - A u_g$。由已知条件$A$的$V_0$-椭圆特性可得
+\begin{equation*}
+\begin{split}
+  &0 \le C_1^A \, \big\| u_0 - \bar{u}_0 \big\|_{X}^{2} \le
+  \langle A \left( u_0 - \bar{u}_0 \right), u_0 - \bar{u}_0 \rangle
+  = \langle A u_0 - A \bar{u}_0, u_0 - \bar{u}_0 \rangle = 0,\\
+  \hookrightarrow & u_0 \in X = \bar{u}_0 \in X.
+\end{split}
+\end{equation*}
+
+$u_g \in V_g$可能不是唯一的解，但$u \in X = u_0 + u_g$却是变分问题的唯一最终解，并不受(可能是多重的) $u_g \in V_g$的影响。这是由于，对于满足约束条件方程$B \hat{u}_g = g$的某一个解$\hat{u}_g \in X$而言，这意味着存在唯一一个$\hat{u}_0 \in V_0$，构成算子方程$A (\hat{u}_0 + \hat{u}_g) = f$的解，进而
+\begin{equation*}
+\begin{split}
+    & B ( u_g - \hat{u}_g) = B u_g - B \hat{u}_g = g - g = 0 \in \Pi',\\
+    \hookrightarrow & u_g - \hat{u}_g \in \ker B = V_0.
+\end{split}
+\end{equation*}
+
+由于
+\begin{equation*}
+  \begin{split}
+    & A (u_0 + u_g) = f, \\
+    & A (\hat{u}_0 + \hat{u}_g) = f,
+  \end{split}
+\end{equation*}
+我们因而有
+\begin{equation*}
+  A(u_0 + u_g - \hat{u}_0 - \hat{u}_g) = 0.
+\end{equation*}
+
+显然，$u_0 - \hat{u}_0 + (u_g - \hat{u_g}) \in V_0$，由$A$的$V_0$-椭圆特性我们有
+\begin{equation*}
+  u_0 - \hat{u}_0 + \left( u_g - \hat{u}_g \right) = 0,
+\end{equation*}
+因此我们可得解的唯一性
+\begin{equation*}
+  u = u_0 + u_g = \hat{u}_0 + \hat{u}_g.
+\end{equation*}
+\end{proof}
+
+\begin{corollary}
+  \label{corollary:var-constraint-norm-equivalence}
+  已知$u \in V_g$是有限制条件的算子方程唯一解(Theorem \ref{theorem:var-constraint-solution-exist-uniq})，并且满足假定\eqref{eq:var-constraint-norm-equivalence}。那么$\| u \|_{X}$
+  和给定的$f \in X', g\in \Pi'$的范数之间关系为
+  \begin{equation*}
+    \big\| u \big\|_{X} \le \frac{1}{C_1^A} \, \big\| f \big\|_{X'} + \left(
+    1+ \frac{
+    C_2^A
+    }{
+    C_1^A
+    }
+    \right)
+    \, C_B \big\| g \big\|_{\Pi'}.
+  \end{equation*}
+\end{corollary}
+\begin{proof}
+  由Theorem \ref{theorem:var-constraint-solution-exist-uniq}得，算子方程$Au = f$的解表现为$u = u_g + u_0$的形式，其中$u_0 \in V_0$是以下变分问题的唯一解
+  \begin{equation*}
+    \langle A u_0, \nu \rangle = \langle f - A u_g, \nu \rangle, \quad \forall \nu \in V_0.
+  \end{equation*}
+
+  由算子$A$的$V_0$-椭圆特性可得
+  \begin{equation*}
+    \begin{split}
+      &C_1^A \, \big\|u_0\big\|_{X}^2 \le \langle A u_0, u_0 \rangle =
+      \langle f - A u_0, u_0 \rangle
+      \le \big\| f - A u_g \big\|_{X'} \, \big\|u_0 \big\|_{X},\\
+      \hookrightarrow & \big\| u_0 \big\|_{X} \le \frac{1}{C_1^A}
+      \left[
+      \big\| f \big\|_{X'} + C_2^A \big\| u_g \big\|_X
+      \right],
+    \end{split}
+  \end{equation*}
+
+$\Rightarrow$
+  \begin{equation*}
+    \begin{split}
+      \big\| u \big\|_X & = \big\| u_0 + u_g \big\|_X \\
+      &\le  \big\| u_0 \big\|_X + \big\| u_g \big\|_X \\
+      & \le \frac{1}{C_1^A} \, \big\| f \big\|_{X'} +
+      \left( 1 + \frac{C_2^A}{C_1^A} \right) \, \big\| u_g \big\|_{X} \\
+      & \le \frac{1}{C_1^A} \, \big\| f \big\|_{X'} +
+      \left( 1 + \frac{C_2^A}{C_1^A} \right) C_B \, \big\| g \big\|_{\Pi'}.
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+\subsection{混合算子方程(鞍点变分问题)}
+\label{sec:var-mixed-formulations}
+
+第\ref{sec:var-constraints}节讨论了如何构建带有限制条件的算子方程来求解变分问题。除此而外的另一种方法是引入拉格朗日乘子$p \in \Pi$，构建扩展变分问题，对于$\forall \, (\nu, q) \in X \times \Pi$，求解$(u , p ) \in X \time \Pi$，使其满足
+\begin{subequations}
+  \begin{equation}
+    \label{eq:var-mixed-problem-aubv}
+    \langle A u, \nu \rangle + \langle B \nu, p \rangle = \langle f, \nu \rangle,
+  \end{equation}
+  \begin{equation}
+    \label{eq:var-mixed-problem-bu}
+    \langle B u, q \rangle = \langle g, q \rangle,
+  \end{equation}
+\end{subequations}
+其中$u \in V_g$是$A u = f$的解。
+
+与上节相同，\eqref{eq:var-mixed-problem-bu}同样可以用于描述限制条件$B u = g$。但不同的是\eqref{eq:var-mixed-problem-aubv}可理解为另一个变分法问题：将$\nu \in V_0$作为检验方程，求解$u_0 \in V_0$。显然，这种混合算子求解变分问题的研究思路，可行前提之一是确保存在拉格朗日乘子$p \in \Pi$，使得$\forall \nu \in X$都满足等式\eqref{eq:var-mixed-problem-aubv}。具体来说就是，对于一组$(\nu,q) \in X \times \Pi$，定义一个拉格朗日泛函
+\begin{equation*}
+  \mathcal{L}(\nu, q) \coloneqq \frac{1}{2} \langle A \nu, \nu \rangle - \langle f, \nu \rangle + \langle B \nu, q \rangle - \langle g, q \rangle,
+\end{equation*}
+应当使得Theorem \eqref{theorem:var-mixed-lagrange-condition}成立。
+
+\begin{theorem}
+  \label{theorem:var-mixed-lagrange-condition}
+  设$A:X \mapsto X'$为一个有界线性算子，$\forall \, \nu \in X$都具有自伴随$\langle A \nu , nu \rangle = \langle \nu, A \nu \rangle$、正半定$\langle A \nu, \nu \rangle \ge 0 $的特性。设另一个有界线性算子$B:X \mapsto \Pi'$。
+
+  当且仅当
+  \begin{equation}
+    \label{eq:var-mixed-lagrange-inequality}
+    \mathcal{L}(u,q) \le \mathcal{L}(u,p) \le \mathcal{L}(\nu,p) \quad \forall (\nu,q) \in X \times \Pi
+  \end{equation}
+  时，$(u,p)$成为变分问题\eqref{eq:var-mixed-problem-aubv}-\eqref{eq:var-mixed-problem-bu}的一个解。
+\end{theorem}
+\begin{proof}
+  假设有一组解$(u,p) \in X \times \Pi$。\begin{enumerate}
+  \item 证\eqref{eq:var-mixed-lagrange-inequality}的后半部分。
+  \begin{equation*}
+  \begin{split}
+    &\mathcal{L}(\nu,p) - \mathcal{L}(u,p) \\
+    & = \frac{1}{2} \langle A \nu, \nu \rangle - \langle f, \nu \rangle + \langle B \nu, p \rangle - \langle g, p \rangle - \frac{1}{2} \langle A u , u \rangle + \langle f, u \rangle - \langle B u, p \rangle + \langle g,p \rangle \\
+   & = \frac{1}{2} \underbrace{\langle A (u - \nu), (u - \nu) \rangle}_{\text{正半定}, \ge 0} +
+   \underbrace{ \langle A u, (u - \nu) \rangle + \langle B (u - \nu), p \rangle - \langle f, u - \nu \rangle}_{\eqref{eq:var-mixed-problem-aubv}, =0} \\
+   & \ge 0,
+  \end{split}
+  \end{equation*}
+\begin{equation*}
+    \therefore \mathcal{L}(u,p) < \mathcal{L}(\nu,p), \quad \forall \, \nu \in X.
+\end{equation*}
+
+\item 证\eqref{eq:var-mixed-lagrange-inequality}的前半部分。
+\begin{equation*}
+\begin{split}
+&\mathcal{L}(u,p)-\mathcal{L}(u,q) \\
+& = \frac{1}{2}\langle Au,u\rangle - \langle f,u \rangle + \langle B u, p \rangle - \langle g, p \rangle - \frac{1}{2} \langle A u , u \rangle + \langle f, u \rangle - \langle B u , q \rangle + \langle g, p \rangle\\
+& = \underbrace{\langle B u, p - q \rangle - \langle g, p - q \rangle}_{\eqref{eq:var-mixed-problem-bu}, =0} \\
+& = 0,
+\end{split}
+\end{equation*}
+\begin{equation*}
+  \therefore \mathcal{L}(u,q) \le  \mathcal{L}(\nu,p), \quad \forall \, q \in \Pi.
+\end{equation*}
+
+\item 假设已知某个$p \in \Pi$是方程的解。构建如下最小化问题
+\begin{equation}
+  \label{eq:var-mix-minimization-problem}
+  \mathcal{L}(u,p) \le \mathcal{L}(\nu,p), \quad \forall \nu \in X,
+\end{equation}
+求解$u \in X$满足式\eqref{eq:var-mixed-problem-aubv}。
+
+设某个$u \in X$是最小化问题的解，我们有$\forall \, w \in X$满足以下两式
+\begin{equation}
+  \label{eq:var-mix-minimization-diff-lup}
+  \frac{d}{dt} \mathcal{L} \left(u + tw, p \right)|_{t=0} =0.
+\end{equation}
+以及
+\begin{equation}
+\label{eq:var-mix-minimization-lup}
+\begin{split}
+    \mathcal{L} \left(u + tw, p \right) =& \underbrace{\frac{1}{2} \langle A u, u \rangle - \langle f, u \rangle + \langle Bu,p \rangle - \langle g, p \rangle}_{ = \mathcal{L}(u,p)} \\
+    &+ \frac{1}{2} t^2 \langle A w, w \rangle + t
+    \left[
+    \langle A u, w \rangle + \langle B w, p \rangle - \langle f, w \rangle
+    \right],
+\end{split}
+\end{equation}
+
+进而\eqref{eq:var-mix-minimization-diff-lup}可得，\eqref{eq:var-mix-minimization-lup}$\Rightarrow$
+\begin{equation*}
+  \langle A u, w \rangle + \langle B w, p \rangle - \langle f, w \rangle = 0, \forall \, w \in X,
+\end{equation*}
+满足式\eqref{eq:var-mixed-problem-aubv}。
+
+
+\item 对于任一$q \in \Pi$，证明\eqref{eq:var-mixed-problem-bu}。
+\begin{enumerate}
+  \item 定义$\tilde{q} \coloneqq p + q$，进而
+  \begin{equation*}
+  \begin{split}
+  0 &\le \mathcal{L}(u,p) - \mathcal{L}(u, p + g) \\  &= \frac{1}{2} \langle A u , u \rangle - \langle f, u \rangle + \langle B u, p \rangle - \langle g, p \rangle \\
+  & \quad - \frac{1}{2} \langle A u , u \rangle + \langle f, u \rangle - \langle B u, p + q \rangle + \langle g, p + q \rangle \\
+  & = - \langle B u, q \rangle + \langle g, q \rangle .
+  \end{split}
+  \end{equation*}
+  \item 定义$\tilde{q} \coloneqq p - q$，进而
+  \begin{equation*}
+  \begin{split}
+  0 &\le \mathcal{L}(u,p) - \mathcal{L}(u, p - g) = \langle B u, q \rangle - \langle g, q \rangle .
+  \end{split}
+  \end{equation*}
+  \item
+  \begin{equation}
+    \therefore \langle B u , q \rangle = \langle g, q \rangle, \quad \forall \, q \in \Pi.
+  \end{equation}
+\end{enumerate}
+\end{enumerate}
+\end{proof}
+
+由此可见，扩展变分问题\eqref{eq:var-mixed-problem-aubv}-\eqref{eq:var-mixed-problem-bu}中，组合$(u,p) \in X \times \Pi$是一个拉格朗日泛函$\mathcal{L}(.,.)$的鞍点。从这意义上说，扩展变分问题也常称为鞍点变分问题。下面来探讨$(u,p)$解的唯一性。
+
+\begin{theorem}[混合算子方程(鞍点变分问题)的解]
+  \label{theorem:mixed-saddle-point-variational-problem}
+  假设巴拿赫空间$X,\Pi$，有界算子$A:X \mapsto X', \, B: X \mapsto \Pi'$。设$A$满足$V_0$-椭圆特性
+  \begin{equation*}
+    \langle A \nu, \nu \rangle \ge C_1^A \, \big\| \nu \big\|_{X}^2, \quad \forall \nu \in V_0 = \ker B,
+  \end{equation*}
+  设稳定性条件
+  \begin{equation}
+    \label{eq:var-mixed-stability-condition}
+    C_s \, \big\| q \big\|_{\Pi} \le \sup_{0 \neq \nu \in X} \frac{
+    \langle B \nu, q \rangle
+    }{
+    \big\| \nu \big\|_{X}
+    }, \quad \forall q \in \Pi.
+  \end{equation}
+
+  那么对于$g \in \im_{X}B, f \in \im_{V_g}A$，扩展变分问题\eqref{eq:var-mixed-problem-aubv}-\eqref{eq:var-mixed-problem-bu}都存在唯一的解$(u,p) \in X \times \Pi$，满足如下关系
+  \begin{align}
+    \label{eq:var-mixed-uniqueness-u}
+    & \big\| u \big\|_{X} \le \frac{1}{C_1^A}  \big\| f \big\|_{X'} + \left( 1 + \frac{C_2^A}{C_1^A} \right)  C_B \big\| g \big\|_{\Pi'},\\
+    \label{eq:var-mixed-uniqueness-p}
+    & \big\| p \big\|_{\Pi} \le \frac{1}{C_S} \left( 1 + \frac{C_2^A}{C_1^A} \right)
+    \left\{
+    \big\| f \big\|_{X'} + C_B C_2^A \big\| g \big\|_{\Pi'}
+    \right\}.
+  \end{align}
+\end{theorem}
+
+\begin{proof}
+\begin{enumerate}
+  \item 证明对于变分问题
+\begin{equation*}
+  \begin{split}
+    & \langle A u, \nu \rangle = \langle f, \nu \rangle, \quad \forall \, \nu \in V_0, \\
+    & \langle B u, q \rangle = \langle g, q \rangle, \quad \forall q \in Pi
+  \end{split}
+\end{equation*}
+存在唯一的解$u \in X$。
+
+唯一解的存在性由Theorem \ref{theorem:var-constraint-solution-exist-uniq}证得。唯一解的范数不等式由Corollary \ref{corollary:var-constraint-norm-equivalence}给出，对应式\eqref{eq:var-mixed-uniqueness-u}。
+
+\item 证明对于变分问题
+\begin{equation*}
+  \langle B \nu, p \rangle = \langle f - A u, \nu \rangle, \quad \forall \, \nu \in X
+\end{equation*}
+存在唯一的解$p \in \Pi$。
+\begin{enumerate}
+\item 解的存在性。我们有$f - A u \in \left( \ker B \right)^0$，进而根据闭值域定理(Theorem \ref{theorem:var-closed-range-theorem})我们有$f - A u \in \im_{\Pi}(B')$，进而变分问题的解是$p \in \Pi$。
+
+\item 解的唯一性。假定变分问题有两个解$p, \hat{p} \in \Pi$，满足
+\begin{equation*}
+  \begin{split}
+    & \langle B \nu , p \rangle = \langle f - A u, \nu \rangle, \quad \forall \, \nu \in X, \\
+    & \langle B \nu, \hat{p} \rangle = \langle f - A u, \nu \rangle, \quad \forall \, \nu \in X.
+  \end{split}
+\end{equation*}
+
+两式相减$\Rightarrow$
+\begin{equation*}
+  \langle B \nu, p - \hat{p} \rangle =0, \quad \forall \, \nu \in X.
+\end{equation*}
+
+代入稳定性条件\eqref{eq:var-mixed-stability-condition}有
+\begin{equation*}
+\begin{split}
+  &0 \le C_s \, \big\| p - \hat{p} \big\|_{\Pi} \le \sup_{0 \neq \nu \in X} \frac{
+  \langle B \nu, p - \hat{p} \rangle
+  }{
+  \big\| \nu \big\|_{X}
+  } \le 0, \quad \forall q \in \Pi, \\
+  &\hookrightarrow p = \hat{p} \in \Pi.
+\end{split}
+\end{equation*}
+
+\item 计算唯一解$p \in \Pi$的范数。再次代入稳定性条件\eqref{eq:var-mixed-stability-condition}有
+\begin{equation*}
+  C_s \, \big\| p  \big\|_{\Pi}
+  \le \sup_{0 \neq \nu \in X} \frac{
+  \langle B \nu, p  \rangle
+  }{
+  \big\| \nu \big\|_{X}
+  }
+  = \sup_{0 \neq \nu \in X} \frac{
+  \langle f - A u, \nu  \rangle
+  }{
+  \big\| \nu \big\|_{X}
+  }
+  \le \left\| f \right\|_{X'} + C_2^A \big\| u \big\|_{X},
+\end{equation*}
+代入\eqref{eq:var-mixed-uniqueness-u}替换$\big\| u \big\|_{X}$，我们得\eqref{eq:var-mixed-uniqueness-u}。
+\end{enumerate}
+\end{enumerate}
+\end{proof}
+
+设$A:X \mapsto X'$是个$V_0$-椭圆算子时，Theorem \ref{theorem:mixed-saddle-point-variational-problem}成立。此外，若假设$A$是个$X$-椭圆算子，即
+\begin{equation}
+  \label{eq:var-mixed-ellipcity-AX}
+  \langle A \nu, \nu \rangle \ge C_1^A \, \big\| \nu \big\|_{X}^2, \quad \forall \, \nu \in X,
+\end{equation}
+Theorem \ref{theorem:mixed-saddle-point-variational-problem}依然成立。
+
+Theorem \ref{theorem:mixed-saddle-point-variational-problem}探讨了求扩展变分问题的解$(u,p)\in X \times \Pi$。事实上求解过程可以进一步简化，$u$是一个关于$p$的方程。已知
+\begin{equation*}
+  \begin{split}
+    & \langle A u, \nu \rangle + \langle B \nu, p \rangle = \langle f, \nu \rangle, \\
+    \hookrightarrow & \langle B \nu, p \rangle = \langle \nu, B p \rangle = \langle B' p, \nu \rangle, \\
+    \hookrightarrow & \langle A u, \nu \rangle + \langle B' p,  \nu \rangle =  \langle f, \nu \rangle, \\
+    \hookrightarrow & A u + B ' p = f, \\
+    \hookrightarrow & u = A^{-1} \left( f-B'p \right)\\
+    \hookrightarrow & \langle B u, q \rangle = \langle g,q\rangle,\\
+    \hookrightarrow & \langle B A^{-1} \left( f-B'p \right), q \rangle = \langle g, q \rangle, \\
+    \hookrightarrow & \langle B A^{-1} f - g, q \rangle = \langle B A^{-1} B' p, q \rangle,
+  \end{split}
+\end{equation*}
+即对于任一$p \in \Pi$，都存在唯一的一个解$u = A^{-1} \left( f - B' p \right) \in X$。这样一来，原本寻找$(u,p)\in X \times \Pi$的变分问题，就变成了一个新的(椭圆)变分问题：寻找解$p \in \Pi$使满足
+\begin{equation}
+  \label{eq:var-mixed-var-probl-givenuforq}
+  \langle B A^{-1} f - g, q \rangle = \langle B A^{-1} B' p, q \rangle.
+\end{equation}
+
+为了探讨(椭圆)变分问题\eqref{eq:var-mixed-var-probl-givenuforq}的解$u$的唯一性，首先我们检验它是否符合拉克斯一密格拉蒙定理(Theorem \ref{theorem:lax-milgram-lemma})\index{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理} 的前提假；如果是，则应用该定理。检验过程见Lemma \ref{lemma:var-mixed-var-probl-onlyq}.
+
+\begin{lemma}
+  \label{lemma:var-mixed-var-probl-onlyq}
+  设Theorem \ref{theorem:mixed-saddle-point-variational-problem}的假设条件均得到满足。
+
+  那么算子$S \coloneqq B A^{-1} B'$有界，并且由稳定条件\eqref{eq:var-mixed-stability-condition}可得$S$是$\Pi$-椭圆的，满足
+  \begin{equation}
+    \label{eq:var-mixed-var-prob-forq}
+    \langle Sq, q \rangle \ge C_1^S \, \big\| q \big\|_{\Pi}^2, \quad \forall \, q \in \pi.
+  \end{equation}
+\end{lemma}
+
+\begin{proof}
+  已知即对于任一$p \in \Pi$，对于如下变分问题
+  \begin{equation*}
+    \langle A u, \nu \rangle = \langle B \nu, q \rangle \quad \forall \nu \in X,
+  \end{equation*}
+  都存在唯一的一个解$u = A^{-1} \left( f - B' p \right) \in X$.
+
+  \begin{enumerate}
+    \item $S$的有界性。已知$A:X \mapsto X'$的$X$-椭圆特性\eqref{eq:var-mixed-ellipcity-AX}，那么根据Theorem \ref{theorem:mixed-saddle-point-variational-problem}可证得存在唯一解$u \in X$满足
+  \begin{equation}
+    \label{eq:var-mixed-u-norm-ineq}
+  \begin{split}
+  \big\| u \big\|_{X} &= \big\| A^{-1} B' q \big\|_{X} \\
+  & \le \frac{1}{C_1^A} \, \big\| B' q \big\|_{X'} \\
+  & \le \frac{C_2^B}{C_1^A} \big\| q \big\|_{\Pi}, \quad \forall \, q \in \Pi.
+  \end{split}
+  \end{equation}
+
+  由\eqref{eq:var-mixed-u-norm-ineq}可得
+  \begin{equation*}
+    \begin{split}
+      \big\| S q \big\|_{\Pi'} &= \big\| B A^{-1} B' q \big\|_{\Pi'} \\
+      &= \big\| B u \big\|_{\Pi'} \\
+      & \le C_2^B \big\| u \big\|_{X} \\
+      & \le \frac{\left( C_2^B \right)^2}{C_1^A} \big\| q \big\|_{\Pi}, \quad \forall \, q \in \Pi,
+    \end{split}
+  \end{equation*}
+  即$S:\Pi \mapsto \Pi'$有界。
+
+\item $S$的椭圆性。
+\begin{equation}
+  \label{eq:var-mixed-sqq-inner-middle}
+\begin{split}
+  \langle S q, q \rangle &= \langle B A^{-1} B' q, q \rangle \\
+  &= \langle B u, q \rangle \\
+  &= \langle A u, u \rangle \\
+  & \ge C_1^A \big\| u \big\|_X^2,
+\end{split}
+\end{equation}
+
+根据稳定条件\eqref{eq:var-mixed-stability-condition}，
+\begin{equation*}
+  \begin{split}
+    C_S \, \big\| q \big\|_{\Pi} & \le \sup_{0 \neq \nu \in X}
+    \frac{
+    \langle B \nu, q \rangle
+    }{
+    \big\| \nu \big\|_{X}
+    } \\
+    & = \sup_{0 \neq \nu \in X}
+    \frac{
+    \langle A u,  \nu \rangle
+    }{
+    \big\| \nu \big\|_{X}
+    } \\
+    & \le C_2^A \, \big\| u \big\|_X,
+  \end{split}
+\end{equation*}
+代回\eqref{eq:var-mixed-sqq-inner-middle}最后得
+\begin{equation*}
+  \begin{split}
+    \langle S q, q \rangle  \ge C_1^A \big\| u \big\|_X^2 \ge \frac{\left( C_2^B \right)^2}{C_1^A} \, \big\| q \big\|_{\Pi}^2,
+  \end{split}
+\end{equation*}
+由此证得\eqref{eq:var-mixed-u-norm-ineq}，$C_1^S \coloneqq \frac{\left( C_2^B \right)^2}{C_1^A}$。
+\end{enumerate}
+\end{proof}
+
+进而，我们可以使用拉克斯一密格拉蒙定理(Theorem \ref{theorem:lax-milgram-lemma})
+求得椭圆问题\eqref{eq:var-mixed-var-probl-givenuforq}的唯一解$ p \in \Pi$。
+
+在此基础上，回到混合算子方程(鞍点变分问题)    \eqref{eq:var-mixed-problem-aubv}
+-\eqref{eq:var-mixed-problem-bu}上来：
+\begin{theorem}[混合算子方程(鞍点变分问题)的解(续)]
+  \label{theorem:mixed-saddle-point-variational-problem-solution}
+  设巴拿赫空间$X,\Pi$。有界算子$A:X \mapsto X', B: X \mapsto \Pi'$。假设$A$是$X$-椭圆的，满足稳定条件\eqref{eq:var-mixed-stability-condition}。对于给定的$f \in X', g \in \Pi'$，混合算子方程(鞍点变分问题)    \eqref{eq:var-mixed-problem-aubv}
+  -\eqref{eq:var-mixed-problem-bu}存在唯一的解$(u,p) \in X \times \Pi$，满足
+  \begin{align}
+    \label{eq:mixed-saddle-point-variational-problem-solution-p}
+    & \big\| p \big\|_{\Pi} \le \frac{1}{C_1^S} \big\| B A^{-1} f - g \big\|_{\Pi'} \le \frac{1}{C_1^S} \left[
+    \frac{C_2^B}{C_1^A} \, \big\| f \big\|_{X'} + \big\| g \big\|_{\Pi'}
+    \right], \\
+    \label{eq:mixed-saddle-point-variational-problem-solution-u}
+    & \big\| u \big\|_{X} \le \frac{1}{C_1^A} \left[
+    1 + \frac{
+    \left(C_2^B \right)^2
+    }{
+    C_1^A \, C_1^S
+    }
+    \right] \,
+    \big\| f \big\|_{X'}
+    + \frac{C_2^B}{C_1^A \, C_1^S} \, \big\| g \big\|_{\Pi'}.
+  \end{align}
+\end{theorem}
+
+\begin{proof}
+  \begin{enumerate}
+    \item 根据Theorem \ref{theorem:mixed-saddle-point-variational-problem}可证得\eqref{eq:mixed-saddle-point-variational-problem-solution-p}。
+    \item 根据拉克斯一密格拉蒙定理(Theorem \ref{theorem:lax-milgram-lemma})，可以证明混合算子方程(鞍点变分问题)\eqref{eq:var-mixed-problem-aubv}
+  -\eqref{eq:var-mixed-problem-bu}存在唯一解，满足
+  \begin{equation*}
+    \langle A u, \nu \rangle = \langle f - B' p, \nu \rangle, \quad \forall \, \nu \in X.
+  \end{equation*}
+
+  由算子$A$的$X$-椭圆特性可得
+  \begin{equation*}
+    C_1^A \, \big\|u\big\|_{X}^2 \le \langle Au, u \rangle = \langle f - B'p, u \rangle \le \big\| f - B' p \big\|_{X'} \, \big\|u \big\|_{X},
+  \end{equation*}
+
+  由此我们有
+  \begin{equation*}
+    \begin{split}
+      \big\| u \big\|_{X} & \le \frac{1}{C_1^A}  \big\| f - B' p \big\|_{X'} \\
+      & \le \frac{1}{C_1^A} \, \big\| f \big\|_{X'} + \frac{C_2^B}{C_1^A} \, \big\| p \big\|_{\Pi}.
+    \end{split}
+  \end{equation*}
+  将\eqref{eq:mixed-saddle-point-variational-problem-solution-p}代入上式，可得\eqref{eq:mixed-saddle-point-variational-problem-solution-u}。
+\end{enumerate}
+\end{proof}
+
+\subsection{强制算子方程}
+\label{sec:var-coercive}
+前面介绍有界线性算子$A:X \mapsto X'$，假设它具有$X$-椭圆的特性，如\eqref{eq:var-elliptic-operator-def}。这一假设过强。在多数情况下，我们用强制算子(coercive operator)予以替代。
+
+\begin{definition}[强制算子]
+  \label{definitiuon:var-coercive-def}
+  如果存在一个紧凑算子$C:X \mapsto X'$，使得和$A:X \mapsto X'$一道满足Gårding不等式(Gårding inequality)\index{Gårding inequality \dotfill Gårding不等式}
+  \begin{equation}
+    \label{eq:var-coercive-garding-inequality}
+    \langle \left(A + C \right) \nu, \nu \rangle \ge C_1^A \, \big\| \nu \big\|_{X}^2, \quad \forall \nu \in X.
+  \end{equation}
+  那么我们称$A$是一个强制算子(coercive operator)。
+\end{definition}
+
+Gårding不等式的详细介绍，可参考\cite[Theorem 2.4]{Jovanovic:2014iy}。证明可见如\cite[Theorem 8.1.1]{Agranovich:2015cv}，\cite[Therorem 9.17]{Renardy:2004tg}。
+
+紧凑算子的定义。对于$C:X \mapsto Y$，若$X$中单位球体(unit sphere)的像(image)在$Y$中相对紧凑，则我们称$C$为紧凑算子(compact operator)\index{compact operator \dotfill 紧凑算子}。一个值得关注的特性是，紧凑算子和有界线性算子的乘也是紧凑的。
+
+根据Riesz-Schauder定理(Riesz-Schauder theorem, \cite[Sec. X.5]{Yosida:1978ul}, \cite[Theorem 14.18]{Muscat:2014cc})\index{Riesz-Schauder theorem \dotfill Riesz-Schauder定理}，我们有弗雷德霍姆二择一定理(Fredholm alternative theorem)\index{Fredholm alternative theorem \dotfill 弗雷德霍姆二择一定理}如下。
+\begin{theorem}[弗雷德霍姆二择一定理]
+\label{theorem:var-coercive-fredhold-alternative}
+设$K:X \mapsto X$是一个紧凑算子。那么以下两种情况之一会出现：
+\begin{itemize}
+  \item 齐次方程(homogeneous equation)
+  \begin{equation*}
+    \left( I - K \right) u = 0
+  \end{equation*}
+  有一个不平凡解(nontrivial solution) $u \in X$，或
+  \item 非其次方程
+  \begin{equation*}
+    \left( I - K \right) u = g
+  \end{equation*}
+  对于每一个给定的$g \in X$，都有唯一对应的解$u \in X$，满足关系
+  \begin{equation*}
+    \big\| u \big\|_{X} \le c \big\| g \big\|_{X}.
+  \end{equation*}
+\end{itemize}
+\end{theorem}
+\begin{proof}
+  略。可见\cite[Sec. 18.1]{Agranovich:2015cv}。
+\end{proof}
+
+基于弗雷德霍姆二择一定理(Theorem \ref{theorem:var-coercive-fredhold-alternative})，我们可以探讨当有界线性算子$A$是强制的时，算子方程$A u = f$的解。
+\begin{theorem}[强制算子方程的解]
+  假设一个有界线性算子$A: X \mapsto X'$，具有强制性(Definition \ref{definitiuon:var-coercive-def})、内射性(injective\index{injection \dotfill 内射}, 即$A u = 0 \Rightarrow u = 0$)。那么强制算子方程$A u = f$存在唯一的解$u \in X$，并且满足条件
+  \begin{equation*}
+    \big\| u \big\|_{X} \le c \, \big\| f \big\|_{X'}.
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  定义一个线性算子$D \coloneqq A + C: X \mapsto X'$，由\eqref{eq:var-coercive-garding-inequality}可得，线性有界算子$D$也是$X$-椭圆的。
+
+  通过拉克斯一密格拉蒙定理(Theorem \ref{theorem:lax-milgram-lemma}拉克斯一密格拉蒙定理)可得，逆算子$D^{-1}: X' \mapsto X$。这样，我们可以将原强制算子方程$Au = f$转换为新的强制算子方程
+  \begin{equation}
+    \label{eq:var-coercive-new-function}
+    \begin{split}
+      &B u = D^{-1} A u = D^{-1} f, \text{其中线性有界算子}\\
+      &B \coloneqq D^{-1} A = D^{-1} \left( D - C \right) = I - D^{-1} C: X \mapsto X.
+    \end{split}
+  \end{equation}
+
+  由假设条件$C:X \mapsto X'$是紧凑算子，和$D:X \mapsto X'$、进而$D^{-1}:X' \mapsto X$是线性有界算子，可得$D^{-1} C:X \mapsto X$是紧凑算子。进而，可以根据弗雷德霍姆二择一定理(Theorem \ref{theorem:var-coercive-fredhold-alternative})证得强制算子方程\eqref{eq:var-coercive-new-function}解的唯一存在性。
+
+  由假设条件$A:X \mapsto X'$的内射性，可得齐次方程$D^{-1} A u =0$的所有解$u \in X$ 都是平凡解(trivial solution)。因此，非齐次方程$B u = D^{-1} f$存在唯一解$u \in X$，满足
+  \begin{equation*}
+    \big\| u \big\|_{X} \le c \big\| D^{-1} f \big\|_{X} \le \tilde{c} \, \big\| f \big\|_{X'}.
+  \end{equation*}
+\end{proof}

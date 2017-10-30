@@ -1,0 +1,210 @@
+%!TEX root = ../DSGEnotes.tex
+\section{边界值问题：位势方程}
+\label{sec:bem-fem-potential-bvp}
+我们从二阶偏微分方程入手，介绍边界值问题(boundary value problem)\index{boundary value problem \dotfill 边界值问题}。一个合适的例子是位势方程(potential equation)。
+
+\subsection{偏微分算子及椭圆边界值问题}
+
+定义有界域$\Omega \in \mathbb{R}^d, d=2,3$，边界$\Gamma = \partial \Omega$，外代数单位向量空间(exterior unit normal vector)\index{exterior algebra \dotfill 外代数} $\underline{n}(x)$对于$x \in \Gamma$几乎处处存在。对于$x \in \Omega$，我们考虑一个线性二阶偏微分的自伴随算子\footnote{有限维内积向量空间$V$中，自伴随算子A是一个从$V$到$V$自身的线性映射$\langle A \bm{u}, \bm{\nu} \rangle = \langle \bm{\nu}, A \bm{u} \rangle, \, \forall \nu, w \in V$。}
+(self-adjoint operator)\index{self-adjoint operator} $L$
+，作用于实值标量方程$u$
+\begin{equation}
+  \label{eq:bvp-self-adjoint-pde-operator}
+  \left( L \, u \right)(x) \coloneqq - \sum_{i,j=1}^d \frac{\partial}{\partial x_j} \left[ a_{ji} (x) \frac{\partial}{\partial x_i} u(x)\right] + a_0(x)\, u(x),
+\end{equation}
+其中$a_{ji}(x), \, i,j =1,\ldots, d, \, x \in \Omega$表示系数方程，假定为平滑的并满足$a_{ij}(x) = a_{ji}(x)$。由此可以构建一个对称的系数矩阵$A(x)$，满足
+\begin{equation*}
+  A(x) = \left( a_{ij}(x) \right)_{i,j=1}^{d}, \quad x \in \Omega,
+\end{equation*}
+对应实数特征根$\lambda_{k}(x)$。
+
+当且仅当$\lambda_{k}(x) > 0$对于所有$k=1,\ldots,d$都成立时，我们称偏微分算子$L$在某一个$x \in \Omega$上是椭圆(elliptic)的。
+
+更进一步，如果$\forall x \in \Omega$该条件都成立，那么我们称$L$在$\Omega$上是椭圆的。
+
+如果存在一个一致下界(uniform lower bound) $\lambda_0 > 0$，满足
+\begin{equation}
+  \label{eq:bvp-def-uniformly-elliptic}
+  \lambda_k (x) \ge \lambda_0, \quad \forall k = 1,\ldots,d, \, \forall x \in \Omega,
+\end{equation}
+那么我们称$L$在$\Omega$上一致椭圆(uniformly elliptic)。
+
+\subsection{边界条件}
+
+边界条件的分析，可以从散度定理开始。
+\begin{theorem}[散度定理]
+  \label{theorem:bvp-gauss-divergence-theorem}
+  散度定理(divergence theorem)\index{divergence theorem \dotfill 高斯散度定理}，又称奥斯特罗格拉德斯基——高斯定理(Ostrogradsky-Gauss theorem)\index{Ostrogradsky-Gauss theorem \dotfill 奥斯特罗格拉德斯基——高斯定理} 、高斯散度定理(Gauss' theorem)\index{Gauss theorem \dotfill 高斯散度定理}等，是指
+  \begin{equation}
+    \label{eq:bvp-gauss-divergence-theorem}
+    \int_{\Omega} \frac{\partial}{\partial x_i} f(x) \, dx = \int_{\Gamma} \left[ \gamma_0^{int} f(x) \right] n_i(x) \, d s_x, \quad i = 1,\ldots,d,
+  \end{equation}
+  其中$\gamma_0^{int} f(x)$是某个给定方程$f(x), x\in \Omega$的内界迹(interior boundary trace, Theorem \ref{theorem:sobolev-manifold-trace-theorem})\index{trace \dotfill 迹}，满足
+  \begin{equation}
+    \label{eq:bvp-interior-boundary-trace}
+    \gamma_0^{int} f(x) \coloneqq \lim_{\Omega \owns \tilde{x} \mapsto x \in \Gamma} f \left( \tilde{x} \right), \quad \forall x \in \Gamma = \partial \Omega.
+  \end{equation}
+\end{theorem}
+
+假定两个足够光滑的方程$u,\nu \in \Omega$，通过设定$f(x) = u(x) \, \nu(x)$，可以将散度定理\eqref{eq:bvp-gauss-divergence-theorem}改写为分部积分(integration by parts)\index{integration by parts \dotfill 分部积分}的形式
+\begin{equation*}
+  \int_{\Omega} u(x) \frac{\partial}{\partial x_i} \nu(x) \, x
+  + \int_{\Omega} \nu(x) \frac{\partial}{\partial x_i} u(x) \, x
+  = \int_{\Gamma}  \left[ \gamma_0^{int} u(x) \right] \left[ \gamma_0^{int} \nu(x) \right] n_i(x) \, d s_x.
+\end{equation*}
+
+重新调整上式，将$\nu(x)$视作检测方程(test function)，两侧乘以\eqref{eq:bvp-self-adjoint-pde-operator}中的二阶偏微分算子$\left(L\,u\right)(x)$，在$\Omega$中求积
+\begin{equation}
+  \begin{split}
+    &\left( L \, u \right)(x) \, \nu(x) \coloneqq - \sum_{i,j=1}^d \frac{\partial}{\partial x_j} \left[ a_{ji} (x) \frac{\partial}{\partial x_i} u(x)\right] \, \nu(x) + a_0(x)\, \underbrace{u(x) \, \nu(x)}_{\equiv f(x)}, \\
+    \hookrightarrow & \int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx = - \sum_{i,j=1}^d \int_{\Omega} \frac{\partial}{\partial x_j} \left[ a_{ji} (x) \frac{\partial}{\partial x_i} u(x)\right] \, \nu(x) \, dx,
+  \end{split}
+\end{equation}
+使用分部积分$\hookrightarrow$
+\begin{equation*}
+  \begin{split}
+    \int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx =&  \underbrace{\sum_{i,j=1}^d \int_{\Omega} a_{ji}(x) \frac{\partial}{\partial x_i} u(x) \, \frac{\partial}{\partial x_j} \nu(x) \, dx}_{\coloneqq a\left(u,\nu \right)} \\
+   &- \sum_{i,j=1}^{d} \int_{\Gamma} n_j(x) \left[ \gamma_0^{int} (x) \left( a_{ji}(x) \frac{\partial}{\partial x_i} u(x)\right) \right] \left[ \gamma_0^{int} \nu(x) \right] \, d s_x,
+  \end{split}
+\end{equation*}
+
+由此，我们由散度定理(Theorem \ref{theorem:bvp-gauss-divergence-theorem})推导出格林第一恒等式(Green's first identity)\index{Green identities!first 格林第一恒等式}
+\begin{equation}
+  \label{eq:bvp-a-u-nu-inner-prod}
+  \begin{split}
+  a\left(u,\nu \right) &\coloneqq \sum_{i,j=1}^d \int_{\Omega} a_{ji}(x) \frac{\partial}{\partial x_i} u(x) \, \frac{\partial}{\partial x_j} \nu(x) \, dx \\
+  & = \int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx + \sum_{i,j=1}^{d} \int_{\Gamma} \underbrace{n_j(x) \left[ \gamma_0^{\text{int}} (x) \left( a_{ji}(x) \frac{\partial}{\partial x_i} u(x)\right) \right]} \left[ \gamma_0^{\text{int}} \nu(x) \right] \, d s_x,\\
+  & =\int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx + \int_{\Gamma} \underbrace{\left[ \gamma_1^{\text{int}} u(x) \right]} \left[ \gamma_0^{\text{int}} \nu(x) \right] \, d s_x,
+  \end{split}
+\end{equation}
+其中定义$\gamma_1^{int}$为内部共形导数(interior co-normal derivative, \cite{Mikhailov:2006vo, Mikhailov:2009wj, Ancona:2009bo})
+\begin{equation}
+  \label{eq:bvp-int-conformal-derivative}
+  \gamma_1^{int}u(x) \coloneqq \lim_{\Omega \owns \tilde{x} \mapsto x \in \Gamma} \left[
+\sum_{i,j=1}^{d} n_j(x) a_{ji}\left( \tilde{x} \right) \frac{\partial}{\partial \tilde{x}_i} u \left( \tilde{x} \right)
+  \right], \quad x \in \Gamma.
+\end{equation}
+
+将格林第一恒等式\eqref{eq:bvp-a-u-nu-inner-prod}中的$u,\nu$互换位置，我们有
+\begin{equation*}
+  a\left(\nu,u \right) = \int_{\Omega} \left( L \, \nu \right)(x) \, u(x) \, dx + \int_{\Gamma} \left[ \gamma_1^{int} \nu(x) \right] \left[ \gamma_0^{int} u(x) \right] \, d s_x,
+\end{equation*}
+由上式和\eqref{eq:bvp-a-u-nu-inner-prod}我们有格林第二恒等式(Green's second identity)\index{Green identities!second 格林第二恒等式}: $\forall u,\nu \in \Omega$且$u,\nu$足够平滑
+\begin{equation}
+  \label{eq:bvp-a-nu-u-green-2nd-identity}
+  \begin{split}
+    &a(u,\nu) = a(\nu,u) \Longleftrightarrow \\
+    &\int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx + \int_{\Gamma} \left[ \gamma_1^{int} u(x) \right] \left[ \gamma_0^{int} \nu(x) \right] \, d s_x
+    = \int_{\Omega} \left( L \, \nu \right)(x) \, u(x) \, dx + \int_{\Gamma} \left[ \gamma_1^{int} \nu(x) \right] \left[ \gamma_0^{int} u(x) \right] \, d s_x
+  \end{split}
+\end{equation}
+
+下面来考虑一个特殊情况，$a_{ij}(x)=\delta_{ij}$，$\delta_{ij}$是克罗内克乘积(Kronecker product)\index{Kronecker product \dotfill 克罗内乘积}。\eqref{eq:bvp-self-adjoint-pde-operator}的二阶偏微分算子$\left(L\,u\right)(x)$变为拉普拉斯算子
+\begin{equation}
+  \label{eq:bvp-laplace-operator}
+  \left( L \, u \right)(x) = - \Delta u(x) \coloneqq - \sum_{i=1}^{d} \frac{\partial^2}{\partial x_i^2} u(x), \quad x \in \mathbb{R}^d.
+\end{equation}
+
+内部共形导数$\gamma_1^{int}$ \eqref{eq:bvp-int-conformal-derivative}变为
+\begin{equation}
+  \label{eq:bvp-laplace-conformal-derivative}
+  \gamma_1^{int}u(x) = \frac{\partial}{\partial n_x} u(x) \coloneqq \underline{n}(x) \bigtriangledown u(x), \quad x \in \Gamma.
+\end{equation}
+
+对边界域$\Gamma = \partial \Omega$分解成三个不相交集合的并集(disjoint union)
+\begin{equation*}
+  \Gamma = \overline{\Gamma}_D \cup \overline{\Gamma}_N \cup \overline{\Gamma}_R,
+\end{equation*}
+
+对应地，边界值问题变为两部分：第一部分，在$\Omega$中，基于给定的方程$f(x)$，寻找偏微分算子$(L u)(x)$，使得
+\begin{equation}
+  \label{eq:bvp-extension-omega-cond}
+  \left( L \, u \right)(x) = f(x), \quad x \in \Omega.
+\end{equation}
+
+第二部分，在$\Gamma$中，基于给定的方程$g(x)$，寻找内界迹$\gamma_0^{int}u(x)$或者内共形导数$\gamma_1^{int}(x)$。随着$\Gamma$的取值范围不同，分为三种情况：
+\begin{subequations}
+  \begin{equation}
+    \label{eq:bvp-extension-gamma-dirichlet}
+    \gamma_0^{int} u(x) = g_D(x), \quad x \in \Gamma = \Gamma_D,
+  \end{equation}
+  \begin{equation}
+    \label{eq:bvp-extension-gamma-neumann}
+    \gamma_1^{int} u(x) = g_N(x), \quad x \in \Gamma = \Gamma_N,
+  \end{equation}
+  \begin{equation}
+    \label{eq:bvp-extension-gamma-robin}
+    \kappa(x) \, \gamma_0^{int} u(x) + \gamma_1^{int} u(x) = g_R(x), \quad x \in \Gamma = \Gamma_R.
+  \end{equation}
+\end{subequations}
+
+
+\begin{definition}[边界值条件]
+  \label{definition:boundary-value-problem}
+  于是我们有以下几种不同的边界值条件：
+\begin{itemize}
+  \item $\Gamma = \Gamma_D:$ \eqref{eq:bvp-extension-omega-cond} $+$ \eqref{eq:bvp-extension-gamma-dirichlet} $\rightarrow$ 狄利克雷边界值条件(Dirichlet boundary value condition)\index{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件},
+  \item $\Gamma = \Gamma_N:$ \eqref{eq:bvp-extension-omega-cond} $+$ \eqref{eq:bvp-extension-gamma-neumann} $\rightarrow$ 诺依曼边界值条件(Neumann boundary value condition)\index{Neumann boundary value condition \dotfill 诺依曼边界值条件},
+  \item $\Gamma = \Gamma_R:$ \eqref{eq:bvp-extension-omega-cond} $+$ \eqref{eq:bvp-extension-gamma-robin} $\rightarrow$ 罗宾边界值条件(Robin boundary value condition)\index{Robin boundary value condition \dotfill 罗宾边界值条件}，
+  \item 混合边界值条件，以上几种情况的组合。
+\end{itemize}
+\end{definition}
+
+有时候我们还需要将线性罗宾边界值条件扩展为非线性的情况，\eqref{eq:bvp-extension-gamma-robin} $\rightarrow$
+\begin{equation}
+  \label{eq:bvp-extension-gamma-robin-nonlinear}
+  G\left( \gamma_0^{int} u(x), x \right) + \gamma_1^{int} u(x) = g_R(x), \quad x \in \Gamma = \Gamma_R,
+\end{equation}
+其中$G(u,\cdot)$是某个给定的非线性方程，如$u(x)^3$。
+
+对于边界值问题的解$u(x)$，还需要注意以下几点
+\begin{enumerate}
+  \item $u(x)$的存在性和唯一性，相关讨论可参考如\cite{Ladyzhenskaya:1968vq}，
+  \item 观测到的数据需要是充分平滑的，以确保$u(x)$充分可微(sufficiently differentiable)
+  \begin{equation*}
+    u \in C^2(\Omega) \cap C^1 \left( \Omega \cup \Gamma_N \cup \Gamma_R \right) \cap C(\Omega \cup \Gamma_D).
+  \end{equation*}
+\end{enumerate}
+
+\subsection{诺依曼边界值问题}
+对于诺依曼边界值条件的解，其存在性和唯一性需要做进一步讨论。
+
+假定$\nu_1(x)=1, x \in \Omega$是关于$\nu_1(x)$的齐次诺依曼边界值问题的一个解，\eqref{eq:bvp-laplace-operator}、\eqref{eq:bvp-laplace-conformal-derivative} $\Rightarrow$关于$u(x)$的诺依曼边界值问题
+\begin{equation}
+  \label{eq:bvp-neumann-nu-homo}
+  \begin{split}
+    \left( L \, \nu_1 \right)(x)=0, \quad x \in \Omega,\\
+    \gamma_1^{int} \nu_1(x) = 0, \quad x \in \Gamma.
+  \end{split}
+\end{equation}
+
+\eqref{eq:bvp-neumann-nu-homo}
+代入格林第二恒等式\eqref{eq:bvp-a-nu-u-green-2nd-identity}可得正交条件
+\begin{equation}
+  \label{eq:bvp-neumann-green-2}
+  \int_{\Omega} \left( L \, u \right)(x) \, dx + \int_{\Gamma} \gamma_1^{int} u(x) \, d s_x = 0,
+\end{equation}
+
+诺依曼边界值条件\eqref{eq:bvp-extension-omega-cond}、 \eqref{eq:bvp-extension-gamma-neumann}$\Rightarrow$
+\begin{equation}
+  \label{eq:bvp-neumann-cond}
+\begin{split}
+  \left( L u \right)(x) = f(x), \quad x \in \Omega, \\
+  \gamma_1^{int} u(x) = g_N(x), \quad x \in \Gamma.
+\end{split}
+\end{equation}
+
+对于给定的$f$和$g_N$，根据正交条件\eqref{eq:bvp-neumann-green-2}，我们可以假设诺依曼问题的可解性条件(solvability condition)
+\begin{equation}
+  \label{eq:bvp-neumann-green-2-new}
+  \int_{\Omega} f(x) \, dx + \int_{\Gamma} g_N(x) \, d s_x = 0.
+\end{equation}
+
+换句话说，如果关于$\nu(x)$的齐次诺依曼边界问题解是$\nu_1(x)=1, x \in \Omega$，那么关于$u$的诺依曼边界值问题\eqref{eq:bvp-neumann-cond}的解并不唯一：不只包括一个解$u(x)$，还包括另一个解$\tilde{u}(x)$，满足关系
+\begin{equation*}
+  \tilde{u}(x) = u(x) + \alpha, \quad x \in \Omega,
+\end{equation*}
+其中常数$\alpha \in \mathbb{R}$的值是唯一的，取决于为了使第一个解$u(x)$成为诺依曼边界值问题\eqref{eq:bvp-neumann-cond}的解，而需要在系统中加入的规模调整条件，如
+\begin{equation*}
+  \int_{\Omega} u(x) \, dx = 0, \quad \text{或者} \quad \int_{\Gamma} \gamma_0^{int}u(x) \, ds_x =0.
+\end{equation*}

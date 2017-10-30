@@ -2620,7 +2620,7 @@ $s<0$时的流形索伯列夫空间$H_{\chi}^{s}(\Gamma)$，可由其对偶空�
   \nu = \widetilde{\nu} \big|_{\Gamma_0}: \widetilde{\nu} \in H^s(\Gamma), \, \supp \widetilde{\nu} \subset \Gamma_0
   \right\},
 \end{equation*}
-其中$\supp$表示支撑集(support)，是一个定义在集合$\Gamma_0$上的实值函数$\widetilde{\nu}$的子集，满足$\widetilde{\nu}$恰好在这个子集上非零\footnote{例如一个拓扑空间(如实值轴)$X$，连续方程$f \in X$。此时$\supp f$定义为这样一个闭集$C$，满足1)$f$在$X \backslash C$中为$0$；2)不存在$C$的真闭子集也满足这一条件，即$C$是所有这样的子集中最小的一个。}。进而利用对偶空间的属性
+其中$\supp$表示支撑集(support)，是一个定义在集合$\Gamma_0$上的实值函数$\widetilde{\nu}$的子集，满足$\widetilde{\nu}$恰好在这个子集上非零\footnote{\label{footnote:support-definition}例如一个拓扑空间(如实值轴)$X$，连续方程$f \in X$。此时$\supp f$定义为这样一个闭集$C$，满足1)$f$在$X \backslash C$中为$0$；2)不存在$C$的真闭子集也满足这一条件，即$C$是所有这样的子集中最小的一个。}。进而利用对偶空间的属性
 \begin{equation*}
 \begin{split}
     &H^s(\Gamma_0) \coloneqq \left[ \widetilde{H}^{-s} (\Gamma_0) \right]', \\
@@ -5034,7 +5034,7 @@ $ c_S = | \Omega |^{-\frac{1}{2}}$。
 
 将测试方程定义为$\nu(y) \coloneqq U^{*}(x,y)$，$u(x)$和$u(y)$的关系可以表示如下
 \begin{equation*}
-  \label{eq:bvp-fund-ux-uy}
+  %\label{eq:bvp-fund-ux-uy}
   \int_{\Omega} \left( L_{y} U^{*} \right) (x,y) u(y) \, dy = u(x), \quad \forall \, x \in \Omega,
 \end{equation*}
 那么偏微分方程\eqref{eq:bvp-extension-omega-cond}的解$u(x), x \in \Omega$，根据里兹表现定理\ref{theorem:var-riesz-representation-theorem}\index{Riesz representation theorem \dotfill 里兹表现定理}，可以改写为如下表现方程
@@ -5051,7 +5051,7 @@ $ c_S = | \Omega |^{-\frac{1}{2}}$。
   \item 连接$u(x)$和$u(y)$线性二次偏微分算子$\left(L_y U^{*} \right) (x,y)$，对应\eqref{eq:bvp-fund-var-ux-uy}。
 \end{itemize}
 
-对于前者，关键在于构建合适的边界积分式(boundary integral equations)\index{boundary integral equations \dotfill 边界积分等式}以生成完整柯西数列(complete cauchy data)，我们将在下一节讨论\todo{ref}。
+对于前者，关键在于构建合适的边界积分式(boundary integral equations)\index{boundary integral equations \dotfill 边界积分等式}以生成完整柯西数列(complete cauchy data)，我们将在第\ref{bvp-integral-operators}节讨论。
 
 对于后者，从分布意义上来看，偏微分方程\eqref{eq:bvp-extension-omega-cond}的解$u(x)$可以理解为
 \begin{equation*}
