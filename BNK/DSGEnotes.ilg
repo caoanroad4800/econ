@@ -11,8 +11,8 @@ Scanning input file DSGEnotes.idx....
 
 !! Input index error (file = DSGEnotes.idx, line = 225):
    -- Extra `@' at position 86 of first argument.
-done (308 entries accepted, 4 rejected).
-Sorting entries.....done (2714 comparisons).
-Generating output file DSGEnotes.ind....done (502 lines written, 0 warnings).
+done (312 entries accepted, 4 rejected).
+Sorting entries.....done (2722 comparisons).
+Generating output file DSGEnotes.ind....done (505 lines written, 0 warnings).
 Output written in DSGEnotes.ind.
 Transcript written in DSGEnotes.ilg.

@@ -235,6 +235,7 @@
 		\hyperpage{230}
   \item Lamé elasticity parameters \dotfill 拉梅弹性参数, 
 		\hyperpage{241}
+  \item Laplace function \dotfill 拉普拉斯方程, \hyperpage{317}
   \item Laplace operator \dotfill 拉普拉斯算子, \hyperpage{312}
   \item Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理, 
 		\hyperpage{241}, \hyperpage{288}, \hyperpage{296}
@@ -284,6 +285,7 @@
   \item Neumann boundary value condition \dotfill 诺依曼边界值条件, 
 		\hyperpage{247}, \hyperpage{307}
   \item Newton algorithm \dotfill 牛顿算法, \hyperpage{194}
+  \item Newton potential \dotfill 牛顿位势, \hyperpage{317}
   \item node \dotfill 节点, \hyperpage{191}
   \item norm \dotfill 范数, \hyperpage{203}, \hyperpage{240}, 
 		\hyperpage{249}, \hyperpage{252}
@@ -332,6 +334,7 @@
 		\hyperpage{197}, \hyperpage{199}
   \item Poincaré inequality \dotfill 庞加莱不等式, 
 		\hyperpage{272}
+  \item Poisson equation \dotfill 泊松方程, \hyperpage{317}
   \item polar coordinate space \dotfill 极坐标空间, 
 		\hyperpage{290}
   \item polar coordinate system \dotfill 极坐标系, \hyperpage{277}
@@ -433,7 +436,7 @@
   \item spectral method \dotfill 光谱法, \hyperpage{182}
   \item spectral method \dotfill 有限元法, \hyperpage{182}
   \item spherical coordinate system \dotfill 三维坐标系, 
-		\hyperpage{277}
+		\hyperpage{277}, \hyperpage{319}
   \item Stokes equations \dotfill 斯托克斯公式, \hyperpage{241}
   \item Stone-Weierstrass Theorem \dotfill 斯通-魏尔斯特拉斯定理, 
 		\hyperpage{182}
