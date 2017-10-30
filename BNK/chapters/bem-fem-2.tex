@@ -1,1 +1,597 @@
 %!TEX root = ../DSGEnotes.tex
+\section{拉普拉斯算子的基本解}
+\label{bvp-laplace-fund-solutions}
+
+\subsection{基本解}
+\label{bvp-fund-solutions}
+
+回顾一下偏微分方程\eqref{eq:bvp-extension-omega-cond}
+\begin{equation*}
+  \left( L u \right)(x) = f(x), \quad x \in \Omega \subset \mathbb{R}^d,
+\end{equation*}
+其中$L$是椭圆线性二阶偏微分算子\eqref{eq:bvp-self-adjoint-pde-operator}
+\begin{equation*}
+  \left( L \, u \right)(x) = - \sum_{i,j=1}^d \frac{\partial}{\partial x_j} \left[ a_{ji} (x) \frac{\partial}{\partial x_i} u(x)\right].
+\end{equation*}
+
+对应的内部共形导数\eqref{eq:bvp-int-conformal-derivative}
+\begin{equation*}
+  \gamma_1^{int}u(x) =
+\sum_{i,j=1}^{d} n_j(x) a_{ji} \left( x \right) \frac{\partial}{\partial x_{i}} u \left( x \right)
+  , \quad x \in \Gamma.
+\end{equation*}
+
+由格林第二恒等式\index{Green identities!second 格林第二恒等式}\eqref{eq:bvp-a-nu-u-green-2nd-identity}可得，$\forall \, y \in \Omega \in \mathbb{R}^d$测试方程$\nu(y)$和对应$y$的偏微分方程解$u(y)$满足
+\begin{equation*}
+  \begin{split}
+    &a(u,\nu) = a(\nu,u) \Rightarrow \\
+    &\int_{\Omega} (L \nu)(y) u(y) \, dy =
+    \int_{\Gamma} \gamma_{1}^{\text{int}} u(y) \gamma_{0}^{\text{int}} \nu(y) \, d s_y
+    - \int_{\Gamma} \gamma_{1}^{\text{int}} \nu(y) \gamma_{0}^{\text{iunt}} u(y) \, d s_y
+    + \int_{\Gamma} f(y) \nu(y) \, dy.
+  \end{split}
+\end{equation*}
+
+将测试方程定义为$\nu(y) \coloneqq U^{*}(x,y)$，$u(x)$和$u(y)$的关系可以表示如下
+\begin{equation*}
+  \label{eq:bvp-fund-ux-uy}
+  \int_{\Omega} \left( L_{y} U^{*} \right) (x,y) u(y) \, dy = u(x), \quad \forall \, x \in \Omega,
+\end{equation*}
+那么偏微分方程\eqref{eq:bvp-extension-omega-cond}的解$u(x), x \in \Omega$，根据里兹表现定理\ref{theorem:var-riesz-representation-theorem}\index{Riesz representation theorem \dotfill 里兹表现定理}，可以改写为如下表现方程
+\begin{equation}
+  \label{eq:bvp-fund-var-ux-uy}
+  u(x) = \int_{\Omega} U^{*}(x,y) f(y) \, dy
+  + \int_{\Gamma} U^{*}(x,y) \gamma_{1}^{\text{int}} u(y) \, d s_y
+  - \int_{\Gamma} U^{*}(x,y) \gamma_{0}^{\text{int}} u(y) \, d s_y.
+\end{equation}
+
+由此可见，为了基于表现方程\eqref{eq:bvp-fund-var-ux-uy}求得任何偏微分形式方程\eqref{eq:bvp-extension-omega-cond}的解$u(x)$，我们需要以下两方面的信息
+\begin{itemize}
+  \item $x \in \Gamma$对应的柯西数列$\left[ \gamma_{0}^{\text{int}} u(x) , \gamma_{1}^{\text{int}} u(x) \right]$,
+  \item 连接$u(x)$和$u(y)$线性二次偏微分算子$\left(L_y U^{*} \right) (x,y)$，对应\eqref{eq:bvp-fund-var-ux-uy}。
+\end{itemize}
+
+对于前者，关键在于构建合适的边界积分式(boundary integral equations)\index{boundary integral equations \dotfill 边界积分等式}以生成完整柯西数列(complete cauchy data)，我们将在下一节讨论\todo{ref}。
+
+对于后者，从分布意义上来看，偏微分方程\eqref{eq:bvp-extension-omega-cond}的解$u(x)$可以理解为
+\begin{equation*}
+  u(x) = \int_{\Gamma} \delta_0 (y-x) u(y) \, dy, \quad x \in \Omega
+,
+\end{equation*}
+那么定义
+\begin{equation}
+  \label{eq:bvp-extension-distributional-delta0}
+  \left( L_y U^{*} \right) (x,y) = \delta_{0}(y-x), \quad x,y \in \mathbb{R}^{d},
+\end{equation}
+我们将\eqref{eq:bvp-extension-distributional-delta0}中的解$U^{*}(x,y)$称为基本解(fundamental solution)\index{fundamental solution \dotfill 基本解}。问题的关键就在于，利用\eqref{eq:bvp-extension-distributional-delta0}求得唯一的基本解$U^{*}(x,y)$，进而带回到表现方程\eqref{eq:bvp-fund-var-ux-uy}中。
+
+关于不同形式的偏微分算子(尤其是存在分段常系数的偏微分算子)是否存在基本解的问题，相关证明可见如\cite{Hormander:1983hm, Hormander:1983cb, Hormander:1994iv, Hormander:1994ee}，我们不做过多讨论。对经济学应用研究来说，我们更多关注当偏微分算子是拉普拉斯算子(Laplace operator)\index{Laplace operator \dotfill 拉普拉斯算子}时对应的基本解。
+
+\subsection{拉普拉斯算子}
+拉普拉斯算子
+\begin{equation*}
+  (L u)(x) \coloneqq   - \Delta u(x), \quad x \in \mathbb{R}^d, d = 2,3.
+\end{equation*}
+
+对应的基本解$U^{*}(x,y)$就是下述偏微分方程的分布解
+\begin{equation*}
+  - \Delta_{y} U^{*} (x,y) = \delta_0(y-x), \quad x,y \in \mathbb{R}^d.
+\end{equation*}
+
+由于拉普拉斯算子与旋转(rotation)和平移(translation)无关，可以定义$z \coloneqq y-x, U^{*}(x,y) = \nu(z)$。则  \eqref{eq:bvp-extension-distributional-delta0}变为
+\begin{equation}
+  \label{eq:bvp-laplace-fundamental-solution-function}
+  - \Delta \nu(z) = \delta_0(z), \quad z \in \mathbb{R}^d,
+\end{equation}
+我们的任务是根据\eqref{eq:bvp-laplace-fundamental-solution-function}求得基本解。
+
+由Definition \ref{definition:fourier-transformation}的傅里叶变换\eqref{eq:sobo-distri-fourier-transform-def}和\eqref{eq:sobolev-distribution-fourier-higher-order-xi}我们有
+\begin{equation*}
+  \begin{split}
+    & \big| \xi \big|^{2} \, \widehat{\nu}(\xi) = \left( 2 \pi \right)^{-\frac{d}{2}}, \\
+    \hookrightarrow & \widehat{\nu}(\xi) =\left( 2 \pi \right)^{-\frac{d}{2}} \big| \xi \big|^{-\frac{1}{2}} \in \mathcal{S}'(\mathbb{R}^{d}),
+  \end{split}
+\end{equation*}
+其中$\mathcal{S}'(\mathbb{R}^{d})$表示缓增分布空间\index{tempered distribution space \dotfill 缓增分布空间}(Definition \ref{definition:rapidly-decreasing-space})。
+
+可见，一个缓增空间中的$\nu(\xi) \in \mathcal{S}'(\mathbb{R}^{d})$，和它所对应的傅里叶变换$\widehat{\nu}(\xi)$的关系为
+\begin{equation*}
+  \langle \widehat{\nu}, \varphi \rangle_{L^{2}(\mathbb{R}^{d})} =
+  \langle \nu, \widehat{\varphi} \rangle_{L^{2}(\mathbb{R}^{d})},
+  \quad \forall \, \varphi \in \mathcal{S}(\mathbb{R}^{d}).
+\end{equation*}
+
+已知
+\begin{equation*}
+  \varphi(\xi) = \left( 2 \pi \right)^{-\frac{d}{2}} \int_{\mathbb{R}^{d}} \, \exp \left[ i \langle z, \xi \rangle \right] \,
+  \widehat{\varphi}(z) \, dz,
+\end{equation*}
+
+那么
+\begin{equation*}
+  \langle \widehat{\nu}, \varphi \rangle_{L^{2}(\mathbb{R}^{d})}
+  = \left( 2 \pi \right)^{-d}
+  \int_{\mathbb{R}^{d}} \big| \xi \big|^{-\frac{1}{2}}
+  \int_{\mathbb{R}^{d}} \, \exp \left[ i \langle z, \xi \rangle \right] \,
+  \widehat{\varphi}(z) \, dz
+  d \xi.
+\end{equation*}
+
+上式的问题在于，积分$\int_{\mathbb{R}^d} \big| \xi \big|^{-\frac{1}{2}} \, d \xi$不存在，因此无法将两个求积操作合并。一个解决方案是，利用
+\begin{equation*}
+  \Delta_z \exp \left( i \langle z, \xi \rangle \right)
+  = - |\xi|^{2} \exp \left( i \langle z, \xi \rangle \right),
+\end{equation*}
+首先根据$\big| \xi \big|$的值作分步骤积分，进而调整两个积分操作的顺序，随后重复分步骤积分操作
+\begin{equation}
+  \label{eq:bvp-laplace-fundamental-solution-inner-prod}
+  \begin{split}
+    &\langle \nu, \widehat{\varphi} \rangle_{L^{2}(\mathbb{R}^d)} \\
+    &=\langle \widehat{\nu}, \varphi \rangle_{L^{2}(\mathbb{R}^{d})}
+    = \left( 2 \pi \right)^{-d}
+    \int_{\mathbb{R}^{d}} \big| \xi \big|^{-\frac{1}{2}}
+    \int_{\mathbb{R}^{d}} \, \exp \left[ i \langle z, \xi \rangle \right] \,
+    \widehat{\varphi}(z) \, dz
+    d \xi \\
+    & = \left( 2 \pi \right)^{-d}
+    \int_{| \xi | \le 1} | \xi |^{-\frac{1}{2}}
+    \int_{\mathbb{R}^{d}}  \exp \left[ i \langle z, \xi \rangle \right]
+    \widehat{\varphi}(z)  dz
+    d \xi
+    + \left( 2 \pi \right)^{-d}
+    \int_{| \xi | > 1} | \xi |^{-\frac{1}{2}}
+    \int_{\mathbb{R}^{d}}
+    \left[
+    - \Delta_z \frac{
+    \exp \left( i \langle z, \xi \rangle \right)
+    }{
+    | \xi |^2
+    }
+    \right]
+    \widehat{\varphi}(z) dz
+    d \xi \\
+    & = \left( 2 \pi \right)^{-d}
+    \int_{| \xi | \le 1} | \xi |^{-\frac{1}{2}}
+    \int_{\mathbb{R}^{d}}  \exp \left[ i \langle z, \xi \rangle \right]
+    \widehat{\varphi}(z)  dz
+    d \xi
+    + \left( 2 \pi \right)^{-d}
+    \int_{| \xi | > 1} | \xi |^{-\frac{1}{4}}
+    \int_{\mathbb{R}^{d}}
+    \exp \left( i \langle z, \xi \rangle \right)
+    \left[ - \Delta_z \widehat{\varphi}(z)\right]
+    dz d \xi \\
+    & = \left( 2 \pi \right)^{-d}
+    \int_{\mathbb{R}^{d}} \widehat{\varphi}(z)
+    \int_{| \xi | \le 1}  \frac{
+    \exp \left[ i \langle z, \xi \rangle \right]
+    }{
+    | \xi |^{2}
+    }
+    d \xi dz
+    + \left( 2 \pi \right)^{-d}
+    \int_{\mathbb{R}^{d}}  \left[ - \Delta_z \widehat{\varphi}(z)\right]
+    \int_{| \xi | > 1}
+    \frac{
+    \exp \left( i \langle z, \xi \rangle \right)
+    }{
+    | \xi |^{4}
+    }
+    d \xi dz \\
+    &= \int_{\mathbb{R}^{d}}
+    \widehat{\varphi}(z)
+    \left( 2 \pi \right)^{-d}
+    \left[
+    \int_{|\xi| \le 1} \frac{
+    \exp \left[ i \langle z, \xi \rangle \right]
+    }{
+    | \xi |^{2}
+    } d \xi
+    - \Delta_{z}
+    \int_{|\xi| > 1}
+    \frac{
+    \exp \left[ i \langle z, \xi \rangle \right]
+    }{
+    | \xi |^{4}
+    } d \xi
+    \right]
+    dz.
+  \end{split}
+\end{equation}
+
+\subsection{三维空间的基本解}
+对于三维空间$d=3$的情况，我们可以建立三维坐标系
+\begin{equation*}
+  \xi = \begin{pmatrix}
+  \xi_{1} \\
+  \xi_{2} \\
+  \xi_{3}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  r \, \cos \varphi \, \sin \theta\\
+  r \, \sin \varphi \, \sin \theta\\
+  r \, \cos \theta
+  \end{pmatrix}, \quad r \in (0,\infty), \varphi \in (0, 2\pi), \theta \in (0,\pi).
+\end{equation*}
+
+将傅里叶变换的旋转对称(Lemma \ref{lemma:fourier-transform-rotating-symmetries})代回\eqref{eq:bvp-laplace-fundamental-solution-inner-prod}有
+\begin{equation*}
+  \begin{split}
+    \nu(z) = \nu(|z|) = \left(2 \pi \right)^{-3}
+    \left[
+    \underbrace{
+    \int_{|\xi| \le 1}
+    \frac{
+    \exp \left( i \langle z, \xi \rangle \right)
+    }{
+    |\xi|^2
+    }
+    d \xi
+    }_{\eqqcolon \mathcal{A}}
+    - \underbrace{
+    \Delta_{z}
+    \int_{|\xi| > 1}
+    \frac{
+    \exp \left( i \langle z, \xi \rangle \right)
+    }{
+    |\xi|^4
+    }
+    d \xi
+    }_{\eqqcolon \mathcal{B}}
+    \right],
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+  &\mathcal{A} = \int_{0}^{2 \pi} \int_{0}^{\pi} \int_{0}^{1}
+  \exp \left[ i \, |z| \, r \cos \theta \right]
+  \sin \theta
+  \, dr \, d \theta \, d \varphi, \\
+  &\mathcal{B} = \Delta_{z} \int_{0}^{2\pi} \int_{0}^{\pi} \int_{1}^{\infty}
+  \frac{
+  \exp \left[ i \, |z| \, r \cos \theta \right]
+  }{r^2}
+  \sin \theta
+  \, dr \, d \theta \, d \varphi,
+\end{split}
+\end{equation*}
+
+
+\begin{equation*}
+\hookrightarrow \nu(z) = \nu(|z|) = \left(2 \pi \right)^{-2}
+  \left[
+  \int_{0}^{\pi} \int_{0}^{1}
+  \exp \left[ i |z|  r \cos \theta \right]
+  \sin \theta
+  dr d \theta
+  -\Delta_{z} \int_{0}^{\pi} \int_{1}^{\infty}
+  \frac{
+  \exp \left[ i  |z|  r \cos \theta \right]
+  }{r^2}
+  \sin \theta
+   dr  d \theta
+  \right].
+\end{equation*}
+
+设$\iota \coloneqq \cos \theta \in (-1,1)$，那么
+\begin{equation*}
+\begin{split}
+    &\int_{0}^{\pi} \exp \left[ i  |z|  r \cos \theta \right] \sin \theta d \theta \\
+    &= \int_{-1}^{1} \exp \left[ i  |z|  r \iota \right] d \iota \\
+    &= \frac{
+    \exp \left[ i  |z|  r \right] - \exp \left[ - i  |z|  r \right]
+    }{
+    i  |z|  r
+    } \\
+    & = \frac{2}{|z| r} \sin |z| r
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+  \hookrightarrow
+  \nu(z) = \left( 2 \pi \right)^{-2}
+  \left[
+  \underbrace{
+  \int_{0}^{1} \frac{\sin |z| r}{|z| r} \, dr
+  }_{\eqqcolon \mathcal{C}}
+  - \underbrace{
+  \Delta_{z} \int_{1}^{\infty} \frac{\sin |z| r}{|z| r^3} \, dr
+  }_{\eqqcolon \mathcal{D}}
+  \right]
+\end{equation*}
+
+先来看$\mathcal{C}$。设$\zeta \coloneqq |z| r$我们有
+\begin{equation*}
+  \begin{split}
+    \mathcal{C} &= \int_{0}^{1} \frac{\sin |z| r}{|z| r} \, dr \\
+    &= |z|^{-1} \int_{0}^{|z|} \frac{\sin \zeta}{\zeta} d \zeta  \\
+    &= \frac{\si(|z|)}{|z|} ,
+  \end{split}
+\end{equation*}
+其中$\si$表示三角积分(trigonometric integral)\index{trigonometric integral \dotfill 三角积分}中正弦积分(sine integral)\index{sine integral \dotfill 正弦积分}的一种，定义为
+\begin{equation*}
+  \si(x) \coloneqq \int_{0}^{x} \frac{\sin t}{t} \, dt,
+\end{equation*}
+以及
+\begin{equation*}
+  \sinc(x) \coloneqq \begin{cases}
+  \frac{\sin x}{x} \\
+  \frac{\sin \pi x}{\pi x} \\
+  \end{cases}
+\end{equation*}
+分别称非标准化sinc方程(unnormalized sinc finction)\index{sinc finction!unnormalized \dotfill 非标准化sinc方程}和标准化sinc方程(normalized sinc finction)\index{sinc finction!normalized \dotfill 标准化sinc方程}。
+
+再来看$\mathcal{D}$。由于
+\begin{equation*}
+  \begin{split}
+    \int \frac{\sin a x}{x^3} \, d x &=
+    - \frac{1}{2} \frac{\sin ax}{x^2}
+    + \frac{a}{2} \int \frac{\cos a x}{x^2} \, dx \\
+    & = - \frac{1}{2} \frac{\sin ax}{x^2}
+    - \frac{a}{2} \frac{\cos a x}{x}
+    - \frac{a^2}{2} \int \frac{\sin ax}{x} \, dx,
+  \end{split}
+\end{equation*}
+\begin{equation*}
+  \begin{split}
+    \hookrightarrow \mathcal{D} &= \int_{1}^{\infty} \frac{\sin |z| r}{|z| r^3} \, dr \\
+    &= \left[
+    -\frac{1}{2} \frac{\sin |z| r}{|z| r^2}
+    - \frac{1}{2} \frac{\cos |z| r}{r}
+    \right]_{1}^{\infty}
+    - \frac{|z|}{2} \int_{1}^{\infty}
+    \frac{\sin |z| r}{r} \, dr \\
+    & = \frac{1}{2} \frac{\sin |z|}{|z|}
+    + \frac{1}{2} \cos |z|
+    - \frac{|z|}{2}
+    \left[
+    \frac{\pi}{2} - \si (|z|)
+    \right].
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+  \hookrightarrow \nu(z) &= \left( 2 \pi \right)^{-2}
+  \left[
+  \mathcal{C} - \Delta_z \mathcal{D}
+  \right] \\
+  &= \left( 2 \pi \right)^{-2}
+  \left\{
+  \frac{\si(|z|)}{|z|}
+  - \Delta_{z}
+  \left[
+  \frac{1}{2} \frac{\sin |z|}{|z|}
+  + \frac{1}{2} \cos |z|
+  - \frac{\pi}{4} |z|
+  + \frac{|z|}{2} \si(|z|)
+  \right]
+  \right\} \\
+  &= \frac{1}{8 \pi} \Delta_{z} |z|
+  + \frac{1}{2 \pi^2}
+  \underbrace{
+  \left\{
+  \frac{\si (|z|)}{|z|}
+  - \Delta_{z}
+  \left[
+  \frac{1}{2} \frac{\sin |z|}{|z|}
+  + \frac{1}{2} \cos|z|
+  + \frac{1}{2} |z| \si(|z|)
+  \right]
+  \right\}
+  }_{ = 0} \\
+  &= \frac{1}{4 \pi} \frac{1}{|z|}.
+\end{split}
+\end{equation*}
+
+
+这样我们有三维空间中拉普拉斯算子的基本解为
+\begin{equation}
+  \label{eq:bvp-laplace-fundamental-solution-3d}
+  U^{*}(x,y) = \nu(z) = \frac{1}{4 \pi} \frac{1}{| x - y |}, \quad x, y \in \mathbb{R}^3.
+\end{equation}
+
+
+\subsection{二维空间的基本解}
+对于二维空间$d=2$的情况，首先要对基本解的逆傅里叶变换作一定的正则化处理\citep{Vladimirov:1971ti}。定义一个缓增空间中的分布$\mathcal{P}\frac{1}{|x|^2} \in \mathcal{S}'(\mathbb{R}^2)$，满足
+\begin{equation*}
+  \langle \mathcal{P} \frac{1}{|x|^{2}}, \varphi(x) \rangle_{L^{2}(\mathbb{R}^2)}
+  = \int_{x \in \mathbb{R}^2 : |x| \le 1}
+  \frac{\varphi(x) - \varphi(0)}{|x|^2} \, dx
+  + \int_{x \in \mathbb{R}^2: |x| \ge 1}
+  \frac{\varphi(x)}{|x|^2} \, dx, \quad \forall \, \varphi \in \mathcal{S}(\mathbb{R}^2).
+\end{equation*}
+
+那么
+\begin{equation*}
+\begin{split}
+  &2 \pi \langle \nu, \widehat{\varphi} \rangle_{L^2(\mathbb{R}^2)}
+   = \langle \mathcal{P} \frac{1}{|\xi|^{2}}, \varphi \rangle_{L^2(\mathbb{R}^2)} \\
+  &= \int_{\xi \in \mathbb{R}^2 : |\xi| \le 1}
+   \frac{\varphi(\xi) - \varphi(0)}{|\xi|^2} \, d \xi
+   + \int_{\xi \in \mathbb{R}^2: |\xi| \ge 1}
+   \frac{\varphi(\xi)}{|\xi|^2} \, d \xi, \quad \forall \, \varphi \in \mathcal{S}(\mathbb{R}^2),
+\end{split}
+\end{equation*}
+
+其中
+\begin{equation*}
+  \begin{split}
+    & \varphi(\xi) = \frac{1}{2 \pi} \int_{\mathbb{R}^2}
+    \exp \left( i \langle z, \xi \rangle \right)
+    \widehat{\varphi}(z)
+    \, dz, \\
+    & \varphi(0) = \frac{1}{2 \pi} \int_{\mathbb{R}^2}
+    \widehat{\varphi}(z) \, dz,
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+  \hookrightarrow &
+  \left( 2 \pi \right)^2 \langle \nu, \widehat{\varphi} \rangle_{L^2(\mathbb{R}^2)} \\
+  & = \int_{\xi \in \mathbb{R}^2: |\xi| \le 1}
+  \frac{1}{|\xi|^2}
+  \int_{\mathbb{R}^2}
+  \left[ \exp \left( i \langle z, \xi \rangle \right) - 1 \right]
+  \widehat{\varphi}(z)
+  d z d \xi
+  + \int_{\xi \in \mathbb{R}^2: |\xi| > 1}
+  \frac{1}{|\xi|^2}
+  \int_{\mathbb{R}^2}
+  \exp \left( i \langle z, \xi \rangle \right)
+  \widehat{\varphi}(z)
+  d z d \xi.
+\end{split}
+\end{equation*}
+
+同样地，我们无法调整两个积分的先后顺序。采用类似于\eqref{eq:bvp-laplace-fundamental-solution-inner-prod}的思路，根据$|\xi|$作分步骤积分，进而调整两个积分操作的顺序，然后重复分步骤积分运算，得
+\begin{equation*}
+  \left( 2 \pi \right)^2 \langle \nu, \widehat{\varphi} \rangle_{L^2(\mathbb{R}^2)}
+  = \int_{\mathbb{R}^2}
+  \widehat{\varphi}(z)
+  \left[
+  \int_{\xi \in \mathbb{R}^2: |\xi| \le 1}
+  \frac{
+  \exp \left[i \langle z, \xi \rangle \right] - 1
+  }{
+  |\xi|^2
+  }
+  d \xi
+  + \int_{\xi \in \mathbb{R}^2: |\xi| > 1}
+  \frac{
+  \exp \left[i \langle z, \xi \rangle \right]
+  }{
+  |\xi|^2
+  }
+  d \xi
+  \right]
+  dz.
+\end{equation*}
+
+根据傅里叶变换的旋转对称 (Lemma \ref{lemma:fourier-transform-rotating-symmetries})，由上式可得
+\begin{equation*}
+  \nu(z) = \nu(|z|) = (2 \pi)^{-2}
+  \left[
+  \int_{\xi \in \mathbb{R}^2: |\xi| \le 1}
+  \frac{
+  \exp \left[i \langle z, \xi \rangle \right] - 1
+  }{
+  |\xi|^2
+  }
+  d \xi
+  + \int_{\xi \in \mathbb{R}^2: |\xi| > 1}
+  \frac{
+  \exp \left[i \langle z, \xi \rangle \right]
+  }{
+  |\xi|^2
+  }
+  d \xi
+  \right].
+\end{equation*}
+
+建立二维坐标系
+\begin{equation*}
+  \xi = \begin{pmatrix}
+  \xi_1\\ \xi_2
+  \end{pmatrix}
+  = \begin{pmatrix}
+  r \cos \varphi \\
+  r \sin \varphi
+  \end{pmatrix}, \quad r \in (0,\infty), \varphi = (0, 2 \pi),
+\end{equation*}
+上式变为
+\begin{equation*}
+  \begin{split}
+    \nu(z) = \nu(|z|) &= (2 \pi)^{-2}
+    \left\{
+    \int_{0}^{1}
+    \int_{0}^{2 \pi}
+    \frac{1}{r}
+    \left[ \exp \left(i r |z| \cos \varphi \right) - 1 \right]
+    d \varphi d r
+    +
+    \int_{1}^{\infty}
+    \int_{0}^{2 \pi}
+    \frac{1}{r}
+     \exp \left(i r |z| \cos \varphi  \right)
+     d \varphi d r
+    \right\} \\
+    & = \left( 2 \pi \right)^{-1}
+    \left\{
+    \int_{0}^{1}
+    \frac{1}{r}
+    \left[
+    J_0(r |z|) - 1
+    \right]
+    dr
+    +
+    \int_{1}^{\infty}
+    \frac{1}{r}
+    \left[
+    J_0(r |z|) - 1
+    \right]
+    dr
+    \right\},
+  \end{split}
+\end{equation*}
+其中我们用到了一阶贝塞尔方程(Bessel function, Definition \ref{definition:bessel-potential-space}, 或参考\cite[Sec. 8.411]{Gradshteyn:2014uy})\index{Bessel function \dotfill 贝塞尔方程}
+\begin{equation*}
+  J_{0}(s) \coloneqq (2 \pi)^{-1} \int_{0}^{2 \pi} \exp \left( i s \cos \varphi \right) d \varphi.
+\end{equation*}
+
+定义$r \coloneqq \frac{s}{\varrho}$，上式进一步变为
+\begin{equation*}
+\begin{split}
+  \nu(z) & = \frac{1}{2 \pi} \int_{0}^{\varrho}
+  \frac{J_0(s) - 1}{s}
+  ds
+  + \frac{1}{2 \pi}
+  \int_{\varrho}^{\infty} \frac{J_0(s)}{s} ds \\
+  &= \frac{1}{2 \pi} \int_{0}^{1}
+  \frac{J_0(s) - 1}{s}
+  ds
+  + \frac{1}{2 \pi}
+  \int_{1}^{\infty} \frac{J_0(s)}{s} ds
+  + \frac{1}{2 \pi}
+  \int_{\varrho}^{1}
+  \frac{1}{s}
+  ds \\
+  & = -\frac{1}{2 \pi} \log |z| - \frac{c_0}{2 \pi},
+\end{split}
+\end{equation*}
+其中$c_0$是个常数
+\begin{equation*}
+  c_0 \coloneqq \int_{0}^{1} \frac{1 - J_0(s)}{s} ds
+  - \int_{1}^{\infty} \frac{J_0(s)}{s} ds.
+\end{equation*}
+
+由于任何常数都满足齐次拉普拉斯方程的条件，在计算二维空间拉普拉斯方程的基本解时，我们可以忽略常数项。因此基本解变为
+\begin{equation}
+  \label{eq:bvp-laplace-fundamental-solution-2d}
+  U^{*}(x,y) = \nu(z) = -\frac{1}{2 \pi} \log \big| x - y \big|, \quad x,y \in \mathbb{R}^2.
+\end{equation}
+
+\subsection{基本解总结}
+小结：拉普拉斯算子在二维、三维空间中的基本解\eqref{eq:bvp-laplace-fundamental-solution-3d}，\eqref{eq:bvp-laplace-fundamental-solution-2d}为
+\begin{equation}
+  \label{eq:bvp-laplace-fundamental-solution-32d}
+  U^{*}(x,y) = \begin{cases}
+  - \frac{1}{2 \pi} \log | x - y | & d =2, \\
+  \frac{1}{4 \pi} \frac{1}{| x - y |} & d = 3.
+  \end{cases}
+\end{equation}
+
+对应地，对于给定的$x \in \Omega$，下述形式偏微分方程
+\begin{equation*}
+  - \Delta u(x) = f(x), \quad x \in \Omega \subset \mathbb{R}^d
+\end{equation*}
+的解$u(x)$，都以表现方程的形式出现
+\begin{equation}
+  \label{eq:bvp-laplace-representation-formula}
+  u(x) = \int_{\Omega} U^{*}(x,y) f(y) \, dy
+  + \int_{\Gamma} U^{*}(x,y)  \frac{\partial}{\partial n_y} u(y)  \, d s_y
+  - \int_{\Gamma}  \frac{\partial}{\partial n_y} U^{*}(x,y)  u(y) \, d s_y.
+\end{equation}

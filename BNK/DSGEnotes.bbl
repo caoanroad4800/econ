@@ -1,4 +1,4 @@
-\begin{thebibliography}{228}
+\begin{thebibliography}{233}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -890,6 +890,34 @@
 \newblock \bibinfo{publisher}{Princeton University Press},
   \bibinfo{year}{2015}.
 %Type = Book
+\bibitem[{H{\"o}rmander(1983{\natexlab{a}})}]{Hormander:1983hm}
+\bibinfo{author}{H{\"o}rmander\xfnm[ L.]}.
+\newblock \bibinfo{title}{{The Analysis of Linear Partial Differential
+  Operators I: Distribution Theory and Fourier Analysis}}.
+\newblock \bibinfo{address}{Vienna}: \bibinfo{publisher}{Springer},
+  \bibinfo{year}{1983}{\natexlab{a}}.
+%Type = Book
+\bibitem[{H{\"o}rmander(1983{\natexlab{b}})}]{Hormander:1983cb}
+\bibinfo{author}{H{\"o}rmander\xfnm[ L.]}.
+\newblock \bibinfo{title}{{The Analysis of Linear Partial Differential
+  Operators II: Differential Operators with Constant Coefficients}}.
+\newblock Classics in Mathematics. \bibinfo{address}{Berlin, Heidelberg}:
+  \bibinfo{publisher}{Springer}, \bibinfo{year}{1983}{\natexlab{b}}.
+%Type = Book
+\bibitem[{H{\"o}rmander(1994{\natexlab{a}})}]{Hormander:1994iv}
+\bibinfo{author}{H{\"o}rmander\xfnm[ L.]}.
+\newblock \bibinfo{title}{{The Analysis of Linear Partial Differential
+  Operators III: Pseudo-Differential Operators}}.
+\newblock Classics in Mathematics. \bibinfo{address}{Berlin, Heidelberg}:
+  \bibinfo{publisher}{Springer}, \bibinfo{year}{1994}{\natexlab{a}}.
+%Type = Book
+\bibitem[{H{\"o}rmander(1994{\natexlab{b}})}]{Hormander:1994ee}
+\bibinfo{author}{H{\"o}rmander\xfnm[ L.]}.
+\newblock \bibinfo{title}{{The Analysis of Linear Partial Differential
+  Operators IV: Fourier Integral Operators}}.
+\newblock Classics in Mathematics. \bibinfo{address}{Berlin, Heidelberg}:
+  \bibinfo{publisher}{Springer}, \bibinfo{year}{1994}{\natexlab{b}}.
+%Type = Book
 \bibitem[{Hughes(2000)}]{Hughes:2000ve}
 \bibinfo{author}{Hughes\xfnm[ T.J.]}.
 \newblock \bibinfo{title}{{The Finite Element Method: Linear Static and Dynamic
@@ -1191,17 +1219,17 @@
 \newblock \bibinfo{title}{{Chebyshev Polynomials}}.
 \newblock \bibinfo{publisher}{CRC}, \bibinfo{year}{2003}.
 %Type = Book
-\bibitem[{Mazya(2009{\natexlab{a}})}]{Mazya:2009wu}
-\bibinfo{author}{Mazya\xfnm[ V.]}.
-\newblock \bibinfo{title}{{Sobolev Spaces in Mathematics I: Applicatins in
-  Analysis and Partial Differential Equations}},
-  \bibinfo{year}{2009}{\natexlab{a}}.
-%Type = Book
-\bibitem[{Mazya(2009{\natexlab{b}})}]{Mazya:2009vz}
+\bibitem[{Mazya(2009{\natexlab{a}})}]{Mazya:2009vz}
 \bibinfo{author}{Mazya\xfnm[ V.]}.
 \newblock \bibinfo{title}{{Sobolev Spaces in Mathematics I: Sobolev Type
   Inequalities}}.
-\newblock \bibinfo{publisher}{Springer}, \bibinfo{year}{2009}{\natexlab{b}}.
+\newblock \bibinfo{publisher}{Springer}, \bibinfo{year}{2009}{\natexlab{a}}.
+%Type = Book
+\bibitem[{Mazya(2009{\natexlab{b}})}]{Mazya:2009wu}
+\bibinfo{author}{Mazya\xfnm[ V.]}.
+\newblock \bibinfo{title}{{Sobolev Spaces in Mathematics II: Applicatins in
+  Analysis and Partial Differential Equations}},
+  \bibinfo{year}{2009}{\natexlab{b}}.
 %Type = Article
 \bibitem[{McCallum(1983)}]{McCallum:1983fz}
 \bibinfo{author}{McCallum\xfnm[ B.T.]}.
@@ -1600,6 +1628,12 @@
 \newblock In: \bibinfo{booktitle}{Computational Methods for the Study of
   Dynamic Economies}. \bibinfo{publisher}{OUP Oxford}; \bibinfo{year}{1999}. p.
   \bibinfo{pages}{30--61}.
+%Type = Book
+\bibitem[{Vladimirov(1971)}]{Vladimirov:1971ti}
+\bibinfo{author}{Vladimirov\xfnm[ V.S.]}.
+\newblock \bibinfo{title}{{Equations of Mathematical Physics}}.
+\newblock \bibinfo{address}{New York}: \bibinfo{publisher}{Marcel Dekker},
+  \bibinfo{year}{1971}.
 %Type = Article
 \bibitem[{Wood(1975)}]{Wood:1975vn}
 \bibinfo{author}{Wood\xfnm[ A.]}.

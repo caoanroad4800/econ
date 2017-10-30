@@ -19,12 +19,15 @@
 		\hyperpage{183}
     \subitem unidimensional \dotfill 单维基, \hyperpage{182}
   \item basis function \dotfill 基方程, \hyperpage{179}
+  \item Bessel function \dotfill 贝塞尔方程, \hyperpage{316}
   \item Bessel potential operator \dotfill 贝塞尔位势算子, 
 		\hyperpage{278}
   \item Beta distribution \dotfill 贝塔分布, \hyperpage{219}
   \item Beta integral \dotfill 贝塔积分, \hyperpage{199}
   \item bijection \dotfill 双射, \hyperpage{242}
   \item binomial theorem \dotfill 二项式定理, \hyperpage{198}
+  \item boundary integral equations \dotfill 边界积分等式, 
+		\hyperpage{312}
   \item boundary value problem \dotfill 边界值问题, 
 		\hyperpage{245}
   \item Bramble-Hilbert Lemma \dotfill Bramble-Hilbert引理, 
@@ -121,6 +124,7 @@
 		\hyperpage{276}
   \item Fredholm alternative theorem \dotfill 弗雷德霍姆二择一定理, 
 		\hyperpage{299}
+  \item fundamental solution \dotfill 基本解, \hyperpage{312}
 
   \indexspace
 
@@ -153,7 +157,8 @@
   \item Green identities
     \subitem first 格林第一恒等式, \hyperpage{246}, 
 		\hyperpage{300}
-    \subitem second 格林第二恒等式, \hyperpage{246}
+    \subitem second 格林第二恒等式, \hyperpage{246}, 
+		\hyperpage{312}
   \item grid \dotfill 网格, \hyperpage{191}
   \item grid distance \dotfill 网格距离, \hyperpage{253}
   \item Gårding inequality \dotfill Gårding不等式, \hyperpage{298}
@@ -230,6 +235,7 @@
 		\hyperpage{230}
   \item Lamé elasticity parameters \dotfill 拉梅弹性参数, 
 		\hyperpage{241}
+  \item Laplace operator \dotfill 拉普拉斯算子, \hyperpage{312}
   \item Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理, 
 		\hyperpage{241}, \hyperpage{288}, \hyperpage{296}
   \item Lebesgue integrable function \dotfill 勒贝格可积方程, 
@@ -365,11 +371,11 @@
 		\hyperpage{202}
   \item Riesz map \dotfill 里兹映射, \hyperpage{287}
   \item Riesz representation theorem \dotfill 里兹表现定理, 
-		\hyperpage{285}
+		\hyperpage{285}, \hyperpage{312}
   \item Riesz-Schauder theorem \dotfill Riesz-Schauder定理, 
 		\hyperpage{299}
   \item Robin boundary value condition \dotfill 罗宾边界值条件, 
-		\hyperpage{247}
+		\hyperpage{247}, \hyperpage{311}
   \item Rodrigues formula
     \subitem Hermite polynomial\dotfill 罗德里格斯公式(埃米特多项式), 
 		\hyperpage{211}
@@ -408,6 +414,11 @@
     \subitem additivity \dotfill sigma可加, \hyperpage{251}
     \subitem algebra \dotfill sigma代数, \hyperpage{250}
     \subitem finite \dotfill sigma有限, \hyperpage{252}
+  \item sinc finction
+    \subitem normalized \dotfill 标准化sinc方程, \hyperpage{315}
+    \subitem unnormalized \dotfill 非标准化sinc方程, 
+		\hyperpage{315}
+  \item sine integral \dotfill 正弦积分, \hyperpage{314}
   \item Sobolev space
     \subitem  \dotfill 索伯列夫空间, \hyperpage{238}
   \item Sobolev-Slobodeckij
@@ -434,7 +445,7 @@
   \item taxicab geometry \dotfill 出租车距离, \hyperpage{253}
   \item telescoping sum \dotfill 裂项和, \hyperpage{207}
   \item tempered distribution space \dotfill 缓增分布空间, 
-		\hyperpage{276}
+		\hyperpage{276}, \hyperpage{313}
   \item tensor \dotfill 张量, \hyperpage{189}
   \item test space \dotfill 试探空间, \hyperpage{275}
   \item three-term recurrence relation
@@ -456,6 +467,7 @@
   \item transition matrix \dotfill 转移矩阵, \hyperpage{188}
   \item transition probability \dotfill 转移概率, \hyperpage{188}
   \item triangle inequality \dotfill 三角不等式, \hyperpage{255}
+  \item trigonometric integral \dotfill 三角积分, \hyperpage{314}
   \item triple 三元组, \hyperpage{251}
   \item truncation
     \subitem Chebyshev \dotfill 切比雪夫截断, \hyperpage{184}, 
