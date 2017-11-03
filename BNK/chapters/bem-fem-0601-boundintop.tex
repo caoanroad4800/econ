@@ -1,0 +1,1093 @@
+%!TEX root = ../DSGEnotes.tex
+\section{边界积分算子}
+\label{sec:bvp-integral-operators}
+
+回顾一下第\ref{sec:bvp-laplace-fund-solutions}节提出的问题，我们的目标是求解$d=2,3$下的泊松方程(Poisson equation)\index{Poisson equation \dotfill 泊松方程}
+\begin{equation*}
+  -\Delta u(x) = f(x), \quad x \in \Omega \subset \mathbb{R}^d,
+\end{equation*}
+$f(x)=0$时的齐次形式泊松方程又称拉普拉斯方程(Laplace function)\index{Laplace function \dotfill 拉普拉斯方程}。
+
+泊松方程的解满足表现形式(representation formula)   \eqref{eq:bvp-fund-var-ux-uy}
+\begin{equation}
+  \label{eq:bvp-fund-var-ux-uy-repform}
+  u(x) = \int_{\Omega} U^{*}(x,y) f(y) \, dy
+  + \int_{\Gamma} U^{*}(x,y) \gamma_{1}^{\text{int}} u(y) \, d s_y
+  - \int_{\Gamma} U^{*}(x,y) \gamma_{0}^{\text{int}} u(y) \, d s_y,
+\end{equation}
+
+为了求解\eqref{eq:bvp-fund-var-ux-uy-repform}，首先要求得拉普拉斯算子的基本解$U^{*}(x,y)$，见\eqref{eq:bvp-laplace-fundamental-solution-32d}给出
+\begin{equation*}
+  U^{*}(x,y) = \begin{cases}
+  - \frac{1}{2 \pi} \log | x - y | & d =2, \\
+  \frac{1}{4 \pi} \frac{1}{| x - y |} & d = 3.
+  \end{cases}
+\end{equation*}
+在此基础上，需要构建适宜的边界积分方程，以$x \in \Gamma$生成完整的柯西数$\left[ \gamma_{0}^{\text{int}} u(x),  \gamma_{1}^{\text{int}} u(x)\right]$。而这就需要我们探讨表面积位势(surface potential)和体积位势(volume potental)的映射特征。
+
+\subsection{牛顿位势}
+\label{sec:bvp-newton-potential}
+泊松方程表现式\eqref{eq:bvp-fund-var-ux-uy-repform}中，对于某一给定的方程$f(y), y \in \Omega$，我们可以定义$f(y)$的体积位势，或称牛顿位势算子(Newton potential)\index{potential!Newton  \dotfill 牛顿位势}为$\widetilde{N}_{0} f $，满足
+\begin{equation}
+  \label{eq:bvp-newton-potential-def}
+  \left( \widetilde{N}_{0} f \right) (x) \coloneqq \int_{\Omega} U^{*}(x,y) f(y) \, dy, \quad x \in \mathbb{R}^{d}.
+\end{equation}
+
+由内积形式可得
+\begin{equation*}
+  \langle \widetilde{N}_{0} \varphi, \psi \rangle_{\Omega}
+  = \int_{\Omega} \psi(x) \int_{\Omega} U^{*} (x,y) \varphi(y) dy dx
+  = \langle \varphi, \widetilde{N}_{0}\psi \rangle_{\Omega}, \quad \varphi, \psi \in \mathcal{S}(\mathbb{R}^d),
+\end{equation*}
+可见$\widetilde{N}_{0} \varphi \in \mathcal{S}(\mathbb{R}^d)$。
+
+进而，牛顿位势算子$\widetilde{N}_{0}: \mathcal{S}'(\mathbb{R}^d) \mapsto \mathcal{S}'(\mathbb{R}^d)$可以定义为
+\begin{equation*}
+  \langle \widetilde{N}_{0}f, \psi \rangle_{\Omega} \coloneqq
+  \langle f, \widetilde{N}_{0} \psi \rangle_{\Omega}, \quad \forall \, \psi \in \mathcal{S}(\mathbb{R}^d).
+\end{equation*}
+
+\begin{theorem}[牛顿位势算子的映射]
+  \label{theorem:bvp-newton-potential-mappting-property}
+  牛顿位势算子$\widetilde{N}_{0}:\widetilde{H}^{-1}(\Omega) \mapsto H^{1}(\Omega)$定义了一个连续映射
+  \begin{equation}
+    \label{eq:bvp-newton-potential-mappting-property}
+    \big\| \widetilde{N}_{0} f \big\|_{H^{1}(\Omega)} \le c \, \big\| f \big\|_{\widetilde{H}^{-1}(\Omega)}.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  对于$\varphi \in C_{0}^{\infty} (\Omega)$我们可得
+  \begin{equation*}
+    \big\| \varphi \big\|_{H^{-1}(\mathbb{R}^d)}^2
+    = \int_{\mathbb{R}^{d}}
+    \frac{
+    | \widehat{\varphi}(\xi) |^2
+    }{
+    1 + |\xi|^2
+    }
+    d \xi,
+  \end{equation*}
+其中$\widehat{\varphi}(\xi)$表示傅里叶变换
+\begin{equation*}
+  \widehat{\varphi}(\xi) = \left( 2 \pi \right)^{-\frac{d}{2}}
+  \int_{\mathbb{R}^d} \exp \left[ - i \langle x, \xi \rangle \right]
+  \varphi(x) \, dx.
+\end{equation*}
+
+
+由$\supp \varphi \subset \Omega$可得(支撑集$\supp$的定义，见\pageref{footnote:support-definition}页脚注)
+\begin{equation}
+  \label{eq:bvp-newton-potential-norm-inequality}
+\begin{split}
+  \big\| \varphi \big\|_{H^{-1}(\mathbb{R}^d)}
+  & = \sup_{0 \neq \nu \in H^{1}(\mathbb{R}^d)}
+  \frac{
+  \langle \varphi, \nu \rangle_{L^{2}(\mathbb{R}^d)}
+  }{
+  \| \nu \|_{H^{1}(\mathbb{R}^d)}
+  } \\
+  & \le \sup_{0 \neq \nu \in H^{1}(\Omega)}
+  \frac{
+  \langle \varphi, \nu \rangle_{L^{2}(\Omega)}
+  }{
+  \| \nu \|_{H^{1}(\Omega)}
+  } \\
+  & = \big\| \varphi \big\|_{\widetilde{H}^{-1}(\Omega)}.
+\end{split}
+\end{equation}
+
+由定义\eqref{eq:bvp-newton-potential-def}，我们定义一个$u(x)$
+\begin{equation}
+  \label{eq:bvp-newton-potential-ux-def}
+  u(x) \coloneqq \left( \widetilde{N}_{0} \varphi \right)(x)
+  = \int_{\Omega} U^{*}(x,y) \varphi(y) \, dy, \quad x \in \mathbb{R}^d.
+\end{equation}
+
+设$\Omega \subset B_{R}(0)$，以及一个有紧支撑的非负单调递增cutoff方程$\mu \in C_{0}^{\infty} \left( [0, \infty) \right)$，满足$\mu(r) = 1, r \in [0, 2 R]$。进而定义
+\begin{equation}
+  \label{eq:bvp-newton-potential-cutoff}
+  u_{\mu}(x) \coloneqq
+  \int_{\Omega} \mu \left( \big| x - y \big| \right)
+  U^{*}(x,y) \varphi(y) \, dy, \quad x \in \mathbb{R}^d.
+\end{equation}
+
+\begin{equation*}
+\begin{split}
+  &x,y \in \Omega, \\
+  \hookrightarrow & \big| x - y \big| \ge 0,  \\
+  \hookrightarrow & \mu ( | x - y | ) =1, \\
+  \hookrightarrow & u_{\mu}(x) = u(x), \quad x \in \Omega, \\
+  \hookrightarrow & \big\| u \big\|_{H^{1}(\Omega)} = \big\|u_{\mu}\big\|_{H^{1}(\Omega)} \le \big\| u_{\mu} \big\|_{H^{1}(\mathbb{R}^d)}
+\end{split}
+\end{equation*}
+
+以及
+\begin{equation}
+  \label{eq:bvp-newton-potential-umunorm}
+  \big\| u_{\mu} \big\|_{H^{1}(\mathbb{R}^d)}^2 = \int_{\mathbb{R}^d}
+  \left( 1+ |\xi|^2 \right) \, |\widehat{u}_{\mu} (\xi) |^2 \, d \xi.
+\end{equation}
+
+现在来计算$u_{\mu}(x)$的傅里叶变换
+\begin{equation}
+  \label{eq:bvp-newton-potential-umux-fourier-transform-middle}
+\begin{split}
+  \widehat{u}_{\mu}(x) &= \left( 2 \pi \right)^{-\frac{d}{2}}
+  \int_{\mathbb{R}^d}
+  \exp \left[ - i \langle x, \xi \rangle \right] u_{\mu}(x) \, dx \\
+  & =  \left( 2 \pi \right)^{-\frac{d}{2}}
+  \int_{\mathbb{R}^{d}} \exp \left[ - i \langle x, \xi \rangle \right]
+  \int_{\mathbb{R}^{d}} \mu (|x - y |) U^{*}(x,y) \varphi(y) d y d x \\
+  &= \left( 2 \pi \right)^{-\frac{d}{2}}
+  \int_{\mathbb{R}^d} \int_{\mathbb{R}^d}
+  \exp \left[ -i \langle z + y, \xi \rangle \right]
+  \mu(|z|)
+  U^{*}(z+y,y)
+  \varphi(y)
+  dy dz \\
+  &= \underbrace
+  {\left( 2 \pi \right)^{-\frac{d}{2}}
+  \int_{\mathbb{R}^{d}} \exp \left[ -i \langle y, \xi \rangle \right]
+  \varphi(y) dy
+  }_{ = \widehat{\varphi}(\xi)}
+  \underbrace{
+  \int_{\mathbb{R}^{d}} \exp \left[ -i \langle z, \xi \rangle \right]
+  \mu(|z|) U^{*}(z,0) dz
+  }_{\eqqcolon I(|\xi|)}.
+\end{split}
+\end{equation}
+
+求解\eqref{eq:bvp-newton-potential-umux-fourier-transform-middle}需要进一步求$I(|\xi|)$的值。已知$u(|z|)$和$U^*(z,0)$都是只与$|z|$有关的方程，我们可以利用傅里叶变换的旋转对称Lemma \ref{lemma:fourier-transform-rotating-symmetries}，在三维坐标\index{spherical coordinate system \dotfill 三维坐标系}$\xi = \left(0,0,|\xi| \right)^{\top}$中测算$I(|\xi|)$。以$d=3$为例，建立坐标系
+\begin{equation*}
+  z =
+  \begin{pmatrix}
+    z_1 \\ z_2 \\ z_3
+  \end{pmatrix}
+   = \begin{pmatrix}
+   r \cos \phi \sin \theta \\
+   r \sin \phi \sin \theta \\
+   r \cos \theta,
+   \end{pmatrix} \quad r \in [0, \infty), \phi \in [0, 2 \pi), \theta \in [0, \pi).
+\end{equation*}
+
+将\eqref{eq:bvp-laplace-fundamental-solution-2d}代入$I(|\xi|)$
+\begin{equation*}
+  \begin{split}
+    I(|\xi|) &= \frac{1}{4 \pi}
+    \int_{\mathbb{R}^d} \exp \left[ -i \langle z, \xi \rangle \right]
+    \frac{\mu(|z|)}{|z|} dz \\
+    &= \frac{1}{4 \pi}
+    \int_{0}^{\infty}
+    \int_{0}^{2 \pi}
+    \int_{0}^{\pi}
+    \exp \left[ -i |\xi| r \cos \theta \right]
+    \frac{\mu(r)}{r}
+    r^2 \sin \theta
+    d \theta d \phi d r \\
+    &= \frac{1}{2}
+    \int_{0}^{\infty} r \mu(r) \, dr \,
+    \underbrace{
+    \int_{0}^{\pi}
+    \exp \left[ -i r |\xi| \cos \theta \right]
+    \sin \theta \,
+    d \theta
+    }_{}
+    d r.
+  \end{split}
+\end{equation*}
+
+定义$\iota \coloneqq \cos \theta$，我们有
+\begin{equation*}
+\begin{split}
+  &\int_{0}^{\pi}
+  \exp \left[ -i r |\xi| \cos \theta \right]
+  \sin \theta \,
+  d \theta =
+  \int_{-1}^{1} \exp \left[ -i r |\xi| \iota \right] d \iota \\
+  &=
+  \left[
+  - \frac{1}{i r |\xi|}
+  \exp \left[ - i r |\xi| \iota \right]
+  \right]_{-1}^{1} = \frac{2 \sin r |\xi|}{r |\xi|}.
+\end{split}
+\end{equation*}
+
+由此可得
+\begin{equation*}
+  I(|\xi|) = \frac{1}{|\xi|^2} \int_{0}^{\infty} \mu(r) \sin r |\xi| \, dr.
+\end{equation*}
+下面根据$|\xi|$的值，作分部求积。
+
+\begin{enumerate}
+\item 来看$|\xi| > 1$的情况。定义$s \coloneqq r |\xi|$可得
+\begin{equation*}
+  I(|\xi|) = \frac{1}{|\xi|^2} \int_{0}^{\infty} \mu \left( \frac{s}{|\xi|} \right) \sin s \, ds.
+\end{equation*}
+
+根据定义可知$0 \le \mu(r) \le 1$且有紧支撑，则
+\begin{equation}
+  \label{eq:bvp-newton-potential-ixi-ge1}
+  I(|\xi|) \le c_{1}(R) \frac{1}{|\xi|^2}, \quad |\xi| \ge 1.
+\end{equation}
+
+此外考虑到
+\begin{equation*}
+  \left( 1+|\xi|^2 \right)^2 \le 4 |\xi|^4, \quad |\xi| \ge 1,
+\end{equation*}
+
+结合\eqref{eq:bvp-newton-potential-umunorm}，\eqref{eq:bvp-newton-potential-umux-fourier-transform-middle}，  \eqref{eq:bvp-newton-potential-ixi-ge1}可得
+\begin{equation}
+  \label{eq:bvp-newton-potential-xi-ge1}
+  \begin{split}
+    \big\| u_{\mu} \big\|_{H^{1}(\mathbb{R}^d), |\xi| > 1}^2 &= \int_{|\xi| > 1}
+    \left( 1+ |\xi|^2 \right) \, |\widehat{u}_{\mu} (\xi) |^2 \, d \xi \\
+    & =
+    \int_{|\xi| > 1} \left(1+ |\xi|^2 \right) \, \big|\widehat{\varphi}(\xi) I(|\xi|) \big|^2 \, d \xi \\
+    & \le \left[ c_{1}(R) \right]^{2}
+    \int_{|\xi| > 1}
+    \frac{1+|\xi|^2}{|\xi|^4}
+    \big| \widehat{\varphi}(\xi) \big|^2 \,
+    d \xi \\
+    & \le 4 \left[ c_{1}(R) \right]^{2}
+    \int_{|\xi| > 1}
+    \frac{1}{ 1 + |\xi|^2 }
+    \big| \widehat{\varphi}(\xi) \big|^2 \,
+    d \xi.
+  \end{split}
+\end{equation}
+
+\item 来看$|\xi| \le 1$的情况。
+\begin{equation}
+  \label{eq:bvp-newton-potential-ixi-le1}
+\begin{split}
+    I(|\xi|) &= \int_{0}^{\infty} \mu(r) \frac{\sin r |\xi|}{|\xi|} \, dr \\
+    & \le c_{2}(R), \quad |\xi| \le 1.
+\end{split}
+\end{equation}
+
+结合\eqref{eq:bvp-newton-potential-umunorm}，\eqref{eq:bvp-newton-potential-umux-fourier-transform-middle}，  \eqref{eq:bvp-newton-potential-ixi-le1}可得
+\begin{equation}
+  \label{eq:bvp-newton-potential-xi-le1}
+  \begin{split}
+    \big\| u_{\mu} \big\|_{H^{1}(\mathbb{R}^d), |\xi| \le 1}^2 &= \int_{|\xi| \le 1}
+    \left( 1+ |\xi|^2 \right) \, |\widehat{u}_{\mu} (\xi) |^2 \, d \xi \\
+    & =
+    \int_{|\xi| \le 1} \left(1+ |\xi|^2 \right) \, \big|\widehat{\varphi}(\xi) I(|\xi|) \big|^2 \, d \xi \\
+    & \le 2 \left[ c_{2}(R) \right]^2
+    \int_{|\xi| \le 1} \big| \widehat{\varphi}(\xi) \big|^2 \, d \xi \\
+    & \le 4 \left[ c_{2}(R) \right]^2
+    \int_{|\xi| \le 1}
+    \frac{1}{1+ | \xi |^2}
+    \big| \widehat{\varphi}(\xi) \big|^2 \, d \xi.
+  \end{split}
+\end{equation}
+\end{enumerate}
+
+将\eqref{eq:bvp-newton-potential-xi-ge1}，\eqref{eq:bvp-newton-potential-xi-le1}汇总，代回\eqref{eq:bvp-newton-potential-umunorm}， \eqref{eq:bvp-newton-potential-umux-fourier-transform-middle}可得
+
+\begin{equation}
+  \label{eq:bvp-newton-potential-xi-sum}
+  \begin{split}
+    \big\| u _{\mu} \big\|_{H^{1}(\mathbb{R}^d)}^{2} &=
+    \int_{\xi \in \mathbb{R}^d}
+    \left( 1 + |\xi|^2 \right)
+    \big| \widehat{u}_{\mu} (\xi) \big|^2
+    \, d \xi \\
+    & \le c \int_{\xi \in \mathbb{R}^d}
+    \frac{1}{1 + | \xi |^2}
+    \big| \widehat{\varphi}(\xi) \big|^2 \, d \xi \\
+    & = c \big\| \varphi \big\|_{H^{-1}(\mathbb{R}^d)}^2.
+  \end{split}
+\end{equation}
+
+将\eqref{eq:bvp-newton-potential-cutoff}，\eqref{eq:bvp-newton-potential-norm-inequality}代入上式，有
+\begin{equation}
+  \label{eq:bvp-newton-potential-n0varphi-cvarphi-ineq}
+  \begin{split}
+    \big\| \widetilde{N}_{0} \varphi \big\|_{H^{1}(\mathbb{R}^d)}^{2} &=
+    \big\| u _{\mu} \big\|_{H^{1}(\mathbb{R}^d)}^{2}
+    \le c \big\| \varphi \big\|_{H^{-1}(\mathbb{R}^d)}^2 \\
+    & \le c \big\| \varphi \big\|_{\widetilde{H}^{-1}(\Omega)}^2.
+  \end{split}
+\end{equation}
+
+因此
+\begin{equation*}
+  \begin{split}
+    \frac{
+    \big| \langle \widetilde{N}_{0}f, \varphi \rangle_{\Omega} \big|
+    }{
+    \| \varphi \|_{\widetilde{H}^{-1}(\Omega)}
+    }
+    =
+    \frac{
+    \big| \langle f, \widetilde{N}_{0} \varphi \rangle_{\Omega} \big|
+    }{
+    \| \varphi \|_{\widetilde{H}^{-1}(\Omega)}
+    }
+    \le \frac{
+    \big\| f \big\|_{\widetilde{H}^{-1}(\Omega)} \, \big\| \widetilde{N}_{0} \varphi \big\|_{H^{1}(\Omega)}
+    }{
+    \| \varphi \|_{\widetilde{H}^{-1}(\Omega)}
+    }
+    \le c \, \big\| f \big\|_{\widetilde{H}^{-1}(\Omega)}, \quad \forall \, \varphi \in C_{0}^{\infty}(\Omega).
+  \end{split}
+\end{equation*}
+对$\| \cdot \|_{\widetilde{H}^{-1}(\Omega)}$取闭包，由对偶配对\index{duality pairing \dotfill 对偶配对}可得\eqref{eq:bvp-newton-potential-mappting-property}。
+\end{proof}
+
+\begin{theorem}[$\mathbb{R}^d$中的牛顿位势通解]
+  \label{theorem:bvp-newton-potential-generalized-solution}
+  牛顿位势$\widetilde{N}_{0} \widetilde{f}$是下述偏微分方程的通解
+  \begin{equation}
+    \label{eq:bvp-newton-potential-generalized-solution}
+    - \Delta_{x} \left( \widetilde{N}_{0} \widetilde{f} \right) = \widetilde{f}(x) =
+    \begin{cases}
+      f(x) \quad x \in \Omega, \\
+      0 \quad x \in \mathbb{R}^{d} \backslash \overline{\Omega}.
+    \end{cases}
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  对于$\varphi \in C_{0}^{\infty}(\mathbb{R}^{d})$，依次作分段积分，改变积分符顺序，使用基本解的对称特性，可得
+
+  \begin{equation*}
+    \begin{split}
+      \int_{\mathbb{R}^{d}}
+      \left[
+      - \Delta_{x} \left( \widetilde{N}_{0} \widetilde{f} \right)(x)
+      \right]
+      \varphi(x) \, dx
+      &= \int_{\mathbb{R}^{d}}
+      \underbrace{
+      \left( \widetilde{N}_{0} \widetilde{f} \right)(x)
+      }_{\eqref{eq:bvp-newton-potential-def}}
+      \left[
+      - \Delta_{x} \varphi(x)
+      \right]\, dx \\
+      & = \int_{\mathbb{R}^{d}}
+      \int_{\mathbb{R}^{d}} U^{*}(x,y) \widetilde{f}(y) \, dy
+      \left[
+      - \Delta_{x} \varphi(x)
+      \right]\, dx \\
+      &= \int_{\mathbb{R}^{d}}
+      \widetilde{f}(y)
+      \int_{\mathbb{R}^{d}}
+      U^{*}(x,y)
+      \left[
+      - \Delta_{x} \varphi(x)
+      \right]
+      \, d x d y \\
+      & = \int_{\mathbb{R}^{d}}
+      \widetilde{f}(y)
+      \int_{\mathbb{R}^{d}}
+      \underbrace{
+      \left[
+      - \Delta_{x} U^{*}(x,y)
+      \right]
+      }_{\eqqcolon \delta_0 ( x - y)}
+      \varphi(x)
+      \, d x d y \\
+      & = \int_{\mathbb{R}^{d}}
+      \widetilde{f}(y)
+      \underbrace{
+      \int_{\mathbb{R}^{d}}
+      \delta_0 ( x - y)
+      \varphi(x)
+      \, d x
+      }
+      \,d y \\
+      & = \int_{\mathbb{R}^{d}} \widetilde{f}(y) \varphi(y) \, dy.
+     \end{split}
+  \end{equation*}
+
+  对$\| \cdot \|_{H^{1}(\mathbb{R}^{d})}$取$C_{0}^{\infty}(\mathbb{R}^{d})$的闭包，再使用配偶配对，可得\eqref{eq:bvp-newton-potential-generalized-solution}成立。
+\end{proof}
+
+\begin{corollary}[$\Omega$中的牛顿位势通解]
+\label{corollary:bvp-newton-potential-generalized-solution}
+将Theorem \ref{theorem:bvp-newton-potential-generalized-solution}中的牛顿位势通解进一步限定到有界域$\Omega \subset \mathbb{R}^{d}$的情况。
+
+此时位势方程$\widetilde{N}_{0}f$是以下偏微分方程的通解
+\begin{equation*}
+  - \Delta_{x} \widetilde{N}_{0}f(x) = f, \quad x \in \Omega.
+\end{equation*}
+
+内界迹算子$\gamma_{0}^{\text{int}}(\widetilde{N}_{0} f)$可以表示为
+\begin{equation}
+  \label{eq:bvp-newton-gen-trace-operator}
+  \gamma_{0}^{\text{int}}(\widetilde{N}_{0} f)(x) =
+  \lim_{\Omega \ni \widetilde{x} \mapsto x \in \Gamma}
+  \left( \widetilde{N}_{0} f\right) \left( \widetilde{x} \right).
+\end{equation}
+
+内界迹算子$\gamma_{0}^{\text{int}}(\widetilde{N}_{0} f)$定义了一个有界线性算子$N_0 f$
+\begin{equation}
+\label{eq:bvp-newton-gen-n0}
+N_0 = \gamma_{0}^{\text{int}} \widetilde{N}_{0}: \widetilde{H}^{-1}(\Omega) \mapsto H^{\frac{1}{2}}(\Gamma),
+\end{equation}
+
+$N_{0} f$的范数满足
+\begin{equation}
+  \label{eq:bvp-newton-gen-n0-norm}
+  \left\| N_{0} f \right\|_{H^{\frac{1}{2}}(\Gamma)}
+  \le c_{2}^{N} \left\| f \right\|_{\widetilde{H}^{-1}(\Omega)} \quad \forall \, f \in \widetilde{H}^{-1}(\Omega).
+\end{equation}
+\end{corollary}
+
+\begin{lemma}[牛顿位势算子方程的表现式]
+  \label{lemma:bvp-newton-gen-sing-suf-integral}
+  设给定$f \in L^{\infty}$。那么牛顿位势表示如下等式，又称弱奇异表面积分(weakly singular surface integral)\index{singular integral!weak \dotfill 弱奇异积分}\index{surface integral \dotfill 表面积分}
+  \begin{equation*}
+    \left( N_{0} f \right) (x) = \gamma_{0}^{\text{int}} \left( \widetilde{N}_{0} f \right) (x) = \int_{\Omega} U^{*}(x,y) f(y) \, dy, \quad x \in \Gamma.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  关于奇异积分、弱奇异积分，可参考\cite{Neri:1971bg, Vainikko:1993dw}。关于表面积分，可参考\cite[Ch.10]{Callahan:2010bg}。
+
+  对于给定的$\widetilde{x} \in \Omega, x \in \Gamma$，设$\exists \varepsilon > 0$，满足$| \widetilde{x} - x  | < \varepsilon$。则
+
+  \begin{equation}
+    \label{eq:bvp-newton-gen-sing-suf-integral}
+    \begin{split}
+  &\left|
+  \int_{\Omega} U^{*}(\widetilde{x}, y) f(y) \, dy -
+  \int_{y \in \Omega: | y - x | > \varepsilon} U^{*}(x,y) f(y) \, dy
+  \right| \\
+  &\le
+   \underbrace{
+   \left|
+   \int_{y \in \Omega: |y - x| > \varepsilon}
+   \left[ U^{*}(\widetilde{x}, y) - U^{*}(x, y) \right]
+   f(y) d y
+   \right|
+   }_{\eqqcolon \mathcal{A}}
+   + \underbrace{
+   \left|
+   \int_{y \in \Omega: |y - x| \le \varepsilon}
+   U^{*}(\widetilde{x}, y) f(y) dy
+   \right|
+   }_{\eqqcolon \mathcal{B}},
+ \end{split}
+  \end{equation}
+其中
+\begin{enumerate}
+\item $\mathcal{A} \Rightarrow$
+\begin{equation*}
+  \lim_{\Omega \ni \widetilde{x} \mapsto x \in \Gamma}
+  \left|
+  \int_{y \in \Omega: |y - x| > \varepsilon}
+  \left[ U^{*}(\widetilde{x}, y) - U^{*}(x, y) \right]
+  f(y) d y
+  \right|
+  = 0.
+\end{equation*}
+
+\item $\mathcal{B} \Rightarrow$
+\begin{equation*}
+  \begin{split}
+    \left|
+    \int_{y \in \Omega: |y - x| \le \varepsilon}
+    U^{*}(\widetilde{x}, y) f(y) dy
+    \right| & \le
+    \left\| f \right\|_{L^{\infty} (\Omega \cap B_{\varepsilon}(x))}
+    \int_{\Omega \cap B_{\varepsilon}(x)} \left| U^{*}(\widetilde{x}, y) \right| \, dy \\
+    & \le \left\| f \right\|_{L^{\infty}(\Omega)}
+    \underbrace{
+    \int_{B_{\varepsilon}(x)} \left| U^{*}(\widetilde{x}, y) \right| \, dy
+    }_{\eqqcolon \mathcal{C}},
+  \end{split}
+\end{equation*}
+\item 分$d=2,3$两种情况来讨论$\mathcal{C}$的值
+\begin{enumerate}
+  \item $d=2 \Rightarrow$
+  \begin{equation}
+    \label{eq:mathcalC-d2-varepsilon}
+    \begin{split}
+      \mathcal{C} \coloneqq \int_{B_{\varepsilon}(x)} \left| U^{*}(\widetilde{x}, y) \right| \, dy & =
+      \frac{1}{2 \pi} \int_{\left| y - \widetilde{x} \right| < 2 \varepsilon}
+      \left| \log \left| y - \widetilde{x} \right| \right| \, dy\\
+      & = \frac{1}{2}
+      \int_{0}^{2 \pi}
+      \int_{0}^{2 \varepsilon}
+      \left|
+      \log r
+      \right|
+      r
+      dr d \varphi \\
+      & = \varepsilon^2 \left[ 1 - 2 \log \left(2 \varepsilon \right) \right].
+    \end{split}
+  \end{equation}
+  \item $d = 3 \Rightarrow$
+  \begin{equation}
+    \label{eq:mathcalC-d3-varepsilon}
+    \begin{split}
+      \mathcal{C} \coloneqq \int_{B_{\varepsilon}(x)} \left| U^{*}(\widetilde{x}, y) \right| \, dy & = \frac{1}{4 \pi}
+      \int_{\left| y - \widetilde{x} \right| < 2 \varepsilon}
+      \frac{1}{\left| y - \widetilde{x} \right|} dy \\
+      & = \frac{1}{4 \pi}
+      \int_{0}^{2 \pi}
+      \int_{0}^{\pi}
+      \int_{0}^{2 \varepsilon}
+      \frac{1}{r}
+      r^2
+      \sin \psi
+      dr d \psi d \varphi \\
+      & = 2 \varepsilon^2.
+    \end{split}
+  \end{equation}
+\end{enumerate}
+\end{enumerate}
+
+% 因此\eqref{eq:bvp-newton-gen-sing-suf-integral}变为
+% \begin{equation}
+%   \label{eq:bvp-newton-gen-sing-suf-integral-new}
+%   \begin{split}
+%     &\left|
+%     \int_{\Omega} U^{*}(\widetilde{x}, y) f(y) \, dy -
+%     \int_{y \in \Omega: | y - x | > \varepsilon} U^{*}(x,y) f(y) \, dy
+%     \right| \\
+%     &\le \left\| f \right\|_{L^{\infty}(\Omega)}
+%     \underbrace{
+%     \int_{B_{\varepsilon}(x)} \left| U^{*}(\widetilde{x}, y) \right| \, dy
+%     }_{\eqqcolon \mathcal{C}}
+%     ,
+%   \end{split}
+% \end{equation}
+
+取极限$\widetilde{x} \rightarrow x, \varepsilon \rightarrow 0$，可证得。
+\end{proof}
+
+\begin{lemma}
+  算子
+  \begin{equation*}
+    N_1 \coloneqq \gamma_{1}^{\text{int}} \widetilde{N}_{0} : \widetilde{H}^{-1}(\Omega) \mapsto H^{-\frac{1}{2}}(\Gamma)
+  \end{equation*}
+  是有界算子，即是说，满足不等式条件
+  \begin{equation*}
+    \left\| N_{1} f \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+    = \left\| \gamma_{1}^{\text{int}} \widetilde{N}_{0} f \right\|_{H^{-\frac{1}{2}}(\Gamma)} \le c \, \left\| f \right\|_{\widetilde{H}^{-1}(\Omega)}.
+  \end{equation*}
+\end{lemma}
+
+\begin{proof}
+  偏微分方程
+  \begin{equation*}
+    - \Delta u(x) = f(x), \quad x \in \Omega
+  \end{equation*}
+  的通解是$u = \widetilde{N}_{0} f \in H^{1}(\Omega)$。
+
+  对于任意给定的$w \in H^{\frac{1}{2}}(\Gamma)$，构建一个有界延拓$\varepsilon w \in H^{1}(\Omega)$，满足
+  \begin{equation*}
+    \left\| \varepsilon w \right\|_{H^{1}(\Omega)} \le c_{\text{IT}} \left\| w \right\|_{H^{\frac{1}{2}}(\Gamma)}.
+  \end{equation*}
+\end{proof}
+
+由格林第一恒等式\eqref{eq:bvp-a-u-nu-inner-prod}可得
+\begin{equation*}
+  \begin{split}
+    \langle \gamma_{1}^{\text{int}} u , w \rangle_{\Gamma} &=
+    \langle u, \varepsilon_{w} w \rangle \\
+    &= \int_{\Omega} \triangledown u(x) \triangledown \varepsilon_w (x) \, dx
+    - \langle f, \varepsilon_{w} \rangle_{\Omega}.
+  \end{split}
+\end{equation*}
+
+代入牛顿位势算子的映射\eqref{eq:bvp-newton-potential-mappting-property}(Theorem \ref{theorem:bvp-newton-potential-mappting-property})中，我们有
+\begin{equation*}
+  \begin{split}
+    \left|
+    \langle \gamma_{1}^{\text{int}} u , w \rangle_{\Gamma}
+    \right|
+    & \le
+    \left\{
+    \left\| u \right\|_{H^{1}(\Omega)} +
+    \left\| f \right\|_{\widetilde{H}^{-1}(\Omega)}
+    \right\}
+    \left\| \varepsilon_w \right\|_{H^{1}(\Omega)} \\
+    & \le
+    (c+1) c_{\text{IT}}
+    \left\| f \right\|_{\widetilde{H}^{-1}(\Omega)}
+    \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)}.
+  \end{split}
+\end{equation*}
+
+\subsection{单层位势}
+\label{sec:bvp-single-layer-potential}
+设$w \in H^{-\frac{1}{2}}(\Gamma)$为一个给定的密度方程。考虑如下单层位势算子(single layer potential)\index{potential!single layer \dotfill 单层位势}
+\begin{equation}
+  \label{eq:bvp-single-layer-potential-operator}
+  u(x) \coloneqq \left( \widetilde{V} w \right) (x)
+  \coloneqq \int_{\Gamma} U^{*}(x,y) w(y) \, d s_y,  \quad x \in \Omega \cup \Omega^{c}, \forall \, y \in \Gamma.
+\end{equation}
+
+则基于给定的密度$w \in H^{-\frac{1}{2}}(\Gamma)$，单层位势算子$\left( \widetilde{V} w \right) (x) \in H^{1}(\Omega)$就是齐次偏微分方程的解，如下
+\begin{lemma}
+  \label{lemma:bvp-single-layer-potential-operator}
+  \eqref{eq:bvp-single-layer-potential-operator}定义的单层位势算子$u(x)=\left( \widetilde{V} w \right) (x)$，构成如下齐次偏微分方程的解
+  \begin{equation*}
+    - \Delta u(x) = 0, \quad x \in \Omega \cup \Omega^{c}.
+  \end{equation*}
+
+  对于给定的密度方程$w \in H^{- \frac{1}{2}}(\Gamma)$，我们有对应的$u \in H^{1}(\Omega)$，满足
+  \begin{equation}
+    \label{eq:bvp-single-layer-potential-definition}
+    \left\| u \right\|_{H^{1}(\Omega)} = \left\| \widetilde{V} w \right\|_{H^{1}(\Omega)} \le c \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)}.
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  对于$x \in \Omega \cup \Omega^{c}$和$y \in \Gamma$，可得齐次偏微分方程的基本解$U^{*}(x,y) \in C^{\infty}$。因此，我们可以调整差分和积分的顺序
+
+  \begin{equation*}
+  \begin{split}
+    - \Delta_{x} u(x) &= - \Delta_{x} \int_{\Omega} U^{*}(x,y) f(y) \, dy \\
+    & = \int_{\Omega}
+    \left[
+    - \Delta_{x} U^{*}(x,y)
+    \right]
+    f(y) \, dy =0.
+  \end{split}
+  \end{equation*}
+
+  在此基础上，对于$\varphi \in C^{\infty}(\Omega)$，可得
+  \begin{equation*}
+    \begin{split}
+      \int_{\Omega} u(x) \varphi(x) \, dx
+      &= \int_{\Omega} \underbrace{
+      \int_{\Gamma} U^{*}(x,y) w(y) d s_y
+      }_{\coloneqq u(x)}
+      \varphi(x) dx \\
+      & = \int_{\Gamma} w(y) \underbrace{
+      \int_{\Omega} U^{*}(x,y) \varphi(x) \, dx
+      }_{\eqqcolon \left(N_0 \varphi \right)(y)}
+      d s_{y} \\
+      &= \int_{\Gamma} w(y) \left( N_0 \varphi \right)(y) \, d s_y
+    \end{split},
+  \end{equation*}
+其中定义$\left( N_0 \varphi \right) (y) d s_{y}$为
+\begin{equation*}
+  \left(N_0 \varphi \right)(y)
+  d s_{y} \coloneqq \gamma_{0}^{\text{int}} \int_{\Omega} U^{*}(x,y) \varphi(x) \, d x , \quad x \in \Gamma.
+\end{equation*}
+
+代入牛顿位势在$\Omega$中的通解\eqref{eq:bvp-newton-gen-n0-norm}(Corollary \ref{corollary:bvp-newton-potential-generalized-solution})，上式进一步变为
+\begin{equation*}
+\begin{split}
+  \int_{\Omega} u(x) \varphi(x) \, dx &= \int_{\Gamma} w(y) \left( N_0 \varphi \right)(y) \, d s_y \\
+  & \le \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)} \,
+  \left\| N_0 \varphi \right\|_{H^{\frac{1}{2}}(\Gamma)}\\
+  & \le c_{2}^{N} \, \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)} \,
+  \left\| \varphi \right\|_{\widetilde{H}^{-1}(\Omega)}
+\end{split}
+\end{equation*}
+
+对$\left\| \cdot \right\|_{\widetilde{H}^{-1}(\Omega)}$取$c^{\infty}(\Omega)$的闭包，再使用配偶配对，可证\eqref{eq:bvp-single-layer-potential-definition}成立。
+\end{proof}
+
+单层位势算子\eqref{eq:bvp-single-layer-potential-operator}定义了一个有界的线性映射$\widetilde{V}: H^{-\frac{1}{2}}(\Gamma) \mapsto H^{1}(\Omega)$。因此，内界迹算子$\widetilde{V}w \in H^{-1}(\Omega)$定义良好。对应地，我们也可以写出线性算子$V = \gamma_{0}^{\text{int}} \widetilde{V}: H^{-\frac{1}{2}}(\Gamma) \mapsto H^{\frac{1}{2}}(\Gamma)$，其中$V$满足
+\begin{equation}
+  \label{eq:bvp-single-layer-operator-v-norm}
+  \left\| V w \right\|_{H^{\frac{1}{2}}(\Gamma)} \le c_{2}^{V} \, \left\| w \right\|_{W^{-\frac{1}{2}}(\Gamma)}, \quad \forall \, w \in H^{-\frac{1}{2}(\Gamma)}.
+\end{equation}
+
+\begin{lemma}[单层位势算子方程的表现式]
+  \label{lemma:bvp-single-layer-representation-formula}
+  设给定$w \in L^{\infty}(\Gamma)$，则单层位势算子方程的表现式(representation formula)是一个弱奇异表面积分\index{singular integral!weak \dotfill 弱奇异积分}\index{surface integral \dotfill 表面积分}
+  \begin{equation}
+    \label{eq:bvp-single-layer-representation-formula}
+    \left( V w \right)(x) = \gamma_{0}^{\text{int}} \left( \widetilde{V} w \right)(x) = \int_{\Gamma} U^{*}(x,y) w(y) \, d s_y, \quad x \in \Gamma.
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  对于给定的$\widetilde{x} \in \Omega, x \in \Gamma$，假定$\exists \, \varepsilon >0$满足$\left| x - \widetilde{x} \right| < \varepsilon$，那么
+  \begin{equation}
+    \label{eq:bvp-single-layer-gen-sing-suf-integral}
+    \begin{split}
+  &\left|
+  \int_{\Gamma} U^{*}(\widetilde{x}, y) w(y) \, d s_y -
+  \int_{y \in \Gamma: \left| y - x \right| > \varepsilon} U^{*}(x,y) w(y) \, d s_y
+  \right| \\
+  &\le
+   \underbrace{
+   \left|
+   \int_{y \in \Gamma: \left| y - x \right| > \varepsilon}
+   \left[ U^{*}(\widetilde{x}, y) - U^{*}(x, y) \right]
+   w(y) d s_y
+   \right|
+   }_{\eqqcolon \mathcal{A}}
+   + \underbrace{
+   \left|
+   \int_{y \in \Gamma: \left| y - x \right| \le \varepsilon}
+   U^{*}(\widetilde{x}, y) w(y) d s_y
+   \right|
+   }_{\eqqcolon \mathcal{B}},
+  \end{split}
+  \end{equation}
+  其中
+  \begin{enumerate}
+  \item $\mathcal{A} \Rightarrow$
+  \begin{equation*}
+  \lim_{\Omega \ni \widetilde{x} \mapsto x \in \Gamma}
+  \left|
+  \int_{y \in \Gamma: \left| y - x \right| > \varepsilon}
+  \left[ U^{*}(\widetilde{x}, y) - U^{*}(x, y) \right]
+  w(y) d s_y
+  \right|
+  = 0.
+  \end{equation*}
+
+  \item $\mathcal{B} \Rightarrow$
+  \begin{equation*}
+  \begin{split}
+    \left|
+    \int_{y \in \Gamma: \left| y - x \right| \le \varepsilon}
+    U^{*}(\widetilde{x}, y) w(y) d s_y
+    \right| & \le
+    \left\| w \right\|_{L^{\infty} (\Gamma \cap B_{\varepsilon}(x))}
+    \int_{\Gamma \cap B_{\varepsilon}(x)} \left| U^{*}(\widetilde{x}, y) \right| \, d s_y \\
+    & \le \left\| w \right\|_{L^{\infty}(\Gamma)}
+    \underbrace{
+    \int_{B_{\varepsilon}(x)} \left| U^{*}(\widetilde{x}, y) \right| \, d s_y
+    }_{\eqqcolon \mathcal{C}},
+  \end{split}
+  \end{equation*}
+  \item 类似地，分$d=2,3$两种情况来讨论$\mathcal{C}$的值
+  \begin{enumerate}
+  \item $d=2 \Rightarrow $\eqref{eq:mathcalC-d2-varepsilon}
+  \begin{equation*}
+    \begin{split}
+      \mathcal{C} \coloneqq \int_{B_{\varepsilon}(x)} \left| U^{*}(\widetilde{x}, y) \right| \, dy & =
+      \frac{1}{2 \pi} \int_{\left| y - \widetilde{x} \right| < 2 \varepsilon}
+      \left| \log \left| y - \widetilde{x} \right| \right| \, dy\\
+      & = \frac{1}{2}
+      \int_{0}^{2 \pi}
+      \int_{0}^{2 \varepsilon}
+      \left|
+      \log r
+      \right|
+      r
+      dr d \varphi \\
+      & = \varepsilon^2 \left[ 1 - 2 \log \left(2 \varepsilon \right) \right].
+    \end{split}
+  \end{equation*}
+  \item $d = 3 \Rightarrow$    \eqref{eq:mathcalC-d3-varepsilon}
+  \begin{equation*}
+    \begin{split}
+      \mathcal{C} \coloneqq \int_{B_{\varepsilon}(x)} \left| U^{*}(\widetilde{x}, y) \right| \, dy & = \frac{1}{4 \pi}
+      \int_{\left| y - \widetilde{x} \right| < 2 \varepsilon}
+      \frac{1}{\left| y - \widetilde{x} \right|} dy \\
+      & = \frac{1}{4 \pi}
+      \int_{0}^{2 \pi}
+      \int_{0}^{\pi}
+      \int_{0}^{2 \varepsilon}
+      \frac{1}{r}
+      r^2
+      \sin \psi
+      dr d \psi d \varphi \\
+      & = 2 \varepsilon^2.
+    \end{split}
+  \end{equation*}
+  \end{enumerate}
+  \end{enumerate}
+
+  取极限$\widetilde{x} \rightarrow x, \varepsilon \rightarrow 0$，可证得。
+\end{proof}
+
+类似地，我们也可以得到单层位势算子的外界迹(exterior trace)
+\begin{equation}
+  \label{eq:bvp-single-layer-exterior-trace}
+  \left( V w \right)(x) = \gamma_{0}^{\text{ext}} \left( \widetilde{V} w \right)(x) \coloneqq
+  \lim_{\Omega^{c} \ni \widetilde{x} \mapsto x \in \Gamma}
+  \left( \widetilde{V} w \right) \left( \widetilde{x} \right), \quad x \in \Gamma.
+\end{equation}
+
+单层位势的跃动关系(jump relation)因此可以表示为
+\begin{equation}
+  \label{eq:bvp-single-layer-jump-relaton}
+  \left[ \gamma_{0} \widetilde{V} w \right]
+  \coloneqq \gamma_{0}^{\text{ext}} \left( \widetilde{V} w \right) (x)
+  - \gamma_{0}^{\text{int}} \left( \widetilde{V} w \right)(x) =0, \quad x \in \Gamma.
+\end{equation}
+
+
+\subsection{伴随双层位势}
+\label{sec:adjoint-double-layer-potential}
+由第\ref{sec:bvp-single-layer-potential}可知，基于给定密度方程$w \in H^{-\frac{1}{2}}(\Gamma)$，我们可以定义一个位势算子$\left( \widetilde{V}w \right) \in H^{1}(\Omega)$，作为齐次偏微分方程的解，详见Lemma \ref{lemma:bvp-single-layer-potential-operator}。
+
+在此基础上，可以进一步将对应的内界共形导数定义成以下有界线性算子$\gamma_{1}^{\text{int}} \widetilde{V}: H^{-\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma)$，满足
+\begin{equation*}
+  \left\| \gamma_{1}^{\text{int}} \widetilde{V} w \right\|_{H^{-\frac{1}{2}}(\Omega)}
+  \le c \,
+  \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)}, \quad \forall \, w \in H^{-\frac{1}{2}}(\Gamma).
+\end{equation*}
+
+于是有伴随双层位势算子(adjoint double layer potential)\index{potential!adjoint double layer \dotfill 伴随双层位势算子}如下
+\begin{lemma}[伴随双层位势算子]
+  \label{lemma:adjoint-double-layer-potential-def}
+  给定密度方程$w \in H^{-\frac{1}{2}}(\Gamma)$，对应内部共形导数$\gamma_{1}^{\text{int}} \left( \widetilde{V} w \right)(x) \in H^{-\frac{1}{2}}(\Gamma)$的表现式为
+  \begin{equation*}
+    \gamma_{1}^{\text{int}} \left( \widetilde{V} w \right)(x) = \sigma(x) w(x) + \left( K' w \right)(x), \quad x \in \gamma,
+  \end{equation*}
+采用内积形式可表现为
+\begin{equation*}
+  \langle
+  \gamma_{1}^{\text{int}} \left( \widetilde{V} w \right)(x),
+  \nu
+  \rangle_{\Gamma}
+  = \langle \sigma w + K' w, \nu \rangle_{\Gamma}, \quad \forall \, \nu \in H^{\frac{1}{2}}(\Gamma),
+\end{equation*}
+
+其中与伴随双层位势相关的算子$\left( K' w \right)(x)$和$\sigma(x)$分别定义为
+\begin{align}
+  \label{eq:bvp-adjoint-double-layer-potential-k}
+  \left( K' w \right)(x) &\coloneqq \lim_{\varepsilon \rightarrow 0}
+  \int_{y \in \Gamma : \left| y - x \right| \ge \varepsilon}
+  \gamma_{1,x}^{\text{int}} U^{*}(x,y) w(y) \, d s_y, \\
+  \label{eq:bvp-adjoint-double-layer-potential-sigma}
+  \sigma(x) &\coloneqq \lim_{\varepsilon \rightarrow 0}
+  \frac{1}{2(d-1) \pi} \frac{1}{\varepsilon^{d-1}}
+  \int_{y \in \Omega: \left| y - x \right| = \varepsilon} \, d s_y, \quad x \in \Gamma.
+\end{align}
+\end{lemma}
+
+\begin{proof}
+  已知给定方程$w \in H^{-\frac{1}{2}}(\Gamma)$，齐次偏微分方程的解，$u(x) = \left( \widetilde{V}w \right) \in H^{1}(\Omega)$，见Lemma \ref{lemma:bvp-single-layer-potential-operator}。
+
+  进而由格林第一恒等式\eqref{eq:bvp-a-u-nu-inner-prod}可得，对某一$\varphi \in C^{\infty}(\Omega)$我们有
+  \begin{equation*}
+    \begin{split}
+      \int_{\Gamma} u(x) \gamma_{0}^{\text{int}} \varphi(x) \, d s_x
+      &= \int_{\Omega} \triangledown_x u(x) \triangledown_x \varphi(x) \, dx \\
+      &= \int_{\Omega} \triangledown_{x}
+      \underbrace{
+      \int_{\Gamma} U^{*}(x,y) w(y) \, d s_y
+      }_{\eqqcolon u(x)}
+      \triangledown \varphi(x) \, dx
+    \end{split}
+  \end{equation*}
+
+  由弱奇异表面积分Lemma \ref{lemma:bvp-single-layer-representation-formula}可见
+\begin{equation*}
+  u(x) = \left(V w \right) = \gamma_{0}^{\text{int}} \left(\widetilde{V} w \right) =\int_{\Gamma} U^{*}(x,y) w(y) \, d s_y,
+\end{equation*}
+上式因此可调整为
+
+\begin{equation*}
+  \begin{split}
+    \int_{\Gamma} \gamma_{1}^{\text{int}} u(x) \gamma_{0}^{\text{int}} \varphi(x) \, d s_x &= \int_{\Omega} \triangledown_{x}
+    \left[
+    \lim_{\varepsilon \rightarrow 0}
+    \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+    U^{*}(x,y) w(y) \, d s_y
+    \right]
+    \triangledown_{x} \varphi(x) \, dx \\
+    & = \int_{\Gamma}
+    w(y)
+    \lim_{\varepsilon \rightarrow 0}
+    \underbrace{
+    \int_{x \in \Gamma: \left| x - y \right| \ge \varepsilon}
+    \triangledown_{x}
+    U^{*}(x,y)
+    \triangledown_{x}
+    \varphi(x)
+    \, dx
+    }_{\eqqcolon \mathcal{A}}
+    d s_y,
+  \end{split}
+\end{equation*}
+
+对$\mathcal{A}$再一次使用格林第一恒等式\eqref{eq:bvp-a-u-nu-inner-prod}
+\begin{equation*}
+\begin{split}
+  \mathcal{A} &\coloneqq
+  \int_{x \in \Gamma: \left| x - y \right| \ge \varepsilon}
+  \triangledown_{x}
+  U^{*}(x,y)
+  \triangledown_{x}
+  \varphi(x)
+  \, dx\\
+  &=
+  \underbrace{
+  \int_{x \in \Omega: \left| x - y \right| = \varepsilon}
+  \gamma_{1,x}^{\text{int}} U^{*}(x,y) \varphi(x) \, d s_x
+  }_{\eqqcolon \mathcal{B}}
+  + \underbrace{
+  \int_{x \in \Gamma: \left| x - y \right| \ge \varepsilon}
+  \gamma_{1,x}^{\text{int}} U^{*}(x,y)
+  \gamma_{0}^{\text{int}} \varphi(x)
+   \, d s_x,
+   }_{\eqqcolon \mathcal{C}}
+\end{split}
+\end{equation*}
+其中
+\begin{enumerate}
+  \item $\mathcal{C}$对应伴随双层位势算子$K'$，如式\eqref{eq:bvp-adjoint-double-layer-potential-k}。
+  \item $\mathcal{B}$计算如下
+\begin{equation*}
+  \begin{split}
+    \mathcal{B} &\coloneqq \int_{x \in \Omega: \left| x - y \right| = \varepsilon}
+    \gamma_{1,x}^{\text{int}} U^{*}(x,y) \varphi(x) \, d s_x \\
+    &= \underbrace{
+    \int_{x \in \Omega: \left| x - y \right| = \varepsilon}
+    \gamma_{1,x}^{\text{int}} U^{*}(x,y)
+    \left[ \varphi(x) - \varphi(y) \right] \, d s_x
+    }_{\eqqcolon \mathcal{B}_1}
+    +
+    \varphi(y)
+    \underbrace{
+    \int_{x \in \Omega: \left| x - y \right| = \varepsilon}
+    \gamma_{1,x}^{\text{int}} U^{*}(x,y) \, d s_x
+    }_{\eqqcolon \mathcal{B}_2},
+  \end{split}
+\end{equation*}
+并且
+\begin{equation*}
+  \begin{split}
+    \left\| \mathcal{B} \right\| \le
+    \max_{x \in \Omega: \left| x - y \right| = \varepsilon}
+    \left| \varphi(x) - \varphi(y) \right|
+    \underbrace{
+    \int_{x \in \Omega: \left| x - y \right| = \varepsilon}
+    \left|
+    \gamma_{1,x}^{\text{int}} U^{*}(x,y)
+    \right|
+    d s_x
+    }_{\eqqcolon \mathcal{D}}
+  \end{split}
+\end{equation*}
+\begin{enumerate}
+\item 对于$\mathcal{B}_{1}$，取$\varepsilon \rightarrow 0$时的极值
+\begin{equation*}
+  \lim_{\varepsilon \rightarrow 0} \left| \mathcal{B}_{1} \right| = \lim_{\varepsilon \rightarrow 0}
+  \left|
+  \int_{x \in \Omega: \left| x - y \right| = \varepsilon}
+  \gamma_{1,x}^{\text{int}} U^{*}(x,y)
+  \left[ \varphi(x) - \varphi(y) \right] \, d s_x
+  \right|
+  = 0,
+\end{equation*}
+\item 对于$\mathcal{B}_{2}$，设
+\begin{equation*}
+  n_x \coloneqq \frac{y - x}{\left| y - x \right|}, x \in \Omega, \quad \varepsilon \coloneqq \left| y - x \right| ,
+\end{equation*}
+\begin{equation*}
+  \begin{split}
+    \hookrightarrow
+    \mathcal{B}_{2} &= \int_{x \in \Omega: \left| x - y \right| = \varepsilon}
+    \gamma_{1,x}^{\text{int}} U^{*}(x,y) \, d s_x \\
+    & = - \frac{1}{2(d-1) \pi}
+    \int_{x \in \Omega: \left| x - y \right| = \varepsilon}
+    \frac{
+    (nx, x-y)
+    }{
+    \left| x - y \right|^d
+    }
+    d s_x \\
+    & = \frac{1}{2(d-1) \pi}
+    \int_{x \in \Omega: \left| x - y \right| = \varepsilon}
+    \frac{1}{
+    \left|
+    x - y
+    \right|^{d-1}
+    }
+    d s_x \\
+    & = \frac{1}{2(d-1) \pi}
+    \frac{1}{\varepsilon^{d-1}}
+    \int_{x \in \Omega: \left| x - y \right| = \varepsilon}
+    \, d s_x
+  \end{split}
+\end{equation*}
+\item 分$d=2,3$两种情况来讨论$\mathcal{D}$的值
+\begin{enumerate}
+  \item $d = 2 \Rightarrow$
+  \begin{equation*}
+    \begin{split}
+      \mathcal{D} &\le
+      \int_{x \in \mathcal{R}^2:\left| x - y \right| = \varepsilon}
+      \left|
+      \gamma_{1,x}^{\text{int}} U^{*}(x,y)
+      \right|
+      d s_x \\
+      & = \frac{1}{2\pi}
+      \int_{x \in \mathcal{R}^2:\left| x - y \right| = \varepsilon}
+      \frac{1}{\left| x - y \right|}
+      d s_x = 1,
+    \end{split}
+  \end{equation*}
+  \item $d = 3 \Rightarrow$
+  \begin{equation*}
+    \begin{split}
+      \mathcal{D} &\le
+      \int_{x \in \mathcal{R}^3:\left| x - y \right| = \varepsilon}
+      \left|
+      \gamma_{1,x}^{\text{int}} U^{*}(x,y)
+      \right|
+      d s_x \\
+      & = \frac{1}{4\pi}
+      \int_{x \in \mathcal{R}^3:\left| x - y \right| = \varepsilon}
+      \frac{1}{\left| x - y \right|^2}
+      d s_x = 1.
+    \end{split}
+  \end{equation*}
+\end{enumerate}
+\end{enumerate}
+\item 由此我们可得
+\begin{equation*}
+  \begin{split}
+    &\int_{\Gamma} \gamma_{1}^{\text{int}} u(x) \gamma_{0}^{\text{int}} \varphi(x) \, d s_x \\
+    & = \int_{\Gamma}
+    \left\{
+    \lim_{\varepsilon \rightarrow 0}
+    \int_{x \in \Gamma: \left| x - y \right| \ge \varepsilon}
+    \gamma_{1,x}^{\text{int}}
+    U^{*}(x,y)
+    \gamma_{0}^{\text{int}}
+    \varphi(x)
+    d s_x
+    + \gamma_{0}^{\text{int}}
+    \varphi(y)
+    \sigma(y)
+    \right\}
+    d s_y \\
+    & =
+    \left[
+    \int_{\Gamma}
+    \gamma_{0}^{\text{int}}
+    \varphi(x)
+    \lim_{\varepsilon \rightarrow 0}
+    \int_{x \in \Gamma: \left| x - y \right| \ge \varepsilon}
+    \gamma_{1,x}^{\text{int}}
+    U^{*}(x,y)
+    w(y)
+    d s_y d s_x
+    \right]
+    + \left[
+    \int_{\Gamma}
+    w(y)
+    \sigma(y)
+    \varphi(y)
+    d s_y
+    \right] \\
+    &= \int_{\gamma}
+    \gamma_{0}^{\text{int}} \varphi(x)
+    \left[
+    \sigma(x) w(x) + \left( K' w \right)(x)
+    \right]
+    d s_{x}.
+  \end{split}
+\end{equation*}
+\end{enumerate}
+\end{proof}
+
+
+设$x \in \gamma = \partial \Omega$是可积区间(或至少在$\Gamma$的某一段邻域中可积），此时定义式\eqref{eq:bvp-adjoint-double-layer-potential-sigma}由
+\begin{equation*}
+  \sigma(x) = \frac{1}{2}, \quad \text{对于(几乎所有)} x \in \Gamma.
+\end{equation*}
+
+伴随着单层位势出现的边界积分算子$K'$是伴随双层位势(adjoint double layer potential)\index{potential!adjoint double layer \dotfill 伴随双层位势}。$K'$线性且有界，即
+\begin{equation}
+  \label{eq:bvp-adjdoubleayer-k-property}
+  \left\| K' w \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+  \le c_{2}^{K'} \, \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)}, \quad w \in H^{-\frac{1}{2}(\Gamma)}.
+\end{equation}

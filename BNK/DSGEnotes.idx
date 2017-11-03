@@ -266,7 +266,7 @@
 \indexentry{Fourier transform!rotational symmetries \dotfill 傅里叶变换的旋转对称|hyperpage}{276}
 \indexentry{polar coordinate system \dotfill 极坐标系|hyperpage}{277}
 \indexentry{spherical coordinate system \dotfill 三维坐标系|hyperpage}{277}
-\indexentry{Bessel potential operator \dotfill 贝塞尔位势算子|hyperpage}{278}
+\indexentry{potential!Bessel \dotfill 贝塞尔位势|hyperpage}{278}
 \indexentry{uniform cone condition \dotfill 均匀法锥条件|hyperpage}{279}
 \indexentry{interpolation theorem \dotfill 插值定理|hyperpage}{279}
 \indexentry{chain rule \dotfill 链式法则|hyperpage}{280}
@@ -312,5 +312,13 @@
 \indexentry{Bessel function \dotfill 贝塞尔方程|hyperpage}{316}
 \indexentry{Poisson equation \dotfill 泊松方程|hyperpage}{317}
 \indexentry{Laplace function \dotfill 拉普拉斯方程|hyperpage}{317}
-\indexentry{Newton potential \dotfill 牛顿位势|hyperpage}{317}
+\indexentry{potential!Newton  \dotfill 牛顿位势|hyperpage}{317}
 \indexentry{spherical coordinate system \dotfill 三维坐标系|hyperpage}{319}
+\indexentry{duality pairing \dotfill 对偶配对|hyperpage}{320}
+\indexentry{singular integral!weak \dotfill 弱奇异积分|hyperpage}{321}
+\indexentry{surface integral \dotfill 表面积分|hyperpage}{321}
+\indexentry{potential!single layer \dotfill 单层位势|hyperpage}{323}
+\indexentry{singular integral!weak \dotfill 弱奇异积分|hyperpage}{324}
+\indexentry{surface integral \dotfill 表面积分|hyperpage}{324}
+\indexentry{potential!adjoint double layer \dotfill 伴随双层位势算子|hyperpage}{325}
+\indexentry{potential!adjoint double layer \dotfill 伴随双层位势|hyperpage}{327}

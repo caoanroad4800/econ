@@ -468,8 +468,10 @@ INPUT ./chapters/bem-fem-04-varbvp.tex
 INPUT ./chapters/bem-fem-04-varbvp.tex
 INPUT ./chapters/bem-fem-05-laplaceop.tex
 INPUT ./chapters/bem-fem-05-laplaceop.tex
-INPUT ./chapters/bem-fem-06-boundintop.tex
-INPUT ./chapters/bem-fem-06-boundintop.tex
+INPUT ./chapters/bem-fem-0601-boundintop.tex
+INPUT ./chapters/bem-fem-0601-boundintop.tex
+INPUT ./chapters/bem-fem-0602-boundintop.tex
+INPUT ./chapters/bem-fem-0602-boundintop.tex
 INPUT ./chapters/appendix01.tex
 INPUT ./chapters/appendix01.tex
 INPUT ./chapters/PK.tex

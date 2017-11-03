@@ -20,8 +20,6 @@
     \subitem unidimensional \dotfill 单维基, \hyperpage{182}
   \item basis function \dotfill 基方程, \hyperpage{179}
   \item Bessel function \dotfill 贝塞尔方程, \hyperpage{316}
-  \item Bessel potential operator \dotfill 贝塞尔位势算子, 
-		\hyperpage{278}
   \item Beta distribution \dotfill 贝塔分布, \hyperpage{219}
   \item Beta integral \dotfill 贝塔积分, \hyperpage{199}
   \item bijection \dotfill 双射, \hyperpage{242}
@@ -94,7 +92,8 @@
   \item divergence theorem \dotfill 高斯散度定理, \hyperpage{245}
   \item dual space \dotfill 对偶空间, \hyperpage{260}, 
 		\hyperpage{265}, \hyperpage{281}
-  \item duality pairing \dotfill 对偶配对, \hyperpage{281}
+  \item duality pairing \dotfill 对偶配对, \hyperpage{281}, 
+		\hyperpage{320}
 
   \indexspace
 
@@ -285,7 +284,6 @@
   \item Neumann boundary value condition \dotfill 诺依曼边界值条件, 
 		\hyperpage{247}, \hyperpage{307}
   \item Newton algorithm \dotfill 牛顿算法, \hyperpage{194}
-  \item Newton potential \dotfill 牛顿位势, \hyperpage{317}
   \item node \dotfill 节点, \hyperpage{191}
   \item norm \dotfill 范数, \hyperpage{203}, \hyperpage{240}, 
 		\hyperpage{249}, \hyperpage{252}
@@ -352,6 +350,14 @@
 		\hyperpage{203}
     \subitem orthonormal \dotfill 标准正交多项式, 
 		\hyperpage{203}
+  \item potential
+    \subitem adjoint double layer \dotfill 伴随双层位势, 
+		\hyperpage{327}
+    \subitem adjoint double layer \dotfill 伴随双层位势算子, 
+		\hyperpage{325}
+    \subitem Bessel \dotfill 贝塞尔位势, \hyperpage{278}
+    \subitem Newton  \dotfill 牛顿位势, \hyperpage{317}
+    \subitem single layer \dotfill 单层位势, \hyperpage{323}
   \item powerset \dotfill 幂集, \hyperpage{250}
   \item projection method \dotfill 映射法, \hyperpage{179}
   \item pseudospectral \dotfill 伪光谱, \hyperpage{195}
@@ -422,6 +428,9 @@
     \subitem unnormalized \dotfill 非标准化sinc方程, 
 		\hyperpage{315}
   \item sine integral \dotfill 正弦积分, \hyperpage{314}
+  \item singular integral
+    \subitem weak \dotfill 弱奇异积分, \hyperpage{321}, 
+		\hyperpage{324}
   \item Sobolev space
     \subitem  \dotfill 索伯列夫空间, \hyperpage{238}
   \item Sobolev-Slobodeckij
@@ -442,6 +451,8 @@
 		\hyperpage{182}
   \item subadditivity \dotfill 次可加, \hyperpage{252}
   \item support \dotfill 支撑, \hyperpage{249}
+  \item surface integral \dotfill 表面积分, \hyperpage{321}, 
+		\hyperpage{324}
 
   \indexspace
 

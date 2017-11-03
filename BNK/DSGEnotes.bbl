@@ -1,4 +1,4 @@
-\begin{thebibliography}{233}
+\begin{thebibliography}{236}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -368,6 +368,12 @@
   Stochastic Volatility}}.
 \newblock \bibinfo{journal}{Review of Economic Dynamics}
   \bibinfo{year}{2012};\bibinfo{volume}{15}(\bibinfo{number}{2}):\bibinfo{pages}{188--206}.
+%Type = Book
+\bibitem[{Callahan(2010)}]{Callahan:2010bg}
+\bibinfo{author}{Callahan\xfnm[ J.J.]}.
+\newblock \bibinfo{title}{{Advanced Calculus: A Geometric View}}.
+\newblock Undergraduate Texts in Mathematics. \bibinfo{address}{New York, NY}:
+  \bibinfo{publisher}{Springer New York}, \bibinfo{year}{2010}.
 %Type = Article
 \bibitem[{Calvo(1983{\natexlab{a}})}]{Calvo:1983uqa}
 \bibinfo{author}{Calvo\xfnm[ G.A.]}.
@@ -1315,6 +1321,14 @@
   Spaces, Hilbert Spaces, and Banach Algebras}}.
 \newblock \bibinfo{address}{Cham}: \bibinfo{publisher}{Springer},
   \bibinfo{year}{2014}.
+%Type = Book
+\bibitem[{Neri(1971)}]{Neri:1971bg}
+\bibinfo{author}{Neri\xfnm[ U.]}.
+\newblock \bibinfo{title}{{Singular Integrals}}.
+\newblock volume \bibinfo{volume}{200} of \textit{\bibinfo{series}{Lecture
+  Notes in Mathematics}}.
+\newblock \bibinfo{address}{Berlin, Heidelberg}: \bibinfo{publisher}{Springer
+  Berlin Heidelberg}, \bibinfo{year}{1971}.
 %Type = Article
 \bibitem[{Obstfeld and Rogoff(1995)}]{Obstfeld:1995jp}
 \bibinfo{author}{Obstfeld\xfnm[ M.]}, \bibinfo{author}{Rogoff\xfnm[ K.]}.
@@ -1628,6 +1642,15 @@
 \newblock In: \bibinfo{booktitle}{Computational Methods for the Study of
   Dynamic Economies}. \bibinfo{publisher}{OUP Oxford}; \bibinfo{year}{1999}. p.
   \bibinfo{pages}{30--61}.
+%Type = Book
+\bibitem[{Vainikko(1993)}]{Vainikko:1993dw}
+\bibinfo{author}{Vainikko\xfnm[ G.]}.
+\newblock \bibinfo{title}{{Multidimensional Weakly Singular Integral
+  Equations}}.
+\newblock volume \bibinfo{volume}{1549} of \textit{\bibinfo{series}{Lecture
+  Notes in Mathematics}}.
+\newblock \bibinfo{address}{Berlin, Heidelberg}: \bibinfo{publisher}{Springer
+  Berlin Heidelberg}, \bibinfo{year}{1993}.
 %Type = Book
 \bibitem[{Vladimirov(1971)}]{Vladimirov:1971ti}
 \bibinfo{author}{Vladimirov\xfnm[ V.S.]}.

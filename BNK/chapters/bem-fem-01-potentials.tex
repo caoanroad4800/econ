@@ -89,13 +89,12 @@
 \begin{equation*}
   a\left(\nu,u \right) = \int_{\Omega} \left( L \, \nu \right)(x) \, u(x) \, dx + \int_{\Gamma} \left[ \gamma_1^{int} \nu(x) \right] \left[ \gamma_0^{int} u(x) \right] \, d s_x,
 \end{equation*}
-由上式和\eqref{eq:bvp-a-u-nu-inner-prod}我们有格林第二恒等式(Green's second identity)\index{Green identities!second 格林第二恒等式}: $\forall u,\nu \in \Omega$且$u,\nu$足够平滑
+由上式和\eqref{eq:bvp-a-u-nu-inner-prod}我们有格林第二恒等式(Green's second identity)\index{Green identities!second 格林第二恒等式}: $a(u,\nu) = a(\nu,u) \leftrightarrow$
 \begin{equation}
   \label{eq:bvp-a-nu-u-green-2nd-identity}
   \begin{split}
-    &a(u,\nu) = a(\nu,u) \Longleftrightarrow \\
-    &\int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx + \int_{\Gamma} \left[ \gamma_1^{int} u(x) \right] \left[ \gamma_0^{int} \nu(x) \right] \, d s_x
-    = \int_{\Omega} \left( L \, \nu \right)(x) \, u(x) \, dx + \int_{\Gamma} \left[ \gamma_1^{int} \nu(x) \right] \left[ \gamma_0^{int} u(x) \right] \, d s_x
+    &\int_{\Omega} \left( L \, u \right)(x) \, \nu(x) \, dx + \int_{\Gamma} \left[ \gamma_1^{int} u(x) \right] \left[ \gamma_0^{int} \nu(x) \right] \, d s_x \\
+    &= \int_{\Omega} \left( L \, \nu \right)(x) \, u(x) \, dx + \int_{\Gamma} \left[ \gamma_1^{int} \nu(x) \right] \left[ \gamma_0^{int} u(x) \right] \, d s_x, \quad \forall \, u,\nu \in \Omega, \text{且}u,\nu\text{足够平滑}.
   \end{split}
 \end{equation}
 
