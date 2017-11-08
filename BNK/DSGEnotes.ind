@@ -34,6 +34,7 @@
   \indexspace
 
   \item cardinality \dotfill 势, \hyperpage{251}
+  \item Cauchy principal value \dotfill 柯西主值, \hyperpage{331}
   \item Cauchy sequnce \dotfill 柯西序列, \hyperpage{242}
   \item Cauchy-Schwarz inequality \dotfill 柯西——施瓦茨不等式, 
 		\hyperpage{260}
@@ -45,6 +46,7 @@
 		\hyperpage{206}
   \item Chu-Vandermonde summation \dotfill 朱世杰——范德蒙德求和公式, 
 		\hyperpage{200}, \hyperpage{221}
+  \item closed curve \dotfill 闭曲线, \hyperpage{333}
   \item closed range theorem \dotfill 闭值域定理, \hyperpage{290}
   \item coercive form \dotfill 强制形式, \hyperpage{240}
   \item collocation
@@ -110,6 +112,8 @@
   \item extended real number line \dotfill 扩展实数线, 
 		\hyperpage{251}
   \item exterior algebra \dotfill 外代数, \hyperpage{245}
+  \item exterior normal vector \dotfill 外部法向量, 
+		\hyperpage{332}
 
   \indexspace
 
@@ -356,6 +360,7 @@
     \subitem adjoint double layer \dotfill 伴随双层位势算子, 
 		\hyperpage{325}
     \subitem Bessel \dotfill 贝塞尔位势, \hyperpage{278}
+    \subitem double layer \dotfill 双层位势算子, \hyperpage{328}
     \subitem Newton  \dotfill 牛顿位势, \hyperpage{317}
     \subitem single layer \dotfill 单层位势, \hyperpage{323}
   \item powerset \dotfill 幂集, \hyperpage{250}
@@ -374,6 +379,7 @@
   \item rapidly decreasing function \dotfill 急减方程, 
 		\hyperpage{276}
   \item rapidly decreasing space \dotfill 急减空间, \hyperpage{276}
+  \item reference element \dotfill 参考元, \hyperpage{335}
   \item residual function (projection method) \index{残差方程(映射法)}, 
 		\hyperpage{179}
   \item Riemann-Stieltjes integral \dotfill 黎曼——斯蒂尔杰斯积分, 
@@ -398,6 +404,7 @@
 		\hyperpage{227}
     \subitem the second kind Chebyshev polynomial \dotfill 罗德里格斯公式(第二类切比雪夫多项式), 
 		\hyperpage{227}
+  \item rotation \dotfill 旋转, \hyperpage{332}, \hyperpage{335}
 
   \indexspace
 

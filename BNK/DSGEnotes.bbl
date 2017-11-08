@@ -1,4 +1,4 @@
-\begin{thebibliography}{236}
+\begin{thebibliography}{240}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -122,6 +122,13 @@
   Models: Theory and Empirical Applications}}.
 \newblock \bibinfo{type}{Technical Report} \bibinfo{number}{2016-07};
   \bibinfo{year}{2016}.
+%Type = Book
+\bibitem[{Ang(2013)}]{Ang:2013vv}
+\bibinfo{author}{Ang\xfnm[ W.T.]}.
+\newblock \bibinfo{title}{{Hypersingular Integral Equations in Fracture
+  Analysis }}.
+\newblock \bibinfo{address}{Cambridge}: \bibinfo{publisher}{Woodhead
+  Publishing}, \bibinfo{year}{2013}.
 %Type = Book
 \bibitem[{Angrist and Pischke(2008)}]{Angrist:2008vkb}
 \bibinfo{author}{Angrist\xfnm[ J.D.]}, \bibinfo{author}{Pischke\xfnm[ J.S.]}.
@@ -537,6 +544,13 @@
 \newblock \bibinfo{title}{{Frontiers of Business Cycle Research}}.
 \newblock \bibinfo{publisher}{Princeton University Press},
   \bibinfo{year}{1995}.
+%Type = Book
+\bibitem[{Dautray and Lions(1990)}]{Dautray:1990hc}
+\bibinfo{author}{Dautray\xfnm[ R.]}, \bibinfo{author}{Lions\xfnm[ J.L.]}.
+\newblock \bibinfo{title}{{Mathematical Analysis and Numerical Methods for
+  Science and Technology:Volume 4 Integral Equations and Numerical Methods}}.
+\newblock \bibinfo{address}{Berlin, Heidelberg}: \bibinfo{publisher}{Springer},
+  \bibinfo{year}{1990}.
 %Type = Booklet
 \bibitem[{De~Walque et~al.(2006)De~Walque, Smets and Wouters}]{DeWalque:2006wf}
 \bibinfo{author}{De~Walque\xfnm[ G.]}, \bibinfo{author}{Smets\xfnm[ F.]},
@@ -824,6 +838,15 @@
   non-separability and heterogeneous labor supply}}.
 \newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
   \bibinfo{year}{2008};\bibinfo{volume}{32}(\bibinfo{number}{11}):\bibinfo{pages}{3613--3630}.
+%Type = Article
+\bibitem[{Guiggiani et~al.(1992)Guiggiani, Krishnasamy, Rudolphi and
+  Rizzo}]{Guiggiani:1992cm}
+\bibinfo{author}{Guiggiani\xfnm[ M.]}, \bibinfo{author}{Krishnasamy\xfnm[ G.]},
+  \bibinfo{author}{Rudolphi\xfnm[ T.J.]}, \bibinfo{author}{Rizzo\xfnm[ F.J.]}.
+\newblock \bibinfo{title}{{A General Algorithm for the Numerical Solution of
+  Hypersingular Boundary Integral Equations}}.
+\newblock \bibinfo{journal}{Journal of Applied Mechanics}
+  \bibinfo{year}{1992};\bibinfo{volume}{59}(\bibinfo{number}{3}):\bibinfo{pages}{604--614}.
 %Type = Article
 \bibitem[{Hansen(1985)}]{Hansen:1985ku}
 \bibinfo{author}{Hansen\xfnm[ G.D.]}.
@@ -1174,6 +1197,14 @@
 \newblock \bibinfo{title}{{Fifth-Order Perturbation Solution to DSGE Models}}.
 \newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
   \bibinfo{year}{2017};\bibinfo{volume}{80}:\bibinfo{pages}{1--16}.
+%Type = Book
+\bibitem[{Lifanov et~al.(2003)Lifanov, Poltavskii and
+  Vainikko}]{Lifanov:2003va}
+\bibinfo{author}{Lifanov\xfnm[ I.K.]}, \bibinfo{author}{Poltavskii\xfnm[
+  L.N.]}, \bibinfo{author}{Vainikko\xfnm[ M.G.M.]}.
+\newblock \bibinfo{title}{{Hypersingular Integral Equations and Their
+  Applications}}.
+\newblock \bibinfo{publisher}{CRC Press}, \bibinfo{year}{2003}.
 %Type = Book
 \bibitem[{Ljungqvist and Sargent(2004)}]{Ljungqvist:2004vz}
 \bibinfo{author}{Ljungqvist\xfnm[ L.]}, \bibinfo{author}{Sargent\xfnm[ T.J.]}.
