@@ -33,6 +33,9 @@
 
   \indexspace
 
+  \item Calderón projection \dotfill 卡尔德隆投影, 
+		\hyperpage{338}
+  \item capacity \dotfill 容度, \hyperpage{343}
   \item cardinality \dotfill 势, \hyperpage{251}
   \item Cauchy principal value \dotfill 柯西主值, \hyperpage{331}
   \item Cauchy sequnce \dotfill 柯西序列, \hyperpage{242}
@@ -285,6 +288,7 @@
 
   \indexspace
 
+  \item natural density \dotfill 自然密度, \hyperpage{343}
   \item Neumann boundary value condition \dotfill 诺依曼边界值条件, 
 		\hyperpage{247}, \hyperpage{307}
   \item Newton algorithm \dotfill 牛顿算法, \hyperpage{194}

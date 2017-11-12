@@ -1,4 +1,4 @@
-\begin{thebibliography}{240}
+\begin{thebibliography}{242}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -946,6 +946,13 @@
   Operators IV: Fourier Integral Operators}}.
 \newblock Classics in Mathematics. \bibinfo{address}{Berlin, Heidelberg}:
   \bibinfo{publisher}{Springer}, \bibinfo{year}{1994}{\natexlab{b}}.
+%Type = Article
+\bibitem[{Hsiao and Wendland(1977)}]{Hsiao:1977vf}
+\bibinfo{author}{Hsiao\xfnm[ G.C.]}, \bibinfo{author}{Wendland\xfnm[ W.L.]}.
+\newblock \bibinfo{title}{{A Finite Element Method for Some Integral Equations
+  of the First Kind}}.
+\newblock \bibinfo{journal}{Journal of Mathematical Analysis and Applications}
+  \bibinfo{year}{1977};\bibinfo{volume}{58}:\bibinfo{pages}{449--481}.
 %Type = Book
 \bibitem[{Hughes(2000)}]{Hughes:2000ve}
 \bibinfo{author}{Hughes\xfnm[ T.J.]}.
@@ -1485,6 +1492,11 @@
   and Challenges}}.
 \newblock \bibinfo{journal}{Federal Researve Bank of Philadelphia Working
   Paper} \bibinfo{year}{2011};.
+%Type = Book
+\bibitem[{Seber and Lee(2003)}]{Seber:2003wu}
+\bibinfo{author}{Seber\xfnm[ G.A.F.]}, \bibinfo{author}{Lee\xfnm[ A.J.]}.
+\newblock \bibinfo{title}{{Linear Regression Analysis}}.
+\newblock \bibinfo{publisher}{John Wiley {\&} Sons}, \bibinfo{year}{2003}.
 %Type = Book
 \bibitem[{Shen et~al.(2011)Shen, Tang and Wang}]{Shen:2011tf}
 \bibinfo{author}{Shen\xfnm[ J.]}, \bibinfo{author}{Tang\xfnm[ T.]},
