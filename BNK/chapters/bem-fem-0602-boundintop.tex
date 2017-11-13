@@ -1,1 +1,48 @@
 %!TEX root = ../DSGEnotes.tex
+\subsection{超奇异边界积分算子的椭圆性}
+\label{sec:bvp-bie-hyper-ellipticity}
+
+第\ref{sec:bvp-hyperbie-operator}节介绍了超奇异边界积分算子$D$。由\eqref{eq:bvp-hyper-bie-D-u0-equiv0}可得，若引入特征解(eigensolution) $u_{0} \equiv 1, x \in \Gamma$，那么$\left( D u_{0}  \right) (x) = 0$。可见我们无法保证超奇异边界积分算子$D$在$H^{\frac{1}{2}}(\Gamma)$中全部都是椭圆的，而只是半椭圆(semi-ellipticity)\index{ellipticity!semi \dotfill 半椭圆性}的。在本节中，首先我们介绍半椭圆性。随后介绍替代方案：在$H^{\frac{1}{2}}(\Gamma)$中构建满足椭圆特征的子空间，两种常见的子空间如下文所示。
+
+\subsubsection{超奇异边界积分算子的半椭圆性}
+\label{sec:bvp-bie-hyper-semi-ellipticity}
+
+\begin{theorem}[超奇异边界积分算子的半椭圆性]
+  超奇异边界积分算子$D$是半椭圆的，即
+  \begin{equation*}
+    \langle D \nu, \nu \rangle_{\Gamma} \ge c_{1}^{\text{D}} \,
+    \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}, \quad \forall \, \nu \in H_{*}^{\frac{1}{2}}(\Gamma).
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  第一。对于$\nu \in H_{*}^{\frac{1}{2}}(\Gamma)$，考虑齐次偏微分方程的解$u(x)$可以表示为如下双层位势
+  \begin{equation*}
+    u(x) \coloneqq - \left( W u \right)(x) , \quad x \in \Omega \cup \Omega{c}.
+  \end{equation*}
+
+  对于$x \in \Gamma$，$u(x)$的迹算子和共法导数算子以伴随双层位势的形式表示如下
+  \begin{equation*}
+    \begin{cases}
+      \gamma_{0}^{\text{int}} u(x) = \left( 1 - \sigma(x) \right)
+      \nu(x) - \left( K \nu \right)(x), \\
+      \gamma_{1}^{\text{int}} u(x) = \left( D \nu \right) (x), \quad x \in \Gamma,
+    \end{cases}
+  \end{equation*}
+  \begin{equation*}
+    \begin{cases}
+      \gamma_{0}^{\text{ext}} u(x) = - \sigma(x)
+      \nu(x) - \left( K \nu \right)(x), \\
+      \gamma_{1}^{\text{ext}} u(x) = \left( D \nu \right) (x), \quad x \in \Gamma.
+    \end{cases}
+  \end{equation*}
+
+第二。
+
+
+
+
+
+
+
+
+\end{proof}

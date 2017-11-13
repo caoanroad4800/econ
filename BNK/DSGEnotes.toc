@@ -407,42 +407,44 @@
 \contentsline {subsection}{\numberline {12.6.7}单层位势算子的椭圆性和可逆性}{339}{subsection.12.6.7}
 \contentsline {subsubsection}{鞍点变分问题求证椭圆性}{342}{subsubsection*.172}
 \contentsline {subsubsection}{单层位势算子的可逆性}{344}{subsubsection*.174}
-\contentsline {part}{第三部分\hspace {1em}模型估计}{345}{part.3}
-\contentsline {part}{第四部分\hspace {1em}附录}{347}{part.4}
-\contentsline {chapter}{Appendices}{}{section*.175}
-\contentsline {chapter}{附录 \numberline {第一章\hspace {.3em}}Medium-Sized DSGE模型的附录}{351}{附录.c.A}
-\contentsline {section}{\numberline {A.1}scaled variables}{351}{section.c.A.1}
-\contentsline {subsection}{\numberline {A.1.1}几个没写完的说明}{352}{subsection.c.A.1.1}
-\contentsline {section}{\numberline {A.2}Frisch elasticity of labor supply}{352}{section.c.A.2}
-\contentsline {subsection}{\numberline {A.2.1}定义}{352}{subsection.c.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}举例}{353}{subsection.c.A.2.2}
-\contentsline {section}{\numberline {A.3}调节成本的常见设定形式及比较}{353}{section.c.A.3}
-\contentsline {subsection}{\numberline {A.3.1}家庭部门优化条件}{354}{subsection.c.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}比较线性和非线性调节成本}{355}{subsection.c.A.3.2}
-\contentsline {subsection}{\numberline {A.3.3}比较投资调节成本和资本调节成本}{355}{subsection.c.A.3.3}
-\contentsline {chapter}{附录 \numberline {第二章\hspace {.3em}}Post-Keynesian Economics的一个小综述}{357}{附录.c.B}
-\contentsline {section}{\numberline {B.1}Introduction}{357}{section.c.B.1}
-\contentsline {section}{\numberline {B.2}PK的主要方法论}{357}{section.c.B.2}
-\contentsline {section}{\numberline {B.3}PK下的市场结构与定价}{357}{section.c.B.3}
-\contentsline {subsection}{\numberline {B.3.1}PK下的市场结构}{357}{subsection.c.B.3.1}
-\contentsline {subsection}{\numberline {B.3.2}PK下的定价策略}{357}{subsection.c.B.3.2}
-\contentsline {section}{\numberline {B.4}PK下的宏观经济}{357}{section.c.B.4}
-\contentsline {section}{\numberline {B.5}PK视野下的经济政策}{358}{section.c.B.5}
-\contentsline {chapter}{附录 \numberline {第三章\hspace {.3em}}Keynesian, New Keynesian and New Classical Economics}{359}{附录.c.C}
-\contentsline {section}{\numberline {C.1}Keynesian的四个核心}{359}{section.c.C.1}
-\contentsline {subsection}{\numberline {C.1.1}失业与有效工资理论}{359}{subsection.c.C.1.1}
-\contentsline {subsection}{\numberline {C.1.2}价格变化与经济波动}{360}{subsection.c.C.1.2}
-\contentsline {subsection}{\numberline {C.1.3}储蓄与投资，信贷配给}{361}{subsection.c.C.1.3}
-\contentsline {subsection}{\numberline {C.1.4}供应与技术进步}{361}{subsection.c.C.1.4}
-\contentsline {section}{\numberline {C.2}New Keynesian经济学的四个核心}{361}{section.c.C.2}
-\contentsline {subsection}{\numberline {C.2.1}有效工资}{361}{subsection.c.C.2.1}
-\contentsline {subsection}{\numberline {C.2.2}资产配给}{361}{subsection.c.C.2.2}
-\contentsline {subsection}{\numberline {C.2.3}信贷配给}{361}{subsection.c.C.2.3}
-\contentsline {subsection}{\numberline {C.2.4}货币政策}{362}{subsection.c.C.2.4}
-\contentsline {subsection}{\numberline {C.2.5}小结}{362}{subsection.c.C.2.5}
-\contentsline {section}{\numberline {C.3}凯恩斯的不足}{362}{section.c.C.3}
-\contentsline {subsection}{\numberline {C.3.1}债券和股票的区别}{363}{subsection.c.C.3.1}
-\contentsline {subsection}{\numberline {C.3.2}需求和供应}{363}{subsection.c.C.3.2}
-\contentsline {subsection}{\numberline {C.3.3}投资的决定因素}{363}{subsection.c.C.3.3}
-\contentsline {subsection}{\numberline {C.3.4}货币政策}{364}{subsection.c.C.3.4}
-\contentsline {section}{\numberline {C.4}小结}{364}{section.c.C.4}
+\contentsline {subsection}{\numberline {12.6.8}超奇异边界积分算子的椭圆性}{345}{subsection.12.6.8}
+\contentsline {subsubsection}{超奇异边界积分算子的半椭圆性}{345}{subsubsection*.175}
+\contentsline {part}{第三部分\hspace {1em}模型估计}{347}{part.3}
+\contentsline {part}{第四部分\hspace {1em}附录}{349}{part.4}
+\contentsline {chapter}{Appendices}{}{section*.176}
+\contentsline {chapter}{附录 \numberline {第一章\hspace {.3em}}Medium-Sized DSGE模型的附录}{353}{附录.c.A}
+\contentsline {section}{\numberline {A.1}scaled variables}{353}{section.c.A.1}
+\contentsline {subsection}{\numberline {A.1.1}几个没写完的说明}{354}{subsection.c.A.1.1}
+\contentsline {section}{\numberline {A.2}Frisch elasticity of labor supply}{354}{section.c.A.2}
+\contentsline {subsection}{\numberline {A.2.1}定义}{354}{subsection.c.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}举例}{355}{subsection.c.A.2.2}
+\contentsline {section}{\numberline {A.3}调节成本的常见设定形式及比较}{355}{section.c.A.3}
+\contentsline {subsection}{\numberline {A.3.1}家庭部门优化条件}{356}{subsection.c.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}比较线性和非线性调节成本}{357}{subsection.c.A.3.2}
+\contentsline {subsection}{\numberline {A.3.3}比较投资调节成本和资本调节成本}{357}{subsection.c.A.3.3}
+\contentsline {chapter}{附录 \numberline {第二章\hspace {.3em}}Post-Keynesian Economics的一个小综述}{359}{附录.c.B}
+\contentsline {section}{\numberline {B.1}Introduction}{359}{section.c.B.1}
+\contentsline {section}{\numberline {B.2}PK的主要方法论}{359}{section.c.B.2}
+\contentsline {section}{\numberline {B.3}PK下的市场结构与定价}{359}{section.c.B.3}
+\contentsline {subsection}{\numberline {B.3.1}PK下的市场结构}{359}{subsection.c.B.3.1}
+\contentsline {subsection}{\numberline {B.3.2}PK下的定价策略}{359}{subsection.c.B.3.2}
+\contentsline {section}{\numberline {B.4}PK下的宏观经济}{359}{section.c.B.4}
+\contentsline {section}{\numberline {B.5}PK视野下的经济政策}{360}{section.c.B.5}
+\contentsline {chapter}{附录 \numberline {第三章\hspace {.3em}}Keynesian, New Keynesian and New Classical Economics}{361}{附录.c.C}
+\contentsline {section}{\numberline {C.1}Keynesian的四个核心}{361}{section.c.C.1}
+\contentsline {subsection}{\numberline {C.1.1}失业与有效工资理论}{361}{subsection.c.C.1.1}
+\contentsline {subsection}{\numberline {C.1.2}价格变化与经济波动}{362}{subsection.c.C.1.2}
+\contentsline {subsection}{\numberline {C.1.3}储蓄与投资，信贷配给}{363}{subsection.c.C.1.3}
+\contentsline {subsection}{\numberline {C.1.4}供应与技术进步}{363}{subsection.c.C.1.4}
+\contentsline {section}{\numberline {C.2}New Keynesian经济学的四个核心}{363}{section.c.C.2}
+\contentsline {subsection}{\numberline {C.2.1}有效工资}{363}{subsection.c.C.2.1}
+\contentsline {subsection}{\numberline {C.2.2}资产配给}{363}{subsection.c.C.2.2}
+\contentsline {subsection}{\numberline {C.2.3}信贷配给}{363}{subsection.c.C.2.3}
+\contentsline {subsection}{\numberline {C.2.4}货币政策}{364}{subsection.c.C.2.4}
+\contentsline {subsection}{\numberline {C.2.5}小结}{364}{subsection.c.C.2.5}
+\contentsline {section}{\numberline {C.3}凯恩斯的不足}{364}{section.c.C.3}
+\contentsline {subsection}{\numberline {C.3.1}债券和股票的区别}{365}{subsection.c.C.3.1}
+\contentsline {subsection}{\numberline {C.3.2}需求和供应}{365}{subsection.c.C.3.2}
+\contentsline {subsection}{\numberline {C.3.3}投资的决定因素}{365}{subsection.c.C.3.3}
+\contentsline {subsection}{\numberline {C.3.4}货币政策}{366}{subsection.c.C.3.4}
+\contentsline {section}{\numberline {C.4}小结}{366}{section.c.C.4}
