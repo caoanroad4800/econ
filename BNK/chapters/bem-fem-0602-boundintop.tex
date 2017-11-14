@@ -1,300 +1,1871 @@
 %!TEX root = ../DSGEnotes.tex
-\subsection{超奇异边界积分算子的椭圆性}
-\label{sec:bvp-bie-hyper-ellipticity}
 
-第\ref{sec:bvp-hyperbie-operator}节介绍了超奇异边界积分算子$D$。由\eqref{eq:bvp-hyper-bie-D-u0-equiv0}可得，若引入特征解(eigensolution) $u_{0} \equiv 1, x \in \Gamma$，那么$\left( D u_{0}  \right) (x) = 0$。可见我们无法保证超奇异边界积分算子$D$在$H^{\frac{1}{2}}(\Gamma)$中全部都是椭圆的，而只是半椭圆(semi-ellipticity)\index{ellipticity!semi \dotfill 半椭圆性}的。在本节中，首先我们介绍半椭圆性。随后介绍替代方案：在$H^{\frac{1}{2}}(\Gamma)$中构建满足椭圆特征的子空间，两种常见的子空间如下文所示。
+\subsection{超奇异边界积分算子}
+\label{sec:bvp-hyperbie-operator}
 
-\subsubsection{超奇异边界积分算子的半椭圆性}
-\label{sec:bvp-bie-hyper-semi-ellipticity}
-
-\begin{theorem}[超奇异边界积分算子的半椭圆性]
-\label{theorem:bvp-bie-hyper-semi-ellipticity}
-  超奇异边界积分算子$D$是半椭圆的，即
-  \begin{equation*}
-    \langle D \nu, \nu \rangle_{\Gamma} \ge c_{1}^{\text{D}} \,
-    \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}, \quad \forall \, \nu \in H_{*}^{\frac{1}{2}}(\Gamma).
-  \end{equation*}
-\end{theorem}
-\begin{proof}
-  \begin{enumerate}
-  \item 对于$\nu \in H_{*}^{\frac{1}{2}}(\Gamma)$，考虑齐次偏微分方程的解$u(x)$可以表示为如下双层位势
-  \begin{equation*}
-    u(x) \coloneqq - \left( W u \right)(x) , \quad x \in \Omega \cup \Omega{c}.
-  \end{equation*}
-
-  对于$x \in \Gamma$，$u(x)$的迹算子和共法导数算子以伴随双层位势的形式表示如下
-  \begin{equation*}
-    \begin{cases}
-      \gamma_{0}^{\text{int}} u(x) = \left( 1 - \sigma(x) \right)
-      \nu(x) - \left( K \nu \right)(x), \\
-      \gamma_{1}^{\text{int}} u(x) = \left( D \nu \right) (x), \quad x \in \Gamma,
-    \end{cases}
-  \end{equation*}
-  \begin{equation*}
-    \begin{cases}
-      \gamma_{0}^{\text{ext}} u(x) = - \sigma(x)
-      \nu(x) - \left( K \nu \right)(x), \\
-      \gamma_{1}^{\text{ext}} u(x) = \left( D \nu \right) (x), \quad x \in \Gamma.
-    \end{cases}
-  \end{equation*}
-
-\item 由此可见，方程$u = -W u$构成内界狄利克雷边界值问题的唯一解
+由第\ref{sec:bvp-double-layer-potential}节关于双层位势的介绍可见，给定密度方程$\nu \in H^{\frac{1}{2}}(\Gamma)$，它的双层位势$\left( W \nu \right)$的余法向导数(conormal derivative)$\gamma_{1}^{\text{int}}\left( W \nu \right)(x)$定义了一个有界算子
 \begin{equation*}
-  \begin{cases}
-    - \Delta u(x) = 0 & x \in \Gamma, \\
-    \gamma_{0}^{\text{int}} u(x) = \left( 1- \sigma(x) \right)\nu(x) - \left( K \nu \right)(x) & x \in \Gamma.
-  \end{cases}
+  \gamma_{1}^{\text{int}} W : H^{\frac{1}{2}}(\Gamma) \mapsto H^{- \frac{1}{2}}(\Gamma),
 \end{equation*}
+可表示为
+\begin{equation}
+  \label{eq:bvp-hypersingular-bie-def}
+  \left( D \nu \right)(x) \coloneqq - \gamma_{1}^{\text{int}}\left( W \nu \right)(x)
+  = - \lim_{\Omega \ni \widetilde{x} \rightarrow x \in \Gamma}
+  n_x \triangledown_{\widetilde{x}} \left( W \nu \right)(\widetilde{x}), \quad x \in Gamma,
+\end{equation}
+满足
+\begin{equation}
+  \label{eq:bvp-hypersingular-bie-norm}
+  \left\| D \nu \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+  \le c_2^{D} \, \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}, \quad \nu \in H^{\frac{1}{2}}(\Gamma).
+\end{equation}
 
-由格林第一恒等式\eqref{eq:bvp-a-u-nu-inner-prod}可得，解$u(x)$满足如下关系
-\begin{equation*}
-  \int_{\Gamma} \triangledown u(x) \triangledown w(x) \, d x
-  = \langle \gamma_{1}^{\text{int}} u, \gamma_{0}^{\text{int}} w \rangle_{\Gamma}, \quad \forall \, w \in H^{1}(\Omega).
-\end{equation*}
-
-\item 设一个包围$\Omega$的球体$B_{R}(y_0)$，以$y_0 \in \Omega$为圆心，以$R > 2 \diam(\Omega)$为半径。即$\Omega \subset B_{R}(y_0)$。那么$u = - W u$同时也是以下狄利克雷边界值问题的唯一解
-\begin{equation*}
-  \begin{cases}
-    - \Delta u(x) = 0 & x \in B_{R}(y_0)\backslash \overline{\Omega}, \\
-    \gamma_{0}^{\text{ext}} u(x) = - \sigma(x) \nu(x) - \left(K \nu \right)(x) & x \in \Gamma = \partial \Omega,\\
-    \gamma_{0} u(x) = \gamma_{0}^{\text{int}} u(x) + \gamma_{0}^{\text{ext}} u(x) = - \left( W \nu \right)(x) & x \in \partial B_{r}(y_0).
-  \end{cases}
-\end{equation*}
-
-根据格林第一恒等式可得\eqref{eq:bvp-a-u-nu-inner-prod}可得，解$u(x)$表示为如下双线性形式
-\begin{equation*}
-  \int_{B_{R}(y_0) \backslash \overline{\Omega}}
-  \triangledown u(x) \triangledown w(x) \, d x
-  = - \langle
-  \gamma_{1}^{\text{ext}} u, \gamma_{0}^{\text{ext}} w
-  \rangle_{\Gamma}
-  + \langle \gamma_{1} u, \gamma_{0} w \rangle_{\partial B_{r}(y_0)}, \quad \forall \, w \in H^{1}(B_{R}(y_0) \backslash \overline{\Omega}).
-\end{equation*}
-
+具体说来，由\eqref{eq:bvp-hypersingular-bie-def}可见
 \begin{enumerate}
-  \item 对于$x \in \Gamma$，根据定义有
-  \begin{equation*}
-    u(x) = \frac{1}{2 \left( d - 1 \right) \pi }
-    \int_{\Gamma}
-    \frac{
-    \left( y - x, n_y \right)
-    }{
-    \left| x - y \right|^{d}
-    }
-    \nu(y) \, d s_y.
-  \end{equation*}
-  \item 对于 $x \in \partial B_{R}(y_0)$，有
-  \begin{equation*}
-    \begin{split}
-      \left| u(x) \right| \le c_{1}(\nu) \, R^{1-d}, \\
-      \left| \triangledown u(x) \right| \le c_{2}(\nu) R^{-d}.
-    \end{split}
-  \end{equation*}
+\item 对于$d=2$的二维系统，双层位势表示为
+\begin{equation}
+  \label{eq:bvp-hyper-bie-d2}
+  \left( W \nu \right)(\widetilde{x}) =
+  \frac{1}{2 \pi} \lim_{\varepsilon \rightarrow 0}
+  \int_{y \in \Gamma: \left| y -x \right| \ge \varepsilon}
+  \frac{\left( \widetilde{x} - y, n_y \right)}{\left| \widetilde{x} - y \right|^2} \nu(y) d s_y, \quad \widetilde{x} \in \Omega.
+\end{equation}
+
+对于任一给定的$\varepsilon > 0$，我们取极限值$\Omega \ni \widetilde{x} \rightarrow  x \in \Gamma$，将\eqref{eq:bvp-hyper-bie-d2}对$\widetilde{x}$求偏导，代入\eqref{eq:bvp-hypersingular-bie-def}得
+\begin{equation}
+  \label{eq:bvp-hyper-bie-double-potential-d2}
+  \left( D_{\varepsilon} \nu \right)(x)
+  = \frac{1}{2 \pi}
+  \lim_{\varepsilon \rightarrow 0}
+  \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+  \left[
+  - \frac{\left( n_x, n_y \right)}{\left| x - y \right|^2}
+  + 2 \frac{
+  \left( x - y, n_x \right)
+  \left( x - y, n_y \right)
+  }{
+  \left| x - y \right|^4
+  }
+  \right]
+  \nu(y) \, d s_y.
+\end{equation}
+
+\item 类似地，对于$d=3$的三维系统，可得
+\begin{equation}
+  \label{eq:bvp-hyper-bie-double-potential-d3}
+  \left( D_{\varepsilon} \nu \right)(x)
+  = \frac{1}{4 \pi}
+  \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+  \left[
+  - \frac{\left( n_x, n_y \right)}{\left| x - y \right|^{3}}
+  + 3 \frac{
+  \left( y - x, n_x \right)
+  \left( y - x, n_y \right)
+  }{
+  \left| x - y \right|^{5}
+  }
+  \right]
+  \nu(y) \, d s_y.
+\end{equation}
 \end{enumerate}
 
-那么选取$w = u = - W \nu$，取极限$\lim R \rightarrow \infty$，可得外界域中的格林第一恒等式
+然而，无论是二维系统\eqref{eq:bvp-hyper-bie-double-potential-d2}还是三维系统\eqref{eq:bvp-hyper-bie-double-potential-d3}的情况，极限$\varepsilon \rightarrow 0, x \in \Gamma$下的积分都不存在柯西主值(Cauchy principal value)\index{Cauchy principal value \dotfill 柯西主值}。我们将此类算子$D$称为超奇异边界积分算子(hypersingular boundary integral operator)，作为柯西积分(Cauchy integral)的一个扩展\footnote{关于超奇异边界积分方程(hypersingular boundary integral equation)，一个简要介绍可见\cite[Ch.9]{Mason:2003tc}，更多介绍可见\cite{Lifanov:2003va, Ang:2013vv}，数值近似算法的探讨可见\cite{Guiggiani:1992cm}。}。
+
+在不存在柯西主值的情况下，为了求得$D$的线性表现式，往往需引入一些正则设定，如将$u_{0}(x) \equiv 1 $引入泊松方程表现式\eqref{eq:bvp-fund-var-ux-uy-repform}中可得(更详细介绍见\pageref{sec:bvp-bie-hyper-ellipticity}页第\ref{sec:bvp-bie-hyper-ellipticity}节。)
 \begin{equation*}
-  \int_{\Omega^{c}} \left| \triangledown u(x) \right|^{2} \, dx
-  = - \langle \gamma_{1}^{\text{ext}} u, \gamma_{0}^{\text{ext}} u \rangle_{\Gamma}.
+  1 = - \int_{\Gamma} \gamma_{1,y}^{\text{int}} U^{*}(\widetilde{x},y) d s_y, \quad \widetilde{x} \in \Omega,
 \end{equation*}
 
-\item 将内、外界域的格林第一恒等式相加求和，并考虑不同边界积分算子的跃动关系，我们有超奇异边界积分算子$D$的双线性形式
+\begin{equation*}
+  \hookrightarrow \triangledown_{x} \left( W u_{0} \right)(\widetilde{x}) = \underline{0}, \quad \widetilde{x} \in \Omega,
+\end{equation*}
+
+\begin{equation}
+  \label{eq:bvp-hyper-bie-D-u0-equiv0}
+  \hookrightarrow \left( D u_{0} \right) (x) = 0, \quad x \in \Gamma.
+\end{equation}
+
+进而可以将\eqref{eq:bvp-hypersingular-bie-def}写为
 \begin{equation*}
   \begin{split}
-    \underbrace{
-    \langle D \nu, \nu \rangle_{\Gamma}
-    }_{\eqqcolon \mathcal{C}}
-    & =
-    \langle \gamma_{1}^{\text{int}} u,
-    \left[ \gamma_{0}^{\text{int}} - \gamma_{0}^{\text{ext}} u \right]
-    \rangle_{\Gamma} \\
-    & =
-    \langle \gamma_{1}^{\text{int}} u, \gamma_{0}^{\text{int}} u \rangle_{\Gamma}
-    - \langle \gamma_{1}^{\text{int}} u, \gamma_{0}^{\text{ext}} u \rangle_{\Gamma} \\
-    & =
-    \int_{\Omega} \left| \triangledown u(x) \right|^{2} \, d x
-    + \int_{\Omega^{c}} \left| \triangledown u(x) \right|^{2} \, d x \\
-    & = \underbrace{
-    \left| u \right|_{H^{1}(\Omega)}^{2}
-    }_{\eqqcolon \mathcal{B}}
-    + \underbrace{
-    \left| u \right|_{H^{1}(\Omega^{c})}^{2}
-    }_{\eqqcolon \mathcal{A}}
-    .
+  \left( D \nu \right)(x)
+  &= - \lim_{\Omega \ni \widetilde{x} \rightarrow x \in \Gamma}
+  n_x \triangledown_{\widetilde{x}} \left( W \nu \right)(\widetilde{x}) \\
+  &= - \lim_{\Omega \ni \widetilde{x} \rightarrow x \in \Gamma}
+  n_x \triangledown_{\widetilde{x}}
+  \int_{\Gamma}
+  \gamma_{1,y}^{\text{int}}
+  U^{*}(\widetilde{x}, y)
+  \left[ \nu(y) - \nu(x) \right]
+  d s_y, \quad x \in \Gamma.
+\end{split}
+\end{equation*}
+
+根据上式，如果密度方程是连续的，我们就可以将超奇异边界积分算子$D$的表现式写为
+\begin{equation}
+  \label{eq:bvp-hypersingular-operator-representation-form}
+  \left( D \nu \right)(x) =
+  - \int_{\Gamma}
+  \gamma_{1,x}^{\text{int}}
+  \gamma_{1,y}^{\text{int}}
+  U^{*}(x,y)
+  \left[
+  \nu(y) - \nu(x)
+  \right]
+  d s_y, \quad x \in \Gamma.
+\end{equation}
+下面分二维、三维空间两个情况继续展开分析。
+
+\subsubsection{二维空间}
+\label{sec:bvp-hyperbie-operator-d2}
+以$d=2$为例。假定$\Gamma = \partial \Omega$是分段平滑的，满足
+\begin{equation*}
+  \Gamma = \cup_{k=1}^{p} \Gamma_{k},
+\end{equation*}
+每一分段$\Gamma_{k}$都可由局部参数化表示
+\begin{equation}
+  \label{eq:bvp-hypersingular-gamma-k}
+  \Gamma_{k} \coloneqq y = y(t) = \begin{pmatrix}
+  y_1(t) \\ y_2 (t)
+  \end{pmatrix}
+  , \quad t \in \left( t_k, t_{k+1} \right),
+\end{equation}
+其中$y_{i}(t),i=1,2$为连续可导方程。
+
+结合\eqref{eq:bvp-hypersingular-operator-representation-form}、\eqref{eq:bvp-hypersingular-gamma-k}我们有
+\begin{equation*}
+  \begin{split}
+    d s_y &= \sqrt{
+    \left[ y_{1}'(t)\right]^2
+    + \left[ y_{2}'(t)\right]^2
+    } \,
+    dt \\
+    n(y) &= \frac{1}{
+    \sqrt{
+    \left[ y_{1}'(t)\right]^2
+    + \left[ y_{2}'(t)\right]^2
+    }
+    }
+    \begin{pmatrix}
+      y_{2}'(t) \\ - y_{1}'(t)
+    \end{pmatrix}
+    , \quad y \in \Gamma_k,
+  \end{split}
+\end{equation*}
+其中$n(y)$表示外部法向量(exterior normal vector)\index{exterior normal vector \dotfill 外部法向量}。
+
+二维系统中对于$x \in \mathbb{R}^{2}$的情况，某一标量方程$\widetilde{\nu}(x)$的旋转(rotation,或称curl)\index{rotation \dotfill 旋转}可以定义为
+\begin{equation*}
+  \underline{\curl} \, \widetilde{\nu}(x) \coloneqq
+  \begin{pmatrix}
+    \frac{\partial}{\partial x_2} \widetilde{\nu}(x) \\
+    - \frac{\partial}{\partial x_1} \widetilde{\nu}(x)
+  \end{pmatrix},
+\end{equation*}
+现在来看$\widetilde{\nu}(x)$的计算：给定某一密度方程$\nu(x), x \in \Gamma_{k}$，则我们可以考虑一个在$\Gamma_k$的适宜邻域上的延拓$\widetilde{\nu}$
+\begin{equation}
+  \widetilde{\nu}(\widetilde{x}) = \nu(x), \quad \widetilde{x} = x + \left( \widetilde{x} - x, \underline{n}(x) \right) \underline{n}(x).
+\end{equation}
+
+也即，对于$x \in \Gamma_{k}$，我们可以定义$\nu(x)$的旋转$\curl_{\Gamma_k} \nu(x)$为
+\begin{equation*}
+  \begin{split}
+    \curl_{\Gamma_k} \nu(x) &\coloneqq \underline{n}(x) \,  \underline{\curl} \widetilde{\nu}(x) \\
+    &= n_{1}(x) \frac{\partial}{\partial x_{2}} \widetilde{\nu}(x)
+    - n_{2}(x) \frac{\partial}{\partial x_{1}} \widetilde{\nu}(x), \quad x \in \Gamma_{k}.
   \end{split}
 \end{equation*}
 
-\begin{enumerate}
-  \item 来看$\mathcal{A}$。外界域$\Omega^{c}$中，双层位势$u(x) = - \left(W u \right)(x)$，取$\lim \left| x \right| \rightarrow \infty$，有
+根据上式我们有
+\begin{equation*}
+  \begin{split}
+    \int_{\Gamma_{k}}
+    \curl_{\Gamma_{k}} \nu(y)
+    d s_y & =
+    \int_{\Gamma_{k}}
+    \left[
+    n_{1}(y) \frac{
+    \partial
+    }{\partial y_{2}}
+    \widetilde{\nu}(y)
+    -
+    n_{2}(y) \frac{
+    \partial
+    }{\partial y_{1}}
+    \widetilde{\nu}(y)
+     \right]
+     d s_y \\
+     & = \int_{t_{k}}^{t_{k+1}}
+     \left[
+     y_{2}'(t)
+     \frac{
+     \partial
+     }{\partial y_{2}}
+     \nu(y(t))
+     +
+     y_{1}'(t)
+     \frac{
+     \partial
+     }{\partial y_{1}}
+     \nu(y(t))
+     \right] \, dt\\
+     &= \int_{t_{k}}^{t_{k+1}}
+     \frac{d}{dt}
+     \nu(y(t)) dt,
+  \end{split}
+\end{equation*}
+通过该式可见，$\curl_{\Gamma_{k}} \nu$与预先选定的延拓$\widetilde{\nu}$无关。
+\begin{lemma}
+  \label{lemma:bvp-supersingular-curl-gammak}
+  设一个开放的有界区间$\Gamma_{k}$，$\Gamma_{k}$由局部参数式\eqref{eq:bvp-hypersingular-gamma-k}所定义。对应的连续可导方程为$y_{i}(t),i=1,2$。
+
+  如果$\nu$和$w$连续可导，则我们有分部积分式
   \begin{equation*}
-    c_{1}  \, \left\| u \right\|_{H^{1}(\Omega^{c})}^{2} \le
-    \left| u \right|_{H^{1}(\Omega^{c})}^{2}.
+    \begin{split}
+      \int_{\Gamma_{k}} \nu(y) \curl_{\Gamma_{k}} w(y) \, d s_y
+      = - \int_{\Gamma_{k}} \curl_{\Gamma_{k}} \nu(y) w(y) d s_{y}
+      + \nu(y(t)) w(y(t)) \big|_{t_{k}}^{t_{k+1}}.
+    \end{split}
   \end{equation*}
-  \item 来看$\mathcal{B}$。
-  \begin{enumerate}
-    \item 由以下三点
-    \begin{itemize}
-    \item 对于$\nu \in H_{*}^{\frac{1}{2}}(\Gamma)$，有自然密度$w_{\text{eq}} \in H^{-\frac{1}{2}}(\Gamma)$,
-    \item $V w_{\text{eq}} = 1$，
-    \item 有界积分算子呈对称关系\eqref{eq:bvp-bie-operator-relation-3} 成立
-    \end{itemize}
-    可得
-    \begin{equation*}
-      \begin{split}
-        \langle \gamma_{0}^{\text{int}} u, w_{\text{eq}} \rangle_{\Gamma} & =
-        \langle
-        \left( \frac{1}{2} I - K \right) \nu,
-        w_{\text{eq}}
-        \rangle_{\Gamma} \\
-        & = \langle \nu, w_{\text{eq}} \rangle_{\Gamma}
-        - \langle
-        \left( \frac{1}{2} I + K \right) \nu,
-        w_{\text{eq}} \rangle_{\Gamma} \\
-        & = - \langle
-        \left( \frac{1}{2} I + K \right) \nu,
-        V^{-1} \rangle_{\Gamma} \\
-        & = - \langle
-        V ^{-1} \left( \frac{1}{2} I + K \right) \nu,
-        1 \rangle_{\Gamma} \\
-        & = - \langle
-        \left( \frac{1}{2} I + K \right) V^{-1}  \nu,
-        1 \rangle_{\Gamma} \\
-        & = - \langle
-        V^{-1}  \nu,
-        \left( \frac{1}{2} I + K \right)  \rangle_{\Gamma} \\
-        & = 0.
-      \end{split}
-    \end{equation*}
-    \item 进而，根据索伯列夫空间中的范数等价定理\eqref{eq:sobolev-norm-equivalence-theorem}(Theorem \ref{theorem:sobolev-equivalence-norm-theorem})可得$H^{1}(\Omega)$空间中的一个等价范
-    \begin{equation*}
-      \left\| u \right\|_{H_{*}^{1}(\Omega)}
-      \coloneqq \left\{
-      \left[
-      \langle
-      \gamma_{0}^{\text{int}} u, w_{\text{eq}}
-      \rangle_{\Gamma}
-      \right]^{2}
-      + \left\|
-      \triangledown u \right\|_{L^{2}(\Omega)}^{2}
-      \right\}^{\frac{1}{2}}.
-    \end{equation*}
-      \end{enumerate}
-    \item 来看$\mathcal{C}$。由迹定理和双层位势的跃动关系可得
-    \begin{equation*}
-      \begin{split}
-        \langle D \nu, \nu \rangle_{\Gamma} & \ge
-        c \, \left\{
-        \left\| u \right\|_{H^{1}(\Omega)}^{2} +
-        \left\| u \right\|_{H^{1}(\Omega^{c})}^{2}
-        \right\}\\
-        & \ge \widetilde{c} \,
-        \left\{
-        \left\| \gamma_{0}^{\text{int}} u \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}
-        + \left\| \gamma_{0}^{\text{ext}} u \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}
-        \right\} \\
-        & \ge
-        \frac{1}{2} \widetilde{c}
-        \left\|
-        \gamma_{0}^{\text{int}} u
-        - \gamma_{0}^{\text{ext}} u
-        \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2} \\
-        & = c_{1}^{\text{D}} \,
-        \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}, \quad \forall \, \nu \in H_{*}^{\frac{1}{2}}(\Gamma).
-      \end{split}
-    \end{equation*}
-\end{enumerate}
-\end{enumerate}
-由此可证得超奇异边界积分算子$D$的$H_{*}^{\frac{1}{2} (\Gamma)}$-椭圆性。
+\end{lemma}
+\begin{proof}
+\begin{equation*}
+  \begin{split}
+      \int_{\Gamma_{k}} \curl_{\Gamma_{k}}
+      \left[ \nu(y) w(y) \right] \, d s_y &=
+      \int_{t_{k}}^{t_{k+1}} \frac{d}{dt}
+      \left[ \nu(y(t)) w(y(t)) \right] \, dt \\
+      &=\left[ \nu(y(t)) w(y(t)) \right]_{t=t_{k}}^{t=t_{k+1}}.
+  \end{split}
+\end{equation*}
 \end{proof}
 
-\subsubsection{椭圆性所处子空间的替代方案}
-Theorem \ref{theorem:bvp-bie-hyper-semi-ellipticity}对超奇异边界积分算子$D$的$H_{*}^{\frac{1}{2} (\Gamma)}$-椭圆性的证明，涉及到对解方程所处空间的限定：需要将其限定在一个更适宜的子空间之内——即正交于常数的子空间。显然，随着算子$D$双线性内积类型的不同，对应正交子空间的种类也有所不同。具体说来，根据索伯列夫空间中的范数等价定理\eqref{eq:sobolev-norm-equivalence-theorem}(Theorem \ref{theorem:sobolev-equivalence-norm-theorem})，可定义一个$H^{\frac{1}{2}}(\Gamma)$中的等价范
+若$\nu$是沿着闭曲线(closed curve)\index{closed curve \dotfill 闭曲线} $\Gamma$而定义的\footnote{闭曲线是指这样的一种曲线，其起始点同时也是其终结点。}，则我们可将$\nu$的旋转$\curl_{\Gamma} \nu(x)$定义为
 \begin{equation*}
-  \left\| \nu \right\|_{H_{*}^{\frac{1}{2}}(\Gamma)}
-  \coloneqq
-  \left\{
-  \left[
-  \langle \nu, w_{\text{eq}} \rangle_{\Gamma}
-  \right]^{2}
-  + \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}
-  \right\}^{\frac{1}{2}},
+  \curl_{\Gamma} \nu(x) \coloneqq \curl_{\Gamma_{k}} \nu(x), \quad x \in \Gamma_{k}, k = 1, \ldots, p,
 \end{equation*}
-其中$w_{\text{eq}} \in H^{-\frac{1}{2}}(\Gamma)$由自然密度的定义式  \eqref{eq:bvp-bie-single-scaling-equation}给出。那么
+那么根据Lemma \ref{lemma:bvp-supersingular-curl-gammak}，我们有
 
-\begin{corollary}[超奇异边界积分算子的半椭圆性]
-  \label{corollary:bvp-bie-single-semi-ellipticity}
-  超奇异积分算子$D$是$H^{\frac{1}{2}}(\Gamma)$-半椭圆(semi-elliptic)\index{ellipticity!semi \dotfill 半椭圆性}的，即
+\begin{corollary}
+  \label{corollary:bvp-supersingular-curl-gammak}
+  设$\Gamma$是一个分段平滑的闭曲线，如果方程$\nu$和$w$均分段连续可微，则我们有
   \begin{equation}
-    \label{eq:bvp-bie-single-semi-ellipticity}
-    \langle D \nu, \nu \rangle_{\Gamma}
-    \ge \overline{c}_{1}^{\text{D}} \, \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}, \quad \forall \nu \in H^{\frac{1}{2}}(\Gamma).
+    \label{eq:bvp-supersingular-curl-gammak}
+    \int_{\Gamma} \nu(y) \curl_{\Gamma} w(y) d s_y
+    = - \int_{\Gamma} \curl_{\Gamma} \nu(y) w(y) d s_y
+    + \sum_{k=1}^{p} \nu(y(t)) w(y(t)) \big|_{t_{k}}^{t_{k+1}},
+  \end{equation}
+
+  进一步，如果$\nu$和$w$全局连续，则
+  \begin{equation}
+    \label{eq:bvp-supersingular-curl-gammakk}
+    \int_{\Gamma} \nu(y) \curl_{\Gamma} w(y) d s_{y}
+    = - \int_{\Gamma} \curl \nu(y) w(y) d s_{y}.
   \end{equation}
 \end{corollary}
 
-  Corollary \ref{corollary:bvp-bie-single-semi-ellipticity}中，对子空间$H_{*}^{\frac{1}{2}}(\Gamma)$的定义，涉及到边界积分方程\eqref{eq:bvp-bie-single-scaling-equation}的唯一解，即自然密度$w_{\text{eq}} \in H^{-\frac{1}{2}}(\Gamma)$。然而在实际计算过程中，该定义往往较难直接处理。有鉴于此，需要另外寻求替代方案。
+\begin{proof}
+略。
+\end{proof}
 
-  常见的替代方案之一是定义另一个子空间$H_{**}^{\frac{1}{2}}(\Gamma)$，从而简化内积结构
+利用分部积分法，我们可以将超奇异边界积分算子$D$的双线性形式，改写为单层位势算子$V$的双线性形式。在二维系统中，这种改写可以表示如下。
+
+\begin{theorem}
+  \label{theorem:bvp-hypersingular-bilinear-d2}
+  设$\Gamma$是一个分段平滑的封闭曲线。$u,\nu \in \Gamma$是全局连续方程。进一步，设$u,\nu$在$\Gamma$的某一段$\Gamma_{k}$上连续可微。那么我们有
+  \begin{equation}
+    \label{eq:bvp-hypersingular-d-bilinear-form}
+    \langle D u, \nu \rangle_{\Gamma}
+    = - \frac{1}{2 \pi}
+    \int_{\Gamma} \curl_{\Gamma} \nu(x)
+    \int_{\Gamma} \log \left| x - y \right|
+    \curl_{\Gamma} u(y)
+    d s_y d s_x.
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  根据定义式\eqref{eq:bvp-hypersingular-bie-def}，超奇异边界积分算子$D$可以定义为双层位势算子$W$的法导数$\gamma_{1}^{\text{int}} W$的负数。对于$\widetilde{x} \in \Omega$，定义
   \begin{equation*}
-    H_{**}^{\frac{1}{2}}(\Gamma) \coloneqq
-    \left\{ \nu \in H^{\frac{1}{2}}(\Gamma): \langle \nu, 1 \rangle_{\Gamma} = 0 \right\}.
+    w(\widetilde{x}) \coloneqq \left(W u \right)(\widetilde{x})
+    = - \frac{1}{2 \pi}
+    \int_{\Gamma} u(y) \frac{\partial}{\partial n_{y}}
+    \log \left| \widetilde{x} - y \right| d s_y, \quad \widetilde{x} \in \Omega.
   \end{equation*}
 
-则由\eqref{eq:bvp-bie-single-semi-ellipticity}得，对于$\nu \in H_{**}^{\frac{1}{2}}(\Gamma)$，内积可以简化为
-\begin{equation}
-  \label{eq:bvp-bie-single-innnerp-simplify-starstar}
-  \begin{split}
-  \langle D \nu, \nu \rangle_{\Gamma}
-  & \ge \overline{c}_{1}^{\text{D}} \, \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2} \\
-  & = \overline{c}_{1}^{\text{D}} \,
-  \left\{
-  \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}
-  + \left[
-  \langle \nu, 1 \rangle_{\Gamma}
-  \right]^2
-  \right\}\\
-  & \ge \widetilde{c}_{1}^{\text{D}} \,
-  \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}.
-\end{split}
-\end{equation}
-
-若是采用子空间$H_{**}^{\frac{1}{2}}(\Gamma)$，我们也可以证明算子$D$的$H_{**}^{\frac{1}{2}}(\Gamma)$-椭圆性。（证明略）。
-
-另一个替代方案是，考虑一个子空间$\Gamma_{0} \subset \Gamma$。对于某一给定的$\nu \in \widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$，定义其延拓$\widetilde{\nu} \in H^{\frac{1}{2}}(\Gamma)$如下
+一方面$\widetilde{x} \in \Omega, y \in \Gamma \Rightarrow \widetilde{x} \neq y$，另一方面
 \begin{equation*}
-  \widetilde{\nu}(x) =
-  \begin{cases}
-    \nu(x) & x \in \Gamma_{0}, \\
-    0 & \text{否则}.
-  \end{cases}
+  \frac{\partial}{\partial y_i} \log \left| \widetilde{x} - y \right|
+  = \frac{y_i - \widetilde{x}_{i}}{\left| \widetilde{x} - y \right|^{2}}
+  = - \frac{\widetilde{x}_{i} - y_{i}}{\left| \widetilde{x} - y \right|^{2}}
+  = - \frac{\partial}{\partial \widetilde{x}_{i}} \log \left| \widetilde{x} - y \right|,
+\end{equation*}
+结合这两方面可得
+\begin{equation*}
+  \frac{\partial}{\partial \widetilde{x}_{i}}
+  \left(
+  \frac{\partial}{\partial n_{y}}
+  \log \left| \widetilde{x} - y \right|
+  \right)
+  = - \underline{n}(y)
+  \triangledown_{y}
+  \left(
+  \frac{\partial}{\partial y_{i}}
+  \log \left| \widetilde{x} - y \right|
+  \right).
 \end{equation*}
 
-根据范数等价定理，$H^{\frac{1}{2}}(\Gamma)$上的等价范可定义为
-\begin{equation*}
-  \left\| w \right\|_{H^{\frac{1}{2}}(\Gamma), \Gamma_{0}}
-  \coloneqq
-  \left\{
-  \left\| w \right\|_{L^{2}(\Gamma \backslash \Gamma_{0})}^{2}
-  + \left| w \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}
-  \right\}^{\frac{1}{2}}.
-\end{equation*}
-
-那么，对于$\nu \in \widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$，内积简化为
+由于$\Delta_{y} \log \left| \widetilde{x} - y \right| = 0, \text{对于} y \neq \widetilde{x}$，则我们有以下两个等式
 \begin{equation*}
   \begin{split}
-    \langle D \nu, \nu \rangle_{\Gamma_{0}}
-    & = \langle D \widetilde{\nu}, \widetilde{\nu} \rangle_{\Gamma} \\
-    & \ge \overline{c}_{1}^{\text{D}} \,
-    \left[
-    \left\| \widetilde{\nu} \right\|_{L^{2}(\Gamma \backslash \Gamma_{0})}^{2}
-    + \left| \widetilde{\nu} \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}
-    \right] \\
-    & = \overline{c}_{1}^{\text{D}} \,
-    \left\| \widetilde{\nu} \right\|_{H^{\frac{1}{2}}(\Gamma), \Gamma_{0}}^{2} \\
-    & \ge \widehat{c}_{1}^{\text{D}} \,
-    \left\| \widetilde{\nu} \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2} \\
-    & = \widehat{c}_{1}^{\text{D}} \,
-    \left\| \nu \right\|_{\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})}^{2}.
+    \curl_{\Gamma, y}
+    \left(
+    \frac{\partial}{\partial y_{1}}
+    \log
+    \left|
+    \widetilde{x} - y
+    \right|
+    \right)
+    &=
+    n_{1}(y)
+    \frac{\partial}{\partial y_2}
+    \frac{\partial}{\partial y_1}
+    \log
+    \left|
+    \widetilde{x} - y
+    \right|
+    -
+    n_{2}(y)
+    \frac{\partial}{\partial y_1}
+    \frac{\partial}{\partial y_1}
+    \log
+    \left|
+    \widetilde{x} - y
+    \right| \\
+    & =
+    n_{1}(y)
+    \frac{\partial}{\partial y_2}
+    \frac{\partial}{\partial y_1}
+    \log
+    \left|
+    \widetilde{x} - y
+    \right|
+    +
+    n_{2}(y)
+    \frac{\partial}{\partial y_2}
+    \frac{\partial}{\partial y_2}
+    \log
+    \left|
+    \widetilde{x} - y
+    \right| \\
+    & = \underline{n}(y) \triangledown{y}
+    \left(
+    \frac{\partial}{\partial y_{2}}
+    \log
+    \left|
+    \widetilde{x} - y
+    \right|
+    \right),
   \end{split}
 \end{equation*}
 
-同样地，若是采用子空间$\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$，我们可以证明算子$D$的$\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$-椭圆性。（证明略）。
+\begin{equation*}
+  \begin{split}
+    \curl_{\Gamma, y}
+    \left(
+    \frac{\partial}{\partial y_{2}}
+    \log
+    \left|
+    \widetilde{x} - y
+    \right|
+    \right)
+    &=\underline{n}(y) \triangledown{y}
+    \left(
+    \frac{\partial}{\partial y_{1}}
+    \log
+    \left|
+    \widetilde{x} - y
+    \right|
+    \right).
+  \end{split}
+\end{equation*}
+
+因此，可以将全局连续方程$u$的双层位势$w = \left(W u \right)$的偏导数写为如下两个分部积分形式
+\begin{equation*}
+\begin{split}
+  \frac{\partial}{\partial \widetilde{x}_{1}} w(\widetilde{x})
+  &=
+  -\frac{1}{2 \pi}
+  \int_{\Gamma}
+  u(y)
+  \frac{\partial}{\partial \widetilde{x}}
+  \frac{\partial}{\partial n_{y}}
+  \log
+  \left|
+  \widetilde{x} - y
+  \right|
+  \, d s_y \\
+  &=
+  \frac{1}{2 \pi}
+  \int_{\Gamma}
+  u(y)
+  n(y)
+  \triangledown_{y}
+  \left(
+  \frac{\partial}{\partial y_{1}}
+  \log
+  \left|
+  \widetilde{x} - y
+  \right|
+  \right)
+  \, d s_y \\
+  &=
+  -\frac{1}{2 \pi}
+  \int_{\Gamma}
+  u(y)
+  \curl_{\Gamma,y}
+  \left(
+  \frac{\partial}{\partial y_{2}}
+  \log
+  \left|
+  \widetilde{x} - y
+  \right|
+  \right)
+  \, d s_y\\
+  &=
+  \frac{1}{2 \pi}
+  \int_{\Gamma}
+  \curl_{\Gamma}
+  u(y)
+  \frac{\partial}{\partial y_{2}}
+  \log
+  \left|
+  \widetilde{x} - y
+  \right|
+  \, d s_y,
+\end{split}
+\end{equation*}
+\begin{equation*}
+  \begin{split}
+    \frac{\partial}{\partial \widetilde{x}_{2}} w(\widetilde{x})
+    &= - \frac{1}{2 \pi}
+    \int_{\Gamma}
+    \curl_{\Gamma}
+    u(y)
+    \frac{\partial}{\partial y_{1}}
+    \log
+    \left|
+    \widetilde{x} - y
+    \right|
+    \, d s_y.
+  \end{split}
+\end{equation*}
+
+根据定义，双层位势$w = W u$的法导数
+\begin{equation*}
+\begin{split}
+  & \underline{n}(x) \triangledown_{\widetilde{x}} w(\widetilde{x})\\
+  &=
+  \frac{1}{2 \pi}
+  \int_{\Gamma}
+  \curl_{\Gamma}
+  u(y)
+  \left[
+  n_{1}(x)
+  \frac{\partial}{\partial y_{2}}
+  \log
+  \left|
+  \widetilde{x} - y
+  \right|
+  -
+  n_{2}(x)
+  \frac{\partial}{\partial y_{1}}
+  \log
+  \left|
+  \widetilde{x} - y
+  \right|
+  \right]
+  \, d s_{y} \\
+  &=
+  \frac{1}{2 \pi}
+  \lim_{\varepsilon \rightarrow 0}
+  \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+  \curl_{\Gamma}
+  u(y)
+  \left[
+  n_{1}(x)
+  \frac{\partial}{\partial y_{2}}
+  \log
+  \left|
+  \widetilde{x} - y
+  \right|
+  -
+  n_{2}(x)
+  \frac{\partial}{\partial y_{1}}
+  \log
+  \left|
+  \widetilde{x} - y
+  \right|
+  \right]
+  \, d s_y
+\end{split}
+\end{equation*}
+
+取极限$\Omega \ni \widetilde{x} \rightarrow x \in \Gamma$，上式变为
+\begin{equation*}
+  \begin{split}
+    & \frac{\partial}{\partial n_{x}} w(x) \\
+    & =
+    \frac{1}{2 \pi}
+    \lim_{\varepsilon \rightarrow 0}
+    \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+    \curl_{\Gamma}
+    u(y)
+    \left[
+    n_{1}(x)
+    \frac{\partial}{\partial y_{2}}
+    \log
+    \left|
+    x - y
+    \right|
+    -
+    n_{2}(x)
+    \frac{\partial}{\partial y_{1}}
+    \log
+    \left|
+    x - y
+    \right|
+    \right]
+    \, d s_y \\
+    & =
+    - \frac{1}{2 \pi}
+    \lim_{\varepsilon \rightarrow 0}
+    \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+    \curl_{\Gamma}
+    u(y)
+    \left[
+    n_{1}(x)
+    \frac{\partial}{\partial x_{2}}
+    \log
+    \left|
+    x - y
+    \right|
+    -
+    n_{2}(x)
+    \frac{\partial}{\partial x_{1}}
+    \log
+    \left|
+    x - y
+    \right|
+    \right]
+    \, d s_y \\
+    &=
+    - \frac{1}{2 \pi}
+    \lim_{\varepsilon \rightarrow 0}
+    \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+    \curl_{\Gamma}
+    u(y)
+    \curl_{\Gamma, x}
+    \log
+    \left| x - y \right|
+    \, d s_y.
+  \end{split}
+\end{equation*}
+
+进而
+\begin{equation*}
+  \begin{split}
+    & \int_{\Gamma} \nu(x) \frac{\partial}{\partial n_x} w(x) d s_x \\
+    & =
+    -\frac{1}{2 \pi}
+    \int_{x \in \Gamma}
+    \nu(x)
+    \lim_{\varepsilon \rightarrow 0}
+    \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+    \curl_{\Gamma} u(y)
+    \curl_{\Gamma, x} \log \left| x - y \right|
+    \, d s_y d s_x \\
+    & =
+    -\frac{1}{2 \pi}
+    \int_{y \in \Gamma}
+    \curl_{\Gamma} u(y)
+    \lim_{\varepsilon \rightarrow 0}
+    \int_{x \in \Gamma: \left| x - y \right| \ge \varepsilon}
+    \nu(x) \curl_{\Gamma, x}
+    \log \left| x - y \right|
+    \, d s_x d s_y.
+  \end{split}
+\end{equation*}
+
+由此可证。
+\end{proof}
+
+\subsubsection{三维空间}
+超奇异积分算子$D$的分部积分表现式也可以用于三维系统$d=3$的分析中\citep{Dautray:1990hc}。
+
+设一个分段平滑表面$\Gamma = \cup_{k=1}^{p}$，其中每一个分段$\Gamma_{k}$都可以用参数表示如下
+\begin{equation*}
+  y \in \Gamma_{k}:y(s,t) =
+  \begin{pmatrix}
+    y_{1}(s,t) \\
+    y_{2}(s,t) \\
+    y_{3}(s,t)
+  \end{pmatrix}, \quad (s,t) \in \tau,
+\end{equation*}
+$\tau$指某个参考元(reference element)\index{reference element \dotfill 参考元}。
+
+$\mathbb{R}^3$中某个向量方程$\underline{\nu}$的旋转\index{rotation \dotfill 旋转}可以定义为
+\begin{equation*}
+  \underline{\curl} \underline{\nu}(x) \coloneqq
+  \triangledown \times \underline{\nu}(x), \quad x \in \mathbb{R}^{3}.
+\end{equation*}
+
+如果$u$是个$\Gamma_{k}$上的标量方程，其表面旋转(surface curl)可定义为
+\begin{equation*}
+  \underline{\curl}_{\Gamma_{k}} u(x) \coloneqq
+  \underline{n}(x) \times \triangledown \widetilde{u}(x), \quad x \in \Gamma_{k},
+\end{equation*}
+其中$\widetilde{u} \in \Gamma_{k}$是一个给定的$u \in \Gamma_{k}$在$\Gamma_{k}$的三维邻域上的适宜延拓。
+
+此外我们有
+\begin{equation*}
+  \curl_{\Gamma_{k}} \underline{\nu}(x) \coloneqq
+  \underline{n}(x) \times \underline{\curl} \, \underline{ \widetilde{\nu}}(x), \quad x \in \Gamma_{k}.
+\end{equation*}
+
+\begin{lemma}
+  \label{lemma:bvp-hypersingular-curl-u-nu-d3}
+  设$\Gamma$为一个$\mathbb{R}^{3}$中的分段平滑封闭利普希茨表面。假定每个表面分段$\Gamma_{k}$都是平滑的，对应分段平滑边界曲线$\partial \Gamma_{k}$。设$u$和$\nu$均在$\Gamma$中全局连续，并且在每个分段$\Gamma_{k}$中都局部有节且平滑。那么由分部积分可得
+  \begin{equation}
+    \label{eq:bvp-hypersingular-curl-u-nu-d3}
+    \int_{\Gamma} \underline{\curl}_{\Gamma} u(x) \underline{\nu}(x) \, d s_x
+    = - \int_{\Gamma}
+    u(x)
+    \curl_{\Gamma} \underline{\nu}(x) \, d s_x.
+  \end{equation}
+\end{lemma}
+\begin{proof}
+根据乘积法则可得
+\begin{equation*}
+  \triangledown \times \left[ \widetilde{u}(x) \underline{\nu}(x) \right]
+  \equiv \triangledown \widetilde{u}(x) \times \underline{\nu}(x)
+  + \widetilde{u}(x)
+  \left[
+  \triangledown \times \underline{\nu} (x)
+  \right],
+\end{equation*}
+
+LHS \eqref{eq:bvp-hypersingular-curl-u-nu-d3}$\Rightarrow$
+\begin{equation*}
+  \begin{split}
+    \int_{\Gamma_{k}} \underline{\curl}_{\Gamma_{k}} u(x) \underline{\nu}(x) \, d s_x
+    & = \int_{\Gamma_{k}}
+    \left[
+    \underline{n}(x) \times \triangledown \widetilde{u}(x)
+    \right]
+    \nu(x)
+    \, d s_{x}\\
+    &= \int_{\Gamma_{k}}
+    \left[
+    \triangledown \widetilde{u}(x) \times \underline{\nu}(x)
+    \right]
+    n(x)
+    \, d s_{x} \\
+    &= \int_{\Gamma_{k}}
+    \left\{
+    \left[
+    \triangledown \times \left( \widetilde{u}(x) \times \underline{\nu}(x) \right)
+    \right]
+    - \left[
+    \widetilde{u}(x)
+    \left( \triangledown \times \underline{\nu}(x) \right)
+    \right]
+    \right\}
+    n(x) \, d s_{x} \\
+    & = \underbrace{
+    \int_{\partial \Gamma_{k}} u(x) \underline{\nu}(x) \underline{t}(x) \, d \sigma
+    }_{\eqqcolon 0}
+    - \int_{\Gamma_{k}} u(x) \curl_{\Gamma_{k}} \underline{\nu}(x)
+    \, d s_{x} \\
+    & = - \int_{\Gamma_{k}} u(x) \curl_{\Gamma_{k}} \underline{\nu}(x)
+    \, d s_{x}
+  \end{split}
+\end{equation*}
+\end{proof}
+
+\begin{theorem}[超奇异积分算子的双线性表现式]
+  \label{theorem:bvp-hypersingular-bilinear-d3}
+  设一个分段平滑的封闭表面$\Gamma$。在$\Gamma$中定义全局连续方程$u$和$\nu$，且在$\Gamma_{k}$中可微。那么超奇异积分算子$D$的双线性表现式为
+  \begin{equation}
+    \label{eq:bvp-hypersingular-bilinear-d3}
+    \langle D u, \nu \rangle_{\Gamma}
+    = \frac{1}{4 \pi}
+    \int_{\Gamma}
+    \int_{\Gamma}
+    \frac{
+    \underline{\curl}_{\Gamma} u(y)
+    \underline{\curl}_{\Gamma} \nu(x)
+    }{
+    \left| x - y \right|
+    }
+    \, d s_{x} d s_{y}.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  与二维系统的证明过程(Theorem \ref{theorem:bvp-hypersingular-bilinear-d2})类似。根据定义式\eqref{eq:bvp-hypersingular-bie-def}，超奇异边界积分算子$D$可以定义为双层位势算子$W$的法导数$\gamma_{1}^{\text{int}} W$的负数。对于$\widetilde{x} \in \Omega$，定义
+  \begin{equation*}
+    w(\widetilde{x}) \coloneqq
+    - \frac{1}{4 \pi} \int_{\Gamma} u(y)
+    \underbrace{
+    \frac{\partial}{\partial n_{y}}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    }_{\text{核方程}}
+    \, d s_y.
+  \end{equation*}
+\begin{enumerate}
+\item 求核方程的偏导数。
+根据
+\begin{equation*}
+  \begin{split}
+    \frac{\partial}{\partial y_{i}}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    &=
+    \frac{
+    \widetilde{x} - y_{i}
+    }{
+    \left| \widetilde{x} - y \right|^{3}
+    }
+    =
+    -
+    \frac{
+    y_{i} - \widetilde{x}
+    }{
+    \left| \widetilde{x} - y \right|^{3}
+    }
+    =
+    -
+    \frac{\partial}{\partial x_{i}}
+    \frac{1}{\left| \widetilde{x} - y \right|},
+  \end{split}
+\end{equation*}
+则
+\begin{equation*}
+  \begin{split}
+    \frac{\partial}{\partial \widetilde{x}_{i}}
+    \left(
+    \frac{\partial}{\partial y_{i}}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    = - \underline{n}(y)
+    \triangledown_{y}
+    \left(
+    \frac{\partial}{\partial y_{i}}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    \right).
+  \end{split}
+\end{equation*}
+
+\item 设$\underline{e}_{i}$为$\mathbb{R}^{3}$中的第$i$-th个单位向量(unit vector)。由于$\widetilde{x} \neq y$可得向量乘
+\begin{equation*}
+  \begin{split}
+    \underline{\curl}_{y}
+    \left(
+    \underline{e}_{i}
+    \times
+    \triangledown_{y} \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    &=
+    \triangledown_{y} \times
+    \left(
+    \underline{e}_{i}
+    \times
+    \triangledown_{y} \frac{1}{\left| \widetilde{x} - y \right|}
+    \right) \\
+    &=
+    \left(
+    \triangledown_{y}
+    \cdot
+    \triangledown_{y}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    \underline{e}_{i}
+    -
+    \left(
+    \triangledown_{y} \cdot \underline{e}_{i}
+    \right)
+    \triangledown_{y}
+    \frac{1}{\left| \widetilde{x} - y \right|}\\
+    & =
+    \underbrace{\Delta_{y}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    \underline{e}_{i}
+    }_{ = 0}
+    -
+    \frac{\partial}{\partial y_{i}}
+    \left(
+    \triangledown_{y}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    \right) \\
+    & =
+    -
+    \frac{\partial}{\partial y_{i}}
+    \left(
+    \triangledown_{y}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    \right).
+  \end{split}
+\end{equation*}
+
+\item 对双层位势$w(\widetilde{x})$作关于$\widetilde{x}_{i}$的偏微分，调整微分、积分顺序得
+\begin{equation*}
+  \begin{split}
+    \frac{\partial}{\partial \widetilde{x}_{i}} w(\widetilde{x})
+    & =
+    - \frac{1}{4 \pi}
+    \int_{\Gamma}
+    u(y)
+    \frac{\partial}{\partial \widetilde{x}_{i}}
+    \left(
+    \frac{\partial}{\partial n_{y}}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    \, d s_y \\
+    & = \frac{1}{4 \pi}
+    \int_{\Gamma}
+    u(y)
+    n_{y} \cdot
+    \triangledown_{y}
+    \left(
+    \frac{\partial}{\partial y_{i}}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    \, d s_y \\
+    & =
+    - \frac{1}{4 \pi}
+    \int_{\Gamma}
+    u(y)
+    n(y) \cdot
+    \underline{\curl}_{y}
+    \left(
+    \underline{e}_{i}
+    \times
+    \triangledown_{y}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    \, d s_y \\
+    & =
+    - \frac{1}{4 \pi}
+    \int_{\Gamma}
+    u(y)
+    \cdot
+    \curl_{\Gamma, y}
+    \left(
+    \underline{e}_{i}
+    \times
+    \triangledown_{y}
+    \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    \, d s_y.
+  \end{split}
+\end{equation*}
+
+根据Lemma \ref{lemma:bvp-hypersingular-curl-u-nu-d3}，上式进一步改写为
+\begin{equation*}
+  \begin{split}
+    \frac{\partial}{\partial \widetilde{x}_{i}} w(\widetilde{x})
+    &= \frac{1}{4 \pi}
+    \int_{\Gamma}
+    \underline{\curl}_{\Gamma, y}
+    u(y)
+    \cdot
+    \left(
+    \underline{e}_{i} \times \triangledown_{x} \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    \, d s_y\\
+    & =
+    -\frac{1}{4 \pi}
+    \int_{\Gamma}
+    \underline{e}_{i}
+    \left(
+    \underline{\curl}_{\Gamma, y} u(y) \times
+    \triangledown_{y} \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    \, d s_y.
+  \end{split}
+\end{equation*}
+
+由此可得双层位势的梯度(gradient)
+\begin{equation*}
+  \begin{split}
+    \triangledown_{\widetilde{x}} w(\widetilde{x})
+    & =
+    -\frac{1}{4 \pi}
+    \int_{\Gamma}
+    \left(
+    \underline{\curl}_{\Gamma, y} u(y) \times
+    \triangledown_{y} \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    \, d s_y \\
+    & =
+    \frac{1}{4 \pi}
+    \int_{\Gamma}
+    \left(
+    \underline{\curl}_{\Gamma, y} u(y) \times
+    \triangledown_{\widetilde{x}} \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    \, d s_y.
+  \end{split}
+\end{equation*}
+
+两侧同时乘以法向量(normal vector) $\underline{n}(x)$得
+\begin{equation*}
+  \begin{split}
+    \underline{n}(x) \cdot \triangledown_{\widetilde{x}} w(\widetilde{x})
+    & =
+    \frac{1}{4 \pi}
+    \int_{\Gamma}
+    \left(
+    \underline{\curl}_{\Gamma, y} u(y) \times
+    \triangledown_{\widetilde{x}} \frac{1}{\left| \widetilde{x} - y \right|}
+    \right) \cdot \underline{n}(x)
+    \, d s_y \\
+    & =
+    - \frac{1}{4 \pi}
+    \int_{\Gamma}
+    \underline{\curl}_{\Gamma, y} u(y) \cdot
+    \left(
+    \underline{n}(x)
+    \times
+    \triangledown_{\widetilde{x}} \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    \, d s_y \\
+    & =
+    - \frac{1}{4 \pi}
+    \lim_{\varepsilon \rightarrow 0}
+    \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+    \underline{\curl}_{\Gamma, y} u(y) \cdot
+    \left(
+    \underline{n}(x)
+    \times
+    \triangledown_{\widetilde{x}} \frac{1}{\left| \widetilde{x} - y \right|}
+    \right)
+    \, d s_y.
+  \end{split}
+\end{equation*}
+
+取极限$\Omega \ni \widetilde{x} \rightarrow x \in \Gamma$，上式变为
+\begin{equation*}
+  \begin{split}
+  \left( D u \right)
+  & =
+  - \frac{1}{4 \pi}
+  \lim_{\varepsilon \rightarrow 0}
+  \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+  \underline{\curl}_{\Gamma, y} u(y) \cdot
+  \left(
+  \underline{n}(x)
+  \times
+  \triangledown_{x} \frac{1}{\left| x - y \right|}
+  \right)
+  \, d s_y \\
+  & =
+  - \frac{1}{4 \pi}
+  \lim_{\varepsilon \rightarrow 0}
+  \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+  \underline{\curl}_{\Gamma, y} u(y) \cdot
+  \underline{\curl}_{\Gamma, x} \frac{1}{\left| x - y \right|}
+  \, d s_y
+  \end{split}
+\end{equation*}
+
+\item 进而，双线性形式
+\begin{equation*}
+  \begin{split}
+    \langle D u, \nu \rangle_{\Gamma}
+    & =
+    - \frac{1}{4 \pi}
+    \int_{\Gamma}
+    \nu(x)
+    \lim_{\varepsilon \rightarrow 0}
+    \int_{y \in \Gamma: \left| y - x \right| \ge \varepsilon}
+    \underline{\curl}_{\Gamma, y} u(y) \cdot
+    \underline{\curl}_{\Gamma, x} \frac{1}{\left| x - y \right|}
+    \, d s_{y} d s_{x} \\
+    & = - \frac{1}{4 \pi}
+    \int_{\Gamma}
+    \lim_{\varepsilon \rightarrow 0}
+    \int_{x \in \Gamma: \left| x - y \right| \ge \varepsilon}
+    \left(
+    \nu(x)
+    \underline{\curl}_{\Gamma, y} u(y)
+    \right)
+    \underline{\curl}_{\Gamma, x} \frac{1}{\left| x - y \right|}
+    \, d s_{x} d s_{y} \\
+    & =
+    \frac{1}{4 \pi}
+   \int_{\Gamma}
+   \lim_{\varepsilon \rightarrow 0}
+   \int_{x \in \Gamma: \left| x - y \right| \ge \varepsilon}
+   \underbrace{
+   \curl_{\Gamma, x}
+   \left(
+   \nu(x)
+   \underline{\curl}_{\Gamma, y} u(y)
+   \right)
+   }_{}
+   \frac{1}{\left| x - y \right|}
+   \, d s_{x} d s_{y},
+  \end{split}
+\end{equation*}
+
+其中
+\begin{equation*}
+  \begin{split}
+    \curl_{\Gamma, x}
+    \left(
+    \nu(x)
+    \underline{\curl}_{\Gamma, y} u(y)
+    \right)
+    & =
+    \underline{n}(x) \cdot
+    \left[
+    \triangledown_{x} \times
+    \left(
+    \nu(x)
+    \underline{\curl}_{\Gamma, y} u(y)
+    \right)
+    \right] \\
+    & =
+    \underline{n}(x) \cdot
+    \left[
+    \triangledown_{x} \nu(x) \times
+    \underline{\curl}_{\Gamma, y} u(y)
+    \right] \\
+    & =
+    \left[
+    n(x) \times \triangledown_{x} \nu(x)
+    \right]
+    \cdot
+    \underline{\curl}_{\Gamma, y} u(y) \\
+    & =
+    \underline{\curl}_{\Gamma, x} \nu(x)
+    \underline{\curl}_{\Gamma, y} u(y).
+  \end{split}
+\end{equation*}
+
+因此
+\begin{equation*}
+\begin{split}
+  \langle D u, \nu \rangle_{\Gamma}
+  = \frac{1}{4\pi}
+  \int_{\Gamma}
+  \lim_{\varepsilon \rightarrow 0}
+  \int_{x \in \Gamma: \left| x - y \right| \ge \varepsilon}
+  \underline{\curl}_{\Gamma, x} \nu(x)
+  \underline{\curl}_{\Gamma,y} \nu(y)
+  \frac{1}{\left| x - y \right|}
+  \, d s_{x} d s_{y}
+\end{split}
+\end{equation*}
+
+对上式取极限$\varepsilon \rightarrow 0$，证毕。
+\end{enumerate}
+\end{proof}
+
+\subsection{边界积分算子之间的关系}
+\label{bvp-operators-relations}
+
+回顾一下泊松方程的表现式\eqref{eq:bvp-fund-var-ux-uy-repform}
+\begin{equation*}
+  u(\widetilde{x}) = \int_{\Omega} U^{*}(\widetilde{x},y) f(y) \, dy
+  + \int_{\Gamma} U^{*}(\widetilde{x},y) \gamma_{1}^{\text{int}} u(y) \, d s_y
+  - \int_{\Gamma} U^{*}(\widetilde{x},y) \gamma_{0}^{\text{int}} u(y) \, d s_y, \quad \widetilde{x} \in \Omega.
+\end{equation*}
+
+取极限$\Omega \ni \widetilde{x} \rightarrow x \in \Gamma$，由上式可以得出一系列边界和体积位势的性质。其中需要关注的是两个边界积分方程。第一个是将内界迹算子$\gamma_{0}^{\text{int}}$应用到解$u(x), x \in \Gamma$中
+\begin{equation}
+  \label{eq:bvp-bie-relation-inttrace}
+  \gamma_{0}^{\text{int}} u (x)
+  =
+  \left(
+  V \gamma_{1}^{\text{int}} u
+  \right)
+  (x)
+  + \left(1 - \sigma(x) \right) \gamma_{0}^{\text{int}} u(x)
+  - \left( K\gamma_{0}^{\text{int}} u \right)(x)
+  + N_{0} f(x).
+\end{equation}
+
+第二个是将共法导数算子$\gamma_{1}^{\text{int}}$应用到解$u(x), x \in \Gamma$中
+\begin{equation}
+  \label{eq:bvp-bie-relation-conormal}
+  \gamma_{1}^{\text{int}} u(x)
+  = \sigma(x) \gamma_{1}^{\text{int}} u(x)
+  + \left( K' \gamma_{1}^{\text{int}} u \right) (x)
+  + \left( D \gamma_{0}^{\text{int}} u \right)(x)
+  + N_{1} f(x).
+\end{equation}
+
+联立\eqref{eq:bvp-bie-relation-inttrace}和\eqref{eq:bvp-bie-relation-conormal}，构成一个边界积分方程系统
+\begin{equation}
+  \label{eq:bvp-bie-system}
+  \begin{pmatrix}
+    \gamma_{0}^{\text{int}} u(x) \\
+    \gamma_{1}^{\text{int}} u(x)
+  \end{pmatrix}
+  =
+  \underbrace{
+  \begin{pmatrix}
+    \left( 1-\sigma \right) & V \\
+    D & \sigma I + K'
+  \end{pmatrix}
+  }_{\eqqcolon \mathcal{C}}
+  \,
+  \begin{pmatrix}
+    \gamma_{0}^{\text{int}} u(x)\\
+    \gamma_{1}^{\text{int}} u(x)
+  \end{pmatrix}
+  +
+  \begin{pmatrix}
+    N_{0} f(x) \\
+    N_{1} f(x)
+  \end{pmatrix}.
+\end{equation}
+
+我们将系数矩阵定义为卡尔德隆投影(Calderón projection)\index{Calderón projection \dotfill 卡尔德隆投影}
+\begin{equation}
+  \label{eq:bvp-bie-system-calderon-projection}
+  \mathcal{C} \coloneqq
+  \begin{pmatrix}
+    \left( 1-\sigma \right) & V \\
+    D & \sigma I + K'
+  \end{pmatrix}.
+\end{equation}
+
+\begin{lemma}[卡尔德隆投影]
+  式\eqref{eq:bvp-bie-system-calderon-projection}算子$\mathcal{C}$是一个投影，满足$\mathcal{C} = \mathcal{C}^2$。
+\end{lemma}
+\begin{proof}
+  设任一给定的$\left(\psi, \varphi \right) \in H^{-\frac{1}{2}}(\Gamma) \times H^{\frac{1}{2}}(\Gamma)$。那么齐次偏微分方程的解$u(\widetilde{x}), \widetilde{x} \in \Omega$可以表示为
+  \begin{equation*}
+    u \left( \widetilde{x} \right)
+    \coloneqq \left( V \psi \right) (\widetilde{x})
+    -\left( W \varphi \right) (\widetilde{x}), \quad \widetilde{x} \in \Omega.
+  \end{equation*}
+
+由$u$的内界迹和共法导数，对应$x \in \Gamma$，我们有边界位势的性质
+\begin{equation*}
+  \begin{split}
+    \gamma_{0}^{\text{int}} &= \left( V \psi \right) (x)
+    + \left[ 1 - \sigma(x) \right] \varphi(x) - \left(K \varphi \right)(x), \\
+    \gamma_{1}^{\text{int}} &= \sigma \psi(x) + \left(K' \psi \right) (x)  \left( D \varphi \right)(x).
+  \end{split}
+\end{equation*}
+
+不难看出，$u$是齐次偏微分方程的解。通过$\left[\gamma_{0}^{\text{int}}, \gamma_{1}^{\text{int}} \right], x \in \Gamma$，可以生成一组对应的柯西数(Cauchy data)。这些柯西数构成边界积分方程系统\eqref{eq:bvp-bie-relation-inttrace}-\eqref{eq:bvp-bie-relation-conormal}的解，即
+\begin{equation}
+  \label{eq:bvp-bie-system-solution}
+\begin{split}
+  \left( V \gamma_{1}^{\text{int}} u \right)(x) & =
+  \left( \sigma I + K \right) \gamma_{0}^{\text{int}} u(x), \\
+  \left( D \gamma_{0}^{\text{int}} u \right)(x) & =
+  \left( \left(1 - \sigma \right) I - K' \right) \gamma_{1}^{\text{int}} u(x).
+\end{split}
+\end{equation}
+
+上式等价于
+\begin{equation}
+  \label{eq:bvp-bie-system-solution-matrix}
+  \begin{pmatrix}
+    \gamma_{0}^{\text{int}} u(x) \\
+    \gamma_{1}^{\text{int}} u(x)
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \left( 1-\sigma \right) & V \\
+    D & \sigma I + K'
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    \gamma_{0}^{\text{int}} u(x) \\
+    \gamma_{1}^{\text{int}} u(x)
+  \end{pmatrix}.
+\end{equation}
+
+联系
+\begin{equation*}
+  \begin{pmatrix}
+    \gamma_{0}^{\text{int}} u(x) \\
+    \gamma_{1}^{\text{int}} u(x)
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \left( 1-\sigma \right) & V \\
+    D & \sigma I + K'
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    \varphi(x) \\
+    \psi(x)
+  \end{pmatrix}
+\end{equation*}
+可见，$\mathcal{C}$是一个投影。根据定义，投影矩阵，又称幂等矩阵(idempotent matrix)，满足$\mathcal{C} = \mathcal{C}^{2}$ \citep[p.464]{Seber:2003wu}。
+\end{proof}
+
+在得到卡尔德隆投影之后，我们有以下有界积分算子之间的关系。
+\begin{corollary}[有界积分算子之间的关系]
+  所有有界积分算子均满足以下关系
+  \begin{align}
+    \label{eq:bvp-bie-operator-relation-1}
+    V D &= \left( \sigma I + K \right) \, \left[ \left( 1-\sigma \right) I - K \right],\\
+    \label{eq:bvp-bie-operator-relation-2}
+    D V &=  \left( \sigma I + K' \right) \, \left[ \left( 1-\sigma \right) I - K' \right],\\
+    \label{eq:bvp-bie-operator-relation-3}
+    V K' &= K V, \\
+    \label{eq:bvp-bie-operator-relation-4}
+    K' D &= D K.
+  \end{align}
+\end{corollary}
+由\eqref{eq:bvp-bie-operator-relation-3}可见，双层位势算子$K$是对称的——并不是自伴随的对称，而是随着单层位势算子$V$的对称。
+
+此外，边界积分方程系统中，假定单层位势$V$是可逆的(更多讨论见\todo{section 6.1.1})，则我们也可得到牛顿位势$N_{1}f$的表现式如下
+
+\begin{lemma}[牛顿位势算子与其他算子的关系]
+  \label{lemma:bvp-bie-relation-newton-potential}
+牛顿位势算子$\left( N_{1} f \right)(x), x \in \Gamma$的表现式为
+\begin{equation}
+  \label{eq:bvp-bie-relation-newton-potential}
+  \left(N_{1} f \right)(x) =
+  \left( (\sigma - 1) I + K' \right)
+  V^{-1}
+  \left( N_{0} f \right)(x)
+\end{equation}
+\end{lemma}
+\begin{proof}
+  由边界积分方程系统\eqref{eq:bvp-bie-system}第一行可知，假设$V$是可逆的
+  \begin{equation*}
+    \gamma_{1}^{\text{int}} u(x) =
+    V^{-1} \left( \sigma I + K' \right) \gamma_{0}^{\text{int}} u(x)
+    - V^{-1} \left( N_{0} f \right)(x), \quad x \in \Gamma.
+  \end{equation*}
+
+  代入第二行，可得
+  \begin{equation*}
+    \begin{split}
+      \gamma_{1}^{\text{int}} u(x) &=
+      \left(D \gamma_{0}^{\text{int}} u \right)(x)
+      + \left( \sigma I + K' \right) \gamma_{1}^{\text{int}} u(x)
+      + \left( N_{1} f \right)(x) \\
+      & =
+      \left(D \gamma_{0}^{\text{int}} u \right)(x)
+      + \left( \sigma I + K' \right)
+      \left[
+      V^{-1} \left( \sigma I + K \right) \gamma_{0}^{\text{int}} u(x)
+      - V^{-1} \left( N_{0} f \right)(x)
+      \right]
+      + \left( N_{1} f \right)(x) \\
+      & =
+      \left[ D +
+      \left( \sigma I + K' \right)
+      V^{-1} \left( \sigma I + K \right)
+      \right]
+      \gamma_{0}^{\text{int}} (x)
+      - \left( \sigma I + K' \right)
+      V^{-1} \left( N_{0} f \right)(x)
+      + \left( N_{1} f \right)(x), \quad x \in \Gamma.
+    \end{split}
+  \end{equation*}
+
+  整理可得
+  \begin{equation*}
+    - V^{-1} \left( N_{0} f \right)(x)
+    = - \left( \sigma I + K' \right) V^{-1} \left( N_{0} f \right)(x) + \left( N_{1} f \right)(x),
+    \end{equation*}
+证毕。
+\end{proof}
+
+\subsection{单层位势算子的椭圆性和可逆性}
+\label{sec:bvp-single-layer-ellipticity}
+
+单层位势算子$V:H^{-\frac{1}{2}}(\Gamma) \mapsto H^{\frac{1}{2}}(\Gamma)$的可逆性可由拉克斯一密格拉蒙定理Theorem \ref{theorem:lax-milgram-lemma}证得。在此基础上，进一步讨论$V$的$H^{\frac{1}{2}}(\Gamma)$-椭圆特性。
+
+回顾，已知方程$u(x) = \left( \widetilde{V} w \right)(x), x \in \Gamma$是以下内界狄利克雷边界值问题的解
+\begin{equation*}
+  \begin{split}
+    - \Delta u (x) &= 0, \quad x \in \Omega, \\
+    u(x) &= \gamma_{0}^{\text{int}} \left( \widetilde{V} w \right)(x) = \left( V w \right)(x), \quad x \in \Gamma.
+  \end{split}
+\end{equation*}
+
+假定$w \in H^{-\frac{1}{2}}(\Gamma)$，则$u = \widetilde{V} w \in H^{1}(\Omega)$。通过选取方程$\nu \in H^{1}(\Omega)$，由\eqref{eq:bvp-a-u-nu-inner-prod}可得内界狄利克雷边界值问题的格林第一恒等式
+\begin{equation}
+  \label{eq:bvp-bie-interior-dirichlet-green}
+  a_{\Omega} (u, \nu) \coloneqq \int_{\Omega} \triangledown u(x) \triangledown \nu(x) \, d x
+  = \langle \gamma_{1}^{\text{int}} u, \gamma_{0}^{\text{int}} \nu \rangle_{\Gamma}.
+\end{equation}
+
+代入\eqref{eq:var-dbvp-f0-solution} (Corollary \ref{corollary:var-dbvp-f0-solution})，上式改写为不等式形式
+\begin{equation}
+  \label{eq:bvp-bie-interior-dirichlet-green-ineq}
+  a_{\Omega}(u,u) \ge c_{1}^{\text{int}} \,
+  \left\| \gamma_{1}^{\text{int}} u \right\|_{H^{-\frac{1}{2}}(\Gamma)}.
+\end{equation}
+
+随后我们需要计算外界共法导数$\gamma_{1}^{\text{int}} u \in H^{-\frac{1}{2}}(\Gamma)$，这可以通过分析$\left| x \right| \rightarrow \infty$时单层位势$\left( \widetilde{V} w \right)(x)$的远端特征而得。为此，我们需要引入子空间$H_{*}^{-\frac{1}{2}}(\Gamma)$，子空间中的方程正交于常数
+\begin{equation*}
+  H_{*}^{-\frac{1}{2}}(\Gamma) \coloneqq
+  \left\{
+  w \in H^{-\frac{1}{2}}(\Gamma) : \langle w, 1 \rangle_{\Gamma} = 0
+  \right\}.
+\end{equation*}
+
+\begin{lemma}
+  \label{lemma:bvp-bie-single-layer-solution-boundary}
+  假定
+  \begin{equation*}
+    \left| x - y_{0} \right| >
+    \max \left\{ 1, 2 \diam(\Omega) \right\}, \quad y_{0} \in \Omega, x \in \mathbb{R}^{d}.
+  \end{equation*}
+
+  设
+  \begin{equation*}
+    w \in \begin{cases}
+    H^{-\frac{1}{2}}(\Gamma) & d = 3, \\
+    H_{*}^{-\frac{1}{2}}(\Gamma) & d = 2.
+    \end{cases}
+  \end{equation*}
+
+  那么$u = \widetilde{V} w $的边界可以表示为
+
+  \begin{align}
+    \label{eq:bvp-bie-single-layer-solution-boundary-u}
+    \left| u(x) \right| &= \left| \left( \widetilde{V} w \right) (x) \right| \le c_{1}(w) \, \frac{1}{\left| x - y_{0} \right|},\\
+     \label{eq:bvp-bie-single-layer-solution-boundary-pu}
+     \left| \triangledown u(x) \right| & = \left| \triangledown \left( \widetilde{V} w \right) (x) \right| \le c_{2}(w) \, \frac{1}{\left| x - y_{0} \right|^2}.
+  \end{align}
+\end{lemma}
+
+\begin{proof}
+  由三角不等式我们有
+  \begin{equation*}
+    \begin{split}
+      \left| x - y_{0} \right| & \le
+      \left| x - y \right| + \left| y - y_{0} \right| \\
+      & \le
+      \left| x - y \right| + \diam(\Omega) \\
+      & \le
+      \left| x - y \right| + \frac{1}{2} \left| x - y_{0} \right|.
+    \end{split}
+  \end{equation*}
+
+\begin{equation*}
+  \hookrightarrow \left| x - y \right| \ge \frac{1}{2} \left| x - y_{0} \right|.
+\end{equation*}
+
+下面分$d=3,2$分别证明。
+\begin{enumerate}
+\item 三维空间$d=3 \Rightarrow $
+\begin{equation*}
+  \begin{split}
+    \left\| U^{*}(x, \cdot) \right\|_{H^{1}(\Omega)}^{2} & =
+    \frac{1}{16 \pi^{2}}
+    \int_{\Omega} \frac{1}{\left| x - y \right|^{2}} \, d_y
+    + \frac{1}{16 \pi^{2}}
+    \int_{\Omega} \frac{1}{\left| x - y \right|^{4}} \, d_y \\
+    & \le
+    \frac{1}{4 \pi^{2}}
+    \int_{\Omega}
+    \frac{1}{\left| x - y_{0} \right|^{2}} \, d_y
+    + \frac{1}{\pi^{2}}
+    \int_{\Omega}
+    \frac{1}{\left| x - y_{0} \right|^{4}} \, d_y \\
+    & \le \frac{5}{4} \frac{\left| \Omega \right|}{\pi^{2}}
+    \frac{1}{\left| x - y_{0} \right|^{2}} \, d_y,
+  \end{split}
+\end{equation*}
+证得\eqref{eq:bvp-bie-single-layer-solution-boundary-u}。
+
+\begin{equation*}
+  \begin{split}
+  \left| u(x) \right| &=
+  \left|
+  \langle
+  \gamma_{0}^{\text{int}} U^{*}(x, \cdot) , w
+  \rangle_{\Gamma} \right| \\
+  & \le
+  \left\| \gamma_{0}^{\text{int}} U^{*}(x, \cdot) \right\|_{H^{\frac{1}{2}}(\Gamma)}
+  \,
+  \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)} \\
+  & \le c_{\text{T}} \,
+  \left\| \gamma_{0}^{\text{int}} U^{*}(x, \cdot) \right\|_{H^{1}(\Omega)}
+  \,
+  \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)}.
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+    \hookrightarrow \frac{\partial}{\partial x_{i}} u(x) &=
+    \frac{1}{4 \pi} \int_{\Gamma}
+    \frac{y_{i} - x_{i}}{\left| x - y \right|^{3}}
+    w(y) \, d s_y,
+  \end{split}
+\end{equation*}
+证得\eqref{eq:bvp-bie-single-layer-solution-boundary-pu}。
+
+\item 二维空间$d=2$中，沿着某个适宜的定值$\bar{y} \in \Omega$作泰勒展开
+\begin{equation*}
+  \log \left| y - x \right|  \approx
+  \log \left| y_{0} - x \right| +
+  \frac{
+  \left( y - y_{0}, \bar{y} - x \right)
+  }{
+  \left| \bar{y} - x \right|^2
+  }.
+\end{equation*}
+
+进而根据$w \in H_{*}^{-\frac{1}{2}}(\Gamma)$可得
+\begin{equation*}
+  u(x) = -\frac{1}{2 \pi} \int_{\Gamma}
+  \frac{
+  \left( y - y_{0}, \bar{y} - x \right)
+  }{
+  \left| \bar{y} - x \right|^2
+  }
+  w(y) \, d s_{y},
+\end{equation*}
+证得\eqref{eq:bvp-bie-single-layer-solution-boundary-u}。在此基础上证得\eqref{eq:bvp-bie-single-layer-solution-boundary-pu}。
+\end{enumerate}
+\end{proof}
+
+对于$y_{0} \in \Omega, R \ge 2 \diam(\Omega)$，定义球体
+\begin{equation*}
+  B_{R}(y_{0}) \coloneqq \left\{ x \in \mathbb{R}^{d} : \left| x - y_{0} \right| < R \right\}.
+\end{equation*}
+
+那么此时$u(x) = \left( V w \right)(x), x \in \Omega^{c}$就成为以下狄利克雷边界值问题的唯一解
+\begin{align}
+  \label{eq:bvp-dirichlet-exterior-problem-1}
+  - \Delta u(x) & = 0, \quad x \in B_{R}(y_{0}) \backslash \overline{\Omega}, \\
+  \label{eq:bvp-dirichlet-exterior-problem-2}
+  u(x) & = \gamma_{0}^{\text{int}} \left( \widetilde{V} w \right) (x) = \left( V w \right)(x), \quad x \in \Gamma, \\
+  \label{eq:bvp-dirichlet-exterior-problem-3}
+  u(x) & = \left( \widetilde{V} w \right)(x), \quad x \in \partial B_{R}(y_{0}).
+\end{align}
+
+其中，对于有界域$ B_{R}(y_{0}) \backslash \overline{\Omega}$ \eqref{eq:bvp-dirichlet-exterior-problem-1} 中的情况，利用格林第一恒等式\eqref{eq:bvp-a-u-nu-inner-prod}可得
+\begin{equation}
+  \label{eq:bvp-dirichlet-exterior-green1}
+  a_{B_{R}(y_{0}) \backslash \overline{\Omega}} (u, \nu)
+  = \underbrace{
+  - \langle \gamma_{1}^{\text{ext}} u, \gamma_{0}^{\text{ext}} \nu \rangle_{\Gamma}
+  }_{\eqqcolon \mathcal{A}}
+  + \underbrace{
+  \langle \gamma_{1}^{\text{int}} u, \gamma_{0}^{\text{int}} \nu \rangle_{\partial B_{R}(y_{0})}
+  }_{\eqqcolon \mathcal{B}}
+  .
+\end{equation}
+\begin{enumerate}
+  \item 先来看$\mathcal{B}$。设$u = \nu$。由Lemma \ref{lemma:bvp-bie-single-layer-solution-boundary}可得
+  \begin{equation*}
+    \begin{split}
+      \left| \langle
+      \gamma_{1}^{\text{int}} u, \gamma_{0}^{\text{int}} u
+      \rangle_{\partial B_{R}(y_{0})} \right|
+      & \le c_{1}(w) c_{2}(w)
+      \int_{\left| x - y_{0} \right| = R}
+      \frac{1}{\left| x - y_{0} \right|^{3}} \, d s_{x} \\
+      & \le c \, R^{d-4}.
+    \end{split}
+  \end{equation*}
+
+  \item 再来看极限$R \rightarrow \infty$的情况。在外界域(exterior domain) $\partial B_{R}(y_{0})$ \eqref{eq:bvp-dirichlet-exterior-problem-3}中，根据格林第一恒等式\eqref{eq:bvp-a-u-nu-inner-prod}可得
+  \begin{equation}
+    \label{eq:bvp-bie-omega-complement-bilinear}
+      a_{\Omega^{c}(u, u)} \coloneqq \int_{\Omega^{c}}
+      \triangledown u(x)
+      \triangledown u(x)
+      \, dx
+      = - \langle \gamma_{1}^{\text{ext}} u, \gamma_{0}^{\text{ext}} u \rangle_{\Gamma}.
+  \end{equation}
+\end{enumerate}
+
+在二维空间中，假设条件$w \in H_{*}^{-\frac{1}{2}}(\Gamma)$即可保证上述结论成立。以类似于Corollary \ref{corollary:var-dbvp-f0-solution}，\eqref{eq:var-dbvp-f0-solution}的方法，对于\eqref{eq:bvp-bie-omega-complement-bilinear}的外界狄利克雷边界值问题，满足不等式
+\begin{equation}
+  \label{eq:bvp-bie-omega-complement-bilinear-ineq}
+  a_{\Omega^{c}(u,u)} \ge c_{1}^{\text{ext}} \,
+  \left\| \gamma_{1}^{\text{ext}} u \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2}.
+\end{equation}
+
+\begin{theorem}
+  \label{theorem:bvp-bie-vw-w-gamma}
+  设
+  \begin{equation*}
+    w \in
+    \begin{cases}
+      H^{-\frac{1}{2}}(\Gamma) & d =3, \\
+      H_{*}^{-\frac{1}{2}}(\Gamma) & d = 2.
+    \end{cases}
+  \end{equation*}
+
+  那么有以下不等式
+  \begin{equation}
+    \label{eq:bvp-bie-vw-w-gamma}
+    \langle V w, w \rangle_{\Gamma} \ge c_{1}^{V} \,
+    \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2},
+  \end{equation}
+  其中常数$c_{1}^{V} \ge 0$。
+\end{theorem}
+\begin{proof}
+根据$u = \widetilde{V} w$，由内界、外界狄利克雷边界值问题的格林第一恒等式\eqref{eq:bvp-bie-interior-dirichlet-green}、\eqref{eq:bvp-bie-omega-complement-bilinear}可知
+\begin{equation*}
+  \begin{split}
+    a_{\Omega}(u,u) & = \langle \gamma_{1}^{\text{int}} u, \gamma_{0}^{\text{int}} u \rangle_{\Gamma}, \\
+    a_{\Omega^{c}}(u,u) & = - \langle \gamma_{1}^{\text{ext}} u, \gamma_{0}^{\text{ext}} u \rangle_{\Gamma}.
+  \end{split}
+\end{equation*}
+
+两式相加
+\begin{equation*}
+  \underbrace{
+  a_{\Omega}(u,u) + a_{\Omega^{c}}(u,u)
+  }_{\eqqcolon \mathcal{C}}
+  = \langle
+  \underbrace{
+  \left[ \gamma_{1}^{\text{int}} u - \gamma_{1}^{\text{ext}} u \right]
+  }_{\eqqcolon \mathcal{A}}
+  ,
+  \underbrace{
+  \left[ \gamma_{0}^{\text{int}} u - \gamma_{0}^{\text{ext}} u \right]
+  }_{\eqqcolon \mathcal{B}}
+  \rangle_{\Gamma}.
+\end{equation*}
+
+
+\begin{enumerate}
+  \item 由单层位势算子的跃动关系\eqref{eq:bvp-single-layer-jump-relaton}可得
+\begin{equation*}
+  \mathcal{B} \coloneqq \gamma_{0}^{\text{int}} u - \gamma_{0}^{\text{ext}} u \coloneqq \gamma_{0} u,
+\end{equation*}
+
+\item 由单层位势共法导数的跃动关系\eqref{eq:bvp-jump-relation}可得
+\begin{equation*}
+  \mathcal{A} \coloneqq \gamma_{1}^{\text{int}} u - \gamma_{1}^{\text{ext}} u \coloneqq w,
+\end{equation*}
+
+\item 将\eqref{eq:bvp-bie-interior-dirichlet-green-ineq}，\eqref{eq:bvp-bie-omega-complement-bilinear-ineq}代入$\mathcal{C}$得
+\begin{equation*} \begin{split}
+  \mathcal{C} &\coloneqq a_{\Omega}(u,u) + a_{\Omega^{c}}(u,u) \\
+  & \ge c_{1}^{\text{int}} \,
+  \left\| \gamma_{1}^{\text{int}} u \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+  + c_{1}^{\text{ext}} \,
+  \left\| \gamma_{1}^{\text{ext}} u \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2} \\
+  & \ge \min \left\{ c_{1}^{\text{int}}, c_{2}^{\text{ext}} \right\}
+  \left[
+   \left\| \gamma_{1}^{\text{int}} u \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+   +
+   \left\| \gamma_{1}^{\text{ext}} u \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2}
+  \right]
+\end{split}
+\end{equation*}
+\end{enumerate}
+
+\begin{equation*}
+  \begin{split}
+    \langle \mathcal{A} , \mathcal{B} \rangle_{\Gamma} &=
+    \langle w, \gamma_{0} u \rangle_{\Gamma} =
+    \langle Vw, w \rangle_{\Gamma} \\
+    & =
+    \mathcal{C}
+    \ge
+    \min \left\{ c_{1}^{\text{int}}, c_{2}^{\text{ext}} \right\}
+    \left[
+     \left\| \gamma_{1}^{\text{int}} u \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+     +
+     \left\| \gamma_{1}^{\text{ext}} u \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2}
+    \right].
+  \end{split}
+\end{equation*}
+
+此外根据\eqref{lemma:bvp-jump-relation}有
+\begin{equation*}
+  \begin{split}
+    \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2}
+    & =
+    \left\|
+    \gamma_{1}^{\text{int}} u - \gamma_{1}^{\text{ext}} u
+    \right\|_{H^{-\frac{1}{2}}(\Gamma)}^2 \\
+    & \le
+    \left[
+    \left\|
+    \gamma_{1}^{\text{int}} u
+    \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+    +
+    \left\|
+    \gamma_{1}^{\text{ext}} u
+    \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+    \right]^2 \\
+    & \le 2 \left[
+    \left\|
+    \gamma_{1}^{\text{int}} u
+    \right\|_{H^{-\frac{1}{2}}(\Gamma)}^2
+    +
+    \left\|
+    \gamma_{1}^{\text{ext}} u
+    \right\|_{H^{-\frac{1}{2}}(\Gamma)}^2
+    \right],
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+    \langle Vw, w \rangle_{\Gamma}
+    & \ge
+    \min \left\{ c_{1}^{\text{int}}, c_{2}^{\text{ext}} \right\}
+    \left[
+     \left\| \gamma_{1}^{\text{int}} u \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+     +
+     \left\| \gamma_{1}^{\text{ext}} u \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2}
+    \right] \\
+    & \ge \underbrace{
+    \min \left\{ c_{1}^{\text{int}}, c_{2}^{\text{ext}} \right\}
+    }_{\eqqcolon c_{1}^{V} \ge 0}
+    \,
+    \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2}.
+  \end{split}
+\end{equation*}
+\end{proof}
+
+对于二维系统$d=2$的情况，我们也可从Theorem \ref{theorem:bvp-bie-vw-w-gamma}推得，单层位势$V$的$H_{*}^{-\frac{1}{2}}(\Gamma)$-椭圆特性。具体来说，有两种证明思路。
+
+\subsubsection{鞍点变分问题求证椭圆性}
+第一种证明思路是，汇总$d = 2, 3$的情况，构建鞍点问题
+\begin{align}
+  \label{eq:bvp-bie-sile-ellipticity-saddle-1}
+  &\langle V t, \tau \rangle_{\Gamma} - \lambda \langle 1, \tau \rangle_{\Gamma} = 0, \quad \forall \tau \in H^{-\frac{1}{2}}(\Gamma), \\
+  \label{eq:bvp-bie-sile-ellipticity-saddle-2}
+  & \langle t, 1 \rangle_{\Gamma} = 1,
+\end{align}
+寻找解$(t,\lambda) \in H^{-\frac{1}{2}}(\Gamma) \times \mathbb{R}$。
+
+将$t$定义如下
+\begin{equation*}
+  t \coloneqq \widetilde{t} + \frac{1}{\left| \Gamma \right|}, \quad \tau \in H_{*}^{-\frac{1}{2}}(\Gamma),
+\end{equation*}
+不难看出，如果对于某一$\widetilde{t} \in H_{*}^{-\frac{1}{2}}(\Gamma)$，\eqref{eq:bvp-bie-sile-ellipticity-saddle-1}的解$t$同时也满足关系式\eqref{eq:bvp-bie-sile-ellipticity-saddle-2}。那么求解上述按点问题的关键就变为，寻找合适的$\widetilde{t}$，使满足如下关系
+\begin{equation*}
+  \langle V \widetilde{t}, \tau \rangle_{\Gamma}
+  = - \frac{1}{\left| \Gamma \right|}
+  \langle V 1, \tau \rangle_{\Gamma}, \quad \forall \, \tau \in H_{*}^{-\frac{1}{2}}(\Gamma).
+\end{equation*}
+
+由Theorem \ref{theorem:bvp-bie-vw-w-gamma}可见，上式中单层位势是$H_{*}^{-\frac{1}{2}}(\Gamma)$-椭圆的。因此该变分问题可解，解唯一。设这个唯一解为$w_{\text{eq}}$，表示自然密度方程(natural density function)\index{natural density \dotfill 自然密度}\todo{更多自然密度的介绍见后}。
+\begin{equation}
+  w_{\text{eq}} \coloneqq \widetilde{t} + \frac{1}{\left| \Gamma \right|},
+\end{equation}
+
+设$\tau = w_{\text{eq}}$，则拉格朗日乘子$\lambda$满足
+\begin{equation*}
+  \lambda = \langle V w_{\text{eq}}, w_{\text{eq}} \rangle_{\Gamma}.
+\end{equation*}
+
+在三维空间$d=3$中，由Theorem \ref{theorem:bvp-bie-vw-w-gamma}可得拉，拉格朗日乘子严格为正$\lambda > 0$，定义为$\Gamma$的容度(capacity)\index{capacity \dotfill 容度}，用$\capacity_{\Gamma}$表示。
+
+在二维空间$d=2$中，$\capacity_{\Gamma}$可定义为指数形式
+\begin{equation*}
+  \capacity_{\Gamma} \coloneqq \exp (- 2 \pi \lambda),
+\end{equation*}
+基于参数的基本解为
+\begin{equation*}
+  U^{*}(x,y) \coloneqq \frac{1}{2 \pi} \log r - \frac{1}{2 \pi} \log
+  \left| x - y \right|, \quad r \in \mathbb{R}^{+},
+\end{equation*}
+对应的边界积分算子
+\begin{equation*}
+  \left( V_{r} w \right)(x) \coloneqq
+  \int_{\Gamma} U_{r}^{*} (x,y) w(y) \, d s_{y}, \quad x \in \Gamma.
+\end{equation*}
+
+由此可得
+\begin{equation*}
+  \left( V_{r} w \right)(x) = \frac{1}{2 \pi} \log r + \lambda
+  = \frac{1}{2 \pi} \log \frac{r}{\capacity_{\Gamma}},
+\end{equation*}
+尤其是当$r=1$时，有
+\begin{equation}
+  \label{eq:bvp-bie-single-lambda-requal1}
+  \lambda \coloneqq \frac{1}{2} \log \frac{1}{\capacity_{\Gamma}}.
+\end{equation}
+
+由\eqref{eq:bvp-bie-single-lambda-requal1}可见，在二维系统$d=2$中，$r=1$的前提下，只有当指数容度$\capacity_{\Gamma} <1$时，才能确保$\lambda > 0$，进而使得解存在。\cite{Hsiao:1977vf}论证了，使满足$\capacity_{\Gamma} <1$的一个充分条件是假定$\diam(\Omega) < 1$——有时这便需要我们对给定的域$\Omega \in \mathbb{R}^{2}$作规模调节，使得直径小于1的假定得到满足(见\pageref{sec:bvp-bie-single-ellipticity-natural-density-approach}页第\ref{sec:bvp-bie-single-ellipticity-natural-density-approach}节)。
+
+\begin{theorem}
+  \label{theorem:bvp-bie-single-ellipticity-d2}
+  二维空间$d=2$中，设$\diam(\Omega) <1$，从而$\lambda >0$。单层位势$V$是$H^{-\frac{1}{2}}(\Gamma)$-椭圆的，即
+  \begin{equation}
+    \label{eq:bvp-bie-single-d2-ellipticity}
+    \langle V w, w \rangle_{\Gamma}
+    \ge
+    \widetilde{c}_{1}^{\text{V}} \,
+    \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2}, \quad \forall \, w \in H^{-\frac{1}{2}}(\Gamma).
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  \begin{enumerate}
+    \item 看RHS。对于任一给定$w \in H^{-\frac{1}{2}}(\Gamma)$，都可以对$w$作唯一的分解
+  \begin{equation*}
+    w = \widetilde{w} + \alpha w_{\text{eq}}, \quad \widetilde{w} \in H_{*}^{-\frac{1}{2}}(\Gamma), \alpha = \langle w, 1 \rangle_{\Gamma}.
+  \end{equation*}
+\begin{equation*}
+\begin{split}
+  \hookrightarrow \left\| w \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2} & =
+  \left\|
+  \widetilde{w} + \alpha w_{\text{eq}} \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2} \\
+  & \le
+  \left[
+  \left\| \widetilde{w} \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+  + \alpha
+  \left\| w_{\text{eq}} \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+  \right]^{2} \\
+  & \le
+  2 \left[
+  \left\| \widetilde{w} \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2}
+  + \alpha^{2} \,
+  \left\| w_{\text{eq}} \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2}
+  \right] \\
+  & \le 2 \max \left\{ 1, \left\| w_{\text{eq}} \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2} \right\} \,
+  \left[
+  \left\| \widetilde{w} \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2}
+  + \alpha^{2}
+  \right].
+\end{split}
+\end{equation*}
+
+\item 看LHS。
+\begin{equation*}
+  \begin{split}
+    \langle V w, w \rangle_{\Gamma}
+    & = \langle
+    V \left(\widetilde{w} + \alpha w_{\text{eq}} \right),
+    \widetilde{w} + \alpha w_{\text{eq}}
+    \rangle_{\Gamma} \\
+    & =
+    \underbrace{
+    \langle V \widetilde{w}, \widetilde{w} \rangle
+    }_{\eqqcolon \mathcal{A}}
+    + 2 \alpha
+    \underbrace{
+    \langle
+    \widetilde{V} w_{\text{eq}}, \widetilde{w}
+    \rangle_{\Gamma}
+    }_{\eqqcolon \mathcal{B}}
+    + \alpha^{2}
+    \underbrace{
+    \langle
+    V w_{\text{eq}}, w_{\text{eq}}
+    \rangle_{\Gamma}
+    }_{\eqqcolon \mathcal{C}},
+  \end{split}
+\end{equation*}
+其中
+\begin{enumerate}
+  \item 根据Theorem \ref{theorem:bvp-bie-vw-w-gamma}
+\begin{equation*}
+  \mathcal{A} \coloneqq \langle
+  \widetilde{V} w_{\text{eq}}, \widetilde{w}
+  \rangle_{\Gamma} \ge c_{1}^{\text{V}} \, \left\| \widetilde{w} \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2},
+\end{equation*}
+\item
+\begin{equation*}
+  \mathcal{B} \coloneqq
+  \langle
+  \widetilde{V} w_{\text{eq}}, \widetilde{w}
+  \rangle_{\Gamma} = 0,
+\end{equation*}
+\item 根据定义有
+\begin{equation*}
+  \mathcal{C} \coloneqq
+  \langle
+  V w_{\text{eq}}, w_{\text{eq}}
+  \rangle_{\Gamma} = \lambda,
+\end{equation*}
+\end{enumerate}
+
+因此上式变为
+\begin{equation*}
+  \begin{split}
+    \langle V w, w \rangle_{\Gamma}
+    &= \mathcal{A} + 2 \alpha \mathcal{B} + \alpha^{2} \mathcal{C} \\
+    & \ge c_{1}^{\text{V}} \, \left\| \widetilde{w} \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2} + \alpha^{2} \lambda \\
+    & \ge \min \{ c_{1}^{\text{V}}, \lambda \}
+    \left[
+    \left\|
+    \widetilde{w} \right\|_{H^{-\frac{1}{2}}(\Gamma)}^{2} + \alpha^{2}
+    \right]
+  \end{split}
+\end{equation*}
+
+\item 联立LHS和RHS，可证。
+\end{enumerate}
+\end{proof}
+
+第二种思路是从从自然密度方程$w_{\text{eq}} \in H^{-\frac{1}{2}}(\Gamma)$
+\label{sec:bvp-bie-single-ellipticity-natural-density-approach}入手。
+已知$w_{\text{eq}}$是以下带有约束条件的算子方程的解
+\begin{equation*}
+  \begin{split}
+    \left(
+    V w_{\text{eq}}
+    \right) (x) &= \lambda, \quad x \in \Gamma, \\
+    \langle w_{\text{eq}}, 1 \rangle_{\Gamma} &= 1.
+  \end{split}
+\end{equation*}
+
+我们首先对$w_{\text{eq}}$作规模调节：
+\begin{equation*}
+  w_{\text{eq}} \coloneqq \lambda \, \widetilde{w}_{\text{eq}},
+\end{equation*}
+
+新的算子方程变为
+\begin{equation}
+  \label{eq:bvp-bie-single-scaling-equation}
+  \begin{split}
+    \left(
+    V \widetilde{w}_{\text{eq}}
+    \right) (x) &= 1, \quad x \in \Gamma, \\
+    \langle \widetilde{w}_{\text{eq}}, 1 \rangle_{\Gamma} &= \frac{1}{\lambda}.
+  \end{split}
+\end{equation}
+
+求解思路略。大致说来，第一步求解边界积分方程，对应\eqref{eq:bvp-bie-single-scaling-equation}第一行，以求得作为自然密度的解$w_{\text{eq}}$。第二步，将规模调整得到的$\widetilde{w}_{\text{eq}}$引入第二行，计算容度。
+
+\subsubsection{单层位势算子的可逆性}
+\label{sec:bvp-bie-single-invertibility}
+已知单层位势边界积分算子$V:H^{-\frac{1}{2}}(\Gamma) \mapsto H^{\frac{1}{2}}(\Gamma)$第一有界\eqref{eq:bvp-single-layer-operator-v-norm}，第二$H^{-\frac{1}{2}}(\Gamma)$-椭圆($d=2$的证明见Theorem \ref{theorem:bvp-bie-single-ellipticity-d2}，$d=3$的证明见Theorem \ref{theorem:bvp-bie-vw-w-gamma})。那么可应用拉克斯一密格拉蒙定理(Theorem \ref{theorem:lax-milgram-lemma})证得单层位势$V$可逆，即$V^{-1}:H^{\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma)$有界，并且满足
+\begin{equation*}
+  \left\| V^{-1} \nu \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+  \le \frac{1}{c_{1}^{\text{V}}} \, \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}, \quad \forall \, \nu \in H^{\frac{1}{2}}(\Gamma).
+\end{equation*}
+
+在此基础上，双线性内积形式的单层位势$V$
+\begin{equation*}
+\begin{split}
+  \langle V w, w_{\text{eq}} \rangle_{\Gamma}
+  & = \langle w, V w_{\text{eq}} \rangle_{\Gamma} \\
+  & = \lambda \langle w, 1 \rangle_{\Gamma} = 0, \quad \forall \, w \in H_{*}^{\frac{1}{2}}(\Gamma).
+\end{split}
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+    \therefore & V w \in H_{*}^{\frac{1}{2}}(\Gamma), \\
+    & H_{*}^{\frac{1}{2}}(\Gamma) \coloneqq
+    \left\{
+    \nu \in H^{\frac{1}{2}}(\Gamma): \langle \nu, w_{\text{eq}} \rangle_{\Gamma} = 0
+    \right\}.
+  \end{split}
+\end{equation*}
+
+因此可见，单层位势$V:H_{*}^{-\frac{1}{2}}(\Gamma) \mapsto H_{*}^{\frac{1}{2}}(\Gamma)$是一个同构(isomorphism)\footnote{同构的概念，可参考\cite[pp.34, Definition 3.11]{Muscat:2014cc}。}。

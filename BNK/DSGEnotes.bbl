@@ -1,4 +1,4 @@
-\begin{thebibliography}{242}
+\begin{thebibliography}{243}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -211,6 +211,13 @@
 \newblock \bibinfo{title}{{GEM: A New International Macroeconomic Model}}.
 \newblock \bibinfo{publisher}{International Monetary Fund},
   \bibinfo{year}{2004}.
+%Type = Article
+\bibitem[{Behrndt and ter Elst(2015)}]{Behrndt:2015kq}
+\bibinfo{author}{Behrndt\xfnm[ J.]}, \bibinfo{author}{ter Elst\xfnm[ A.F.M.]}.
+\newblock \bibinfo{title}{{Dirichlet-to-Neumann Maps on Bounded Lipschitz
+  Domains}}.
+\newblock \bibinfo{journal}{Journal of Differential Equations}
+  \bibinfo{year}{2015};\bibinfo{volume}{259}(\bibinfo{number}{11}):\bibinfo{pages}{5903--5926}.
 %Type = Book
 \bibitem[{Bellman(1957)}]{Bellman:1957tx}
 \bibinfo{author}{Bellman\xfnm[ R.]}.

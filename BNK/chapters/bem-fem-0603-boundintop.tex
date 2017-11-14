@@ -1,0 +1,368 @@
+%!TEX root = ../DSGEnotes.tex
+\subsection{超奇异边界积分算子的椭圆性}
+\label{sec:bvp-bie-hyper-ellipticity}
+
+第\ref{sec:bvp-hyperbie-operator}节介绍了超奇异边界积分算子$D$。由\eqref{eq:bvp-hyper-bie-D-u0-equiv0}可得，若引入特征解(eigensolution) $u_{0} \equiv 1, x \in \Gamma$，那么$\left( D u_{0}  \right) (x) = 0$。可见我们无法保证超奇异边界积分算子$D$在$H^{\frac{1}{2}}(\Gamma)$中全部都是椭圆的，而只是半椭圆(semi-ellipticity)\index{ellipticity!semi \dotfill 半椭圆性}的。在本节中，首先我们介绍半椭圆性。随后介绍替代方案：在$H^{\frac{1}{2}}(\Gamma)$中构建满足椭圆特征的子空间，两种常见的子空间如下文所示。
+
+\subsubsection{超奇异边界积分算子的半椭圆性}
+\label{sec:bvp-bie-hyper-semi-ellipticity}
+
+\begin{theorem}[超奇异边界积分算子的半椭圆性]
+\label{theorem:bvp-bie-hyper-semi-ellipticity}
+  超奇异边界积分算子$D$是半椭圆的，即
+  \begin{equation*}
+    \langle D \nu, \nu \rangle_{\Gamma} \ge c_{1}^{\text{D}} \,
+    \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}, \quad \forall \, \nu \in H_{*}^{\frac{1}{2}}(\Gamma).
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+  \item 对于$\nu \in H_{*}^{\frac{1}{2}}(\Gamma)$，考虑齐次偏微分方程的解$u(x)$可以表示为如下双层位势
+  \begin{equation*}
+    u(x) \coloneqq - \left( W u \right)(x) , \quad x \in \Omega \cup \Omega{c}.
+  \end{equation*}
+
+  对于$x \in \Gamma$，$u(x)$的迹算子和共法导数算子以伴随双层位势的形式表示如下
+  \begin{equation*}
+    \begin{cases}
+      \gamma_{0}^{\text{int}} u(x) = \left( 1 - \sigma(x) \right)
+      \nu(x) - \left( K \nu \right)(x), \\
+      \gamma_{1}^{\text{int}} u(x) = \left( D \nu \right) (x), \quad x \in \Gamma,
+    \end{cases}
+  \end{equation*}
+  \begin{equation*}
+    \begin{cases}
+      \gamma_{0}^{\text{ext}} u(x) = - \sigma(x)
+      \nu(x) - \left( K \nu \right)(x), \\
+      \gamma_{1}^{\text{ext}} u(x) = \left( D \nu \right) (x), \quad x \in \Gamma.
+    \end{cases}
+  \end{equation*}
+
+\item 由此可见，方程$u = -W u$构成内界狄利克雷边界值问题的唯一解
+\begin{equation*}
+  \begin{cases}
+    - \Delta u(x) = 0 & x \in \Gamma, \\
+    \gamma_{0}^{\text{int}} u(x) = \left( 1- \sigma(x) \right)\nu(x) - \left( K \nu \right)(x) & x \in \Gamma.
+  \end{cases}
+\end{equation*}
+
+由格林第一恒等式\eqref{eq:bvp-a-u-nu-inner-prod}可得，解$u(x)$满足如下关系
+\begin{equation*}
+  \int_{\Gamma} \triangledown u(x) \triangledown w(x) \, d x
+  = \langle \gamma_{1}^{\text{int}} u, \gamma_{0}^{\text{int}} w \rangle_{\Gamma}, \quad \forall \, w \in H^{1}(\Omega).
+\end{equation*}
+
+\item 设一个包围$\Omega$的球体$B_{R}(y_0)$，以$y_0 \in \Omega$为圆心，以$R > 2 \diam(\Omega)$为半径。即$\Omega \subset B_{R}(y_0)$。那么$u = - W u$同时也是以下狄利克雷边界值问题的唯一解
+\begin{equation*}
+  \begin{cases}
+    - \Delta u(x) = 0 & x \in B_{R}(y_0)\backslash \overline{\Omega}, \\
+    \gamma_{0}^{\text{ext}} u(x) = - \sigma(x) \nu(x) - \left(K \nu \right)(x) & x \in \Gamma = \partial \Omega,\\
+    \gamma_{0} u(x) = \gamma_{0}^{\text{int}} u(x) + \gamma_{0}^{\text{ext}} u(x) = - \left( W \nu \right)(x) & x \in \partial B_{r}(y_0).
+  \end{cases}
+\end{equation*}
+
+根据格林第一恒等式可得\eqref{eq:bvp-a-u-nu-inner-prod}可得，解$u(x)$表示为如下双线性形式
+\begin{equation*}
+  \int_{B_{R}(y_0) \backslash \overline{\Omega}}
+  \triangledown u(x) \triangledown w(x) \, d x
+  = - \langle
+  \gamma_{1}^{\text{ext}} u, \gamma_{0}^{\text{ext}} w
+  \rangle_{\Gamma}
+  + \langle \gamma_{1} u, \gamma_{0} w \rangle_{\partial B_{r}(y_0)}, \quad \forall \, w \in H^{1}(B_{R}(y_0) \backslash \overline{\Omega}).
+\end{equation*}
+
+\begin{enumerate}
+  \item 对于$x \in \Gamma$，根据定义有
+  \begin{equation*}
+    u(x) = \frac{1}{2 \left( d - 1 \right) \pi }
+    \int_{\Gamma}
+    \frac{
+    \left( y - x, n_y \right)
+    }{
+    \left| x - y \right|^{d}
+    }
+    \nu(y) \, d s_y.
+  \end{equation*}
+  \item 对于 $x \in \partial B_{R}(y_0)$，有
+  \begin{equation*}
+    \begin{split}
+      \left| u(x) \right| \le c_{1}(\nu) \, R^{1-d}, \\
+      \left| \triangledown u(x) \right| \le c_{2}(\nu) R^{-d}.
+    \end{split}
+  \end{equation*}
+\end{enumerate}
+
+那么选取$w = u = - W \nu$，取极限$\lim R \rightarrow \infty$，可得外界域中的格林第一恒等式
+\begin{equation*}
+  \int_{\Omega^{c}} \left| \triangledown u(x) \right|^{2} \, dx
+  = - \langle \gamma_{1}^{\text{ext}} u, \gamma_{0}^{\text{ext}} u \rangle_{\Gamma}.
+\end{equation*}
+
+\item 将内、外界域的格林第一恒等式相加求和，并考虑不同边界积分算子的跃动关系，我们有超奇异边界积分算子$D$的双线性形式
+\begin{equation*}
+  \begin{split}
+    \underbrace{
+    \langle D \nu, \nu \rangle_{\Gamma}
+    }_{\eqqcolon \mathcal{C}}
+    & =
+    \langle \gamma_{1}^{\text{int}} u,
+    \left[ \gamma_{0}^{\text{int}} - \gamma_{0}^{\text{ext}} u \right]
+    \rangle_{\Gamma} \\
+    & =
+    \langle \gamma_{1}^{\text{int}} u, \gamma_{0}^{\text{int}} u \rangle_{\Gamma}
+    - \langle \gamma_{1}^{\text{int}} u, \gamma_{0}^{\text{ext}} u \rangle_{\Gamma} \\
+    & =
+    \int_{\Omega} \left| \triangledown u(x) \right|^{2} \, d x
+    + \int_{\Omega^{c}} \left| \triangledown u(x) \right|^{2} \, d x \\
+    & = \underbrace{
+    \left| u \right|_{H^{1}(\Omega)}^{2}
+    }_{\eqqcolon \mathcal{B}}
+    + \underbrace{
+    \left| u \right|_{H^{1}(\Omega^{c})}^{2}
+    }_{\eqqcolon \mathcal{A}}
+    .
+  \end{split}
+\end{equation*}
+
+\begin{enumerate}
+  \item 来看$\mathcal{A}$。外界域$\Omega^{c}$中，双层位势$u(x) = - \left(W u \right)(x)$，取$\lim \left| x \right| \rightarrow \infty$，有
+  \begin{equation*}
+    c_{1}  \, \left\| u \right\|_{H^{1}(\Omega^{c})}^{2} \le
+    \left| u \right|_{H^{1}(\Omega^{c})}^{2}.
+  \end{equation*}
+  \item 来看$\mathcal{B}$。
+  \begin{enumerate}
+    \item 由以下三点
+    \begin{itemize}
+    \item 对于$\nu \in H_{*}^{\frac{1}{2}}(\Gamma)$，有自然密度$w_{\text{eq}} \in H^{-\frac{1}{2}}(\Gamma)$,
+    \item $V w_{\text{eq}} = 1$，
+    \item 有界积分算子呈对称关系\eqref{eq:bvp-bie-operator-relation-3} 成立
+    \end{itemize}
+    可得
+    \begin{equation*}
+      \begin{split}
+        \langle \gamma_{0}^{\text{int}} u, w_{\text{eq}} \rangle_{\Gamma} & =
+        \langle
+        \left( \frac{1}{2} I - K \right) \nu,
+        w_{\text{eq}}
+        \rangle_{\Gamma} \\
+        & = \langle \nu, w_{\text{eq}} \rangle_{\Gamma}
+        - \langle
+        \left( \frac{1}{2} I + K \right) \nu,
+        w_{\text{eq}} \rangle_{\Gamma} \\
+        & = - \langle
+        \left( \frac{1}{2} I + K \right) \nu,
+        V^{-1} \rangle_{\Gamma} \\
+        & = - \langle
+        V ^{-1} \left( \frac{1}{2} I + K \right) \nu,
+        1 \rangle_{\Gamma} \\
+        & = - \langle
+        \left( \frac{1}{2} I + K \right) V^{-1}  \nu,
+        1 \rangle_{\Gamma} \\
+        & = - \langle
+        V^{-1}  \nu,
+        \left( \frac{1}{2} I + K \right)  \rangle_{\Gamma} \\
+        & = 0.
+      \end{split}
+    \end{equation*}
+    \item 进而，根据索伯列夫空间中的范数等价定理\eqref{eq:sobolev-norm-equivalence-theorem}(Theorem \ref{theorem:sobolev-equivalence-norm-theorem})可得$H^{1}(\Omega)$空间中的一个等价范
+    \begin{equation*}
+      \left\| u \right\|_{H_{*}^{1}(\Omega)}
+      \coloneqq \left\{
+      \left[
+      \langle
+      \gamma_{0}^{\text{int}} u, w_{\text{eq}}
+      \rangle_{\Gamma}
+      \right]^{2}
+      + \left\|
+      \triangledown u \right\|_{L^{2}(\Omega)}^{2}
+      \right\}^{\frac{1}{2}}.
+    \end{equation*}
+      \end{enumerate}
+    \item 来看$\mathcal{C}$。由迹定理和双层位势的跃动关系可得
+    \begin{equation*}
+      \begin{split}
+        \langle D \nu, \nu \rangle_{\Gamma} & \ge
+        c \, \left\{
+        \left\| u \right\|_{H^{1}(\Omega)}^{2} +
+        \left\| u \right\|_{H^{1}(\Omega^{c})}^{2}
+        \right\}\\
+        & \ge \widetilde{c} \,
+        \left\{
+        \left\| \gamma_{0}^{\text{int}} u \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}
+        + \left\| \gamma_{0}^{\text{ext}} u \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}
+        \right\} \\
+        & \ge
+        \frac{1}{2} \widetilde{c}
+        \left\|
+        \gamma_{0}^{\text{int}} u
+        - \gamma_{0}^{\text{ext}} u
+        \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2} \\
+        & = c_{1}^{\text{D}} \,
+        \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}, \quad \forall \, \nu \in H_{*}^{\frac{1}{2}}(\Gamma).
+      \end{split}
+    \end{equation*}
+\end{enumerate}
+\end{enumerate}
+由此可证得超奇异边界积分算子$D$的$H_{*}^{\frac{1}{2} (\Gamma)}$-椭圆性。
+\end{proof}
+
+\subsubsection{椭圆性所处子空间的替代方案}
+Theorem \ref{theorem:bvp-bie-hyper-semi-ellipticity}对超奇异边界积分算子$D$的$H_{*}^{\frac{1}{2} (\Gamma)}$-椭圆性的证明，涉及到对解方程所处空间的限定：需要将其限定在一个更适宜的子空间之内——即正交于常数的子空间。显然，随着算子$D$双线性内积类型的不同，对应正交子空间的种类也有所不同。具体说来，根据索伯列夫空间中的范数等价定理\eqref{eq:sobolev-norm-equivalence-theorem}(Theorem \ref{theorem:sobolev-equivalence-norm-theorem})，可定义一个$H^{\frac{1}{2}}(\Gamma)$中的等价范
+\begin{equation*}
+  \left\| \nu \right\|_{H_{*}^{\frac{1}{2}}(\Gamma)}
+  \coloneqq
+  \left\{
+  \left[
+  \langle \nu, w_{\text{eq}} \rangle_{\Gamma}
+  \right]^{2}
+  + \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}
+  \right\}^{\frac{1}{2}},
+\end{equation*}
+其中$w_{\text{eq}} \in H^{-\frac{1}{2}}(\Gamma)$由自然密度的定义式  \eqref{eq:bvp-bie-single-scaling-equation}给出。那么
+
+\begin{corollary}[超奇异边界积分算子的半椭圆性]
+  \label{corollary:bvp-bie-single-semi-ellipticity}
+  超奇异积分算子$D$是$H^{\frac{1}{2}}(\Gamma)$-半椭圆(semi-elliptic)\index{ellipticity!semi \dotfill 半椭圆性}的，即
+  \begin{equation}
+    \label{eq:bvp-bie-single-semi-ellipticity}
+    \langle D \nu, \nu \rangle_{\Gamma}
+    \ge \overline{c}_{1}^{\text{D}} \, \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}, \quad \forall \nu \in H^{\frac{1}{2}}(\Gamma).
+  \end{equation}
+\end{corollary}
+
+  Corollary \ref{corollary:bvp-bie-single-semi-ellipticity}中，对子空间$H_{*}^{\frac{1}{2}}(\Gamma)$的定义，涉及到边界积分方程\eqref{eq:bvp-bie-single-scaling-equation}的唯一解，即自然密度$w_{\text{eq}} \in H^{-\frac{1}{2}}(\Gamma)$。然而在实际计算过程中，该定义往往较难直接处理。有鉴于此，需要另外寻求替代方案。
+
+  常见的替代方案之一是定义另一个子空间$H_{**}^{\frac{1}{2}}(\Gamma)$，从而简化内积结构
+  \begin{equation*}
+    H_{**}^{\frac{1}{2}}(\Gamma) \coloneqq
+    \left\{ \nu \in H^{\frac{1}{2}}(\Gamma): \langle \nu, 1 \rangle_{\Gamma} = 0 \right\}.
+  \end{equation*}
+
+则由\eqref{eq:bvp-bie-single-semi-ellipticity}得，对于$\nu \in H_{**}^{\frac{1}{2}}(\Gamma)$，内积可以简化为
+\begin{equation}
+  \label{eq:bvp-bie-single-innnerp-simplify-starstar}
+  \begin{split}
+  \langle D \nu, \nu \rangle_{\Gamma}
+  & \ge \overline{c}_{1}^{\text{D}} \, \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2} \\
+  & = \overline{c}_{1}^{\text{D}} \,
+  \left\{
+  \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}
+  + \left[
+  \langle \nu, 1 \rangle_{\Gamma}
+  \right]^2
+  \right\}\\
+  & \ge \widetilde{c}_{1}^{\text{D}} \,
+  \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}.
+\end{split}
+\end{equation}
+
+若是采用子空间$H_{**}^{\frac{1}{2}}(\Gamma)$，我们也可以证明算子$D$的$H_{**}^{\frac{1}{2}}(\Gamma)$-椭圆性。（证明略）。
+
+另一个替代方案是，考虑一个子空间$\Gamma_{0} \subset \Gamma$。对于某一给定的$\nu \in \widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$，定义其延拓$\widetilde{\nu} \in H^{\frac{1}{2}}(\Gamma)$如下
+\begin{equation*}
+  \widetilde{\nu}(x) =
+  \begin{cases}
+    \nu(x) & x \in \Gamma_{0}, \\
+    0 & \text{否则}.
+  \end{cases}
+\end{equation*}
+
+根据范数等价定理，$H^{\frac{1}{2}}(\Gamma)$上的等价范可定义为
+\begin{equation*}
+  \left\| w \right\|_{H^{\frac{1}{2}}(\Gamma), \Gamma_{0}}
+  \coloneqq
+  \left\{
+  \left\| w \right\|_{L^{2}(\Gamma \backslash \Gamma_{0})}^{2}
+  + \left| w \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}
+  \right\}^{\frac{1}{2}}.
+\end{equation*}
+
+那么，对于$\nu \in \widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$，内积简化为
+\begin{equation*}
+  \begin{split}
+    \langle D \nu, \nu \rangle_{\Gamma_{0}}
+    & = \langle D \widetilde{\nu}, \widetilde{\nu} \rangle_{\Gamma} \\
+    & \ge \overline{c}_{1}^{\text{D}} \,
+    \left[
+    \left\| \widetilde{\nu} \right\|_{L^{2}(\Gamma \backslash \Gamma_{0})}^{2}
+    + \left| \widetilde{\nu} \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}
+    \right] \\
+    & = \overline{c}_{1}^{\text{D}} \,
+    \left\| \widetilde{\nu} \right\|_{H^{\frac{1}{2}}(\Gamma), \Gamma_{0}}^{2} \\
+    & \ge \widehat{c}_{1}^{\text{D}} \,
+    \left\| \widetilde{\nu} \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2} \\
+    & = \widehat{c}_{1}^{\text{D}} \,
+    \left\| \nu \right\|_{\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})}^{2}.
+  \end{split}
+\end{equation*}
+
+同样地，若是采用子空间$\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$，我们可以证明算子$D$的$\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$-椭圆性。（证明略）。
+
+\subsection{Steklov-Poincaré算子}
+\label{sec:steklov-poincare-operator}
+
+在求解边界值问题的过程中，柯西数$\gamma_{0}^{\text{int}} u$，$\gamma_{1}^{\text{int}} u$之间的关系变得非常重要。以齐次偏微分边界方程系统为例，即将$f \equiv 0$引入\eqref{eq:bvp-bie-system}
+\begin{equation}
+\label{eq:bvp-bie-system-spoperator}
+  \begin{pmatrix}
+    \gamma_{0}^{\text{int}} u(x) \\
+    \gamma_{1}^{\text{int}} u(x)
+  \end{pmatrix}
+  =
+  \underbrace{
+  \begin{pmatrix}
+    \left( 1-\sigma \right) I - K & V \\
+    D & \sigma I + K'
+  \end{pmatrix}
+  }_{\eqqcolon \mathcal{C}}
+  \,
+  \begin{pmatrix}
+    \gamma_{0}^{\text{int}} u(x)\\
+    \gamma_{1}^{\text{int}} u(x)
+  \end{pmatrix}.
+\end{equation}
+
+单层位势算子$V$可逆。由\eqref{eq:bvp-bie-system-spoperator}第一行可得
+\begin{equation}
+  \label{eq:bvp-bie-system-spoperator-1}
+\begin{split}
+    & \gamma_{0}^{\text{int}} u = \left( \left( 1- \sigma \right) I - K \right) \gamma_{0}^{\text{int}} u + V \gamma_{1}^{\text{int}} u, \\
+    \hookrightarrow & \gamma_{1}^{\text{int}} u = \underbrace{
+    V^{-1} \left( \sigma I + K \right)
+    }_{\eqqcolon S} \gamma_{0}^{\text{int}} u.
+\end{split}
+\end{equation}
+
+这构成一个由狄利克雷到诺依曼的映射(Dirichlet to Neumann map)\index{Dirichlet to Neumann map \dotfill 狄利克雷到诺依曼的映射}\citep{Behrndt:2015kq}。由此我们可以定义Steklov-Poincaré算子\index{Steklov-Poincaré operator \dotfill Steklov-Poincaré算子}如下
+\begin{equation}
+  \label{eq:bvp-bie-system-spoperator-def}
+  S \coloneqq V^{-1} \left( \sigma I + K \right) : H^{\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma).
+\end{equation}
+
+\eqref{eq:bvp-bie-system-spoperator-1}代回第二行
+\begin{equation}
+  \label{eq:bvp-bie-system-spoperator-2}
+  \begin{split}
+    \gamma_{1}^{\text{int}} u(x) &=
+    \left( D \gamma_{0}^{\text{int}} u \right)(x)
+    + \left( \sigma I + K' \right) \gamma_{1}^{\text{int}} u(x) \\
+    & = \underbrace{
+    \left[
+    D + \left( \sigma I + K' \right) V^{-1} \left( \sigma I + K \right)
+    \right]
+    }_{\eqqcolon S}
+    \gamma_{0}^{\text{int}} u(x), \quad x \in \Gamma,
+  \end{split}
+\end{equation}
+可见Steklov-Poincaré算子也可表示为如下对称形式
+\begin{equation}
+    \label{eq:bvp-bie-system-spoperator-def-sym}
+    S \coloneqq     D + \left( \sigma I + K' \right) V^{-1} \left( \sigma I + K \right) : H^{\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma).
+\end{equation}
+
+结合\eqref{eq:bvp-bie-system-spoperator-1}和  \eqref{eq:bvp-bie-system-spoperator-2}，狄利克雷到诺依曼的映射表达式表示为
+\begin{equation}
+  \gamma_{1}^{\text{int}} u(x) = \left( S \gamma_{0}^{\text{int}} u \right)(x), \quad x \in Gamma,
+\end{equation}
+即狄利克雷到诺依曼的映射将某一给定的狄利克雷数$\gamma_{0}^{\text{int}} u \in H^{\frac{1}{2}}(\Gamma)$映射至对应的诺依曼数$\gamma_{1}^{\text{int}} u \in H^{-\frac{1}{2}}(\Gamma)$，其中和谐方程(harmonic function)$u \in H^{1}(\Omega)$满足$L u \equiv 0$。

@@ -1,23 +1,23 @@
 # Fdb version 3
-["bibtex DSGEnotes"] 1510564892 "DSGEnotes.aux" "DSGEnotes.bbl" "DSGEnotes" 1510567700
+["bibtex DSGEnotes"] 1510654942 "DSGEnotes.aux" "DSGEnotes.bbl" "DSGEnotes" 1510654988
   "./model4-names.bst" 1302930546 28214 de501ffbf7fe1fde2983e5f043e9abba ""
-  "./refs/papers.bib" 1510314781 648903 b83c9015320585f9145be2a08e5ac71a ""
-  "DSGEnotes.aux" 1510567697 211202 750c1e4fd1e741c6e5d705d429a7541f ""
+  "./refs/papers.bib" 1510654691 650099 a4a6ec02c0cc04e12188487b58fcfaf4 ""
+  "DSGEnotes.aux" 1510654985 219446 37ce286c1f41681fa64529928cc90c8b ""
   (generated)
-  "DSGEnotes.blg"
   "DSGEnotes.bbl"
-["makeindex DSGEnotes.idx"] 1510564228 "DSGEnotes.idx" "DSGEnotes.ind" "DSGEnotes" 1510567700
-  "DSGEnotes.idx" 1510567697 26351 e8c9b206e936e6275317bb8b8b599442 ""
+  "DSGEnotes.blg"
+["makeindex DSGEnotes.idx"] 1510654942 "DSGEnotes.idx" "DSGEnotes.ind" "DSGEnotes" 1510654988
+  "DSGEnotes.idx" 1510654984 27111 ee4c8f485fc5a8b29665156ddbdd2308 ""
   (generated)
-  "DSGEnotes.ind"
   "DSGEnotes.ilg"
-["xdvipdfmx"] 1510567697 "DSGEnotes.xdv" "DSGEnotes.pdf" "DSGEnotes" 1510567700
-  "DSGEnotes.xdv" 1510567697 6163536 8e50456e2d6045ab7e1a4683782e216c "xelatex"
+  "DSGEnotes.ind"
+["xdvipdfmx"] 1510654985 "DSGEnotes.xdv" "DSGEnotes.pdf" "DSGEnotes" 1510654988
+  "DSGEnotes.xdv" 1510654985 6377544 a7f52afb1a2594fea924886af514c9b4 "xelatex"
   (generated)
   "DSGEnotes.pdf"
-["xelatex"] 1510567689 "DSGEnotes.tex" "DSGEnotes.xdv" "DSGEnotes" 1510567700
+["xelatex"] 1510654976 "DSGEnotes.tex" "DSGEnotes.xdv" "DSGEnotes" 1510654988
   "/Library/Fonts/Songti.ttc" 1501211855 66933232 48b917363d34d9f8e018d72f817cd5db ""
-  "/dev/null" 1510567697 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "/dev/null" 1510654987 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1480098670 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1480098689 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1480098698 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -241,15 +241,15 @@
   "/usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf" 1494087824 32646 eadc4ca26cdbe7105ac7c593aa8c4f72 ""
   "/usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt" 1507047950 3705030 c2937aef7673799b7c512fffaf7ce16f ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
-  "DSGEnotes.aux" 1510567697 211202 750c1e4fd1e741c6e5d705d429a7541f ""
-  "DSGEnotes.bbl" 1510564892 89995 a5f6057fe11137cbb65abf87c20ae7da "bibtex DSGEnotes"
-  "DSGEnotes.ind" 1510567697 23550 2485d9328203f9a6376e4908e5fa3929 "makeindex DSGEnotes.idx"
-  "DSGEnotes.lof" 1510567697 1990 1636f482d32f05acab303aac6dc2bcba ""
-  "DSGEnotes.lot" 1510567697 402 1c883b4efdd65c67c80672e5635bff0a ""
-  "DSGEnotes.out" 1510567697 37586 8265d99294f23a8936a3154885f4935b ""
-  "DSGEnotes.tdo" 1510567697 3525 a455acb3abe4ef978d889514e42ca610 ""
-  "DSGEnotes.tex" 1510558834 8195 93ff62d49f093b390581c7ec2b4c92be ""
-  "DSGEnotes.toc" 1510567697 39057 621a13b1d99bed3b306cfd225f626ef0 ""
+  "DSGEnotes.aux" 1510654985 219446 37ce286c1f41681fa64529928cc90c8b ""
+  "DSGEnotes.bbl" 1510654943 90391 388b7e6ad749077912d531ccacd4d45a "bibtex DSGEnotes"
+  "DSGEnotes.ind" 1510654984 23902 fcb139a9c17bfb9909ec0852594a997c "makeindex DSGEnotes.idx"
+  "DSGEnotes.lof" 1510654985 1990 1636f482d32f05acab303aac6dc2bcba ""
+  "DSGEnotes.lot" 1510654985 402 1c883b4efdd65c67c80672e5635bff0a ""
+  "DSGEnotes.out" 1510654985 38220 013df8f42b9e3a77ec3a7314db9426be ""
+  "DSGEnotes.tdo" 1510654985 3785 9e16269f6e54dfd4a52c6ec7c165ce42 ""
+  "DSGEnotes.tex" 1510654601 8242 533a04161b67ddd67582be4c74e3a144 ""
+  "DSGEnotes.toc" 1510654985 39795 f14d559c1330c6352adb8980b3cb89c8 ""
   "Figures/20170701-DSGE-workflow.pdf" 1498917878 24784 3dad30f7cd4c3d60db20c6400a8a86df ""
   "Figures/20170905-hermite-examples-7-8.png" 1504595951 47566 c83c2eb5439dbe9f752f136cc2b57d42 ""
   "Figures/20170905-normal-distri.png" 1504622403 57209 ace3367c2dbe5389b0aa81be1080baaa ""
@@ -279,7 +279,8 @@
   "chapters/bem-fem-04-varbvp.tex" 1509376530 48362 151a54b2f67401518a120e00e7f40754 ""
   "chapters/bem-fem-05-laplaceop.tex" 1509376815 20484 2b1c1c63f58146c8c04525765d4e69d1 ""
   "chapters/bem-fem-0601-boundintop.tex" 1510491901 117064 2aae9e3917de0f8c1f80af6c3b5f4da7 ""
-  "chapters/bem-fem-0602-boundintop.tex" 1510567688 13536 c601b05f595318e3ecbdd09b562e78b1 ""
+  "chapters/bem-fem-0602-boundintop.tex" 1510654903 60718 df36840e1e75fbb1da19775a65a650d4 ""
+  "chapters/bem-fem-0603-boundintop.tex" 1510654966 16592 3209e95c2ef7359d2abf675a0b3cce4d ""
   "chapters/medium-DSGE.tex" 1501006672 94874 db2ae26dc18180b1a31311394b52e833 ""
   "chapters/optimal-control.tex" 1505590496 19003 3148dce506c24a2e21d0c3ad060d2c25 ""
   "chapters/perturbation.tex" 1505668619 100066 2422cca3e3cb9b3ecd662bff9eec3b46 ""
@@ -293,13 +294,13 @@
   "figures/20170324-CIA-outline.pdf" 1490353836 13444 0fbcfab11c5d5ac247f3be41753e2c70 ""
   "numcompress.sty" 1302930546 5571 cf097ecf807971c5a27366f7496e7d10 ""
   (generated)
-  "DSGEnotes.log"
-  "DSGEnotes.lof"
-  "DSGEnotes.aux"
   "tmpbib.tex"
+  "DSGEnotes.aux"
   "DSGEnotes.idx"
-  "DSGEnotes.xdv"
   "DSGEnotes.out"
   "DSGEnotes.tdo"
-  "DSGEnotes.toc"
+  "DSGEnotes.xdv"
   "DSGEnotes.lot"
+  "DSGEnotes.log"
+  "DSGEnotes.lof"
+  "DSGEnotes.toc"

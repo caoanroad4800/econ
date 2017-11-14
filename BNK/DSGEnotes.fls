@@ -472,6 +472,8 @@ INPUT ./chapters/bem-fem-0601-boundintop.tex
 INPUT ./chapters/bem-fem-0601-boundintop.tex
 INPUT ./chapters/bem-fem-0602-boundintop.tex
 INPUT ./chapters/bem-fem-0602-boundintop.tex
+INPUT ./chapters/bem-fem-0603-boundintop.tex
+INPUT ./chapters/bem-fem-0603-boundintop.tex
 INPUT ./chapters/appendix01.tex
 INPUT ./chapters/appendix01.tex
 INPUT ./chapters/PK.tex
