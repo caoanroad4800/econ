@@ -366,3 +366,427 @@ Theorem \ref{theorem:bvp-bie-hyper-semi-ellipticity}对超奇异边界积分算�
   \gamma_{1}^{\text{int}} u(x) = \left( S \gamma_{0}^{\text{int}} u \right)(x), \quad x \in Gamma,
 \end{equation}
 即狄利克雷到诺依曼的映射将某一给定的狄利克雷数$\gamma_{0}^{\text{int}} u \in H^{\frac{1}{2}}(\Gamma)$映射至对应的诺依曼数$\gamma_{1}^{\text{int}} u \in H^{-\frac{1}{2}}(\Gamma)$，其中和谐方程(harmonic function)$u \in H^{1}(\Omega)$满足$L u \equiv 0$。
+
+由逆单层位势算子$V^{-1}$的$H^{\frac{1}{2}}(\Omega)$-椭圆属性可得
+\begin{equation}
+  \label{eq:bvp-bie-spo-ellipticity}
+  \begin{split}
+    \langle S \nu, \nu \rangle_{\Gamma}
+    &= \langle D \nu, \nu \rangle_{\Gamma}
+    + \langle V^{-1} \left( \sigma I + K \right) \nu,
+    \left(\sigma I + K \right) \nu \rangle_{\Gamma} \\
+    & \ge \langle D \nu, \nu \rangle_{\Gamma}, \forall \nu \in H^{\frac{1}{2}}(\Gamma),
+  \end{split}
+\end{equation}
+可见Steklov-Poincaré算子继承了超奇异边界积分算子的椭圆特性，随着不同的子空间，可表示如下
+\begin{equation}
+  \label{eq:bvp-bie-spo-ellipticity-subspace-star}
+  \langle S \nu, \nu \rangle_{\Gamma} \ge c_{1}^{D} \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2}, \quad \forall \, \nu \in H_{*}^{\frac{1}{2}}(\Gamma).
+\end{equation}
+
+\begin{equation}
+  \label{eq:bvp-bie-spo-ellipticity-subspace-starstar}
+  \langle S \nu, \nu \rangle_{\Gamma} \ge \widetilde{c}_{1}^{D}
+  \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}, \quad \forall \, \nu \in H_{**}^{\frac{1}{2}}(\Gamma).
+\end{equation}
+
+\begin{equation}
+    \label{eq:bvp-bie-spo-ellipticity-subspace-gamma0}
+    \langle S \nu, \nu \rangle_{\Gamma_{0}} \ge \hat{c}_{1} \left\|
+    \nu \right\|_{\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})}, \quad \forall \, \nu \in \widetilde{H}^{\frac{1}{2}}(\Gamma_{0}).
+\end{equation}
+
+\subsection{双层位势的收缩属性}
+\label{sec:bvp-bie-double-layer-contraction}
+在证得单层位势$V$(以及相伴随的超奇异积分算子$D$)的椭圆性后，我们科进一步证明对应的双层位势$\sigma I + K : H^{\frac{1}{2}}(\Gamma) \mapsto H^{\frac{1}{2}}(\Gamma)$也是椭圆的\citep{Steinbach:2001he}。
+
+由于算子$V: H^{-\frac{1}{2}}(\Gamma) \mapsto H^{\frac{1}{2}}(\Gamma)$有界且$H^{-\frac{1}{2}}(\Gamma)$椭圆，我们可以定义一个$H^{\frac{1}{2}}(\Gamma)$中的等价范
+\begin{equation}
+  \label{eq:bvp-bie-unorm-vinverse}
+  \left\| u \right\|_{V^{-1}} \coloneqq \sqrt{
+  \langle V^{-1} u, u \rangle_{\Gamma}
+  }, \quad \forall \, u \in H^{\frac{1}{2}}(\Gamma).
+\end{equation}
+
+\begin{theorem}[双层位势的收缩属性]
+  \label{theorem:bvp-bie-double-contraction}
+  对于$u \in H_{*}^{\frac{1}{2}}(\Gamma)$我们有
+  \begin{equation}
+    \label{eq:bvp-bie-double-contraction}
+    \left( 1 - c_{K} \right) \, \left\| u \right\|_{V^{-1}}
+    \le
+    \left\| \left( \sigma I + K \right) u \right\|_{V^{-1}}
+    \le c_{K} \, \left\| u \right\|_{V^{-1}},
+  \end{equation}
+  其中常数$c_{K}$满足
+  \begin{equation}
+    \label{eq:bvp-bie-double-contraction-ckconstant}
+    c_{K} = \frac{1}{2} + \sqrt{
+    \frac{1}{4} - c_{1}^{V} \, c_{1}^{D}
+    } < 1,
+  \end{equation}
+  $c_{1}^{V},c_{1}^{D}$分别是单层位势$V$和超奇异边界积分算子$D$的椭圆常数。
+\end{theorem}
+\begin{proof}
+由Steklov-Poincaré算子的对称表现式    \eqref{eq:bvp-bie-system-spoperator-def-sym}可得
+\begin{equation*}
+  \begin{split}
+    \left\| \left(\sigma I + K \right) u \right\|_{V^{-1}}^{2}
+    & = \langle
+    V^{-1} \left(\sigma I + K \right), \left(\sigma I + K \right)
+    \rangle_{\Gamma} \\
+    & =
+    \underbrace{
+    \langle S u , u \rangle_{\Gamma}
+    }_{\eqqcolon \mathcal{A}}
+    - \underbrace{
+    \langle D u, u \rangle_{\Gamma}
+    }_{\eqqcolon \mathcal{B}},
+  \end{split}
+\end{equation*}
+\begin{enumerate}
+  \item $\mathcal{A}$。设算子$A \coloneqq J V^{-1}: H^{\frac{1}{2}}(\Gamma) \mapsto H^{\frac{1}{2}}(\Gamma)$自伴随且$H^{\frac{1}{2}}(\Gamma)$-椭圆。考虑$A = A^{\frac{1}{2}} A^{\frac{1}{2}}$，以及$S$的表现式\eqref{eq:bvp-bie-system-spoperator-def}得
+  \begin{equation*}
+    \begin{split}
+      \mathcal{A} \coloneqq \langle S u, u \rangle_{\Gamma}
+      & = \langle V^{-1} \left( \sigma I + K \right) u , u \rangle_{\Gamma} \\
+      & = \langle
+      J V^{-1} \left( \sigma I + K \right) u , u \rangle_{\Gamma} \\
+      & = \langle
+      A^{\frac{1}{2}} \left( \sigma I + K \right) u , A^{\frac{1}{2}} u \rangle_{\Gamma} \\
+      & \le \left\|
+      A^{\frac{1}{2}} \left( \sigma I + K \right) u
+      \right\|_{H^{\frac{1}{2}}(\Gamma)} \,
+      \underbrace{\left\| A^{\frac{1}{2}} u \right\|_{H^{\frac{1}{2}}(\Gamma)}
+      }_{\eqqcolon \mathcal{A}_{1}},
+    \end{split}
+  \end{equation*}
+
+由于
+\begin{equation*}
+  \begin{split}
+    \left\| A^{\frac{1}{2}} u \right\|_{H^{\frac{1}{2}}(\Gamma)}
+    & = \langle A^{\frac{1}{2}} \nu, A^{\frac{1}{2}} \nu \rangle_{H^{\frac{1}{2}}(\Gamma)} \\
+    & = \langle J V^{-1} \nu, \nu \rangle_{H^{\frac{1}{2}}(\Gamma)} \\
+    & = \langle V^{-1} \nu, \nu \rangle_{\Gamma} \\
+    & = \left\| \nu \right\|_{V^{-1}},
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+        \hookrightarrow \mathcal{A}_{1} &= \left\| u \right\|_{V^{-1}},
+        \hookrightarrow \mathcal{A} = \langle S u, u \rangle_{\Gamma}
+        \le \left\| \left( \sigma I + K \right) u \right\|_{V^{-1}} \,
+        \left\| u \right\|_{V^{-1}}.
+  \end{split}
+\end{equation*}
+
+\item $\mathcal{B}$。已知对于$u \in H_{*}^{\frac{1}{2}}(\Gamma)$，算子$D$椭圆。则逆单层位势$V^{-1}$的映射特征为
+\begin{equation*}
+\begin{split}
+  \mathcal{B} \coloneqq \langle D u, u \rangle_{\Gamma}
+  & \ge c_{1}^{\text{D}} \, \left\| u \right\|_{H^{\frac{1}{2}}(\Gamma)}^2 \\
+  & \ge c_{1}^{\text{D}} c_{1}^{\text{V}} \,
+  \langle V^{-1} u, u \rangle_{\Gamma} \\
+  & = c_{1}^{\text{D}} c_{1}^{\text{V}} \,
+  \left\| u \right\|_{V^{-1}}.
+\end{split}
+\end{equation*}
+
+\item $\therefore$
+\begin{equation*}
+  \begin{split}
+    \left\| \left(\sigma I + K \right) u \right\|_{V^{-1}}^{2}
+    & = \mathcal{A} - \mathcal{B} \\
+    & \le
+    \underbrace{
+    \left\| \left(\sigma I + K \right) u \right\|_{V^{-1}}
+    }_{\eqqcolon \mathcal{C}}
+    \,
+    \underbrace{
+    \left\| u \right\|_{V^{-1}}
+    }_{\eqqcolon \mathcal{D}}
+    - c_{1}^{\text{D}} c_{1}^{\text{V}} \,
+    \left\| u \right\|_{V^{-1}}.
+  \end{split}
+\end{equation*}
+
+定义
+\begin{equation*}
+  \begin{cases}
+    \mathcal{C} \coloneqq \left\| \left(\sigma I + K \right) u \right\|_{V^{-1}} & \mathcal{C} > 0, \\
+    \mathcal{D} \coloneqq \left\| u \right\|_{V^{-1}} & \mathcal{D} > 0,
+  \end{cases}
+\end{equation*}
+
+上式变为
+\begin{equation*}
+  \left(\frac{\mathcal{C}}{\mathcal{D}} \right)^{2}
+  - \left(\frac{\mathcal{C}}{\mathcal{D}} \right)
+  + c_{1}^{\text{D}} c_{1}^{\text{V}} \le 0,
+\end{equation*}
+
+求解得
+\begin{equation*}
+  \frac{1}{2} - \sqrt{
+  \frac{1}{4} - c_{1}^{\text{D}} c_{1}^{\text{V}}
+  }
+  \le \frac{\mathcal{C}}{\mathcal{D}}
+  \le \frac{1}{2} + \sqrt{
+  \frac{1}{4} - c_{1}^{\text{D}} c_{1}^{\text{V}}
+  }
+\end{equation*}
+\end{enumerate}
+证毕。
+\end{proof}
+
+双层位势$\sigma I + K$的收缩特性(contraction property)，尤其是$H_{*}^{\frac{1}{2}}(\Gamma)$中的上界，可以延拓至$H^{\frac{1}{2}}(\Gamma)$空间中，并且仍然成立。
+\begin{corollary}[双层位势收缩比率]
+  \label{corollary:bvp-bie-double-contraction-extention-gamma}
+  对于$u \in H^{\frac{1}{2}}(\Gamma)$，双层位势$\sigma I + K$满足如下不等式
+  \begin{equation}
+    \label{eq:bvp-bie-double-contraction-extention-gamma}
+    \left\|
+    \left(
+    \sigma I + K
+    \right)
+    \right\|_{V^{-1}}
+    \le c_{K} \, \left\| u \right\|_{V^{-1}},
+  \end{equation}
+  其中正常数$0 \le c_{K} < 1$表示收缩比率(contraction rate)，其值由\eqref{eq:bvp-bie-double-contraction-ckconstant}给出。
+\end{corollary}
+\begin{proof}
+  对于任一给定$u \in H^{\frac{1}{2}}(\Gamma)$，我们有
+  \begin{equation*}
+    u = \widetilde{u} + \frac{
+    \langle u, w_{\text{eq}} \rangle_{\Gamma}
+    }{
+    \langle 1, w_{\text{eq}} \rangle_{\Gamma}
+    } u_{0}, \quad \widetilde{u} \in H_{*}^{\frac{1}{2}}(\Gamma), u_{0} \equiv 1.
+  \end{equation*}
+\begin{enumerate}
+  \item 已知$\left( \sigma I + K \right) u_{0} = 0$，代入Theorem \ref{theorem:bvp-bie-double-contraction}我们有
+  \begin{equation*}
+    \left\|
+    \left( \sigma I + K \right) u
+    \right\|_{V^{-1}}
+    =
+    \left\|
+    \left( \sigma I + K \right) \widetilde{u}
+    \right\|_{V^{-1}}
+    \le c_{K} \, \left\| \widetilde{u} \right\|_{V^{-1}}.
+  \end{equation*}
+  \item 此外我们有
+  \begin{equation*}
+    \left\| u \right\|_{V^{-1}}^{2}
+    = \left\| \widetilde{u} \right\|_{V^{-1}}^{2}
+    + \frac{
+    \left[
+    \langle
+    u, w_{\text{eq}}
+    \rangle_{\Gamma}
+    \right]^2
+    }{
+    \langle
+    1, w_{\text{eq}}
+    \rangle_{\Gamma}
+    }
+    \ge
+    \left\| \widetilde{u} \right\|_{V^{-1}}.
+  \end{equation*}
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}[位移双层位势的收缩比率]
+  \label{corollary:bvp-bie-shifted-double-contraction-extention-gamma}
+  对于$\nu \in H_{*}^{\frac{1}{2}}(\Gamma)$，以下不等式成立
+  \begin{equation}
+    \label{eq:bvp-bie-shifted-double-contraction-extention-gamma}
+    \left(1 - c_{K} \right)
+    \left\| \nu \right\|_{V^{-1}}
+    \le
+    \left\|
+    \left[ \left(1-\sigma \right) -K \right] \nu
+    \right\|_{V^{-1}}
+    \le
+    c_{K} \, \left\| \nu \right\|_{V^{-1}},
+  \end{equation}
+  其中收缩比值$c_{K}$由\eqref{eq:bvp-bie-double-contraction-ckconstant}给出。
+\end{corollary}
+\begin{proof}
+  \begin{enumerate}
+    \item 由三角不等式可得
+    \begin{equation*}
+      \begin{split}
+      \left\| \nu \right\|_{V^{-1}}
+      & = \left\|
+      \left[
+      \left( 1- \sigma \right) I - K
+      \right] \nu
+      + \left( \sigma I + K \right) \nu
+      \right\|_{V^{-1}} \\
+      & \le
+      \left\|
+      \left[
+      \left( 1- \sigma \right) I - K
+      \right] \nu
+      \right\|_{V^{-1}} +
+      \left\|
+      \left( \sigma I + K \right) \nu
+      \right\|_{V^{-1}} \\
+      & \le
+      \left\|
+      \left[
+      \left( 1- \sigma \right) I - K
+      \right] \nu
+      \right\|_{V^{-1}} +
+      c_{K} \, \left\| \nu \right\|_{V^{-1}},
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \hookrightarrow \left(1 - c_{K} \right)
+    \left\| \nu \right\|_{V^{-1}}
+    \le
+    \left\|
+      \left[
+      \left( 1- \sigma \right) I - K
+      \right] \nu
+    \right\|_{V^{-1}}.
+  \end{equation*}
+  \item 同时使用Steklov-Poincaré算子的两种表现式   \eqref{eq:bvp-bie-system-spoperator-def}，\eqref{eq:bvp-bie-system-spoperator-def-sym}可得
+  \begin{equation*}
+    \begin{split}
+      \left\|
+        \left[
+        \left( 1- \sigma \right) I - K
+        \right] \nu
+      \right\|_{V^{-1}}^2
+      & =
+      \left\|
+      \left[
+      I - \left( \sigma I + K \right)
+      \right] \nu
+      \right\|_{V^{-1}}^{2} \\
+      & =
+      \left\| \nu \right\|_{V^{-1}}^{2}
+      +
+      \left\|
+      \sigma I + K
+      \right\|_{V^{-1}}^{2}
+      - 2 \langle V^{-1} \left( \sigma I + K \right) \nu, \nu \rangle_{\Gamma} \\
+      & =
+      \left\| \nu \right\|_{V^{-1}}^{2}
+      +
+      \left\|
+      \sigma I + K
+      \right\|_{V^{-1}}^{2}
+      - 2 \langle S \nu, \nu \rangle_{\Gamma}\\
+      & =
+      \left\| \nu \right\|_{V^{-1}}^{2}
+      -
+      \left\|
+      \sigma I + K
+      \right\|_{V^{-1}}^{2}
+      - 2 \langle D \nu, \nu \rangle_{\Gamma}\\
+      & \le
+      \left[
+      1 - \left( 1 - c_{K} \right)^{2} - 2 c_{1}^{\text{D}} c_{1}^{\text{V}}
+      \right] \,
+      \left\| \nu \right\|_{V^{-1}}^{2}\\
+      & = c_{K}^{2} \, \left\| \nu \right\|_{V^{-1}}^{2}.
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \hookrightarrow \left\| \left[ \left(1-\sigma \right) -K \right] \nu
+    \right\|_{V^{-1}} \le c_{K} \, \left\| \nu \right\|_{V^{-1}}.
+  \end{equation*}
+  \end{enumerate}
+\end{proof}
+
+现在来看子空间$H_{*}^{\frac{1}{2}}(\Gamma)$的情况，定义如  \eqref{eq:bvp-bie-h-gamma-star-def}。根据单层位势的性质$V:H_{*}^{-\frac{1}{2}}(\Gamma) \mapsto H_{*}^{\frac{1}{2}}(\Gamma)$，我们可以将双层位势$\sigma I + K : H^{\frac{1}{2}}(\Gamma) \mapsto H^{\frac{1}{2}}(\Gamma)$的测度 Theorem \ref{theorem:bvp-bie-double-contraction}, \eqref{eq:bvp-bie-double-contraction}，转变为伴随双层位势$\sigma I + K': H^{-\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma)$的测度。
+
+\begin{corollary}[伴随双层位势的收缩属性]
+  \label{corollary:bvp-bie-adjoint-double-contraction-property}
+  对于$w \in H_{*}^{-\frac{1}{2}}(\Gamma)$的伴随双层位势，满足
+  \begin{equation}
+  \label{eq:bvp-bie-adjoint-double-contraction-property}
+  \left( 1 - c_{K} \right) \,
+  \left\| w \right\|_{V^{-1}}
+  \le
+  \left\| \left( \sigma I + K' \right) w
+  \right\|_{V}
+  \le c_{K} \, \left\| w \right\|_{V}.
+  \end{equation}
+\end{corollary}
+\begin{proof}
+  \begin{enumerate}
+
+  \item 已知对于$w \in H_{*}^{\frac{1}{2}}(\Gamma)$，存在唯一确定的$\nu \in H_{*}^{\frac{1}{2}}(\Gamma)$，满足$\nu = V w $或是$\nu = V^{-1} \nu$。由有界积分算子的对称性\eqref{eq:bvp-bie-operator-relation-3}可得
+  \begin{equation*}
+    \begin{split}
+      \left\| \left( \sigma I + K' \right) w \right\|_{V}^{2}
+      & = \langle
+      V \left( \sigma I + K' \right) V^{-1} \nu,
+      \left( \sigma I + K' \right) V^{-1} \nu
+      \rangle_{\Gamma} \\
+      & =
+      \langle
+      V^{-1} \left( \sigma I + K \right) \nu,
+      \left( \sigma I + K \right) \nu
+      \rangle_{\Gamma} \\
+      & = \left\|
+      \left( \sigma I + K \right) \nu
+      \right\|_{V^{-1}}.
+    \end{split}
+  \end{equation*}
+\item
+\begin{equation*}
+\begin{split}
+  \left\| w \right\|_{V}^{2}
+  & = \langle V w, w \rangle_{\Gamma}
+  = \langle V^{-1} \nu, \nu \rangle_{\Gamma}
+  = \left\| \nu \right\|_{V^{-1}}^{2}.
+\end{split}
+\end{equation*}
+\item 代入Corollary \ref{corollary:bvp-bie-shifted-double-contraction-extention-gamma}，可证。
+  \end{enumerate}
+\end{proof}
+
+
+与在双层位势$\left( \sigma I + K \right)$延拓收缩属性(Corollary \ref{corollary:bvp-bie-double-contraction-extention-gamma})相类似，我们也可以将伴随双层位势$\left( \sigma I + K' \right)$的收缩属性延拓到$H^{-\frac{1}{2}}(\Gamma)$中。
+\begin{corollary}[伴随双层位势收缩比率]
+  \label{corollary:bvp-bie-adjoint-double-contraction-extention-gamma}
+  对于$w \in H^{-\frac{1}{2}}(\Gamma)$，伴随双层位势$\left( \sigma I + K' \right)$满足如下不等式
+  \begin{equation}
+  \label{eq:bvp-bie-adjoint-double-contraction-extention-gamma}
+  \left\|
+  \left( \sigma I + K' \right) w
+  \right\|_{V}
+  \le c_{K} \, \left\| w \right\|_{V}.
+  \end{equation}
+\end{corollary}
+\begin{proof}
+  略。
+\end{proof}
+
+同样地
+\begin{corollary}[位移伴随双层位势收缩比率]
+  \label{corollary:bvp-bie-shifted-adjoint-double-contraction-extention-gamma}
+  对于$w \in H_{*}^{-\frac{1}{2}}(\Gamma)$，位移伴随双层位势$\left(1-\sigma \right)I - K'$满足如下不等式
+  \begin{equation}
+    \label{eq:bvp-bie-shifted-adjoint-double-contraction-extention-gamma}
+    \left( 1 - c_{K} \right) \,
+    \left\| w \right\|_{V}
+    \le \left\|
+    \left[
+    \left( 1 - \delta \right) I - K'
+    \right] w
+    \right\|_{V}
+    \le c_{K} \, \left\| w \right\|_{V},
+  \end{equation}
+  收缩比率$c_{K}$的值由\eqref{eq:bvp-bie-double-contraction-ckconstant}给出。
+\end{corollary}
+\begin{proof}
+  略。
+\end{proof}

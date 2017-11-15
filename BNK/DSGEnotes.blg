@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: DSGEnotes.aux
 The style file: model4-names.bst
-Reallocated field_info (elt_size=4) to 10589 items from 5000.
+Reallocated field_info (elt_size=4) to 10612 items from 5000.
 Database file #1: ./refs/papers.bib
 Warning--missing institution in Aldrich:2011wz
 Warning--missing institution in Andreasen:2016cd
@@ -29,45 +29,45 @@ Warning--missing institution in Murchison:2006wc
 `journal' is a missing field, not a string, for entry Wood:1975vn
 while executing---line 1514 of file model4-names.bst
 Warning--empty journal in Wood:1975vn
-You've used 243 entries,
+You've used 244 entries,
             2973 wiz_defined-function locations,
-            2007 strings with 40091 characters,
-and the built_in function-call counts, 175230 in all, are:
-= -- 15382
-> -- 4203
-< -- 218
-+ -- 1641
-- -- 1388
-* -- 19346
-:= -- 25189
-add.period$ -- 756
-call.type$ -- 243
-change.case$ -- 1648
-chr.to.int$ -- 242
-cite$ -- 258
-duplicate$ -- 13729
-empty$ -- 14265
-format.name$ -- 2062
-if$ -- 33916
+            2013 strings with 40263 characters,
+and the built_in function-call counts, 176294 in all, are:
+= -- 15484
+> -- 4221
+< -- 219
++ -- 1648
+- -- 1394
+* -- 19470
+:= -- 25329
+add.period$ -- 759
+call.type$ -- 244
+change.case$ -- 1655
+chr.to.int$ -- 243
+cite$ -- 259
+duplicate$ -- 13820
+empty$ -- 14358
+format.name$ -- 2073
+if$ -- 34128
 int.to.chr$ -- 11
 int.to.str$ -- 1
-missing$ -- 2081
-newline$ -- 1220
-num.names$ -- 986
-pop$ -- 2239
+missing$ -- 2090
+newline$ -- 1225
+num.names$ -- 990
+pop$ -- 2246
 preamble$ -- 1
-purify$ -- 1429
+purify$ -- 1435
 quote$ -- 0
-skip$ -- 3504
+skip$ -- 3517
 stack$ -- 0
-substring$ -- 14900
-swap$ -- 7801
+substring$ -- 15034
+swap$ -- 7840
 text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1995
+type$ -- 2004
 warning$ -- 15
-while$ -- 1198
+while$ -- 1204
 width$ -- 0
-write$ -- 3336
+write$ -- 3350
 (There were 5 error messages)

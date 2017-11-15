@@ -34,11 +34,10 @@
   \indexspace
 
   \item Calderón projection \dotfill 卡尔德隆投影, 
-		\hyperpage{338}, \hyperpage{352}
-  \item capacity \dotfill 容度, \hyperpage{343}, \hyperpage{357}
+		\hyperpage{338}
+  \item capacity \dotfill 容度, \hyperpage{343}
   \item cardinality \dotfill 势, \hyperpage{251}
-  \item Cauchy principal value \dotfill 柯西主值, \hyperpage{331}, 
-		\hyperpage{345}
+  \item Cauchy principal value \dotfill 柯西主值, \hyperpage{331}
   \item Cauchy sequnce \dotfill 柯西序列, \hyperpage{242}
   \item Cauchy-Schwarz inequality \dotfill 柯西——施瓦茨不等式, 
 		\hyperpage{260}
@@ -50,8 +49,7 @@
 		\hyperpage{206}
   \item Chu-Vandermonde summation \dotfill 朱世杰——范德蒙德求和公式, 
 		\hyperpage{200}, \hyperpage{221}
-  \item closed curve \dotfill 闭曲线, \hyperpage{333}, 
-		\hyperpage{347}
+  \item closed curve \dotfill 闭曲线, \hyperpage{333}
   \item closed range theorem \dotfill 闭值域定理, \hyperpage{290}
   \item coercive form \dotfill 强制形式, \hyperpage{240}
   \item collocation
@@ -91,7 +89,7 @@
   \item Dirichlet condition
     \subitem  homogeneous 齐次狄利克雷条件, \hyperpage{241}
   \item Dirichlet to Neumann map \dotfill 狄利克雷到诺依曼的映射, 
-		\hyperpage{362}
+		\hyperpage{348}
   \item distance function \dotfill 距离方程, \hyperpage{180}
   \item distribution
     \subitem regular \dotfill 正则分布, \hyperpage{275}
@@ -107,8 +105,8 @@
   \indexspace
 
   \item ellipticity
-    \subitem semi \dotfill 半椭圆性, \hyperpage{359}, 
-		\hyperpage{361}
+    \subitem semi \dotfill 半椭圆性, \hyperpage{345}, 
+		\hyperpage{347}
   \item embedding theorem of Sobolev space \dotfill 索伯列夫空间的嵌入定理, 
 		\hyperpage{266}
   \item embeddings \dotfill 嵌入, \hyperpage{266}
@@ -123,7 +121,7 @@
 		\hyperpage{251}
   \item exterior algebra \dotfill 外代数, \hyperpage{245}
   \item exterior normal vector \dotfill 外部法向量, 
-		\hyperpage{332}, \hyperpage{346}
+		\hyperpage{332}
 
   \indexspace
 
@@ -295,8 +293,7 @@
 
   \indexspace
 
-  \item natural density \dotfill 自然密度, \hyperpage{343}, 
-		\hyperpage{357}
+  \item natural density \dotfill 自然密度, \hyperpage{343}
   \item Neumann boundary value condition \dotfill 诺依曼边界值条件, 
 		\hyperpage{247}, \hyperpage{307}
   \item Newton algorithm \dotfill 牛顿算法, \hyperpage{194}
@@ -391,8 +388,7 @@
   \item rapidly decreasing function \dotfill 急减方程, 
 		\hyperpage{276}
   \item rapidly decreasing space \dotfill 急减空间, \hyperpage{276}
-  \item reference element \dotfill 参考元, \hyperpage{335}, 
-		\hyperpage{349}
+  \item reference element \dotfill 参考元, \hyperpage{335}
   \item residual function (projection method) \index{残差方程(映射法)}, 
 		\hyperpage{179}
   \item Riemann-Stieltjes integral \dotfill 黎曼——斯蒂尔杰斯积分, 
@@ -417,8 +413,7 @@
 		\hyperpage{227}
     \subitem the second kind Chebyshev polynomial \dotfill 罗德里格斯公式(第二类切比雪夫多项式), 
 		\hyperpage{227}
-  \item rotation \dotfill 旋转, \hyperpage{332}, \hyperpage{335}, 
-		\hyperpage{346}, \hyperpage{349}
+  \item rotation \dotfill 旋转, \hyperpage{332}, \hyperpage{335}
 
   \indexspace
 
@@ -468,7 +463,7 @@
   \item spherical coordinate system \dotfill 三维坐标系, 
 		\hyperpage{277}, \hyperpage{319}
   \item Steklov-Poincaré operator \dotfill Steklov-Poincaré算子, 
-		\hyperpage{362}
+		\hyperpage{348}
   \item Stokes equations \dotfill 斯托克斯公式, \hyperpage{241}
   \item Stone-Weierstrass Theorem \dotfill 斯通-魏尔斯特拉斯定理, 
 		\hyperpage{182}
