@@ -1,0 +1,258 @@
+%!TEX root = ../DSGEnotes.tex
+\subsection{边界积分算子的映射特性}
+\label{sec:bvp-bie-mapping-properties}
+至今我们分析的一系列边界积分算子的特性，都是从牛顿位势的映射$\widetilde{N}_{0}:\widetilde{H}^{-1}(\Omega) \mapsto H^{1}(\Omega)$，以及逆定理和对偶配对而展开的。对于利普希茨域，我们可以得到更为通用的结论。
+
+\begin{theorem}[牛顿位势在利普希茨域中的映射特性]
+  \label{theorem:bie-newton-mapping}
+  对于$s \in [-2,0]$，牛顿位势$\widetilde{N}_{0}:\widetilde{H}^{s}(\Omega) \mapsto H^{s+1}(\Omega)$是一个连续映射，即
+  \begin{equation*}
+    \left\|
+    \widetilde{N}_{0} f
+    \right\|_{H^{s+2}(\Omega)}
+    \le c \, \left\| f \right\|_{\widetilde{H}^{s}(\Omega)}, \quad \forall \, f \in \widetilde{H}^{s}(\Omega).
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item 设$s \in [-1,0]$。牛顿位势$f \in H^{s}(\Omega)$的定义如\eqref{eq:bvp-newton-potential-def}。$\widetilde{f} \in H^{s}(\mathbb{R}^{d})$是$f$的延拓，我们有
+    \begin{equation*}
+      \begin{split}
+        \left\| \widetilde{f} \right\|_{H^{s}(\mathbb{R}^{d})}
+        & = \sup_{0 \neq \nu \in H^{-s}(\mathbb{R}^{d})}
+        \frac{
+        \langle \widetilde{f}, \nu \rangle_{\mathbb{R}^{d}}
+        }{
+        \left\| \nu \right\|_{H^{-s}(\mathbb{R}^{d})}
+        } \\
+        & \le \sup_{0 \neq \nu \in H^{-s}(\Omega)}
+        \frac{
+        \langle f, \nu \rangle_{\Omega}
+        }{
+        \left\| \nu \right\|_{H^{-s}(\Omega)}
+        } \\
+        & = \left\| f \right\|_{H^{s}(\Omega)},
+      \end{split}
+    \end{equation*}
+    由牛顿位势算子的映射定理\ref{theorem:bvp-newton-potential-mappting-property}得
+    \begin{equation*}
+      \left\| \widetilde{N}_{0} f \right\|_{H^{s+2}(\Omega)}
+      \le c \, \left\| f \right\|_{\widetilde{H}^{s}(\Omega)}, \quad \forall \, f \in \widetilde{H}^{s}(\Omega).
+    \end{equation*}
+
+    \item 设$s \in [-2,-1)$。由于牛顿位势$\widetilde{N}_{0}$是自伴随算子，根据配偶配对我们有
+    \begin{equation*}
+      \begin{split}
+        \left\| \widetilde{N}_{0} f \right\|_{H^{s+2}(\Omega)}
+        & = \sup_{0 \neq g \in \widetilde{H}^{-2 - s }(\Omega)}
+        \frac{
+        \langle \widetilde{N}_{0}f, g \rangle_{\Omega}
+        }{
+        \left\| g \right\|_{\widetilde{H}^{-2 - s }(\Omega)}
+        }\\
+        & = \sup_{0 \neq g \in \widetilde{H}^{-2 - s }(\Omega)}
+        \frac{
+        \langle f, \widetilde{N}_{0} g \rangle_{\Gamma}
+        }{
+        \left\| g \right\|_{\widetilde{H}^{-2 - s}(\Omega)}
+        }\\
+        & \le
+        \left\| f \right\|_{\widetilde{H}^{s}(\Omega)} \,
+        \sup_{0 \neq g \in \widetilde{H}^{-2 - s }(\Omega)}
+        \frac{
+        \left\| \widetilde{N}_{0} g \right\|_{H^{-s}(\Omega)}
+        }{
+        \left\| g \right\|_{\widetilde{H}^{-2 - s}(\Omega)}
+        } \\
+        & \le c \, \left\| f \right\|_{\widetilde{H}^{s}(\Omega)}
+      \end{split}
+    \end{equation*}
+  \end{enumerate}
+\end{proof}
+
+利用牛顿位势在利普希茨域中的映射特性(定理\ref{theorem:bie-newton-mapping})，我们可以得到单层位势$\widetilde{V}$\eqref{eq:bvp-single-layer-potential-operator}的映射特性。进而，利用$\widetilde{V}$的迹，可得边界积分算子$V \coloneqq \gamma_{0}^{\text{int}} \widetilde{V}$的映射特性。
+\begin{theorem}[单层位势算子的映射特性]
+  \label{theorem:bie-single-layer-mapping}
+  对于$\left| s \right| < \frac{1}{2}$，单层位势$V: H^{-\frac{1}{2} + s} \mapsto H^{\frac{1}{2} + s}$有界，即
+  \begin{equation*}
+    \left\| V w \right\|_{H^{\frac{1}{2}+ s}(\Gamma)}
+    \le c \, \left\| w \right\|_{H^{-\frac{1}{2} + s}(\Gamma)}, \quad \forall \, w \in H^{-\frac{1}{2} + s}(\Gamma).
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item 对于$\varphi \in C^{\infty}(\Omega)$，有
+    \begin{equation*}
+      \begin{split}
+        \langle \widetilde{V} w, \varphi \rangle_{\Omega}
+        & = \int_{\Omega} \varphi(x)
+        \int_{\Gamma} U^{*}(x,y) w(y) \, d s_{y}
+        d x \\
+        & = \int_{\Gamma} w(y)
+        \int_{\Gamma} U^{*}(x,y) \varphi(x) \, dx
+        d s_{y}\\
+        & = \langle w, \gamma_{0}^{\text{int}} \widetilde{N}_{0} \varphi \rangle_{\Gamma} \\
+        & \le
+        \left\| w \right\|_{H^{-\frac{1}{2} + s}(\Gamma)}
+        \, \left\| \gamma_{0}^{\text{int}} \widetilde{N}_{0} \varphi \right\|_{H^{\frac{1}{2} - s}(\Gamma)}.
+      \end{split}
+    \end{equation*}
+    根据迹定理\ref{theorem:sobolev-manifold-trace-theorem}可得
+    \begin{equation*}
+      \begin{split}
+        \langle \widetilde{V} w, \varphi \rangle_{\Omega}
+        & \le
+        \left\| w \right\|_{H^{-\frac{1}{2} + s}(\Gamma)}
+        \, \left\| \gamma_{0}^{\text{int}} \widetilde{N}_{0} \varphi \right\|_{H^{\frac{1}{2} - s}(\Gamma)} \\
+        & \le
+        c_{T} \, \left\| w \right\|_{H^{-\frac{1}{2} + s}(\Gamma)} \,
+         \left\| \widetilde{N}_{0} \varphi \right\|_{H^{1 - s}(\Gamma)}.
+      \end{split}
+    \end{equation*}
+
+  \item 利用Theorem \ref{theorem:bie-newton-mapping}，可得
+  \begin{equation*}
+    \begin{split}
+      \langle \widetilde{V} w, \varphi \rangle_{\Omega}
+      & \le
+      c_{T} \, \left\| w \right\|_{H^{-\frac{1}{2} + s}(\Gamma)} \,
+      \left\| \widetilde{N}_{0} \varphi \right\|_{H^{1 - s}(\Gamma)} \\
+      & \le
+      c \,  \left\| w \right\|_{H^{-\frac{1}{2} + s}(\Gamma)} \,
+      \left\| \varphi \right\|_{\widetilde{H}^{-1-s}(\Omega)}, \forall \, \varphi \in C^{\infty}(\Omega).
+    \end{split}
+  \end{equation*}
+
+  \item 将$w$视为密度方程，根据定义可得$\widetilde{V} w \in H^{1+s}(\Omega)$。对$\widetilde{V} w$取迹，在满足$\frac{1}{2} + s >0$的情况下，我们有$V w : \gamma_{0}^{\text{int}} \widetilde{V} w \in H^{\frac{1}{2}} (\Gamma)$。
+  \end{enumerate}
+\end{proof}
+
+对于利普希茨域$\Omega$的情况，可由Theorem \ref{theorem:bie-single-layer-mapping}求得全部边界积分算子的映射特性。
+\begin{theorem}[边界积分算子的映射特性]
+  \label{theorem:bie-mapping-operators}
+  设利普希茨域$\Omega$，对应边界$\Gamma \coloneqq \partial \Omega$。则对于$S \in \left[ - \frac{1}{2}, \frac{1}{2} \right]$，以下边界积分算子都有界，且满足映射关系\citep{Costabel:1988dw}
+  \begin{equation*}
+    \begin{split}
+      V&: H^{-\frac{1}{2}+s} (\Gamma) \mapsto H^{\frac{1}{2}+s}(\Gamma), \\
+      K&: H^{\frac{1}{2}+s} (\Gamma) \mapsto H^{\frac{1}{2}+s}(\Gamma), \\
+      K'&:H^{-\frac{1}{2}+s} (\Gamma) \mapsto H^{-\frac{1}{2}+s}(\Gamma),\\
+      D &: H^{\frac{1}{2}+s} (\Gamma) \mapsto H^{-\frac{1}{2}+s}(\Gamma).
+    \end{split}
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item $\left| s \right| < \frac{1}{2}$时单层位势$V$的映射特性可由Theorem \ref{theorem:bie-single-layer-mapping}证得。$\left| s \right| = \frac{1}{2}$时$V$的映射特性，见\cite{Verchota:1984fp, McLean:2000ta}。
+
+    \item 在此基础上，$K,K',D$的映射特性可由共法导数算子推得。已知单层位势$u(x) = \widetilde{V} w (x), x \in \Omega$构成齐次偏微分方程的解，对应狄利克雷数$\gamma_{0}^{\text{int}} u(x) = \left( V w \right)(x), x \in \Gamma$。
+
+    已知单层位势$V:L^{2}(\Gamma) \mapsto L^{1}(\Gamma)$是连续的，根据Theorem \ref{theorem:var-bvp-strong-solution}我们有
+    \begin{equation*}
+      \left\| \gamma_{1}^{\text{int}} u \right\|_{L^{2}(\Gamma)}
+      \le c \, \left\| V w \right\|_{H^{1}(\Gamma)}
+      \le \widetilde{c} \, \left\| w \right\|_{L^{2}(\Gamma)},
+    \end{equation*}
+    进而可证得伴随双层位势算子$\gamma_{1}^{\text{int}} \widetilde{V} = \sigma I + K':L^{2}(\Gamma) \mapsto L^{2}(\Gamma)$的连续性。另一方面，由对偶配对可得
+    \begin{equation*}
+      \left\| \gamma_{1}^{\text{int}} u \right\|_{L^{2}(\Gamma)}
+      = \sup_{0 \neq \varphi \in H^{1}(\Gamma)}
+      \frac{
+      \langle \gamma_{1}^{\text{int}}, \varphi \rangle_{\Gamma}
+      }{
+      \left\| \varphi \right\|_{H^{1}(\Gamma)}
+      }.
+    \end{equation*}
+
+  对于任一$\varphi \in H^{1}(\Gamma)$，狄利克雷边界值问题
+  \begin{equation*}
+    \begin{cases}
+      L \nu (x) = 0 & x \in \Gamma,\\
+      \gamma_{0}^{\text{int}} \nu(x) = \varphi(x) & x \in \Gamma
+    \end{cases}
+  \end{equation*}
+  有唯一解$\nu \in H^{\frac{3}{2}}(\Omega)$。在此基础上，由Theorem \ref{theorem:var-bvp-strong-solution}可得
+  \begin{equation*}
+    \left\| \gamma_{1}^{\text{int}} \nu \right\|_{L^{2}(\Gamma)}
+    \le c \, \left\| \gamma_{0}^{\text{int}} \nu \right\|_{H^{1}(\Gamma)}
+    \le c \, \left\| \varphi \right\|_{H^{1}(\Gamma)}.
+  \end{equation*}
+
+  既然$u = \widetilde{V} w$和$\nu$都是齐次偏微分方程的解，连续两次使用格林第一恒等式\eqref{eq:bvp-a-u-nu-inner-prod}有
+  \begin{equation*}
+    \begin{split}
+    & \langle \gamma_{1}^{\text{int}} u, \varphi \rangle_{\Gamma}
+    = a \left( u,\nu \right) \\
+    & = a \left( \nu, u \right) =
+    \langle \gamma_{1}^{\text{int}} \nu, \gamma_{0}^{\text{int}} u \rangle_{\Gamma}\\
+    & \le \left\| \gamma_{1}^{\text{int}} \nu \right\|_{L^{2}(\Gamma)} \,
+    \left\| \gamma_{0}^{\text{int}} u \right\|_{L^{2}(\Gamma)} \\
+    & \le c \, \left\| \varphi \right\|_{H^{1}(\Gamma)} \, \left\| V w \right\|_{L^{2}(\Gamma)}.
+  \end{split}
+\end{equation*}
+
+可见，由单层位势$V:H^{-1}(\Gamma) \mapsto L^{2}(\Gamma)$的连续性，我们有
+\begin{equation*}
+  \left\| \gamma_{1}^{\text{int}} u \right\|_{H^{-1}(\Gamma)}
+  \le c \, \left\| V w \right\|_{L^{2}(\Gamma)}
+  \le \widetilde{c} \left\| w \right\|_{H^{-1}(\Gamma)} ,
+\end{equation*}
+
+进而可得共法导数算子$\gamma_{1}^{\text{int}} \widetilde{V} : \sigma I + K': H^{-1}(\Gamma) \mapsto H^{-1}(\Gamma)$的连续性。在此基础上，若满足$s \le \frac{1}{2}$，那么利用插值定理可得$K' : H^{-\frac{1}{2} + s}(\Gamma) \mapsto H^{-\frac{1}{2} + s}(\Gamma)$。
+
+\item 由于
+\begin{equation*}
+  \begin{split}
+    \left\| K \nu \right\|_{H^{\frac{1}{2}+s}(\Gamma)}
+    & = \sup_{0 \neq w \in H^{-\frac{1}{2}-s}(\Gamma)}
+    \frac{
+    \langle K \nu, w \rangle_{\Gamma}
+    }{
+    \left\| w \right\|_{H^{-\frac{1}{2}-s}(\Gamma)}
+    } \\
+    & = \sup_{0 \neq w \in H^{-\frac{1}{2}-s}(\Gamma)}
+    \frac{
+    \langle \nu, K' w \rangle_{\Gamma}
+    }{
+    \left\| w \right\|_{H^{-\frac{1}{2}-s}(\Gamma)}
+    } \\
+    & = \left\| \nu \right\|_{H^{\frac{1}{2} + s}(\Gamma)}
+    \sup_{0 \neq w \in H^{-\frac{1}{2}-s}(\Gamma)}
+    \frac{
+    \left\| K' w \right\|_{H^{-\frac{1}{2}-s}(\Gamma)}
+    }{
+    \left\| w \right\|_{H^{-\frac{1}{2}-s}(\Gamma)}
+    }\\
+    & \le c \, \left\| \nu \right\|_{H^{\frac{1}{2} + s}(\Gamma)},
+  \end{split}
+\end{equation*}
+  进而可得对于$\left| s \right| \le \frac{1}{2}$，有$K: H^{\frac{1}{2} + s}(\Gamma) \mapsto H^{\frac{1}{2} + s}(\Gamma)$。
+
+  \item 由双层位势的定义$u(x) = \left( W u \right)(x)$可得，利用Theorem \ref{theorem:var-bvp-strong-solution}，有
+  \begin{equation*}
+    \begin{split}
+      \left\| D \nu \right\|_{L^{2}(\Gamma)}
+      & = \left\| \gamma_{1}^{\text{int}} u \right\|_{L^{2}(\Gamma)} \\
+      & \le c \, \left\| \gamma_{0}^{text{int}} u \right\|_{H^{1}(\Gamma)} \\
+      & = c \, \left\|
+      \left[
+      \left( \sigma - 1 \right) I + K
+      \right] \nu
+      \right\|_{H^{1}(\Gamma)},
+    \end{split}
+  \end{equation*}
+  进而可得$D:H^{1}(\Gamma) \mapsto L^{2}(\Gamma)$。进一步使用配偶配对以及插值法，得$D:H^{\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma)$。
+\end{enumerate}
+\end{proof}
+
+如果有界域$\Omega \subset \mathbb{R}^{d}$的边界$\gamma = \partial \Omega$是分段平滑的，那么即使$\left| s \right|$延展到$\frac{1}{2}$之外，Theorem \ref{theorem:bie-mapping-operators}也可能成立。举例来说，若$\Omega \subset \mathbb{R}^{2}$是个有界的多边形，有$J$个角，内夹角$\alpha_{j}$，可定义
+\begin{equation*}
+  \sigma_{0} \coloneqq \min_{j=1,\ldots,J}
+  \left\{
+  \min
+  \left[
+  \frac{\pi}{\alpha_{j}},
+  \frac{\pi}{2 \pi - \alpha_{j}}
+  \right]
+  \right\},
+\end{equation*}
+此时Theorem \ref{theorem:bie-mapping-operators}对于所有$\left| s \right| < \sigma_{0}$均成立\citep{Costabel:1985dl}；如果边界$\Gamma$是$C^{\infty}$的，则Theorem \ref{theorem:bie-mapping-operators}对于所有$s \in \mathbb{R}$都成立。

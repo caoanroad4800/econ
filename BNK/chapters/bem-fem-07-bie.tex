@@ -1,0 +1,127 @@
+%!TEX root = ../DSGEnotes.tex
+\section{边界积分方程}
+\label{sec:bie}
+
+在对一系列边界积分算子有了初步了解后(第\ref{sec:bem-fem-potential-bvp})节，本届来分析边界积分方程(BIEs, boundary integral equations)。具体来说，考虑由标量齐次偏微分方程表示的边界值问题
+\begin{equation}
+  \label{eq:bie-bvp-def}
+  \left(L u \right)(x) = 0, \quad x \in \Gamma,
+\end{equation}
+其中$L$是一个椭圆、自伴随的二阶偏微分算子。$\Omega$是一个有界的单连通域(simply connected domain)，其利普希茨边界定义为$\Gamma \coloneqq \partial \Omega$。\footnote{在这里我们以齐次泊松方程，即拉普拉斯方程为例来说明。求解非齐次偏微分方程，可引入牛顿位势，将非齐次偏微分方程中的全部牛顿位势化简为表面积位势，如见\cite{Jung:2002jk,Of:2010gt}。}
+
+对于某个$\widetilde{x} \in \Omega$，齐次偏微分方程\eqref{eq:bie-bvp-def}的解$u(\widetilde{x})$可由表现式\eqref{eq:bvp-fund-var-ux-uy}给出
+\begin{equation}
+  \label{eq:bie-solution-representation}
+  u(\widetilde{x}) = \int_{\Gamma} U^{*}(\widetilde{x}, y) \gamma_{1}^{\text{int}} u(y) \, d s_{y}
+  - \int_{\Gamma} \gamma_{1,y}^{\text{int}} U^{*}(\widetilde{x}, y) \gamma_{0}^{\text{int}} u(y) d s_{y}.
+\end{equation}
+
+可见为了通过\eqref{eq:bie-solution-representation}求解\eqref{eq:bie-bvp-def}，一方面需要求得基本解$U^{*}(\widetilde{x},y)$，另一方面我们需要完整柯西数$\left[ \gamma_{0}^{\text{int}} u(\widetilde{x}), \gamma_{1}^{\text{int}} u(\widetilde{x}) \right]$。前者见第\ref{sec:bvp-laplace-fund-solutions}节。就后者而言，计算完整柯西数所需的全部信息，可通过构建适宜的边界积分方程求得。以下述边界积分方程系统为例，
+\begin{equation}
+  \label{eq:bie-system-boundary}
+  \begin{pmatrix}
+    \gamma_{0}^{\text{int}} u \\
+    \gamma_{1}^{\text{int}} u
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \left( 1-\sigma \right) I - K & V \\
+    D & \sigma I + K'
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    \gamma_{0}^{\text{int}} u \\
+    \gamma_{1}^{\text{int}} u
+  \end{pmatrix}.
+\end{equation}
+
+上式中，如果所有边界积分算子的密度方程都恰好是柯西数$\left[ \gamma_{0}^{\text{int}} u(x), \gamma_{1}^{\text{int}} u(x) \right], x \in \Gamma$，则我们称这种求解思路为直接法。
+
+与之相对应，另一种求解思路为间接法，是指用适宜的位势算子求解边界值问题。例如，对于给定的$\widetilde{x} \in \Omega$，齐次偏微分方程\eqref{eq:bie-bvp-def}的解$u(\widetilde{x})$，可以由单层位势求解而得
+\begin{equation}
+  \label{eq:bie-indirect-single-layer}
+  u(\widetilde{x}) = \int_{\Gamma} U^{*}(\widetilde{x}, y) w(y) \, d s_{y}, \quad \widetilde{x} \in \Omega,
+\end{equation}
+或由双层位势求解而得
+\begin{equation*}
+  \label{eq:bie-indirect-double-layer}
+  u(\widetilde{x}) = - \int_{\Gamma}
+  \gamma_{1,y}^{\text{int}} U^{*}(\widetilde{x}, y) \nu(y) \, d s_{y}, \quad \widetilde{x} \in \Omega,
+\end{equation*}
+需要指出的是，间接法中的密度方程$w(y)$和$\nu(y)$往往并无明确的经济学含义。
+
+接下来我们将分别介绍几种不同的边界积分方程，以及如何用这些边界积分方程生成对应的柯西数，来描述带有不同边界条件的边界值问题。
+
+\subsection{狄利克雷边界值问题}
+\label{sec:bie-dirichlet}
+考虑如下狄利克雷边界值问题
+\begin{equation}
+  \label{eq:bie-dirichlet-value-problem}
+  \begin{split}
+    \left( L u \right)(x) &=0, \quad x \in \Omega,\\
+    \gamma_{0}^{\text{int}} u(x) &= g(x), \quad x \in \Gamma.
+  \end{split}
+\end{equation}
+
+\subsubsection{直接法求解狄利克雷边界值问题}
+\label{sec:bie-dirichlet-direct-approach}
+使用直接法求解\eqref{eq:bie-dirichlet-value-problem}，$u(x)$的表现式由\eqref{eq:bie-solution-representation}改写为
+\begin{equation}
+  \label{eq:bie-dirichlet-solution-representation}
+  u(\widetilde{x}) = \int_{\Gamma} U^{*}(\widetilde{x}, y) \gamma_{1}^{\text{int}} u(y) \, d s_{y}
+  - \int_{\Gamma} \gamma_{1,y}^{\text{int}} U^{*}(\widetilde{x}, y) g(y) d s_{y}, \quad \widetilde{x} \in \Omega.
+\end{equation}
+
+求解\eqref{eq:bie-dirichlet-solution-representation}需要首先计算未知的诺依曼数$\gamma_{1}^{\text{int}}u \in H^{-\frac{1}{2}}(\Gamma)$。由边界积分方程系统\eqref{eq:bie-system-boundary}的第一行我们有
+\begin{equation}
+  \label{eq:bie-dirichlet-first-kind-fredholm}
+  \left( V \gamma_{1}^{\text{int}} u \right)(x)
+  = \sigma(x) g(x) + \left( K g \right)(x), \quad x \in \Gamma,
+\end{equation}
+我们称之为第一类弗雷德霍姆边界积分方程(the first kind of Fredholm boundary integral function)\index{Fredholm boundary integral function!first kind \dotfill 第一类弗雷德霍姆边界积分方程}\citep{Atkinson:1996vm, Atkinson:1997vx}。
+
+\eqref{eq:bie-dirichlet-first-kind-fredholm}的解$u(x)$，其唯一性可由以下方式证得
+\begin{enumerate}
+  \item 单层位势算子$V:H^{-\frac{1}{2}}(\Gamma) \mapsto H^{\frac{1}{2}}(\Gamma)$有界\eqref{eq:bvp-single-layer-operator-v-norm}，
+  \item $V$是$H^{-\frac{1}{2}}(\Gamma)$-椭圆的。$d=3$的证明见Theorem \ref{theorem:bvp-bie-vw-w-gamma}；$d=2$的证明见Theorem \ref{theorem:bvp-bie-single-ellipticity-d2}。
+  \item 已知$V$有界且椭圆，由拉克斯一密格拉蒙定理Theorem \ref{theorem:lax-milgram-lemma}可得$u(x)$的唯一可解性。
+\end{enumerate}
+
+唯一可解的$\gamma_{1}^{\text{int}} u(x) \in H^{-\frac{1}{2}}(\Gamma)$满足
+\begin{equation*}
+\begin{split}
+  \left\| \gamma_{1}^{\text{int}} u \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+  & \le \frac{1}{c_{1}^{V}} \,
+  \left\| \left( \sigma I + K \right) g \right\|_{H^{\frac{1}{2}}(\Gamma)} \\
+  & \le \frac{c_{2}^{W}}{c_{1}^{V}}
+  \left\| g \right\|_{H^{\frac{1}{2}}(\Gamma)}.
+\end{split}
+\end{equation*}
+
+由于边界积分方程\eqref{eq:bie-dirichlet-first-kind-fredholm}存在于$H^{\frac{1}{2}}(\Gamma)$空间中，则我们有
+\begin{equation*}
+  \begin{split}
+    & 0 = \left\| V \gamma_{1}^{\text{int}} u - \left( \sigma I + K \right) g \right\|_{H^{\frac{1}{2}}(\Gamma)} \\
+    & = \sup_{0 \neq \tau \in H^{-\frac{1}{2}}(\Gamma)}
+    \frac{
+    \langle
+    V \gamma_{1}^{\text{int}} u - \left( \sigma I + K \right) g, \tau
+    \rangle_{\Gamma}
+    }{
+    \left\| \tau \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+    },
+  \end{split}
+\end{equation*}
+由此可见，除了直接求解\eqref{eq:bie-dirichlet-first-kind-fredholm}之外，我们也可以考虑如下等价的变分问题：寻找解$\gamma_{1}^{\text{int}} u \in H^{-\frac{1}{2}}(\Gamma)$，使其满足
+\begin{equation}
+  \begin{split}
+  \label{eq:bie-dirichlet-direct-variational}
+  \langle V \gamma_{1}^{\text{int}} u, \tau \rangle_{\Gamma}
+  & = \langle \left( \sigma I + K \right) g, \tau \rangle_{\Gamma} \\
+  & = \langle \left( \frac{1}{2} I + K \right) g, \tau \rangle_{\Gamma}, \quad \forall \, \tau \in H^{-\frac{1}{2}}(\Gamma),
+\end{split}
+\end{equation}
+其中第二行等式是由于，根据\eqref{eq:bvp-adjoint-double-layer-potential-sigma}，对于几乎所有$x \in \Gamma$都有$\sigma(x) = \frac{1}{2}$。
+
+\subsubsection{间接法求解狄利克雷边界值问题}
+\label{sec:bie-dirichlet-indirect-approach}
