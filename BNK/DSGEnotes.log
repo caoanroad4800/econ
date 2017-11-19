@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.4)  15 NOV 2017 22:56
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.10.4)  20 NOV 2017 00:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2820,7 +2820,7 @@ Overfull \hbox (2.57866pt too wide) in paragraph at lines 1163--1165
 
 [298]) (./chapters/bem-fem-04-varbvp.tex [299] [300] [301] [302] [303] [304]
 [305]
-Overfull \hbox (3.81883pt too wide) in paragraph at lines 559--560
+Overfull \hbox (3.81883pt too wide) in paragraph at lines 560--561
 [][]\TU/lmr/bx/n/10 Theorem 12.25 \TU/lmr/m/n/10 (\TU/STSong(0)/m/n/10 变 分 问 题 
 等 价\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/STSong(0)/m/it/10 调 整 鞍 点 变 分 问 题[]有
  唯 一 的 解 $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u; ^^U\OT1/cmr/m/n/10 ) \OMS/cmsy/m
@@ -2830,14 +2830,14 @@ m/it/10 ，|
  []
 
 [306] [307] [308]
-Overfull \hbox (8.00647pt too wide) in paragraph at lines 809--811
+Overfull \hbox (8.00647pt too wide) in paragraph at lines 810--812
 \TU/STSong(0)/m/n/10 其 中 最 后 一 个 等 式 用 到 可 求 解 性 条 件[]。|  由 此 我 们 有 $\OML/cmm/m
 /it/10 u \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (
 )$\TU/STSong(0)/m/n/10 ，|  也 是 变 分 问 题[]的
  []
 
 [309]
-Overfull \hbox (10.50836pt too wide) in paragraph at lines 835--836
+Overfull \hbox (10.50836pt too wide) in paragraph at lines 836--837
 []\TU/STSong(0)/m/n/10 假 定 $\OT1/cmr/m/n/10 ^^@ = [][] \OMS/cmsy/m/n/10 [ [][]$
  \TU/STSong(0)/m/n/10 。|  对 应 地，|  可 由 格 林 第 一 恒 等 式[]建 立 变 分 问 题：|  求 解 $\OML/
 cmm/m/it/10 u \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (
@@ -2846,7 +2846,7 @@ cmm/m/it/10 u \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (
  []
 
 
-Overfull \hbox (10.92818pt too wide) in paragraph at lines 853--854
+Overfull \hbox (10.92818pt too wide) in paragraph at lines 854--855
 [][]\TU/lmr/bx/n/10 Theorem 12.29 \TU/lmr/m/n/10 (\TU/STSong(0)/m/n/10 混 合 边 界 
 值 变 分 问 题 的 唯 一 解\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/STSong(0)/m/it/10 给 定 
 $\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 2 []\OT1/cmr/m/n/10 (
@@ -2856,7 +2856,7 @@ $\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 2 []\OT1/cmr/m/n/10 (
  []
 
 
-Overfull \hbox (9.59868pt too wide) in paragraph at lines 912--913
+Overfull \hbox (9.59868pt too wide) in paragraph at lines 913--914
 []\TU/STSong(0)/m/n/10 有 界，|  椭 圆，|  假 设 条 件 满 足。|  由 拉 克 斯 一 密 格 拉 蒙 定 理 \TU/l
 mr/m/n/10 (Theorem [][]12.14[][]) \TU/STSong(0)/m/n/10 可 得，|  变 分 问 题[]有
  []
@@ -2920,18 +2920,35 @@ Overfull \hbox (1.62463pt too wide) detected at line 1278
  []
 
 [339] [340] [341] [342] [343]) (./chapters/bem-fem-0603-boundintop.tex [344]
-[345] [346] [347] [348] [349] [350] [351]) [352] [353
+[345] [346] [347] [348] [349] [350] [351])
+(./chapters/bem-fem-0604-boundintop.tex
+Overfull \hbox (1.07721pt too wide) in paragraph at lines 8--9
+[][]\TU/lmr/bx/n/10 Theorem 12.39 \TU/lmr/m/n/10 (\TU/STSong(0)/m/n/10 牛 顿 位 势 
+在 利 普 希 茨 域 中 的 映 射 特 性\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/STSong(0)/m/it/1
+0 对 于 $\OML/cmm/m/it/10 s \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 [\OMS/cmsy/m/n/10 
+^^@\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 0]$\TU/STSong(0)/m/it/10
+ ，|  牛 顿 位 势 $[] \OT1/cmr/m/n/10 : [](
+) \OMS/cmsy/m/n/10 7!
+ []
 
-] [354] [355
+[352] [353] [354]) (./chapters/bem-fem-07-bie.tex
+Overfull \hbox (1.73067pt too wide) in paragraph at lines 5--6
+[]\TU/STSong(0)/m/n/10 在 对 一 系 列 边 界 积 分 算 子 有 了 初 步 了 解 后 \TU/lmr/m/n/10 (\TU/
+STSong(0)/m/n/10 第[][]\TU/lmr/m/n/10 12.1[][]) \TU/STSong(0)/m/n/10 节，|  本 届 来 
+分 析 边 界 积 分 方 程 \TU/lmr/m/n/10 (BIEs, bound-
+ []
 
-] [356]
-[357
+[355]) [356] [357
 
-] [358] (./chapters/appendix01.tex
+] [358] [359
+
+] [360] [361
+
+] [362] (./chapters/appendix01.tex
 第一章
-[359
+[363
 
-] [360]
+] [364]
 Overfull \hbox (39.62521pt too wide) in paragraph at lines 212--213
 []\TU/STSong(0)/m/n/10 在 \TU/lmr/m/n/10 capital adjustment cost \TU/STSong(0)/m
 /n/10 设 定 下，|  家 庭 部 门 优 化 条 件 表 示 为 通 过 选 择 投 入 组 合 $\OMS/cmsy/m/n/10 f\OML/cm
@@ -2939,78 +2956,82 @@ m/m/it/10 C[]; I[]; \OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; B[]; []\OMS/cmsy/m/
 n/10 g$\TU/STSong(0)/m/n/10 ，|
  []
 
-[361]
+[365]
 Overfull \hbox (13.77956pt too wide) detected at line 227
 []
  []
 
-[362] [363]) (./chapters/PK.tex [364]
+[366] [367]) (./chapters/PK.tex [368]
 第二章
-[365
+[369
 
-]) (./chapters/KNKNCE.tex [366]
+]) (./chapters/KNKNCE.tex [370]
 第三章
-[367
+[371
 
-] [368]
+] [372]
 Overfull \hbox (0.47757pt too wide) in paragraph at lines 68--69
 []\TU/STSong(0)/m/n/10 在 \TU/lmr/m/n/10 Marshallian \TU/STSong(0)/m/n/10 的 框 架 
 中，|  经 济 的 波 动 是 由 供 应 波 动 和 需 求 波 动 两 方 面 共 同 作 用 的 结 果。| \TU/lmr/m/n/10 Keyne
 s
  []
 
-[369] [370] [371]) [372] (./DSGEnotes.bbl [373
+[373] [374] [375]) [376] (./DSGEnotes.bbl [377
 
-] [374] [375] [376] [377]
-[378]
-Underfull \hbox (badness 1681) in paragraph at lines 884--890
+] [378] [379] [380] [381]
+[382] [383]
+Underfull \hbox (badness 1681) in paragraph at lines 911--917
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[379] [380] [381] [382] [383] [384] [385]) [386] (./DSGEnotes.lof)
+[384] [385] [386] [387] [388] [389]) [390] (./DSGEnotes.lof)
 \tf@lof=\write8
 \openout8 = `DSGEnotes.lof'.
 
- [387
+ [391
+
+] [392
 
 ]
-[388
-
-] (./DSGEnotes.lot)
+(./DSGEnotes.lot)
 \tf@lot=\write9
 \openout9 = `DSGEnotes.lot'.
 
- [389] [390
+ [393] [394
 
 ] (./DSGEnotes.tdo)
 \tf@tdo=\write10
 \openout10 = `DSGEnotes.tdo'.
 
- [391] [392
+ [395] [396
 
 ]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
+ (./DSGEnotes.ind
+[397
 
-(./DSGEnotes.ind [393
-
-] [394] [395] [396] [397] [398] [399
-\indexentry{残差方程(映射法)|hyperpage}{399}
-] [400]) [401]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 237.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 237.
+] [398] [399] [400] [401] [402] [403
+\indexentry{残差方程(映射法)|hyperpage}{403}
+] [404]) [405]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 240.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 240.
  (./DSGEnotes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 237.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 237.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 240.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 240.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 46983 strings out of 492998
- 952337 string characters out of 6134491
- 1155288 words of memory out of 5000000
- 50203 multiletter control sequences out of 15000+600000
+ 47029 strings out of 492998
+ 953514 string characters out of 6134491
+ 1156339 words of memory out of 5000000
+ 50243 multiletter control sequences out of 15000+600000
  545437 words of font info for 123 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  62i,27n,104p,10415b,2356s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (401 pages, 6224944 bytes).
+Output written on DSGEnotes.xdv (405 pages, 6311324 bytes).

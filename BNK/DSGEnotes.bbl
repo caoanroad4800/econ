@@ -1,4 +1,4 @@
-\begin{thebibliography}{244}
+\begin{thebibliography}{251}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -145,6 +145,19 @@
   economies}}.
 \newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
   \bibinfo{year}{2006};\bibinfo{volume}{30}(\bibinfo{number}{12}):\bibinfo{pages}{2477--2508}.
+%Type = Book
+\bibitem[{Atkinson(1996)}]{Atkinson:1996vm}
+\bibinfo{author}{Atkinson\xfnm[ K.E.]}.
+\newblock \bibinfo{title}{{The Numerical Solution of Boundary Integral
+  Equations}}.
+\newblock \bibinfo{address}{University of Iowa}, \bibinfo{year}{1996}.
+%Type = Book
+\bibitem[{Atkinson(1997)}]{Atkinson:1997vx}
+\bibinfo{author}{Atkinson\xfnm[ K.E.]}.
+\newblock \bibinfo{title}{{The Numerical Solution of Integral Equations of the
+  Second Kind}}.
+\newblock \bibinfo{publisher}{Cambridge University Bridge},
+  \bibinfo{year}{1997}.
 %Type = Article
 \bibitem[{Babu{\v s}ka(1971)}]{Babuska:1971fx}
 \bibinfo{author}{Babu{\v s}ka\xfnm[ I.]}.
@@ -551,6 +564,20 @@
 \newblock \bibinfo{title}{{Frontiers of Business Cycle Research}}.
 \newblock \bibinfo{publisher}{Princeton University Press},
   \bibinfo{year}{1995}.
+%Type = Article
+\bibitem[{Costabel(1988)}]{Costabel:1988dw}
+\bibinfo{author}{Costabel\xfnm[ M.]}.
+\newblock \bibinfo{title}{{Boundary Integral Operators on Lipschitz Domains:
+  Elementary Results}}.
+\newblock \bibinfo{journal}{SIAM Journal on Mathematical Analysis}
+  \bibinfo{year}{1988};\bibinfo{volume}{19}(\bibinfo{number}{3}):\bibinfo{pages}{613--626}.
+%Type = Article
+\bibitem[{Costabel and Stephan(1985)}]{Costabel:1985dl}
+\bibinfo{author}{Costabel\xfnm[ M.]}, \bibinfo{author}{Stephan\xfnm[ E.]}.
+\newblock \bibinfo{title}{{Boundary integral equations for mixed boundary value
+  problems in polygonal domains and Galerkin approximation}}.
+\newblock \bibinfo{journal}{Banach Center Publications}
+  \bibinfo{year}{1985};\bibinfo{volume}{15}(\bibinfo{number}{1}):\bibinfo{pages}{175--251}.
 %Type = Book
 \bibitem[{Dautray and Lions(1990)}]{Dautray:1990hc}
 \bibinfo{author}{Dautray\xfnm[ R.]}, \bibinfo{author}{Lions\xfnm[ J.L.]}.
@@ -1038,6 +1065,13 @@
   Expectations Just Once}}.
 \newblock \bibinfo{journal}{NBER Working Paper} \bibinfo{year}{2011};.
 %Type = Article
+\bibitem[{Jung and Steinbach(2002)}]{Jung:2002jk}
+\bibinfo{author}{Jung\xfnm[ M.]}, \bibinfo{author}{Steinbach\xfnm[ O.]}.
+\newblock \bibinfo{title}{{A Finite Element-Boundary Element Algorithm for
+  Inhomogeneous Boundary Value Problems}}.
+\newblock \bibinfo{journal}{Computing}
+  \bibinfo{year}{2002};\bibinfo{volume}{68}(\bibinfo{number}{1}):\bibinfo{pages}{1--17}.
+%Type = Article
 \bibitem[{Kaldor(1985)}]{Kaldor:1985ve}
 \bibinfo{author}{Kaldor\xfnm[ N.]}.
 \newblock \bibinfo{title}{{The Scourge of Monetarism}} \bibinfo{year}{1985};.
@@ -1381,6 +1415,14 @@
 \newblock \bibinfo{journal}{Journal of Political Economy}
   \bibinfo{year}{1995};\bibinfo{volume}{103}(\bibinfo{number}{3}):\bibinfo{pages}{624--660}.
 %Type = Article
+\bibitem[{Of et~al.(2010)Of, Steinbach and Urthaler}]{Of:2010gt}
+\bibinfo{author}{Of\xfnm[ G.]}, \bibinfo{author}{Steinbach\xfnm[ O.]},
+  \bibinfo{author}{Urthaler\xfnm[ P.]}.
+\newblock \bibinfo{title}{{Fast Evaluation of Volume Potentials in Boundary
+  Element Methods}}.
+\newblock \bibinfo{journal}{SIAM Journal on Scientific Computing}
+  \bibinfo{year}{2010};\bibinfo{volume}{32}(\bibinfo{number}{2}):\bibinfo{pages}{585--602}.
+%Type = Article
 \bibitem[{Palais(2007)}]{Palais:2007bo}
 \bibinfo{author}{Palais\xfnm[ R.S.]}.
 \newblock \bibinfo{title}{{A simple proof of the Banach contraction
@@ -1708,6 +1750,13 @@
   Notes in Mathematics}}.
 \newblock \bibinfo{address}{Berlin, Heidelberg}: \bibinfo{publisher}{Springer
   Berlin Heidelberg}, \bibinfo{year}{1993}.
+%Type = Article
+\bibitem[{Verchota(1984)}]{Verchota:1984fp}
+\bibinfo{author}{Verchota\xfnm[ G.]}.
+\newblock \bibinfo{title}{{Layer potentials and regularity for the Dirichlet
+  problem for Laplace's equation in Lipschitz domains}}.
+\newblock \bibinfo{journal}{Journal of Functional Analysis}
+  \bibinfo{year}{1984};\bibinfo{volume}{59}(\bibinfo{number}{3}):\bibinfo{pages}{572--611}.
 %Type = Book
 \bibitem[{Vladimirov(1971)}]{Vladimirov:1971ti}
 \bibinfo{author}{Vladimirov\xfnm[ V.S.]}.
