@@ -43,11 +43,11 @@
   u(\widetilde{x}) = \int_{\Gamma} U^{*}(\widetilde{x}, y) w(y) \, d s_{y}, \quad \widetilde{x} \in \Omega,
 \end{equation}
 或由双层位势求解而得
-\begin{equation*}
+\begin{equation}
   \label{eq:bie-indirect-double-layer}
   u(\widetilde{x}) = - \int_{\Gamma}
   \gamma_{1,y}^{\text{int}} U^{*}(\widetilde{x}, y) \nu(y) \, d s_{y}, \quad \widetilde{x} \in \Omega,
-\end{equation*}
+\end{equation}
 需要指出的是，间接法中的密度方程$w(y)$和$\nu(y)$往往并无明确的经济学含义。
 
 接下来我们将分别介绍几种不同的边界积分方程，以及如何用这些边界积分方程生成对应的柯西数，来描述带有不同边界条件的边界值问题。
@@ -72,7 +72,7 @@
   - \int_{\Gamma} \gamma_{1,y}^{\text{int}} U^{*}(\widetilde{x}, y) g(y) d s_{y}, \quad \widetilde{x} \in \Omega.
 \end{equation}
 
-求解\eqref{eq:bie-dirichlet-solution-representation}需要首先计算未知的诺依曼数$\gamma_{1}^{\text{int}}u \in H^{-\frac{1}{2}}(\Gamma)$。由边界积分方程系统\eqref{eq:bie-system-boundary}的第一行我们有
+求解\eqref{eq:bie-dirichlet-solution-representation}需要首先计算未知的诺依曼数$\gamma_{1}^{\text{int}}u \in H^{-\frac{1}{2}}(\Gamma)$。由边界积分方程系统(卡尔德隆系统\index{Calderón projection \dotfill 卡尔德隆投影})\eqref{eq:bie-system-boundary}的第一行我们有
 \begin{equation}
   \label{eq:bie-dirichlet-first-kind-fredholm}
   \left( V \gamma_{1}^{\text{int}} u \right)(x)
@@ -123,5 +123,590 @@
 \end{equation}
 其中第二行等式是由于，根据\eqref{eq:bvp-adjoint-double-layer-potential-sigma}，对于几乎所有$x \in \Gamma$都有$\sigma(x) = \frac{1}{2}$。
 
+除了根据卡尔德隆系统\eqref{eq:bie-system-boundary}的第一行，构建\eqref{eq:bie-dirichlet-first-kind-fredholm}来求解狄利克雷边界值之外，另一种方法是根据第二行计算未知的诺依曼数$\gamma_{1}^{\text{int}} u \in H^{-\frac{1}{2}}(\Gamma)$，即
+\begin{equation}
+  \label{eq:bie-dirichlet-second-kind-fredholm}
+  \left[
+  \left( 1 - \sigma \right)I - K'
+  \right]
+  \gamma_{1}^{\text{int}} u(x)
+  = \left( D g \right)(x), \quad x \in \Gamma,
+\end{equation}
+我们称之为第二类弗雷德霍姆边界积分方程(the second kind of Fredholm boundary integral function)\index{Fredholm boundary integral function!second kind \dotfill 第二类弗雷德霍姆边界积分方程}\citep{Atkinson:1996vm, Atkinson:1997vx}。方程的解$\gamma_{1}^{\text{int}}u(x)$由诺依曼级数(Neumann series)\index{Neumann series \dotfill 诺依曼级数}给出
+\begin{equation}
+  \label{eq:bie-dirichlet-neumann-series}
+  \gamma_{1}^{\text{int}} u(x) = \sum_{\ell = 0}^{\infty}
+  \left( \sigma I + K' \right)^{\ell}
+  \left( D g \right)(x), \quad x \in \Gamma.
+\end{equation}
+
+已知伴随双层位势$\left( \sigma I + K' \right)$的收缩特性可由单层位势$V$中等价范的形式$\left\| \cdot \right\|_{V}$来表示，见Corollary \ref{corollary:bvp-bie-adjoint-double-contraction-extention-gamma}式\eqref{eq:bvp-bie-adjoint-double-contraction-extention-gamma}，则诺依曼级数\eqref{eq:bie-dirichlet-neumann-series}在$H^{-\frac{1}{2}}(\Gamma)$中收敛。
+
+
+
 \subsubsection{间接法求解狄利克雷边界值问题}
 \label{sec:bie-dirichlet-indirect-approach}
+利用间接法，通过单层位势$V$\eqref{eq:bie-indirect-single-layer}求解狄利克雷边界值问题(齐次偏微分方程)，前提是需要计算未知的密度方程$w \in H^{-\frac{1}{2}}(\Gamma)$，其关键是求解如下边界积分方程
+\begin{equation}
+  \label{eq:bie-dirichlet-indiriect-single-layer}
+  \left(V w \right)(x) = g(x), \quad \, x \in \Gamma.
+\end{equation}
+
+将间接法之一\eqref{eq:bie-dirichlet-indiriect-single-layer}，与直接法之一
+\eqref{eq:bie-dirichlet-first-kind-fredholm}相比，只是在RHS的定义上有所不同。换句话说，\eqref{eq:bie-dirichlet-indiriect-single-layer}解的唯一存在性，可由\eqref{eq:bie-dirichlet-first-kind-fredholm}解的唯一存在性而证得。
+
+除了利用单层位势$V$，也可以利用双层位势$\left( \sigma I + K \right)$\eqref{eq:bie-indirect-double-layer}。根据双层位势的跃动关系Lemma \ref{lemma:bvp-double-layer-gamma0-representation-formula}式\eqref{eq:bvp-double-layer-gamma0-representation-formula}，可建立如下边界积分方程
+\begin{equation}
+  \label{eq:bie-dirichlet-indirect-double-layer}
+  \left[ 1 - \sigma(x) \right] \nu(x)
+  - \left( K \nu \right)(x) = g(x), \quad x \in \Gamma,
+\end{equation}
+其密度方程$\nu(x) \in H^{\frac{1}{2}}(\Gamma)$由诺依曼级数(Neumann series)\index{Neumann series \dotfill 诺依曼级数}算得
+\begin{equation}
+  \label{eq:bie-indirect-double-neumann-series}
+  \nu(x) = \sum_{\ell = 0}^{\infty}
+  \left( \sigma I + K' \right)^{\ell} g(x), \quad \forall \, x \in \Gamma.
+\end{equation}
+
+类似地，已知双层位势$\left( \sigma I + K \right)$的收缩属性可由逆单层位势$V^{-1}$中等价范的形式$\left\| \cdot \right\|_{V^{-1}}$来表示，见Corollary \ref{corollary:bvp-bie-double-contraction-extention-gamma}式\eqref{eq:bvp-bie-double-contraction-extention-gamma}，则诺依曼级数\eqref{eq:bie-indirect-double-neumann-series}在$H^{\frac{1}{2}}(\Gamma)$中收敛，进而
+\begin{equation*}
+  \begin{split}
+    0 & = \left\| \left( 1 - \sigma \right) \nu - K \nu - g \right\|_{H^{\frac{1}{2}}(\Gamma)} \\
+    & = \sup_{0 \neq \tau \in H^{-\frac{1}{2}}(\Gamma)}
+    \frac{
+    \langle \frac{1}{2} \nu - K \nu - g, \tau \rangle_{\Gamma}
+    }{
+    \left\| \tau \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+    },
+  \end{split}
+\end{equation*}
+其中根据\eqref{eq:bvp-adjoint-double-layer-potential-sigma}，对于几乎所有$x \in \Gamma$都有$\sigma(x) = \frac{1}{2}$。
+
+因此除了直接求解边界积分方程\eqref{eq:bie-dirichlet-indiriect-single-layer}，也可以考虑如下等价变分问题：寻找解$\nu \in H^{\frac{1}{2}}(\Gamma)$，使满足
+\begin{equation}
+  \label{eq:bie-dirichlet-indirict-variational}
+  \langle \left( \frac{1}{2} I - K \right) \nu, \tau \rangle_{\Gamma}
+  = \langle g, \tau \rangle_{\Gamma}, \quad \forall \, \tau \in H^{-\frac{1}{2}}(\Gamma).
+\end{equation}
+
+\begin{lemma}[变分问题的稳定条件]
+  变分问题\eqref{eq:bie-dirichlet-indirict-variational}有稳定条件
+  \begin{equation}
+    \label{eq:bie-dirichlet-indirict-variational-stability}
+    c_{S} \, \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}
+    \le \sup_{0 \neq \tau \in H^{-\frac{1}{2}}(\Gamma)}
+    \frac{
+    \langle \left( \frac{1}{2} I - K \right) \nu, \tau \rangle_{\Gamma}
+    }{
+    \left\| \tau \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+    }, \quad \forall \nu \in H^{\frac{1}{2}}(\Gamma),
+  \end{equation}
+  其中$c_{S}$是个正常数。
+\end{lemma}
+\begin{proof}
+设任一$\nu \in H^{\frac{1}{2}}(\Gamma)$，定义$\tau_{\nu} \coloneqq V^{-1} \nu \in H^{-\frac{1}{2}}(\Gamma)$，则有
+\begin{equation*}
+  \left\| \tau_{\nu} \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+  = \left\| V^{-1} \nu \right\|_{H^{-\frac{1}{2}}(\Gamma)}
+  \le \frac{1}{c_{1}^{V}} \, \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}.
+\end{equation*}
+
+由双层位势的收缩比率Corollary \ref{corollary:bvp-bie-double-contraction-extention-gamma}式\eqref{eq:bvp-bie-double-contraction-extention-gamma}，以及单层位势$V$的映射特性Theorem \ref{theorem:bie-mapping-operators}，我们有
+\begin{equation*}
+  \begin{split}
+    \langle \left( \frac{1}{2} I - K \right) \nu, \tau_{\nu} \rangle_{\Gamma}
+    & = \langle \left( \frac{1}{2} I - K \right) \nu, V^{-1} \nu \rangle_{\Gamma} \\
+    & = \langle V^{-1} \nu, \nu \rangle_{\Gamma}
+    - \langle V^{-1} \left( \frac{1}{2} I + K \right) \nu, \nu \rangle_{\Gamma} \\
+    & \ge \left\| \nu \right\|_{V^{-1}}^{2}
+    - \left\| \left( \frac{1}{2} I + K \right) \nu \right\|_{V^{-1}}
+    \, \left\| \nu \right\|_{V^{-1}} \\
+    & \ge \left( 1 - c_{K} \right) \, \left\| \nu \right\|_{V^{-1}}^{2} \\
+    & \ge \left( 1 - c_{K} \right) \,
+    \langle V^{-1} \nu, \nu \rangle_{\Gamma} \\
+    & \ge \left( 1 - c_{K} \right) \, \frac{1}{c_{2}^{V}} \,
+    \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2} \\
+    & \ge \left( 1 - c_{K} \right) \,  \frac{c_{1}^{V}}{c_{2}^{V}} \,
+    \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}
+    \, \left\| \tau_{\nu} \right\|_{H^{-\frac{1}{2}}(\Gamma)},
+  \end{split}
+\end{equation*}
+证毕。
+\end{proof}
+
+在此基础上，变分问题\eqref{eq:bie-dirichlet-indirict-variational}的唯一可解性，可由Theorem \ref{theorem:var-solution-exist-uniq}证得。
+
+\begin{remark}
+  对于狄利克雷边界值问题\eqref{eq:bie-dirichlet-value-problem}，我们介绍了4种求解方法，对应4个边界积分方程。这四种解都是唯一的。随着研究对象的不同和所采用的离散化方法(第\ref{sec:pj-local-discretization}节)的不同，这些方法各有利弊。在随后的分析中，我们以\eqref{eq:bie-dirichlet-direct-variational}方法为主，作进一步分析。
+\end{remark}
+
+
+\subsection{诺依曼边界值问题}
+\label{sec:bie-neumann}
+考虑如下诺依曼边界值问题
+\begin{equation}
+  \label{eq:bie-neumann-problem}
+  \begin{split}
+    L u (x) & = 0, \quad x \in \Gamma, \\
+    \gamma_{1}^{\text{int}} u(x) & = g(x), \quad x \in \Gamma.
+  \end{split}
+\end{equation}
+
+在满足假定可解性条件\eqref{eq:bvp-neumann-green-2-new}
+\begin{equation}
+  \label{eq:bie-neumann-solvability-cond}
+  \int_{\Gamma} g(x) d s_{x} = 0.
+\end{equation}
+的情况下，诺依曼边界值问题  \eqref{eq:bie-neumann-problem}的解可由表现式\eqref{eq:bie-solution-representation}改写为
+\begin{equation}
+  \label{eq:bie-neumann-solution-representation}
+  u(\widetilde{x})
+  = \int_{\Gamma} U^{*}(\widetilde{x}, y) g(y) \, d s_{y}
+  - \int_{\Gamma} \gamma_{1,y}^{\text{int}} U^{*}(\widetilde{x}, y) \, \gamma_{0}^{\text{int}} u(y) \, d s_{y}, \quad \widetilde{x} \in \Omega.
+\end{equation}
+
+为了求解\eqref{eq:bie-neumann-solution-representation}，我们需要计算诺依曼数$\gamma_{0}^{\text{int}} u \in H^{\frac{1}{2}}(\Gamma)$。由卡尔德隆系统\eqref{eq:bie-system-boundary}的第二行可得第一类弗雷德霍姆边界积分方程
+\begin{equation}
+  \label{eq:bie-neumann-calderon-second}
+  \left( D \gamma_{0}^{\text{int}} u \right)(x)
+  = \left( 1 - \sigma(x) \right) g(x) -
+  \left( K' g \right)(x), \quad x \in \Gamma.
+\end{equation}
+
+先来证明\eqref{eq:bie-neumann-calderon-second}存在唯一解$\gamma_{0}^{\text{int}} u \in H_{*}^{\frac{1}{2}}(\Gamma)$。
+\begin{enumerate}
+  \item 证明可解。根据\eqref{eq:bvp-hyper-bie-D-u0-equiv0}，$u_{0} \equiv 1$是超奇异边界积分算子$D$的特征解，满足$\left( D u_{0} \right)(x) = 0$。因此可得$\ker D = span \left\{ u_{0} \right\}$。根据闭值域定理Theorem \ref{theorem:var-closed-range-theorem}，我们需要假设如下可解条件
+\begin{equation*}
+  \left( 1-\sigma \right) g - K' g \in \im (D) = \left( \ker D \right)^{0},
+\end{equation*}
+其中$\left( \ker D \right)^{0}$是$ v$的正交空间，定义见\eqref{eq:var-ker-B-zero}。由正交属性可得
+\begin{equation}
+  \label{eq:bie-neumann-ortho}
+  \begin{split}
+  \langle
+  \left(1-\sigma \right) g - K' g, u_{0}
+  \rangle_{\Gamma}
+  & =
+  \langle g, 1 \rangle_{\Gamma}
+  - \langle \left( \sigma I + K' \right) g, u_{0} \rangle_{\Gamma} \\
+  & =
+  \langle g, 1 \rangle_{\Gamma}
+  - \langle g, \left( \sigma I + K \right) u_{0} \rangle_{\Gamma} \\
+  & = 0,
+  \end{split}
+\end{equation}
+可证的边界积分方程\eqref{eq:bie-neumann-calderon-second}可解。
+
+\item 超奇异积分算子$D: H^{\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma)$有界\eqref{eq:bvp-hypersingular-bie-norm}，且$H_{*}^{\frac{1}{2}}(\Gamma)$-椭圆(Theorem \ref{theorem:lax-milgram-lemma})。
+
+\item 由拉克斯一密格拉蒙定理 Theorem \ref{theorem:lax-milgram-lemma}可得，边界积分方程\eqref{eq:bie-neumann-calderon-second}存在唯一解$\gamma_{0}^{\text{int}} u \in H_{*}^{\frac{1}{2}}(\Gamma)$。
+\end{enumerate}
+
+在此基础上，求解诺依曼边界值问题\eqref{eq:bie-neumann-problem}，便等价于构建一个带有约束条件的变分问题：寻找解$\gamma_{0}^{\text{int}} u \in H_{*}^{\frac{1}{2}}(\Gamma)$，使满足
+\begin{equation}
+  \label{eq:bie-neumann-var-problem-constrain}
+  \langle D \gamma_{0}^{\text{int}} u, \nu \rangle_{\Gamma}
+  = \langle \left( \frac{1}{2} I - K' \right) g, \nu \rangle_{\Gamma}, \quad \forall \, \nu \in H_{*}^{\frac{1}{2}}(\Gamma),
+\end{equation}
+带约束条件的变分问题又等价于以下鞍点变分问题：寻找解$\left( \gamma_{0}^{\text{int}} u, \lambda \right) \in H^{\frac{1}{2}}(\Gamma) \times \mathbb{R}$，使满足
+\begin{equation}
+  \label{eq:bie-neumann-var-problem-saddle}
+  \begin{split}
+    \langle D \gamma_{0}^{\text{int}} u, \nu \rangle_{\Gamma}
+    + \lambda \langle \nu, w_{\text{eq}} \rangle_{\Gamma}
+    &= \langle \left( \frac{1}{2} I - K' \right) g, \nu \rangle_{\Gamma},\\
+    \langle \gamma_{0}^{\text{int}} u, w_{\text{eq}} \rangle_{\Gamma} &=0, \quad \forall \, \nu \in H^{\frac{1}{2}}(\Gamma).
+  \end{split}
+\end{equation}
+
+在\eqref{eq:bie-neumann-var-problem-saddle}的第一行中，设$\nu = u_{0} \in H^{\frac{1}{2}}(\Gamma)$作为检测方程，我们有$D u_{0} =0$。进而，由正交关系\eqref{eq:bie-neumann-ortho}可得
+\begin{equation}
+  \label{eq:bie-neumann-var-test-function}
+  0 = \lambda \, \langle 1, w_{\text{eq}} \rangle_{\Gamma}
+  = \lambda \, \langle 1, V^{-1} 1 \rangle_{\Gamma},
+\end{equation}
+由于逆单层位势$V^{-1}$是椭圆的，根据上式我们有$\lambda = 0$。进而鞍点变分问题\eqref{eq:bie-neumann-var-problem-saddle}变为调整鞍点变分问题：寻找解
+$\left( \gamma_{0}^{\text{int}} u, \lambda \right) \in H^{\frac{1}{2}}(\Gamma) \times \mathbb{R}$，使满足
+\begin{equation}
+  \label{eq:bie-neumann-var-problem-saddle-modified}
+  \begin{split}
+    \langle D \gamma_{0}^{\text{int}} u, \nu \rangle_{\Gamma}
+    + \lambda \langle \nu, w_{\text{eq}} \rangle_{\Gamma}
+    & = \langle \left( \frac{1}{2} I - K' \right) g, \nu \rangle_{\Gamma}, \\
+     \langle \gamma_{0}^{\text{int}} u, w_{\text{eq}} \rangle_{\Gamma} - \frac{\lambda}{\alpha} &= 0, \quad \forall \, \nu \in H^{\frac{1}{2}}(\Gamma),
+  \end{split}
+\end{equation}
+其中$\alpha \in \mathbb{R}_{+}$是某个待选参数。将第二行代回第一行以消除拉格朗日乘数$\lambda$，从而得到最终的调整变分问题：寻找解$\gamma_{0}^{\text{int}} u \in H^{\frac{1}{2}}(\Gamma)$，使满足
+\begin{equation}
+  \label{eq:bie-neumann-var-problem-saddle-modified-final}
+  \langle
+  D \gamma_{0}^{\text{int}} u, \nu
+  \rangle_{\Gamma}
+  + \underbrace{
+  \alpha
+  \langle
+  \gamma_{0}^{\text{int}} u, w_{\text{eq}}
+  \rangle_{\Gamma}
+  }_{\eqqcolon \lambda}
+  \,
+  \langle
+  \nu, w_{\text{eq}}
+  \rangle_{\Gamma}
+  =
+  \langle \left( \frac{1}{2} I - K' \right) g, \nu \rangle_{\Gamma},
+  \quad \forall \, \nu \in H^{\frac{1}{2}}(\Gamma).
+\end{equation}
+
+来看调整鞍点变分问题\eqref{eq:bie-neumann-var-problem-saddle-modified-final}。定义一个调整超奇异边界积分算子$\widetilde{D} : H^{\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma)$
+\begin{equation*}
+  \langle \widetilde{D} w, \nu \rangle_{\Gamma}
+  \coloneqq
+  \langle D w, \nu \rangle_{\Gamma}
+  + \alpha \,
+  \langle w, w_{\text{eq}} \rangle_{\Gamma} \,
+  \langle \nu, w_{\text{eq}} \rangle_{\Gamma},
+\end{equation*}
+由于
+\begin{equation*}
+  \begin{split}
+    \langle \widetilde{D} \nu, \nu \rangle_{\Gamma}
+    & =
+    \langle D \nu, \nu \rangle_{\Gamma}
+    + \alpha \left[ \langle \nu, w_{\text{eq}} \rangle_{\Gamma} \right]^{2} \\
+    & \ge \overline{c}_{1}^{D} \, \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}
+    + \alpha \left[ \langle \nu, w_{\text{eq}} \rangle_{\Gamma} \right]^{2} \\
+    & \ge \min \left\{ \overline{c}_{1}^{D}, \alpha \right\} \,
+    \left\{
+    \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}
+    + \left[ \langle \nu, w_{\text{eq}} \rangle_{\Gamma} \right]^{2}
+    \right\} \\
+    & = \min \left\{ \overline{c}_{1}^{D}, \alpha \right\} \,
+    \left\| \nu \right\|_{H_{*}^{\frac{1}{2}}(\Gamma)} \\
+    & \ge \hat{c}_{1}^{D} \,
+    \left\| \nu \right\|_{H_{*}^{\frac{1}{2}}(\Gamma)},
+    \quad \forall \, \nu \in H^{\frac{1}{2}}(\Gamma),
+  \end{split}
+\end{equation*}
+我们得$\widetilde{D}$有界且$H^{\frac{1}{2}}(\Gamma)$-椭圆 $\forall \, w, \nu \in H^{\frac{1}{2}}(\Gamma)$。这意味着，在消除拉格朗日乘数$\lambda$，从调整鞍点变分问题\eqref{eq:bie-neumann-var-problem-saddle-modified}
+变为\eqref{eq:bie-neumann-var-problem-saddle-modified-final}的过程中，任何给定的RHS，在左侧都有唯一一个$\alpha$值与之相对应。换句话说，对于任何的诺依曼数$\gamma_{1}^{\text{int}} u = g \in H^{-\frac{1}{2}}(\Gamma)$，\eqref{eq:bie-neumann-var-problem-saddle-modified-final}都存在唯一解$\gamma_{0}^{\text{int}} u \in H^{\frac{1}{2}}(\Gamma)$。
+
+
+现在假定有一组给定的诺依曼数$\gamma_{1}^{\text{int}} u = g \in H^{-\frac{1}{2}}(\Gamma)$，满足可解性条件\eqref{eq:bie-neumann-solvability-cond}。那么，通过引入检测方程$\nu = u_{0} \equiv 1$，调整鞍点变分问题\eqref{eq:bie-neumann-var-problem-saddle-modified-final}可以变为
+\begin{equation*}
+  \begin{split}
+    \alpha \langle \gamma_{0}^{\text{int}} u, w_{\text{eq}} \rangle_{\Gamma} \, \langle 1, w_{\text{eq}} \rangle_{\Gamma} & = 0, \\
+    \langle 1, w_{\text{eq}} \rangle_{\Gamma} & = \langle 1, V^{-1} 1 \rangle_{\Gamma} > 0,
+  \end{split}
+\end{equation*}
+因此我们有$\gamma_{0}^{\text{int}} u \in H_{*}^{\frac{1}{2}}(\Gamma)$。可见调整变分问题\eqref{eq:bie-neumann-var-problem-saddle-modified-final}与原变分问题\eqref{eq:bie-neumann-var-problem-saddle}等价。
+
+根据Corollary \ref{corollary:bvp-bie-single-semi-ellipticity}，超奇异边界积分算子是$H_{**}^{\frac{1}{2}(\Gamma)}$-椭圆的，则\eqref{eq:bie-neumann-calderon-second}也存在唯一的解$\gamma_{0}^{\text{int}} \in H_{**}^{\frac{1}{2}(\Gamma)}$。这让我们可以用与上文相近的思路，构建一个子空间中的调整变分问题：寻找解$\gamma_{0}^{\text{int}} \in H^{\frac{1}{2}(\Gamma)}$，使满足
+\begin{equation}
+  \label{eq:bie-neumann-var-subspace}
+  \langle D \gamma_{0}^{\text{int}} u, \nu \rangle_{\Gamma}
+  + \overline{\alpha} \langle \gamma_{0}^{\text{int}} u, 1 \rangle_{\Gamma} \,
+  \langle \nu, 1 \rangle_{\Gamma}
+   =
+  \langle \left( \frac{1}{2} I - K' \right) g, \nu \rangle_{\Gamma}, \quad \forall \, \nu \in H^{\frac{1}{2}}(\Gamma),
+\end{equation}
+同样地，$\overline{\alpha}$是个待选参数。在此基础上，如果假定可解性条件\eqref{eq:bie-neumann-solvability-cond}得到满足，那么变分问题\eqref{eq:bie-neumann-var-subspace}的解$\gamma_{0}^{\text{int}} \in H_{**}^{\frac{1}{2}}(\Gamma)$。
+
+定义一个调整超奇异积分算子$\hat{D}:H^{\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma)$如下
+\begin{equation}
+  \label{eq:bie-neumann-hatd}
+  \langle \hat{D} w, \nu \rangle_{\Gamma}
+  \coloneqq \langle Dw, \nu \rangle_{\Gamma}
+  + \overline{\alpha} \, \langle w, 1 \rangle_{\Gamma} \,
+  \langle \nu, 1 \rangle_{\Gamma}, \quad \forall \, w, \nu \in H^{\frac{1}{2}}(\Gamma),
+\end{equation}
+可见$\hat{D}$也是有界且$H^{\frac{1}{2}}(\Gamma)$-椭圆的算子。
+
+如果我们使用间接双层位势\eqref{eq:bie-indirect-double-layer}来计算未知的密度方程$\nu \in H_{*}^{\frac{1}{2}}(\Gamma)$，则我们可以得到超奇异边界积分算子形式的边界积分方程
+\begin{equation}
+  \label{eq:bie-neumann-double-layer-bie}
+  \left( D \nu \right)(x) = g(x), \quad x \in \gamma,
+\end{equation}
+进而我们可以采取与分析BIE\eqref{eq:bie-neumann-calderon-second}相近似的方法，来分析BIE\eqref{eq:bie-neumann-double-layer-bie}。
+
+如果我们使用直接法的表现式\eqref{eq:bie-indirect-single-layer}来计算$\nu \in H_{*}^{\frac{1}{2}}(\Gamma)$，那么代入卡尔德隆系统\eqref{eq:bie-system-boundary}第一行可得边界积分方程
+\begin{equation}
+  \label{eq:bie-neumann-direct-firstrow}
+  \left( \sigma I + K \right) \gamma_{0}^{\text{int}} u(x)
+  = \left( V \gamma_{1}^{\text{int}} u \right)(x)
+  = \left( V g \right)(x), \quad x \in \Gamma,
+\end{equation}
+其中待求解为狄利克雷数$\gamma_{0}^{\text{int}} u (x), x \in \Gamma$。\eqref{eq:bie-neumann-direct-firstrow}的解，可由诺依曼级数求得
+\begin{equation}
+  \label{eq:bie-neumann-direct-firstrow-neumann-seires}
+  \gamma_{0}^{\text{int}} u(x) =
+  \sum_{\ell = 0}^{\infty}
+  \left[
+  \left(  1- \sigma \right) I - K
+  \right]^{\ell}
+  \left( V g \right) (x), \quad \forall x \in \Gamma.
+\end{equation}
+
+诺依曼级数\eqref{eq:bie-neumann-direct-firstrow-neumann-seires}的收敛性证明：已知位移双层位势$\left[ \left(1-\sigma \right) I - K \right]$的收缩特性可由逆单层位势$V^{-1}$中的等价范形式$\left\| \cdot \right\|_{V^{-1}}$来表示，见Corollary \ref{corollary:bvp-bie-double-contraction-extention-gamma}式\eqref{eq:bvp-bie-double-contraction-extention-gamma}。
+则可以在$H^{\frac{1}{2}}(\Gamma)$中构建基于\eqref{eq:bie-neumann-direct-firstrow}的变分问题：寻找解$\gamma_{0}^{\text{int}} u \in H_{*}^{\frac{1}{2}}(\Gamma)$，使满足
+\begin{equation}
+  \label{eq:bie-neumann-firstrow-var-subspace}
+  \langle
+  \left( \sigma I + K \right) \gamma_{0}^{\text{int}} u, \nu
+  \rangle_{V^{-1}} =
+  \langle V g, \nu \rangle_{V^{-1}}, \quad \forall \, \nu \in H_{*}^{\frac{1}{2}}(\Gamma),
+\end{equation}
+其中已知单层位势$V:H^{-\frac{1}{2}}(\Gamma) \mapsto H^{\frac{1}{2}}(\Gamma)$有界且$H^{-\frac{1}{2}}(\Gamma)$-椭圆，$\langle .,. \rangle_{V^{-1}}$定义为$H^{\frac{1}{2}}(\Gamma)$中的内积形式
+\begin{equation*}
+  \langle w, \nu \rangle_{V^{-1}} \coloneqq
+  \langle V^{-1} w, \nu \rangle_{\Gamma}, \quad \, w, \nu \in H^{\frac{1}{2}}(\Gamma),
+\end{equation*}
+那么变分问题\eqref{eq:bie-neumann-firstrow-var-subspace}可以调整为如下变分问题：寻找$\gamma_{0}^{\text{int}} u \in H_{*}^{\frac{1}{2}}(\Gamma)$，使满足
+\begin{equation}
+\label{eq:bie-neumann-subspace-var-modified}
+\begin{split}
+  \langle S \gamma_{0}^{\text{int}} u, \nu \rangle_{\Gamma}
+  & = \langle
+  V^{-1} \left( \sigma I + K \right) \gamma_{0}^{\text{int}} u, \nu
+  \rangle_{\Gamma} \\
+  & = \langle g, \nu \rangle_{\Gamma}, \quad \forall \nu \in H_{*}^{\frac{1}{2}}(\Gamma),
+\end{split}
+\end{equation}
+其中$S: H^{\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma)$是Steklov-Poincaré算子。
+
+由于Steklov-Poincaré算子$S$和超奇异边界积分算子$D:H^{\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma)$有同样的映射特性，见式\eqref{eq:bvp-bie-system-spoperator-1}和Theorem \ref{theorem:bie-mapping-operators}。那么对变分问题\eqref{eq:bie-neumann-subspace-var-modified}的唯一可解性的证明，便类似于对变分问题\eqref{eq:bie-neumann-var-problem-constrain}唯一可解性的证明过程。
+
+将Steklov-Poincaré算子的对称型表现式\eqref{eq:bvp-bie-system-spoperator-def-sym}代入调整变分问题\eqref{eq:bie-neumann-subspace-var-modified}得
+\begin{equation}
+  \label{eq:bie-neumann-subspace-var-modified-sp}
+\begin{split}
+  \langle
+  S \gamma_{0}^{\text{int}} u, \nu
+  \rangle_{\Gamma}
+  & = \langle
+  \left[
+  D + \left( \sigma I + K' \right) V^{-1} \left(\sigma I + K \right)
+  \right]
+  \gamma_{0}^{\text{int}} u, \nu
+  \rangle_{\Gamma} \\
+  & = \langle g, \nu \rangle_{\Gamma}, \quad \forall \, \nu \in H_{*}^{\frac{1}{2}}(\Gamma),
+\end{split}
+\end{equation}
+不难看出，在根据单层位势\eqref{eq:bie-indirect-single-layer}，使用间接法求解诺依曼边界值问题是，我们最终得到以下边界积分方程
+\begin{equation}
+  \label{eq:bie-neumann-eventual}
+  \left( \sigma I + K' \right) w(x) = g(x), \quad x \in \Gamma,
+\end{equation}
+其中未知的密度方程$w \in H^{-\frac{1}{2}}(\Gamma)$可由诺依曼级数求得
+\begin{equation}
+  \label{eq:bie-neumann-eventual-neumann-series}
+  w(x) = \sum_{\ell = 0}^{\infty}
+  \left[
+  \left( 1 - \sigma \right) I - K'
+  \right]^{\ell}
+  g(x), \quad x \in \Gamma,
+\end{equation}
+在$H^{-\frac{1}{2}}(\Gamma)$空间中，转移伴随双层位势$\left[ \left( 1 - \sigma \right) I - K' \right]$的收缩特性，可由逆单层位势$V^{-1}$形式的等价范$\left\| \cdot \right\|_{V^{-1}}$
+ Corollary \eqref{corollary:bvp-bie-shifted-adjoint-double-contraction-extention-gamma}式\eqref{eq:bvp-bie-shifted-adjoint-double-contraction-extention-gamma}求得。由此可得诺依曼级数\eqref{eq:bie-neumann-eventual-neumann-series}的收敛特性。
+
+ \begin{remark}
+   对于诺依曼边界值问题\eqref{eq:bie-neumann-problem}，我们介绍了 4 种求解方法，对应 4 个边界积分 方程。这四种解都是唯一的。随着研究对象的不同和所采用的离散化方法(第\ref{sec:pj-local-discretization}节)的不同，这些方法各有利弊。在随后的分析中，我们以\eqref{eq:bie-neumann-var-subspace}方法为主，作进一步分析。
+ \end{remark}
+
+ \subsection{混合边界值问题}
+ \label{sec:bie-mixed}
+ 实际应用中的边界值问题，常常是两种边界条件，即狄利克雷边界条件和诺依曼边界条件的混合，
+ \begin{equation}
+   \label{eq:bie-mixed-problem}
+   \begin{split}
+     L u (x) &= 0, \quad x \in \Omega, \\
+     \gamma_{0}^{\text{int}} u(x) &= g_{D}(x), \quad x \in \Gamma_{D}, \\
+     \gamma_{1}^{\text{int}} u(x) &= g_{N}(x), \quad x \in \Gamma_{N}.
+   \end{split}
+ \end{equation}
+
+根据表现式\eqref{eq:bie-bvp-def}，混合边界值问题的解$u(\widetilde{x}), \widetilde{x} \in \Omega$可以写成如下表现形式
+\begin{equation}
+  \label{eq:bie-mbvp-def}
+  \begin{split}
+    u(\widetilde{x}) = & \int_{\Gamma_{N}} U^{*}(\widetilde{x}, y) g_{N}(y) \, d s_{y}
+    +  \int_{\Gamma_{D}} U^{*}(\widetilde{x},y) \gamma_{1,y}^{\text{int}} u(y) \, d s_{y} \\
+    - & \int_{\Gamma_{D}} \gamma_{1,y}^{\text{int}} U^{*}(\widetilde{x}, y) g_{D}(y) \, d s_{y}
+    - \int_{\Gamma_{N}} \gamma_{1,y}^{\text{int}} U^{*}(\widetilde{x}, y) \gamma_{0}^{\text{int}} u(y) \, d s_{y},
+  \end{split}
+\end{equation}
+可见为了求解混合边界值问题\eqref{eq:bie-mixed-problem}，需要计算的未知数有两个，分别是狄利克雷数$\gamma_{0}^{\text{int}} u(x), x \in \Gamma_{D}$和诺依曼数$\gamma_{1}^{\text{int}} u(x), x \in \Gamma_{N}$。如前文所介绍的，狄利克雷边界值问题和诺依曼边界值问题分别有几种求解方法可供选择。对应地，可将这些方法之间搭配组合来求混合边界值问题。举两个例子。
+
+\subsubsection{直接法}
+采取两种直接法的组合，构建如下对称公式：对于$x \in \Gamma_{D}$，采用卡尔德隆系统\eqref{eq:bie-system-boundary}的第一行求解；对于$x \in \Gamma_{N}$，采用第二行求解，即
+\begin{equation}
+  \label{eq:bie-mixed-solution}
+  \begin{split}
+    \underbrace{
+    \left(V \gamma_{1}^{\text{int}} u \right) (x)
+    }_{\eqqcolon \left(V g_{N} \right) (x)}
+    &=
+    \left( \sigma I + K \right)
+    \underbrace{
+    \gamma_{0}^{\text{int}} u(x)
+    }_{\eqqcolon g_{D}(x)}
+    , \quad x \in \Gamma{D}, \\
+    \underbrace{
+    \left( D \gamma_{0}^{\text{int}} u \right)(x)
+    }_{\eqqcolon \left(D g_{D} \right)(x)}
+    &=
+    \left[ \left( 1-\sigma \right) I - K' \right] \underbrace{
+    \gamma_{1}^{\text{int}} u(x)
+    }_{\eqqcolon g_{N}(x)}
+    , \quad x \in \Gamma_{N}.
+  \end{split}
+\end{equation}
+
+对于已知的$g_{D} \in H^{\frac{1}{2}}(\Gamma_{D}), \,g_{N} \in H^{-\frac{1}{2}}(\Gamma_{N})$，分别定义二者在$\Gamma$中的适宜的延拓$\widetilde{g}_{D} \in H^{\frac{1}{2}}(\Gamma_{D}), \, \widetilde{g}_{N} \in H^{-\frac{1}{2}}(\Gamma_{N})$，满足
+\begin{equation*}
+  \begin{split}
+    \widetilde{g}_{D}(x) & = g_{D}(x), \quad x \in \Gamma_{D}, \\
+    \widetilde{g}_{N}(x) & = g_{N}(x), \quad x \in \Gamma_{N}.
+  \end{split}
+\end{equation*}
+
+设
+\begin{equation*}
+  \begin{split}
+    \widetilde{u} & \coloneqq \gamma_{0}^{\text{int}} u - \widetilde{g}_{D} \in \widetilde{H}^{\frac{1}{2}}(\Gamma_{N}), \\
+    \widetilde{t} & \coloneqq \gamma_{1}^{\text{int}} u -
+    \widetilde{g}_{N} \in \widetilde{H}^{-\frac{1}{2}}(\Gamma_{D}),
+  \end{split}
+\end{equation*}
+则边界积分方程系统\eqref{eq:bie-mixed-solution}变为
+\begin{equation}
+  \label{eq:bie-mixed-solutionn}
+  \begin{split}
+    \left(V \widetilde{t} \right)(x)
+    - \left(K \widetilde{u} \right)(x)
+    & =
+    \left( \sigma I + K \right) \widetilde{g}_{D}(x)
+    - \left( V \widetilde{g}_{N} \right)(x), \quad x \in \Gamma_{D}, \\
+    \left( D \widetilde{u} \right)(x)
+    + \left( K' \widetilde{t} \right)(x)
+    & =
+    \left[ \left( 1 - \sigma \right) I - K' \right]
+    \widetilde{g}_{N}(x)
+    - \left( D \widetilde{g}_{D} \right)(x), \quad x \in \Gamma_{N}.
+  \end{split}
+\end{equation}
+
+显然，新的边界积分方程系统\eqref{eq:bie-mixed-solutionn}可以用一个变分问题来表示：寻找解$\left( \widetilde{t}, \widetilde{u} \right) \in \widetilde{H}^{-\frac{1}{2}}(\Gamma_{D}) \times \widetilde{H}^{\frac{1}{2}}(\Gamma_{N})$，使得$\forall \left( \tau, \nu \right) \in \widetilde{H}^{-\frac{1}{2}}(\Gamma_{D}) \times \widetilde{H}^{\frac{1}{2}}(\Gamma_{N})$，均满足
+\begin{equation}
+  \label{eq:bie-mixed-varitional}
+  \begin{split}
+    &a (\widetilde{t}, \widetilde{u} ; \tau, \nu ) = F(\tau, \nu),\\
+    &a ( \widetilde{t}, \widetilde{u} ; \tau, \nu )
+    \coloneqq \langle V \widetilde{t}, \tau \rangle_{\Gamma_{D}}
+    - \langle K \widetilde{u}, \tau \rangle_{\Gamma_{D}}
+    + \langle K' \widetilde{t}, \nu \rangle_{\Gamma_{N}}
+    + \langle D \widetilde{u}, \nu \rangle_{\Gamma_{N}}, \\
+    & F(\tau, \nu) =
+    \left\langle
+    \left( \frac{1}{2} I + K \right) \widetilde{g}_{D}
+    - \left(V, \widetilde{g}_{D} \right), \tau
+    \right\rangle_{\Gamma_{D}}
+    + \left\langle
+    \left(\frac{1}{2} I - K' \right) \widetilde{g}_{N}
+    - \left( D \widetilde{g}_{D} \right), \nu
+    \right\rangle_{\Gamma_{N}}.
+  \end{split}
+\end{equation}
+
+\begin{lemma}
+  \label{lemma:bie-mixed-var-bilinear-ellipticity}
+  式\eqref{eq:bie-mixed-varitional}中，对称边界积分算子的双线性形式$a(.,.;.,.)$有界，并且
+  $\widetilde{H}^{-\frac{1}{2}(\Gamma_{D})} \times \widetilde{H}^{\frac{1}{2}(\Gamma_{N})}$-椭圆，即
+  \begin{equation}
+    \label{eq:bie-mixed-var-bilinear-ellipticity-1}
+    \begin{split}
+      a(t,u;\tau,\nu) & \le
+      c_{2}^{A} \,
+      \left\| \left( t, u \right) \right\|_{
+      \widetilde{H}^{-\frac{1}{2}(\Gamma_{D})} \times \widetilde{H}^{\frac{1}{2}(\Gamma_{N})}
+      } \,
+      \left\| \left( \tau, \nu \right) \right\|_{
+      \widetilde{H}^{-\frac{1}{2}(\Gamma_{D})} \times \widetilde{H}^{\frac{1}{2}(\Gamma_{N})}
+      } \\
+      & \forall \, (t,u),(\tau, \nu) \in \widetilde{H}^{-\frac{1}{2}(\Gamma_{D})} \times \widetilde{H}^{\frac{1}{2}(\Gamma_{N})},
+    \end{split}
+  \end{equation}
+  并且
+  \begin{equation}
+    \label{eq:bie-mixed-var-bilinear-ellipticity-2}
+    \begin{split}
+      a(\tau, \nu; \tau, \nu) \ge
+      \min \left\{ c_{1}^{V}, \hat{c}_{1}^{D} \right\} \,
+      \left\| ( \tau, \nu ) \right\|_{
+      \widetilde{H}^{-\frac{1}{2}(\Gamma_{D})} \times \widetilde{H}^{\frac{1}{2}(\Gamma_{N})}
+      }^{2},
+    \end{split}
+  \end{equation}
+  其中范数形式定义为
+  \begin{equation*}
+    \left\| ( \tau, \nu ) \right\|_{
+    \widetilde{H}_{-\frac{1}{2}(\Gamma_{D})} \times \widetilde{H}_{\frac{1}{2}(\Gamma_{N})}
+    }^{2}
+    \coloneqq
+    \left\| \tau \right\|_{\widetilde{H}^{-\frac{1}{2}(\Gamma_{D})}}^{2}
+    + \left\| \nu \right\|_{\widetilde{H}^{\frac{1}{2}(\Gamma_{N})}}^{2}.
+  \end{equation*}
+\end{lemma}
+\begin{proof}
+  根据定义式\eqref{eq:bie-mixed-varitional}
+  \begin{equation*}
+    \begin{split}
+      a(\tau, \nu ; \tau, \nu)
+      & = \langle V \tau, \tau \rangle_{\Gamma_{D}}
+      - \langle K \nu, \tau \rangle_{\Gamma_{D}}
+      + \langle K' \tau, \nu \rangle_{\Gamma_{N}}
+      + \langle D \nu, \nu \rangle_{\Gamma_{N}} \\
+      & = \langle V \tau, \tau \rangle_{\Gamma_{D}}
+      + \langle D \nu, \nu \rangle_{\Gamma_{N}} \\
+      & \ge \underbrace{
+      c_{1}^{V} \, \left\| \tau \right\|_{\widetilde{H}^{-\frac{1}{2}(\Gamma_{D})}}^{2}
+      }_{\eqqcolon \mathcal{A}}
+      + \underbrace{
+      \widehat{c}_{1}^{D} \, \left\| \nu \right\|_{
+      \widetilde{H}^{\frac{1}{2} (\Gamma_{N})}
+      }^{2}
+      }_{\eqqcolon \mathcal{B}}.
+    \end{split}
+  \end{equation*}
+
+  最后一行中，$\mathcal{A}$由单层位势算子$V$的椭圆性求得，见Theorem \ref{theorem:bvp-bie-single-ellipticity-d2}-\ref{theorem:bvp-bie-vw-w-gamma}；$\mathcal{B}$由超奇异边界积分算子$D$的椭圆性求得，见\eqref{eq:bvp-bie-hyper-ellipticity-subspace}。
+
+  由$V,D$的有界特性可得$a(.,.;.,.)$有界。
+\end{proof}
+
+\begin{lemma}
+  \label{lemma:bie-mixed-var-bilinear-uniq}
+  变分问题\eqref{eq:bie-mixed-varitional}是唯一可解的。
+\end{lemma}
+\begin{proof}
+  $ \forall \left( \tau, \nu \right) \in \widetilde{H}^{-\frac{1}{2}}(\Gamma_{D}) \times \widetilde{H}^{\frac{1}{2}}(\Gamma_{N})$，$F(\tau, \nu) = $都有界。并且根据Lemma \ref{eq:bie-mixed-var-bilinear-ellipticity-1}，$a(.,.;.,.)$有界且椭圆。那么可根据拉克斯一密格拉蒙定理 Theorem \ref{theorem:lax-milgram-lemma}证得唯一可解性。
+\end{proof}
+
+\subsubsection{间接映射法}
+利用狄利克雷到诺依曼的映射\eqref{eq:bie-map-dton}，则混合边界值问题\eqref{eq:bie-mixed-problem}变为，寻找解$\gamma_{0}^{\text{int}} \in H^{\frac{1}{2}}(\Gamma)$，使满足
+\begin{equation*}
+  \begin{split}
+    \gamma_{0}^{\text{int}} u(x) & = g_{D} (x), \quad x \in \Gamma_{D}, \quad x \in \Gamma_{D},\\
+    \gamma_{1}^{\text{int}} u(x)  = \left( S \gamma_{0}^{\text{int}} u \right)(x) & = g_{N}(x), \quad x \in \Gamma_{N}.
+  \end{split}
+\end{equation*}
+
+对于给定的狄利克雷数$g_{D} \in H^{\frac{1}{2}}(\Gamma_{D})$，假设存在任一延拓$\widetilde{g}_{D} \in H^{\frac{1}{2}}(\Gamma)$，则可以表示为如下变分问题：寻找$\widetilde{u} \coloneqq \gamma_{0}^{\text{int}} u - \widetilde{g}_{D} \in \widetilde{H}$，使满足
+\begin{equation}
+  \label{eq:bie-mixed-indirect-approach}
+  \langle S \widetilde{u}, \nu \rangle_{\Gamma_{N}}
+  = \langle
+  g_{N} - S \widetilde{g}_{D}, \nu
+  \rangle_{\Gamma_{N}}, \quad \forall \, \nu \in \widetilde{H}^{\frac{1}{2}}(\Gamma_{N}).
+\end{equation}
+
+类似地，由于Steklov-Poincaré 算子$S: H^{\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma)$有界并且$\widetilde{H}^{\frac{1}{2}}(\Gamma_{N})$-椭圆\eqref{eq:bvp-bie-spo-ellipticity-subspace-gamma0}，可以利用拉克斯一密格拉蒙定理Theorem \ref{theorem:lax-milgram-lemma}证得$\widetilde{u}$的唯一可解性。在计算得到狄利克雷数$\gamma_{0}^{\text{int}} u(x)$的值后，我们可以通过求解狄利克雷边界值问题得到完整的诺依曼数$\gamma_{1}^{\text{int}} u \in H^{-\frac{1}{2}}(\Gamma)$。

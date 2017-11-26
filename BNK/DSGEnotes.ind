@@ -34,7 +34,7 @@
   \indexspace
 
   \item Calderón projection \dotfill 卡尔德隆投影, 
-		\hyperpage{338}
+		\hyperpage{338}, \hyperpage{356}
   \item capacity \dotfill 容度, \hyperpage{343}
   \item cardinality \dotfill 势, \hyperpage{251}
   \item Cauchy principal value \dotfill 柯西主值, \hyperpage{331}
@@ -137,6 +137,8 @@
 		\hyperpage{299}
   \item Fredholm boundary integral function
     \subitem first kind \dotfill 第一类弗雷德霍姆边界积分方程, 
+		\hyperpage{356}
+    \subitem second kind \dotfill 第二类弗雷德霍姆边界积分方程, 
 		\hyperpage{356}
   \item fundamental solution \dotfill 基本解, \hyperpage{312}
 
@@ -299,6 +301,7 @@
   \item natural density \dotfill 自然密度, \hyperpage{343}
   \item Neumann boundary value condition \dotfill 诺依曼边界值条件, 
 		\hyperpage{247}, \hyperpage{307}
+  \item Neumann series \dotfill 诺依曼级数, \hyperpage{356, 357}
   \item Newton algorithm \dotfill 牛顿算法, \hyperpage{194}
   \item node \dotfill 节点, \hyperpage{191}
   \item norm \dotfill 范数, \hyperpage{203}, \hyperpage{240}, 
@@ -349,8 +352,6 @@
   \item Poincaré inequality \dotfill 庞加莱不等式, 
 		\hyperpage{272}
   \item Poisson equation \dotfill 泊松方程, \hyperpage{317}
-  \item polar coordinate space \dotfill 极坐标空间, 
-		\hyperpage{290}
   \item polar coordinate system \dotfill 极坐标系, \hyperpage{277}
   \item polynomial
     \subitem Chebyshev, first kind \dotfill 第一类切比雪夫多项式, 

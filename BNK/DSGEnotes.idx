@@ -283,7 +283,6 @@
 \indexentry{kernel \dotfill 核|hyperpage}{289}
 \indexentry{null space \dotfill 零空间|hyperpage}{289}
 \indexentry{orthogonal complement \dotfill 正交补|hyperpage}{289}
-\indexentry{polar coordinate space \dotfill 极坐标空间|hyperpage}{290}
 \indexentry{range \dotfill 值域|hyperpage}{290}
 \indexentry{iamge \dotfill 像|hyperpage}{290}
 \indexentry{adjoint operator\dotfill 伴随算子|hyperpage}{290}
@@ -336,4 +335,8 @@
 \indexentry{ellipticity!semi \dotfill 半椭圆性|hyperpage}{347}
 \indexentry{Dirichlet to Neumann map \dotfill 狄利克雷到诺依曼的映射|hyperpage}{348}
 \indexentry{Steklov-Poincaré operator \dotfill Steklov-Poincaré算子|hyperpage}{348}
+\indexentry{Calderón projection \dotfill 卡尔德隆投影|hyperpage}{356}
 \indexentry{Fredholm boundary integral function!first kind \dotfill 第一类弗雷德霍姆边界积分方程|hyperpage}{356}
+\indexentry{Fredholm boundary integral function!second kind \dotfill 第二类弗雷德霍姆边界积分方程|hyperpage}{356}
+\indexentry{Neumann series \dotfill 诺依曼级数|hyperpage}{356}
+\indexentry{Neumann series \dotfill 诺依曼级数|hyperpage}{357}

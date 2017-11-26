@@ -279,7 +279,8 @@ Theorem \ref{theorem:bvp-bie-hyper-semi-ellipticity}对超奇异边界积分算�
 \end{equation*}
 
 那么，对于$\nu \in \widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$，内积简化为
-\begin{equation*}
+\begin{equation}
+  \label{eq:bvp-bie-hyper-ellipticity-subspace}
   \begin{split}
     \langle D \nu, \nu \rangle_{\Gamma_{0}}
     & = \langle D \widetilde{\nu}, \widetilde{\nu} \rangle_{\Gamma} \\
@@ -293,11 +294,10 @@ Theorem \ref{theorem:bvp-bie-hyper-semi-ellipticity}对超奇异边界积分算�
     & \ge \widehat{c}_{1}^{\text{D}} \,
     \left\| \widetilde{\nu} \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2} \\
     & = \widehat{c}_{1}^{\text{D}} \,
-    \left\| \nu \right\|_{\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})}^{2}.
+    \left\| \nu \right\|_{\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})}^{2},
   \end{split}
-\end{equation*}
-
-同样地，若是采用子空间$\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$，我们可以证明算子$D$的$\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$-椭圆性。（证明略）。
+\end{equation}
+即算子$D$是$\widetilde{H}^{\frac{1}{2}}(\Gamma_{0})$-椭圆的。
 
 \subsection{Steklov-Poincaré算子}
 \label{sec:steklov-poincare-operator}
@@ -363,7 +363,8 @@ Theorem \ref{theorem:bvp-bie-hyper-semi-ellipticity}对超奇异边界积分算�
 
 结合\eqref{eq:bvp-bie-system-spoperator-1}和  \eqref{eq:bvp-bie-system-spoperator-2}，狄利克雷到诺依曼的映射表达式表示为
 \begin{equation}
-  \gamma_{1}^{\text{int}} u(x) = \left( S \gamma_{0}^{\text{int}} u \right)(x), \quad x \in Gamma,
+  \label{eq:bie-map-dton}
+  \gamma_{1}^{\text{int}} u(x) = \left( S \gamma_{0}^{\text{int}} u \right)(x), \quad x \in \Gamma,
 \end{equation}
 即狄利克雷到诺依曼的映射将某一给定的狄利克雷数$\gamma_{0}^{\text{int}} u \in H^{\frac{1}{2}}(\Gamma)$映射至对应的诺依曼数$\gamma_{1}^{\text{int}} u \in H^{-\frac{1}{2}}(\Gamma)$，其中和谐方程(harmonic function)$u \in H^{1}(\Omega)$满足$L u \equiv 0$。
 
