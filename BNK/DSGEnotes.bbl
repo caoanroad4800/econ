@@ -1,4 +1,4 @@
-\begin{thebibliography}{251}
+\begin{thebibliography}{252}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -763,6 +763,13 @@
 \bibinfo{author}{Fornberg\xfnm[ B.]}.
 \newblock \bibinfo{title}{{A Practical Guide to Pseudospectral Methods}}
   \bibinfo{year}{1996};.
+%Type = Article
+\bibitem[{Fortin(1977)}]{Fortin:1977vh}
+\bibinfo{author}{Fortin\xfnm[ M.]}.
+\newblock \bibinfo{title}{{An Analysis of the Convergence of Mixed Finite
+  Element Methods}}.
+\newblock \bibinfo{journal}{RAIRO Analyse num{\'e}rique}
+  \bibinfo{year}{1977};\bibinfo{volume}{4}:\bibinfo{pages}{341--354}.
 %Type = Article
 \bibitem[{Fries and Belytschko(2010)}]{Fries:2010hj}
 \bibinfo{author}{Fries\xfnm[ T.P.]}, \bibinfo{author}{Belytschko\xfnm[ T.]}.

@@ -5,6 +5,8 @@
 
   \indexspace
 
+  \item Babuška-Brezzi-Ladyshenskaya condition \dotfill BBL条件, 
+		\hyperpage{373}
   \item Banach space \dotfill 巴拿赫空间, \hyperpage{257}, 
 		\hyperpage{289}
   \item basis
@@ -67,6 +69,8 @@
     \subitem real part \dotfill 实部(复数), \hyperpage{242}
   \item complex plane \dotfill 复数平面, \hyperpage{259}
   \item conditional density \dotfill 条件密度, \hyperpage{233}
+  \item conforming trial spaces \dotfill 协调检测空间, 
+		\hyperpage{364}
   \item conjugate \dotfill 共轭复数, \hyperpage{259}
   \item continuous inverse \dotfill 连续逆, \hyperpage{242}
   \item contraction mapping \dotfill 收缩映射, \hyperpage{288}
@@ -76,7 +80,8 @@
   \item cover(topology) \dotfill 覆盖(拓扑学), \hyperpage{250}
   \item curse of dimensionality \dotfill 维度灾难, \hyperpage{187}
   \item curse of dimensionality \dotfill 维数灾难, \hyperpage{190}
-  \item Céa lemma, \dotfill 齐亚引理, \hyperpage{243}
+  \item Céa lemma, \dotfill 齐亚引理, \hyperpage{243}, 
+		\hyperpage{366}
 
   \indexspace
 
@@ -145,6 +150,12 @@
   \indexspace
 
   \item Galerkin method \dotfill 伽辽金近似法, \hyperpage{238}
+  \item Galerkin Orthogonality \dotfill 伽辽金正交, 
+		\hyperpage{365}
+  \item Galerkin-Bubnov method \dotfill 伽辽金——布博诺夫法, 
+		\hyperpage{364}
+  \item Galerkin-Petrov method \dotfill 伽辽金——佩特洛夫法, 
+		\hyperpage{369}
   \item gamma distribution \dotfill 伽玛分布, \hyperpage{215}
   \item Gauss quadrature formula \dotfill 高斯求积公式, 
 		\hyperpage{209}
@@ -468,9 +479,14 @@
 		\hyperpage{277}, \hyperpage{319}
   \item Steklov-Poincaré operator \dotfill Steklov-Poincaré算子, 
 		\hyperpage{348}
+  \item stiffness matrix \dotfill 刚度矩阵, \hyperpage{365}
   \item Stokes equations \dotfill 斯托克斯公式, \hyperpage{241}
   \item Stone-Weierstrass Theorem \dotfill 斯通-魏尔斯特拉斯定理, 
 		\hyperpage{182}
+  \item Strang's First Lemma \dotfill 斯特朗第一引理, 
+		\hyperpage{367}
+  \item Strang's Second Lemma \dotfill 斯特朗第二引理, 
+		\hyperpage{368}
   \item subadditivity \dotfill 次可加, \hyperpage{252}
   \item support \dotfill 支撑, \hyperpage{249}
   \item surface integral \dotfill 表面积分, \hyperpage{321}, 

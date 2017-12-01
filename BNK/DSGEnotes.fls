@@ -478,6 +478,8 @@ INPUT ./chapters/bem-fem-0604-boundintop.tex
 INPUT ./chapters/bem-fem-0604-boundintop.tex
 INPUT ./chapters/bem-fem-07-bie.tex
 INPUT ./chapters/bem-fem-07-bie.tex
+INPUT ./chapters/bem-fem-08-approx.tex
+INPUT ./chapters/bem-fem-08-approx.tex
 INPUT ./chapters/appendix01.tex
 INPUT ./chapters/appendix01.tex
 INPUT ./chapters/PK.tex

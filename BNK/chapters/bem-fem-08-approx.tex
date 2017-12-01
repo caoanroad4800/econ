@@ -1,0 +1,961 @@
+%!TEX root = ../DSGEnotes.tex
+
+\section{近似方法}
+\label{sec:approx-methods}
+本节主要介绍含有算子方程的变分问题(第\ref{sec:variational-methods})的常见近似求解方法。这些近似法有所不同，大体上来说都是通过有限维的协调检测空间(conforming trial spaces)，将原本非线性方程系统作近似线性化的。
+
+\subsection{伽辽金——布博诺夫法}
+\label{sec:approx-galerkin-bubnov}
+设一个算子$A:X \mapsto X'$且$X$-椭圆，对于所有$\nu \in X$满足
+\begin{equation*}
+  \begin{split}
+    \langle A \nu, \nu \rangle & \ge c_{1}^{A} \, \left\| \nu \right\|_{X}^{2}, \\
+    \left\| A \nu \right\|_{X'} & \le c_{1}^{A} \, \left\| \nu \right\|_{X}.
+  \end{split}
+\end{equation*}
+
+假定对于某一给定的方程$f \in X'$，我们想要求得变分问题\eqref{eq:var-operator-var-problem}的解$u \in X$
+\begin{equation}
+  \label{eq:approx-gb-var-problem}
+  \langle A \nu,\nu \rangle = \langle f, \nu \rangle, \quad \forall \, \nu \in X.
+\end{equation}
+
+由拉克斯一密格拉蒙定理Theorem \ref{theorem:lax-milgram-lemma}可知，\eqref{eq:approx-gb-var-problem}存在唯一的解$u \in X$，满足
+\begin{equation*}
+  \left\| u \right\|_{X} \le \frac{1}{c_{1}^{A}} \, \left\| f \right\|_{X'}.
+\end{equation*}
+
+考虑如下一个序列(sequence) $\left\{ X_{M} \right\}, \, M \in \mathbb{N}$，序列由一系列协调检测空间(conforming trial spaces)\index{conforming trial spaces \dotfill 协调检测空间}构成，定义如下
+\begin{equation*}
+  X_{M} \coloneqq \spann \left\{ \varphi_{k} \right\}_{k=1}^{M} \subset X.
+\end{equation*}
+
+那么可以根据\eqref{eq:approx-gb-var-problem}构建伽辽金——布博诺夫变分问题(Galerkin-Bubnov variational problem)\index{Galerkin-Bubnov method \dotfill 伽辽金——布博诺夫法}，寻找近似解$u_{M} \in X_{M}$，使满足
+\begin{equation}
+  \label{eq:approx-gb-var-prob}
+  \langle A u_{M}, \nu_{M} \rangle
+  = \langle f, \nu_{M} \rangle, \quad \forall \, u_{M} \in X_{M},
+\end{equation}
+其中近似解$u_{M} \in X_{M}$定义为
+\begin{equation}
+  \label{eq:approx-gb-approx-solution-def}
+  u_{M} \coloneqq \sum_{k=1}^{M} u_{k} \varphi_{k} \in X_{M}.
+\end{equation}
+
+为了证明伽辽金——布博诺夫变分法，是对原变分问题\eqref{eq:approx-gb-var-problem}的有效近似方法，需要分别证明以下三方面
+\begin{itemize}%伽辽金——布博诺夫变分法\eqref{eq:approx-gb-var-prob}的
+  \item 近似解$u_{M} \in X_{M}$是唯一可解的，
+  \item 近似解$u_{M} \in X_{M}$的稳定性，
+  \item 近似解$u_{M} \in X_{M}$的收敛性。
+\end{itemize}
+
+\subsubsection{近似解的唯一可解性}
+\label{sec:approx-gb-uniq-solvability}
+由于$X_{M} \subset X$，选取$\nu = \nu_{M} \in X_{M}$代入原变分问题\eqref{eq:approx-gb-var-problem}中，进而减去\eqref{eq:approx-gb-var-prob}可得
+\begin{equation}
+  \label{eq:approx-gb-galerkin-orthogonality}
+  \langle A \left( u - u_{M} \right) , \nu_{M} \rangle = 0, \quad \forall \, \nu_{M} \in X_{M},
+\end{equation}
+这称为伽辽金正交(Galerkin Orthogonality)\index{Galerkin Orthogonality \dotfill 伽辽金正交}。
+
+将近似解$u_{M}$的定义式\eqref{eq:approx-gb-approx-solution-def}代入伽辽金——布博诺夫变分式\eqref{eq:approx-gb-var-prob}得
+\begin{equation*}
+  \left\langle
+  A \sum_{k=1}^{M} u_{k} \varphi_{k}, \nu_{M} \right \rangle = \langle f, \nu_{M} \rangle,
+\end{equation*}
+由算子$A$的线性定义，上式可以进一步调整为有限维度的变分问题
+\begin{equation}
+  \label{eq:approx-gb-mod-var-prob}
+  \sum_{k=1}^{M} u_{k} \langle A \varphi_{k}, \varphi_{\ell} \rangle
+  = \langle f, \varphi_{\ell} \rangle, \quad \, \ell = 1,\ldots,M.
+\end{equation}
+
+利用伽辽金——布博诺夫近似法，有限维变分问题\eqref{eq:approx-gb-mod-var-prob}，进而原变分问题\eqref{eq:approx-gb-var-problem}，等价于一个线性方程系统：求解系数向量$\underline{u} \in \mathbb{R}^{M}$，使满足
+\begin{equation}
+  \label{eq:approx-gb-mod-var-prob-finite-dimen}
+  A_{M} \underline{u} = \underline{f},
+\end{equation}
+其中
+\begin{itemize}
+  \item $A_{M} \in \mathbb{R}^{M \times M}$称为刚度矩阵(stiffness matrix)\index{stiffness matrix \dotfill 刚度矩阵}，矩阵中的元素$A_{M} \left[ \ell, k \right]$定义为
+  \begin{equation*}
+    A_{M} \left[ \ell, k \right] \coloneqq \langle A \varphi_{k}, \varphi_{l} \rangle, \quad k,\ell = 1, \ldots, M.
+  \end{equation*}
+  \item 向量$\underline{f}$由一系列方程$f_{\ell}$构成，$f_{\ell}$定义为
+  \begin{equation*}
+  f_{\ell} \coloneqq \langle f, \varphi_{\ell} \rangle, \quad \ell = 1, \ldots, M.
+  \end{equation*}
+\end{itemize}
+
+已知对于某一向量$\underline{\nu} \in \mathbb{R}^{M}$，可定义方程如下
+\begin{equation*}
+  \nu_{M} = \sum_{k=1}^{M} \nu_{k} \varphi_{k} \in X_{M},
+\end{equation*}
+那么对于任意给定的$\underline{u}, \underline{\nu} \in \mathbb{R}^{M}$，我们有
+\begin{equation*}
+  \begin{split}
+    \langle A_{M} \underline{u}, \underline{\nu} \rangle
+    & = \sum_{k=1}^{M} \sum_{\ell = 1}^{M} A_{M} \left[ \ell, k \right] u_{k} \nu_{\ell}\\
+    & = \sum_{k=1}^{M} \sum_{\ell = 1}^{M}
+    \langle
+    A \varphi_{k}, \varphi_{\ell}
+    \rangle
+    u_{k} \nu_{\ell}\\
+    & = \left\langle
+    A \sum_{k=1}^{M} u_{k} \varphi{k},
+    \sum_{\ell = 1}^{M} \nu_{\ell} \varphi_{\ell}
+    \right\rangle \\
+    & = \langle A u_{M}, \nu_{M} \rangle.
+  \end{split}
+\end{equation*}
+
+由此可见，刚度矩阵$A_{M} \in \mathbb{R}^{M \times M}$继承了线性椭圆算子$A: X \mapsto X'$的所有特性，其中尤其重要的是：
+\begin{itemize}
+  \item $A$是自伴随的$\rightarrow$ $A_{M}$是对称的
+  \item $A$是$X$-椭圆的 $\rightarrow$ $A_{M}$是正定的
+  \begin{equation*}
+    \begin{split}
+      \langle A_{M} \underline{\nu}, \nu \rangle
+      & = \langle A \nu_{M}, \nu_{M} \rangle \\
+      & \ge c_{1}^{A} \, \left\| \nu_{M} \right\|_{X}^{2},
+      \quad \forall \, \nu \in \mathbb{R}^{M} \leftrightarrow \nu_{M} \in X_{M}.
+    \end{split}
+  \end{equation*}
+\end{itemize}
+
+由此我们有：$A$的椭圆性 $\rightarrow$ 变分问题\eqref{eq:approx-gb-var-problem}的唯一可解性 $\rightarrow$ 伽辽金——布博诺夫变分问题\eqref{eq:approx-gb-var-prob}的唯一可解性 $\rightarrow$ 线性方程系统\eqref{eq:approx-gb-mod-var-prob-finite-dimen}的唯一可解性。
+
+\subsubsection{近似解的稳定性}
+\label{sec:approx-gb-solution-stability}
+近似解的稳定性可由齐亚引理(Céa's lemma)\index{Céa lemma, \dotfill 齐亚引理}予以证明。
+
+\begin{theorem}[齐亚引理]
+  \label{theorem:approx-cea-lemma}
+  设$A:X \mapsto X'$是一个有界且$X$-椭圆的算子。对于伽辽金——布博诺夫变分问题\eqref{eq:approx-gb-var-prob}的唯一近似解$u_{M} \in X_{M}$而言，满足稳定性条件
+  \begin{equation}
+    \label{eq:approx-gb-solution-stability}
+    \left\| u_{M} \right\|_{X} \le \frac{1}{c_{1}^{A}} \, \left\| f \right\|_{X'},
+  \end{equation}
+
+  并且误差测度项为
+  \begin{equation}
+    \label{eq:approx-gb-solution-error}
+    \left\| u - u_{M} \right\|_{X}
+    \le \frac{c_{2}^{A}}{c_{1}^{A}} \,
+    \inf_{\nu_{M} \in X_{M}} \left\| u - \nu_{M} \right\|_{X}.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  近似解$u_{M}$的唯一可解性由第\pageref{sec:approx-gb-uniq-solvability}页第\ref{sec:approx-gb-uniq-solvability}节给出。对于唯一的近似解$u_{M} \in X_{M}$，由算子$A$的$X$-椭圆性有
+\begin{equation*}
+  \begin{split}
+    c_{1}^{A} \, \left\| u_{M} \right\|_{X}^{2}
+    & \le \left\langle
+    A u_{M}, u_{M}
+    \right\rangle \langle f, u_{M} \rangle
+    \le \left\| f \right\|_{X'} \, \left\| u_{M} \right\|_{X},
+  \end{split}
+\end{equation*}
+进而得到稳态条件\eqref{eq:approx-gb-solution-stability}。
+
+由线性算子$A$有界且$X$-椭圆，以及伽辽金正交\eqref{eq:approx-gb-galerkin-orthogonality}可得，对于任一$\nu_{M} \in X_{M}$都有
+\begin{equation*}
+  \begin{split}
+    c_{1}^{A} \, \left\| u - u_{M} \right\|^{2}
+    & \le \langle A \left( u - u_{M} \right), u - u_{M} \rangle \\
+    & = \langle
+    A \left( u - u_{M} \right), u - \nu_{M}
+    \rangle + \langle
+    A \left( u - u_{M} \right), \nu_{M} - u_{M} \rangle \\
+    & = \langle A \left( u - u_{M} \right), u - \nu_{M} \rangle \\
+    & \le c_{2}^{A} \,
+    \left\| u - u_{M} \right\|_{X} \,
+    \left\| u - \nu_{M} \right\|_{X},
+  \end{split}
+\end{equation*}
+进而得到误差测度项\eqref{eq:approx-gb-solution-error}。
+\end{proof}
+
+\subsubsection{近似解的收敛性}
+\label{sec:approx-gb-solution-convergence}
+近似解的收敛性是指，随着$M \rightarrow \infty$，近似解$u_{M} \rightarrow u$，这与检测空间$X_{M}$的近似属性有关
+\begin{equation}
+  \label{eq:approx-gb-trial-space-approximation}
+  \lim_{M \rightarrow \infty}
+  \inf_{\nu_{M} \in X_{M}}
+  \left\| \nu - \nu_{M} \right\|_{X} =0, \quad \, \forall \nu \in X_{M}.
+\end{equation}
+
+在构建协调检测空间的序列$\left\{ X_{M} \right\}_{M \in \mathbb{N}} \subset X$的过程中，需要确保每个检测空间$X_{M}$均满足近似属性\eqref{eq:approx-gb-trial-space-approximation}：其方法之一是利用局域多项式作基方程构建序列，第九、十\todo{作reference}分别讨论有限元、有界元情况下的基方程。此外，随着近似解的类型不同，我们还要考虑其他一些近似属性，见下。
+
+\subsection{线性形近似}
+\label{sec:approx-linear-form}
+在构建经济学模型时，变分问题\eqref{eq:approx-gb-var-problem}右侧的$f \in X'$有时表示为以下线性形式$f = B g$，其中$g \in Y$为预先给定的方程，有界线性算子$B:Y \mapsto X'$满足
+\begin{equation*}
+  \left\| B g \right\|_{X'} \le c_{2}^{B} \, \left\| g \right\|_{Y}, \quad \forall \, g \in Y.
+\end{equation*}
+
+对应的，变分问题调整为：寻找解$u \in X$，使满足
+\begin{equation}
+  \label{eq:approx-linear-form-vp}
+  \langle A u, \nu \rangle = \langle B g, \nu \rangle, \quad \forall \, \nu \in X.
+\end{equation}
+
+利用伽辽金——布博诺夫法\eqref{eq:approx-gb-var-prob}构建近似变分问题：寻找唯一的近似解$u_{M} \in X_{M}$，使满足
+\begin{equation}
+  \label{eq:approx-linear-form-gb-vp}
+  \langle A u_{M}, \nu_{M} \rangle = \langle B g, \nu_{M} \rangle, \quad \forall \, \nu_{M} \in X_{M}.
+\end{equation}
+
+随后的任务是生成类似\eqref{eq:approx-gb-mod-var-prob-finite-dimen}的线性方程系统。通过测度算子$B:Y \mapsto X'$或伴随算子$B':X \mapsto Y'$来计算
+\begin{equation*}
+  f_{\ell} = \langle B g, \varphi_{\ell} \rangle = \langle g, B' \varphi_{\ell} \rangle, \quad \ell = 1, \ldots, M,
+\end{equation*}
+用$g_{N}$对上式中的$g$作近似替代
+\begin{equation*}
+  g_{N} = \sum_{i=1}^{N} g_{i} \psi_{i} \in Y_{N}
+  = \spann \left\{ \psi_{i} \right\}_{i=1}^{N} \subset Y, \quad i = 1, \ldots, N.
+\end{equation*}
+
+这样我们有了一个新的扰动变分问题(perturbed variational problem)：寻找近似解$\tilde{u}_{M} \in X_{M}$，使满足
+\begin{equation}
+  \label{eq:approx-linear-perturbed-vp}
+  \langle A \tilde{u}_{M}, \nu_{M} \rangle
+  =\langle B g_{N}, \nu_{M} \rangle, \quad \forall \, \nu_{M} \in X_{M}.
+\end{equation}
+
+该问题等价于如下线性方程系统
+\begin{equation}
+  \label{eq:approx-linear-linear-eq-system}
+  A_{M} \underline{\tilde{u}}_{M} = B_{N} \underline{g},
+\end{equation}
+其中
+\begin{itemize}
+  \item 矩阵$A_{M},B_{N}$中的元素分别为
+  \begin{equation*}
+    \begin{split}
+      A_{M}\left[ \ell, k \right] & = \langle A \varphi_{k}, \varphi_{\ell} \rangle, \quad k,\ell = 1,\ldots,M,\\
+      B_{N} \left[ \ell, i \right] & = \langle B \psi_{i}, \varphi_{\ell} \rangle, \quad i=1,\ldots,N.
+    \end{split}
+  \end{equation*}
+  \item 向量$\underline{g}$中包含$g_{N}$，是对$g$的近似。
+\end{itemize}
+
+借助线性方程系统\eqref{eq:approx-linear-linear-eq-system}，我们可以计算矩阵$B_{N}$，并且$B_{N}$不受给定的近似方程$g_{N}$的影响。
+
+根据有界线性算子$A$的$X$-椭圆性，可得$A_{M}$是正定矩阵，进而\eqref{eq:approx-linear-linear-eq-system}唯一可解，进而扰动变分问题\eqref{eq:approx-linear-perturbed-vp}唯一可解。
+
+唯一近似解$u_{M} \in X_{M}$对唯一解$u \in X$的近似精度(误差)，主要受到\eqref{eq:approx-linear-linear-eq-system}中$g_{N}$对$g$的近似精度(误差)的影响，误差测度见以下斯特朗第一引理(Strang's First Lemma)\index{Strang's First Lemma \dotfill 斯特朗第一引理}。
+
+\begin{theorem}[斯特朗第一引理]
+  设一个线性算子$A:X \mapsto X'$有界且$X$-椭圆。设$u \in X$是连续变分问题\eqref{eq:approx-linear-form-vp}的唯一解，那么对于扰动变分问题\eqref{eq:approx-linear-perturbed-vp}的唯一近似解$\tilde{u}_{M} \in X_{M}$，近似的误差测度为
+  \begin{equation}
+    \label{eq:approx-linear-approx-error-estimate}
+    \left\| u - \tilde{u}_{M} \right\|_{X}
+    \le \frac{1}{c_{1}^{A}} \,
+    \left\{
+    c_{2}^{A} \inf_{\nu_{M} \in X_{M}} \left\| u - \nu_{M} \right\|_{X}
+    + c_{2}^{B} \left\| g - g_{N} \right\|_{X}
+    \right\}.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  将两个变分问题\eqref{eq:approx-linear-form-gb-vp}，\eqref{eq:approx-linear-perturbed-vp}相减得
+  \begin{equation*}
+    \langle A \left( u_{M} - \tilde{u}_{M} \right), \nu_{M} \rangle
+    = \langle B \left( g - g_{N} \right), \nu_{M} \rangle, \quad \forall \, \nu_{M} \in X_{M}.
+  \end{equation*}
+
+  现在定义检测方程为$\nu_{M} \coloneqq u_{M} - \tilde{u}_{M} \in X_{M}$，再考虑到$A$和$B$的有界性，以及$A$的$X$-椭圆性，上式变为
+  \begin{equation*}
+    \begin{split}
+    c_{1}^{A} \, \left\| u_{M} - \tilde{u}_{M} \right\|_{X}^{2} & \le \langle A \left( u_{M} - \tilde{u}_{M} \right), \left( u_{M} - \tilde{u}_{M} \right) \rangle \\
+    & = \langle B \left( g - g_{N} \right), \left( u_{M} - \tilde{u}_{M} \right) \rangle \\
+    & \le \left\|
+    B \left( g - g_{N} \right) \right\|_{X'}
+    \, \left\| u_{M} - \tilde{u}_{M} \right\|_{X} \\
+    & \le c_{2}^{B} \, \left\|
+    g - g_{N} \right\|_{Y}
+    \, \left\| u_{M} - \tilde{u}_{M} \right\|_{X},
+  \end{split}
+\end{equation*}
+\begin{equation*}
+  \begin{split}
+  \hookrightarrow \left\| u_{M} - \tilde{u}_{M} \right\|_{X}
+  & \le \frac{c_{2}^{B}}{c_{1}^{A}} \, \left\| g - g_{N} \right\|_{Y}, \\
+  \end{split}
+\end{equation*}
+
+进一步应用三角不等式，结合齐亚引理Theorem \ref{theorem:approx-cea-lemma}式\eqref{eq:approx-gb-solution-error}有
+\begin{equation*}
+  \begin{split}
+    \left\| u - \tilde{u}_{M} \right\|_{X}
+    & \le \left\| u - u_{M} \right\|_{X} + \left\| u_{M} - \tilde{u}_{M} \right\|_{X} \\
+    & \le \frac{c_{2}^{A}}{c_{1}^{A}} \inf_{\nu_{M} \in X_{M}} \left\| u - \nu_{M} \right\|_{X} + \frac{c_{2}^{B}}{c_{1}^{A}} \, \left\| g - g_{N} \right\|_{Y},
+  \end{split}
+\end{equation*}
+证毕。
+\end{proof}
+
+\subsection{算子的近似}
+\label{sec:approx-operator}
+
+除了对变分问题\eqref{eq:approx-gb-var-problem}右侧的近似之外，在进行求积分的数值近似计算时，有时我们也要考虑对给定算子作近似。举例来说，将伽辽金变分问题\eqref{eq:approx-gb-var-prob}转化为如下扰动变分问题：寻求解$\tilde{u}_{M} \in X_{M}$，使满足
+\begin{equation}
+  \label{eq:approx-operator-perturbed-vp}
+  \begin{split}
+    \langle \widetilde{A} \tilde{u}_{M}, \nu_{M} \rangle = \langle f, \nu_{M} \rangle, \quad \forall \, \nu_{M} \in X_{M},
+  \end{split}
+\end{equation}
+其中近似算子$\widetilde{A}:X \mapsto X'$是个有界的线性算子，满足
+\begin{equation}
+  \label{eq:approx-operator-tildea}
+  \left\| \widetilde{A} \nu \right\|_{X'} \le \tilde{c}_{2}^{A} \, \left\| \nu \right\|_{X}, \quad \forall \, \nu \in X.
+\end{equation}
+
+扰动变分问题\eqref{eq:approx-operator-perturbed-vp}与伽辽金变分问题\eqref{eq:approx-gb-var-prob}相减，得伽辽金正交条件
+\begin{equation}
+  \label{eq:approx-operator-orthogonality}
+  \langle A u_{M} - \widetilde{A} \tilde{u}_{M}, \nu_{M} \rangle = 0, \quad \forall \, \nu_{M} \in X_{M}.
+\end{equation}
+
+为了确保变分问题\eqref{eq:approx-operator-perturbed-vp}唯一可解，我们假定近似算子$\widetilde{A}$的稳定性。在此基础上，唯一近似解$\tilde{u}_{M} \in X_{M}$的误差测度项见斯特朗第二引理(Strang's Second Lemma)\index{Strang's Second Lemma \dotfill 斯特朗第二引理}。。
+\begin{theorem}[斯特朗第二引理]
+  \label{theorem:approx-operator-error-term}
+  假设近似算子$\widetilde{A}:X \mapsto X'$线性，有界，$X$-椭圆，即
+  \begin{equation}
+    \label{eq:approx-operator-tildea-ellipticity}
+    \langle \widetilde{A} \nu_{M}, \nu_{M} \rangle
+    \ge \tilde{c}_{1}^{A} \, \left\| \nu_{M} \right\|_{X}^{2}.
+  \end{equation}
+
+  那么扰动变分问题\eqref{eq:approx-operator-perturbed-vp}存在唯一解$\tilde{u}_{M} \in X_{M}$，满足误差测度项
+  \begin{equation}
+    \label{eq:approx-operator-error-term}
+    \left\| u_{M} - \tilde{u}_{M} \right\|_{X}
+    \le \left[ 1 + \frac{1}{\tilde{c}_{1}^{A}} \left( c_{2}^{A} + \tilde{c}_{2}^{A} \right)\right] \frac{c_{2}^{A}}{c_{1}^{A}}
+    \inf_{\nu_{M} \in X_{M}} \left\| u - \nu_{M} \right\|_{X}
+    + \frac{1}{\tilde{c}_{1}^{A}} \left\| \left( A - \widetilde{A} \right) u \right\|_{X'}.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  第一步。由假设条件近似算子$\widetilde{A}$的$X$-椭圆性可得，对应的刚度矩阵$\widetilde{A}_{M}$正定，进而扰动变分问题\eqref{eq:approx-operator-perturbed-vp}存在唯一解$\tilde{u}_{M} \in X_{M}$。
+
+  第二步。对于伽辽金变分问题\eqref{eq:approx-gb-var-prob}的唯一解$u_{M} \in X_{M}$，由$\widetilde{A}$的$X_{M}$-椭圆性，以及正交条件\eqref{eq:approx-operator-orthogonality}可得
+  \begin{equation*}
+    \begin{split}
+      \tilde{c}_{1}^{A} \left\| u_{M} - \tilde{u}_{M} \right\|_{X}^{2}
+      & \le \left\langle \widetilde{A} \left( u_{M} - \tilde{u}_{M} \right), u_{M} - \tilde{u}_{M} \right\rangle \\
+      & = \left\langle
+      \left( \widetilde{A} - A \right) u_{M},
+      u_{M} - \tilde{u}_{M}
+      \right\rangle +
+      \left\langle
+      A u_{M} - \widetilde{A}_{M},
+      u_{M} - \tilde{u}_{M}
+      \right\rangle \\
+      & = \left\langle \left( \widetilde{A} - A \right) u_{M},
+      u_{M} - \tilde{u}_{M}
+      \right\rangle \\
+      & \le \left\| \left( \widetilde{A} - A \right) u_{M} \right\|_{X'} \, \left\| u_{M} - \tilde{u}_{M} \right\|_{X},
+    \end{split}
+  \end{equation*}
+
+  \begin{equation*}
+    \hookrightarrow \left\| u_{M} - \tilde{u}_{M} \right\|_{X}
+    \le \frac{1}{\tilde{c}_{1}^{A}} \left\| \left( \widetilde{A} - A \right) u_{M} \right\|_{X'}.
+  \end{equation*}
+
+  由于两个算子$A, \widetilde{A} : X \mapsto X'$均有界，
+  \begin{equation*}
+    \begin{split}
+      \left\| \left( A - \widetilde{A} \right) u_{M} \right\|_{X'}
+      & \le \left\| \left( A - \widetilde{A} \right) u \right\|_{X'}
+      + \left\| \left( A  - \widetilde{A} \right) \left( u - u_{M} \right) \right\|_{X'} \\
+      & \le \left\| \left( A - \widetilde{A} \right) u \right\|_{X'}
+      + \left[ c_{2}^{A} + \tilde{c}_{2}^{A} \right] \, \left\| u - u_{M} \right\|_{X}.
+    \end{split}
+  \end{equation*}
+
+  第三步。在此基础上
+  \begin{equation*}
+    \begin{split}
+      \left\| u_{M} - \tilde{u}_{M} \right\|_{X}
+      & \le \left\| u - u_{M} \right\|_{X} +
+      \left\| u_{M} - \widetilde{u}_{M} \right\|_{X}\\
+      & \le \left\| u - u_{M} \right\|_{X} +
+      \frac{1}{\tilde{c}_{1}^{A}} \left\| \left( \widetilde{A} - A \right) u_{M} \right\|_{X'} \\
+      & \le \left\| u - u_{M} \right\|_{X} +
+      \frac{1}{\tilde{c}_{1}^{A}} \left\| \left( \widetilde{A} - A \right) u \right\|_{X'} +
+      \frac{c_{2}^{A} + \tilde{c}_{2}^{A}}{\tilde{c}_{1}^{A}} \left\| u - u_{M} \right\|_{X} \\
+      & \le \left[ 1 + \frac{1}{\tilde{c}_{1}^{A}} \left( c_{2}^{A} + \tilde{c}_{2}^{A} \right)\right] \frac{c_{2}^{A}}{c_{1}^{A}}
+      \inf_{\nu_{M} \in X_{M}} \left\| u - \nu_{M} \right\|_{X}
+      + \frac{1}{\tilde{c}_{1}^{A}} \left\| \left( A - \widetilde{A} \right) u \right\|_{X'}.
+    \end{split}
+  \end{equation*}
+\end{proof}
+
+\subsection{伽辽金——佩特洛夫法}
+\label{sec:approx-galerkin-petrov}
+设一个有界线性算子$B:X \mapsto \Pi'$满足(连续)稳定性条件
+\begin{equation}
+  \label{eq:approx-gp-bstability}
+    c_{S} \, \left\| \nu \right\| \le \sup_{0 \neq q \in \Pi}
+    \frac{\langle B \nu, q \rangle}{\left\| q \right\|_{\Pi}}, \forall \nu \in \left( \ker B \right)^{\top} \subset X,
+\end{equation}
+那么根据定理\ref{theorem:var-solution-exist-uniq}，对于某一给定的$g \im_{X} (B)$，算子方程$Bu=g$有唯一解$u \in \left( \ker B \right)^{\top}$，满足
+\begin{equation*}
+  \langle B u ,q \rangle = \langle g, q \rangle_{\Pi}, \quad \forall \, q \in \Pi.
+\end{equation*}
+
+对于$M \in \mathbb{R}$，引入两个协调检测空间序列
+\begin{equation*}
+  \begin{split}
+    X_{M} & = \spann \left\{ \varphi_{k} \right\}_{k=1}^{M} \subset \left( \ker B \right)^{\top}, \\
+    \Pi_{M} & = \spann \left\{ \psi_{k} \right\}_{k=1}^{M} \subset \Pi.
+  \end{split}
+\end{equation*}
+则伽辽金——佩特洛夫变分问题(Galerkin-Petrov varational problem)\index{Galerkin-Petrov method \dotfill 伽辽金——佩特洛夫法}可以定义如下：寻找近似解$u_{M} \in X_{M}$，$u_{M}$的定义如\eqref{eq:approx-gb-approx-solution-def}，使满足
+\begin{equation}
+  \label{eq:approx-gp-vp}
+  \langle B u_{M}, q_{M} \rangle = \langle g, q_{M} \rangle, \quad \forall \, q_{M} \in \Pi_{M}.
+\end{equation}
+
+与伽辽金——布博诺夫法\eqref{eq:approx-gb-var-problem}相比，在伽辽金——佩特洛夫法\eqref{eq:approx-gp-vp}中有两组检测空间。
+
+由$\Pi_{M} \subset \Pi$可得伽辽金正交条件
+\begin{equation}
+  \label{eq:approxy-gb-orthogonality-cond}
+  \langle B \left( u - u_{M} \right), q_{M} \rangle = 0, \quad \forall \, q_{M} \in \Pi_{M}.
+\end{equation}
+
+那么伽辽金——佩特洛夫变分问题\eqref{eq:approx-gp-vp}等价于如下线性方程系统
+\begin{equation}
+  \label{eq:approx-gp-linear-sys}
+  B_{M} \underline{u}_{M} =g,
+\end{equation}
+\begin{itemize}
+  \item 刚度矩阵$B_{M}$中的元素定义为
+  \begin{equation*}
+    B_{M} \left[\ell, k \right] = \langle B \varphi_{k}, \psi_{\ell} \rangle, \quad k, \ell = 1, \ldots, M,
+  \end{equation*}
+  \item 向量$\underline{g}$由$g_{\ell}$组成
+  \begin{equation*}
+    g_{\ell} = \langle g, \psi_{\ell} \rangle, \quad \ell = 1, \ldots, M.
+  \end{equation*}
+\end{itemize}
+
+假定线性方程系统\eqref{eq:approx-gp-linear-sys}满足离散的稳定条件(我们将在下文中证明这一假设，见Lemma \ref{lemma:approx-gp-stability-discrete})
+\begin{equation}
+  \label{eq:approx-gp-linear-sys-discrete-stability}
+  \tilde{c}_{S} \, \left\| \nu_{M} \right\|_{X}
+  \le \sup_{0 \neq q_{M} \in \Pi_{M}}
+  \frac{\langle B \nu_{M}, q_{M} \rangle}{\left\| q_{M} \right\|_{\Pi}},
+  \quad \forall \, \nu_{M} \in X_{M},
+\end{equation}
+那么可得系统存在唯一解，见如下定理。
+
+\begin{theorem}[伽辽金——佩特洛夫变分问题的唯一近似解]
+  设算子方程$B u = g$存在唯一解$u \in \left( \ker B \right)^{\top}$，则伽辽金——佩特洛夫变分问题\eqref{eq:approx-gp-vp}有唯一近似解$u_{M} \in X_{M}$。
+
+  假定离散稳定条件\eqref{eq:approx-gp-linear-sys-discrete-stability}成立，则误差测度项表示为
+  \begin{equation}
+    \label{eq:approx-gp-linear-sys-solution-uniq}
+    \left\| u - u_{M} \right\|_{X}
+    \le \left( 1 + \frac{c_{2}^{B}}{\widetilde{c}_{B}} \right)
+    \inf_{\nu_{M} \in X_{M}} \left\| u - \nu_{M} \right\|_{X}.
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  \begin{enumerate}
+  \item 对于任一给定$\nu \in \left( \ker B \right)^{\top}$，以下变分问题都存在唯一确定的近似解$\nu_{M} = P_{M} \nu \in X_{M}$，满足
+  \begin{equation*}
+    \langle B \nu_{M}, q_{M} \rangle = \langle B \nu, q_{M} \rangle, \quad \forall \, q_{M} \in \Pi_{M}.
+  \end{equation*}
+
+\item 由离散稳定性条件\eqref{eq:approx-gp-linear-sys-discrete-stability}可得，唯一近似解$\nu_{M} \in X_{M}$满足
+\begin{equation*}
+  \begin{split}
+    \tilde{c}_{S} \, \left\| \nu_{M} \right\|_{X}
+    & \le \sup_{0 \neq q_{M} \in \Pi_{M}}
+    \frac{
+    \langle B \nu_{M}, q_{M} \rangle
+    }{
+    \left\| q_{M} \right\|_{\Pi}
+    } \\
+    & = \sup_{0 \neq q_{M} \in \Pi_{M}}
+    \frac{
+    \langle B \nu, q_{M} \rangle
+    }{
+    \left\| q_{M} \right\|_{\Pi}
+    } \\
+    & \le c_{2}^{B} \, \left\| \nu \right\|_{X},
+  \end{split}
+\end{equation*}
+由此可见，对于任一$\nu \in \left( \ker B \right)^{\top}$，都有唯一的$\nu_{M} = P_{M} \nu \in \Pi_{M}$与之相对应，满足
+\begin{equation*}
+  \left\| P_{M} \nu \right\|_{X} \le
+  \frac{
+  c_{2}^{B}
+  }{
+  \tilde{c}_{2}^{B}
+  } \,
+  \left\| \nu \right\|_{X}.
+\end{equation*}
+
+\item 一方面伽辽金——佩特洛夫变分问题\eqref{eq:approx-gp-vp}有唯一解$u_{M} \in X_{M}$，据此可得$u_{M} = p_{M} u$。另一方面，对于所有$\nu_{M}$都有$\nu_{M} \in P_{M} \nu_{M}$。因此，对于某一任意的$\nu_{M} \in X_{M}$，都有
+\begin{equation*}
+  \begin{split}
+    \left\| u - u_{M} \right\|_{X}
+    & = \left\|
+    \left( u - \nu_{M} \right) + \left( \nu_{M} - u_{M} \right) \right\|_{X} \\
+    & = \left\|
+    \left( u - \nu_{M} \right) - P_{M} \left( u - \nu_{M} \right) \right\|_{X} \\
+    & \le \left\| u - \nu_{M} \right\|_{X} +
+    \left\| P_{M} \left( u - \nu_{M} \right) \right\|_{X} \\
+    & \le \left( 1 + \frac{c_{2}^{B}}{\tilde{c}_{S}} \right)
+    \, \left\| u - \nu_{M} \right\|_{X} \\
+    & \le \left( 1 + \frac{c_{2}^{B}}{\tilde{c}_{S}} \right)
+    \inf_{\nu_{M} \in X_{M}} \left\| u - \nu_{M} \right\|_{X}.
+  \end{split}
+\end{equation*}
+\end{enumerate}
+\end{proof}
+
+随着$M \rightarrow \infty$，伽辽金——佩特洛夫法\eqref{eq:approx-gp-vp}近似解$u_{M} \rightarrow u$，收敛属性的证明过程同伽辽金——布博诺夫法，见第\pageref{sec:approx-gb-solution-convergence}页第\ref{sec:approx-gb-solution-convergence}节。
+
+对伽辽金——佩特洛夫法\eqref{eq:approx-gp-vp}近似解$u_{M} \in X_{M}$的离散稳定性条件\eqref{eq:approx-gp-linear-sys-discrete-stability}的证明，可见\cite{Fortin:1977vh}。
+\begin{lemma}[离散稳定性条件]
+  \label{lemma:approx-gp-stability-discrete}
+  设一个有界线性算子$B:X \mapsto \Pi'$，满足连续稳定条件\eqref{eq:approx-gp-bstability}。如果存在一个有界的投影算子$R_{M}:\Pi \mapsto \Pi_{M}$，满足
+  \begin{equation*}
+    \begin{split}
+      \langle B \nu_{M}, q - R_{M} q \rangle & = 0, \quad \forall \, \nu_{M} \in X_{M}, \\
+      \left\| R_{M} q \right\|_{\Pi} &\le c_{R} \, \left\|q\right\|_{\Pi}, \quad \forall \, q \in \Pi,
+    \end{split}
+  \end{equation*}
+  则离散稳定条件\eqref{eq:approx-gp-linear-sys-discrete-stability}成立，对应$\tilde{c}_{S} = \frac{c_{S}}{c_{R}}$。
+\end{lemma}
+\begin{proof}
+  由连续稳定条件\eqref{eq:approx-gp-bstability}可得，对于某一$q_{N} \in \Pi_{N} \subset \Pi$有
+  \begin{equation*}
+    \begin{split}
+      c_{S} \, \left\| \nu_{M} \right\|_{X}
+      & \le \sup_{0 \neq q \in \Pi}
+      \frac{
+      \langle B \nu_{M},q \rangle
+      }{
+      \left\| q \right\|_{\Pi}
+      } \\
+      & = \sup_{0 \neq q \in \Pi}
+      \frac{
+      \langle B \nu_{M}, R_{M} q \rangle
+      }{
+      \left\| q \right\|_{\Pi}
+      }\\
+      & \le c_{R} \, \sup_{0 \neq q \in \Pi}
+      \frac{
+      \langle B \nu_{M}, R_{M} q \rangle
+      }{
+      \left\| R_{M} q \right\|_{\Pi}
+      } \\
+      & \le c_{R} \, \sup_{0 \neq q_{M} \in \Pi_{M}}
+      \frac{
+      \langle B \nu_{M}, q_{M} \rangle
+      }{
+      \left\| q_{M} \right\|_{\Pi}
+      },
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \hookrightarrow \underbrace{\frac{c_{R}}{c_{S}}}_{\eqqcolon \tilde{c}_{S}}\left\| \nu_{M} \right\|_{X} \le
+    \frac{
+    \langle B \nu_{M}, q_{M} \rangle
+    }{
+    \left\| q_{M} \right\|_{\Pi}
+    }
+  \end{equation*}
+\end{proof}
+
+\subsection{混合边界值问题}
+\label{sec:approx-mixed}
+
+\subsubsection{混合算子方程的鞍点变分问题}
+现在来看关于混合算子方程的鞍点变分问题\eqref{eq:var-mixed-problem-aubv}-\eqref{eq:var-mixed-problem-bu}：寻找解$\left( u, p \right) \in X \times \Pi$，使满足
+\begin{equation}
+  \label{eq:approx-mixed-bp}
+  \begin{split}
+    \langle A u, \nu \rangle + \langle B \nu, p \rangle
+    & = \langle f, \nu \rangle, \\
+    \langle B u, q \rangle & = \langle g, q \rangle, \quad \forall \, \left( \nu, q \right) \in X \times \Pi.
+  \end{split}
+\end{equation}
+
+假定两个有界线性算子$A:X \mapsto X', B: X \mapsto \Pi'$。假定$A$是$X$-椭圆的。假定连续稳定条件\eqref{eq:approx-gp-bstability}成立，那么Theorem \ref{theorem:mixed-saddle-point-variational-problem}的所有前提条件均得到满足，混合算子方程的鞍点变分问题\eqref{eq:approx-mixed-bp}存在唯一的解$\left( u, p \right) \in X \times \Pi$。
+
+\subsubsection{伽辽金变分问题}
+对于$M,N \in \mathbb{N}$，定义两个协调检测空间
+\begin{equation*}
+  \begin{split}
+    X_{M} &= \spann \left\{ \varphi_{k} \right\}_{k=1}^{M} \subset X, \\
+    \Pi_{N} & = \spann \left\{ \psi_{i} \right\}_{i=1}^{N} \subset \Pi.
+  \end{split}
+\end{equation*}
+
+则鞍点变分问题\eqref{eq:approx-mixed-bp}可以表示为如下伽辽金变分问题：寻求解$\left( u_{M}, p_{N} \right) \in X_{M} \times \Pi_{N}$，使满足
+\begin{equation}
+  \label{eq:approx-mixed-vp}
+  \begin{split}
+    \langle A u_{M}, \nu_{M} \rangle + \langle B \nu_{M}, p_{N} \rangle
+    & = \langle f, \nu_{M} \rangle, \\
+    \langle B u_{M}, q_{N} \rangle & = \langle g, q_{N} \rangle, \quad \forall \, \left( \nu_{M}, q_{N} \right) \in X_{M} \times \Pi_{N}.
+  \end{split}
+\end{equation}
+
+\subsubsection{线性方程系统}
+定义矩阵$A_{M},B_{N}$，其中元素
+\begin{equation*}
+  \begin{split}
+    A_{M} \left[ \ell, k \right] & = \langle A \varphi_{k}, \varphi_{\ell} \rangle, \quad k, \ell = 1, \ldots, M, \\
+    B_{N} \left[ j,k \right] & = \langle B \varphi_{k}, \psi_{j} \rangle, \quad j = 1, \ldots, N.
+  \end{split}
+\end{equation*}
+
+定义向量$\underline{f}, \underline{g}$，向量中的元素$f,g$分别为
+\begin{equation*}
+  \begin{split}
+    f_{\ell} &= \langle f, \varphi_{\ell} \rangle, \\
+    g_{j} & = \langle g, \psi_{j} \rangle.
+  \end{split}
+\end{equation*}
+
+则伽辽金变分问题\eqref{eq:approx-mixed-vp}等价于下述线性方程系统
+\begin{equation}
+  \label{eq:approx-mixed-linear-system}
+  \begin{pmatrix}
+    A_{M} & B_{N}^{\top} \\ B_{N} & 0
+  \end{pmatrix}
+  \begin{pmatrix}
+    \underline{u} \\ \underline{p}
+  \end{pmatrix}
+  =\begin{pmatrix}
+  \underline{f} \\ \underline{g}
+  \end{pmatrix}.
+\end{equation}
+
+\subsubsection{舒尔补系统}
+先来看线性方程系统\eqref{eq:approx-mixed-linear-system}唯一可解性的证明。首先，唯一可解性的必要条件是$M \ge N$。设系统矩阵$K$的维度$\dimm K =M+N$，根据
+\begin{equation*}
+  \range A_{M} \le M, \quad \range B_{N} \le \min \left\{ M,N \right\}
+\end{equation*}
+可得
+\begin{equation*}
+  \range K \le M + \min \left\{ M,N \right\}.
+\end{equation*}
+
+若$M < N$，会出现以下情况
+\begin{equation*}
+  \range K \le 2 M < M+N = \dimm K,
+\end{equation*}
+换句话说，线性方程系统\eqref{eq:approx-mixed-linear-system}不可解。为了使解存在，必要条件是要审慎定义检测空间$X_{M}$和$\Pi_{N}$，使$M \ge N$，换句话说，检测空间$X_{M}$需要大于另一个检测空间$\Pi_{N}$。
+
+在满足必要条件$M \ge N$后，伽辽金变分问题\eqref{eq:approx-mixed-vp}唯一可解性的证明，可由Theorem \ref{theorem:mixed-saddle-point-variational-problem-solution}证得。
+
+如果$A_{M}$是可逆的，则可将线性方程系统\eqref{eq:approx-mixed-linear-system}转换成舒尔补系统(Schur complement system)，见第\ref{sec:simple-schur-decomp-method}节。
+
+由于协调检测空间$X_{M} \subset X$，由有界线性算子$A$的$X$-椭圆性可得，刚度矩阵$A_{M}$是正定的，即
+\begin{equation*}
+\begin{split}
+  & \langle A_{M} \underline{\nu}, \underline{\nu} \rangle =
+  \langle A \nu_{M}, \nu_{M} \rangle  \ge c_{1}^{A} \left\| \nu_{M} \right\|_{X}^{2} >0, \quad \forall \, \underline{0} \neq \underline{\nu} \in \mathbb{R}^{M} \leftrightarrow \nu_{M} \in X_{M},
+\end{split}
+\end{equation*}
+因此$A_{M}$可逆。
+
+线性方程系统\eqref{eq:approx-mixed-linear-system}转换成舒尔补系统(Schur complement system)如下
+\begin{equation}
+  \label{eq:approx-mixed-schur-complement}
+  \begin{split}
+    B_{N} A_{M}^{-1} B_{N}^{\top} \underline{p}
+    = B_{N} A_{M}^{-1} \underline{f} - \underline{g},
+  \end{split}
+\end{equation}
+
+\subsubsection{唯一可解性}
+关于舒尔补系统\eqref{eq:approx-mixed-schur-complement}唯一可解性的证明。
+
+假定系统满足离散稳定条件
+\begin{equation}
+  \label{eq:approx-mixed-bbl-discrete-stability-condition}
+  \tilde{c}_{S} \, \left\| q_{N} \right\|_{\Pi}
+  \le \sup_{0 \neq \nu_{M} \in X_{M}}
+  \frac{
+  \langle B \nu_{M}, q_{N} \rangle
+  }{
+  \left\| \nu_{M} \right\|_{X}
+  }, \quad \forall \, q_{N} \in \Pi_{N},
+\end{equation}
+上式又称Babuška-Brezzi-Ladyshenskaya (BBL)条件\index{Babuška-Brezzi-Ladyshenskaya condition \dotfill BBL条件}。通常来说我们无法直接从Theorem \ref{theorem:var-mixed-lagrange-condition}式\ref{eq:var-mixed-lagrange-inequality}直接推得离散稳定(BBL)条件\eqref{eq:approx-mixed-bbl-discrete-stability-condition}的成立，一个间接的证明方法见下文Lemma \ref{lemma:approx-mixed-bbl-prove}节。
+
+\begin{lemma}[舒尔补系统的唯一可解性]
+  \label{lemma:approx-mixed-schur-system-uniq}
+  设两个有界线性算子$A:X \mapsto X', B: X \mapsto \Pi'$，且$A$是$X$-椭圆的。对于协调检测空间$X_{M} \subset X, \Pi_{N} \subset \Pi$，假定离散稳定条件\eqref{eq:approx-mixed-bbl-discrete-stability-condition}成立，那么在舒尔补系统\eqref{eq:approx-mixed-schur-complement}中，定义舒尔补矩阵
+  \begin{equation*}
+    S_{N} \eqqcolon B_{N} A_{M}^{-1} B_{N}^{\top},
+  \end{equation*}
+  则$S_{N}$是正定矩阵，满足
+  \begin{equation}
+    \label{eq:approx-mixed-schur-matrix-posdef}
+    \left( S_{N} \underline{q}, \underline{q} \right) \ge
+    c_{1}^{S_{N}} \, \left\| q_{N} \right\|_{\Pi}^{2}, \quad \forall \, 0 \neq \underline{q} \in \Pi_{N} \leftrightarrow q_{N} \in \Pi_{N}.
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  对于任意给定的定值$\underline{q} \in \mathbb{R}^{N}$，定义$\underline{\bar{u}} \coloneqq A_{M}^{-1} B_{N}^{\top} \underline{q}$，即对于方程$q_{N} \in \PI_{N}, \bar{u}_{M} \in X_{M}$，我们有
+  \begin{equation*}
+    \langle A \bar{u}_{M}, \nu_{M} \rangle = \langle B \nu_{M}, q_{N} \rangle, \quad \forall \, \nu_{M} \in X_{M}.
+  \end{equation*}
+
+  由有界线性算子$A$的$X$-椭圆性，可得
+  \begin{equation*}
+    \begin{split}
+      c_{1}^{A} \, \left\| \bar{u}_{M} \right\|_{X}^{2}
+      & \le \langle A \bar{u}_{M}, \bar{u}_{M} \rangle \\
+      & = \langle B \bar{u}_{M}, q_{N} \rangle \\
+      & = \left( B_{N} \underline{\bar{u}}, \underline{q} \right) \\
+      & = \left( \underbrace{
+      B_{N} A_{M}^{-1} B_{N}^{\top}
+      }_{\eqqcolon S_{N}} \underline{q}, \underline{q} \right).
+    \end{split}
+  \end{equation*}
+
+  另一方面，由离散稳定性条件\eqref{eq:approx-mixed-bbl-discrete-stability-condition}可得
+  \begin{equation*}
+    \begin{split}
+      c_{S} \, \left\| q_{N} \right\|_{\Pi}
+      & \le \sup_{\underline{0} \neq \underline{\nu}_{M} \in \mathbb{R}^{M}} \frac{
+      \langle B \nu_{M}, q_{N} \rangle
+      }{
+      \left\| \nu_{M} \right\|_{X}
+      }\\
+      & = \sup_{\underline{0} \neq \underline{\nu}_{M} \in \mathbb{R}^{M}}
+      \frac{
+      \langle A \bar{u}_{M}, \nu_{M} \rangle
+      }{
+      \left\| \nu_{M} \right\|_{X}
+      } \\
+      & \le c_{2}^{A} \, \left\| \bar{u}_{M} \right\|_{X},
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+  \begin{split}
+    \hookrightarrow \left\| q_{N} \right\|_{\Pi}^{2}
+    & \le \left(
+    \frac{c_{2}^{A}}{c_{S}}
+    \right)^2
+    \left\| \bar{u}_{M} \right\|_{X}^{2} \\
+    & \le \left( \frac{1}{c_{1}^{A}} \right)
+    \left( \frac{c_{2}^{A}}{c_{S}}\right)^{2}
+    \left(
+    B_{N} A_{M}^{-1} B_{N}^{\top} \underline{q}, \underline{q}
+    \right),
+  \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \hookrightarrow
+    \left(
+    \underbrace{
+    B_{N} A_{M}^{-1} B_{N}^{\top}
+    }_{\eqqcolon S_{N}}
+    \underline{q}, \underline{q}
+    \right)
+    \underbrace{
+    \ge c_{1}^{A} \left( \frac{c_{S}}{c_{2}^{A}} \right)^{2}
+    }_{\eqqcolon c_{1}^{S_N}}
+    \left\| q_{N} \right\|_{\Pi}^{2}.
+  \end{equation*}
+\end{proof}
+
+由舒尔补系统\eqref{eq:approx-mixed-schur-complement}唯一可解，可得线性方程系统\eqref{eq:approx-mixed-linear-system}唯一可解。
+
+\subsubsection{稳定性测度}
+线性方程系统\eqref{eq:approx-mixed-linear-system}唯一解的稳定性测度，见下定理。
+\begin{theorem}[唯一解的稳定性测度]
+  \label{theorem:approx-mixed-linear-system-stability-estimate}
+  设有界线性算子$A:X \mapsto X', B: X \mapsto \Pi$，$A$是$X$-椭圆的。对于协调检测空间$X_{M} \subset X, \Pi_{N} \subset \Pi$，假设离散稳定条件\eqref{eq:approx-mixed-bbl-discrete-stability-condition}成立。则鞍点变分问题\eqref{eq:approx-mixed-vp}存在唯一近似解$\left( u_{M}, p_{N} \right) \in X_{M} \times \Pi_{N}$，对应的稳定性测度如下
+  \begin{align}
+    \label{eq:approx-mixed-linear-system-stability-estimate-p}
+    \left\| p_{N} \right\|_{\Pi}
+    & \le \frac{1}{c_{1}^{S_{N}}} \frac{c_{2}^{B}}{c_{1}^{A}}
+    \, \left\| f \right\|_{X'}
+    + \frac{1}{c_{1}^{S_{N}}} \, \left\| g \right\|_{\Pi'}, \\
+    \label{eq:approx-mixed-linear-system-stability-estimate-u}
+    \left\| u_{M} \right\|_{X}
+    & \le \left(
+    1 + \frac{c_{2}^{B}}{c_{1}^{S_{N}}} \frac{c_{2}^{B}}{c_{1}^{A}}
+    \right) \,
+    \left\| f \right\|_{X'}
+    + \frac{1}{c_{1}^{S_{N}}} \frac{c_{2}^{B}}{c_{1}^{A}} \,
+    \left\| g \right\|_{\Pi'}.
+  \end{align}
+\end{theorem}
+
+\begin{proof}
+  设线性方程系统\eqref{eq:approx-mixed-linear-system}和伽辽金变分问题\eqref{eq:approx-mixed-vp}的唯一(近似)解分别为
+  \begin{equation*}
+    \left( \underline{u}, \underline{p} \right) \in \mathbb{R}^{M} \times \mathbb{R}^{N}
+    \leftrightarrow \left( u_{M}, p_{N} \right) \in X_{M} \times \Pi_{N}.
+  \end{equation*}
+
+  \begin{enumerate}
+  \item 由Lemma \ref{lemma:approx-mixed-schur-system-uniq}可得
+  \begin{equation*}
+    \begin{split}
+      c_{1}^{S_{N}} \, \left\| p_{N} \right\|_{\Pi}^{2}
+      & \le \left( S_{N} \underline{p}, \underline{p} \right) \\
+      & = \left( B_{N} A_{M}^{-1} B_{N}^{\top} \underline{p}, \underline{p} \right) \\
+      & = \left( B_{N} A_{M}^{-1} \underline{f} - \underline{g}, \underline{p} \right) \\
+      & = \langle B \bar{u}_{M} - g, p_{N} \rangle \\
+      & \le \left[
+      c_{2}^{B} \, \left\| \bar{u}_{M} \right\|_{X} + \left\| g \right\|_{\Pi'}
+      \right] \,
+      \left\| p_{N} \right\|_{\Pi},
+    \end{split}
+  \end{equation*}
+
+  \begin{equation*}
+    \hookrightarrow \left\| p_{N} \right\|_{\Pi}
+    \le \frac{1}{c_{1}^{S_{N}}}
+    \left[
+    c_{2}^{B} \, \left\| \bar{u}_{M} \right\|_{X} + \left\| g \right\|_{\Pi'}
+    \right].
+  \end{equation*}
+
+  在上式中，$\underline{\bar{u}} = A_{M}^{-1} \underline{f} \in \mathbb{R}^{M} \leftrightarrow \bar{u}_{M} \in X_{M}$是如下变分问题的唯一解
+  \begin{equation*}
+    \langle A \bar{u}_{M}, \nu_{M} \rangle = \langle f, \nu_{M} \rangle, \quad \forall \nu_{M} \in X_{M},
+  \end{equation*}
+  由$A$的$X$-椭圆性有
+  \begin{equation*}
+    \left\| \bar{u}_{M} \right\|_{X} \le \frac{1}{c_{1}^{A}} \, \left\|f \right\|_{X'},
+  \end{equation*}
+  则我们有\eqref{eq:approx-mixed-linear-system-stability-estimate-p}成立。
+
+  \item
+  \begin{equation*}
+    \begin{split}
+      c_{1}^{A} \, \left\| u_{M} \right\|_{X}^{2}
+      & \le \langle A u_{M}, u_{M} \rangle \\
+      & = \langle f, u_{M} \rangle - \langle B u_{M}, p_{N} \rangle \\
+      & \le \left[
+      \left\| f \right\|_{X'}
+      + c_{2}^{B} \, \left\| p_{N} \right\|_{\Pi}
+      \right]
+      \left\| u_{M} \right\|_{X},
+    \end{split}
+  \end{equation*}
+
+  \begin{equation*}
+    \hookrightarrow \left\| u_{M} \right\|_{X} \le
+    \frac{1}{c_{1}^{A}} \left[
+    \left\| f \right\|_{X'} +
+    c_{2}^{B} \, \left\| p_{N} \right\|_{\Pi}
+    \right],
+  \end{equation*}
+  将\eqref{eq:approx-mixed-linear-system-stability-estimate-p}代入上式，我们有\eqref{eq:approx-mixed-linear-system-stability-estimate-u}成立。
+  \end{enumerate}
+\end{proof}
+
+\subsubsection{误差测度项}
+由唯一近似解$\left( u_{M}, p_{N} \right) \in X_{M} \times \Pi_{N}$的稳定性测度
+\eqref{eq:approx-mixed-linear-system-stability-estimate-u}-\eqref{eq:approx-mixed-linear-system-stability-estimate-p}可进一步求得误差测度项，见如下定理。
+\begin{theorem}[误差测度项]
+  \label{theorem:approx-mixed-linear-system-error-estimate}
+  设Theorem \ref{theorem:approx-mixed-linear-system-stability-estimate}的所有假设条件都成立。则鞍点变分问题\eqref{eq:approx-mixed-vp}的唯一近似解$\left( u_{M}, p_{N} \right) \in X_{M} \times \Pi_{N}$,对应的误差测度项为
+  \begin{equation}
+    \label{eq:approx-mixed-linear-system-error-estimate}
+    \left\| u-u_{M} \right\|_{X} +
+    \left\| p-p_{N} \right\|_{\Pi}
+    \le c \left\{
+    \inf_{\nu_{M} \in X_{M}}
+    \left\| u - \nu_{M} \right\|_{X} +
+    \inf_{q_{N} \in \Pi_{N}}
+    \left\| p - q_{N} \right\|_{\Pi}
+    \right\}.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  利用协调测试空间$X_{M} \subset X, \Pi_{N} \subset \Pi$，将伽辽金变分式\eqref{eq:approx-mixed-vp}与连续鞍点变分式\eqref{eq:approx-mixed-bp}相减，可得伽辽金正交
+  \begin{equation*}
+    \begin{split}
+      \langle A \left( u - u_{M} \right), \nu_{M} \rangle +
+      \langle B \nu_{M}, p-p_{N} \rangle &=0, \\
+      \langle B \left( u - u_{M} \right), q_{N} \rangle & = 0, \quad \forall \, \left( \nu_{M}, q_{N} \right) \in X_{M} \times \Pi_{N}.
+    \end{split}
+  \end{equation*}
+
+  那么，对于任意给定的$\left( \bar{u}_{M}, \bar{p}_{N} \right) \in X_{M} \times \Pi_{N}$，我们有
+  \begin{equation*}
+    \begin{split}
+      \left\langle A \left( \bar{u}_{M} - u_{M} \right), \nu_{M} \right\rangle
+      + \langle B \nu_{M}, \bar{p}_{N} - p_{N} \rangle
+      &= \langle A \left(\bar{u}_{M} - u \right), \nu_{M} \rangle
+      + \langle B' \left( \bar{p}_{N} - p \right), \nu_{M} \rangle, \\
+      \langle B \left( \bar{u}_{M} - u_{M} \right), q_{N} \rangle
+      & = \langle B \left( \bar{u}_{M} - u \right), q_{N} \rangle.
+    \end{split}
+  \end{equation*}
+
+  同样地，由Theorem \eqref{theorem:approx-mixed-linear-system-stability-estimate}可得，存在唯一解$\left( \bar{u}_{M} - u_{M}, \bar{p}_{N} - p_{N} \right) \in X_{M} \times \Pi_{N}$，以及对应的稳定性测度。那么对于任意$\left( \bar{u}_{M}, \bar{p}_{N} \right) \in X_{M} \times \Pi_{N}$，我们有
+  \begin{equation*}
+    \begin{split}
+      \left\| \bar{p}_{N} - p_{N} \right\|_{\Pi}
+      & \le c_{1} \, \left\|
+      A \left(\bar{u}_{M} - u_{M} \right)
+      + B' \left( \bar{p}_{N} - p_{N} \right)
+      \right\|_{X'}
+      + c_{2} \, \left\| B \left( \bar{u}_{M} - u \right) \right\|_{\Pi'}, \\
+      \left\| \bar{u}_{M} - u_{M} \right\|_{X}
+      & \le c_{3} \, \left\|
+      A \left(\bar{u}_{M} - u_{M} \right)
+      + B' \left( \bar{p}_{N} - p_{N} \right)
+      \right\|_{X'}
+      + c_{4} \, \left\| B \left( \bar{u}_{M} - u \right) \right\|_{\Pi'}.
+    \end{split}
+  \end{equation*}
+
+  根据有界线性算子$A,B,B'$的映射属性，利用三角不等式关系可得，对于任意$\left( \bar{u}_{M}, \bar{p}_{N} \right) \in X_{M} \times \Pi_{N}$都有
+  \begin{equation*}
+    \begin{split}
+      \left\| \bar{p}_{N} - p_{N} \right\|_{\Pi}
+      & \le \left\| p - \bar{p}_{N} \right\|_{\Pi} +
+      \left\| \bar{p}_{N} - p_{N} \right\|_{\Pi} \\
+      \le \left( 1 + c_{1} c_{2}^{B} \right) \,
+      \left\| p - \bar{p}_{N} \right\|_{\Pi} +
+      \left( c_{1} c_{2}^{A} + c_{2} c_{2}^{B} \right) \,
+      \left\| u - \bar{u}_{M} \right\|_{X}.
+    \end{split}
+  \end{equation*}
+
+  采用类似的方式，我们将也可求得$\left\| u - u_{M} \right\|$的不等式关系。二者相加，证得\eqref{eq:approx-mixed-linear-system-error-estimate}。
+\end{proof}
+
+\subsubsection{离散稳定条件}
+\label{sec:approx-mixed-bbl-prove}
+
+采用如\eqref{lemma:approx-gp-stability-discrete}类似的思路，利用\cite{Fortin:1977vh}，可证得离散稳定条件\eqref{eq:approx-mixed-bbl-discrete-stability-condition}。
+
+\begin{lemma}[离散稳定条件的证明]
+\label{lemma:approx-mixed-bbl-prove}
+设有界线性算子$B: X \mapsto \Pi'$，满足连续稳定性条件Theorem \ref{theorem:var-mixed-lagrange-condition}式\ref{eq:var-mixed-lagrange-inequality}。
+
+如果存在一个有界的投影算子$P_{M}: X \mapsto X_{M}$，满足
+\begin{equation*}
+  \begin{split}
+    \langle B \left( \nu - P_{M} \nu \right) , q_{N} \rangle & = 0, \quad \forall \, q_{N} \in \Pi_{N}, \\
+    \left\| P_{M} \nu \right\|_{X} & \le c_{p} \, \left\| \nu \right\|_{X}, \quad \forall \, \nu \in X,
+  \end{split}
+\end{equation*}
+那么离散稳定条件\eqref{eq:approx-mixed-bbl-discrete-stability-condition}成立，对应$\tilde{c}_{S} = \frac{c_{S}}{c_{P}}$。
+\end{lemma}

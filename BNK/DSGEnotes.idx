@@ -340,3 +340,12 @@
 \indexentry{Fredholm boundary integral function!second kind \dotfill 第二类弗雷德霍姆边界积分方程|hyperpage}{356}
 \indexentry{Neumann series \dotfill 诺依曼级数|hyperpage}{356}
 \indexentry{Neumann series \dotfill 诺依曼级数|hyperpage}{357}
+\indexentry{conforming trial spaces \dotfill 协调检测空间|hyperpage}{364}
+\indexentry{Galerkin-Bubnov method \dotfill 伽辽金——布博诺夫法|hyperpage}{364}
+\indexentry{Galerkin Orthogonality \dotfill 伽辽金正交|hyperpage}{365}
+\indexentry{stiffness matrix \dotfill 刚度矩阵|hyperpage}{365}
+\indexentry{Céa lemma, \dotfill 齐亚引理|hyperpage}{366}
+\indexentry{Strang's First Lemma \dotfill 斯特朗第一引理|hyperpage}{367}
+\indexentry{Strang's Second Lemma \dotfill 斯特朗第二引理|hyperpage}{368}
+\indexentry{Galerkin-Petrov method \dotfill 伽辽金——佩特洛夫法|hyperpage}{369}
+\indexentry{Babuška-Brezzi-Ladyshenskaya condition \dotfill BBL条件|hyperpage}{373}

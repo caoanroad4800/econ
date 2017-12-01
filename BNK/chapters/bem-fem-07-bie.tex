@@ -710,3 +710,55 @@ $\left( \gamma_{0}^{\text{int}} u, \lambda \right) \in H^{\frac{1}{2}}(\Gamma) \
 \end{equation}
 
 类似地，由于Steklov-Poincaré 算子$S: H^{\frac{1}{2}}(\Gamma) \mapsto H^{-\frac{1}{2}}(\Gamma)$有界并且$\widetilde{H}^{\frac{1}{2}}(\Gamma_{N})$-椭圆\eqref{eq:bvp-bie-spo-ellipticity-subspace-gamma0}，可以利用拉克斯一密格拉蒙定理Theorem \ref{theorem:lax-milgram-lemma}证得$\widetilde{u}$的唯一可解性。在计算得到狄利克雷数$\gamma_{0}^{\text{int}} u(x)$的值后，我们可以通过求解狄利克雷边界值问题得到完整的诺依曼数$\gamma_{1}^{\text{int}} u \in H^{-\frac{1}{2}}(\Gamma)$。
+
+\subsection{罗宾边界值问题}
+\label{sec:bie-robin}
+
+考虑如下罗宾边界值问题
+\begin{equation*}
+  \begin{split}
+    \left( L u \right)(x) & = 0, \quad x \in \Omega, \\
+    \gamma_{1}^{\text{int}} u(x) + \kappa (x) \gamma_{0}^{\text{int}} u(x) & = g(x), \quad x \in \Gamma.
+  \end{split}
+\end{equation*}
+
+利用狄利克雷到诺依曼的映射\eqref{eq:bie-map-dton}，我们可以构建如下边界积分方程，用于求解未知的狄利克雷数$\gamma_{0}^{\text{int}} u(x) \in H^{\frac{1}{2}}(\Gamma)$
+\begin{equation*}
+  \gamma_{1}^{\text{int}} u(x) =
+  \left( S \gamma_{0}^{\text{int}} u \right)(x)
+  = g(x) - \kappa(x) \gamma_{0}^{\text{int}} u (x), \quad x \in \Gamma.
+\end{equation*}
+
+因此可以构建如下变分问题：寻找解$\gamma_{0}^{\text{int}} u \in H^{\frac{1}{2}}(\Gamma)$，使满足
+\begin{equation}
+  \label{eq:bie-robin-varitional-problem}
+  \langle S \gamma_{0}^{\text{int}} u, \nu \rangle_{\Gamma}
+  + \langle \kappa \gamma_{0}^{\text{int}} u, \nu \rangle_{\Gamma}
+  = \langle g, \nu \rangle_{\Gamma}, \quad \forall \, \nu \in H^{\frac{1}{2}}(\Gamma).
+\end{equation}
+
+已知Steklov-Poincaré 算子$S$和超奇异边界积分算子$D$之间的关系满足不等式\eqref{eq:bvp-bie-spo-ellipticity}
+\begin{equation*}
+  \langle S \nu, \nu \rangle_{\Gamma} \ge \langle D \nu, \nu \rangle_{\Gamma}, \quad \forall \, \nu \in H^{\frac{1}{2}}( \Gamma )
+\end{equation*}
+根据$D$的半椭圆，见Corollary \ref{corollary:bvp-bie-single-semi-ellipticity}式\eqref{eq:bvp-bie-single-semi-ellipticity}，我们有
+\begin{equation*}
+  \langle D \nu, \nu \rangle_{\Gamma} \ge \overline{c}_{1}^{D} \,
+  \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}, \quad \forall \, \nu \ge H^{\frac{1}{2}}(\Gamma),
+\end{equation*}
+此外假定$\kappa(x) \ge \kappa_{0}, x \in \Gamma$。那么定义一个双线性形式$a(.,.)$，满足性质
+\begin{equation*}
+  \begin{split}
+    a(.,.) & \coloneqq
+    \langle S \nu, \nu \rangle_{\Gamma} + \langle \kappa \nu, \nu \rangle_{\Gamma} \\
+     &\ge \langle D \nu, \nu \rangle_{\Gamma} + \kappa_{0} \, \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2} \\
+     &\ge \overline{c}_{1}^{D} \, \left| \nu \right|_{H^{\frac{1}{2}}(\Gamma)}^{2}
+     + \kappa_{0} \, \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2} \\
+     & \ge \min \left\{ \overline{c}_{1}^{D}, \kappa_{0} \right\}
+     \, \left\| \nu \right\|_{H^{\frac{1}{2}}(\Gamma)}^{2},
+  \end{split}
+\end{equation*}
+可见双线性形式$a(.,.)$是$H^{\frac{1}{2}}(\Gamma)$-椭圆的。
+
+在此基础上，变分问题\eqref{eq:bie-robin-varitional-problem}的唯一可解性可由
+拉克斯一密格拉蒙定理Theorem \ref{theorem:lax-milgram-lemma}证得。
