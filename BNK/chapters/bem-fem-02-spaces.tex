@@ -2263,9 +2263,10 @@ $\Omega$有界 $\Rightarrow M \coloneqq \max_{\bm{x} \in \Omega}  \left| \bm{x} 
 \end{equation*}
 
 通过这种方法，$\Omega \subset \mathbb{R}^{d}$中关于变量$x$的问题$\nu(x)$，被表示为分段参数域$\mathcal{T}_i \subset \mathbb{R}^{d-1}$中关于局部参数$\chi_i(\xi)$的问题$\widetilde{\nu}_i(\xi)$，后者使得我们可能建立相应的索伯列夫空间，进行分析。这要求$\tilde{\nu}_i$可导，即局部参数$\chi_i(\xi)$可导，满足链式法则(chain rule)\index{chain rule \dotfill 链式法则}\footnote{简单说来，链式法则可以表示为
-\begin{equation*}
+\begin{equation}
+  \label{eq:chain-rule-exa}
   f(g(x))' = f'(g(x)) \cdot g'(x).
-\end{equation*}}。如果要求$\left| s \right| \le k$次的导数，需要假定局部参数$\chi_i \in C^{k-1,1}(\mathcal{T}_i)$，例如，对于利普希茨域$\mathcal{T}_i$中的局部参数$\chi_i \in C^{0,1}(\mathcal{T}_i)$，我们需要研究对应的索伯列夫空间$H^s(\mathcal{T}_i), \left| s \right| \le 1$。
+\end{equation}}。如果要求$\left| s \right| \le k$次的导数，需要假定局部参数$\chi_i \in C^{k-1,1}(\mathcal{T}_i)$，例如，对于利普希茨域$\mathcal{T}_i$中的局部参数$\chi_i \in C^{0,1}(\mathcal{T}_i)$，我们需要研究对应的索伯列夫空间$H^s(\mathcal{T}_i), \left| s \right| \le 1$。
 
 \begin{definition}[流形索伯列夫空间($0 \le s \le k $)]
 进而对于$0 \le s \le k$，我们的研究对象是整个索伯列夫空间$H^s(\Gamma)$，其范数定义为

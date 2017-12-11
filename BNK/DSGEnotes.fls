@@ -480,6 +480,13 @@ INPUT ./chapters/bem-fem-07-bie.tex
 INPUT ./chapters/bem-fem-07-bie.tex
 INPUT ./chapters/bem-fem-08-approx.tex
 INPUT ./chapters/bem-fem-08-approx.tex
+INPUT ./chapters/bem-fem-0901-finele.tex
+INPUT ./chapters/bem-fem-0901-finele.tex
+INPUT ./figures/20171209-finele-nodes.jpg
+INPUT ./figures/20171209-decompo-adm-inadm.jpg
+INPUT ./figures/20171210-finele-refele.jpg
+INPUT ./chapters/bem-fem-0902-finele.tex
+INPUT ./chapters/bem-fem-0902-finele.tex
 INPUT ./chapters/appendix01.tex
 INPUT ./chapters/appendix01.tex
 INPUT ./chapters/PK.tex

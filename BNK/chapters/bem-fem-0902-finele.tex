@@ -1,0 +1,134 @@
+%!TEX root = ../DSGEnotes.tex
+\subsection{形式方程}
+\label{sec:finele-form}
+基于分解元$\mathcal{T}_{N}$\eqref{eq:finele-ref-decomposition}，现在来分析检测空间(trial spaces)\index{trial space \dotfill 检测空间}。检测空间由分段多项式构成，这些多项式组成不同形式的基方程(base functions)\index{base function \dotfill 基方程}。基方程与全局自由度相关，不过更是在局部定义的：是针对有限元$\tau_{\ell}$，通过选取合适的形式方程(form function)\index{form function \dotfill 形式方程}而作局部定义。
+
+考虑这样一个参考元$\tau$，它可以是一个区间($d=1$)，三角形($d=2$)或是四面体($d=3$)。
+
+\subsubsection{常数型形式方程}
+最简单的形式方程可以是个常数
+\begin{equation*}
+  \psi_{1}^{0}(\xi) = 1, \quad \xi \in \tau,
+\end{equation*}
+
+对应地，如果有限元$\tau_{\ell}$中的某个方程$\nu_{h}(x), \, x \in \tau_{\ell}$是个常数，那么$\nu$的表现形式可写为
+\begin{equation*}
+  \nu_{h}(x) = \nu_{h} \left( x_{\ell_{1}} + J_{\ell} \xi \right)
+  =\nu_{\ell} \, \psi_{1}^{0}(\xi), \quad x \in \tau_{\ell}, \, \xi \in \tau,
+\end{equation*}
+其中系数$\nu_{\ell}$反映$\nu_{h} \in \tau_{\ell}$在参考元$\tau$中对应的值。由此可得
+\begin{equation}
+  \label{eq:finele-form-constant-norm}
+  \left\| \nu_{h} \right\|_{L^{2}(\tau_{\ell})}^{2} = \Delta_{\ell} \nu_{\ell}^{2}.
+\end{equation}
+
+\subsubsection{线性形式方程}
+如果$\nu_{h}(x), \, x \in \tau_{\ell}$是个线性方程，那么$\nu_{h}$可由参考元$\tau$中结点的值$\widetilde{\nu}_{k}$所唯一决定
+\begin{equation}
+  \label{eq:finele-form-lin-nuh-nuk}
+  \widetilde{\nu}_{h}\left( \xi \right)
+  = \sum_{k=1}^{d+1} \widetilde{\nu}_{k} \psi_{k}^{1}\left( \xi \right), \quad \xi \in \tau,
+\end{equation}
+其中$\psi_{k}^{1}$的值如下
+\begin{itemize}
+  \item $d=1$时结点数$k=2$
+  \begin{equation*}
+    \begin{cases}
+      \psi_{1}^{1} & \coloneqq 1 - \xi,\\
+      \psi_{2}^{1} & \coloneqq \xi.
+    \end{cases}
+  \end{equation*}
+  \item $d=2$时节点数$k=3$
+  \begin{equation*}
+    \begin{cases}
+      \psi_{1}^{1} & \coloneqq 1 - \xi_{1} - \xi_{2}, \\
+      \psi_{2}^{1} & \coloneqq \xi_{1}, \\
+      \psi_{3}^{1} & \coloneqq \xi_{2}.
+    \end{cases}
+  \end{equation*}
+  \item $d=3$时节点数$k=4$
+  \begin{equation*}
+    \begin{cases}
+      \psi_{1}^{1} & \coloneqq 1 - \xi_{1} - \xi_{2} - \xi_{3}, \\
+      \psi_{2}^{1} & \coloneqq \xi_{1}, \\
+      \psi_{3}^{1} & \coloneqq \xi_{2}, \\
+      \psi_{4}^{1} & \coloneqq \xi_{3}.
+    \end{cases}
+  \end{equation*}
+\end{itemize}
+
+这样一来我们有：设任意一个有限元$\tau_{\ell}$，对应结点$x_{\ell_{k}}, \, \ell_{k} \in J(\ell)$。$\tau_{\ell}$中的线性方程$\nu_{h}(x), \, x \in \tau_{\ell}$可以写为
+\begin{equation}
+  \label{eq:finele-form-lin-nuh-reprensentation}
+  \nu_{h} \left( x \right)
+  = \nu_{h} \left( x_{\ell_{1}} + J_{\ell} \xi \right)
+  = \sum_{k=1}^{d+1} \nu_{\ell_{k}} \psi_{k}^{1} \left( \xi \right), \quad x \in \tau_{\ell}, \xi \in \tau.
+\end{equation}
+
+与常数形式方程的范数\eqref{eq:finele-form-constant-norm}类似，线性形式方程$\nu_{h}(x), \, x \in \tau_{\ell}$的范数$\left\| \nu_{h} \right\|_{L^{2}} \left(\tau_{\ell} \right)$也可以用结点的值$\nu_{\ell}(\xi), \, \xi \in \tau$来表示，见如下引理。
+\begin{lemma}[线性形式方程的范数]
+  \label{lemma:finele-form-lin-norm-def}
+  设线性方程$\nu_{h}(x), \, x \in \tau_{\ell}$如\eqref{eq:finele-form-lin-nuh-reprensentation}所示。那么我们有范数不等式关系
+  \begin{equation}
+    \label{eq:finele-form-lin-norm-def}
+    \frac{\Delta_{\ell}}{\left( d+1 \right) \left( d+2 \right)}
+    \sum_{k=1}^{d+1} \nu_{\ell_{k}}^{2}
+    \le \left\| \nu_{h} \right\|_{L^{2}(\tau_{\ell})}^{2}
+    \le \frac{\Delta_{\ell}}{\left( d+1 \right)}
+    \sum_{k=1}^{d+1} \nu_{\ell_{k}}^{2}
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  线性方程$\nu_{h}(x) \in L^{2}(\tau_{\ell})$的范数
+  \begin{equation*}
+    \begin{split}
+      \left\| \nu_{h} \right\|_{L^{2}(\tau_{\ell})}^{2}
+      & = \langle \nu_{h}, \nu_{h} \rangle_{L^{2}(\tau_{\ell})} \\
+      & = \sum_{i=1}^{d+1} \sum_{j=1}^{d+1} \nu_{i} \nu_{j}
+      \int_{\tau} \psi_{i}\left( \xi \right) \psi_{j}\left( \xi \right) \left| \det J_{\ell} \right| \, d \xi \\
+      & = \left( G_{\ell} \, \underline{\nu}^{\ell}, \underline{\nu}^{\ell} \right),
+    \end{split}
+  \end{equation*}
+  其中$G_{\ell}$是局部质量矩阵(local mass matrix)\index{mass matrix!local \dotfill 局部质量矩阵}
+  \begin{equation*}
+    G_{\ell} = \frac{
+    \Delta_{\ell}
+    }{
+    \left( d + 1 \right)\left( d + 2 \right)}
+    \underbrace{
+    \left(
+    I_{d+1} + \underline{e}_{d+1} \underline{e}_{d+1}^{\top}
+    \right)
+    }_{\eqqcolon \mathcal{A}}
+    , \quad \underline{e}_{d+1} = \underline{1} \in \mathbb{R}^{d+1}.
+  \end{equation*}
+
+提取$G_{\ell}$矩阵$\mathcal{A}$，计算特征值，Mathematica中代码如下
+\begin{verbatim}
+  d = 3 (*三维系统d=3。改为2或1，对应二维、一维系统*)
+  ee = Table[1, d + 1, d + 1]
+  et = Transpose[ee]
+  ii = IdentityMatrix[d + 1]
+  new = ii + ee*et
+  Eigenvalues[new]
+\end{verbatim}
+可得$\lambda_{1}\left[ \mathcal{A} \right]=1, \, \lambda_{2}\left[ \mathcal{A} \right] = \ldots = \lambda_{d+1} \left[ \mathcal{A} \right] =1$。进而证得\eqref{eq:finele-form-lin-norm-def}。
+\end{proof}
+
+许多应用中需要将$\nu_{h}(x)$的斜率与$\nu_{h}(x)$自身关联起来，见下引理。
+\begin{lemma}[方程范数与方程斜率的范数]
+  \label{lemma:fenele-form-norm-gradient}
+  设线性方程$\nu_{h}$如\eqref{eq:finele-form-lin-nuh-reprensentation}所给定。则以下局部逆不等式关系成立
+  \begin{equation}
+    \label{eq:fenele-form-norm-gradient}
+    \left\| \triangledown_{x} \nu_{h} \right\|_{L^{2}(\tau_{\ell})}
+    \le c_{I} h_{\ell}^{-1} \left\| \nu_{h} \right\|_{L^{2}(\tau_{\ell})},
+  \end{equation}
+  其中常数$c_{I} > 0$。
+\end{lemma}
+\begin{proof}
+  分以下几步来证明。
+
+  第一步。由Theorem \ref{theorem:finele-ref-d123-norm-equiv}可得$\nu_{h}(x), \, x \in \tau_{\ell}$方程斜率的范，与形式方程$\widetilde{nu}_{\ell} (\xi), \, \xi \in \tau$方程斜率范的关系
+
+\end{proof}

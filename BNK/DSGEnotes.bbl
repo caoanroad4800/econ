@@ -1,4 +1,4 @@
-\begin{thebibliography}{252}
+\begin{thebibliography}{253}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -455,6 +455,13 @@
   external finance premium}}.
 \newblock \bibinfo{journal}{Cambridge Working Papers in Economics}
   \bibinfo{year}{2008};\bibinfo{volume}{0852}.
+%Type = Article
+\bibitem[{Cheng and Cheng(2005)}]{Cheng:2005cd}
+\bibinfo{author}{Cheng\xfnm[ A.H.D.]}, \bibinfo{author}{Cheng\xfnm[ D.T.]}.
+\newblock \bibinfo{title}{{Heritage and early history of the boundary element
+  method}}.
+\newblock \bibinfo{journal}{Engineering Analysis with Boundary Elements}
+  \bibinfo{year}{2005};\bibinfo{volume}{29}(\bibinfo{number}{3}):\bibinfo{pages}{268--302}.
 %Type = Article
 \bibitem[{Cho et~al.(2015)Cho, Cooley and Kim}]{Cho:2015ga}
 \bibinfo{author}{Cho\xfnm[ J.O.]}, \bibinfo{author}{Cooley\xfnm[ T.F.]},

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.30)  2 DEC 2017 01:27
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.30)  11 DEC 2017 16:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2079,35 +2079,35 @@ Package: xeCJK-listings 2017/11/22 v3.5.1 xeCJK patch file for listings
 (./DSGEnotes.aux)
 \openout1 = `DSGEnotes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 175.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 175.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 177.
+LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 177.
+LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 177.
+LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 177.
+LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 177.
+LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 177.
+LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 177.
+LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 177.
+LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 177.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 177.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 175.
-LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 177.
+LaTeX Font Info:    ... okay on input line 177.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 177.
+LaTeX Font Info:    ... okay on input line 177.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 175.
+LaTeX Info: Redefining \selectfont on input line 177.
 .................................................
 . fontspec info: "setup-math"
 . 
@@ -2115,57 +2115,57 @@ LaTeX Info: Redefining \selectfont on input line 175.
 .................................................
 \symlegacymaths=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 175.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 175.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 175.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 175.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 175.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 175.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 175.
-LaTeX Font Info:    Redeclaring math accent \check on input line 175.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 175.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 175.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 175.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 175.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 175.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 177.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 177.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 177.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 177.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 177.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 177.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 177.
+LaTeX Font Info:    Redeclaring math accent \check on input line 177.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 177.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 177.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 177.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 177.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 177.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 175.
+(Font)              `operators' in the math version `normal' on input line 177.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 175.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 177.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 175.
+(Font)              `operators' in the math version `bold' on input line 177.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 175.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 177.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 175.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 177.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 175.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 177.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 175.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 177.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 175.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 177.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 175.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 177.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/bx/n on input line 175.
+(Font)                  TU/lmr/m/n --> TU/lmr/bx/n on input line 177.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/bx/it on input line 175.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/bx/it on input line 177.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 175.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 177.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 175.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 177.
 \c@lstlisting=\count379
 Package marginnote Info: \pdfoutput not 0 or unimportant and
 (marginnote)             \pdflastxpos or \lastxpos available.
@@ -2207,7 +2207,7 @@ Package marginnote Info: \pdfoutput not 0 or unimportant and
 
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box102
-Package hyperref Info: Link coloring ON on input line 175.
+Package hyperref Info: Link coloring ON on input line 177.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -2217,9 +2217,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count380
 )
-LaTeX Info: Redefining \ref on input line 175.
-LaTeX Info: Redefining \pageref on input line 175.
-LaTeX Info: Redefining \nameref on input line 175.
+LaTeX Info: Redefining \ref on input line 177.
+LaTeX Info: Redefining \pageref on input line 177.
+LaTeX Info: Redefining \nameref on input line 177.
 
 (./DSGEnotes.out) (./DSGEnotes.out)
 \@outlinefile=\write6
@@ -2963,7 +2963,7 @@ Overfull \hbox (12.68271pt too wide) in paragraph at lines 411--413
 Overfull \hbox (28.67647pt too wide) in paragraph at lines 698--700
 \TU/STSong(0)/m/n/10 上 式 又 称 \TU/lmr/m/n/10 Babuška-Brezzi-Ladyshenskaya (BBL) 
 \TU/STSong(0)/m/n/10 条 件[]。|  通 常 来 说 我 们 无 法 直 接 从 \TU/lmr/m/n/10 Theorem [][]
-12.18[][]\TU/STSong(0)/m/n/10 式[][]\TU/lmr/m/n/10 12.93[][]\TU/STSong(0)/m/n/10
+12.18[][]\TU/STSong(0)/m/n/10 式[][]\TU/lmr/m/n/10 12.94[][]\TU/STSong(0)/m/n/10
  直
  []
 
@@ -2975,18 +2975,29 @@ eorem [][]12.46[][]\TU/STSong(0)/m/it/10 的 所 有 假 设 条 件 都 成 立
 的
  []
 
-[374]) [375] [376
+[374] [375] [376] [377]) (./chapters/bem-fem-0901-finele.tex [378]
+File: ./figures/20171209-finele-nodes.jpg Graphic file (type bmp)
+<./figures/20171209-finele-nodes.jpg>
+File: ./figures/20171209-decompo-adm-inadm.jpg Graphic file (type bmp)
+<./figures/20171209-decompo-adm-inadm.jpg>
+ [379]
+[380]
+Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
+File: ./figures/20171210-finele-refele.jpg Graphic file (type bmp)
+<./figures/20171210-finele-refele.jpg>
+ [381] [382] [383] [384] [385]) (./chapters/bem-fem-0902-finele.tex
+[386] [387]) [388] [389
 
-] [377] [378] [379
+] [390] [391
 
-] [380] [381
+] [392] [393
 
-] [382]
+] [394]
 (./chapters/appendix01.tex
 第一章
-[383
+[395
 
-] [384]
+] [396]
 Overfull \hbox (39.62521pt too wide) in paragraph at lines 212--213
 []\TU/STSong(0)/m/n/10 在 \TU/lmr/m/n/10 capital adjustment cost \TU/STSong(0)/m
 /n/10 设 定 下，|  家 庭 部 门 优 化 条 件 表 示 为 通 过 选 择 投 入 组 合 $\OMS/cmsy/m/n/10 f\OML/cm
@@ -2994,78 +3005,78 @@ m/m/it/10 C[]; I[]; \OT1/cmr/m/n/10 ^^A[]\OML/cmm/m/it/10 ; B[]; []\OMS/cmsy/m/
 n/10 g$\TU/STSong(0)/m/n/10 ，|
  []
 
-[385]
+[397]
 Overfull \hbox (13.77956pt too wide) detected at line 227
 []
  []
 
-[386] [387]) (./chapters/PK.tex [388]
+[398] [399]) (./chapters/PK.tex [400]
 第二章
-[389
+[401
 
-]) (./chapters/KNKNCE.tex [390]
+]) (./chapters/KNKNCE.tex [402]
 第三章
-[391
+[403
 
-] [392]
+] [404]
 Overfull \hbox (0.47757pt too wide) in paragraph at lines 68--69
 []\TU/STSong(0)/m/n/10 在 \TU/lmr/m/n/10 Marshallian \TU/STSong(0)/m/n/10 的 框 架 
 中，|  经 济 的 波 动 是 由 供 应 波 动 和 需 求 波 动 两 方 面 共 同 作 用 的 结 果。| \TU/lmr/m/n/10 Keyne
 s
  []
 
-[393] [394] [395]) [396] (./DSGEnotes.bbl [397
+[405] [406] [407]) [408] (./DSGEnotes.bbl [409
 
-] [398] [399] [400] [401]
-[402] [403]
-Underfull \hbox (badness 1681) in paragraph at lines 918--924
+] [410] [411] [412] [413]
+[414] [415]
+Underfull \hbox (badness 1681) in paragraph at lines 925--931
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[404] [405] [406] [407] [408] [409] [410]) [411] [412
+[416] [417] [418] [419] [420] [421] [422]) [423] [424
 
 ] (./DSGEnotes.lof)
 \tf@lof=\write8
 \openout8 = `DSGEnotes.lof'.
 
 
-[413] [414
+[425] [426
 
 ] (./DSGEnotes.lot)
 \tf@lot=\write9
 \openout9 = `DSGEnotes.lot'.
 
- [415] [416
+ [427] [428
 
 ] (./DSGEnotes.tdo)
 \tf@tdo=\write10
 \openout10 = `DSGEnotes.tdo'.
 
- [417] [418
+ [429] [430
 
 ]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
 
-(./DSGEnotes.ind [419
+(./DSGEnotes.ind [431
 
-] [420] [421] [422] [423] [424] [425
-\indexentry{残差方程(映射法)|hyperpage}{425}
-] [426]) [427]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 244.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 244.
+] [432] [433] [434] [435] [436] [437
+\indexentry{残差方程(映射法)|hyperpage}{437}
+] [438]) [439]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 249.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 249.
  (./DSGEnotes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 244.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 244.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 249.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 249.
  ) 
 Here is how much of TeX's memory you used:
- 47243 strings out of 493010
- 959704 string characters out of 6134663
- 1161804 words of memory out of 5000000
- 50441 multiletter control sequences out of 15000+600000
+ 47298 strings out of 493010
+ 961392 string characters out of 6134663
+ 1163390 words of memory out of 5000000
+ 50486 multiletter control sequences out of 15000+600000
  545437 words of font info for 123 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  62i,27n,104p,10415b,2356s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (427 pages, 6630204 bytes).
+Output written on DSGEnotes.xdv (439 pages, 6810480 bytes).
