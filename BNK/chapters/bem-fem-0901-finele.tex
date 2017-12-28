@@ -107,9 +107,10 @@
 \end{equation*}
 
 如果$h_{\max}$和$h_{\min}$的比值小于等于一个全常数$c_{G} \ge 0$，即以下比值有界
-\begin{equation*}
+\begin{equation}
+  \label{eq:finele-ref-quasi-uniform}
   \frac{h_{\max}}{h_{\min}} \le c_{G},
-\end{equation*}
+\end{equation}
 那么我们称对应的分解$\mathcal{T}_{N}$是全局拟一致的(globally quasi-uniform)\index{quansi-uniform!globally \dotfill 全局拟一致}的；$c_{G} \ge 1$的值与$N \in \mathbb{N}$无关。
 
 对应地，如果对于任何两个临近的有限元$\tau_{\ell}$和$\tau{j}$都有
@@ -654,8 +655,8 @@ $d=3$时，参考元$\tau$表现为四面体(tetraderon)形式
     \le \left\| \triangledown_{x}^{m} \nu
     \right\|_{L^{2}(\tau_{\ell})}^{2}
     \le c_{2} \Delta_{\ell} h^{-2m} \,
-    \left\| \triangledown_{x}^{m} \nu
-    \right\|_{L^{2}(\tau_{\ell})}^{2},
+    \left\| \triangledown_{\xi}^{m} \widetilde{\nu}_{\ell}
+    \right\|_{L^{2}(\tau)}^{2},
 %  \end{split}
 \end{equation*}
 其中常数$\left(c_{1}, c_{2} \right)>0$，并且可能与$m$和$c_{F}$有关。

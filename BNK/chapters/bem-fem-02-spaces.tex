@@ -1000,6 +1000,7 @@ Sobolev–Slobodeckij 空间\index{Sobolev-Slobodeckij!space \dotfill Sobolev–
 同样的，$\mathring{W}^{-s,p}(\Omega)$是$W^{-s,q}(\Omega)$的对偶空间。
 
 \subsubsection{索伯列夫空间的性质：嵌入定理}
+\label{sec:imbedding-sobolev}
 介绍一些索伯列夫空间$W^{s,p}(\Omega)$的性质，这些性质有助于更好理解下文介绍的有界元法和有限元法。第一个性质可表示为索伯列夫空间的嵌入定理，我们先从霍德尔不等式入手。
 
 \begin{definition}[霍德尔不等式]
@@ -1644,7 +1645,7 @@ $\Omega$有界 $\Rightarrow M \coloneqq \max_{\bm{x} \in \Omega}  \left| \bm{x} 
 那么我们可得
 \begin{equation}
   \label{eq:bramble-hilbert-lemma}
-  \big| f(\nu) \big| \le C(C_p) \, C_f \, \big| \nu \big|_{W^{k+1},2}(\Omega),
+  \big| f(\nu) \big| \le C(C_p) \, C_f \, \big| \nu \big|_{W^{k+1},2(\Omega)},
 \end{equation}
 其中$C(C_p)$是一个与庞加莱不等式\eqref{eq:sobolev-poincare-inequality}中系数$C_p$有关的常数。
 \end{lemma}
