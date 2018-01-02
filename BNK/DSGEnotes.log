@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.11.30)  28 DEC 2017 15:21
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.1.2)  3 JAN 2018 00:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1199,63 +1199,53 @@ File: ctex-name-utf8.cfg 2017/11/22 v2.4.11 Caption with encoding UTF8 (CTEX)
 . Defining command \CTeX with sig. '' on line 1432.
 .................................................
 
-(/usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def
-File: ctex-fontset-mac.def 2017/11/22 v2.4.11 Mac OS X fonts definition (CTEX)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.
+def
+File: ctex-fontset-fandol.def 2017/11/22 v2.4.11 Fandol fonts definition (CTEX)
+
+
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
-* Font 'STSong' does not contain script 'CJK'.
+* Font 'FandolSong-Regular' does not contain script 'CJK'.
 *************************************************
-\g__fontspec_family_STSong_int=\count197
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font "STKaiti/B" (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font "STHeiti/I" (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font "STSong/BI" (it probably doesn't exist).
-.................................................
+\g__fontspec_family_FandolSong-Regular_int=\count197
 .................................................
 . fontspec info: "defining-font"
 . 
-. Font family 'STSong(0)' created for font 'STSong' with options
-. [Script={CJK},BoldFont={STHeiti},ItalicFont={STKaiti}].
+. Font family 'FandolSong-Regular(0)' created for font 'FandolSong-Regular'
+. with options
+. [Script={CJK},Extension={.otf},BoldFont={FandolSong-Bold},ItalicFont={FandolK
+ai-Regular}].
 .  
 .  This font family consists of the following NFSS series/shapes:
 .  
-. - 'normal' (m/n) with NFSS spec.: <->"STSong/OT"
+. - 'normal' (m/n) with NFSS spec.: <->"[FandolSong-Regular.otf]/OT"
 . - 'small caps'  (m/sc) with NFSS spec.: 
-. - 'bold' (bx/n) with NFSS spec.: <->"STHeiti/OT"
+. - 'bold' (bx/n) with NFSS spec.: <->"[FandolSong-Bold.otf]/OT"
 . - 'bold small caps'  (bx/sc) with NFSS spec.: 
-. - 'italic' (m/it) with NFSS spec.: <->"STKaiti/OT"
+. - 'italic' (m/it) with NFSS spec.: <->"[FandolKai-Regular.otf]/OT"
 . - 'italic small caps'  (m/itsc) with NFSS spec.: 
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \songti with sig. '' on line 48.
+. Defining command \songti with sig. '' on line 114.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \heiti with sig. '' on line 49.
+. Defining command \heiti with sig. '' on line 115.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \fangsong with sig. '' on line 50.
+. Defining command \fangsong with sig. '' on line 116.
 .................................................
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining command \kaishu with sig. '' on line 51.
+. Defining command \kaishu with sig. '' on line 117.
 .................................................
 )) (/usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex.cfg
 File: ctex.cfg 2017/11/22 v2.4.11 Configuration file (CTEX)
@@ -1331,52 +1321,7 @@ LaTeX Info: Redefining \LaTeXe on input line 219.
 *************************************************
 * xeCJK warning: "CJKfamily-redef"
 * 
-* Redefining CJKfamily `\CJKrmdefault' (STSong(0)).
-*************************************************
-*************************************************
-* fontspec warning: "script-not-exist"
-* 
-* Font 'STSong' does not contain script 'CJK'.
-*************************************************
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font "STKaiti/B" (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font "STZhongsong/I" (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font "STSong/BI" (it probably doesn't exist).
-.................................................
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'STSong(1)' created for font 'STSong' with options
-. [Script={CJK},BoldFont={STZhongsong},ItalicFont={STKaiti}].
-.  
-.  This font family consists of the following NFSS series/shapes:
-.  
-. - 'normal' (m/n) with NFSS spec.: <->"STSong/OT"
-. - 'small caps'  (m/sc) with NFSS spec.: 
-. - 'bold' (bx/n) with NFSS spec.: <->"STZhongsong/OT"
-. - 'bold small caps'  (bx/sc) with NFSS spec.: 
-. - 'italic' (m/it) with NFSS spec.: <->"STKaiti/OT"
-. - 'italic small caps'  (m/itsc) with NFSS spec.: 
-.................................................
-*************************************************
-* xeCJK warning: "CJKfamily-redef"
-* 
-* Redefining CJKfamily `\CJKsfdefault' (STXihei).
-*************************************************
-*************************************************
-* xeCJK warning: "CJKfamily-redef"
-* 
-* Redefining CJKfamily `\CJKttdefault' (STFangsong).
+* Redefining CJKfamily `\CJKttdefault' (FandolFang-Regular).
 *************************************************
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
@@ -2590,9 +2535,10 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 4.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [3]
-LaTeX Font Info:    Font shape `TU/STSong(1)/m/sl' in size <10> not available
-(Font)              Font shape `TU/STSong(1)/m/it' tried instead on input line 
-118.
+LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <10> not
+ available
+(Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
+ input line 118.
  [4]
 [5] [6] [7] [8] [9] [10])
 \tf@toc=\write8
@@ -2634,7 +2580,7 @@ Overfull \hbox (50.43169pt too wide) detected at line 754
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
  [47] [48] [49]
-Underfull \vbox (badness 1226) has occurred while \output is active []
+Underfull \vbox (badness 1221) has occurred while \output is active []
 
  [50]
 [51]
@@ -2689,14 +2635,14 @@ Overfull \hbox (60.15652pt too wide) detected at line 241
 
 [86] [87]
 Underfull \hbox (badness 10000) in paragraph at lines 289--290
-[]\TU/STSong(1)/m/n/10 市 场 价 格 和 利 率，|  包 括 劳 动 力 和 资 本 价 格，|  总 物 价 水 平，|  影 子
- 价 格 和 国 债 利 率
+[]\TU/FandolSong-Regular(0)/m/n/10 市 场 价 格 和 利 率，|  包 括 劳 动 力 和 资 本 价 格，|  总 物 
+价 水 平，|  影 子 价 格 和 国 债 利 率
  []
 
 [88] [89] [90] [91]) (./chapters/DSGE-CIA.tex [92]
 第六章
-File: ./figures/20170324-CIA-outline.pdf Graphic file (type pdf)
-<use ./figures/20170324-CIA-outline.pdf>
+File: ./Figures/20170324-CIA-outline.pdf Graphic file (type pdf)
+<use ./Figures/20170324-CIA-outline.pdf>
 [93
 
 ] [94]
@@ -2706,10 +2652,11 @@ Overfull \hbox (34.29382pt too wide) detected at line 158
 
 [95] [96] [97]
 Overfull \hbox (18.16705pt too wide) in paragraph at lines 328--329
-[]\TU/STSong(1)/m/n/10 模 型 均 衡 方 程 组 由 \TU/lmr/m/n/10 9 \TU/STSong(1)/m/n/10 个 
-内 生 变 量 和 \TU/lmr/m/n/10 2 \TU/STSong(1)/m/n/10 个 外 生 变 量 $\OMS/cmsy/m/n/10 f\O
-ML/cmm/m/it/10 K[]; N[]; D[]; C[]; L[]; P[]; W[]; Y[]; R[]; A[]\OT1/cmr/m/n/10 
-/\OML/cmm/m/it/10 A[]; m[]\OMS/cmsy/m/n/10 g$
+[]\TU/FandolSong-Regular(0)/m/n/10 模 型 均 衡 方 程 组 由 \TU/lmr/m/n/10 9 \TU/FandolS
+ong-Regular(0)/m/n/10 个 内 生 变 量 和 \TU/lmr/m/n/10 2 \TU/FandolSong-Regular(0)/m/
+n/10 个 外 生 变 量 $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 K[]; N[]; D[]; C[]; L[]; P[]
+; W[]; Y[]; R[]; A[]\OT1/cmr/m/n/10 /\OML/cmm/m/it/10 A[]; m[]\OMS/cmsy/m/n/10 
+g$
  []
 
 [98] [99] [100]) [101] [102
@@ -2787,16 +2734,16 @@ Overfull \hbox (69.42162pt too wide) detected at line 620
 
 [132] [133] [134] [135] [136]
 Underfull \hbox (badness 10000) in paragraph at lines 1023--1025
-\TU/STSong(1)/m/n/10 那 么 在 我 们 知 道 了 方 程 $\OML/cmm/m/it/10 f[]$ \TU/STSong(1)/m
-/n/10 近 似 形 式 的 情 况 下，|  一 旦 我 们 得 到 未 来 期 的 条 件 期 望
+\TU/FandolSong-Regular(0)/m/n/10 那 么 在 我 们 知 道 了 方 程 $\OML/cmm/m/it/10 f[]$ \TU
+/FandolSong-Regular(0)/m/n/10 近 似 形 式 的 情 况 下，|  一 旦 我 们 得 到 未 来 期 的 条 件 期 望
  []
 
 
-Underfull \hbox (badness 1337) in paragraph at lines 1023--1025
+Underfull \hbox (badness 1348) in paragraph at lines 1023--1025
 \OML/cmm/m/it/10 E[]h\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; u[]; z[]\OT1/cmr/m/
-n/10 )$\TU/STSong(1)/m/n/10 ，|  便 可 以 后 向 求 解 当 前 期 的 $\OML/cmm/m/it/10 x[]$\TU
-/STSong(1)/m/n/10 。|  换 句 话 说，|  一 旦 我 们 知 道 了 $\OML/cmm/m/it/10 x[]$ \TU/STSon
-g(1)/m/n/10 的 值，|
+n/10 )$\TU/FandolSong-Regular(0)/m/n/10 ，|  便 可 以 后 向 求 解 当 前 期 的 $\OML/cmm/m/i
+t/10 x[]$\TU/FandolSong-Regular(0)/m/n/10 。|  换 句 话 说，|  一 旦 我 们 知 道 了 $\OML/cm
+m/m/it/10 x[]$ \TU/FandolSong-Regular(0)/m/n/10 的 值，|
  []
 
 [137]
@@ -2889,10 +2836,11 @@ Overfull \hbox (8.0942pt too wide) detected at line 92
 
 [200] [201] [202] [203] [204] [205] [206] [207]
 Underfull \hbox (badness 1490) in paragraph at lines 620--621
-[]\TU/STSong(1)/m/n/10 在 求 得 首 一 多 项 式 $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 p[]\
-OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^U\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 g[]$ \TU/
-STSong(1)/m/n/10 的 三 项 递 归 关 系 系 数 $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^K[]; ^^
-M[]\OT1/cmr/m/n/10 )$ \TU/STSong(1)/m/n/10 后，|  对 应 的 标 准 多 项 式
+[]\TU/FandolSong-Regular(0)/m/n/10 在 求 得 首 一 多 项 式 $\OMS/cmsy/m/n/10 f\OML/cmm/
+m/it/10 p[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^U\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/
+10 g[]$ \TU/FandolSong-Regular(0)/m/n/10 的 三 项 递 归 关 系 系 数 $\OT1/cmr/m/n/10 (\O
+ML/cmm/m/it/10 ^^K[]; ^^M[]\OT1/cmr/m/n/10 )$ \TU/FandolSong-Regular(0)/m/n/10 
+后，|  对 应 的 标 准 多 项 式
  []
 
 [208] [209] [210] [211]
@@ -3026,15 +2974,15 @@ Overfull \hbox (56.20865pt too wide) in paragraph at lines 2728--2728
 
 [240] [241] [242]
 Underfull \hbox (badness 5036) in paragraph at lines 2912--2912
-[][][]\TU/STSong(1)/m/n/8 关 于 稳 态 斯 托 克 斯 公 式 弱 形 式 的 分 析，|  以 及 上 极 限 — —|  下 
-极 限 条 件，|  可 参 考 \TU/lmr/m/n/8 Chen Long \TU/STSong(1)/m/n/8 的 讲 义 [][]\TU/lmr/
-m/n/8 https://
+[][][]\TU/FandolSong-Regular(0)/m/n/8 关 于 稳 态 斯 托 克 斯 公 式 弱 形 式 的 分 析，|  以 及 上 
+极 限 — —|  下 极 限 条 件，|  可 参 考 \TU/lmr/m/n/8 Chen Long \TU/FandolSong-Regular(0)/
+m/n/8 的 讲 义 [][]\TU/lmr/m/n/8 https://
  []
 
 [243] [244] [245]
-Underfull \hbox (badness 1552) in paragraph at lines 3092--3095
-\TU/STSong(1)/m/n/10 我 们 证 明[]即 可。|  这 是 因 为 既 然 子 空 间 $\OML/cmm/m/it/10 V[]$ \
-TU/STSong(1)/m/n/10 是 有 限 维 度 的，|  那 么 一 旦[]成 立，|
+Underfull \hbox (badness 1565) in paragraph at lines 3092--3095
+\TU/FandolSong-Regular(0)/m/n/10 我 们 证 明[]即 可。|  这 是 因 为 既 然 子 空 间 $\OML/cmm/m/
+it/10 V[]$ \TU/FandolSong-Regular(0)/m/n/10 是 有 限 维 度 的，|  那 么 一 旦[]成 立，|
  []
 
 ) (./chapters/bem-fem-01-potentials.tex [246]
@@ -3043,9 +2991,9 @@ TU/STSong(1)/m/n/10 是 有 限 维 度 的，|  那 么 一 旦[]成 立，|
 
 ] [248] [249]) (./chapters/bem-fem-02-spaces.tex [250] [251] [252]
 Underfull \hbox (badness 1675) in paragraph at lines 189--190
-[]$\OML/cmm/m/it/10 ^^V$ \TU/STSong(1)/m/it/10 是 可 数 的 次 可 加 方 程 \TU/lmr/m/it/1
-0 (countably subadditive)\TU/STSong(1)/m/it/10 。|  在 $\OT1/cmr/m/n/10 ^^F$ \TU/
-STSong(1)/m/it/10 中 的 任 何 可 数 可 测 集 合
+[]$\OML/cmm/m/it/10 ^^V$ \TU/FandolSong-Regular(0)/m/it/10 是 可 数 的 次 可 加 方 程 \T
+U/lmr/m/it/10 (countably subadditive)\TU/FandolSong-Regular(0)/m/it/10 。|  在 $\
+OT1/cmr/m/n/10 ^^F$ \TU/FandolSong-Regular(0)/m/it/10 中 的 任 何 可 数 可 测 集 合
  []
 
 [253] [254] [255] [256] [257] [258] [259] [260] [261] [262] [263] [264]
@@ -3058,24 +3006,25 @@ Missing character: There is no 。 in font [lmroman10-regular]:mapping=tex-text;
 [277] [278] [279] [280] [281] [282] [283] [284])
 (./chapters/bem-fem-03-varmethod.tex [285] [286] [287] [288]
 Underfull \hbox (badness 1072) in paragraph at lines 292--293
-[]\TU/STSong(1)/m/n/10 证 明 $\OML/cmm/m/it/10 u \OMS/cmsy/m/n/10 2 \OML/cmm/m/it
-/10 X$ \TU/STSong(1)/m/n/10 是 最 小 化 问 题 和 变 分 问 题 的 唯 一 解。|  假 定 还 存 在 另 一 个 $[
-] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X$\TU/STSong(1)/m/n/10 ，|  也
+[]\TU/FandolSong-Regular(0)/m/n/10 证 明 $\OML/cmm/m/it/10 u \OMS/cmsy/m/n/10 2 \
+OML/cmm/m/it/10 X$ \TU/FandolSong-Regular(0)/m/n/10 是 最 小 化 问 题 和 变 分 问 题 的 唯 一
+ 解。|  假 定 还 存 在 另 一 个 $[] \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X$\TU/FandolSong-
+Regular(0)/m/n/10 ，|  也
  []
 
 [289] [290] [291] [292] [293] [294] [295] [296] [297] [298] [299]
 Underfull \hbox (badness 1527) in paragraph at lines 1163--1165
-[]\TU/STSong(1)/m/n/10 根 据 拉 克 斯 一 密 格 拉 蒙 定 理 \TU/lmr/m/n/10 (Theorem [][]12.1
-4[][])\TU/STSong(1)/m/n/10 ，|  可 以 证 明 混 合 算 子 方 程 \TU/lmr/m/n/10 (\TU/STSong(1
-)/m/n/10 鞍 点 变 分 问
+[]\TU/FandolSong-Regular(0)/m/n/10 根 据 拉 克 斯 一 密 格 拉 蒙 定 理 \TU/lmr/m/n/10 (Theo
+rem [][]12.14[][])\TU/FandolSong-Regular(0)/m/n/10 ，|  可 以 证 明 混 合 算 子 方 程 \TU/
+lmr/m/n/10 (\TU/FandolSong-Regular(0)/m/n/10 鞍 点 变 分 问
  []
 
 [300] [301]) (./chapters/bem-fem-04-varbvp.tex [302] [303] [304] [305] [306]
 [307] [308] [309]
 Underfull \hbox (badness 3590) in paragraph at lines 720--721
-[][]\TU/lmr/bx/n/10 Theorem 12.27 \TU/lmr/m/n/10 (\TU/STSong(1)/m/n/10 诺 依 曼 边 
-界 值 问 题 的 鞍 点 变 分 法 求 解\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/STSong(1)/m/it/1
-0 诺 依 曼 边 界 值 的 鞍 点 变 分 问
+[][]\TU/lmr/bx/n/10 Theorem 12.27 \TU/lmr/m/n/10 (\TU/FandolSong-Regular(0)/m/n
+/10 诺 依 曼 边 界 值 问 题 的 鞍 点 变 分 法 求 解\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/Fand
+olSong-Regular(0)/m/it/10 诺 依 曼 边 界 值 的 鞍 点 变 分 问
  []
 
 [310] [311] [312] [313]) (./chapters/bem-fem-05-laplaceop.tex [314]
@@ -3093,8 +3042,9 @@ sy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j\OT1/cmr/m/n/10 ) = [][] [] \OML
 
 [316]
 Underfull \hbox (badness 1019) in paragraph at lines 398--399
-[]\TU/STSong(1)/m/n/10 对 于 二 维 空 间 $\OML/cmm/m/it/10 d \OT1/cmr/m/n/10 = 2$ \TU
-/STSong(1)/m/n/10 的 情 况，|  首 先 要 对 基 本 解 的 逆 傅 里 叶 变 换 作 一 定 的 正 则 化 处 理
+[]\TU/FandolSong-Regular(0)/m/n/10 对 于 二 维 空 间 $\OML/cmm/m/it/10 d \OT1/cmr/m/n
+/10 = 2$ \TU/FandolSong-Regular(0)/m/n/10 的 情 况，|  首 先 要 对 基 本 解 的 逆 傅 里 叶 变 换 
+作 一 定 的 正 则 化 处 理
  []
 
 [317]
@@ -3105,10 +3055,10 @@ Overfull \hbox (0.67883pt too wide) detected at line 539
 [318]) (./chapters/bem-fem-0601-boundintop.tex [319] [320] [321] [322] [323]
 [324] [325] [326]
 Underfull \hbox (badness 1527) in paragraph at lines 828--829
-[][]\TU/lmr/bx/n/10 Lemma 12.22 \TU/lmr/m/n/10 (\TU/STSong(1)/m/n/10 伴 随 双 层 位 
-势 算 子\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/STSong(1)/m/it/10 给 定 密 度 方 程 $\OM
-L/cmm/m/it/10 w \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (^^@)$\T
-U/STSong(1)/m/it/10 ，|  对 应 内 部 共 形 导 数
+[][]\TU/lmr/bx/n/10 Lemma 12.22 \TU/lmr/m/n/10 (\TU/FandolSong-Regular(0)/m/n/1
+0 伴 随 双 层 位 势 算 子\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/FandolSong-Regular(0)/
+m/it/10 给 定 密 度 方 程 $\OML/cmm/m/it/10 w \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[]
+\OT1/cmr/m/n/10 (^^@)$\TU/FandolSong-Regular(0)/m/it/10 ，|  对 应 内 部 共 形 导 数
  []
 
 [327] [328] [329] [330] [331] [332]) (./chapters/bem-fem-0602-boundintop.tex
@@ -3117,40 +3067,39 @@ Overfull \hbox (1.62463pt too wide) detected at line 1278
 []
  []
 
-[341] [342] [343] [344] [345]) (./chapters/bem-fem-0603-boundintop.tex [346]
+[341] [342] [343] [344] [345] [346]) (./chapters/bem-fem-0603-boundintop.tex
 [347] [348] [349] [350] [351] [352] [353])
 (./chapters/bem-fem-0604-boundintop.tex [354] [355] [356])
-(./chapters/bem-fem-07-bie.tex [357] [358]
-Underfull \vbox (badness 1776) has occurred while \output is active []
-
- [359]
-[360] [361] [362] [363] [364] [365]) (./chapters/bem-fem-08-approx.tex [366]
-[367] [368] [369] [370] [371] [372] [373]
+(./chapters/bem-fem-07-bie.tex [357] [358] [359] [360] [361] [362] [363]
+[364] [365]) (./chapters/bem-fem-08-approx.tex [366] [367] [368] [369] [370]
+[371] [372] [373] [374]
 Underfull \hbox (badness 1199) in paragraph at lines 698--700
-\TU/STSong(1)/m/n/10 上 式 又 称 \TU/lmr/m/n/10 Babuška-Brezzi-Ladyshenskaya (BBL) 
-\TU/STSong(1)/m/n/10 条 件[]。|  通 常 来 说 我 们 无 法 直 接 从 \TU/lmr/m/n/10 Theorem
+\TU/FandolSong-Regular(0)/m/n/10 上 式 又 称 \TU/lmr/m/n/10 Babuška-Brezzi-Ladyshen
+skaya (BBL) \TU/FandolSong-Regular(0)/m/n/10 条 件[]。|  通 常 来 说 我 们 无 法 直 接 从 \TU
+/lmr/m/n/10 Theorem
  []
 
-[374] [375] [376] [377] [378] [379]) (./chapters/bem-fem-0901-finele.tex
-[380]
-File: ./figures/20171209-finele-nodes.jpg Graphic file (type bmp)
-<./figures/20171209-finele-nodes.jpg>
-File: ./figures/20171209-decompo-adm-inadm.jpg Graphic file (type bmp)
-<./figures/20171209-decompo-adm-inadm.jpg>
- [381] [382]
+[375] [376] [377] [378] [379] [380]) (./chapters/bem-fem-0901-finele.tex
+File: ./Figures/20171209-finele-nodes.jpg Graphic file (type bmp)
+<./Figures/20171209-finele-nodes.jpg>
+
+[381]
+File: ./Figures/20171209-decompo-adm-inadm.jpg Graphic file (type bmp)
+<./Figures/20171209-decompo-adm-inadm.jpg>
+ [382]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
-File: ./figures/20171210-finele-refele.jpg Graphic file (type bmp)
-<./figures/20171210-finele-refele.jpg>
- [383] [384] [385] [386] [387])
-(./chapters/bem-fem-0902-finele.tex [388] [389] [390] [391] [392]
-File: ./figures/20171214-trial-space-basis.jpg Graphic file (type bmp)
-<./figures/20171214-trial-space-basis.jpg>
- [393]
-[394]) [395] [396
+File: ./Figures/20171210-finele-refele.jpg Graphic file (type bmp)
+<./Figures/20171210-finele-refele.jpg>
+ [383] [384] [385] [386] [387]) (./chapters/bem-fem-0902-finele.tex
+[388] [389] [390] [391] [392]
+File: ./Figures/20171214-trial-space-basis.jpg Graphic file (type bmp)
+<./Figures/20171214-trial-space-basis.jpg>
+ [393] [394]) [395] [396
 
 ] [397] [398] [399
 
-] [400] (./chapters/mle.tex
+]
+[400] (./chapters/mle.tex
 第十三章
 [401
 
@@ -3173,8 +3122,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 483--484
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
  [408]
 Underfull \hbox (badness 4217) in paragraph at lines 609--610
-[]\TU/STSong(1)/m/n/10 在 很 多 情 况 下，|  我 们 无 法 通 过 解 析 法 求 得 最 大 化 的 解。|  这 时 需 
-要 数 值 近 似 求 解，|  利
+[]\TU/FandolSong-Regular(0)/m/n/10 在 很 多 情 况 下，|  我 们 无 法 通 过 解 析 法 求 得 最 大 化 的
+ 解。|  这 时 需 要 数 值 近 似 求 解，|  利
  []
 
 [409] [410]
@@ -3201,8 +3150,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 817--818
 
 ] [422]
 Underfull \hbox (badness 5203) in paragraph at lines 212--213
-[]\TU/STSong(1)/m/n/10 在 \TU/lmr/m/n/10 capital adjustment cost \TU/STSong(1)/m
-/n/10 设 定 下，|  家 庭 部 门 优 化 条 件 表 示 为 通 过 选 择 投 入 组 合
+[]\TU/FandolSong-Regular(0)/m/n/10 在 \TU/lmr/m/n/10 capital adjustment cost \TU
+/FandolSong-Regular(0)/m/n/10 设 定 下，|  家 庭 部 门 优 化 条 件 表 示 为 通 过 选 择 投 入 组 合
  []
 
 [423]
@@ -3268,12 +3217,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 49575 strings out of 493010
- 1001965 string characters out of 6134663
- 1214643 words of memory out of 5000000
- 52664 multiletter control sequences out of 15000+600000
- 545477 words of font info for 128 fonts, out of 8000000 for 9000
+ 49565 strings out of 493010
+ 1010558 string characters out of 6134665
+ 1215117 words of memory out of 5000000
+ 52662 multiletter control sequences out of 15000+600000
+ 545469 words of font info for 127 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  62i,27n,104p,10415b,2349s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (466 pages, 7172972 bytes).
+Output written on DSGEnotes.xdv (466 pages, 7173224 bytes).

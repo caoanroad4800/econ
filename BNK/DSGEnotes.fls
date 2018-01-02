@@ -1,4 +1,4 @@
-PWD /Users/YYZ/Documents/Programs/Projects/BNK
+PWD /home/yyz/Soft/econ/BNK
 INPUT /usr/local/texlive/2017/texmf.cnf
 INPUT /usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt
@@ -107,9 +107,8 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chine
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
 INPUT /dev/null
-INPUT /Library/Fonts/Songti.ttc
-INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def
-INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex.cfg
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex.cfg
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/xltxtra/xltxtra.sty
@@ -455,7 +454,7 @@ INPUT ./chapters/DSGE-banking.tex
 INPUT ./chapters/DSGE-banking.tex
 INPUT ./chapters/DSGE-CIA.tex
 INPUT ./chapters/DSGE-CIA.tex
-INPUT ./figures/20170324-CIA-outline.pdf
+INPUT ./Figures/20170324-CIA-outline.pdf
 INPUT ./chapters/solution-strategies.tex
 INPUT ./chapters/solution-strategies.tex
 INPUT ./Figures/20170701-DSGE-workflow.pdf
@@ -528,12 +527,12 @@ INPUT ./chapters/bem-fem-08-approx.tex
 INPUT ./chapters/bem-fem-08-approx.tex
 INPUT ./chapters/bem-fem-0901-finele.tex
 INPUT ./chapters/bem-fem-0901-finele.tex
-INPUT ./figures/20171209-finele-nodes.jpg
-INPUT ./figures/20171209-decompo-adm-inadm.jpg
-INPUT ./figures/20171210-finele-refele.jpg
+INPUT ./Figures/20171209-finele-nodes.jpg
+INPUT ./Figures/20171209-decompo-adm-inadm.jpg
+INPUT ./Figures/20171210-finele-refele.jpg
 INPUT ./chapters/bem-fem-0902-finele.tex
 INPUT ./chapters/bem-fem-0902-finele.tex
-INPUT ./figures/20171214-trial-space-basis.jpg
+INPUT ./Figures/20171214-trial-space-basis.jpg
 INPUT ./chapters/mle.tex
 INPUT ./chapters/mle.tex
 INPUT ./Figures/output_5_0.png
