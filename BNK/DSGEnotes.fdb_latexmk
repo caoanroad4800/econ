@@ -1,11 +1,18 @@
 # Fdb version 3
+<<<<<<< HEAD
 ["bibtex DSGEnotes"] 1514445477 "DSGEnotes.aux" "DSGEnotes.bbl" "DSGEnotes" 1514633704
   "./model4-names.bst" 1302930546 28214 de501ffbf7fe1fde2983e5f043e9abba ""
   "./refs/papers.bib" 1514439220 654171 2111b3a55b49edf5aa4b954147747f6e ""
   "DSGEnotes.aux" 1514633701 245623 2886d0ba168d156b7a324069f3e5957e ""
+=======
+["bibtex DSGEnotes"] 1514909662 "DSGEnotes.aux" "DSGEnotes.bbl" "DSGEnotes" 1514911008
+  "./model4-names.bst" 1514907358 28214 de501ffbf7fe1fde2983e5f043e9abba ""
+  "./refs/papers.bib" 1514907358 654171 2111b3a55b49edf5aa4b954147747f6e ""
+  "DSGEnotes.aux" 1514911005 245629 f4de96481ebaf13ed8bee6f7e90e0b3a ""
+>>>>>>> 43d4796c6be3bfb6ffcf58d4316a54b2e08ebfb8
   (generated)
-  "DSGEnotes.bbl"
   "DSGEnotes.blg"
+<<<<<<< HEAD
 ["makeindex DSGEnotes.idx"] 1514443505 "DSGEnotes.idx" "DSGEnotes.ind" "DSGEnotes" 1514633704
   "DSGEnotes.idx" 1514633701 30164 7e42e72187922b9aa20e7f0535c45a1d ""
   (generated)
@@ -18,6 +25,20 @@
 ["xelatex"] 1514445666 "DSGEnotes.tex" "DSGEnotes.xdv" "DSGEnotes" 1514633704
   "/Library/Fonts/Songti.ttc" 1501211855 66933232 48b917363d34d9f8e018d72f817cd5db ""
   "/dev/null" 1514633704 0 d41d8cd98f00b204e9800998ecf8427e ""
+=======
+  "DSGEnotes.bbl"
+["makeindex DSGEnotes.idx"] 1514909662 "DSGEnotes.idx" "DSGEnotes.ind" "DSGEnotes" 1514911008
+  "DSGEnotes.idx" 1514911005 30164 8875b76316f29c1178c1197f898b3bfa ""
+  (generated)
+  "DSGEnotes.ind"
+  "DSGEnotes.ilg"
+["xdvipdfmx"] 1514911006 "DSGEnotes.xdv" "DSGEnotes.pdf" "DSGEnotes" 1514911008
+  "DSGEnotes.xdv" 1514911005 7173224 c3eb3330e7adfe0e5e420e588e36b2b5 "xelatex"
+  (generated)
+  "DSGEnotes.pdf"
+["xelatex"] 1514910995 "DSGEnotes.tex" "DSGEnotes.xdv" "DSGEnotes" 1514911008
+  "/dev/null" 1514910451 0 d41d8cd98f00b204e9800998ecf8427e ""
+>>>>>>> 43d4796c6be3bfb6ffcf58d4316a54b2e08ebfb8
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1480098689 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1480098698 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -167,7 +188,7 @@
   "/usr/local/texlive/2017/texmf-dist/tex/latex/ctex/ctexhook.sty" 1511390490 2768 d3ea7b4b86dfc2f1b69234d26cc2fb7e ""
   "/usr/local/texlive/2017/texmf-dist/tex/latex/ctex/ctexpatch.sty" 1511390490 8526 1c04a05d22ec7fcb7f2c7c41e00cef8c ""
   "/usr/local/texlive/2017/texmf-dist/tex/latex/ctex/engine/ctex-engine-xetex.def" 1511390490 5665 6bf4c93b9172f9ab01aee52c912becdb ""
-  "/usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def" 1511390490 2137 9bb959956191a53a89f266c0b7509e62 ""
+  "/usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def" 1511390490 4996 c372c1f366921f6061d38a1a37c8b6a2 ""
   "/usr/local/texlive/2017/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chinese-book.def" 1511390490 5406 74a7314a6a129a910efca4729ecea531 ""
   "/usr/local/texlive/2017/texmf-dist/tex/latex/enumitem/enumitem.sty" 1480098827 42666 6fa770e3485520a6a5f2ea7d259c8f8d ""
   "/usr/local/texlive/2017/texmf-dist/tex/latex/environ/environ.sty" 1480098827 4378 f429f0da968c278653359293040a8f52 ""
@@ -260,6 +281,7 @@
   "/usr/local/texlive/2017/texmf-dist/tex/xelatex/xecjk/xunicode-extra.def" 1511390560 61599 de2440fd61fa0055147622f458a67766 ""
   "/usr/local/texlive/2017/texmf-dist/tex/xelatex/xunicode/xunicode.sty" 1480098847 205722 8027ed7ab2230086d647802c25f3ee42 ""
   "/usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf" 1494087824 32646 eadc4ca26cdbe7105ac7c593aa8c4f72 ""
+<<<<<<< HEAD
   "/usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt" 1512025722 3704931 7e41410a61f629e92ef22bfc0114cf7d ""
   "/usr/local/texlive/2017/texmf.cnf" 1495593465 577 2b71d4d888f9e5560b2e99985915a9fa ""
   "DSGEnotes.aux" 1514633701 245623 2886d0ba168d156b7a324069f3e5957e ""
@@ -326,6 +348,74 @@
   "figures/20171210-finele-refele.jpg" 1512845883 836539 0f1501da516f1c3b56dd813adb1707a1 ""
   "figures/20171214-trial-space-basis.jpg" 1513239740 976288 5112bb320c87ff69e70228867a48c747 ""
   "numcompress.sty" 1302930546 5571 cf097ecf807971c5a27366f7496e7d10 ""
+=======
+  "/usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt" 1514905035 3704925 c8a151821b569903babc85038d22d070 ""
+  "/usr/local/texlive/2017/texmf.cnf" 1514904037 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
+  "DSGEnotes.aux" 1514911005 245629 f4de96481ebaf13ed8bee6f7e90e0b3a ""
+  "DSGEnotes.bbl" 1514909662 94095 ed8db154129242061635cf23b73bddc1 "bibtex DSGEnotes"
+  "DSGEnotes.ind" 1514911005 26967 8188569e3a2cb0a563f66e903ce137a2 "makeindex DSGEnotes.idx"
+  "DSGEnotes.lof" 1514911005 2567 006b33c2f6f68789b1f04178a5f528fa ""
+  "DSGEnotes.lot" 1514911005 422 3d3897570f6abdbc55e8341687e26ac1 ""
+  "DSGEnotes.out" 1514911005 42281 b125de8d4ff98087af84b888a7aac095 ""
+  "DSGEnotes.tdo" 1514911005 3644 b30c5c8219b5cc85121676900a2e0de4 ""
+  "DSGEnotes.tex" 1514909227 21752 89d1649f4d4f56f4cd9a711e63be0327 ""
+  "DSGEnotes.toc" 1514911005 45047 84e9f934d102aa9d0ef6c943c2eea968 ""
+  "Figures/20170324-CIA-outline.pdf" 1514907358 13444 0fbcfab11c5d5ac247f3be41753e2c70 ""
+  "Figures/20170701-DSGE-workflow.pdf" 1514907358 24784 3dad30f7cd4c3d60db20c6400a8a86df ""
+  "Figures/20170905-hermite-examples-7-8.png" 1514907358 47566 c83c2eb5439dbe9f752f136cc2b57d42 ""
+  "Figures/20170905-normal-distri.png" 1514907358 57209 ace3367c2dbe5389b0aa81be1080baaa ""
+  "Figures/20170905-poly-types-formulas.pdf" 1514907358 18878 ea58b35169caf809907c16fef03a8074 ""
+  "Figures/20170906-beta-distri.png" 1514907358 45993 ddf1fcd2be63ee936c6a5f924f4c4fda ""
+  "Figures/20170906-gamma-distri.png" 1514907358 53259 1d98dff6f1e678952abfd1cc76b6b586 ""
+  "Figures/20170917-cheb-roots-n-range.png" 1514907358 26753 ba3c0286a5e7c353ed0c8c1a39ff5690 ""
+  "Figures/20170917-chebyshev-poly.pdf" 1514907358 51250 c81986bab417a66a7d8e6c5a9513e102 ""
+  "Figures/20170917-linear-trans-state-chebyshev.png" 1514907358 23990 14c1d8b6659b9a1a46367c011a1edc1f ""
+  "Figures/20170917-monomial-mcl.png" 1514907358 84504 9d8dcb9b37ede0a1ce127a28566769db ""
+  "Figures/20170920-tensor-coefficient.png" 1514907358 200012 2b6cc1d1b4f7e05b1f62165a0ad3bf46 ""
+  "Figures/20170921-kinks-fem.png" 1514907358 442957 631ea921057ce9f69a0623d773e37fb0 ""
+  "Figures/20170921-tent-function.png" 1514907358 27827 0b59b17aafd20aa8c985ac181861a34d ""
+  "Figures/20170926-interpolation-simulation.png" 1514907358 84062 41bb4a10ec3a28212886232a9372a816 ""
+  "Figures/20171209-decompo-adm-inadm.jpg" 1514907358 566951 6c6bd497f1994e9beefa8529f2dfb11d ""
+  "Figures/20171209-finele-nodes.jpg" 1514907358 475932 7a8bc4265ca837dc52cdf214b5198a54 ""
+  "Figures/20171210-finele-refele.jpg" 1514907358 836539 0f1501da516f1c3b56dd813adb1707a1 ""
+  "Figures/20171214-trial-space-basis.jpg" 1514907358 976288 5112bb320c87ff69e70228867a48c747 ""
+  "Figures/Prof-Miew.jpg" 1514907358 128835 a9aa5f3cda6f20f0be0e384e067f82cf ""
+  "Figures/R-simul-pi-pisharp-nup.pdf" 1514907358 15348 3a7584fec1fcd7991e61f0fd7a31bcf3 ""
+  "Figures/output_12_1.png" 1514907358 81971 e92086d9257ed3c7148575e1de1bb974 ""
+  "Figures/output_5_0.png" 1514907358 11303 4e84aa18e2253b8d17469971c4c97b31 ""
+  "chapters/DSGE-CIA.tex" 1514909562 25469 4d9bdd9161064f7d901787a737e4ba0e ""
+  "chapters/DSGE-banking.tex" 1514907358 29478 7f3121f7603f72bd818b302c29bbdaba ""
+  "chapters/KNKNCE.tex" 1514907358 20510 30b5f9c4529e740756a12980f9bc7049 ""
+  "chapters/MSDSGE.tex" 1514907358 78319 2a42b61a00ba946cce09e8acc27fe7b8 ""
+  "chapters/PK.tex" 1514907358 5744 1024ecbbcbd71839ebb038b48eafe244 ""
+  "chapters/appendix01.tex" 1514907358 21691 710073c84cae196e2ea1984b44d39b6f ""
+  "chapters/basic-BNK.tex" 1514907358 41563 93f047c8fdee0c78d293ba5679dcb930 ""
+  "chapters/bem-fem-01-potentials.tex" 1514907358 13455 811b98e6cdaa5ad93090a72e069bf521 ""
+  "chapters/bem-fem-02-spaces.tex" 1514907358 133360 94c6e7a58a219f89bcca0198ba4d47b6 ""
+  "chapters/bem-fem-03-varmethod.tex" 1514907358 56293 f73f2b7265491380a67fece5843d1d86 ""
+  "chapters/bem-fem-04-varbvp.tex" 1514907358 48404 2dc1e44b945453b6ebb3cc9a14b92861 ""
+  "chapters/bem-fem-05-laplaceop.tex" 1514907358 20484 2b1c1c63f58146c8c04525765d4e69d1 ""
+  "chapters/bem-fem-0601-boundintop.tex" 1514910846 56402 2f28cda8429009fb9c08d8d9cc67dd4b ""
+  "chapters/bem-fem-0602-boundintop.tex" 1514907358 60856 17250e1266f5cd6ee648717aa19ab80b ""
+  "chapters/bem-fem-0603-boundintop.tex" 1514907358 31590 fecbc07c536180491ae7faf845407fc0 ""
+  "chapters/bem-fem-0604-boundintop.tex" 1514907358 12410 d60ab30806a10b6a4ed034d7bfd57973 ""
+  "chapters/bem-fem-07-bie.tex" 1514907358 43270 bc1e16e96ece2f861ca0d7cc2b77d76f ""
+  "chapters/bem-fem-08-approx.tex" 1514907358 57080 aee5649a2153e9017cc3dfac75866268 ""
+  "chapters/bem-fem-0901-finele.tex" 1514909763 26837 1b028eaa27bbf76aca8fe7c2a6437ae7 ""
+  "chapters/bem-fem-0902-finele.tex" 1514910994 23592 7d3bf008af07012cfbd1085dc9de8657 ""
+  "chapters/medium-DSGE.tex" 1514907358 94874 db2ae26dc18180b1a31311394b52e833 ""
+  "chapters/mle.tex" 1514907358 54267 c324d56d2faae265eda3dcc0ac3de5d5 ""
+  "chapters/optimal-control.tex" 1514907358 19003 3148dce506c24a2e21d0c3ad060d2c25 ""
+  "chapters/perturbation.tex" 1514907358 100066 2422cca3e3cb9b3ecd662bff9eec3b46 ""
+  "chapters/preface.tex" 1514907358 44 c3c45440d025176e0c8268a7246396ff ""
+  "chapters/projection-appendices.tex" 1514907358 153961 6cc90a35e1ec1822b1b48d0397ebe203 ""
+  "chapters/projection.tex" 1514907358 50688 36ee0de7724e1b92f9cfcefa1416fb19 ""
+  "chapters/rational-expectation-solutions-2.tex" 1514907358 30059 44fc349cae1716b0913867c9c2d7bc0c ""
+  "chapters/rational-expectation-solutions.tex" 1514907358 65010 19894633945b9f52bc4360884465b98f ""
+  "chapters/solution-strategies.tex" 1514907358 25654 a5d93fc820374b52ca43d3ed666a132e ""
+  "chapters/titlepage.tex" 1514907358 511 b6d30c465dbd7f51625ac563f75f3bfa ""
+  "numcompress.sty" 1514907358 5571 cf097ecf807971c5a27366f7496e7d10 ""
+>>>>>>> 43d4796c6be3bfb6ffcf58d4316a54b2e08ebfb8
   (generated)
   "DSGEnotes.lof"
   "DSGEnotes.lot"
@@ -333,7 +423,18 @@
   "DSGEnotes.idx"
   "DSGEnotes.toc"
   "DSGEnotes.out"
+<<<<<<< HEAD
   "tmpbib.tex"
   "DSGEnotes.xdv"
   "DSGEnotes.tdo"
   "DSGEnotes.aux"
+=======
+  "DSGEnotes.toc"
+  "DSGEnotes.log"
+  "DSGEnotes.lot"
+  "DSGEnotes.tdo"
+  "DSGEnotes.aux"
+  "tmpbib.tex"
+  "DSGEnotes.xdv"
+  "DSGEnotes.idx"
+>>>>>>> 43d4796c6be3bfb6ffcf58d4316a54b2e08ebfb8
