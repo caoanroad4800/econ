@@ -5,32 +5,31 @@
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces CIA DSGE模型结构图}}{93}{figure.6.1}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces CIA DSGE模型结构图}}{99}{figure.6.0.1}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {7.1}{\ignorespaces DSGE模型的工作流程}}{108}{figure.7.1}
-\addvspace {10.0pt}
-\addvspace {10.0pt}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces DSGE模型的工作流程}}{114}{figure.7.3.1}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {11.1}{\ignorespaces 单项式方程}}{185}{figure.11.2.1}
-\contentsline {figure}{\numberline {11.2}{\ignorespaces 切比雪夫多项式$T_n(x)$}}{187}{figure.11.2.2}
-\contentsline {figure}{\numberline {11.3}{\ignorespaces 切比雪夫多项式的根}}{188}{figure.11.2.3}
-\contentsline {figure}{\numberline {11.4}{\ignorespaces 切比雪夫多项式的根}}{188}{figure.11.2.4}
-\contentsline {figure}{\numberline {11.1}{\ignorespaces 张量模拟}}{192}{figure.11.3.1}
-\contentsline {figure}{\numberline {11.1}{\ignorespaces kinks}}{193}{figure.11.4.1}
-\contentsline {figure}{\numberline {11.2}{\ignorespaces 三角方程形式}}{194}{figure.11.4.2}
-\contentsline {figure}{\numberline {11.C.1}{\ignorespaces 正交多项式满足的关系}}{213}{figure.b.11.C.1}
-\contentsline {figure}{\numberline {11.C.2}{\ignorespaces 正态分布}}{214}{figure.b.11.C.2}
-\contentsline {figure}{\numberline {11.C.3}{\ignorespaces 埃米特多项式}}{215}{figure.b.11.C.3}
-\contentsline {figure}{\numberline {11.C.4}{\ignorespaces 伽玛分布}}{217}{figure.b.11.C.4}
-\contentsline {figure}{\numberline {11.C.5}{\ignorespaces 贝塔分布}}{222}{figure.b.11.C.5}
-\contentsline {figure}{\numberline {11.C.6}{\ignorespaces 切比雪夫插值近似}}{233}{figure.b.11.C.6}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {12.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$}}{381}{figure.12.9.1}
-\contentsline {figure}{\numberline {12.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)}}{382}{figure.12.9.2}
-\contentsline {figure}{\numberline {12.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)}}{384}{figure.12.9.3}
-\contentsline {figure}{\numberline {12.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$}}{393}{figure.12.9.4}
 \addvspace {10.0pt}
+\contentsline {figure}{\numberline {11.1}{\ignorespaces 单项式方程}}{191}{figure.11.2.1}
+\contentsline {figure}{\numberline {11.2}{\ignorespaces 切比雪夫多项式$T_n(x)$}}{193}{figure.11.2.2}
+\contentsline {figure}{\numberline {11.3}{\ignorespaces 切比雪夫多项式的根}}{194}{figure.11.2.3}
+\contentsline {figure}{\numberline {11.4}{\ignorespaces 切比雪夫多项式的根}}{194}{figure.11.2.4}
+\contentsline {figure}{\numberline {11.1}{\ignorespaces 张量模拟}}{198}{figure.11.3.1}
+\contentsline {figure}{\numberline {11.1}{\ignorespaces kinks}}{199}{figure.11.4.1}
+\contentsline {figure}{\numberline {11.2}{\ignorespaces 三角方程形式}}{200}{figure.11.4.2}
+\contentsline {figure}{\numberline {11.C.1}{\ignorespaces 正交多项式满足的关系}}{219}{figure.c.11.C.1}
+\contentsline {figure}{\numberline {11.C.2}{\ignorespaces 正态分布}}{220}{figure.c.11.C.2}
+\contentsline {figure}{\numberline {11.C.3}{\ignorespaces 埃米特多项式}}{221}{figure.c.11.C.3}
+\contentsline {figure}{\numberline {11.C.4}{\ignorespaces 伽玛分布}}{223}{figure.c.11.C.4}
+\contentsline {figure}{\numberline {11.C.5}{\ignorespaces 贝塔分布}}{228}{figure.c.11.C.5}
+\contentsline {figure}{\numberline {11.C.6}{\ignorespaces 切比雪夫插值近似}}{239}{figure.c.11.C.6}
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {12.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$}}{387}{figure.12.9.1}
+\contentsline {figure}{\numberline {12.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)}}{388}{figure.12.9.2}
+\contentsline {figure}{\numberline {12.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)}}{390}{figure.12.9.3}
+\contentsline {figure}{\numberline {12.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$}}{399}{figure.12.9.4}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}

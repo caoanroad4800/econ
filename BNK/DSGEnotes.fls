@@ -1,4 +1,4 @@
-PWD /home/yyz/Soft/econ/BNK
+PWD /Users/YYZ/Soft/git/econ/BNK
 INPUT /usr/local/texlive/2017/texmf.cnf
 INPUT /usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt
@@ -107,8 +107,9 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chine
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
 INPUT /dev/null
-INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def
-INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def
+INPUT /Library/Fonts/Songti.ttc
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex.cfg
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex.cfg
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/xltxtra/xltxtra.sty
@@ -448,6 +449,8 @@ INPUT /usr/local/texlive/2017/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT Figures/R-simul-pi-pisharp-nup.pdf
 INPUT ./chapters/medium-DSGE.tex
 INPUT ./chapters/medium-DSGE.tex
+INPUT ./chapters/medium-DSGE-appendix.tex
+INPUT ./chapters/medium-DSGE-appendix.tex
 INPUT ./chapters/MSDSGE.tex
 INPUT ./chapters/MSDSGE.tex
 INPUT ./chapters/DSGE-banking.tex
@@ -537,8 +540,6 @@ INPUT ./chapters/mle.tex
 INPUT ./chapters/mle.tex
 INPUT ./Figures/output_5_0.png
 INPUT ./Figures/output_12_1.png
-INPUT ./chapters/appendix01.tex
-INPUT ./chapters/appendix01.tex
 INPUT ./chapters/PK.tex
 INPUT ./chapters/PK.tex
 INPUT ./chapters/KNKNCE.tex
