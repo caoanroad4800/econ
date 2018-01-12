@@ -540,6 +540,8 @@ INPUT ./chapters/mle.tex
 INPUT ./chapters/mle.tex
 INPUT ./Figures/output_5_0.png
 INPUT ./Figures/output_12_1.png
+INPUT ./chapters/housing.tex
+INPUT ./chapters/housing.tex
 INPUT ./chapters/PK.tex
 INPUT ./chapters/PK.tex
 INPUT ./chapters/KNKNCE.tex

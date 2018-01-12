@@ -1,4 +1,4 @@
-\begin{thebibliography}{253}
+\begin{thebibliography}{256}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -272,13 +272,15 @@
   Factor-Augmented Vector Autoregressive (FAVAR) Approach}}.
 \newblock \bibinfo{journal}{The Quarterly Journal of Economics}
   \bibinfo{year}{2005};:\bibinfo{pages}{387--422}.
-%Type = Book
+%Type = Incollection
 \bibitem[{Bernanke et~al.(1999)Bernanke, Gertler and Gilchrist}]{Bernanke1999}
 \bibinfo{author}{Bernanke\xfnm[ B.S.]}, \bibinfo{author}{Gertler\xfnm[ M.]},
   \bibinfo{author}{Gilchrist\xfnm[ S.]}.
-\newblock \bibinfo{title}{{Chapter 21 The financial accelerator in a
-  quantitative business cycle framework}}.
-\newblock volume \bibinfo{volume}{1, Part 3}, \bibinfo{year}{1999}.
+\newblock \bibinfo{title}{{The financial accelerator in a quantitative business
+  cycle framework}}.
+\newblock In: \bibinfo{booktitle}{Handbook of Macroeconomics}.
+  \bibinfo{publisher}{Elsevier}; \bibinfo{year}{1999}. p.
+  \bibinfo{pages}{1341--1393}.
 %Type = Incollection
 \bibitem[{Binder and Pesaran(1995)}]{Binder:1995uf}
 \bibinfo{author}{Binder\xfnm[ M.]}, \bibinfo{author}{Pesaran\xfnm[ M.H.]}.
@@ -402,19 +404,12 @@
 \newblock Undergraduate Texts in Mathematics. \bibinfo{address}{New York, NY}:
   \bibinfo{publisher}{Springer New York}, \bibinfo{year}{2010}.
 %Type = Article
-\bibitem[{Calvo(1983{\natexlab{a}})}]{Calvo:1983uqa}
+\bibitem[{Calvo(1983)}]{Calvo:1983uq}
 \bibinfo{author}{Calvo\xfnm[ G.A.]}.
 \newblock \bibinfo{title}{{Staggered prices in a utility-maximizing
   framework}}.
 \newblock \bibinfo{journal}{Journal of Monetary Economics}
-  \bibinfo{year}{1983}{\natexlab{a}};\bibinfo{volume}{12}(\bibinfo{number}{3}):\bibinfo{pages}{383--398}.
-%Type = Article
-\bibitem[{Calvo(1983{\natexlab{b}})}]{Calvo:1983uq}
-\bibinfo{author}{Calvo\xfnm[ G.A.]}.
-\newblock \bibinfo{title}{{Staggered prices in a utility-maximizing
-  framework}}.
-\newblock \bibinfo{journal}{Journal of Monetary Economics}
-  \bibinfo{year}{1983}{\natexlab{b}};\bibinfo{volume}{12}(\bibinfo{number}{3}):\bibinfo{pages}{383--398}.
+  \bibinfo{year}{1983};\bibinfo{volume}{12}(\bibinfo{number}{3}):\bibinfo{pages}{383--398}.
 %Type = Article
 \bibitem[{Canova(2009)}]{Canova:2009gc}
 \bibinfo{author}{Canova\xfnm[ F.]}.
@@ -766,6 +761,12 @@
   Macroeconomics Vol. 2}. \bibinfo{publisher}{Elsevier}; \bibinfo{year}{2016}.
   p. \bibinfo{pages}{527--724}.
 %Type = Article
+\bibitem[{Forlati and Lambertini(2011)}]{Forlati:2011wy}
+\bibinfo{author}{Forlati\xfnm[ C.]}, \bibinfo{author}{Lambertini\xfnm[ L.]}.
+\newblock \bibinfo{title}{{Risky Mortgages in a DSGE Model}}.
+\newblock \bibinfo{journal}{International Journal of Central Banking}
+  \bibinfo{year}{2011};\bibinfo{volume}{7}(\bibinfo{number}{1}):\bibinfo{pages}{285--336}.
+%Type = Article
 \bibitem[{Fornberg(1996)}]{Fornberg:1996to}
 \bibinfo{author}{Fornberg\xfnm[ B.]}.
 \newblock \bibinfo{title}{{A Practical Guide to Pseudospectral Methods}}
@@ -825,6 +826,12 @@
 \newblock \bibinfo{title}{{Solving Large-Scale Rational-Expectations Models}}.
 \newblock \bibinfo{journal}{Macroeconomic Dynamics}
   \bibinfo{year}{1997};\bibinfo{volume}{1}(\bibinfo{number}{1}):\bibinfo{pages}{45--75}.
+%Type = Article
+\bibitem[{Gertler and Karadi(2011)}]{Gertler:2011fs}
+\bibinfo{author}{Gertler\xfnm[ M.]}, \bibinfo{author}{Karadi\xfnm[ P.]}.
+\newblock \bibinfo{title}{{A Model of Unconventional Monetary Policy}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{2011};\bibinfo{volume}{58}(\bibinfo{number}{1}):\bibinfo{pages}{17--34}.
 %Type = Article
 \bibitem[{Gilchrist(2007)}]{Gilchrist:2007iv}
 \bibinfo{author}{Gilchrist\xfnm[ S.]}.
@@ -1007,6 +1014,13 @@
 \newblock \bibinfo{title}{{The Finite Element Method: Linear Static and Dynamic
   Finite Element Analysis}}.
 \newblock \bibinfo{publisher}{Dover Publications}, \bibinfo{year}{2000}.
+%Type = Article
+\bibitem[{Iacoviello and Neri(2010)}]{Iacoviello:2010fo}
+\bibinfo{author}{Iacoviello\xfnm[ M.]}, \bibinfo{author}{Neri\xfnm[ S.]}.
+\newblock \bibinfo{title}{{Housing Market Spillovers: Evidence from an
+  Estimated DSGE Model}}.
+\newblock \bibinfo{journal}{American Economic Journal: Macroeconomics}
+  \bibinfo{year}{2010};\bibinfo{volume}{2}(\bibinfo{number}{2}):\bibinfo{pages}{125--164}.
 %Type = Article
 \bibitem[{Jarrow and Protter(2004)}]{Jarrow:2004gy}
 \bibinfo{author}{Jarrow\xfnm[ R.]}, \bibinfo{author}{Protter\xfnm[ P.]}.
@@ -1606,19 +1620,12 @@
 \newblock \bibinfo{journal}{Brookings Papers on Economic Activity}
   \bibinfo{year}{1982};\bibinfo{volume}{1982}(\bibinfo{number}{1}):\bibinfo{pages}{107}.
 %Type = Article
-\bibitem[{Smets and Wouters(2003{\natexlab{a}})}]{Smets:2003ik}
-\bibinfo{author}{Smets\xfnm[ F.]}, \bibinfo{author}{Wouters\xfnm[ R.]}.
-\newblock \bibinfo{title}{{AN ESTIMATED DYNAMIC STOCHASTIC GENERAL EQUILIBRIUM
-  MODEL OF THE EURO AREA}}.
-\newblock \bibinfo{journal}{Journal of the European Economic Association}
-  \bibinfo{year}{2003}{\natexlab{a}};\bibinfo{volume}{1}(\bibinfo{number}{5}):\bibinfo{pages}{1123--1175}.
-%Type = Article
-\bibitem[{Smets and Wouters(2003{\natexlab{b}})}]{Smets:2003ic}
+\bibitem[{Smets and Wouters(2003)}]{Smets:2003ic}
 \bibinfo{author}{Smets\xfnm[ F.]}, \bibinfo{author}{Wouters\xfnm[ R.]}.
 \newblock \bibinfo{title}{{An Estimated Dynamic Stochastic General Equilibrium
   Model of the Euro Area}}.
 \newblock \bibinfo{journal}{Journal of the European Economic Association}
-  \bibinfo{year}{2003}{\natexlab{b}};\bibinfo{volume}{1}(\bibinfo{number}{5}):\bibinfo{pages}{1123--1175}.
+  \bibinfo{year}{2003};\bibinfo{volume}{1}(\bibinfo{number}{5}):\bibinfo{pages}{1123--1175}.
 %Type = Article
 \bibitem[{S{\"o}derlind(1999)}]{Soderlind:1999kg}
 \bibinfo{author}{S{\"o}derlind\xfnm[ P.]}.
@@ -1683,6 +1690,13 @@
 \newblock \bibinfo{title}{{Recursive Methods in Economic Dynamics}},
   \bibinfo{year}{1989}.
 %Type = Article
+\bibitem[{Suh(2012)}]{Suh:2012dp}
+\bibinfo{author}{Suh\xfnm[ H.]}.
+\newblock \bibinfo{title}{{Macroprudential Policy: Its Effects and Relationship
+  to Monetary Policy}}.
+\newblock \bibinfo{journal}{Federal Researve Bank of Philadelphia Working
+  Paper} \bibinfo{year}{2012};\bibinfo{volume}{12}(\bibinfo{number}{28}).
+%Type = Article
 \bibitem[{Sveen and Weinke(2005)}]{Sveen:2005db}
 \bibinfo{author}{Sveen\xfnm[ T.]}, \bibinfo{author}{Weinke\xfnm[ L.]}.
 \newblock \bibinfo{title}{{New perspectives on capital, sticky prices, and the
@@ -1741,8 +1755,8 @@
   Applications}}.
 \newblock \bibinfo{publisher}{North-Holland}, \bibinfo{year}{1985}.
 %Type = Article
-\bibitem[{Tovar(2009)}]{Tovar:2009vb}
-\bibinfo{author}{Tovar\xfnm[ C.E.]}.
+\bibitem[{Tovar~Mora(2009)}]{Tovar:2009vb}
+\bibinfo{author}{Tovar~Mora\xfnm[ C.E.]}.
 \newblock \bibinfo{title}{{DSGE Models and Central Banks}}.
 \newblock \bibinfo{journal}{Economics: The Open-Access, Open-Assessment
   E-Journal}
@@ -1805,5 +1819,11 @@
   and business cycles}}.
 \newblock \bibinfo{journal}{Journal of Monetary Economics}
   \bibinfo{year}{1996};\bibinfo{volume}{37}(\bibinfo{number}{2}):\bibinfo{pages}{345--370}.
+%Type = Book
+\bibitem[{朱彦元(2018)}]{Zhuyanyuan:2018tm}
+\bibinfo{author}{朱彦元\xfnm[]}.
+\newblock \bibinfo{title}{{DSGE \textbf{模型笔记 }}}.
+\newblock \bibinfo{address}{同济大学中德工程学院},
+  \bibinfo{year}{2018}.
 
 \end{thebibliography}

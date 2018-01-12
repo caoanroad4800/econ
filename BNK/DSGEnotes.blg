@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: DSGEnotes.aux
 The style file: model4-names.bst
-Reallocated field_info (elt_size=4) to 10819 items from 5000.
+Reallocated field_info (elt_size=4) to 10888 items from 5000.
 Database file #1: ./refs/papers.bib
 Warning--missing institution in Aldrich:2011wz
 Warning--missing institution in Andreasen:2016cd
@@ -29,45 +29,45 @@ Warning--missing institution in Murchison:2006wc
 `journal' is a missing field, not a string, for entry Wood:1975vn
 while executing---line 1514 of file model4-names.bst
 Warning--empty journal in Wood:1975vn
-You've used 253 entries,
+You've used 256 entries,
             2973 wiz_defined-function locations,
-            2065 strings with 41672 characters,
-and the built_in function-call counts, 183106 in all, are:
-= -- 16105
-> -- 4351
-< -- 227
-+ -- 1699
-- -- 1436
-* -- 20219
-:= -- 26294
-add.period$ -- 786
-call.type$ -- 253
-change.case$ -- 1712
-chr.to.int$ -- 252
-cite$ -- 268
-duplicate$ -- 14369
-empty$ -- 14937
-format.name$ -- 2138
-if$ -- 35458
-int.to.chr$ -- 11
+            2086 strings with 42151 characters,
+and the built_in function-call counts, 185707 in all, are:
+= -- 16350
+> -- 4397
+< -- 230
++ -- 1715
+- -- 1451
+* -- 20489
+:= -- 26645
+add.period$ -- 796
+call.type$ -- 256
+change.case$ -- 1734
+chr.to.int$ -- 257
+cite$ -- 271
+duplicate$ -- 14591
+empty$ -- 15162
+format.name$ -- 2164
+if$ -- 35987
+int.to.chr$ -- 9
 int.to.str$ -- 1
-missing$ -- 2165
-newline$ -- 1270
-num.names$ -- 1026
-pop$ -- 2311
+missing$ -- 2190
+newline$ -- 1285
+num.names$ -- 1038
+pop$ -- 2338
 preamble$ -- 1
-purify$ -- 1485
+purify$ -- 1502
 quote$ -- 0
-skip$ -- 3642
+skip$ -- 3705
 stack$ -- 0
-substring$ -- 15717
-swap$ -- 8126
+substring$ -- 15979
+swap$ -- 8231
 text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 2079
+type$ -- 2106
 warning$ -- 15
-while$ -- 1252
+while$ -- 1268
 width$ -- 0
-write$ -- 3474
+write$ -- 3517
 (There were 5 error messages)

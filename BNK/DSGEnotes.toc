@@ -490,31 +490,36 @@
 \contentsline {subsection}{\numberline {13.6.5}无约束参数\(g(\varphi )\)构成的模型系统}{416}{subsection.13.6.5}
 \contentsline {subsubsection}{Delta近似法}{417}{subsubsection*.209}
 \contentsline {subsubsection}{最大似然估计：算法举例}{418}{subsubsection*.210}
-\contentsline {part}{第五部分\hspace {1em}附录}{423}{part.5}
-\contentsline {chapter}{Appendices}{}{section*.211}
-\contentsline {chapter}{附录 \numberline {第一章\hspace {.3em}}Post-Keynesian Economics的一个小综述}{427}{附录.d.A}
-\contentsline {section}{\numberline {A.1}Introduction}{427}{section.d.A.1}
-\contentsline {section}{\numberline {A.2}PK的主要方法论}{427}{section.d.A.2}
-\contentsline {section}{\numberline {A.3}PK下的市场结构与定价}{427}{section.d.A.3}
-\contentsline {subsection}{\numberline {A.3.1}PK下的市场结构}{427}{subsection.d.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}PK下的定价策略}{427}{subsection.d.A.3.2}
-\contentsline {section}{\numberline {A.4}PK下的宏观经济}{427}{section.d.A.4}
-\contentsline {section}{\numberline {A.5}PK视野下的经济政策}{428}{section.d.A.5}
-\contentsline {chapter}{附录 \numberline {第二章\hspace {.3em}}Keynesian, New Keynesian and New Classical Economics}{429}{附录.d.B}
-\contentsline {section}{\numberline {B.1}Keynesian的四个核心}{429}{section.d.B.1}
-\contentsline {subsection}{\numberline {B.1.1}失业与有效工资理论}{429}{subsection.d.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}价格变化与经济波动}{430}{subsection.d.B.1.2}
-\contentsline {subsection}{\numberline {B.1.3}储蓄与投资，信贷配给}{431}{subsection.d.B.1.3}
-\contentsline {subsection}{\numberline {B.1.4}供应与技术进步}{431}{subsection.d.B.1.4}
-\contentsline {section}{\numberline {B.2}New Keynesian经济学的四个核心}{431}{section.d.B.2}
-\contentsline {subsection}{\numberline {B.2.1}有效工资}{431}{subsection.d.B.2.1}
-\contentsline {subsection}{\numberline {B.2.2}资产配给}{431}{subsection.d.B.2.2}
-\contentsline {subsection}{\numberline {B.2.3}信贷配给}{431}{subsection.d.B.2.3}
-\contentsline {subsection}{\numberline {B.2.4}货币政策}{432}{subsection.d.B.2.4}
-\contentsline {subsection}{\numberline {B.2.5}小结}{432}{subsection.d.B.2.5}
-\contentsline {section}{\numberline {B.3}凯恩斯的不足}{432}{section.d.B.3}
-\contentsline {subsection}{\numberline {B.3.1}债券和股票的区别}{433}{subsection.d.B.3.1}
-\contentsline {subsection}{\numberline {B.3.2}需求和供应}{433}{subsection.d.B.3.2}
-\contentsline {subsection}{\numberline {B.3.3}投资的决定因素}{433}{subsection.d.B.3.3}
-\contentsline {subsection}{\numberline {B.3.4}货币政策}{434}{subsection.d.B.3.4}
-\contentsline {section}{\numberline {B.4}小结}{434}{section.d.B.4}
+\contentsline {chapter}{\numberline {第十四章\hspace {.3em}}工作论文}{423}{chapter.14}
+\contentsline {section}{\numberline {14.1}问题的提出}{423}{section.14.1}
+\contentsline {subsection}{\numberline {14.1.1}研究目标}{423}{subsection.14.1.1}
+\contentsline {subsection}{\numberline {14.1.2}模型设定}{423}{subsection.14.1.2}
+\contentsline {section}{\numberline {14.2}境内金融中介部门}{424}{section.14.2}
+\contentsline {part}{第五部分\hspace {1em}附录}{427}{part.5}
+\contentsline {chapter}{Appendices}{}{section*.214}
+\contentsline {chapter}{附录 \numberline {第一章\hspace {.3em}}Post-Keynesian Economics的一个小综述}{431}{附录.d.A}
+\contentsline {section}{\numberline {A.1}Introduction}{431}{section.d.A.1}
+\contentsline {section}{\numberline {A.2}PK的主要方法论}{431}{section.d.A.2}
+\contentsline {section}{\numberline {A.3}PK下的市场结构与定价}{431}{section.d.A.3}
+\contentsline {subsection}{\numberline {A.3.1}PK下的市场结构}{431}{subsection.d.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}PK下的定价策略}{431}{subsection.d.A.3.2}
+\contentsline {section}{\numberline {A.4}PK下的宏观经济}{431}{section.d.A.4}
+\contentsline {section}{\numberline {A.5}PK视野下的经济政策}{432}{section.d.A.5}
+\contentsline {chapter}{附录 \numberline {第二章\hspace {.3em}}Keynesian, New Keynesian and New Classical Economics}{433}{附录.d.B}
+\contentsline {section}{\numberline {B.1}Keynesian的四个核心}{433}{section.d.B.1}
+\contentsline {subsection}{\numberline {B.1.1}失业与有效工资理论}{433}{subsection.d.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}价格变化与经济波动}{434}{subsection.d.B.1.2}
+\contentsline {subsection}{\numberline {B.1.3}储蓄与投资，信贷配给}{435}{subsection.d.B.1.3}
+\contentsline {subsection}{\numberline {B.1.4}供应与技术进步}{435}{subsection.d.B.1.4}
+\contentsline {section}{\numberline {B.2}New Keynesian经济学的四个核心}{435}{section.d.B.2}
+\contentsline {subsection}{\numberline {B.2.1}有效工资}{435}{subsection.d.B.2.1}
+\contentsline {subsection}{\numberline {B.2.2}资产配给}{435}{subsection.d.B.2.2}
+\contentsline {subsection}{\numberline {B.2.3}信贷配给}{435}{subsection.d.B.2.3}
+\contentsline {subsection}{\numberline {B.2.4}货币政策}{436}{subsection.d.B.2.4}
+\contentsline {subsection}{\numberline {B.2.5}小结}{436}{subsection.d.B.2.5}
+\contentsline {section}{\numberline {B.3}凯恩斯的不足}{436}{section.d.B.3}
+\contentsline {subsection}{\numberline {B.3.1}债券和股票的区别}{437}{subsection.d.B.3.1}
+\contentsline {subsection}{\numberline {B.3.2}需求和供应}{437}{subsection.d.B.3.2}
+\contentsline {subsection}{\numberline {B.3.3}投资的决定因素}{437}{subsection.d.B.3.3}
+\contentsline {subsection}{\numberline {B.3.4}货币政策}{438}{subsection.d.B.3.4}
+\contentsline {section}{\numberline {B.4}小结}{438}{section.d.B.4}
