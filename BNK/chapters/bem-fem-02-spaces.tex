@@ -488,7 +488,7 @@ $p = \infty$时对应的空间$L^{\infty}(S,\mu)$也可以用类似方法求得�
 %   \| u \|_{L^{\infty}(\Omega)} \coloneqq \text{ess } \sup_{x \in \Omega} \left\{ \left| u(x) \right| \right\} \coloneqq \inf_{K \subset \Omega, \mu(K) = 0} \sup_{x \in \Omega \backslash K} \left|  u(x) \right|.
 % \end{equation*}
 
-勒贝格空间$L^{p}(S,\mu)$的完备性(completeness)通常称为里兹——费舍定理(Riesz-Fischer theorem)。证明略\footnote{完备性(completeness)的含义，见第\pageref{footnote:completeness-def}页脚注。}。
+勒贝格空间$L^{p}(S,\mu)$的完备性(completeness)通常称为里兹——费舍定理(Riesz-Fischer theorem)\footnote{证明略。完备性(completeness)的含义，见第\pageref{def:completeness-space}页。}。
 
 对于$1 \le p \le \infty$的情况，勒贝格空间$L^{p}(S,\mu)$是一个完备赋范向量空间，常称为巴拿赫空间(Banach space)\index{Banach space \dotfill 巴拿赫空间}。所有$L^{p}$空间都是巴拿赫空间。
 
@@ -517,7 +517,7 @@ $p = \infty$时对应的空间$L^{\infty}(S,\mu)$也可以用类似方法求得�
 \label{sec:lp-hilbert-space}
 有且只有$p=2$时的特殊形式空间$L^2(\Omega)$，是希尔伯特空间(Hilbert space)\index{Hilbert space \dotfill 希尔伯特空间}。
 
-作为(完备赋范的)内积向量空间(inner product space, Definition \ref{definition:inner-product-space})，希尔伯特空间是有限维欧几里得空间的一个扩展：从$\mathbb{R}$扩展到$\mathbb{R}$和$\mathbb{C}$，从有限维度到无限维度，但保留了完备性(completeness)特征(一般来说，非欧几里得空间往往破坏了完备性) \label{footnote:completeness-def}\footnote{完备性(completeness)是指，希尔伯特空间中所有柯西数列(Cauchy sequences) \index{Cauchy sequences \dotfill 柯西数列}都会收敛到此空间中的一点(一个元素)，即这些数列与某个元素的范数差的极限为$0$。}。希尔伯特空间与欧几里得空间相仿，有长度和角度的概念，因而可以引申出正交性和垂直性，从而为基于正交多项式的傅里叶级数等提供表达方式。
+作为(完备赋范的)内积向量空间(inner product space, Definition \ref{definition:inner-product-space})，希尔伯特空间是有限维欧几里得空间的一个扩展：从$\mathbb{R}$扩展到$\mathbb{R}$和$\mathbb{C}$，从有限维度到无限维度，但保留了完备性(completeness)特征(一般来说，非欧几里得空间往往破坏了完备性)。希尔伯特空间与欧几里得空间相仿，有长度和角度的概念，因而可以引申出正交性和垂直性，从而为基于正交多项式的傅里叶级数等提供表达方式。
 
 任何一个希尔伯特空间都是巴拿赫空间，反之则未必。
 
@@ -599,7 +599,7 @@ $p = \infty$时对应的空间$L^{\infty}(S,\mu)$也可以用类似方法求得�
 \begin{equation*}
   \Big\| \bm{L} -  \sum_{k=0}^{N} \bm{x}\Big\| \rightarrow 0, \text{随着} N \rightarrow \infty,
 \end{equation*}
-这称为欧几里得空间的完备性(completeness of Euclidean space)\index{completeness!Euclidean space \dotfill 完备性(欧几里得空间)}。
+这称为欧几里得空间的完备性(completeness of Euclidean space)\label{def:completeness-space}\index{completeness!Euclidean space \dotfill 完备性(欧几里得空间)}。
 
 类似地，在欧几里得空间中，复数平面(complex plane)\index{complex plane \dotfill 复数平面} $\mathbb{C}$由量(magnitude)的形式予以反映，即复绝对值(complex modulus)\index{complex modulus \dotfill 复数绝对值} $\left| z \right|$， 定义为$z$与其共轭复数(complex conjugate)\index{conjugate \dotfill 共轭复数} $\bar{z}$乘积的平方根
 \begin{equation*}

@@ -317,12 +317,12 @@
 \contentsline {subsubsection}{配点法}{203}{subsubsection*.126}
 \contentsline {subsubsection}{配点的选取：正交配点法}{203}{subsubsection*.127}
 \contentsline {subsection}{\numberline {11.5.4}伽辽金法或瑞利——里兹法}{203}{subsection.11.5.4}
-\contentsline {chapter}{Appendices}{205}{chapter*.128}
+\contentsline {chapter}{Appendices}{205}{chapter*.129}
 \contentsline {section}{附录 \numberline {11.A}超几何方程}{205}{section.c.11.A}
 \contentsline {section}{附录 \numberline {11.B}多项式}{210}{section.c.11.B}
 \contentsline {subsection}{\numberline {11.B.1}正交集}{210}{subsection.c.11.B.1}
 \contentsline {subsection}{\numberline {11.B.2}正交多项式}{211}{subsection.c.11.B.2}
-\contentsline {subsubsection}{正定}{212}{subsubsection*.129}
+\contentsline {subsubsection}{正定}{212}{subsubsection*.130}
 \contentsline {subsection}{\numberline {11.B.3}递推关系}{213}{subsection.c.11.B.3}
 \contentsline {subsection}{\numberline {11.B.4}雅各比矩阵和克里斯托费尔——达布关系}{214}{subsection.c.11.B.4}
 \contentsline {subsection}{\numberline {11.B.5}正交多项式的根}{216}{subsection.c.11.B.5}
@@ -350,29 +350,29 @@
 \contentsline {section}{\numberline {12.2}方程空间}{256}{section.12.2}
 \contentsline {subsection}{\numberline {12.2.1}$C^{k}(\Omega ),C^{k,\kappa }(\Omega )$空间}{256}{subsection.12.2.1}
 \contentsline {subsection}{\numberline {12.2.2}勒贝格$L^p(\Omega )$空间}{258}{subsection.12.2.2}
-\contentsline {subsubsection}{$\sigma $代数}{258}{subsubsection*.136}
-\contentsline {subsubsection}{测度，可测空间，测度空间}{259}{subsubsection*.137}
-\contentsline {subsubsection}{范数}{260}{subsubsection*.138}
-\contentsline {subsubsection}{有限维度的可数勒贝格空间(p >= 1)}{261}{subsubsection*.139}
-\contentsline {subsubsection}{有限维度的可数勒贝格空间(0 <= p <= 1)}{262}{subsubsection*.140}
-\contentsline {subsubsection}{无限维度的勒贝格空间(p不可数)}{262}{subsubsection*.141}
-\contentsline {subsubsection}{无限维度的不可数勒贝格空间}{262}{subsubsection*.142}
-\contentsline {subsubsection}{加权勒贝格空间}{265}{subsubsection*.144}
+\contentsline {subsubsection}{$\sigma $代数}{258}{subsubsection*.137}
+\contentsline {subsubsection}{测度，可测空间，测度空间}{259}{subsubsection*.138}
+\contentsline {subsubsection}{范数}{260}{subsubsection*.139}
+\contentsline {subsubsection}{有限维度的可数勒贝格空间(p >= 1)}{261}{subsubsection*.140}
+\contentsline {subsubsection}{有限维度的可数勒贝格空间(0 <= p <= 1)}{262}{subsubsection*.141}
+\contentsline {subsubsection}{无限维度的勒贝格空间(p不可数)}{262}{subsubsection*.142}
+\contentsline {subsubsection}{无限维度的不可数勒贝格空间}{262}{subsubsection*.143}
+\contentsline {subsubsection}{加权勒贝格空间}{265}{subsubsection*.145}
 \contentsline {subsection}{\numberline {12.2.3}希尔伯特(H)空间}{265}{subsection.12.2.3}
-\contentsline {subsubsection}{例：欧几里得空间}{265}{subsubsection*.145}
+\contentsline {subsubsection}{例：欧几里得空间}{265}{subsubsection*.146}
 \contentsline {subsection}{\numberline {12.2.4}索伯列夫$W^{k,p}(\Omega )$空间}{269}{subsection.12.2.4}
-\contentsline {subsubsection}{微分的类以及平滑方程}{269}{subsubsection*.146}
-\contentsline {subsubsection}{分部积分}{270}{subsubsection*.147}
-\contentsline {subsubsection}{广义积分}{270}{subsubsection*.148}
-\contentsline {subsubsection}{整数阶次的单维索伯列夫空间}{271}{subsubsection*.149}
-\contentsline {subsubsection}{整数阶次的单维索伯列夫空间(p=2)}{272}{subsubsection*.150}
-\contentsline {subsubsection}{多维索伯列夫空间}{272}{subsubsection*.151}
-\contentsline {subsubsection}{分数次阶索伯列夫空间：Sobolev-Slobodeckij空间法}{272}{subsubsection*.152}
-\contentsline {subsubsection}{索伯列夫空间的性质：嵌入定理}{273}{subsubsection*.153}
-\contentsline {subsubsection}{索伯列夫空间的性质：范数等价}{277}{subsubsection*.154}
-\contentsline {subsubsection}{索伯列夫空间的Bramble-Hilbert引理}{281}{subsubsection*.155}
-\contentsline {subsubsection}{索伯列夫空间的分布}{283}{subsubsection*.156}
-\contentsline {subsubsection}{流形索伯列夫空间}{288}{subsubsection*.157}
+\contentsline {subsubsection}{微分的类以及平滑方程}{269}{subsubsection*.147}
+\contentsline {subsubsection}{分部积分}{269}{subsubsection*.148}
+\contentsline {subsubsection}{广义积分}{269}{subsubsection*.149}
+\contentsline {subsubsection}{整数阶次的单维索伯列夫空间}{271}{subsubsection*.150}
+\contentsline {subsubsection}{整数阶次的单维索伯列夫空间(p=2)}{271}{subsubsection*.151}
+\contentsline {subsubsection}{多维索伯列夫空间}{272}{subsubsection*.152}
+\contentsline {subsubsection}{分数次阶索伯列夫空间：Sobolev-Slobodeckij空间法}{272}{subsubsection*.153}
+\contentsline {subsubsection}{索伯列夫空间的性质：嵌入定理}{273}{subsubsection*.154}
+\contentsline {subsubsection}{索伯列夫空间的性质：范数等价}{276}{subsubsection*.155}
+\contentsline {subsubsection}{索伯列夫空间的Bramble-Hilbert引理}{281}{subsubsection*.156}
+\contentsline {subsubsection}{索伯列夫空间的分布}{283}{subsubsection*.157}
+\contentsline {subsubsection}{流形索伯列夫空间}{288}{subsubsection*.158}
 \contentsline {section}{\numberline {12.3}变分法}{291}{section.12.3}
 \contentsline {subsection}{\numberline {12.3.1}算子方程}{291}{subsection.12.3.1}
 \contentsline {subsection}{\numberline {12.3.2}椭圆算子}{295}{subsection.12.3.2}
@@ -383,20 +383,20 @@
 \contentsline {section}{\numberline {12.4}变分法求解边界值问题}{308}{section.12.4}
 \contentsline {subsection}{\numberline {12.4.1}位势方程基本介绍}{308}{subsection.12.4.1}
 \contentsline {subsection}{\numberline {12.4.2}狄利克雷边界值问题1}{309}{subsection.12.4.2}
-\contentsline {subsubsection}{将狄利克雷边界值问题改写为变分问题}{309}{subsubsection*.158}
-\contentsline {subsubsection}{解的存在性与唯一性}{310}{subsubsection*.159}
-\contentsline {subsubsection}{共形导数}{311}{subsubsection*.160}
-\contentsline {subsubsection}{带有齐次偏微分方程的狄利克雷边界值问题弱解}{312}{subsubsection*.161}
-\contentsline {subsubsection}{狄利克雷边界值问题的强解简述}{312}{subsubsection*.162}
+\contentsline {subsubsection}{将狄利克雷边界值问题改写为变分问题}{309}{subsubsection*.159}
+\contentsline {subsubsection}{解的存在性与唯一性}{310}{subsubsection*.160}
+\contentsline {subsubsection}{共形导数}{311}{subsubsection*.161}
+\contentsline {subsubsection}{带有齐次偏微分方程的狄利克雷边界值问题弱解}{312}{subsubsection*.162}
+\contentsline {subsubsection}{狄利克雷边界值问题的强解简述}{312}{subsubsection*.163}
 \contentsline {subsection}{\numberline {12.4.3}狄利克雷边界值问题2}{313}{subsection.12.4.3}
-\contentsline {subsubsection}{解的唯一存在性}{313}{subsubsection*.163}
-\contentsline {subsubsection}{调整鞍点变分问题}{314}{subsubsection*.164}
+\contentsline {subsubsection}{解的唯一存在性}{313}{subsubsection*.164}
+\contentsline {subsubsection}{调整鞍点变分问题}{314}{subsubsection*.165}
 \contentsline {subsection}{\numberline {12.4.4}诺依曼边界值问题}{315}{subsection.12.4.4}
-\contentsline {subsubsection}{将诺依曼边界值问题改写为变分问题}{315}{subsubsection*.165}
-\contentsline {subsubsection}{解的存在性与唯一性}{316}{subsubsection*.166}
-\contentsline {subsubsection}{鞍点变分问题}{316}{subsubsection*.167}
-\contentsline {subsubsection}{调整鞍点变分问题}{317}{subsubsection*.168}
-\contentsline {subsubsection}{诺依曼边界值问题的通解}{318}{subsubsection*.169}
+\contentsline {subsubsection}{将诺依曼边界值问题改写为变分问题}{315}{subsubsection*.166}
+\contentsline {subsubsection}{解的存在性与唯一性}{316}{subsubsection*.167}
+\contentsline {subsubsection}{鞍点变分问题}{316}{subsubsection*.168}
+\contentsline {subsubsection}{调整鞍点变分问题}{317}{subsubsection*.169}
+\contentsline {subsubsection}{诺依曼边界值问题的通解}{318}{subsubsection*.170}
 \contentsline {subsection}{\numberline {12.4.5}混合边界值问题}{318}{subsection.12.4.5}
 \contentsline {subsection}{\numberline {12.4.6}罗宾边界值问题}{319}{subsection.12.4.6}
 \contentsline {section}{\numberline {12.5}拉普拉斯算子的基本解}{320}{section.12.5}
@@ -411,71 +411,71 @@
 \contentsline {subsection}{\numberline {12.6.3}伴随双层位势}{333}{subsection.12.6.3}
 \contentsline {subsection}{\numberline {12.6.4}双层位势}{336}{subsection.12.6.4}
 \contentsline {subsection}{\numberline {12.6.5}超奇异边界积分算子}{339}{subsection.12.6.5}
-\contentsline {subsubsection}{二维空间}{340}{subsubsection*.170}
-\contentsline {subsubsection}{三维空间}{343}{subsubsection*.171}
-\contentsline {subsection}{\numberline {12.6.6}边界积分算子之间的关系}{345}{subsection.12.6.6}
+\contentsline {subsubsection}{二维空间}{340}{subsubsection*.171}
+\contentsline {subsubsection}{三维空间}{343}{subsubsection*.172}
+\contentsline {subsection}{\numberline {12.6.6}边界积分算子之间的关系}{346}{subsection.12.6.6}
 \contentsline {subsection}{\numberline {12.6.7}单层位势算子的椭圆性和可逆性}{347}{subsection.12.6.7}
-\contentsline {subsubsection}{鞍点变分问题求证椭圆性}{350}{subsubsection*.173}
-\contentsline {subsubsection}{单层位势算子的可逆性}{352}{subsubsection*.175}
+\contentsline {subsubsection}{鞍点变分问题求证椭圆性}{351}{subsubsection*.174}
+\contentsline {subsubsection}{单层位势算子的可逆性}{353}{subsubsection*.176}
 \contentsline {subsection}{\numberline {12.6.8}超奇异边界积分算子的椭圆性}{353}{subsection.12.6.8}
-\contentsline {subsubsection}{超奇异边界积分算子的半椭圆性}{353}{subsubsection*.176}
-\contentsline {subsubsection}{椭圆性所处子空间的替代方案}{355}{subsubsection*.177}
+\contentsline {subsubsection}{超奇异边界积分算子的半椭圆性}{353}{subsubsection*.177}
+\contentsline {subsubsection}{椭圆性所处子空间的替代方案}{355}{subsubsection*.178}
 \contentsline {subsection}{\numberline {12.6.9}Steklov-Poincaré算子}{356}{subsection.12.6.9}
 \contentsline {subsection}{\numberline {12.6.10}双层位势的收缩属性}{357}{subsection.12.6.10}
-\contentsline {subsection}{\numberline {12.6.11}边界积分算子的映射特性}{360}{subsection.12.6.11}
+\contentsline {subsection}{\numberline {12.6.11}边界积分算子的映射特性}{361}{subsection.12.6.11}
 \contentsline {section}{\numberline {12.7}边界积分方程}{363}{section.12.7}
-\contentsline {subsection}{\numberline {12.7.1}狄利克雷边界值问题}{363}{subsection.12.7.1}
-\contentsline {subsubsection}{直接法求解狄利克雷边界值问题}{364}{subsubsection*.178}
-\contentsline {subsubsection}{间接法求解狄利克雷边界值问题}{365}{subsubsection*.179}
-\contentsline {subsection}{\numberline {12.7.2}诺依曼边界值问题}{366}{subsection.12.7.2}
-\contentsline {subsection}{\numberline {12.7.3}混合边界值问题}{369}{subsection.12.7.3}
-\contentsline {subsubsection}{直接法}{370}{subsubsection*.180}
-\contentsline {subsubsection}{间接映射法}{371}{subsubsection*.181}
-\contentsline {subsection}{\numberline {12.7.4}罗宾边界值问题}{371}{subsection.12.7.4}
+\contentsline {subsection}{\numberline {12.7.1}狄利克雷边界值问题}{364}{subsection.12.7.1}
+\contentsline {subsubsection}{直接法求解狄利克雷边界值问题}{364}{subsubsection*.179}
+\contentsline {subsubsection}{间接法求解狄利克雷边界值问题}{365}{subsubsection*.180}
+\contentsline {subsection}{\numberline {12.7.2}诺依曼边界值问题}{367}{subsection.12.7.2}
+\contentsline {subsection}{\numberline {12.7.3}混合边界值问题}{370}{subsection.12.7.3}
+\contentsline {subsubsection}{直接法}{370}{subsubsection*.181}
+\contentsline {subsubsection}{间接映射法}{371}{subsubsection*.182}
+\contentsline {subsection}{\numberline {12.7.4}罗宾边界值问题}{372}{subsection.12.7.4}
 \contentsline {section}{\numberline {12.8}近似方法}{372}{section.12.8}
 \contentsline {subsection}{\numberline {12.8.1}伽辽金——布博诺夫法}{372}{subsection.12.8.1}
-\contentsline {subsubsection}{近似解的唯一可解性}{373}{subsubsection*.182}
-\contentsline {subsubsection}{近似解的稳定性}{374}{subsubsection*.183}
-\contentsline {subsubsection}{近似解的收敛性}{374}{subsubsection*.184}
-\contentsline {subsection}{\numberline {12.8.2}线性形近似}{374}{subsection.12.8.2}
+\contentsline {subsubsection}{近似解的唯一可解性}{373}{subsubsection*.183}
+\contentsline {subsubsection}{近似解的稳定性}{374}{subsubsection*.184}
+\contentsline {subsubsection}{近似解的收敛性}{375}{subsubsection*.185}
+\contentsline {subsection}{\numberline {12.8.2}线性形近似}{375}{subsection.12.8.2}
 \contentsline {subsection}{\numberline {12.8.3}算子的近似}{376}{subsection.12.8.3}
-\contentsline {subsection}{\numberline {12.8.4}伽辽金——佩特洛夫法}{377}{subsection.12.8.4}
-\contentsline {subsection}{\numberline {12.8.5}混合边界值问题}{379}{subsection.12.8.5}
-\contentsline {subsubsection}{混合算子方程的鞍点变分问题}{379}{subsubsection*.186}
-\contentsline {subsubsection}{伽辽金变分问题}{379}{subsubsection*.187}
-\contentsline {subsubsection}{线性方程系统}{380}{subsubsection*.188}
-\contentsline {subsubsection}{舒尔补系统}{380}{subsubsection*.189}
-\contentsline {subsubsection}{唯一可解性}{381}{subsubsection*.190}
-\contentsline {subsubsection}{稳定性测度}{382}{subsubsection*.191}
-\contentsline {subsubsection}{误差测度项}{383}{subsubsection*.192}
-\contentsline {subsubsection}{离散稳定条件}{383}{subsubsection*.193}
+\contentsline {subsection}{\numberline {12.8.4}伽辽金——佩特洛夫法}{378}{subsection.12.8.4}
+\contentsline {subsection}{\numberline {12.8.5}混合边界值问题}{380}{subsection.12.8.5}
+\contentsline {subsubsection}{混合算子方程的鞍点变分问题}{380}{subsubsection*.187}
+\contentsline {subsubsection}{伽辽金变分问题}{380}{subsubsection*.188}
+\contentsline {subsubsection}{线性方程系统}{380}{subsubsection*.189}
+\contentsline {subsubsection}{舒尔补系统}{380}{subsubsection*.190}
+\contentsline {subsubsection}{唯一可解性}{381}{subsubsection*.191}
+\contentsline {subsubsection}{稳定性测度}{382}{subsubsection*.192}
+\contentsline {subsubsection}{误差测度项}{383}{subsubsection*.193}
+\contentsline {subsubsection}{离散稳定条件}{384}{subsubsection*.194}
 \contentsline {subsection}{\numberline {12.8.6}强制算子}{384}{subsection.12.8.6}
 \contentsline {section}{\numberline {12.9}有限元}{387}{section.12.9}
 \contentsline {subsection}{\numberline {12.9.1}参考元}{387}{subsection.12.9.1}
-\contentsline {subsubsection}{基本概念}{387}{subsubsection*.194}
-\contentsline {subsubsection}{一维空间的局部参数化}{389}{subsubsection*.195}
-\contentsline {subsubsection}{二维空间的局部参数化}{390}{subsubsection*.196}
-\contentsline {subsubsection}{三维空间的局部参数化}{392}{subsubsection*.197}
-\contentsline {subsubsection}{识别方程等价范的测度不等式}{394}{subsubsection*.198}
+\contentsline {subsubsection}{基本概念}{387}{subsubsection*.195}
+\contentsline {subsubsection}{一维空间的局部参数化}{389}{subsubsection*.196}
+\contentsline {subsubsection}{二维空间的局部参数化}{390}{subsubsection*.197}
+\contentsline {subsubsection}{三维空间的局部参数化}{392}{subsubsection*.198}
+\contentsline {subsubsection}{识别方程等价范的测度不等式}{394}{subsubsection*.199}
 \contentsline {subsection}{\numberline {12.9.2}形式方程}{395}{subsection.12.9.2}
-\contentsline {subsubsection}{常数型形式方程}{395}{subsubsection*.199}
-\contentsline {subsubsection}{线性形式方程}{395}{subsubsection*.200}
-\contentsline {subsubsection}{二次形式方程}{397}{subsubsection*.201}
+\contentsline {subsubsection}{常数型形式方程}{395}{subsubsection*.200}
+\contentsline {subsubsection}{线性形式方程}{395}{subsubsection*.201}
+\contentsline {subsubsection}{二次形式方程}{397}{subsubsection*.202}
 \contentsline {subsection}{\numberline {12.9.3}检测空间}{399}{subsection.12.9.3}
-\contentsline {subsubsection}{检测空间的插值算子}{400}{subsubsection*.202}
-\contentsline {subsubsection}{检测空间的投影算子}{401}{subsubsection*.203}
+\contentsline {subsubsection}{检测空间的插值算子}{400}{subsubsection*.203}
+\contentsline {subsubsection}{检测空间的投影算子}{401}{subsubsection*.204}
 \contentsline {part}{第三部分\hspace {1em}模型估计}{403}{part.3}
 \contentsline {part}{第四部分\hspace {1em}待分类}{405}{part.4}
 \contentsline {chapter}{\numberline {第十三章\hspace {.3em}}最大似然估计}{407}{chapter.13}
 \contentsline {section}{\numberline {13.1}简介}{407}{section.13.1}
 \contentsline {section}{\numberline {13.2}近似的测度}{407}{section.13.2}
 \contentsline {subsection}{\numberline {13.2.1}估计的偏误：标量参数}{408}{subsection.13.2.1}
-\contentsline {subsubsection}{偏误}{408}{subsubsection*.204}
-\contentsline {subsubsection}{可测度性}{408}{subsubsection*.205}
-\contentsline {subsubsection}{测度的方差和均方误差}{408}{subsubsection*.206}
+\contentsline {subsubsection}{偏误}{408}{subsubsection*.205}
+\contentsline {subsubsection}{可测度性}{408}{subsubsection*.206}
+\contentsline {subsubsection}{测度的方差和均方误差}{408}{subsubsection*.207}
 \contentsline {subsection}{\numberline {13.2.2}估计的偏误：向量参数}{408}{subsection.13.2.2}
-\contentsline {subsubsection}{平均偏误}{409}{subsubsection*.207}
-\contentsline {subsubsection}{测度的方差和均方误差}{409}{subsubsection*.208}
+\contentsline {subsubsection}{平均偏误}{409}{subsubsection*.208}
+\contentsline {subsubsection}{测度的方差和均方误差}{409}{subsubsection*.209}
 \contentsline {section}{\numberline {13.3}费雪信息矩阵和克拉美罗下界}{409}{section.13.3}
 \contentsline {subsection}{\numberline {13.3.1}标量参数}{409}{subsection.13.3.1}
 \contentsline {subsection}{\numberline {13.3.2}向量参数}{410}{subsection.13.3.2}
@@ -488,15 +488,15 @@
 \contentsline {subsection}{\numberline {13.6.3}最大似然估计：解析法}{414}{subsection.13.6.3}
 \contentsline {subsection}{\numberline {13.6.4}最大似然估计：数值法}{415}{subsection.13.6.4}
 \contentsline {subsection}{\numberline {13.6.5}无约束参数\(g(\varphi )\)构成的模型系统}{416}{subsection.13.6.5}
-\contentsline {subsubsection}{Delta近似法}{417}{subsubsection*.209}
-\contentsline {subsubsection}{最大似然估计：算法举例}{418}{subsubsection*.210}
+\contentsline {subsubsection}{Delta近似法}{417}{subsubsection*.210}
+\contentsline {subsubsection}{最大似然估计：算法举例}{418}{subsubsection*.211}
 \contentsline {chapter}{\numberline {第十四章\hspace {.3em}}工作论文}{423}{chapter.14}
 \contentsline {section}{\numberline {14.1}问题的提出}{423}{section.14.1}
 \contentsline {subsection}{\numberline {14.1.1}研究目标}{423}{subsection.14.1.1}
 \contentsline {subsection}{\numberline {14.1.2}模型设定}{423}{subsection.14.1.2}
 \contentsline {section}{\numberline {14.2}境内金融中介部门}{424}{section.14.2}
 \contentsline {part}{第五部分\hspace {1em}附录}{427}{part.5}
-\contentsline {chapter}{Appendices}{}{section*.214}
+\contentsline {chapter}{Appendices}{}{section*.215}
 \contentsline {chapter}{附录 \numberline {第一章\hspace {.3em}}Post-Keynesian Economics的一个小综述}{431}{附录.d.A}
 \contentsline {section}{\numberline {A.1}Introduction}{431}{section.d.A.1}
 \contentsline {section}{\numberline {A.2}PK的主要方法论}{431}{section.d.A.2}
