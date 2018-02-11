@@ -1,7 +1,14 @@
-\begin{thebibliography}{256}
+\begin{thebibliography}{259}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Book
+\bibitem[{Adda and Cooper(2003)}]{Adda:2003tt}
+\bibinfo{author}{Adda\xfnm[ J.]}, \bibinfo{author}{Cooper\xfnm[ R.]}.
+\newblock \bibinfo{title}{{Dynamic Economics: Quantitative Methods and
+  Applications}}.
+\newblock \bibinfo{address}{London}: \bibinfo{publisher}{MIT Press},
+  \bibinfo{year}{2003}.
 %Type = Article
 \bibitem[{Adolfson et~al.(2008{\natexlab{a}})Adolfson, Las~en, Lind and
   Villani}]{Adolfson:2008cs}
@@ -887,8 +894,8 @@
 \newblock \bibinfo{journal}{The American Economic Review}
   \bibinfo{year}{1988};\bibinfo{volume}{78}(\bibinfo{number}{3}):\bibinfo{pages}{402--417}.
 %Type = Article
-\bibitem[{Guerron-Quintana(2008)}]{GuerronQuintana:2008jo}
-\bibinfo{author}{Guerron-Quintana\xfnm[ P.A.]}.
+\bibitem[{Guerr{\'o}n-Quintana(2008)}]{GuerronQuintana:2008jo}
+\bibinfo{author}{Guerr{\'o}n-Quintana\xfnm[ P.A.]}.
 \newblock \bibinfo{title}{{Refinements on macroeconomic modeling: The role of
   non-separability and heterogeneous labor supply}}.
 \newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
@@ -1021,6 +1028,13 @@
   Estimated DSGE Model}}.
 \newblock \bibinfo{journal}{American Economic Journal: Macroeconomics}
   \bibinfo{year}{2010};\bibinfo{volume}{2}(\bibinfo{number}{2}):\bibinfo{pages}{125--164}.
+%Type = Article
+\bibitem[{Inada(1963)}]{Inada1963}
+\bibinfo{author}{Inada\xfnm[ K.I.]}.
+\newblock \bibinfo{title}{{On a Two-Sector Model of Economic Growth: Comments
+  and a Generalization}}.
+\newblock \bibinfo{journal}{Review of Economic Studies}
+  \bibinfo{year}{1963};\bibinfo{volume}{30}(\bibinfo{number}{2}):\bibinfo{pages}{119--127}.
 %Type = Article
 \bibitem[{Jarrow and Protter(2004)}]{Jarrow:2004gy}
 \bibinfo{author}{Jarrow\xfnm[ R.]}, \bibinfo{author}{Protter\xfnm[ P.]}.
@@ -1558,8 +1572,8 @@
 \bibitem[{Schmitt-Groh{\'e} and Uribe(2004)}]{SchmittGroh:2004da}
 \bibinfo{author}{Schmitt-Groh{\'e}\xfnm[ S.]}, \bibinfo{author}{Uribe\xfnm[
   M.]}.
-\newblock \bibinfo{title}{{Solving dynamic general equilibrium models using a
-  second-order approximation to the policy function}}.
+\newblock \bibinfo{title}{{Solving Dynamic General Equilibrium Models Using a
+  Second-Order Approximation to the Policy Function}}.
 \newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
   \bibinfo{year}{2004};\bibinfo{volume}{28}(\bibinfo{number}{4}):\bibinfo{pages}{755--775}.
 %Type = Article
@@ -1640,6 +1654,11 @@
   K.]}, \bibinfo{author}{Dolezel\xfnm[ I.]}.
 \newblock \bibinfo{title}{{Higher-Order Finite Element Methods}}.
 \newblock \bibinfo{publisher}{CRC Press}, \bibinfo{year}{2003}.
+%Type = Article
+\bibitem[{Stachurski(2008)}]{Stachurski:2008wc}
+\bibinfo{author}{Stachurski\xfnm[ J.]}.
+\newblock \bibinfo{title}{{Economic Dynamics}}
+  \bibinfo{year}{2008};:\bibinfo{pages}{1--392}.
 %Type = Article
 \bibitem[{Steinbach and Wendland(2001)}]{Steinbach:2001he}
 \bibinfo{author}{Steinbach\xfnm[ O.]}, \bibinfo{author}{Wendland\xfnm[ W.L.]}.

@@ -460,6 +460,9 @@ INPUT ./Figures/20170324-CIA-outline.pdf
 INPUT ./chapters/solution-strategies.tex
 INPUT ./chapters/solution-strategies.tex
 INPUT ./Figures/20170701-DSGE-workflow.pdf
+INPUT ./chapters/dynamic-programming.tex
+INPUT ./chapters/dynamic-programming.tex
+INPUT ./Figures/20180212-envelope-theorem.png
 INPUT ./chapters/optimal-control.tex
 INPUT ./chapters/optimal-control.tex
 INPUT /home/yanyuan/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
