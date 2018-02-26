@@ -1,0 +1,14 @@
+# Fdb version 3
+["xdvipdfmx"] 0 "projection-appendices-2.xdv" "projection-appendices-2.pdf" "projection-appendices-2" 0
+  "projection-appendices-2.xdv" 0 -1 0 "xelatex"
+  (generated)
+  "projection-appendices-2.pdf"
+["xelatex"] 1519663350 "projection-appendices-2.tex" "projection-appendices-2.xdv" "projection-appendices-2" 1519663350
+  "/home/yanyuan/texlive/2017/texmf-dist/web2c/texmf.cnf" 1515970670 32887 98f6daf93465f813f3c6dc477834d2d9 ""
+  "/home/yanyuan/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt" 1518003751 3705482 83d898bd52eb597f65cea3dc2d6443cf ""
+  "/home/yanyuan/texlive/2017/texmf.cnf" 1517942352 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
+  "projection-appendices-2.aux" 1519663345 8 a94a2480d3289e625eea47cd1b285758 ""
+  "projection-appendices-2.tex" 1519663345 1596 5a738e44643393a050f6c27af1a3fe33 ""
+  (generated)
+  "projection-appendices-2.xdv"
+  "projection-appendices-2.log"

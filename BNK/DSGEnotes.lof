@@ -27,11 +27,16 @@
 \contentsline {figure}{\numberline {12.C.4}{\ignorespaces 伽玛分布}}{233}{figure.c.12.C.4}
 \contentsline {figure}{\numberline {12.C.5}{\ignorespaces 贝塔分布}}{238}{figure.c.12.C.5}
 \contentsline {figure}{\numberline {12.C.6}{\ignorespaces 切比雪夫插值近似}}{249}{figure.c.12.C.6}
+\contentsline {figure}{\numberline {12.F.1}{\ignorespaces 矩形法则$(N=4)$}}{264}{figure.c.12.F.1}
+\contentsline {figure}{\numberline {12.F.2}{\ignorespaces 梯形法则$(N=4)$}}{264}{figure.c.12.F.2}
+\contentsline {figure}{\numberline {12.F.3}{\ignorespaces 3阶牛顿——寇特斯法则，对应子区间中的4个配点}}{266}{figure.c.12.F.3}
+\contentsline {figure}{\numberline {12.F.4}{\ignorespaces 龙格现象$(N=6)$}}{267}{figure.c.12.F.4}
+\contentsline {figure}{\numberline {12.F.5}{\ignorespaces 比较矩形法则和梯形法则下，近似误差随$N$值增大的收敛情况}}{268}{figure.c.12.F.5}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {13.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$}}{397}{figure.13.9.1}
-\contentsline {figure}{\numberline {13.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)}}{398}{figure.13.9.2}
-\contentsline {figure}{\numberline {13.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)}}{400}{figure.13.9.3}
-\contentsline {figure}{\numberline {13.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$}}{409}{figure.13.9.4}
+\contentsline {figure}{\numberline {13.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$}}{405}{figure.13.9.1}
+\contentsline {figure}{\numberline {13.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)}}{406}{figure.13.9.2}
+\contentsline {figure}{\numberline {13.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)}}{408}{figure.13.9.3}
+\contentsline {figure}{\numberline {13.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$}}{417}{figure.13.9.4}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}

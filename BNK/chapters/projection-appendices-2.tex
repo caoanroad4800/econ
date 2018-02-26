@@ -1,0 +1,316 @@
+%!TEX root = ../DSGEnotes.tex
+\section{数值求积(1)}
+\label{sec:numerical-integration-ncrule}
+
+我们常常需要计算一个定积分的值，如
+\begin{equation*}
+  \int_{a}^{b} f(x) \, \mathrm{d}x,
+\end{equation*}
+若直接用解析法求解较为困难，则常常采取数值积分(numerical integratation)\index{numerical integration \dotfill 数值积分}的思路，将积分式转化为有限个方程求和的方式做近似求解，如
+\begin{equation}
+  \label{eq:nint-num-integ-def}
+  \int_{a}^{b} f(x) \, \mathrm{d} x \approx \sum_{n=1}^{N} w_{n} f \left( x_{n} \right),
+\end{equation}
+也即，我们在原方程的取值区间$[a,b]$中抽取$N$个点，$n=0,1,\ldots,N$的$x_{n}$值代回方程中对应值$f \left(x_{n} \right)$。$w_{n}$表示相应的权重系数。
+
+因此，数值积分也常常称为数值求积(numerical quadrature)\index{numerical quadrature \dotfill 数值求积}。集合$\left\{ x_{n} \right\},\left\{ w_{n} \right\}$常常称为求积点(quadrature points)\index{quadrature points \dotfill 求积点}集合和求积权重(quadrature weights)\index{quadrature weights \dotfill 求积权重}集合；合适的选取$\left\{ x_{n} \right\},\left\{ w_{n} \right\}$的算法称为求积法则(quadrature rule)\index{quadrature rule \dotfill 求积法则}。对于同一个积分求解问题\eqref{eq:nint-num-integ-def}往往存在一系列法则；评价不同法则之间好坏的标准在于，看哪个法则能用最少的样本点$N$来对\eqref{eq:nint-num-integ-def}作出最精确的近似，同时确保计算成本可控，如编程难度、计算时间等。
+
+先从最基本的牛顿——寇特斯法则开始介绍。
+
+\subsection{牛顿——寇特斯法则}
+\label{sec:nint-ncrule}
+近似求解积分问题\eqref{eq:nint-num-integ-def}的基本思路是，在区间$[a,b]$中找到一个多项式方程$P(x)$来近似$f(x)$。由于多项式的求和计算往往较为简单(多项式的介绍见第\ref{sec:poly}节)，这会简化\eqref{eq:nint-num-integ-def}RHS的计算时间。我们将这种思路称为牛顿——寇特斯(求积)法则(Newton—Cotes Rule)\index{Newton—Cotes Rule \dotfill 牛顿——寇特斯法则}。牛顿——寇特斯法则随着多项式的次(degree, order)而呈层级特征：使用$p$次多项式的牛顿——寇特斯法则可称为$p$阶牛顿——寇特斯法则。
+
+如果$f$不是多项式，那么在$[a,b]$区间内寻找近似多项式$P(x)$会较为困难。一个近似方案是将空间$[a,b]$划分为$N$个子区间(对应$N+1$个点)，在每个子空间中分别寻找可以近似$f$的多项式，进而将多个多项式加权求和，作为整个空间中$f$的近似方程。$N$越大，子空间的个数越多，划分就越精细，每个子空间中的近似就越精确，进而整个空间中的近似求积就越精确。
+
+\subsubsection{矩形法则}
+\label{sec:ninc-nc-rectangular-rule}
+我们先从$p=0$的情况开始理解牛顿——寇特斯法则，根据黎曼求和(Riemann sums)，我们可以将方程$f(x)$理解为一组矩形的集合，对$f(x)$在区间$[a,b]$中求积就是求曲线下方的面积，近似等于各个矩形面积的和。随着$N$趋近于无穷大，每个矩形的宽度无限接近于$0$，近似就越精确。
+
+在每个子空间中分别用$1$个$p=0$次多项式来近似$f$，$0$次多项式是个常数，换句话说我们在每个子空间中用一个常数来近似$f$。这又称为矩形求积法则(rectangular quadrature rule)\index{rectangular (quadrature) rule \dotfill 矩形(求积)法则}。
+
+\begin{figure}[htbp]
+   \caption{矩形法则$(N=4)$}
+  \centering
+  \includegraphics[width=8cm]{./Figures/20180227-rectangular-rule-example.png}
+  \label{fig:ninc-nc-rectangular-rule}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+图\ref{fig:ninc-nc-rectangular-rule}绘出了$N=4$情况下，利用矩形法则对$\int_{a}^{b} f(x) \, \mathrm{d}x$的近似。不难看出，将区间$[a,b]$划分为$N$个等宽子区间，每个子区间的宽度都是$\Delta = \left(b - a \right)/N$。最左侧第一个矩形，左边长(高)为$f(a)$，宽为$\Delta$，对应面积为$f(a) \cdot \Delta$。
+左数第二个矩形，左边长(高)为$f \left( a+\Delta \right)$，宽也是$\Delta$，面积为$\left( a+\Delta \right) \cdot \Delta$，以此类推直到第$N=4$个矩形为止。将这些子区间中矩形的面积加总，可得矩形法则的近似表达式
+\begin{equation*}
+    \mathcal{I}_{N=4}^{rect}
+    %\mathcal{N}_{N=4}^{rect}
+    \approx
+    f(a) \cdot \Delta
+    + f \left(a + \Delta \right) \cdot \Delta
+    + f \left(a + 2 \Delta \right) \cdot \Delta
+    + f \left(a + 3 \Delta \right) \cdot \Delta,
+\end{equation*}
+扩展到更一般的$N \in \mathcal{N}$的情况，利用$N$段矩形法则对积分$\int_{a}^{b} f(x) \, \mathrm{d} x$的近似为
+\begin{equation}
+  \label{eq:ninc-nc-rectangular-rule}
+  \mathcal{I}_{N}^{rect} = \sum_{n=0}^{N-1} f \left( a + n \cdot \Delta \right) \cdot \Delta.
+\end{equation}
+
+矩形法则\eqref{eq:ninc-nc-rectangular-rule}成为对\eqref{eq:nint-num-integ-def}的近似求积法则之一：
+\begin{itemize}
+  \item 求积权重集合$\left\{ w_{n} \right\}_{n=0}^{N-1}$对应$w_{n} \equiv \Delta \, \forall \, n$，
+  \item 求积点集合$\left\{ x_{n} \right\}_{n=0}^{N-1}$对应$x_{n} = a + n \cdot \Delta, \, n = 0,1,\ldots,N-1$。
+\end{itemize}
+
+值得注意的是，在矩形法则下，我们只需要左边长，从而无需计算$f(b)$。
+
+
+\subsubsection{梯形法则}
+\label{sec:ninc-nc-trapezoidal-rule}
+从图\ref{fig:ninc-nc-rectangular-rule}中不难看出，利用矩形法则近似曲线下方阴影的面积，近似效果并不理想。一个可能的改进方案是利用梯形代替矩形做近似，又称梯形近似法则。
+
+在每个子空间中分别用$1$个$p=1$次多项式来近似$f$，$1$次多项式是条斜线，连接子区间的两个端点(始点和终点)。这又称为梯形求积法则(trapezoidal quadrature rule)\index{trapezoidal (quadrature) rule \dotfill 梯形(求积)法则}。
+
+\begin{figure}[htbp]
+  \caption{梯形法则$(N=4)$}
+  \centering
+  \includegraphics[width=8cm]{./Figures/20180227-trapezoidal-rule-example.png}
+  \label{fig:ninc-nc-trapezoidal-rule}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+
+见图\ref{fig:ninc-nc-trapezoidal-rule}所示，左数第$1$个梯形的面积等于
+\begin{equation*}
+  \frac{1}{2} \left[ f \left( a \right) + f \left( a + \Delta \right) \right] \cdot \Delta,
+\end{equation*}
+
+左数第$2$个梯形的面积等于
+\begin{equation*}
+  \frac{1}{2} \left[ f \left( a + \Delta \right) + f \left( a + 2 \Delta \right) \right] \cdot \Delta,
+\end{equation*}
+以此类推直到第$N=4$个梯形。将子区间中梯形的面积加总，可得
+\begin{equation*}
+\begin{split}
+  \mathcal{I}_{N=4}^{trap} = &
+    \frac{1}{2} \left[ f \left( a \right) + f \left( a + \Delta \right) \right] \cdot \Delta
+    + \frac{1}{2} \left[ f \left( a + \Delta \right) + f \left( a + 2 \Delta \right) \right] \cdot \Delta \\
+    & + \frac{1}{2} \left[ f \left( a + 2 \Delta \right) + f \left( a + 3 \Delta \right) \right] \cdot \Delta
+    + \frac{1}{2} \left[ f \left( a + 3 \Delta \right) + f \left( a + 4 \Delta \right) \right] \cdot \Delta \\
+    = & \left[
+    \frac{1}{2} f \left( a \right)
+    + f \left( a + \Delta \right)
+    + f \left( a + 2 \Delta \right)
+    + f \left( a + 3 \Delta \right)
+    + \frac{1}{2} f \left( a + b \right)
+    \right] \cdot \Delta,
+\end{split}
+\end{equation*}
+扩展到更一般的$N \in \mathcal{N}$的情况，我们有$N$段梯形法则对$\int_{a}^{b} f \left( x \right) \, \mathrm{d} x$的近似为
+\begin{equation}
+  \label{eq:ninc-nc-trapezoidal-rule}
+  \mathcal{I}_{N}^{trap} = \frac{1}{2} f \left( a \right) \cdot \Delta
+  + \Delta \cdot \sum_{n=1}^{N-1} f \left( a + n \cdot \Delta \right)
+  + \frac{1}{2} f \left( b \right) \cdot \Delta.
+\end{equation}
+
+
+梯形法则\eqref{eq:ninc-nc-trapezoidal-rule}称为对\eqref{eq:nint-num-integ-def}的又一种近似求积法则：
+\begin{itemize}
+  \item 求积点集合$\left\{ x_{n} \right\}_{n=1}^{N-1}$对应$x_{n} = a + n \cdot \Delta, \, n = 0,1,\ldots,N$，
+  \item 求积权重集合$\left\{ w_{n} \right\}_{n=1}^{N}$对应
+  \begin{equation*}
+  w_{n} =
+  \begin{cases}
+  \frac{1}{2} \Delta, & n = 0, N, \\
+  \Delta, & n = 1, 2, \ldots, N-1,
+  \end{cases}
+\end{equation*}
+值得注意的是，比起矩形法则来，当利用梯形法则做近似求积时，需计算$N+1$个求积抽样点，比矩形法则多出的$1$个点为总区间中的末端$b$，对应$f(b)$。
+\end{itemize}
+
+\subsubsection{更高阶牛顿——寇特斯法则}
+\label{sec:ninc-nc-higher-rule}
+已知用$p=0$阶多项式(常数)近似子区间中的$f$，称矩形法则。用$p=1$阶多项式(斜线)近似，称梯形法则。那么我们可以进一步迭代计算更高阶$p > 1$的牛顿——寇特斯求积近似，方法如下
+\begin{enumerate}
+  \item 在子区间$\left[ x_{n}, x_{n+1} \right]$中，配$p+1$个等距离分布的点(包括子区间的起始点$x_{n}$和终结点$x_{n+1}$)，将子区间分为$p$个部分。例如，
+  \begin{itemize}
+    \item 对$p=2$而言，配3个点$x_{n}, \frac{1}{2} \cdot \left[ x_{n} + x_{n+1} \right] , x_{n+1}$，
+    \item 对$p=3$而言，配4个点$x_{n}, \frac{1}{3} \cdot \left[ x_{n} + x_{n+1} \right] , \frac{2}{3} \cdot \left[ x_{n} + x_{n+1} \right], x_{n+1}$，以此类推。
+  \end{itemize}
+  \item 在子空间中针对这$p+1$个配点，找到唯一的多项式$P(x)$以近似$f(x)$。例如，
+  \begin{itemize}
+    \item $p=0$，$P(x)$是个常数。矩形法则。
+    \item $p=1$，$P(x)$是条斜线，连接子区间的两个端点$f \left( x_{n} \right), \, f \left( x_{n+1} \right)$。梯形法则。
+    \item $p=2$，$P(x)$是一条经过如下3个点的抛物线，3个点的坐标依次为
+    \begin{equation*}
+      \begin{cases}
+        \Big( x_{n}, f \left( x_{n} \right) \Big), \\
+        \Big( x_{m}, f \left( x_{m} \right) \Big), \quad x_{m} \equiv \frac{x_{n} + x_{n+1}}{2}, \\
+        \Big( x_{n+1}, f \left( x_{n+1} \right) \Big).
+      \end{cases}
+    \end{equation*}
+    \item $p=3$，$P(x)$是一条经过如下4个点的曲线(图\ref{fig:ninc-nc-higher-p3})，4个点的坐标依次为
+    \begin{equation*}
+      \begin{cases}
+        \Big( x_{n}, f \left( x_{n} \right) \Big), \\
+        \Big( x_{m}, f \left( x_{m} \right) \Big), \quad x_{m} \equiv \frac{1}{3} \left( x_{n} + x_{n+1} \right), \\
+        \Big( x_{m+1}, f \left( x_{m+1} \right) \Big), \quad x_{m+1} \equiv \frac{2}{3} \left( x_{n} + x_{n+1} \right), \\
+        \Big( x_{n+1}, f \left( x_{n+1} \right) \Big),
+      \end{cases}
+    \end{equation*}
+    \begin{figure}[htbp]
+       \caption{3阶牛顿——寇特斯法则，对应子区间中的4个配点}
+      \centering
+      \includegraphics[width=8cm]{./Figures/20180227-nc-higher.png}
+      \label{fig:ninc-nc-higher-p3}
+    %
+    %  \small{Source: PBOC.}
+    \end{figure}
+以此类推。无论哪一个例子中，$P(x)$都是这样一个多项式，其系数是抽样方程$f(x)$值的线性组合。
+  \end{itemize}
+
+  \item 从$x_{n}$到$x_{n+1}$对$P(x)$求积分，作为这个子区间内方程$f(x)$的近似。
+  \item 将所有子区间内的近似方程组合起来，作为总区间中的最终近似求积法则。
+\end{enumerate}
+
+$p=2$时的牛顿——寇特斯求积，又称辛普森法则(Simpson's rule)\index{Simpson's (quadrature) rule \dotfill 辛普森(求积)法则}
+\begin{equation}
+  \label{eq:ninc-nc-simpson-rule}
+  \mathcal{I}_{N}^{simp} =
+  \sum_{n=0}^{N-1}
+  \frac{\Delta}{6}
+  \left[
+  f \left( a + n \cdot \Delta \right)
+  + 4 f \left( a + \left( n + \frac{1}{2} \right) \cdot \Delta \right)
+  + f \left( a + \left( n + 1 \right)  \right) \cdot \Delta
+  \right].
+\end{equation}
+
+\subsubsection{龙格现象}
+\label{sec:ninc-nc-runge}
+%20180227-Runge-phenomenon.png
+一个自然出现的问题：更高阶的牛顿——寇特斯法则会不会带来更精确的近似解？很遗憾，答案是否定的。这是由于龙格现象(Runge phenomenon)\index{Runge phenomenon \dotfill 龙格现象}：当我们试图利用子空间中等距分布的点做更高阶多项式近似时，再查指点附近的多项式方程会出现较大幅度的震荡，从而影响最终求积估计的精确度，可参考\href{https://en.m.wikipedia.org/wiki/Runge%27s_phenomenon}{维基百科词条}。图\ref{fig:ninc-nc-higher-runge-phenomenon}中，蓝线和绿线分别表示$p=5$和$p=9$时的差值多项式近似，对应$N=6$。红线表示龙格方程(Runge function)。
+
+\begin{figure}[htbp]
+   \caption{龙格现象$(N=6)$}
+  \centering
+  \includegraphics[width=8cm]{./Figures/20180227-Runge-phenomenon.png}
+  \label{fig:ninc-nc-higher-runge-phenomenon}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+
+\subsubsection{误差的收敛}
+\label{sec:ninc-nc-error-convergence}
+比较不同求积法则的优劣，可用启发式误差“分析”\footnote{加上引号是指，这种方法只是一种较为常用的检验措施，而不宜理解为某种严谨的学术性系统性表达。}，观察近似误差随着配点数$N$增加的衰减速度。具体说来
+\begin{enumerate}
+  \item 考虑区间中某一宽度为$\Delta$的特定子区间，在其中用一个$p$阶多项式$P(x)$来近似$f$
+  \begin{equation*}
+    P(x) = c_{0} + c_{1} x + c_{2} x^{2} + \ldots + c_{p} x^{p}.
+  \end{equation*}
+  \item 那么子区间中存在一个点$x_{0}$，使得$f$围绕$x_{0}$做泰勒级数展开的前$p+1$项，与$P(x)$一致
+  \footnote{例如
+  \begin{itemize}
+    \item $p=0$，矩形法则，$x_{0}$可以是子区间的起始点。
+    \item $p=1$，梯形法则，$x_{0}$的存在性可由中值定理予以证明：$x_{n}$和$x_{n+1}$之间必然存在一点，该点上的方程值$f\left( x_{0} \right)$的导数，等于连接$f \left(x_{n} \right)$和$f \left( x_{n+1} \right)$两点的斜线的斜率。
+    \item $p >1$，更高阶求和法则中$x_{0}$点存在性的证明，也可用类似思路证得。
+  \end{itemize}
+  }。
+  可将$f$写成如下形式
+  \begin{equation*}
+    f(x) = \underbrace{
+    c_{0} + c_{1} x + \ldots + c_{p} x^{p} }_{\equiv P(x)}
+    + c_{p+1} x^{p+1} + \ldots.
+  \end{equation*}
+  \item 由此可见，原方程$f(x)$及其近似多项式$P(x)$之间的误差是一个从$p+1$阶开始的多项式
+  \begin{equation*}
+    f(x) - P(x) = c_{p+1} x^{p+1} + c_{p+2} x^{p+2} + \ldots,
+  \end{equation*}
+  \item 那么在这个子区间$\left[ x_{n}, x_{n+1} \right]$内的全部误差可求积得出
+  \begin{equation*}
+    \begin{split}
+      \int \left[ f(x) - P(x) \right] \, \mathrm{d} x
+      & = \int \left[
+      c_{p+1} x^{p+1} + c_{p+2} x^{p+2} + \ldots \right] \, \mathrm{d} x \\
+      & \propto \Delta^{p+2} + \text{更高阶项},
+    \end{split}
+  \end{equation*}
+  最后一行是说，对$x^{p+1}$沿着某个宽度为$\Delta$的子区间求积，等于某个和$\Delta^{p+2}$成比例的值。
+  \item 将一个子区间中的情况扩展到其他子区间，每个子区间中的误差项都与$\Delta^{p+2}$成定比例。更进一步地，由于$\Delta$与$N$反比例相关(N是整个区间中划分的子区间的数量)
+  \begin{equation*}
+    \Delta \sim \frac{1}{N},
+  \end{equation*}
+  那么每个子区间中的误差项可近似表示为
+  \begin{equation*}
+    \Delta \propto \frac{1}{N^{p+2}}.
+  \end{equation*}
+  \item 将$N$个子区间的误差项汇总
+  \begin{equation}
+    \varepsilon \propto \frac{N}{N^{p+2}} =  \frac{1}{N^{p+2}},
+  \end{equation}
+  例如矩形法则$(p=0)$的近似误差$\propto \frac{1}{N}$，梯形法则$(p=1)$的近似误差$\propto \frac{1}{N^{2}}$。可见误差与$N$成反比：$N$越大，划分的子区间数量越多，近似误差越小。
+\end{enumerate}
+
+举例，假定我们要用求积法则近似计算
+\begin{equation*}
+  \mathcal{I} = \int_{1}^{2} \log^{2} x \, \mathrm{d} x,
+\end{equation*}
+对应相对误差定义为$\varepsilon^{rel}$
+\begin{equation*}
+  \varepsilon^{rel} \equiv \frac{
+  \big| \mathcal{I}_{N}^{approx} - \mathcal{I} \big|
+  }{
+  \mathcal{I}
+  }
+\end{equation*}
+
+应用矩形法则和梯形法则，查看近似误差随着$N$增大的收敛情况如图\ref{fig:ninc-nc-error-convergence}，可以看出
+
+\begin{figure}[htbp]
+   \caption{比较矩形法则和梯形法则下，近似误差随$N$值增大的收敛情况}
+  \centering
+  \includegraphics[width=10cm]{./Figures/20180227-nc-higher-error-convergence.png}
+  \label{fig:ninc-nc-error-convergence}
+
+  \small{原求积方程$\int_{1}^{2} \log^{2} x \, \mathrm{d} x$。}
+\end{figure}
+
+这两种方法代表的牛顿——寇特斯法则下误差项随着$N$而作线性收敛：
+随着$N$增大$1,000$倍，矩形法则误差降低约$1,000$倍，$\Delta \varepsilon^{rect} \propto \frac{1}{\Delta N}$；梯形法则降低约$1,000,000$倍，$\Delta \varepsilon^{trap} \propto \frac{1}{ \left(\Delta N \right)^{2}}$。梯度法则优于矩形法则。
+
+但图\ref{fig:ninc-nc-error-convergence}也揭示出牛顿——寇特斯法则的不足：即便是对于$\log^{2} x$这种很平滑的方程，梯形法则也需要大约$1,000$个样本，才能将总体误差控制在$10^{-6}$的水平上(为了达到类似的精度，矩形法则甚至需要$10^{6}$个样本)。从计算成本来看，牛顿——寇特斯法则恐怕不是最理想的方案，需要加以改进。如下文介绍的克伦肖——柯蒂斯法则，可以用少得多的样本量达到同样$10^{-6}$级别的误差水平，哪怕所处理的原方程更加复杂\todo{做一个ref}。
+
+\subsection{几个小技巧}
+\label{sec:ninc-tips}
+以牛顿——寇特斯法则为例，介绍几个小技巧。它们对其他如克伦肖——柯蒂斯法则也适用。
+
+\subsubsection{无限区间求积}
+\label{sec:ninc-tips-improper-integral}
+有时会遇到求含有无限区间的积分问题如
+\begin{equation*}
+  \int_{0}^{\infty} f(x) \, \mathrm{d} x,
+\end{equation*}
+这需要我们先将区间$[0, \infty)$映射到一个有界区间内，如
+\begin{equation*}
+  x:[0, \infty) \mapsto u:[0,1],
+\end{equation*}
+然后再应用求解定积分的求积法则。映射的方法有很多种，其中之一是设
+\begin{equation*}
+  x \equiv \frac{u}{1-u}, \Rightarrow \mathrm{d} x = \frac{\mathrm{d} u}{\left( 1 - u \right)^{2}},
+\end{equation*}
+求积问题因此转换为
+\begin{equation*}
+  \int_{0}^{\infty} f(x) \, \mathrm{d} x = \int_{0}^{1} \frac{1}{\left( 1 - u \right)^{2}} f
+  \left( \frac{u}{1 - u} \right) \, \mathrm{d} u.
+\end{equation*}
+
+需要指出的是，上式在转换之后，含有一个奇异点(singularity):$\lim_{u \rightarrow 1} f(x) \rightarrow \infty$。然而若是在前提假设中假定$f(x)$在$x \rightarrow \infty$处消失(这个假定是为了确保积分$\int_{0}^{\infty} f(x) \, \mathrm{d} x$收敛)，则这一奇异点也就不存在了。
+
+\subsection{求积中的可积奇异点问题}
+除了上节提到的情况之外，还应该注意到，有些奇异点是可积的(integrable singular points)\index{integrable singular points \dotfill 可积奇异点}，例如这个求积问题
+\begin{equation*}
+  \mathcal{I} = \int_{0}^{1} \frac{\exp(x)}{\sqrt{x}} \, \mathrm{d} x.
+\end{equation*}
+
+
+
+\end{subappendices}
