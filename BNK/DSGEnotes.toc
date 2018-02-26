@@ -421,42 +421,42 @@
 \contentsline {subsection}{\numberline {13.6.5}超奇异边界积分算子}{349}{subsection.13.6.5}
 \contentsline {subsubsection}{二维空间}{350}{subsubsection*.171}
 \contentsline {subsubsection}{三维空间}{353}{subsubsection*.172}
-\contentsline {subsection}{\numberline {13.6.6}边界积分算子之间的关系}{356}{subsection.13.6.6}
+\contentsline {subsection}{\numberline {13.6.6}边界积分算子之间的关系}{355}{subsection.13.6.6}
 \contentsline {subsection}{\numberline {13.6.7}单层位势算子的椭圆性和可逆性}{357}{subsection.13.6.7}
-\contentsline {subsubsection}{鞍点变分问题求证椭圆性}{361}{subsubsection*.174}
-\contentsline {subsubsection}{单层位势算子的可逆性}{363}{subsubsection*.176}
+\contentsline {subsubsection}{鞍点变分问题求证椭圆性}{360}{subsubsection*.174}
+\contentsline {subsubsection}{单层位势算子的可逆性}{362}{subsubsection*.176}
 \contentsline {subsection}{\numberline {13.6.8}超奇异边界积分算子的椭圆性}{363}{subsection.13.6.8}
 \contentsline {subsubsection}{超奇异边界积分算子的半椭圆性}{363}{subsubsection*.177}
 \contentsline {subsubsection}{椭圆性所处子空间的替代方案}{365}{subsubsection*.178}
 \contentsline {subsection}{\numberline {13.6.9}Steklov-Poincaré算子}{366}{subsection.13.6.9}
 \contentsline {subsection}{\numberline {13.6.10}双层位势的收缩属性}{367}{subsection.13.6.10}
-\contentsline {subsection}{\numberline {13.6.11}边界积分算子的映射特性}{371}{subsection.13.6.11}
+\contentsline {subsection}{\numberline {13.6.11}边界积分算子的映射特性}{370}{subsection.13.6.11}
 \contentsline {section}{\numberline {13.7}边界积分方程}{373}{section.13.7}
-\contentsline {subsection}{\numberline {13.7.1}狄利克雷边界值问题}{374}{subsection.13.7.1}
+\contentsline {subsection}{\numberline {13.7.1}狄利克雷边界值问题}{373}{subsection.13.7.1}
 \contentsline {subsubsection}{直接法求解狄利克雷边界值问题}{374}{subsubsection*.179}
 \contentsline {subsubsection}{间接法求解狄利克雷边界值问题}{375}{subsubsection*.180}
-\contentsline {subsection}{\numberline {13.7.2}诺依曼边界值问题}{377}{subsection.13.7.2}
-\contentsline {subsection}{\numberline {13.7.3}混合边界值问题}{380}{subsection.13.7.3}
+\contentsline {subsection}{\numberline {13.7.2}诺依曼边界值问题}{376}{subsection.13.7.2}
+\contentsline {subsection}{\numberline {13.7.3}混合边界值问题}{379}{subsection.13.7.3}
 \contentsline {subsubsection}{直接法}{380}{subsubsection*.181}
 \contentsline {subsubsection}{间接映射法}{381}{subsubsection*.182}
-\contentsline {subsection}{\numberline {13.7.4}罗宾边界值问题}{382}{subsection.13.7.4}
+\contentsline {subsection}{\numberline {13.7.4}罗宾边界值问题}{381}{subsection.13.7.4}
 \contentsline {section}{\numberline {13.8}近似方法}{382}{section.13.8}
 \contentsline {subsection}{\numberline {13.8.1}伽辽金——布博诺夫法}{382}{subsection.13.8.1}
 \contentsline {subsubsection}{近似解的唯一可解性}{383}{subsubsection*.183}
 \contentsline {subsubsection}{近似解的稳定性}{384}{subsubsection*.184}
-\contentsline {subsubsection}{近似解的收敛性}{385}{subsubsection*.185}
-\contentsline {subsection}{\numberline {13.8.2}线性形近似}{385}{subsection.13.8.2}
+\contentsline {subsubsection}{近似解的收敛性}{384}{subsubsection*.185}
+\contentsline {subsection}{\numberline {13.8.2}线性形近似}{384}{subsection.13.8.2}
 \contentsline {subsection}{\numberline {13.8.3}算子的近似}{386}{subsection.13.8.3}
-\contentsline {subsection}{\numberline {13.8.4}伽辽金——佩特洛夫法}{388}{subsection.13.8.4}
-\contentsline {subsection}{\numberline {13.8.5}混合边界值问题}{390}{subsection.13.8.5}
-\contentsline {subsubsection}{混合算子方程的鞍点变分问题}{390}{subsubsection*.187}
-\contentsline {subsubsection}{伽辽金变分问题}{390}{subsubsection*.188}
+\contentsline {subsection}{\numberline {13.8.4}伽辽金——佩特洛夫法}{387}{subsection.13.8.4}
+\contentsline {subsection}{\numberline {13.8.5}混合边界值问题}{389}{subsection.13.8.5}
+\contentsline {subsubsection}{混合算子方程的鞍点变分问题}{389}{subsubsection*.187}
+\contentsline {subsubsection}{伽辽金变分问题}{389}{subsubsection*.188}
 \contentsline {subsubsection}{线性方程系统}{390}{subsubsection*.189}
 \contentsline {subsubsection}{舒尔补系统}{390}{subsubsection*.190}
 \contentsline {subsubsection}{唯一可解性}{391}{subsubsection*.191}
 \contentsline {subsubsection}{稳定性测度}{392}{subsubsection*.192}
 \contentsline {subsubsection}{误差测度项}{393}{subsubsection*.193}
-\contentsline {subsubsection}{离散稳定条件}{394}{subsubsection*.194}
+\contentsline {subsubsection}{离散稳定条件}{393}{subsubsection*.194}
 \contentsline {subsection}{\numberline {13.8.6}强制算子}{394}{subsection.13.8.6}
 \contentsline {section}{\numberline {13.9}有限元}{397}{section.13.9}
 \contentsline {subsection}{\numberline {13.9.1}参考元}{397}{subsection.13.9.1}

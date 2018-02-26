@@ -327,7 +327,7 @@
 
 第\ref{sec:pj-spectral-method-global}节所介绍的几种方案，全部都是单维度基方程，相对简单，易于我们理解用映射法求解DSGE模型的基本思路。然而现实世界中大多数经济问题都是多维度的，几乎全部DSGE模型都研究一个以上的状态变量。这就需要我们探讨多维基的选择方案。
 
-如何选取多维基成为映射法的关键问题。然而映射法受到维度灾难(curse of dimensionality)\index{curse of dimensionality \dotfill 维度灾难}的强烈冲击\citep{Bellman:1957tx}。随着解释变量数量的增加——如中等规模DSGE模型可能要处理超过20组解释变量——应用映射法求解模型变得异常困难，这要求我们用更高的技巧去选取多维基方程。
+如何选取多维基成为映射法的关键问题。然而映射法受到维数灾难(curse of dimensionality)\index{curse of dimensionality \dotfill 维数灾难}的强烈冲击\citep{Bellman:1957tx}。随着解释变量数量的增加——如中等规模DSGE模型可能要处理超过20组解释变量——应用映射法求解模型变得异常困难，这要求我们用更高的技巧去选取多维基方程。
 
 \subsection{离散状态变量}
 \label{sec:pj-multidimen-discrete-state-variables}
@@ -488,7 +488,7 @@
 
 利用有限元法展开分析，常见的步骤如下。第一步是确定状态变量的值域$\Omega$。值域的选取方面，一些规则是天然的(如$k_t > 0$)，另一些则不是($k_t < \bar{k}$)，后者我们需要额外注意：如，可以将$\bar{k}$设的足够高，以至于在模型仿真过程中所有$k_t$都在上限$\bar{k}$的下方。随着仿真过程的实际展开，$\bar{k}$的值也可能做微调。
 
-第二步是将$\Omega$分成若彼此不重叠的有限个元。各个元相接的部分称为节点(nodes)\index{node \dotfill 节点}。分元的原则总体上来讲灵活性很高，可以
+第二步是将$\Omega$分成若彼此不重叠的有限个元。各个元相接的部分称为结点(nodes)\index{node \dotfill 结点}。分元的原则总体上来讲灵活性很高，可以
 \begin{itemize}
   \item 均等划分，直观简便
   \item 根据变量处于某种状态的频率，划分为一系列小块(频率高)和大块(频率低)。对``频率''的设定又分为两种情况
@@ -569,7 +569,7 @@
 \end{equation*}
 不难看出，近似方程$\hat{d}$是线性的，斜率的符号由$\theta_{i+1}^n - \theta_{i}^n$来决定。
 
-另一方面采用类似的方法，以有限元节点$k_{i-1}$和$k_{i}$划出的元中，我们可以得到另一个线性近似方程$\hat{d}$
+另一方面采用类似的方法，以有限元结点$k_{i-1}$和$k_{i}$划出的元中，我们可以得到另一个线性近似方程$\hat{d}$
 \begin{equation*}
   \hat{d} \left( k | k_{i-1}, k_{i}, \theta^n_{i-1}, \theta^n_{i} \right)=
   \frac{

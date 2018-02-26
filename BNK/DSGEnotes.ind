@@ -43,7 +43,7 @@
 		\hyperpage{356}, \hyperpage{374}
   \item capacity \dotfill 容度, \hyperpage{361}
   \item cardinality \dotfill 势, \hyperpage{269}
-  \item Cauchy principal value \dotfill 柯西主值, \hyperpage{350}
+  \item Cauchy principal value \dotfill 柯西主值, \hyperpage{349}
   \item Cauchy sequnce \dotfill 柯西序列, \hyperpage{260}
   \item Cauchy-Schwarz inequality \dotfill 柯西——施瓦茨不等式, 
 		\hyperpage{278}
@@ -76,7 +76,7 @@
   \item conditional bias \dotfill 条件偏误, \hyperpage{418}
   \item conditional density \dotfill 条件密度, \hyperpage{251}
   \item conforming trial spaces \dotfill 协调检测空间, 
-		\hyperpage{383}
+		\hyperpage{382}
   \item conjugate \dotfill 共轭复数, \hyperpage{277}
   \item continuous inverse \dotfill 连续逆, \hyperpage{260}
   \item contraction mapping \dotfill 收缩映射, \hyperpage{306}
@@ -86,8 +86,8 @@
   \item cover(topology) \dotfill 覆盖(拓扑学), \hyperpage{268}
   \item Cramér-Rao lower Bound \dotfill 克拉美罗下界, 
 		\hyperpage{419}
-  \item curse of dimensionality \dotfill 维度灾难, \hyperpage{205}
-  \item curse of dimensionality \dotfill 维数灾难, \hyperpage{208}
+  \item curse of dimensionality \dotfill 维数灾难, \hyperpage{205}, 
+		\hyperpage{208}
   \item Céa lemma, \dotfill 齐亚引理, \hyperpage{261}, 
 		\hyperpage{384}
 
@@ -95,7 +95,7 @@
 
   \item decomposition
     \subitem  \dotfill 分解(有限元), \hyperpage{397}
-    \subitem admissible \dotfill 容许分解, \hyperpage{398}
+    \subitem admissible \dotfill 容许分解, \hyperpage{397}
   \item differentiability classification \dotfill 方程微分的类, 
 		\hyperpage{279}
   \item dirac delta function \dotfill 狄拉克方程, \hyperpage{213}
@@ -105,7 +105,7 @@
   \item Dirichlet condition
     \subitem  homogeneous 齐次狄利克雷条件, \hyperpage{259}
   \item Dirichlet to Neumann map \dotfill 狄利克雷到诺依曼的映射, 
-		\hyperpage{367}
+		\hyperpage{366}
   \item distance function \dotfill 距离方程, \hyperpage{198}
   \item distribution
     \subitem regular \dotfill 正则分布, \hyperpage{293}
@@ -124,7 +124,7 @@
   \item edge \dotfill 边, \hyperpage{397}
   \item ellipticity
     \subitem semi \dotfill 半椭圆性, \hyperpage{363}, 
-		\hyperpage{366}
+		\hyperpage{365}
   \item embedding theorem of Sobolev space \dotfill 索伯列夫空间的嵌入定理, 
 		\hyperpage{284}
   \item embeddings \dotfill 嵌入, \hyperpage{284}
@@ -167,7 +167,7 @@
     \subitem first kind \dotfill 第一类弗雷德霍姆边界积分方程, 
 		\hyperpage{374}
     \subitem second kind \dotfill 第二类弗雷德霍姆边界积分方程, 
-		\hyperpage{375}
+		\hyperpage{374}
   \item fundamental solution \dotfill 基本解, \hyperpage{331}
 
   \indexspace
@@ -176,9 +176,9 @@
   \item Galerkin Orthogonality \dotfill 伽辽金正交, 
 		\hyperpage{383}
   \item Galerkin-Bubnov method \dotfill 伽辽金——布博诺夫法, 
-		\hyperpage{383}
+		\hyperpage{382}
   \item Galerkin-Petrov method \dotfill 伽辽金——佩特洛夫法, 
-		\hyperpage{388}
+		\hyperpage{387}
   \item gamma distribution \dotfill 伽玛分布, \hyperpage{233}
   \item Gauss quadrature formula \dotfill 高斯求积公式, 
 		\hyperpage{227}
@@ -329,7 +329,7 @@
   \item measure \dotfill 测度, \hyperpage{269}
   \item mesh \dotfill 网格, \hyperpage{397}
   \item mesh size
-    \subitem global \dotfill 全局网格尺寸, \hyperpage{399}
+    \subitem global \dotfill 全局网格尺寸, \hyperpage{398}
     \subitem local \dotfill 局部网格尺寸, \hyperpage{398}
   \item metric function \dotfill 度量方程, \hyperpage{198}
   \item Minkowski inequality
@@ -344,14 +344,13 @@
   \item natural density \dotfill 自然密度, \hyperpage{361}
   \item Neumann boundary value condition \dotfill 诺依曼边界值条件, 
 		\hyperpage{265}, \hyperpage{325}
-  \item Neumann series \dotfill 诺依曼级数, \hyperpage{375, 376}
+  \item Neumann series \dotfill 诺依曼级数, \hyperpage{374, 375}
   \item Newton algorithm \dotfill 牛顿算法, \hyperpage{212}
   \item Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法, 
 		\hyperpage{429}
   \item Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法, 
 		\hyperpage{430}
-  \item node \dotfill 结点, \hyperpage{397}
-  \item node \dotfill 节点, \hyperpage{209}
+  \item node \dotfill 结点, \hyperpage{209}, \hyperpage{397}
   \item norm \dotfill 范数, \hyperpage{221}, \hyperpage{259}, 
 		\hyperpage{267}, \hyperpage{270}
   \item norm equivalence theorem of Sobolev space, \hyperpage{286}
@@ -529,15 +528,15 @@
   \item spherical coordinate system \dotfill 三维坐标系, 
 		\hyperpage{295}, \hyperpage{337}
   \item Steklov-Poincaré operator \dotfill Steklov-Poincaré算子, 
-		\hyperpage{367}
+		\hyperpage{366}
   \item stiffness matrix \dotfill 刚度矩阵, \hyperpage{383}
   \item Stokes equations \dotfill 斯托克斯公式, \hyperpage{259}
   \item Stone-Weierstrass Theorem \dotfill 斯通-魏尔斯特拉斯定理, 
 		\hyperpage{200}
   \item Strang's First Lemma \dotfill 斯特朗第一引理, 
-		\hyperpage{386}
+		\hyperpage{385}
   \item Strang's Second Lemma \dotfill 斯特朗第二引理, 
-		\hyperpage{387}
+		\hyperpage{386}
   \item subadditivity \dotfill 次可加, \hyperpage{270}
   \item support \dotfill 支撑, \hyperpage{267}
   \item surface integral \dotfill 表面积分, \hyperpage{339}, 
