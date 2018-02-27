@@ -506,6 +506,7 @@ INPUT ./Figures/20180227-trapezoidal-rule-example.png
 INPUT ./Figures/20180227-nc-higher.png
 INPUT ./Figures/20180227-Runge-phenomenon.png
 INPUT ./Figures/20180227-nc-higher-error-convergence.png
+INPUT ./Figures/20170227-nc-adaptive-quadrature.png
 INPUT ./chapters/bem-fem-01-potentials.tex
 INPUT ./chapters/bem-fem-01-potentials.tex
 INPUT ./chapters/bem-fem-02-spaces.tex

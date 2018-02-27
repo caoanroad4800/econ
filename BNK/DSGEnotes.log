@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.2.7)  27 FEB 2018 04:58
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.2.7)  27 FEB 2018 19:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2524,15 +2524,15 @@ LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <10> not
 (Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
  input line 111.
  [4]
-[5] [6] [7] [8] [9] [10])
+[5] [6] [7] [8] [9] [10] [11])
 \tf@toc=\write8
 \openout8 = `DSGEnotes.toc'.
 
- (./chapters/preface.tex [11] [12
-
-]
+ (./chapters/preface.tex [12]
 第一章
-) [13] [14
+) [13
+
+] [14
 
 ] [15] [16] (./chapters/basic-BNK.tex
 第二章
@@ -3009,27 +3009,35 @@ File: ./Figures/20180227-Runge-phenomenon.png Graphic file (type bmp)
 File: ./Figures/20180227-nc-higher-error-convergence.png Graphic file (type bmp
 )
 <./Figures/20180227-nc-higher-error-convergence.png>
- [268]) (./chapters/bem-fem-01-potentials.tex [269] [270
+ [268] [269]
+File: ./Figures/20170227-nc-adaptive-quadrature.png Graphic file (type bmp)
+<./Figures/20170227-nc-adaptive-quadrature.png>
+ [270]
+Overfull \hbox (68.53407pt too wide) in paragraph at lines 439--447
+[][]
+ []
+
+) (./chapters/bem-fem-01-potentials.tex [271] [272
 
 ]
 第十三章
-[271] [272] [273]) (./chapters/bem-fem-02-spaces.tex [274] [275] [276]
+[273] [274] [275]) (./chapters/bem-fem-02-spaces.tex [276] [277] [278]
 Underfull \hbox (badness 1675) in paragraph at lines 189--190
 []$\OML/cmm/m/it/10 ^^V$ \TU/FandolSong-Regular(0)/m/it/10 是 可 数 的 次 可 加 方 程 \T
 U/lmr/m/it/10 (countably subadditive)\TU/FandolSong-Regular(0)/m/it/10 。|  在 $\
 OT1/cmr/m/n/10 ^^F$ \TU/FandolSong-Regular(0)/m/it/10 中 的 任 何 可 数 可 测 集 合
  []
 
-[277] [278] [279] [280] [281] [282] [283] [284] [285] [286] [287] [288]
-[289] [290] [291] [292] [293]
+[279] [280] [281] [282] [283] [284] [285] [286] [287] [288] [289] [290]
+[291] [292] [293] [294] [295]
 Missing character: There is no 或 in font [lmroman10-regular]:mapping=tex-text;!
- [294] [295] [296]
+ [296] [297] [298]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [297]
+ [299]
 Missing character: There is no 。 in font [lmroman10-regular]:mapping=tex-text;!
- [298] [299] [300]
-[301] [302] [303] [304] [305] [306] [307] [308])
-(./chapters/bem-fem-03-varmethod.tex [309] [310] [311] [312]
+ [300] [301] [302]
+[303] [304] [305] [306] [307] [308] [309] [310])
+(./chapters/bem-fem-03-varmethod.tex [311] [312] [313] [314]
 Underfull \hbox (badness 1072) in paragraph at lines 292--293
 []\TU/FandolSong-Regular(0)/m/n/10 证 明 $\OML/cmm/m/it/10 u \OMS/cmsy/m/n/10 2 \
 OML/cmm/m/it/10 X$ \TU/FandolSong-Regular(0)/m/n/10 是 最 小 化 问 题 和 变 分 问 题 的 唯 一
@@ -3037,27 +3045,27 @@ OML/cmm/m/it/10 X$ \TU/FandolSong-Regular(0)/m/n/10 是 最 小 化 问 题 和 
 Regular(0)/m/n/10 ，|  也
  []
 
-[313] [314] [315] [316] [317] [318] [319] [320] [321] [322] [323]
+[315] [316] [317] [318] [319] [320] [321] [322] [323] [324] [325]
 Underfull \hbox (badness 1527) in paragraph at lines 1163--1165
 []\TU/FandolSong-Regular(0)/m/n/10 根 据 拉 克 斯 一 密 格 拉 蒙 定 理 \TU/lmr/m/n/10 (Theo
 rem [][]13.14[][])\TU/FandolSong-Regular(0)/m/n/10 ，|  可 以 证 明 混 合 算 子 方 程 \TU/
 lmr/m/n/10 (\TU/FandolSong-Regular(0)/m/n/10 鞍 点 变 分 问
  []
 
-[324] [325]) (./chapters/bem-fem-04-varbvp.tex [326] [327] [328] [329] [330]
-[331] [332] [333]
+[326] [327]) (./chapters/bem-fem-04-varbvp.tex [328] [329] [330] [331] [332]
+[333] [334] [335]
 Underfull \hbox (badness 3590) in paragraph at lines 720--721
 [][]\TU/lmr/bx/n/10 Theorem 13.27 \TU/lmr/m/n/10 (\TU/FandolSong-Regular(0)/m/n
 /10 诺 依 曼 边 界 值 问 题 的 鞍 点 变 分 法 求 解\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/Fand
 olSong-Regular(0)/m/it/10 诺 依 曼 边 界 值 的 鞍 点 变 分 问
  []
 
-[334] [335] [336] [337]) (./chapters/bem-fem-05-laplaceop.tex [338]
+[336] [337] [338] [339]) (./chapters/bem-fem-05-laplaceop.tex [340]
 Overfull \hbox (12.85089pt too wide) detected at line 200
 []
  []
 
-[339]
+[341]
 Overfull \hbox (9.80759pt too wide) detected at line 276
 \OML/cmm/m/it/10 ,[]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^W\OT1/cmr/m/n/10 (\OM
 L/cmm/m/it/10 z\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^W\OT1/cmr/m/n/10 (\OMS/cm
@@ -3065,20 +3073,20 @@ sy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j\OT1/cmr/m/n/10 ) = [][] [] \OML
 /cmm/m/it/10 :
  []
 
-[340]
+[342]
 Underfull \hbox (badness 1019) in paragraph at lines 398--399
 []\TU/FandolSong-Regular(0)/m/n/10 对 于 二 维 空 间 $\OML/cmm/m/it/10 d \OT1/cmr/m/n
 /10 = 2$ \TU/FandolSong-Regular(0)/m/n/10 的 情 况，|  首 先 要 对 基 本 解 的 逆 傅 里 叶 变 换 
 作 一 定 的 正 则 化 处 理
  []
 
-[341]
+[343]
 Overfull \hbox (0.67883pt too wide) detected at line 539
 []
  []
 
-[342]) (./chapters/bem-fem-0601-boundintop.tex [343] [344] [345] [346] [347]
-[348] [349] [350]
+[344]) (./chapters/bem-fem-0601-boundintop.tex [345] [346] [347] [348] [349]
+[350] [351] [352]
 Underfull \hbox (badness 1527) in paragraph at lines 828--829
 [][]\TU/lmr/bx/n/10 Lemma 13.22 \TU/lmr/m/n/10 (\TU/FandolSong-Regular(0)/m/n/1
 0 伴 随 双 层 位 势 算 子\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/FandolSong-Regular(0)/
@@ -3086,56 +3094,56 @@ m/it/10 给 定 密 度 方 程 $\OML/cmm/m/it/10 w \OMS/cmsy/m/n/10 2 \OML/cmm/
 \OT1/cmr/m/n/10 (^^@)$\TU/FandolSong-Regular(0)/m/it/10 ，|  对 应 内 部 共 形 导 数
  []
 
-[351] [352] [353] [354] [355] [356]) (./chapters/bem-fem-0602-boundintop.tex
-[357] [358] [359] [360] [361] [362] [363] [364]
+[353] [354] [355] [356] [357] [358]) (./chapters/bem-fem-0602-boundintop.tex
+[359] [360] [361] [362] [363] [364] [365] [366]
 Overfull \hbox (1.62463pt too wide) detected at line 1278
 []
  []
 
-[365] [366] [367] [368] [369] [370]) (./chapters/bem-fem-0603-boundintop.tex
-[371] [372] [373] [374] [375] [376] [377])
-(./chapters/bem-fem-0604-boundintop.tex [378] [379] [380])
-(./chapters/bem-fem-07-bie.tex [381] [382] [383] [384] [385] [386] [387]
-[388] [389]) (./chapters/bem-fem-08-approx.tex [390] [391] [392] [393] [394]
-[395] [396] [397] [398]
+[367] [368] [369] [370] [371] [372]) (./chapters/bem-fem-0603-boundintop.tex
+[373] [374] [375] [376] [377] [378] [379])
+(./chapters/bem-fem-0604-boundintop.tex [380] [381] [382])
+(./chapters/bem-fem-07-bie.tex [383] [384] [385] [386] [387] [388] [389]
+[390] [391]) (./chapters/bem-fem-08-approx.tex [392] [393] [394] [395] [396]
+[397] [398] [399] [400]
 Underfull \hbox (badness 1199) in paragraph at lines 698--700
 \TU/FandolSong-Regular(0)/m/n/10 上 式 又 称 \TU/lmr/m/n/10 Babuška-Brezzi-Ladyshen
 skaya (BBL) \TU/FandolSong-Regular(0)/m/n/10 条 件[]。|  通 常 来 说 我 们 无 法 直 接 从 \TU
 /lmr/m/n/10 Theorem
  []
 
-[399] [400] [401] [402] [403] [404]) (./chapters/bem-fem-0901-finele.tex
+[401] [402] [403] [404] [405] [406]) (./chapters/bem-fem-0901-finele.tex
 File: ./Figures/20171209-finele-nodes.jpg Graphic file (type bmp)
 <./Figures/20171209-finele-nodes.jpg>
 
-[405]
+[407]
 File: ./Figures/20171209-decompo-adm-inadm.jpg Graphic file (type bmp)
 <./Figures/20171209-decompo-adm-inadm.jpg>
- [406]
+ [408]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
 File: ./Figures/20171210-finele-refele.jpg Graphic file (type bmp)
 <./Figures/20171210-finele-refele.jpg>
- [407] [408] [409] [410] [411]) (./chapters/bem-fem-0902-finele.tex
-[412] [413] [414] [415] [416]
+ [409] [410] [411] [412] [413]) (./chapters/bem-fem-0902-finele.tex
+[414] [415] [416] [417] [418]
 File: ./Figures/20171214-trial-space-basis.jpg Graphic file (type bmp)
 <./Figures/20171214-trial-space-basis.jpg>
- [417] [418]) [419] [420
+ [419] [420]) [421] [422
 
-] [421] [422] [423
+] [423] [424] [425
 
 ]
-[424] (./chapters/mle.tex
+[426] (./chapters/mle.tex
 第十四章
-[425
+[427
 
-] [426] [427] [428] [429]
+] [428] [429] [430] [431]
 
 LaTeX Font Warning: Font shape `TU/NotoSansCJKSC(0)/m/it' undefined
 (Font)              using `TU/NotoSansCJKSC(0)/m/n' instead on input line 406.
 
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 407.
-[430]
+[432]
 File: ./Figures/output_5_0.png Graphic file (type bmp)
 <./Figures/output_5_0.png>
 
@@ -3143,20 +3151,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 482--483
 
  []
 
-[431]
+[433]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [432]
+ [434]
 Underfull \hbox (badness 4217) in paragraph at lines 608--609
 []\TU/FandolSong-Regular(0)/m/n/10 在 很 多 情 况 下，|  我 们 无 法 通 过 解 析 法 求 得 最 大 化 的
  解。|  这 时 需 要 数 值 近 似 求 解，|  利
  []
 
-[433] [434]
+[435] [436]
 Overfull \hbox (6.8423pt too wide) detected at line 746
 []
  []
 
-[435]
+[437]
 File: ./Figures/output_12_1.png Graphic file (type bmp)
 <./Figures/output_12_1.png>
 
@@ -3164,61 +3172,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 816--817
 
  []
 
-[436] [437] [438] [439]) (./chapters/housing.tex [440]
+[438] [439] [440] [441]) (./chapters/housing.tex [442]
 第十五章
-[441
+[443
 
-] [442] [443]) [444] [445
+] [444] [445]) [446] [447
 
-] [446] [447
+] [448] [449
 
-] [448] (./chapters/PK.tex
+] [450] (./chapters/PK.tex
 第一章
-[449
-
-]) (./chapters/KNKNCE.tex [450]
-第二章
 [451
 
-] [452] [453] [454] [455]) [456] (./DSGEnotes.bbl [457
+]) (./chapters/KNKNCE.tex [452]
+第二章
+[453
 
-] [458] [459]
-[460] [461] [462] [463]
+] [454] [455] [456] [457]) [458] (./DSGEnotes.bbl [459
+
+] [460] [461]
+[462] [463] [464] [465]
 Underfull \hbox (badness 1681) in paragraph at lines 939--945
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[464] [465] [466] [467] [468] [469] [470]) [471] [472
+[466] [467] [468] [469] [470] [471] [472]) [473] [474
 
 ] (./DSGEnotes.lof)
 \tf@lof=\write9
 \openout9 = `DSGEnotes.lof'.
 
 
-[473] [474
+[475] [476
 
 ] (./DSGEnotes.lot)
 \tf@lot=\write10
 \openout10 = `DSGEnotes.lot'.
 
- [475] [476
+ [477] [478
 
 ] (./DSGEnotes.tdo)
 \tf@tdo=\write11
 \openout11 = `DSGEnotes.tdo'.
 
- [477] [478
+ [479] [480
 
 ]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
 
-(./DSGEnotes.ind [479
+(./DSGEnotes.ind [481
 
-] [480] [481] [482] [483] [484] [485] [486
-\indexentry{残差方程(映射法)|hyperpage}{486}
-] [487]) [488]
+] [482] [483] [484] [485] [486] [487] [488
+\indexentry{残差方程(映射法)|hyperpage}{488}
+] [489]) [490]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 471.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 471.
  (./DSGEnotes.aux)
@@ -3230,12 +3238,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 49953 strings out of 493005
- 1028424 string characters out of 6133328
- 1225610 words of memory out of 5000000
- 53040 multiletter control sequences out of 15000+600000
+ 49969 strings out of 493005
+ 1028984 string characters out of 6133328
+ 1226491 words of memory out of 5000000
+ 53055 multiletter control sequences out of 15000+600000
  545469 words of font info for 127 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  62i,27n,104p,10415b,2349s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (488 pages, 7544916 bytes).
+Output written on DSGEnotes.xdv (490 pages, 7591284 bytes).

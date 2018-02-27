@@ -1,5 +1,5 @@
 %!TEX root = ../DSGEnotes.tex
-\section{数值求积(1)}
+\section{数值求积}
 \label{sec:numerical-integration-ncrule}
 
 我们常常需要计算一个定积分的值，如
@@ -18,7 +18,7 @@
 先从最基本的牛顿——寇特斯法则开始介绍。
 
 \subsection{牛顿——寇特斯法则}
-\label{sec:nint-ncrule}
+\label{sec:nint-nc-rule}
 近似求解积分问题\eqref{eq:nint-num-integ-def}的基本思路是，在区间$[a,b]$中找到一个多项式方程$P(x)$来近似$f(x)$。由于多项式的求和计算往往较为简单(多项式的介绍见第\ref{sec:poly}节)，这会简化\eqref{eq:nint-num-integ-def}RHS的计算时间。我们将这种思路称为牛顿——寇特斯(求积)法则(Newton—Cotes Rule)\index{Newton—Cotes Rule \dotfill 牛顿——寇特斯法则}。牛顿——寇特斯法则随着多项式的次(degree, order)而呈层级特征：使用$p$次多项式的牛顿——寇特斯法则可称为$p$阶牛顿——寇特斯法则。
 
 如果$f$不是多项式，那么在$[a,b]$区间内寻找近似多项式$P(x)$会较为困难。一个近似方案是将空间$[a,b]$划分为$N$个子区间(对应$N+1$个点)，在每个子空间中分别寻找可以近似$f$的多项式，进而将多个多项式加权求和，作为整个空间中$f$的近似方程。$N$越大，子空间的个数越多，划分就越精细，每个子空间中的近似就越精确，进而整个空间中的近似求积就越精确。
@@ -306,10 +306,149 @@ $p=2$时的牛顿——寇特斯求积，又称辛普森法则(Simpson's rule)\i
 需要指出的是，上式在转换之后，含有一个奇异点(singularity):$\lim_{u \rightarrow 1} f(x) \rightarrow \infty$。然而若是在前提假设中假定$f(x)$在$x \rightarrow \infty$处消失(这个假定是为了确保积分$\int_{0}^{\infty} f(x) \, \mathrm{d} x$收敛)，则这一奇异点也就不存在了。
 
 \subsection{求积中的可积奇异点问题}
+\label{sec:ninc-nc-singularity}
 除了上节提到的情况之外，还应该注意到，有些奇异点是可积的(integrable singular points)\index{integrable singular points \dotfill 可积奇异点}，例如这个求积问题
+\begin{equation}
+  \label{eq:ninc-nc-singularity-example}
+  \mathcal{I} = \int_{0}^{1} \frac{\exp(x)}{\sqrt{x}} \, \mathrm{d} x,
+\end{equation}
+方程在区间$(0,1]$内定义良好，除了起始点$0$的情况，称之为可积奇异点\footnote{注意区分可积和不可积奇异点。后者如积分方程$\int_{0}^{1} \frac{\exp (x)}{x} \, \mathrm{d} x $的起始点$0$的情况，此时积分不存在，因此无法估计。}。存在可积奇异点的积分方程并不是全都不能求解，针对具体问题的不同，有一些求解技巧可供选择。试举例如下。
+
+\subsubsection{提取奇异点}
+\label{sec:ninc-nc-singularity-isolation}
+有时可以在积分中把奇异点单独提取出来做求积运算，如  \eqref{eq:ninc-nc-singularity-example}可以改写为
 \begin{equation*}
-  \mathcal{I} = \int_{0}^{1} \frac{\exp(x)}{\sqrt{x}} \, \mathrm{d} x.
+  \begin{split}
+    \mathcal{I} & =
+    \underbrace{
+    \int_{0}^{1} \frac{1}{\sqrt{x}} \, \mathrm{d} x
+    }_{\eqqcolon \mathcal{I}_{1}}
+    + \underbrace{
+    \int_{0}^{1} \frac{
+    \exp (x) -1
+    }{\sqrt{x}} \, \mathrm{d} x
+    }_{\eqqcolon \mathcal{I}_{2}}.
+  \end{split}
 \end{equation*}
+
+其中$\mathcal{I}_{1}$可以用解析法求得
+\begin{equation*}
+  \mathcal{I}_{1} = \int_{0}^{1} \frac{1}{\sqrt{x}} \, \mathrm{d} x = \big| 2 \sqrt{x} \big|_{0}^{1} = 2.
+\end{equation*}
+
+含有可积奇异点的$\mathcal{I}_{2}$无法用解析法求解，但在区间起始点($=0$)处是非奇异的：这是由于，将被积方程沿着$x \rightarrow 0$做泰勒级数展开，可得
+\begin{equation*}
+  \begin{split}
+    & \frac{
+    \exp (x) -1
+    }{\sqrt{x}}
+    \approx \frac{
+    x - \frac{1}{2}x^{2} + \frac{1}{6} x^{3} + \ldots
+    }{
+    \sqrt{x}
+    } = x^{\frac{1}{2}} - \frac{1}{2}x^{\frac{3}{2}} + \frac{1}{6} x^{\frac{5}{2}} + \ldots, \\
+    & \hookrightarrow \lim_{x \rightarrow 0}
+    \frac{
+    \exp (x) -1
+    }{\sqrt{x}} \rightarrow 0,
+  \end{split}
+\end{equation*}
+因此可用常规求积法则进一步近似求解$\mathcal{I}_{2}$。
+
+\subsubsection{奇异点消除}
+\label{sec:ninc-nc-singularity-cancellation}
+若被积方程的分母中含有可积奇异点，那么
+可以考虑用雅各比变换(Jacobian transformation)
+%\index{Jacobian transformation \dotfill 雅各比变换}
+。例如对\eqref{eq:ninc-nc-singularity-example}，设
+\begin{equation*}
+  u \equiv \sqrt{x} \Rightarrow \mathrm{d} u = \frac{\mathrm{d} x}{2 \sqrt{x}},
+\end{equation*}
+求积运算因此变为
+\begin{equation*}
+  \int_{0}^{1} \frac{\exp(x)}{\sqrt{x}} \, \mathrm{d} x= 2 \int_{0}^{1} \exp \left( u ^{2} \right) \, \mathrm{d} u,
+\end{equation*}
+新的积分方程中没有奇异点，因此可进一步用常规数值求积法则来近似。
+
+\subsubsection{Epsilon扩展}
+\label{sec:ninc-nc-singularity-epsilon-extension}
+如果可积奇异点无法利用前述两种方法消除，我们可以尝试加入一个平滑参数$\epsilon$。对应地，取极限$\lim \epsilon \rightarrow 0$以消除奇异点。如将\eqref{eq:ninc-nc-singularity-example}改写为
+\begin{equation*}
+  \mathcal{I}_{\epsilon} = \int_{0}^{1}
+  \frac{
+  \exp (x)
+  }{
+  \left( x^{2} + \epsilon^{2} \right)^{\frac{1}{4}}
+  } \, \mathrm{d} x.
+\end{equation*}
+
+对于有限值的$\epsilon < \infty$，上式非奇异，并且$\lim_{\epsilon \rightarrow 0} \mathcal{I}_{\epsilon} \rightarrow \mathcal{I}$。
+
+\subsubsection{适应性求积}
+\label{sec:ninc-nc-singularity-adaptive-quadrature}
+通常来说，被积方程在不同值域段的表现不同，如图  \ref{fig:ninc-nc-singularity-adaptive-quadrature}所示。如果我们应用梯形法则求解整个区间$[0,10]$内的积分，那么在子区间$[4,6]$中可能需要将宽度$\Delta$设的小一些，在$[0,4]$和$[6,10]$中将$\Delta$设的大一些。这就产生了适应性求积(adaptive quadrature)\index{adaptive quadrature \dotfill 适应性求积}的概念：随着子区间中方程变化的程度不同，应用不同的求积法则来做近似，以求近似精度和计算成本的平衡。举例来说，此时的梯形法则变为
+
+\begin{figure}[htbp]
+   \caption{适应性求积}
+  \centering
+  \includegraphics[width=10cm]{./Figures/20170227-nc-adaptive-quadrature.png}
+  \label{fig:ninc-nc-singularity-adaptive-quadrature}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+
+\subsection{克伦肖——柯蒂斯法则}
+\label{sec:ninc-cc-rules}
+
+如前文所述，牛顿——柯蒂斯求积法则(第\ref{sec:nint-nc-rule}节)的近似误差随着分段数$N$的衰减速度并不够令人满意；若是尝试利用更高阶多项式被积方程做近似，还会受到龙格现象的干扰。因此在实际应用中，常常并不会直接使用牛顿——柯蒂斯法则。一个更好的方案是克伦肖——柯蒂斯求积法则(Clenshaw-Curtis Rule)\index{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则}。
+在了解傅里叶分析(第\ref{sec:fourier-analysis}节)的基本要点之后，我们可以对这个法则有大致介绍。
+
+
+\section{傅里叶分析}
+\label{sec:fourier-analysis}
+
+我们可以这样理解分析(analysis)：将研究对象分解成小块来分别研究。那么我们可以这样理解傅里叶分析(Fourier analysis)：将研究对象(方程)分解为小块，即不同的弦波(sinosoids)，每个小快都以有限的速度变化。例如这个方程
+\begin{equation*}
+  f(t) = 3 \cos 2 \pi t + 19 \sin 4\pi t - 0.14 \cos 7 \pi t,
+\end{equation*}
+可以分解为
+\begin{equation*}
+  \begin{split}
+    f(t) & = 3 A + 19 B - 0.14 C,
+  \end{split}
+\end{equation*}
+其中$A,B,C$分别表示角频率(angular frequency)\index{angular frequency \dotfill 角频率}为$2 \pi, 4 \pi, 7 \pi$的弦波。
+
+但对于这样的方程
+\begin{equation*}
+\begin{split}
+    f(t) &  = \exp \left( - \alpha \left| t \right| \right), \\
+    f(t) & = \begin{cases}
+    1, & \left| t \right| < 1 \\
+    2, & \left| t \right| > 1
+    \end{cases},
+\end{split}
+\end{equation*}
+甚至更复杂一些的方程，该如何做傅里叶分析？
+
+在开始正式介绍之前，有必要做一些简单的概念界定，见表\ref{tab:fourier-analysis-definition}。
+
+\begin{table}[htbp]
+\caption{傅里叶分析的常见概念界定}
+%\begin{flushleft}
+\begin{tabular}{|l|c|c|}
+\hline
+ & 连续方程 $f(t)$ & 离散方程 $f_{n} \equiv f \left( n \Delta t \right), n \in \mathcal{Z}$\\ \hline
+无限域 $- \infty < t < \infty$  & 傅里叶变换 (Fourier transform) \index{Fourier transform! \dotfill 傅里叶变换}& 半离散傅里叶变换 (Semidiscrete Fourier transform)\index{Fourier transform!Semidiscrete \dotfill 半离散傅里叶变换} \\ \hline
+有限域 $- \frac{T}{2} < t < \frac{T}{2}$ & 傅里叶级数 (Fourier seires)\index{Fourier series \dotfill 傅里叶级数} & 离散傅里叶变换 (Discrete Fourier transform)\index{Fourier transform!Discrete \dotfill 离散傅里叶变换} \\ \hline
+\end{tabular}
+%\end{flushleft}
+\label{tab:fourier-analysis-definition}
+\end{table}
+
+\subsection{傅里叶变换}
+\label{sec:fourier-transform}
+我们先从表\ref{tab:fourier-analysis-definition}左上角的傅里叶变换开始介绍，即连续方程$f(t)$在无限时间区间$(-\infty, \infty)$的求积问题。
 
 
 
