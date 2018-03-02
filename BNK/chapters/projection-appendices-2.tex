@@ -449,6 +449,152 @@ $p=2$时的牛顿——寇特斯求积，又称辛普森法则(Simpson's rule)\i
 \subsection{傅里叶变换}
 \label{sec:fourier-transform}
 我们先从表\ref{tab:fourier-analysis-definition}左上角的傅里叶变换开始介绍，即连续方程$f(t)$在无限时间区间$(-\infty, \infty)$的求积问题。
+\begin{equation}
+  \label{sec:fourier-transform-definition}
+  \tilde{f} \left( \omega \right) =
+  \frac{1}{2 \pi} \int_{-\infty}^{\infty}
+  \exp \left( - i \omega t \right) f(t) \, \mathrm{d} t,
+\end{equation}
+其中$f \left( \omega \right)$是一个关于频率$\omega$的方程，方程形式反映了在频率域$\omega$中表现出的非线性(指数)强烈程度。
+
+现在基于傅里叶变换式\eqref{sec:fourier-transform-definition}来回顾前面的问题：如何将方程$E_{\alpha}(t) = \exp \left( - \alpha \left| t \right| \right)$分解为一组弦波组合的形式？其基本思路是，通过将所有关于频率$\omega$的弦波曲线加总来重写原方程$\exp \left( - \alpha \left| t \right| \right)$，某一弦波的频率越大，振幅(amplitude)。
+\begin{equation*}
+  \begin{split}
+    \widetilde{E}_{\alpha} \left( \omega \right)
+    & = \frac{1}{2 \pi}
+    \int_{-\infty}^{\infty} \exp \left( - i \omega t \right) \exp \left( - \alpha \left| t \right| \right) \, \mathrm{d} t \\
+    & = \frac{1}{2 \pi} \left\{
+    \int_{-\infty}^{0} \exp \left[ \left( - i \omega + \alpha \right) t \right] \, \mathrm{d} t
+    + \int_{0}^{\infty} \exp \left[ \left( - i \omega - \alpha \right) t \right]
+    \right\} \\
+    & = \frac{1}{2 \pi}
+    \left[
+    \frac{1}{\alpha - i \omega}
+    - \frac{1}{\alpha + i \omega}
+    \right] \\
+    & = \frac{\alpha}{\pi \left( \alpha^{2} + \omega^{2} \right)},
+  \end{split}
+\end{equation*}
+注意，这里所说的``频率"$\omega$越大或越小，是相对于参数$\alpha$而言的：$\alpha$越大，指数方程$E_{\alpha}(t)$越快衰减至$0$，我们就越需要增加$\widetilde{E}_{\alpha}(\omega)$的振幅，利用更高振幅的弦波来近似原方程。下面将作进一步说明。
+
+\subsubsection{一些概念}
+\begin{equation*}
+  y = A \sin \left( B x + c \right) + D,
+\end{equation*}
+其中
+\begin{itemize}
+  \item $A$表示振幅，
+  \item $\frac{B}{2 \pi}$表示周期，$\text{频率} = \frac{1}{\text{周期}}$，
+  \item $- \frac{C}{B}$表示相位的(水平)移动，
+  \item $D$表示相位的(垂直)移动。
+\end{itemize}
+
+\begin{figure}[htbp]
+   \caption{傅里叶变换}
+  \centering
+  \includegraphics[width=8cm]{./Figures/20180302-frequencies-etc.pdf}
+  \label{fig:fourier-basic-concepts}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+图\ref{fig:fourier-basic-concepts}中
+\begin{itemize}
+  \item $\omega = \frac{2 \pi}{T} = 2 \pi \nu = %\frac{\nu}{r}
+  = \frac{\mathrm{d} s}{\mathrm{d} t} \cdot \frac{1}{r} = \frac{\mathrm{d} \theta}{\mathrm{d} t}$
+  \item $\omega$，角频率(angular frequency)\index{angular frequency \dotfill 角频率}，是对物体旋转速度快慢的度量，单位如弧度/秒(radian/second)。
+  \item $T$，周期，单位如秒。
+  \item $\nu$，线频率(linear frequncy)，单位如赫兹(Hertz)，$1 Hertz = 1\text{次/秒}$。
+  %\item 绕轴旋转的线速度，单位如米/秒。
+  \item 旋转的半径，单位如米。
+\end{itemize}
+
+\subsubsection{线频率和角频率}
+\label{sec:fourier-frequency-linear-angular}
+对于一个给定的弦波方程如$\sin \omega t$或$\exp \left[ - i \omega t\right]$等，严格说来我们需要将其中的频率$\omega$理解为角频率$\omega$(angular frequency)\index{angular frequency \dotfill 角频率}，表示相角旋转速度的快慢，单位如角每秒(radian per second)。线频率(linear frequency)可写为\index{linear frequency \dotfill 线频率}$\nu = \frac{\omega}{2 \pi}$，表示这一过程自我重复的频率，单位如赫兹。例如，一个钟摆4秒钟转一圈，那么
+\begin{itemize}
+  \item 周期$T=4$，
+  \item 角频率$\omega = \frac{2 \pi}{T} = \frac{\pi}{2} \approx 1.57 Rad/s$，
+  \item 线频率$\nu = \frac{1}{T} = 0.25 Hz$。
+\end{itemize}
+
+\subsubsection{域}
+\label{sec:fourier-domains}
+
+\eqref{sec:fourier-transform-definition}对原方程$f(t)$作傅里叶变换，生成近似方程$\tilde{f}(\omega)$，二者等价但处于不同的域中。$f(t)$的解释变量是(时间)$t$，$\tilde{f}(\omega)$的解释变量是频率$\omega$，从这个角度可以说，$f(t)$是在时间域中，$\tilde{f}(\omega)$是在频率域中。
+
+福利也分析也可用于原方程$f$的解释变量不是时间的情况，例如可以是方位$x$，对应的傅里叶变换处于空间频率$k$中，有时也称波数(wavenumber)\index{wavenumber \dotfill 波数}。更多例子见下表。
+
+\begin{table}[htbp]
+\caption{原方程域和傅里叶变换方程域}
+%\begin{flushleft}
+\begin{tabular}{|l|cccc|}
+\hline
+& 原变量 & 原域 & 傅里叶变量& 傅里叶域 \\ \hline
+信号处理 & 时间$t$ & 时间域 & 频率$\omega$ & 频率域 \\
+光学 & 方位$x$ & 实空间 & 波数$k$ & $k$空间 \\
+量子力学 & 方位$x$ & 方位空间 & 动量(momentum)$p$ & 动量空间 \\
+固体物理学 & 点阵向量$L$ & 实空间 & 布洛赫向量(Bloch vector) $k$ & 晶体动量空间(crystal momentum space)
+\\ \hline
+\end{tabular}
+%\end{flushleft}
+\label{tab:fourier-domain-definition}
+\end{table}
+
+\subsubsection{单位}
+实际研究过程中需要牢记$f(t)$和$\tilde{f}(\omega)$的单位不同。以\eqref{sec:fourier-transform-definition}为例，RHS中有$\mathrm{d} t$，LHS中没有。因此
+\begin{equation*}
+    \tilde{f}\text{的单位} = f\text{的单位} \times \text{时间} = \frac{f\text{的单位}}{\text{频率}},
+\end{equation*}
+如果$f$的单位是伏特(Volt)，那么$\tilde{f}$的单位是伏特秒，或者伏特每赫兹。
+
+\subsubsection{傅里叶变换的性质}
+\label{sec:fourier-properties}
+由定义\eqref{sec:fourier-transform-definition}可得，傅里叶变换具有如下性质，我们将分别作说明。
+\begin{itemize}
+  \item 导数的傅里叶变换
+  \item 傅里叶变换的导数
+  \item 实值方程的傅里叶变换
+\end{itemize}
+
+\textit{导数的傅里叶变换}。对于某一给定方程$f(x)$，如果我们可以求得其傅里叶变换$\tilde{f}(k)$，那么$f(x)$的导数也很容易写出。首先写出$f(t)$的傅里叶综合表达式(Fourier synthesis equation)\todo{做一个reference}
+\begin{equation*}
+  f(x) = \int_{-\infty}^{\infty} \tilde{f}(k) \exp \left( i k x \right) \, \mathrm{d} k,
+\end{equation*}
+两侧同时对$x$求导
+\begin{equation*}
+  \frac{\mathrm{d}}{\mathrm{d} x}f(x)
+  = \int_{-\infty}^{\infty} i k \tilde{f}(k) \exp \left( i k x \right) \, \mathrm{d} k,
+\end{equation*}
+上式的RHS是对$\left( i k \widetilde{f} (k) \right)$的逆傅里叶变换(Definition \ref{definition:fourier-transformation})；因此可以将RHS看作是$\frac{\mathrm{d}}{\mathrm{d} x}f(x)$的傅里叶变换，即
+\begin{equation}
+  \label{eq:fourier-derivative-ft-eq}
+  \mathcal{F}\left[ f(x) \right]
+  = \tilde{f}(k) \Rightarrow \mathcal{F}
+  \left[
+  \frac{\mathrm{d}}{\mathrm{d} x}f \left( x \right)
+  \right] = i k \tilde{f}(k).
+\end{equation}
+
+也可以重复上述过程求解高阶导数，如
+\begin{equation}
+  \label{eq:fourier-derivative-ft-eq-higher}
+  \mathcal{F} \left[ f(x) \right] = \tilde{f}(k)
+  \Rightarrow
+  \mathcal{F} \left[ \frac{\mathrm{d}}{\mathrm{d} x} f(x) \right]
+  = i k \tilde{f} (k)
+  \Rightarrow
+  \mathcal{F}
+  \left[
+  \frac{\mathrm{d}^{2}f}{\mathrm{d} x^2} \right]
+  = - k^{2} \tilde{f}(k).
+\end{equation}
+
+\textit{傅里叶变换的导数}。
+
+
+
+
+
 
 
 

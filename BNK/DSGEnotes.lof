@@ -1,43 +1,37 @@
 \addvspace {10.0pt}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces 数值模拟：$\{\pi ^{\#},\nu ^p\}$ vs $\pi $。模拟过程中设参数值$\phi =0.25$，$\epsilon =10$， $\beta = 0.99$。}}{30}{figure.2.1}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces DSGE模型的工作流程}}{18}{figure.2.1}
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces 不同$m$取值下的包络定理}}{31}{figure.3.1}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces CIA DSGE模型结构图}}{99}{figure.6.0.1}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces 单项式方程}}{105}{figure.7.2.1}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces 切比雪夫多项式$T_n(x)$}}{107}{figure.7.2.2}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces 切比雪夫多项式的根}}{108}{figure.7.2.3}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces 切比雪夫多项式的根}}{108}{figure.7.2.4}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces 张量模拟}}{112}{figure.7.3.1}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces kinks}}{113}{figure.7.4.1}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces 三角方程形式}}{114}{figure.7.4.2}
+\contentsline {figure}{\numberline {7.C.1}{\ignorespaces 正交多项式满足的关系}}{133}{figure.b.7.C.1}
+\contentsline {figure}{\numberline {7.C.2}{\ignorespaces 正态分布}}{134}{figure.b.7.C.2}
+\contentsline {figure}{\numberline {7.C.3}{\ignorespaces 埃米特多项式}}{135}{figure.b.7.C.3}
+\contentsline {figure}{\numberline {7.C.4}{\ignorespaces 伽玛分布}}{137}{figure.b.7.C.4}
+\contentsline {figure}{\numberline {7.C.5}{\ignorespaces 贝塔分布}}{142}{figure.b.7.C.5}
+\contentsline {figure}{\numberline {7.C.6}{\ignorespaces 切比雪夫插值近似}}{153}{figure.b.7.C.6}
+\contentsline {figure}{\numberline {7.F.1}{\ignorespaces 矩形法则$(N=4)$}}{168}{figure.b.7.F.1}
+\contentsline {figure}{\numberline {7.F.2}{\ignorespaces 梯形法则$(N=4)$}}{168}{figure.b.7.F.2}
+\contentsline {figure}{\numberline {7.F.3}{\ignorespaces 3阶牛顿——寇特斯法则，对应子区间中的4个配点}}{170}{figure.b.7.F.3}
+\contentsline {figure}{\numberline {7.F.4}{\ignorespaces 龙格现象$(N=6)$}}{171}{figure.b.7.F.4}
+\contentsline {figure}{\numberline {7.F.5}{\ignorespaces 比较矩形法则和梯形法则下，近似误差随$N$值增大的收敛情况}}{172}{figure.b.7.F.5}
+\contentsline {figure}{\numberline {7.F.6}{\ignorespaces 适应性求积}}{174}{figure.b.7.F.6}
+\contentsline {figure}{\numberline {7.G.1}{\ignorespaces 傅里叶变换}}{176}{figure.b.7.G.1}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {7.1}{\ignorespaces DSGE模型的工作流程}}{114}{figure.7.3.1}
-\addvspace {10.0pt}
-\contentsline {figure}{\numberline {8.1}{\ignorespaces 不同$m$取值下的包络定理}}{127}{figure.8.5.1}
-\addvspace {10.0pt}
-\addvspace {10.0pt}
-\addvspace {10.0pt}
-\addvspace {10.0pt}
-\contentsline {figure}{\numberline {12.1}{\ignorespaces 单项式方程}}{201}{figure.12.2.1}
-\contentsline {figure}{\numberline {12.2}{\ignorespaces 切比雪夫多项式$T_n(x)$}}{203}{figure.12.2.2}
-\contentsline {figure}{\numberline {12.3}{\ignorespaces 切比雪夫多项式的根}}{204}{figure.12.2.3}
-\contentsline {figure}{\numberline {12.4}{\ignorespaces 切比雪夫多项式的根}}{204}{figure.12.2.4}
-\contentsline {figure}{\numberline {12.1}{\ignorespaces 张量模拟}}{208}{figure.12.3.1}
-\contentsline {figure}{\numberline {12.1}{\ignorespaces kinks}}{209}{figure.12.4.1}
-\contentsline {figure}{\numberline {12.2}{\ignorespaces 三角方程形式}}{210}{figure.12.4.2}
-\contentsline {figure}{\numberline {12.C.1}{\ignorespaces 正交多项式满足的关系}}{229}{figure.c.12.C.1}
-\contentsline {figure}{\numberline {12.C.2}{\ignorespaces 正态分布}}{230}{figure.c.12.C.2}
-\contentsline {figure}{\numberline {12.C.3}{\ignorespaces 埃米特多项式}}{231}{figure.c.12.C.3}
-\contentsline {figure}{\numberline {12.C.4}{\ignorespaces 伽玛分布}}{233}{figure.c.12.C.4}
-\contentsline {figure}{\numberline {12.C.5}{\ignorespaces 贝塔分布}}{238}{figure.c.12.C.5}
-\contentsline {figure}{\numberline {12.C.6}{\ignorespaces 切比雪夫插值近似}}{249}{figure.c.12.C.6}
-\contentsline {figure}{\numberline {12.F.1}{\ignorespaces 矩形法则$(N=4)$}}{264}{figure.c.12.F.1}
-\contentsline {figure}{\numberline {12.F.2}{\ignorespaces 梯形法则$(N=4)$}}{264}{figure.c.12.F.2}
-\contentsline {figure}{\numberline {12.F.3}{\ignorespaces 3阶牛顿——寇特斯法则，对应子区间中的4个配点}}{266}{figure.c.12.F.3}
-\contentsline {figure}{\numberline {12.F.4}{\ignorespaces 龙格现象$(N=6)$}}{267}{figure.c.12.F.4}
-\contentsline {figure}{\numberline {12.F.5}{\ignorespaces 比较矩形法则和梯形法则下，近似误差随$N$值增大的收敛情况}}{268}{figure.c.12.F.5}
-\contentsline {figure}{\numberline {12.F.6}{\ignorespaces 适应性求积}}{270}{figure.c.12.F.6}
-\addvspace {10.0pt}
-\contentsline {figure}{\numberline {13.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$}}{407}{figure.13.9.1}
-\contentsline {figure}{\numberline {13.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)}}{408}{figure.13.9.2}
-\contentsline {figure}{\numberline {13.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)}}{410}{figure.13.9.3}
-\contentsline {figure}{\numberline {13.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$}}{419}{figure.13.9.4}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$}}{313}{figure.8.9.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)}}{314}{figure.8.9.2}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)}}{316}{figure.8.9.3}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$}}{325}{figure.8.9.4}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
