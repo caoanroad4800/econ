@@ -156,7 +156,7 @@
 
 本节讨论如何选取一组合适的基方程$\Psi = \psi_0, \psi_1, \ldots, \psi_j$。通常说来，选取策略分为两大类，第一类是选取在状态变量域$\Omega$的绝大部分范围内都是非零且平滑的基，称为全局基\index{basis!global \dotfill 全局基}。另一类是选取在$\Omega$中的一小部分范围内非零且平滑的基，称为局部基(local basis)\index{basis!local \dotfill 局部基}。基于全局基的映射法常称为光谱法(spectral method)\index{spectral method \dotfill 光谱法}，基于局部基的映射法常称为有限元法(finite elements method, FEM)\index{spectral method \dotfill 有限元法}。我们先介绍光谱法。
 
-\cite{Judd:1992gs}首次将光谱法应用到经济学研究中来。光谱基作为全局基的代表，主要优点在于，便于构建近似算法并求解。然而缺点在于，在处理状态变量的某些局部子域时，效果未尽人意——如傅里叶序列(Fourier series)\footnote{cf. Wolfram Mathworld词条\url{http://mathworld.wolfram.com/FourierSeries.html}。}中的吉布斯现象(Gibbs phenomenon)\footnote{cf. 维基百科词条\url{https://en.wikipedia.org/wiki/Gibbs_phenomenon}。}。关于光谱法的介绍，可见\cite{Shen:2011tf}。
+\cite{Judd:1992gs}首次将光谱法应用到经济学研究中来。光谱基作为全局基的代表，主要优点在于，便于构建近似算法并求解。然而缺点在于，在处理状态变量的某些局部子域时，效果未尽人意——如傅里叶序列(Fourier series)中的吉布斯现象(Gibbs phenomenon)\footnote{第\ref{sec:fourier-series-gibbs-phenomenon}节。}。关于光谱法的介绍，可见\cite{Shen:2011tf}。
 
 单维基(unidimensional basis) \index{basis!unidimensional \dotfill 单维基}是光谱法中最为常见的一种基方程。大致说来，有以下几种
 \begin{itemize}
@@ -671,7 +671,7 @@
 \begin{equation*}
   \psi_i(\bm{x}) = \delta(\bm{x} - \bm{x}_i), i=1,2,\ldots,j+1,
 \end{equation*}
-其中$\delta$是狄拉克方程(dirac delta function)\index{dirac delta function \dotfill 狄拉克方程}，满足
+其中$\delta$是狄拉克方程(dirac delta function, 第\ref{sec:fourier-non-pulse-functions}节)\index{dirac delta function \dotfill 狄拉克方程}，满足
 \begin{equation*}
   \begin{split}
     &\delta(\bm{y}_i) = \begin{cases}
@@ -695,6 +695,6 @@
 
 $j+1$个配点的选取方法有很多，一个常用方法称正交配点法(orthogonal collocation)\index{collocation!orthogonal \dotfill 正交配点}，是指在值域$\Omega$中对于向量$\bm{x}$对应的每一组状态变量，都用$j+1$次切比雪夫多项式的根(有$j+1$个)予以表示。根据切比雪夫插值定理(定理\ref{sec:poly-chebyshev-interpolation})，利用正交配点法生成的近似方程系统，会收敛至、甚至有时是均匀收敛(uniform convergence)\index{uniform convergence \dotfill 均匀收敛}至未知方程$d$。
 
-\subsection{伽辽金法或瑞利——里兹法} 
+\subsection{伽辽金法或瑞利——里兹法}
 \label{sec:pj-weight-galerkin}
 \todo{完备(completeness)的脚注\pageref{def:completeness-space}}。
