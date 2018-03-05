@@ -427,7 +427,7 @@
 \contentsline {subsubsection}{近似解的唯一可解性}{365}{subsubsection*.181}
 \contentsline {subsubsection}{近似解的稳定性}{366}{subsubsection*.182}
 \contentsline {subsubsection}{近似解的收敛性}{366}{subsubsection*.183}
-\contentsline {subsection}{\numberline {12.8.2}线性形近似}{366}{subsection.12.8.2}
+\contentsline {subsection}{\numberline {12.8.2}线性形近似}{367}{subsection.12.8.2}
 \contentsline {subsection}{\numberline {12.8.3}算子的近似}{368}{subsection.12.8.3}
 \contentsline {subsection}{\numberline {12.8.4}伽辽金——佩特洛夫法}{369}{subsection.12.8.4}
 \contentsline {subsection}{\numberline {12.8.5}混合边界值问题}{371}{subsection.12.8.5}
