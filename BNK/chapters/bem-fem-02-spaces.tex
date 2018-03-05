@@ -5,6 +5,7 @@
 
 %\section{\texorpdfstring{$\varepsilon$}{e}SOA}
 \subsection{\texorpdfstring{$C^{k}(\Omega),C^{k,\kappa}(\Omega)$}{CK}空间}
+\label{sec:spaces-c}
 
 给定$d \in \mathbb{N}$。作如下定义：
 \begin{itemize}
@@ -97,7 +98,7 @@
 如果方程$\gamma(\cdot)$中参数的选取使得满足$\gamma \in C^{k}(\mathbb{R}^{d-1})$，我们称这个利普希茨边界$\Gamma$是$k$次可微的；如果满足$\gamma \in C^{k, \kappa}(\mathbb{R}^{d-1})$，我们称$\Gamma$为霍德尔连续(Hölder continuous)\index{Hölder continuous \dotfill 霍德尔连续}；如果$\gamma$仅仅是在某个局域内满足该条件，则我们称对应的$\Gamma$为分段平滑边界(piecewise smooth boundary)\index{piecewise smooth boundary \dotfill 分段平滑边界}。
 
 \subsection{勒贝格\texorpdfstring{$L^p(\Omega)$}{(LP)}空间}
-
+\label{sec:lesbegue-space}
 数学上$L^{p}(\Omega)$空间($L^{p}(\Omega)$ space) 又称勒贝格空间(Lebesgue space)\index{Lesbegue space \dotfill 勒贝格空间}，指$\Omega$上一组测度方程(measurable function)的等价类的集合，这些测度方程都是$p$次勒贝格可积方程(Lebesgue integrable function, Definition \ref{definition:lebesgue-integrable-func-def})\index{Lebesgue integrable function \dotfill 勒贝格可积方程} \footnote{对应地，$\ell^p$空间是由p次可和序列组成的空间。}。
 
 \begin{definition}[勒贝格可积方程]
@@ -488,7 +489,7 @@ $p = \infty$时对应的空间$L^{\infty}(S,\mu)$也可以用类似方法求得�
 %   \| u \|_{L^{\infty}(\Omega)} \coloneqq \text{ess } \sup_{x \in \Omega} \left\{ \left| u(x) \right| \right\} \coloneqq \inf_{K \subset \Omega, \mu(K) = 0} \sup_{x \in \Omega \backslash K} \left|  u(x) \right|.
 % \end{equation*}
 
-勒贝格空间$L^{p}(S,\mu)$的完备性(completeness)通常称为里兹——费舍定理(Riesz-Fischer theorem)。证明略\footnote{完备性(completeness)的含义，见第\pageref{footnote:completeness-def}页脚注。}。
+勒贝格空间$L^{p}(S,\mu)$的完备性(completeness)通常称为里兹——费舍定理(Riesz-Fischer theorem)\footnote{证明略。完备性(completeness)的含义，见第\pageref{def:completeness-space}页。}。
 
 对于$1 \le p \le \infty$的情况，勒贝格空间$L^{p}(S,\mu)$是一个完备赋范向量空间，常称为巴拿赫空间(Banach space)\index{Banach space \dotfill 巴拿赫空间}。所有$L^{p}$空间都是巴拿赫空间。
 
@@ -517,7 +518,7 @@ $p = \infty$时对应的空间$L^{\infty}(S,\mu)$也可以用类似方法求得�
 \label{sec:lp-hilbert-space}
 有且只有$p=2$时的特殊形式空间$L^2(\Omega)$，是希尔伯特空间(Hilbert space)\index{Hilbert space \dotfill 希尔伯特空间}。
 
-作为(完备赋范的)内积向量空间(inner product space, Definition \ref{definition:inner-product-space})，希尔伯特空间是有限维欧几里得空间的一个扩展：从$\mathbb{R}$扩展到$\mathbb{R}$和$\mathbb{C}$，从有限维度到无限维度，但保留了完备性(completeness)特征(一般来说，非欧几里得空间往往破坏了完备性) \label{footnote:completeness-def}\footnote{完备性(completeness)是指，希尔伯特空间中所有柯西数列(Cauchy sequences) \index{Cauchy sequences \dotfill 柯西数列}都会收敛到此空间中的一点(一个元素)，即这些数列与某个元素的范数差的极限为$0$。}。希尔伯特空间与欧几里得空间相仿，有长度和角度的概念，因而可以引申出正交性和垂直性，从而为基于正交多项式的傅里叶级数等提供表达方式。
+作为(完备赋范的)内积向量空间(inner product space, Definition \ref{definition:inner-product-space})，希尔伯特空间是有限维欧几里得空间的一个扩展：从$\mathbb{R}$扩展到$\mathbb{R}$和$\mathbb{C}$，从有限维度到无限维度，但保留了完备性(completeness)特征(一般来说，非欧几里得空间往往破坏了完备性)。希尔伯特空间与欧几里得空间相仿，有长度和角度的概念，因而可以引申出正交性和垂直性，从而为基于正交多项式的傅里叶级数等提供表达方式。
 
 任何一个希尔伯特空间都是巴拿赫空间，反之则未必。
 
@@ -599,7 +600,7 @@ $p = \infty$时对应的空间$L^{\infty}(S,\mu)$也可以用类似方法求得�
 \begin{equation*}
   \Big\| \bm{L} -  \sum_{k=0}^{N} \bm{x}\Big\| \rightarrow 0, \text{随着} N \rightarrow \infty,
 \end{equation*}
-这称为欧几里得空间的完备性(completeness of Euclidean space)\index{completeness!Euclidean space \dotfill 完备性(欧几里得空间)}。
+这称为欧几里得空间的完备性(completeness of Euclidean space)\label{def:completeness-space}\index{completeness!Euclidean space \dotfill 完备性(欧几里得空间)}。
 
 类似地，在欧几里得空间中，复数平面(complex plane)\index{complex plane \dotfill 复数平面} $\mathbb{C}$由量(magnitude)的形式予以反映，即复绝对值(complex modulus)\index{complex modulus \dotfill 复数绝对值} $\left| z \right|$， 定义为$z$与其共轭复数(complex conjugate)\index{conjugate \dotfill 共轭复数} $\bar{z}$乘积的平方根
 \begin{equation*}
@@ -1000,6 +1001,7 @@ Sobolev–Slobodeckij 空间\index{Sobolev-Slobodeckij!space \dotfill Sobolev–
 同样的，$\mathring{W}^{-s,p}(\Omega)$是$W^{-s,q}(\Omega)$的对偶空间。
 
 \subsubsection{索伯列夫空间的性质：嵌入定理}
+\label{sec:imbedding-sobolev}
 介绍一些索伯列夫空间$W^{s,p}(\Omega)$的性质，这些性质有助于更好理解下文介绍的有界元法和有限元法。第一个性质可表示为索伯列夫空间的嵌入定理，我们先从霍德尔不等式入手。
 
 \begin{definition}[霍德尔不等式]
@@ -1644,7 +1646,7 @@ $\Omega$有界 $\Rightarrow M \coloneqq \max_{\bm{x} \in \Omega}  \left| \bm{x} 
 那么我们可得
 \begin{equation}
   \label{eq:bramble-hilbert-lemma}
-  \big| f(\nu) \big| \le C(C_p) \, C_f \, \big| \nu \big|_{W^{k+1},2}(\Omega),
+  \big| f(\nu) \big| \le C(C_p) \, C_f \, \big| \nu \big|_{W^{k+1},2(\Omega)},
 \end{equation}
 其中$C(C_p)$是一个与庞加莱不等式\eqref{eq:sobolev-poincare-inequality}中系数$C_p$有关的常数。
 \end{lemma}
@@ -1806,7 +1808,7 @@ $\Omega$有界 $\Rightarrow M \coloneqq \max_{\bm{x} \in \Omega}  \left| \bm{x} 
 对于$k \in \mathbb{N}$的情况，证明过程同上。
 \end{proof}
 
-%!TEX root = ../DSGEnotes.tex
+
 
 \subsubsection{索伯列夫空间的分布}
 \label{sec:sobolev-space-distributions}
@@ -1848,7 +1850,7 @@ $\Omega$有界 $\Rightarrow M \coloneqq \max_{\bm{x} \in \Omega}  \left| \bm{x} 
   \left( D^{\alpha} T_u  \right)(\varphi) = (-1)^{\left| \alpha \right|} T_u \left( D^{\alpha} \varphi \right), \quad \varphi \in \mathcal{D}(\Omega).
 \end{equation*}
 
-在掌握了分布的基本概念之后，下面介绍在满足一些关于$\Omega$的正则条件假设的情况下，$H^{s}(\Omega)$空间近似等价于$W^{s,2}(\Omega)$空间，其中$H^{s}(\Omega)$的基是分布的傅里叶变换。我们从急减方程(rapidly decreasing functions)空间$\mathcal{S} \left( \mathbb{R}^d \right)$开始，进而介绍傅里叶变换。
+在掌握了分布的基本概念之后，下面介绍在满足一些关于$\Omega$的正则条件假设的情况下，$H^{s}(\Omega)$空间近似等价于$W^{s,2}(\Omega)$空间，其中$H^{s}(\Omega)$的基是分布的傅里叶变换\footnote{傅里叶分析的初步介绍，见第\ref{sec:fourier-analysis}节。}。我们从急减方程(rapidly decreasing functions)空间$\mathcal{S} \left( \mathbb{R}^d \right)$开始，进而介绍傅里叶变换。
 
 \begin{definition}[急减方程空间]
   \label{definition:rapidly-decreasing-space}
@@ -2263,9 +2265,10 @@ $\Omega$有界 $\Rightarrow M \coloneqq \max_{\bm{x} \in \Omega}  \left| \bm{x} 
 \end{equation*}
 
 通过这种方法，$\Omega \subset \mathbb{R}^{d}$中关于变量$x$的问题$\nu(x)$，被表示为分段参数域$\mathcal{T}_i \subset \mathbb{R}^{d-1}$中关于局部参数$\chi_i(\xi)$的问题$\widetilde{\nu}_i(\xi)$，后者使得我们可能建立相应的索伯列夫空间，进行分析。这要求$\tilde{\nu}_i$可导，即局部参数$\chi_i(\xi)$可导，满足链式法则(chain rule)\index{chain rule \dotfill 链式法则}\footnote{简单说来，链式法则可以表示为
-\begin{equation*}
+\begin{equation}
+  \label{eq:chain-rule-exa}
   f(g(x))' = f'(g(x)) \cdot g'(x).
-\end{equation*}}。如果要求$\left| s \right| \le k$次的导数，需要假定局部参数$\chi_i \in C^{k-1,1}(\mathcal{T}_i)$，例如，对于利普希茨域$\mathcal{T}_i$中的局部参数$\chi_i \in C^{0,1}(\mathcal{T}_i)$，我们需要研究对应的索伯列夫空间$H^s(\mathcal{T}_i), \left| s \right| \le 1$。
+\end{equation}}。如果要求$\left| s \right| \le k$次的导数，需要假定局部参数$\chi_i \in C^{k-1,1}(\mathcal{T}_i)$，例如，对于利普希茨域$\mathcal{T}_i$中的局部参数$\chi_i \in C^{0,1}(\mathcal{T}_i)$，我们需要研究对应的索伯列夫空间$H^s(\mathcal{T}_i), \left| s \right| \le 1$。
 
 \begin{definition}[流形索伯列夫空间($0 \le s \le k $)]
 进而对于$0 \le s \le k$，我们的研究对象是整个索伯列夫空间$H^s(\Gamma)$，其范数定义为

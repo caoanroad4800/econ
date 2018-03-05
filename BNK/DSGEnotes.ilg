@@ -1,18 +1,15 @@
 This is makeindex, version 2.15 [TeX Live 2017] (kpathsea + Thai support).
 Scanning input file DSGEnotes.idx....
-!! Input index error (file = DSGEnotes.idx, line = 7):
+!! Input index error (file = DSGEnotes.idx, line = 12):
    -- Extra `@' at position 94 of first argument.
 
-!! Input index error (file = DSGEnotes.idx, line = 58):
+!! Input index error (file = DSGEnotes.idx, line = 63):
    -- Extra `@' at position 84 of first argument.
 
-!! Input index error (file = DSGEnotes.idx, line = 171):
+!! Input index error (file = DSGEnotes.idx, line = 207):
    -- Illegal null field.
-
-!! Input index error (file = DSGEnotes.idx, line = 225):
-   -- Extra `@' at position 86 of first argument.
-done (347 entries accepted, 4 rejected).
-Sorting entries......done (3243 comparisons).
-Generating output file DSGEnotes.ind....done (554 lines written, 0 warnings).
+done (417 entries accepted, 3 rejected).
+Sorting entries......done (3816 comparisons).
+Generating output file DSGEnotes.ind....done (647 lines written, 0 warnings).
 Output written in DSGEnotes.ind.
 Transcript written in DSGEnotes.ilg.

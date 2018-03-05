@@ -17,7 +17,7 @@
 假定对于某一给定的方程$f \in X'$，我们想要求得变分问题\eqref{eq:var-operator-var-problem}的解$u \in X$
 \begin{equation}
   \label{eq:approx-gb-var-problem}
-  \langle A \nu,\nu \rangle = \langle f, \nu \rangle, \quad \forall \, \nu \in X.
+  \langle A u,\nu \rangle = \langle f, \nu \rangle, \quad \forall \, \nu \in X.
 \end{equation}
 
 由拉克斯一密格拉蒙定理Theorem \ref{theorem:lax-milgram-lemma}可知，\eqref{eq:approx-gb-var-problem}存在唯一的解$u \in X$，满足
@@ -960,7 +960,289 @@
 那么离散稳定条件\eqref{eq:approx-mixed-bbl-discrete-stability-condition}成立，对应$\tilde{c}_{S} = \frac{c_{S}}{c_{P}}$。
 \end{lemma}
 
+%!TEX root = ../DSGEnotes.tex
+
 \subsection{强制算子}
 \label{sec:approx-coercive}
+对于算子方程$A u = f, u \in X, f \in X'$的近似解，如果线性有界算子$A:X \mapsto X'$不满足$X$-椭圆性，那么上述近似解法可能不适用。一个替代的弱假定是
+$A$的强制性(coercive operator)，即存在一个紧凑算子(compact operator)\index{compact operator \dotfill 紧凑算子}$C:X \mapsto X'$，满足Gårding不等式Definition \ref{definitiuon:var-coercive-def}式\eqref{eq:var-coercive-garding-inequality}
+\begin{equation*}
+  \langle \left(A + C \right) \nu, \nu \rangle \ge C_1^A \, \big\| \nu \big\|_{X}^2, \quad \forall \nu \in X.
+\end{equation*}
 
-对于算子方程$A u = f$的近似解，如果假设$A:X \mapsto X'$是强制的，即存在一个紧凑算子$C:X \mapsto X'$，满足
+设一个由有限维检测空间组成的序列。对应地，强制算子方程可以改写为如下伽辽金变分问题：寻找解$u_{M} \in X_{M}$，使满足
+\begin{equation}
+  \label{eq:approx-coercive-gvp}
+  \langle A u_{M}, \nu_{M} \rangle = \langle f, \nu_{M} \rangle, \quad \forall \, \nu \in X_{M}.
+\end{equation}
+
+注意：\eqref{eq:approx-coercive-gvp}与\eqref{eq:approx-gb-var-problem}的方程形式一致，但不同之处在于线性有界算子算子$A$的特性从椭圆性扩展到更一般的强制性上来，从而在计算数值解的稳定性和误差测度项时有所不同。
+
+\begin{theorem}[齐亚引理]
+  \label{theorem:approx-coercive-cea-lemma}
+  设有界线性强制算子$A: X \mapsto X_{M}$，假定满足离散稳定性条件。离散稳定性条件的证明见Theorem \ref{theorem:approx-coercive-operator-discrete-stability}。
+  \begin{equation}
+    \label{eq:approx-coercive-operator-discrete-stability}
+    c_{S} \, \left\| w_{M} \right\|_{X}
+    \le \sup_{\nu_{M} \in X_{M}, \left\| \nu_{M} \right\|_{X} > 0}
+    \frac{
+    \langle A w_{M}, \nu_{M} \rangle
+    }{
+    \left\| \nu_{M} \right\|_{X}
+    }, \quad \forall \, w_{M} \in X_{M},
+  \end{equation}
+
+  那么伽辽金变分问题\eqref{eq:approx-coercive-gvp}有唯一解$u_{M} \in X_{M}$，对应的稳定性测度和误差项测度分别如下
+  \begin{align}
+    \label{eq:approx-coercive-cea-stability}
+    \left\| u_{M} \right\| &\le \frac{1}{c_{S}} \, \left\| f \right\|_{X'}, \\
+    \label{eq:approx-coercive-cea-error}
+    \left\| u - u_{M} \right\|_{X} & \le
+    \left( 1 + \frac{c_{2}^{A}}{c_{S}} \right)
+    \inf_{\nu_{M} \in X_{M}}
+    \left\| u - u_{M} \right\|_{X}.
+  \end{align}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+\item 考虑一个齐次线性方程系统如下
+\begin{equation*}
+  A_{M} \, \underline{\bar{w}} = 0,
+\end{equation*}
+对应的齐次变分问题为，寻找解$\overline{w}_{M} \in X_{M}$，使满足
+\begin{equation*}
+  \langle A_{M} \overline{w}_{M}, \nu_{M} \rangle =0, \quad \forall \, \nu_{M} \in X_{M}.
+\end{equation*}
+
+根据离散稳定性条件\eqref{eq:approx-coercive-operator-discrete-stability}可得
+\begin{equation*}
+  c_{S} \, \left\| \bar{w}_{M} \right\|_{X}
+  \le \sup_{\nu_{M} \in X_{M}, \left\| \nu_{M} \right\|_{X} > 0}
+  \frac{
+  \langle A \bar{w}_{M}, \nu_{M} \rangle
+  }{
+  \left\| w_{M} \right\|_{X}
+  }, \quad \forall \, w_{M} \in X_{M},
+\end{equation*}
+由此可见
+\begin{equation*}
+  \bar{w}_{M} = 0 \leftrightarrow \underline{\bar{w}}_{M} \in X_{M},
+\end{equation*}
+因此我们有：线性方程系统$A_{M} \underline{u} = \underline{f}$，以及伽辽金变分问题\eqref{eq:approx-coercive-gvp}都是唯一可解的。
+
+\item 设这个唯一解为$\underline{u} \in \mathbb{R}^{M} \leftrightarrow u_{M} \in X_{M}$。再一次根据根据离散稳定性条件\eqref{eq:approx-coercive-operator-discrete-stability}有
+\begin{equation*}
+  \begin{split}
+    c_{S} \, \left\| u_{M} \right\|_{X}
+    & \le \sup_{\nu_{M} \in X_{M}, \left\| \nu_{M} \right\|_{X} > 0}
+    \frac{
+    \langle A u_{M}, \nu_{M} \rangle
+    }{
+    \left\| \nu_{M} \right\|_{X}
+    } \\
+    & =
+    \sup_{\nu_{M} \in X_{M}, \left\| \nu_{M} \right\|_{X} > 0}
+    \frac{
+    \langle f, \nu_{M} \rangle
+    }{
+    \left\| \nu_{M} \right\|_{X}
+    },
+  \end{split}
+\end{equation*}
+证得稳定性测度\eqref{eq:approx-coercive-cea-stability}。
+
+\item 对于任意$w \in X$，定义如下伽辽金变分问题，使得存在唯一近似解$w_{M} \in X_{M}$满足
+\begin{equation*}
+  \langle A w_{M}, \nu_{M} \rangle = \langle A w, \nu_{M} \rangle, \quad \forall \, \nu_{M} \in X_{M}.
+\end{equation*}
+
+根据上式，定义一个投影算子$G_{M} : X \mapsto X_{M}$，使$w_{M} = G_{M} w$，满足
+\begin{equation*}
+  \begin{split}
+    \left\| G_{M} w \right\|_{X} & = \left\| w_{M} \right\|_{X} \le \frac{1}{c_{S}} \left\| f \right\|_{X'} \\
+    & = \frac{1}{c_{S}} \left\| A w \right\|_{X'}
+    \le \frac{c_{2}^{A}}{c_{S}} \left\| w \right\|_{X}.
+  \end{split}
+\end{equation*}
+
+因此伽辽金变分问题\eqref{eq:approx-coercive-gvp}的唯一解为$u_{M} = G_{M} u$。
+
+\item 由投影算子$G_{M}$的性质可得
+\begin{equation*}
+  G_{M} \nu_{M} = \nu_{M}, \forall \, \nu_{M} \in X_{M},
+\end{equation*}
+那么
+\begin{equation*}
+  \begin{split}
+    \left\| u - u_{M} \right\|_{X} & =
+    \left\| u - \nu_{M} + G_{M} \nu_{M} - u_{M} \right\|_{X} \\
+    & \le \left\| u - \nu_{M} \right\|_{X} + \left\| G_{M} \left( u - \nu_{M} \right) \right\|_{X} \\
+    & \le \left( 1 + \frac{c_{2}^{A}}{c_{S}} \right) \,
+    \left\| u - \nu_{M} \right\|_{X}, \quad \forall \, \nu_{M} \in X_{M},
+  \end{split}
+\end{equation*}
+由此证得误差项测度\eqref{eq:approx-coercive-cea-error}。
+\end{enumerate}
+\end{proof}
+
+现在我们回头来看离散稳定性条件\eqref{eq:approx-coercive-operator-discrete-stability}的证明。
+根据前文的介绍可知，若$A$是椭圆算子，则有下式成立
+\begin{equation*}
+\begin{split}
+  c_{1}^{A} \, \left\| \nu_{M} \right\|_{X}
+  & \le \frac{
+  \langle A w_{M}, w_{M} \rangle
+  }{
+  \left\| w_{M} \right\|_{X}
+  } \\
+  & \le \sup_{\nu_{M} \in X_{M}, \left\| \nu_{M} \right\|_{X} > 0}
+  \frac{
+  \langle A w_{M}, \nu_{M} \rangle
+  }{
+  \left\| \nu_{M} \right\|_{X}
+  },
+\end{split}
+\end{equation*}
+那么若$A$是强制算子，离散稳定性条件的证明见下定理。
+\begin{theorem}[强制算子的离散稳定性条件]
+  \label{theorem:approx-coercive-operator-discrete-stability}
+  设一个有界线性算子$A:X \mapsto X'$是强制且单射(injective)的。设$X_{M} \subset X$是一个密集(dense)协调检测空间序列。那么，存在一个指数$M_{0} \in \mathbb{N}$，使得对于$M > M_{0}$的情况，离散稳定性条件\eqref{eq:approx-coercive-operator-discrete-stability}成立。
+\end{theorem}
+
+\begin{proof}
+
+\begin{enumerate}
+
+\item
+稳定性、误差测度、收敛性。
+
+设任意给定且固定的$w_{M} \in X_{M}$。对于强制算子$A:X \mapsto X'$，对应存在一个紧凑算子$C:X \mapsto X'$，使得有界算子$D=A+C:X \mapsto X'$是$X$-椭圆的。对应地，构建如下变分问题，其中$\bar{\nu} \coloneqq D^{-1} C w_{M} \in X$是唯一解
+\begin{equation*}
+  \langle D \overline{\nu}, \nu \rangle = \langle C w_{M}, \nu \rangle, \quad \forall \, \nu \in X.
+\end{equation*}
+
+此外，定义伽辽金变分问题，唯一近似解$\nu_{M} \in X_{M}$满足
+\begin{equation*}
+  \langle D \overline{\nu}_{M}, \nu_{M} \rangle = \langle C w_{M}, \nu_{M} \rangle, \quad \forall \, \nu_{M} \in X_{M}.
+\end{equation*}
+
+两个变分问题联立，可得伽辽金正交条件
+\begin{equation*}
+  \langle D \left( \overline{\nu} - \overline{\nu}_{M} \right), \nu_{M} \rangle
+  = 0, \quad \forall \nu_{M} \in X.
+\end{equation*}
+
+根据算子$D$的$X$-椭圆特性，对伽辽金变分问题应用齐亚引理Theorem \ref{theorem:approx-cea-lemma}，可得稳定性测度
+\begin{equation*}
+  \left\| \overline{\nu}_{M} \right\|_{X}
+  \le \frac{1}{c_{1}^{D}} \, \left\| C w_{M} \right\|_{X'}
+  \le \frac{c_{2}^{C}}{c_{1}^{D}} \, \left\| w_{M} \right\|_{X}.
+\end{equation*}
+
+\begin{equation*}
+  \begin{split}
+    \hookrightarrow \left\|w_{M} - \overline{\nu}_{M} \right\|_{X}
+    & \le \left\| w_{M} \right||_{X} - \left\| \overline{\nu}_{M} \right\|_{X} \\
+    & \le \left( 1 + \frac{c_{2}^{C}}{c_{1}^{D}} \right) \,
+    \left\| w_{M} \right\|_{X}.
+  \end{split}
+\end{equation*}
+
+进而我们有误差测度项
+\begin{equation*}
+  \begin{split}
+    \left\| \overline{\nu} - \overline{\nu}_{M} \right\|_{X}
+    & \le \frac{c_{2}^{D}}{c_{1}^{D}} \inf_{\nu_{M} \in X_{M}}
+    \left\| \overline{\nu} - \nu_{M} \right\|_{X},
+  \end{split}
+\end{equation*}
+即检测空间$X_{M}$的近似属性成立，因此收敛性\eqref{eq:approx-gb-trial-space-approximation}成立。
+
+\item
+设一个检测方程$\nu_{M} = w_{M} - \overline{\nu}_{M} \in X_{M}$。我们有
+\begin{equation*}
+  \begin{split}
+    \langle A w_{M}, w_{M} - \overline{\nu}_{M} \rangle
+    & = \langle A w_{M}, w_{M} - \overline{\nu} \rangle
+    + \langle A w_{M}, \overline{\nu} - \overline{\nu}_{M} \rangle \\
+    & = \underbrace{
+    \langle A w_{M}, w_{M} - D^{-1} C w_{M} \rangle
+    }_{\eqqcolon \mathcal{A}} +
+    \underbrace{
+    \langle A w_{M}, \overline{\nu} - \overline{\nu}_{M} \rangle
+    }_{\eqqcolon \mathcal{B}},
+  \end{split}
+\end{equation*}
+
+\begin{itemize}
+  \item 由于$A:X \mapsto X'$有界且可逆
+  \begin{equation*}
+    \begin{split}
+      \mathcal{A} \coloneqq \langle A w_{M}, w_{M} - D^{-1} C w_{M} \rangle & = \langle
+      A w_{M}, D^{-1} \left( D - C \right) w_{M}
+      \rangle \\
+      & = \langle A w_{M}, D^{-1} A w_{M} \rangle \\
+      & \ge c_{1}^{D} \, \left\| A w_{M} \right\|_{X'}^{2} \\
+      & \ge c_{1}^{D} \, c_{A} \, \left\| w_{M} \right\|_{X}^{2}.
+    \end{split}
+  \end{equation*}
+  \item 由于伽辽金正交条件
+  \begin{equation*}
+    \begin{split}
+      \left| \mathcal{B} \right| \coloneqq \left| \langle A w_{M}, \overline{\nu} - \overline{\nu}_{M} \rangle \right|
+      & = \left|
+      \langle
+      \left( D - C \right) w_{M}, \overline{\nu} - \overline{\nu}_{M}
+      \rangle
+      \right| \\
+      & = \left|
+      \langle D w_{M}, \overline{\nu} - \overline{\nu}_{M} \rangle -
+      \langle C w_{M}, \overline{\nu} - \overline{\nu}_{M} \rangle
+      \right| \\
+      & = \left|
+      \underbrace{
+      \langle
+      w_{M}, D \left( \overline{\nu} - \overline{\nu}_{M} \right) \rangle
+      }_{=0}
+      -
+      \langle
+      w_{M} - C \left( \overline{\nu} - \overline{\nu}_{M} \right)
+      \rangle
+      \right| \\
+      & = \left|
+      \langle
+      w_{M}, C \left( \overline{\nu} - \overline{\nu}_{M} \right)
+      \rangle
+      \right| \\
+      & \le \left\| w \right\|_{X} \,
+      \left\|
+      C \left( \overline{\nu} - \overline{\nu}_{M} \right) \right\|_{X'}.
+    \end{split}
+  \end{equation*}
+\end{itemize}
+
+  \item
+  由于算子$C$紧凑，那么存在一个子序列$\left\{ \overline{\nu}_{M} \right\}_{M \in \mathbb{N}}$，满足
+  \begin{equation*}
+    \lim_{M \rightarrow \infty}
+    \frac{
+    \left\|
+    C \left( \overline{\nu} - \overline{\nu}_{M} \right)
+    \right\|_{X'}
+    }{
+    \left\| \overline{\nu} \right\|_{X}
+    } = 0,
+  \end{equation*}
+因此存在一个指数$M_{0} \in \mathbb{N}$，使得满足
+\begin{equation*}
+  \begin{split}
+    \langle A w_{M}, w_{M} - \overline{\nu}_{M} \rangle
+    & \ge \frac{1}{2} c_{1}^{D} c_{A}
+    \left( 1 + \frac{c_{2}^{D}}{c_{1}^{D}} \right)^{-1}
+    \left\| w_{M} \right\|
+    \left\| w_{M} - \overline{\nu}_{M} \right\|_{X}, \quad \forall \, M \ge M_{0},
+  \end{split}
+\end{equation*}
+因此我们有离散稳定性条件\eqref{eq:approx-coercive-operator-discrete-stability}成立。
+\end{enumerate}
+\end{proof}

@@ -1,3 +1,44 @@
 mktexpk --mfmode / --bdpi 600 --mag 2+125/600 --dpi 1325 cyberb98
 mktexpk --mfmode / --bdpi 600 --mag 2+125/600 --dpi 1325 cyberb98
 mktexpk --mfmode / --bdpi 600 --mag 2+125/600 --dpi 1325 cyberb98
+mktextfm AdobeSongStd-Light/OT
+mktextfm AdobeSongStd-Light/OT
+mktextfm AdobeKaitiStd-Regular/OT
+mktextfm AdobeKaitiStd-Regular/B/OT
+mktextfm AdobeHeitiStd-Regular/OT
+mktextfm AdobeHeitiStd-Regular/I/OT
+mktextfm AdobeSongStd-Light/OT
+mktextfm AdobeSongStd-Light/BI/OT
+mktextfm AdobeSongStd-Light/OT
+mktextfm AdobeSongStd-Light/OT
+mktextfm AdobeHeitiStd-Regular/OT
+mktextfm AdobeHeitiStd-Regular/OT
+mktextfm AdobeKaitiStd-Regular/OT
+mktextfm AdobeKaitiStd-Regular/OT
+mktextfm STSong/OT
+mktextfm STSong/OT
+mktextfm STKaiti/OT
+mktextfm STKaiti/B/OT
+mktextfm STZhongsong/OT
+mktextfm STZhongsong/I/OT
+mktextfm STSong/OT
+mktextfm STSong/BI/OT
+mktextfm STSong/OT
+mktextfm STSong/OT
+mktextfm STZhongsong/OT
+mktextfm STZhongsong/OT
+mktextfm STKaiti/OT
+mktextfm STKaiti/OT
+mktextfm STSong/OT
+mktextfm STZhongsong/OT
+mktextfm STKaiti/OT
+mktextfm STSong/OT
+mktextfm STZhongsong/OT
+mktextfm STZhongsong/OT
+mktextfm STSong/OT
+mktextfm STKaiti/OT
+mktextfm nullfont
+mktextfm STZhongsong/OT
+mktextfm STSong/OT
+mktextfm STSong/OT
+mktextfm STSong/OT

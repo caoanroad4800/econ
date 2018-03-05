@@ -1,0 +1,164 @@
+%!TEX root = ../DSGEnotes.tex
+\chapter{工作论文}
+\label{sec:housing}
+
+\section{问题的提出}
+\label{sec:housing-intro}
+
+\subsection{研究目标}
+\label{sec:housing-goals}
+\begin{itemize}
+  \item 构建一个基于DSGE框架的中心——边缘经济模型，解释造成耐用消费品相对于费耐用消费品价格的通货膨胀、产出等实际经济变量波动的机制。
+
+  \item 模型的参数估计，部分采用校准法，部分采用贝叶斯估计。
+
+  结合中国当前经济运行的实际可观测数据做估计。
+
+  \item 利用估计的DSGE模型，量化分析当经济体受到外生冲击，导致市场信贷信号发生变化时，经济政策应当如何设定和响应，来达到整体福利最大化(加权效用函数最大化)的目标。
+
+  设定一系列可供选择的经济政策工具，如货币政策工具、宏观审慎政策工具等，对于实现福利最大化目标的经济绩效的比较与评价。
+\end{itemize}
+
+\subsection{模型设定}
+\label{sec:housing-setup}
+基于DSGE框架的中心——边缘经济模型，主要考虑这样一个国家，拥有统一的货币、货币政策和（可以是不同的）宏观审慎政策。国家内部按地域划分为中心和边缘两个经济体，每个经济体中都有
+
+  \begin{itemize}
+    \item 两个生产部门，两种最终消费品：非耐用消费品，耐用消费品（房地产）。
+
+    产品均在本地生产，最终产品的生产条件均为完全竞争。中间产品的生产条件为垄断竞争，存在价格粘性。
+
+    最终产品中，非耐用消费品可以跨地区进行贸易和消费；耐用消费品只能在本地消费。
+
+    \item 每个地区的家庭部门都分为两类：储蓄者，借款者。都是追求效用最大化的理性行为人，效用获得的手段主要有三种：消费非耐用品、购买耐用品(住宅投资)增加本家庭的房屋以及休闲。储蓄者和借款者的不同主要表现在
+    \begin{itemize}
+      \item 时间偏好、进而消费习惯不同。借款者比储蓄者更缺乏耐心，因此更偏好提前消费。这使得在均衡条件下出现信贷市场：储蓄者将家庭收入的一部分存入金融中介机构，赚取存款利息。借款者利用现有住宅存量作抵押，向金融机构贷款用于住宅投资，通过增加住宅存量提高效用水平。
+
+      \item 引入\cite{Bernanke1999}的金融加速器机制，描述家庭部门中不同类型个体受同一外部冲击的影响不同。假定存在一个针对住宅存量的特定质量冲击，该冲击会影响到借款者现有住宅存量(抵押品)的价值，借款者的经济决策（如期还本付息，或是违约），银行的存贷款利差，进而整体经济运行状况。特定质量冲击对储蓄者不产生总量层面上的实质影响：储蓄者无需向银行借款，自有住房存量也不必用于抵押。
+    \end{itemize}
+
+    \item 金融部门：每个经济体分别有一个境内金融中介机构（如商业银行），从储蓄者那里获取存款，向借款者提供贷款，当经济体内部出现资金供需不匹配情况时，通过发行债券向其他经济体中的金融机构进行融资。
+
+    对应地，存在一个国家级跨境金融中介机构，单一功能提供跨经济体的资金流动渠道：为利用债券交易平衡两个经济体中金融中介机构之间的资金供需关系。通过这样的设定，一个经济体内部的储蓄和（住宅）投资不必每期都相等：以中心地区为例，若出现额外的信贷需求，可在跨境金融机构的协助下，通过边缘地区的资金供应予以满足，融资成本表现为跨境金融机构收取的风险溢价，风险溢价的大小取决于中心地区在边缘地区持有的资产头寸。
+
+    \item 中央银行：执行货币政策，通过观测过去、预测未来的全国经济数据，
+如CPI通胀率、实际经济产出等，制定执行相关利率政策，以平稳物价、产出增长。
+\begin{itemize}
+  \item 一系列外部冲击，如前文提到的对住宅存量的质量冲击等。若无特别指明，假定部门的外部冲击表现为AR(1)过程；假定一个单位根形式的中性级数冲击对各部门均产生影响。\todo{写完全部模型后，待进一步汇总、整理。}
+  \item 引入\cite{Calvo:1983uq}的定价机制，在模型中一系列名义和实际粘性，参考\cite{Smets:2003ic,Iacoviello:2010fo,Christiano:2005ib}。
+  \end{itemize}
+\end{itemize}
+
+下面以中心地区经济体为主，分部门对模型作进一步阐述。
+
+\section{境内金融中介部门}
+\label{sec:housing-domestic-fin-intm}
+境内金融机构如商业银行的资金来源是从家庭部门储蓄者中吸收存款$S_{t}$，在下一期以存款利率$R_{t}$返还。资金使用方面表现为向符合资质的家庭部门借款者发放贷款$S_{t}^{B}$，收取贷款利率$R_{t}^{L}$。期间形成的贷存利差(spread rate)用$R_{t}^{L}/R_{t}$表示，反映金融机构中介服务品的价格，与信贷市场的实际供需关系等因素有关。
+
+
+
+借款者获得银行贷款的``资质''是自有住宅存量的价值$P_{t}^{D} D_{t}^{B}$，$P_{t}$是市场上的名义住宅价格，$D_{t}^{B}$表示借款者住宅存量。我们将贷款相对于抵押品价值的比率$S_{t}^{B} / \left( P_{t}^{D} D_{t}^{B} \right)$定义为贷款价值比(Loan To Value ratio, LTV)，反映银行放贷的风险程度。
+
+借款人获得的贷款主要用于住宅投资$I_{t}^{B}$，以增加$t+1$期住宅存量$D_{t}^{B}$，提升家庭效用与福利水平。
+
+
+%在期初，境内金融中介部门拟定利率$R_{t}^{L}$，将资金$S_{t}^{B}$以授信形式贷给有资质的借款申请者。
+根据金融加速器机制，授信过程中的风险主要体现在房地产市场的违约风险，这是由贷款行为的性质所决定的。在期初，银行拟定利率$R_{t}^{L}$，对有资质的借款申请者授信$S_{t}^{B}$用于住宅投资，并要求借款者在下一期返还$R_{t}^{L} S_t^{B}$。在期初，特定质量冲击还未实际发生，银行基于对过去信息的不完全掌握，以及对未来状况的模糊预测，事先设定$R_{t}^{L}$值。\todo{后面方程等式。}而只有到了期末，特定质量冲击才会真正出现并被识别，从而影响借款人在期末的(事后)决策。
+
+我们设质量冲击是异质的，对不同借款人的冲击程度各异，$t-1$期末编号为$j$的借款人承受质量冲击水平$\omega_{t}^{j}$，影响当期住宅存量价值。如果冲击水平较低，$\omega_{t-1}^{j}$值较小，$j$的当期住宅存量价值仍高于应还贷款数$\omega_{t-1}^{j} P_{t}^{D} D_{t}^{B} > R_{t-1}^{L} S_{t-1}^{B}$，那么$j$选择如约还本付息；反之，如果冲击水平较高，$\omega_{t-1}^{j}$值较大，$\omega_{t-1}^{j} P_{t}^{D} D_{t}^{B} > R_{t-1}^{L} S_{t-1}^{B}$，$j$的当期住宅存量价值无力偿还贷款，会选择违约。若违约发生，银行会引入债务清偿机构，强制收回$j$的抵押品残值$\omega_{t-1}^{j} P_{t}^{D} D_{t}^{B}$，转手在住宅市场上出售。债务清偿机构收取$0 < \mu < 1$比例的佣金，银行实际回收$\left( 1 - \mu \right) \omega_{t-1}^{j} P_{t}^{D} D_{t}^{B}$。假定债务清偿机构由储蓄者所有，其利润最终流转进入家庭部门的储蓄者手中\footnote{储蓄者仍保有其余并未拿去做抵押的房屋存量价值\citep{Suh:2012dp}。}。
+
+本文此处设定与\cite{Bernanke1999}的原始假设不同。在原始假设中，为了评估因违约而收回住宅的实际价值$\omega_{t-1} P_{t}^{D} D_{t}^{B}$，银行需要支付$\mu$比例的监督成本，从而若违约发生，房屋存量的一部分价值被摧毁。本文对这一假设的调整，主要基于两点考虑。第一，从模型设定上来讲，\cite{Bernanke1999}假设会使随机质量冲击对家庭部门的住宅投资、住宅存量、进而整体经济运行状态产生很大幅度的波动，这与观测到的现实情况不符\citep{Forlati:2011wy}。第二，本文研究的核心目标之一，是探讨一系列宏观审慎政策工具对维护宏观经济运行稳定性的效果评价，主要基于全体福利效果的分析；若是在前期模型构建中出现社会财富的``蒸发''，在随后经济政策的福利效果评价中，我们将很难区分福利损耗中有多少是由不恰当的宏观审慎政策工具选取所导致的，有多少是由外生风险冲击所导致的。
+
+现在将风险冲击$\omega_{t}^{j}$对储蓄者$j$个体的影响，扩展到全部储蓄者。假设$\omega_{t}^{j}$呈对数正态分布\footnote{膏按：关于对数正态分布，一个(不太恰当的类比)介绍，可见\cite[Sec 10.5.4]{Zhuyanyuan:2018tm}，即本笔记第\ref{sec:perturbation-log-normal-lin}节。}
+\begin{equation}
+  \label{eq:housing-omega-lognormal-distribution}
+  \log \left( \omega_{t}^{j} \right) \sim \mathcal{N} \left( - \frac{\sigma_{\omega, t}^{2}}{2}, \sigma_{\omega, t}^{2} \right), \quad \omega_{t}^{j} \in \left( 0, \infty \right) \, \forall \, t, j.
+\end{equation}
+其中$t$期质量冲击在$j$个储蓄者中的分布，用标准差$\sigma_{\omega, t}^{2}$表示。对于标准化的冲击值$\omega_{t}^{j}$，通过选取合适的$\sigma_{\omega, t}^{2}$，我们使得$E\left[ \omega_{t}^{j} \right] \equiv 1 \leftrightarrow E \left[ \log \omega_{t}^{j} \right]  \equiv 0$，即从同期来看尽管住宅市场中存在异质性特定质量冲击，但总量层面上来看，质量冲击的风险仍为零。
+
+此外跨期来看，我们设标准差$\sigma_{\omega, t}^{2}$是个时变对数$AR(1)$过程
+\begin{equation}
+  \label{eq:housing-var-ar1}
+  \log \left( \sigma_{\omega, t} \right) =
+  \left( 1 - \rho_{\sigma_{\omega}} \right) \log \left( \overline{\sigma}_{\omega} \right)
+  + \rho_{\sigma_{\omega}}  \log \left( \sigma_{\omega, t-1} \right)
+  + u_{\omega, t}, \quad u_{\omega, t} \sim \mathcal{N} \left( 0 , \sigma_{\omega, t} \right).
+\end{equation}
+
+这样的设定，使得$\sigma_{\omega, t}$的增加，在保持$E \left[ \omega_{t}^{j} \right]$不变的情况下，提高了$\omega_{t}^{j}$的分布的偏度：原有分布更多向左侧几种，从而出现更多$\omega_{t}^{j}$取较低值的情况。
+
+从事后观察来看，存在一个门槛值$\overline{\omega}_{t}^{p}$，使得个体$j$受到的冲击若是低于门槛值$\omega_{t}^{j} < \overline{\omega}_{t}^{p}$只能违约；若是高于门槛值$\omega_{t}^{j}  \ge \overline{\omega}_{t}^{p}$选择如约还本付息。$\overline{\omega}_{t}^{p}$显然是一个影响经济系统的重要指标。然而$t$期初，银行在制定贷款利率$R_{t}^{L}$时，并不清楚$\overline{\omega}_{t}^{p}$这一关键信息，换句话说，不知道会有多少住宅贷款违约，多少如期还款；假定银行基于对$t+1$期房价的预期$E_{t} P_{t+1}^{D}$，只能设一个事先门槛值$\overline{\omega}_{t}^{a}$来作近似，依据的计算标准为
+\begin{equation}
+  \label{eq:housing-expected-exante-omega}
+  \begin{split}
+      & \overline{\omega}_{t}^{a} E_{t} \left[ P_{t+1}^{D} D_{t+1}^{D} \right]= R_{t}^{L} S_{t}^{B}, \\
+      \hookrightarrow &
+      \overline{\omega}_{t}^{a} = R_{t}^{L} \frac{S_{t}^{B}}{E_{t} \left[ P_{t+1}^{D} D_{t+1}^{B} \right]}
+      = R_{t}^{L} \left( LTV_{t} \right),
+  \end{split}
+\end{equation}
+不难看出两点。第一，事先和事后门槛值不一定相等，这主要取决于$t$期实际发生的质量冲击在多大程度上偏离了最初的预期，用$\sigma_{\omega, t}$表示。第二，$\overline{\omega}_{t}^{a}$是个关于贷款价值比$LTV$的增函数，也即同等价值的抵押品，获得的贷款越多，风险越大，未来出现违约问题的可能性越高。
+
+基于设定好的事先门槛值$\overline{\omega}_{t}^{a}$，%可以进一步分析贷款利率$R_{t}^{L}$的计算公式。
+可以用特定质量冲击的累积密度方程(Cummulative Density Function, CDF) $F \left(\overline{\omega}_{t}^{a}, \sigma_{\omega, t} \right)$来描述$t$期初银行在做贷款利率的决策时，预计会有多少比例的借款人会选择在$t$期末($t+1$期初)违约
+\begin{equation}
+  \label{eq:housing-F-function-CDF}
+  F \left(\overline{\omega}_{t}^{a}, \sigma_{\omega, t} \right)
+  = \int_{0}^{\overline{\omega}_{t}^{a}} d F \left( \omega; \sigma_{\omega, t} \right) d \omega,
+\end{equation}
+以及多少比例的借款人会如约还本付息
+\begin{equation}
+  \label{eq:housing-FF-function-CDF}
+  1 - F \left(\overline{\omega}_{t}^{a}, \sigma_{\omega, t} \right)
+  = \int_{\overline{\omega}_{t}^{a}}^{\infty} d F \left( \omega; \sigma_{\omega, t} \right) d \omega.
+\end{equation}
+
+在此基础上，所有低于门槛值(即存在违约风险)的质量冲击的平均值用$G \left( \overline{\omega}_{t}^{a}, \sigma_{\omega, t} \right)$来表示
+\begin{equation}
+  \label{eq:housing-G-function-CDF}
+  G \left( \overline{\omega}_{t}^{a}, \sigma_{\omega, t} \right)
+  \equiv \int_{0}^{\overline{\omega}_{t}^{a}}
+  \omega \, d F \left(\omega, \sigma_{\omega, t} \right),
+\end{equation}
+那么银行在$t$期初预计$t+1$期的违约住房贷款数额为
+\begin{equation}
+  \label{eq:housing-expected-default-value}
+  G \left( \overline{\omega}_{t}^{a}, \sigma_{\omega, t} \right)
+  E_{t} \left[ P_{t+1}^{D} D_{t+1}^{B} \right]
+  = \int_{0}^{\overline{\omega}_{t}^{a}}
+  \omega d F \left(\omega, \sigma_{\omega, t} \right) \left[ P_{t+1}^{D} D_{t+1}^{B} \right].
+\end{equation}
+
+在本模型中，银行对贷款利率的设定不只取决于自身的成本——收益考量，还受到宏观审慎经济政策的影响。具体来说，假定存在某种政策工具$\eta$，通过影响银行的资产负债表，即能贷出多少款，来影响信贷市场出清条件
+\begin{equation}
+  \label{eq:housing-credit-mkt-clearing}
+  n \lambda \frac{S_{t} - B_{t}}{\eta_{t}} =
+  n \left( 1 - \lambda \right) S_{t}^{B},
+\end{equation}
+等式左侧和右侧分别表示总负债和总资产。系数$0 \le n  \le 1$表示中心地区人口数占全国总人口的比重；$1-n$为边缘地区人口数站全国总人口的比重。$0 \le \lambda  \le 1$表示中心地区全部人口中，储蓄者所占比重；$1-\lambda$表示借款者的比重。变量$B_t$表示中心地区在边缘地区的债权。出于简化模型的考虑，我们假定宏观审慎政策工具$\eta_{t}$被置于其他现有监管规定之上，从而使其与境内净存款、贷款等呈线性关系。具体来说，$\eta_{t}$可以表示为资本附加(capital surchage)、贷款损失准备(loss-loan provision)、存款准备金(reserve requirement)等具体形式，通过直接限制可贷出资金量来影响存贷款利差，对应$\eta > 1$。此外也可设$\eta <1$，作为一种``非传统''货币工具，被用于中央银行实现控制存贷利差等目标\citep{Gertler:2011fs}。在本研究中，一方面在模型估计过程中，设$\eta_{t} = \eta \equiv 1 \, \forall t$，即假定宏观审慎政策是``中性''的。另一方面在随后宏观审慎经济政策的福利效果分析中，设$\eta$围绕稳态值$1$作反周期变化。\todo{下文作详细说明，做一个ref。}
+
+假定商业银行面对完全竞争的市场条件。此时银行授信的期望收益率应该与其融资成本相互抵消，后者在本模型中等价于储蓄利率$R_{t}$(我们假定商业银行从其他金融机构的融资成本也等于$R_{t}$)，由此有银行的参与约束条件
+\begin{equation*}
+  n \lambda R_{t} \left( S_{t} - B_{t} \right)
+  = n \left( 1 - \lambda \right) E_{t}
+  \left\{
+  \left(1 - \mu \right) G \left( \overline{\omega}_{t}^{a}, \sigma_{\omega, t} \right) P_{t+1}^{D} D_{t+1}^{B}
+  + \left[ 1 - F \left( \overline{\omega}_{t}^{a}, \sigma_{\omega, t} \right) \right] R_{t}^{L} S_{t}^{B}
+  \right\},
+\end{equation*}
+%\eqref{eq:housing-bank-participation-constraint}可称，它
+该条件确保了金融机构对债权人的义务（式左侧）与对债务人的期望回报（式右侧）相等。期望回报由两部分构成，违约资产处置后回收的部分，和如约还本付息的部分。将\eqref{eq:housing-credit-mkt-clearing}代入上式左侧有
+\begin{equation*}
+  n \lambda R_{t} \left( S_{t} - B_{t} \right)
+  = n \left( 1 - \lambda \right) \eta_{t} R_{t} S_{t}^{B},
+\end{equation*}
+进而参与约束条件进一步改写为
+\begin{equation}
+  \label{eq:housing-bank-participation-constraint}
+  \eta_{t} R_{t} = E_{t} \left\{
+  \left( 1 - \mu \right) \frac{
+  G \left( \overline{\omega}_{t}^{a}, \sigma_{\omega, t} \right)
+  }{LTV_{t}}
+  + \left[ 1 - F \left( \overline{\omega}_{t}^{a}, \sigma_{\omega, t} \right)
+  \right] R_{t}^{L} \right\}.
+\end{equation}

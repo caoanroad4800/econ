@@ -1,0 +1,997 @@
+%!TEX root = ../DSGEnotes.tex
+
+\chapter{最大似然估计}
+\label{sec:mle}
+
+\epigraph{The maximum-likelihood procedure in any problem is what you are most likely to do if you don’t know any statistics.}{\textit{Harrison H. Barrett \\ Foundations of Image Science}}
+
+\section{简介}
+\label{sec:mle-intro}
+设一个$M \times 1$的向量$g$，描述一组随机数据。对应地，设一个$K \times 1$的参数向量$\theta$，用来描述这组随机数据$g$。那么，概率密度方程(probability density function, PDF)\index{probability density function(PDF) \dotfill 概率密度方程} $pr(g|\theta)$用于表示，在给定$\theta$的情况下，随机数据$g$的抽样分布(sampling distribution)。
+
+反之，若在现实中已经观测到了$g$，则我们可将$pr(g|\theta)$看成是一个关于参数$\theta$的方程，称为似然方程(likelihood function)\index{likelihood function \dotfill 似然方程}，定义为$L(\theta | g)$
+\begin{equation*}
+  L(\theta | g) = pr(g | \theta),
+\end{equation*}
+需要注意的是，$L(\theta | g)$并不是$\theta$的概率密度方程。
+
+我们将对$\theta$的估计命名为$\hat{\theta}$。$\hat{\theta}$是个关于$g$的方程：由于$g$是随机数据向量，导致$\hat{\theta}(g)$也是个关于$g$的随机变量向量。本质上来说，参数估计反映的是一个映射过程
+\begin{equation*}
+  \begin{cases}
+    \theta \mapsto g \mapsto \hat{\theta}, \\
+    pr(\theta) \mapsto pr(g | \theta) \mapsto pr(\hat{\theta} | \theta).
+  \end{cases}
+\end{equation*}
+从这个角度来说，$\hat{\theta}$是一个关于$\theta$的随机变量。
+
+\section{近似的测度}
+\label{sec:mle-performance-metrics}
+估计值$\hat{\theta}$相比于真实值$\theta$往往存在误差。误差常常来自于两个方面：
+\begin{itemize}
+  \item 随机误差，又称precision：如估计偏差，噪音等。常用方差(viariance)与以量化描述。
+  \item 系统误差，又称accuracy：如估计偏误，校准误差，模型误设定等。常用偏误(bias）或均方误差(MSE, EMSE)予以量化描述。
+\end{itemize}
+两种误差均可由估计值的条件分布$pr(\hat{\theta} | \theta)$予以量化。
+
+\subsection{估计的偏误：标量参数}
+\label{sec:mle-bias-scalar}
+
+以标量参数$\theta$及其(随机)估计值$\hat{\theta}$为例，估计的条件均值$\overline{\hat{\theta}}$可由似然方程计算而得
+\begin{equation}
+  \label{eq:mle-mean-estimate-theta}
+  \overline{\hat{\theta}} =
+  \left\langle
+  \hat{\theta}(g)
+  \right\rangle_{g|\theta}
+  = \int d^{M_g} \, pr(g | \theta) \hat{\theta}(g),
+\end{equation}
+其中$\langle \cdot \rangle_{g|\theta}$表示在给定的$\theta$下，各个随机估计值$\hat{\theta}(g)$的平均值。
+
+如果已知估计$\hat{\theta}$的条件概率密度$pr \left(\hat{\theta} | \theta \right)$，那么\eqref{eq:mle-mean-estimate-theta}可进一步改写为
+\begin{equation}
+  \label{eq:mle-hat-theta-random}
+  \overline{\hat{\theta}} = \int d \hat{\theta} \, pr \left( \hat{\theta} | \theta \right) \, \hat{\theta}.
+\end{equation}
+
+
+
+\subsubsection{偏误}
+\label{sec:mle-bias-def}
+我们将$\overline{\hat{\theta}}$相对于$\theta$的偏差称为关于真实值的条件偏误(conditional bias on true parameter)\index{conditional bias \dotfill 条件偏误}，定义为$b(\theta)$
+\begin{equation}
+  \label{eq:mle-conditional-bias}
+  b(\theta) = \overline{\hat{\theta}} - \theta.
+\end{equation}
+
+如果某个估计$\overline{\hat{\theta}}$，对于任意$\theta$都满足$b(\theta) = 0$，那我们称之为无偏估计(unbiased estimate)\index{unbiased estimate \dotfill 无偏估计}。
+
+\subsubsection{可测度性}
+\label{sec:mle-estimability}
+可测度性(estimability)或可识别性(identifiability)。如果无论随机数据集$g$的取值如何，都存在关于参数$\theta$的无偏估计$\hat{\theta}$，满足$b(\theta) = 0 \quad \forall \, \theta$，那我们称参数$\theta$是可估计的(estimable)或可识别的(identifiable)，表示为$\overline{\overline{\hat{\theta}}}$
+\begin{equation}
+  \label{eq:mle-estimablility}
+  \overline{\overline{\hat{\theta}}}
+  = \int d \theta \, pr(\theta) \, \overline{\hat{\theta}}
+  = \int d \theta \, pr(\theta) \, \int d^{M_g} \, pr(g | \theta) \, \hat{\theta}(g).
+\end{equation}
+
+\subsubsection{测度的方差和均方误差}
+\label{sec:mle-estimate-var-mse}
+某一测度$\hat{\theta}$相对于测度均值$\overline{\theta}$的波动，我们用方差$var \left( \hat{\theta} \right)$来表示
+\begin{equation}
+  \label{eq:mle-variance-hat}
+  var \left( \hat{\theta} \right)
+  = \sigma_{\hat{\theta}}^{2}
+  = \left\langle
+  \left|
+  \hat{\theta}(g) - \overline{\hat{\theta}}
+  \right|^{2}
+  \right\rangle_{g | \theta}.
+\end{equation}
+
+某一测度$\hat{\theta}$相对于真实值$\theta$的波动，我们用均方误差(mean square error, MSE)\index{mean square error (MSE) \dotfill 均方误差}来表示
+\begin{equation}
+  \label{eq:mle-mse-def}
+  MSE(\theta) = \left\langle
+  \left| \hat{\theta} - \theta \right|^{2}
+  \right\rangle_{g | \theta}.
+\end{equation}
+
+考虑到$\theta$随$g$而具有的随机性特征，将均方误差再严$\theta$取平均值，得整体均方误差(ensemble mean square error, EMSE)\index{ensemble mean suqare error (EMSE)\dotfill 整体均方误差}
+\begin{equation}
+  \label{eq:mle-emse-def}
+  EMSE(\theta) =
+  \left\langle
+  \left\langle
+  \left| \hat{\theta} - \theta \right|^{2}
+  \right\rangle_{g|\theta}
+  \right\rangle_{\theta}.
+\end{equation}
+
+\subsection{估计的偏误：向量参数}
+\label{sec:mle-bias-vector}
+设一个$P$维的参数向量$\theta$，对应估计值$\hat{\theta}$。我们将平均值$\overline{\hat{\theta}}$(有时也写作$\langle \theta \rangle$)定义如下
+\begin{equation}
+  \label{eq:mle-estimate-vector}
+  \overline{\hat{\theta}} \left( g \right) = \int d^{M_g} \, pr \left(g | \theta \right) \, \hat{\theta}\left ( g \right) = \int d^{P_{\hat{\theta}}} \, pr \left( \hat{\theta} | \theta \right) \, \hat{\theta}\left( g \right).
+\end{equation}
+
+\subsubsection{平均偏误}
+平均偏误$\overline{b}\left( \theta \right)$定义为
+\begin{equation}
+  \label{eq:mle-estimate-vector-bias-avg}
+  \overline{b}(\theta) =
+  \langle b \left( \theta \right) \rangle_{\theta}
+\end{equation}
+
+\subsubsection{测度的方差和均方误差}
+我们将$P$维随机估计向量$\hat{\theta}$中，第$p$个元素的均值表示为$\langle \hat{\theta} \rangle_{p} = \overline{\hat{\theta}}_{p}$。对应的方差为
+\begin{equation}
+  \begin{split}
+  \label{eq:mle-esitmate-vector-variance}
+  var \left( \hat{\theta}_{p} \right)
+  & = \left\langle
+  \left[
+  \hat{\theta}_{p} - \langle \hat{\theta} \rangle
+  \right] \, \left[
+  \hat{\theta}_{p} - \langle \hat{\theta} \rangle
+  \right]^{\top}
+  \right\rangle_{g | \theta} \\
+  & = \int_{\infty} d^{M_{g}} \,
+  \left|
+  \hat{\theta}_{p} \left( g \right) - \langle \hat{\theta}_{p} \left( g \right) \rangle
+  \right|^{2} \, pr \left( g | \theta \right) \\
+  & = \int_{\infty} d^{P_{\theta}} \,
+  \left|
+  \hat{\theta}_{p} - \langle \hat{\theta}_{p} \rangle
+  \right|^{2} \,
+  pr \left( \hat{\theta} | \theta \right).
+\end{split}
+\end{equation}
+
+将所有$p \in P$个方差汇总在一起，得到整体的方差协方差矩阵，定义为$K_{\hat{\theta}}$
+\begin{equation}
+  \label{eq:mle-estimate-vector-varcovar}
+  K_{\hat{\theta}} = \left\langle
+  \left( \hat{\theta} - \overline{\theta} \right) \,
+  \left( \hat{\theta} - \overline{\theta} \right)^{\dagger}
+  \right\rangle
+  = \left\langle
+  \Delta \hat{\theta} \, \Delta \hat{\theta}^{\dagger}
+  \right\rangle.
+\end{equation}
+
+参数向量的均方误差
+\begin{equation}
+  \label{eq:mle-estimate-vector-mse}
+  \begin{split}
+    MSE & = \left\langle
+    \left\|
+    \hat{\theta} - \theta
+    \right\|^{2}
+    \right\rangle_{g | \theta} \\
+    & = \int_{\infty} d^{M_{g}} \left\| \hat{\theta}(g) - \theta \right\|^{2} \, pr \left( g | \theta \right) \\
+    & = \trace \left( K_{\hat{\theta}} \right) +
+    \trace \left( b(\theta) b(\theta)^{\dagger} \right)
+    \end{split}
+\end{equation}
+
+\section{费雪信息矩阵和克拉美罗下界}
+\label{sec:mle-fischer-info-cramer-rao-bound}
+参数估计的方差协方差矩阵$K$，存在一些限定条件。
+\subsection{标量参数}
+\label{sec:mle-fischer-info-cramer-rao-bound-scalar}
+任意标量参数的无偏估计，其方差都必须满足克拉美罗下界(Cramér-Rao lower bound, CRLB)\index{Cramér-Rao lower Bound \dotfill 克拉美罗下界}
+\begin{equation}
+  \label{sec:mle-scalar-crlb-unbiased}
+  var \left(\hat{\theta} \right) \ge
+  \frac{
+  1
+  }
+  {
+  \underbrace{
+  \left\langle
+  \left[
+  \frac{\partial}{\partial \theta}
+  \log pr \left(g | \theta \right)
+  \right]^{2}
+  \right\rangle_{g|\theta}
+  }_{\eqqcolon F}
+  },
+\end{equation}
+其中我们将分母的部分称为费雪信息矩阵(Fischer information matrix)\index{Fischer information matrix \dotfill 费雪信息矩阵}。
+
+若估计是有偏的，克拉美罗下界为
+\begin{equation}
+  \label{sec:mle-scalar-crlb-biased}
+  var\left( \hat{\theta} \right) \ge
+  \frac{
+  \left(
+  \frac{d b(\theta)}{d \theta} + 1
+  \right)^{2}
+  }{
+  \left\langle
+  \left[
+  \frac{\partial}{\partial \theta}
+  \log pr \left(g | \theta \right)
+  \right]^{2}
+  \right\rangle_{g|\theta}
+  }
+\end{equation}
+
+\subsection{向量参数}
+\label{sec:mle-fischer-info-cramer-rao-bound-vector}
+对于$P$维向量参数$\theta$，费雪信息矩阵$F$成为$P \times P$维的埃米特矩阵(Hermitian matrix)，其中第$jk$个元素$F_{jk}$表示为
+\begin{equation}
+  \label{eq:mle-fischer-info-vector-jk}
+  \begin{split}
+    F_{jk} & =
+    \left\langle
+    \left[
+    \frac{\partial}{\partial \theta_{j}} \log pr \left(g | \theta \right)
+    \right] \,
+    \left[
+    \frac{\partial}{\partial \theta_{k}} \log pr \left(g | \theta \right)
+    \right]
+    \right\rangle_{g|\theta} \\
+    & = \int_{\infty} d^{M_{g}} \, pr \left( g | \theta \right) \,
+    \left[
+    \frac{1}{pr \left( g | \theta \right)} \,
+    \frac{\partial}{\partial \theta_{j}}
+    pr \left( g | \theta \right)
+    \right] \,
+    \left[
+    \frac{1}{pr \left( g | \theta \right)} \,
+    \frac{\partial}{\partial \theta_{k}}
+    pr \left( g | \theta \right)
+    \right].
+  \end{split}
+\end{equation}
+
+在得到费雪信息矩阵$F$的基础上，来看(参数向量$\theta$的无偏估计向量$\hat{\theta}$的)方差协方差矩阵$K_{\hat{\theta}}$。$n \times n$矩阵$K_{\hat{\theta}}$中的第$nn$个元素，等于$\hat{\theta}$向量中第$nn$个元素的方差，并且也满足克拉美洛下界
+\begin{equation}
+  \label{eq:mle-fischer-var-vector-nn}
+  \left[ K_{\hat{\theta}} \right]_{nn}
+  = var \left( \hat{\theta}_{nn} \right)
+  \ge \left[ F^{-1} \right]_{nn},
+\end{equation}
+这就是说，为了计算无偏估计向量$\hat{\theta}$中第$n$个元素方差的下界(或方差协方差矩阵$K_{\hat{\theta}}$中第$nn$元素的下界)，我们需要首先计算费雪信息矩阵的逆矩阵，提取其中的第$nn$个元素。
+
+一个满足克拉美罗下界条件的无偏估计是有效估计(efficient)。
+
+\section{最大似然估计}
+\label{sec:mle-mle}
+前面讨论了一个参数估计$\hat{\theta}$所应当具有的特性。随后的问题就是，如何找到这个估计值？常见的方法之一是最大似然估计(maximum likelihood estimation)
+\begin{equation}
+  \label{eq:mle-mle-def}
+  \hat{\theta}_{ML} \equiv \argmax_{\theta} pr \left( g | \theta \right),
+\end{equation}
+有时也用对数似然方程来表示
+\begin{equation}
+  \label{eq:mle-mle-def-log}
+  \hat{\theta}_{ML} \equiv \mathop{\argmax}_{\theta} \log pr \left( g | \theta \right),
+\end{equation}
+即是说，选择合适的参数值$\hat{\theta}_{ML}$，使得在$\hat{\theta}_{ML}$下可能实际观测到数据集合$g$的概率最大。
+
+没有其他额外限定条件的情况下，$\hat{\theta}_{ML}$常取值于(对数)似然方程对$\theta$的梯度(gradient)，即一阶导数等于$0$的点
+\begin{equation}
+  \label{eq:mle-score}
+  \underbrace{
+  \triangledown_{\theta} \log pr \left( g | \theta \right)
+  }_{\eqqcolon s(g)} =0, \quad \leftrightarrow \theta = \hat{\theta}_{ML},
+\end{equation}
+我们将这个表示斜率的随机向量$s(g)$称为score\index{score (maximum likelihood) \dotfill 评分(最大似然估计)}，用于描述(对数)似然方程对参数变化的敏感程度，因此有时也称敏感方程(sensitivity function)\index{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)}。
+
+$s(g)$的方差协方差矩阵就等于费雪信息矩阵的逆。
+
+\subsection{最大似然估计：to be or not to be?}
+
+\begin{enumerate}
+  \item 选择最大似然估计法的理由
+  \begin{enumerate}
+    \item 有效。如果的确存在一个有效的最大似然估计值。
+    \item 渐进有效。随着观测数据的数量增加，估计效果逐渐提升。
+    \item 渐进无偏。
+    \item 渐进一致。
+    \item 便于计算。相对来说。
+    \item 有助于严谨地强制使得估计结果与实际观测数据相一致。
+    \item 无需先验信息$pr (\theta)$设定。与之相反地，参考贝叶斯估计。
+  \end{enumerate}
+  \item 不选择最大似然估计法的理由
+  \begin{enumerate}
+    \item (严谨地强制使得估计结果与实际观测数据相一致)。
+
+    现实中观测到的数据常常是充满噪音的。强行严谨一致容易导致计算出的最大似然估计值，哪怕是无偏的，也随之充满噪音。
+
+    \item (无需先验信息$pr (\theta)$设定)。
+
+    现实中总是存在着一些先验信息$pr (\theta)$，我们应当充分利用这些信息，哪怕他们有时并非完全无偏\footnote{一种将先验$pr (\theta)$与最大似然估计相结合的方法称为加权似然法(weighted likeihood)，如
+    \begin{equation*}
+      \hat{\theta}_{WL} \equiv \mathop{\argmax}_{\theta} pr \left( g | \theta \right) pr \left( \theta \right) = \mathop{\argmax}_{\theta} pr\left( \theta | g \right).
+    \end{equation*}
+    }。
+  \end{enumerate}
+\end{enumerate}
+
+\section{伯努利实验：最大似然估计法}
+\label{sec:mle-bernoulli}
+
+现在我们从伯努利实验(Bernoulli trials)\index{Bernoulli trials \dotfill 伯努利实验}入手，介绍如何应用最大似然估计法求解相关问题。基于本节的求解思路，我们随后在python环境中编写程序求解，见第\ref{sec:mle-bernoulli-python}节。
+
+手头一枚一元硬币，现在我们连续掷10次，有7次头朝上。我们想要利用最大似然法，估计每一次投掷得到头朝上的概率。
+
+用$p\in (0,1)$来表示每次投掷得到头朝上的概率(参数的实际值)。那么连续投掷$N$次，在这$N$次中得到$n \in \mathbb{N}$次头朝上的概率可以表示为
+\begin{equation}
+  \label{eq:mle-bernoulli-head-prob}
+  pr \left( n | p \right) = \begin{pmatrix}
+  N \\ n
+\end{pmatrix} \, p^{n} \, \left( 1 - p \right)^{N-n},
+\end{equation}
+其中二项式系数满足
+\begin{equation}
+  \label{eq:mle-bernoulli-head-prob-binomial}
+  \begin{pmatrix}
+  N \\ n
+\end{pmatrix} = \frac{N!}{n! \, \left(N - n \right)!}.
+\end{equation}
+
+随机变量$n$的均值和方差分别为
+\begin{align}
+  \label{eq:mle-random-n-mean}
+  \langle n \rangle & = N p, \\
+  \label{eq:mle-random-n-variation}
+  \sigma^{2} &= N p (1-p).
+\end{align}
+
+在上一组实验中我们观测到的数据是投掷N次得到n次头(如10次得到7次头）。我们想要知道如果反复重复这组实验，出现N/n的最大概率p是多少？可用最大似然法进行估计：改变$p$的值，使得$pr(n | p)$达到最大。
+
+对$pr(n | p)$取对数，然后对$p$求导，得score方程$s(n)$
+\begin{equation}
+  \label{eq:mle-bernoulli-score}
+  \begin{split}
+      \log pr(n | p) & = constant + n \log p + (N-n) \log (1-p), \\
+      s(n) & = \frac{d}{d p} \log pr(n | p) = \frac{n}{p} + \frac{N - n}{1 - p}.
+  \end{split}
+\end{equation}
+
+设$s(n)=0$，对应的$p=\hat{p}_{ML}$即为$p$的最大似然估计
+\begin{equation}
+  \label{eq:mle-bernoulli-estimate}
+  \hat{p}_{ML} = \frac{n}{N},
+\end{equation}
+分子表示观测到头的次数，分母表示总的投掷次数。
+
+最大似然估计$\hat{p}_{ML}$的均值和方差，由\eqref{eq:mle-random-n-mean}-\eqref{eq:mle-random-n-variation}得
+\begin{align}
+  \label{eq:mle-bernoulli-estimate-mean}
+  \left\langle \hat{p}_{ML} \right\rangle &= \frac{\langle n \rangle}{N}, \\
+  var \left( \hat{p}_{ML} \right) & = \frac{var (n)}{N^{2}} = \frac{p (1-p)}{N }
+\end{align}
+
+据此可得估计的费雪信息矩阵
+\begin{equation}
+  \label{eq:mle-bernoulli-eistimate-information}
+  F = \left\langle
+  \left[
+  \frac{n}{p} - \frac{N-n}{1-p}
+  \right]^{2}
+  \right\rangle
+  = \frac{
+  \langle
+  \left[ n - Np \right]^{2}
+  \rangle
+  }{
+  p^{2} \left( 1 - p \right)^{2}
+  }
+  = \frac{var (n)}{p^{2} \left(1-p \right)^{2}}
+  = \frac{N}{p \left( 1 - p \right)},
+\end{equation}
+因此我们有
+\begin{equation}
+  \label{eq:mle-estimate-fisher-var}
+  F^{-1} = var \left( \hat{p}_{ML} \right),
+\end{equation}
+并且最大似然估计$\hat{p}_{ML}$是有效的。
+
+\section{伯努利实验：最大似然估计的Python程序实现}
+\label{sec:mle-bernoulli-python}
+伯努利实验(频率法)在Python环境下的实现
+
+伯努利实验\href{https://en.wikipedia.org/wiki/Bernoulli_trial}{(Bernoulli
+trials)}
+是指重复若干次(设为\(T\)次)某一项实验(或称迭代iteration)，每次实验(iteration)的结果可能是二者之一：成功\((0)\)或者失败\((1)\)。假定我们现在来检测成功的概率，可以基于频率学派的思路，使用最大似然估计法来实现(maximum
+likelihood, MLB)。
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{c+c1}{\PYZsh{} 初始设定}
+    \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+    \PY{k+kn}{from} \PY{n+nn}{\PYZus{}\PYZus{}future\PYZus{}\PYZus{}} \PY{k}{import} \PY{n}{division}
+    \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+    \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+    \PY{k+kn}{import} \PY{n+nn}{statsmodels}\PY{n+nn}{.}\PY{n+nn}{api} \PY{k}{as} \PY{n+nn}{sm}
+    \PY{k+kn}{import} \PY{n+nn}{sympy} \PY{k}{as} \PY{n+nn}{sp}
+    \PY{k+kn}{import} \PY{n+nn}{pymc3}
+    \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+    \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{gridspec} \PY{k}{as} \PY{n+nn}{gridspec}
+    \PY{k+kn}{from} \PY{n+nn}{mpl\PYZus{}toolkits}\PY{n+nn}{.}\PY{n+nn}{mplot3d} \PY{k}{import} \PY{n}{Axes3D}
+    \PY{k+kn}{from} \PY{n+nn}{scipy} \PY{k}{import} \PY{n}{stats}
+    \PY{k+kn}{from} \PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{special} \PY{k}{import} \PY{n}{gamma}
+    \PY{k+kn}{from} \PY{n+nn}{sympy}\PY{n+nn}{.}\PY{n+nn}{interactive} \PY{k}{import} \PY{n}{printing}
+    \PY{n}{printing}\PY{o}{.}\PY{n}{init\PYZus{}printing}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+% \begin{Verbatim}[commandchars=\\\{\}]
+% /Users/YYZ/anaconda3/lib/python3.6/site-packages/statsmodels/compat/pandas.py:56: FutureWarning: The pandas.core.datetools module is deprecated and will be removed in a future version. Please use the pandas.tseries module instead.
+% from pandas.core import datetools
+%
+% \end{Verbatim}
+
+\subsection{模型构建}
+\label{ux6a21ux578bux6784ux5efa}
+设一个伯努利实验
+
+\begin{equation}
+y \sim Bernoulli(\theta) = Binomial(1,\theta).
+\end{equation}
+
+我们将概率密度方程，或称边际似然方程，写为
+
+\begin{equation}
+p(y|\theta) = \theta^{y} \, \left(1-\theta \right)^{1-y} = \begin{cases}
+\theta & y = 1 \\
+1 - \theta & y = 0.
+\end{cases}
+\end{equation}
+
+设\(\theta = 0.3\)，随机进行100次试验。
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{c+c1}{\PYZsh{} 模拟数据}
+        \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{seed}\PY{p}{(}\PY{l+m+mi}{123}\PY{p}{)}
+
+        \PY{n}{nobs} \PY{o}{=} \PY{l+m+mi}{100}
+        \PY{n}{theta} \PY{o}{=} \PY{l+m+mf}{0.3}
+        \PY{c+c1}{\PYZsh{} numpy.random.binomial(n, p, size=None)}
+        \PY{c+c1}{\PYZsh{} https://docs.scipy.org/doc/numpy\PYZhy{}1.13.0/reference/generated/numpy.random.binomial.html}
+        \PY{n}{Y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{random}\PY{o}{.}\PY{n}{binomial}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{theta}\PY{p}{,} \PY{n}{nobs}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c+c1}{\PYZsh{} 画图}
+
+        \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
+        \PY{n}{gs} \PY{o}{=} \PY{n}{gridspec}\PY{o}{.}\PY{n}{GridSpec}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{,} \PY{n}{width\PYZus{}ratios} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{5}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+        \PY{n}{ax1} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{n}{gs}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+        \PY{n}{ax2} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{n}{gs}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+
+        \PY{n}{ax1}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{n}{nobs}\PY{p}{)}\PY{p}{,} \PY{n}{Y}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{x}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{ax2}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{Y}\PY{p}{,} \PY{n}{bins}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
+
+        \PY{n}{ax1}\PY{o}{.}\PY{n}{yaxis}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{ticks}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{,} \PY{n}{ticklabels}\PY{o}{=}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Failure}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Success}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+        \PY{n}{ax2}\PY{o}{.}\PY{n}{xaxis}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{ticks}\PY{o}{=}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{,} \PY{n}{ticklabels}\PY{o}{=}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Success}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Failure}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+
+        \PY{n}{ax1}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Bernoulli Trial Outcomes \PYZdl{}(}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{theta = 0.3)\PYZdl{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{xlabel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Trial}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{ylim}\PY{o}{=}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mf}{0.2}\PY{p}{,} \PY{l+m+mf}{1.2}\PY{p}{)}\PY{p}{)}
+        \PY{n}{ax2}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{ylabel}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Frequency}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+        \PY{n}{fig}\PY{o}{.}\PY{n}{tight\PYZus{}layout}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{./Figures/output_5_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+
+\subsection{似然方程}\label{ux4f3cux7136ux65b9ux7a0b}
+现在假定从随机变量100个\(y\)中，随机提取\(T\)个值，构成一个样本
+
+\begin{equation}
+Y = \left(y_1, \ldots y_{T} \right)^{\top}，
+\end{equation}
+
+对应的联合似然方程为
+
+\begin{equation}
+p(Y|\theta) = \prod_{i=1}^{T} \theta^{y_{i}} \, \left( 1 - \theta \right)^{1-y_{i}} = \theta^{s} \, \left( 1-\theta \right)^{T - s}, \quad s = \sum_{i} y_{i},
+\end{equation}
+
+\(s\)就是观测到的成功的次数(对应\(y=1\))；\(T-s\)是观测到的失败的次数(\(y=0\))。
+
+随后的目标就是，如何将似然方程最大化？
+
+\subsection{最大似然估计：解析法}
+\label{ux6700ux5927ux4f3cux7136ux4f30ux8ba1ux89e3ux6790ux6cd5}
+
+一种较为直观的方法是解析法。
+
+\begin{itemize}
+\tightlist
+\item
+  似然方程\(L(\theta ; Y)\)
+
+  \begin{equation}
+  L(\theta ; Y) = \theta^{s} \, \left( 1 - \theta \right)^{T-s}.
+  \end{equation}
+\item
+  对数似然方程\(\log (\theta ; Y)\)
+
+  \begin{equation}
+  \log L(\theta ; Y) = s \log \theta + \left( T - s \right) \log \left( 1 - \theta \right).
+  \end{equation}
+\item
+  score矩阵 (一阶导数)
+
+  \begin{equation}
+  \frac{
+  \partial \log L(\theta ; Y)
+  }{
+  \partial \theta
+  }
+  = \frac{s}{\theta} - \frac{T-s}{1-\theta} = s \, \theta^{-1} - \left(T - s \right) \, \left( 1 - \theta \right)^{-1}.
+  \end{equation}
+\item
+  黑塞矩阵 (二阶导数)
+
+  \begin{equation}
+  H(\theta) = \frac{
+  \partial^{2} \log L(\theta ; Y)
+  }{
+  \partial \theta^{2}
+  } = - s \, \theta^{-2} - \left(T - s \right) \, \left( 1 - \theta \right)^{-2}.
+  \end{equation}
+\item
+  信息矩阵
+
+  \begin{equation}\begin{split}
+  I[\theta] & = - E [H(\theta)] = - E \left[- s \, \theta^{-2} - \left(T - s \right) \, \left( 1 - \theta \right)^{-2} \right] \\
+  & = \left( \theta \, T \right) \, \theta^{-2} + \left(T - \theta \, T \right) \, \left( 1 - \theta \right)^{-2}
+  = \frac{T}{\theta (1-\theta) }.
+  \end{split}\end{equation}
+\item
+  方差协方差矩阵(逆信息矩阵)
+
+  \begin{equation}
+  I[\theta]^{-1} = \frac{\theta (1-\theta) }{T}.
+  \end{equation}
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{t}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{s} \PY{o}{=} \PY{n}{sp}\PY{o}{.}\PY{n}{symbols}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{theta, T, s}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} 构建符号方程}
+        \PY{n}{likelihood} \PY{o}{=} \PY{p}{(}\PY{n}{t} \PY{o}{*}\PY{o}{*} \PY{n}{s}\PY{p}{)} \PY{o}{*} \PY{p}{(}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{t}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{n}{T} \PY{o}{\PYZhy{}} \PY{n}{s}\PY{p}{)}\PY{p}{)}
+        \PY{n}{loglike} \PY{o}{=} \PY{n}{s} \PY{o}{*} \PY{n}{sp}\PY{o}{.}\PY{n}{log}\PY{p}{(}\PY{n}{t}\PY{p}{)} \PY{o}{+} \PY{p}{(}\PY{n}{T} \PY{o}{\PYZhy{}} \PY{n}{s}\PY{p}{)} \PY{o}{*} \PY{n}{sp}\PY{o}{.}\PY{n}{log}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{p}{)}
+        \PY{n}{score} \PY{o}{=} \PY{p}{(}\PY{n}{s}\PY{o}{/}\PY{n}{t}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{p}{(}\PY{n}{T}\PY{o}{\PYZhy{}}\PY{n}{s}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{p}{)}\PY{p}{)}
+        \PY{n}{hessian} \PY{o}{=} \PY{o}{\PYZhy{}} \PY{n}{s}\PY{o}{/}\PY{p}{(}\PY{n}{t}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{n}{T} \PY{o}{\PYZhy{}} \PY{n}{s}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+        \PY{n}{information} \PY{o}{=} \PY{n}{T}\PY{o}{/}\PY{p}{(}\PY{n}{t} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{p}{)}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} 利用sympy.lambdify 将符号方程转换为numpy.lambda}
+        \PY{c+c1}{\PYZsh{} sympy.utilities.lambdify.implemented\PYZus{}function(symfunc, implementation)}
+        \PY{c+c1}{\PYZsh{} http://docs.sympy.org/latest/modules/utilities/lambdify.html}
+        \PY{n}{\PYZus{}likelihood} \PY{o}{=} \PY{n}{sp}\PY{o}{.}\PY{n}{lambdify}\PY{p}{(}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{T}\PY{p}{,}\PY{n}{s}\PY{p}{)}\PY{p}{,} \PY{n}{likelihood}\PY{p}{,} \PY{n}{modules}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{numpy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{\PYZus{}loglike} \PY{o}{=} \PY{n}{sp}\PY{o}{.}\PY{n}{lambdify}\PY{p}{(}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{T}\PY{p}{,}\PY{n}{s}\PY{p}{)}\PY{p}{,} \PY{n}{loglike}\PY{p}{,} \PY{n}{modules}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{numpy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{\PYZus{}score} \PY{o}{=} \PY{n}{sp}\PY{o}{.}\PY{n}{lambdify}\PY{p}{(}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{T}\PY{p}{,}\PY{n}{s}\PY{p}{)}\PY{p}{,} \PY{n}{score}\PY{p}{,} \PY{n}{modules}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{numpy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+        \PY{n}{\PYZus{}hessian} \PY{o}{=} \PY{n}{sp}\PY{o}{.}\PY{n}{lambdify}\PY{p}{(}\PY{p}{(}\PY{n}{t}\PY{p}{,}\PY{n}{T}\PY{p}{,}\PY{n}{s}\PY{p}{)}\PY{p}{,} \PY{n}{hessian}\PY{p}{,} \PY{n}{modules}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{numpy}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+对数似然方程\(\log L(\theta;Y)\)对\(\theta\)求偏导，值为\(0\)处对应的\(\theta\)值定义为\(\widehat{\theta}_{MLE}\)
+
+\begin{equation}
+\begin{split}
+& \left. \frac{\partial \log L(\theta; Y)}{\partial \theta} \right|_{\widehat{\theta}_{MLE}} = 0, \\
+\hookrightarrow & \widehat{\theta}_{MLE} = \frac{s}{T}.
+\end{split}
+\end{equation}
+
+对应地
+
+\begin{equation}
+H \left( \widehat{\theta}_{MLE}\right) = - \frac{T^{2}}{s} - \frac{T^{2}}{T-s} <0, \quad \Leftarrow T > s,
+\end{equation}
+
+二阶导数小于\(0\)确保最大似然条件成立。
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c+c1}{\PYZsh{} 计算极大似然估计系数\PYZdl{}\PYZbs{}theta\PYZdl{}的解析值}
+
+        \PY{n}{theta\PYZus{}hat\PYZus{}analytic} \PY{o}{=} \PY{n}{Y}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)} \PY{o}{/} \PY{n}{nobs}
+        \PY{n}{var\PYZus{}analytic} \PY{o}{=} \PY{p}{(}\PY{n}{theta\PYZus{}hat\PYZus{}analytic} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{theta\PYZus{}hat\PYZus{}analytic}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{n}{nobs}
+
+        \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Analytic MLE Results: }\PY{l+s+si}{\PYZpc{}.2f}\PY{l+s+s1}{ (}\PY{l+s+si}{\PYZpc{}.10f}\PY{l+s+s1}{)}\PY{l+s+s1}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{theta\PYZus{}hat\PYZus{}analytic}\PY{p}{,} \PY{n}{var\PYZus{}analytic} \PY{o}{*}\PY{o}{*} \PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Analytic MLE Results: 0.22 (0.0414246304)
+
+    \end{Verbatim}
+
+\subsection{最大似然估计：数值法}\label{ux6700ux5927ux4f3cux7136ux4f30ux8ba1ux6570ux503cux6cd5}
+在很多情况下，我们无法通过解析法求得最大化的解。这时需要数值近似求解，利用\href{https://docs.scipy.org/doc/scipy/reference/optimize.html}{scipy.optimize}最优算法。以下几点需要注意。
+
+\begin{itemize}
+\tightlist
+\item
+  对似然方程的负数求最小化，达到最大化的效果。
+\item
+  最优算法常常是在不受约束的参数空间\(\mathbb{R}^{k}\)中进行的(\(k\)表示参数数量即维度)。如果实际研究对象的参数值是受限的，如本例\(\theta \in (0,1)\)，则需要将受限参数首先转换为无约束空间中的参数\((0,1) \ni \theta \rightarrow \varphi \in \mathbb{R}\)，然后使用最优算法求解。对应的转换矩阵
+
+  \begin{equation}
+  \theta = g(\varphi) = \frac{\exp(\varphi)}{ 1 + \exp(\varphi)}, \quad \varphi \in \mathbb{R}.
+  \end{equation}
+\item
+  只有得到了黑塞矩阵，根据逆黑塞矩阵的负数才能计算方差协方差矩阵。而黑塞矩阵的解析形往往无法求得------可以利用\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.fmin_bfgs.html}{scipy.optimize.fmin\_bfgs}数值近似黑塞矩阵。
+\item
+  利用数值近似黑塞矩阵算得的方差协方差矩阵\(Cov(\varphi)\)，需要转换为\(Cov(\theta)\)
+
+  \begin{equation}
+  Cov(\theta) = \left. \frac{\partial g(\varphi)}{\partial \varphi} \right|_{\varphi_{MLE}} \times Cov(\varphi) \times \left. \frac{\partial g(\varphi)}{\partial \varphi}^{\top} \right|_{\varphi_{MLE}}
+  \end{equation}
+\end{itemize}
+
+转换矩阵的偏导数(斜率)为
+
+\begin{equation}
+\frac{\partial g(\varphi)}{\partial \varphi} = \frac{
+\partial \left[ \exp(\varphi) \, \left( 1 + \exp(\varphi) \right)^{-1} \right]
+}{\partial \varphi} = \frac{\exp(\varphi)}{\left( 1 + \exp(\varphi) \right)^{2}}
+\end{equation}
+
+\subsection{\texorpdfstring{无约束参数\(g(\varphi)\)构成的模型系统}{无约束参数g(\textbackslash{}varphi)构成的模型系统}}\label{ux65e0ux7ea6ux675fux53c2ux6570gvarphiux6784ux6210ux7684ux6a21ux578bux7cfbux7edf}
+
+\begin{itemize}
+\tightlist
+\item
+  逆转换方程
+
+  \begin{equation}
+  \begin{split}
+  \theta & = g(\varphi) = \frac{\exp(\varphi)}{1+\exp(\varphi)}, \\
+  1+\exp(\varphi) \, \theta & = \exp(\varphi), \\
+  \theta & = \exp(\varphi) \, (1 - \theta), \\
+  \varphi & = \log \left( \frac{\theta}{1 - \theta} \right) = g^{-1}(\theta)
+  \end{split}
+  \end{equation}
+\item
+  似然方程\(L(\theta ; Y)\)
+
+  \begin{equation}
+  L(g(\varphi) ; Y) = g(\varphi)^{s} \, \left( 1 - g(\varphi) \right)^{T-s}
+  \end{equation}
+\item
+  对数似然方程\(\log (g(\varphi) ; Y)\)
+
+  \begin{equation}
+  \log L(g(\varphi) ; Y) = s \log g(\varphi) + \left( T - s \right) \log \left( 1 - g(\varphi) \right)
+  \end{equation}
+\item
+  score矩阵 (一阶导数)
+
+  \begin{equation}
+  \begin{split}
+  \frac{
+  \partial \log L(g(\varphi) ; Y)
+  }{
+  g(\varphi)
+  }
+  & = \frac{
+  \partial \log L(g(\varphi) ; Y)
+  }{
+  g(\varphi)
+  } \,
+  \frac{\partial g(\varphi)}{\partial \varphi} \\
+  & = \left(\frac{s}{g(\varphi)} - \frac{T-s}{1-g(\varphi)} \right)
+  \frac{\exp(\varphi)}{\left( 1 + \exp(\varphi) \right)^{2}}\\
+  & = \left(\frac{s}{ \frac{\exp(\varphi)}{1+\exp(\varphi)} } - \frac{T-s}{1-\frac{\exp(\varphi)}{1+\exp(\varphi)}} \right)
+  \frac{\exp(\varphi)}{\left( 1 + \exp(\varphi) \right)^{2}} \\
+  & = s - T \, \frac{\exp(\varphi)}{1+\exp(\varphi)} = s - T \, g(\varphi).
+  \end{split}
+  \end{equation}
+\item
+  黑塞矩阵 (二阶导数)
+
+  \begin{equation}
+  H(\varphi) = \frac{
+  \partial^{2} \log L(g(\varphi) ; Y)
+  }{
+  \partial g(\varphi)^{2}
+  } = - T.
+  \end{equation}
+\item
+  信息矩阵
+
+  \begin{equation}
+  I[\varphi]  = - E [H(\varphi)] = T.
+  \end{equation}
+\item
+  方差协方差矩阵
+
+  \begin{equation}
+  I[\varphi]^{-1} = \frac{1}{T}.
+  \end{equation}
+\end{itemize}
+
+\subsubsection{Delta近似法}\label{deltaux8fd1ux4f3cux6cd5}
+进而我们有Delta近似法
+
+\begin{equation}
+  \begin{split}
+    I_{Delta}[\widehat{\theta}_{MLE}]^{-1}
+& = \left. \frac{\partial g(\varphi)}{\partial \varphi} \right|_{\varphi_{MLE}}
+\times I[\varphi]^{-1} \times
+\left. \frac{\partial g(\varphi)}{\partial \varphi}^{\top} \right|_{\varphi_{MLE}} \\
+& = \left\{
+\frac{
+\exp \left[ \log \left( \frac{\widehat{\theta}_{MLE}}{1 - \widehat{\theta}_{MLE}} \right) \right]
+}{
+\left(
+1 + \exp \left[ \log \left( \frac{\widehat{\theta}_{MLE}}{1 - \widehat{\theta}_{MLE}} \right) \right]
+\right)^{2}
+}
+\right\}^{2} \frac{1}{T}
+ = \left[
+\left( \frac{\widehat{\theta}_{MLE}}{1 - \widehat{\theta}_{MLE}} \right)
+\,
+\left( 1 + \frac{\widehat{\theta}_{MLE}}{1 - \widehat{\theta}_{MLE}} \right)^{-2}
+\right]^{2} \, \frac{1}{T} \\
+& = \left[
+\frac{\widehat{\theta}_{MLE}}{1 - \widehat{\theta}_{MLE}}
+\,
+\left(1 - \widehat{\theta}_{MLE} \right)^{2}
+\right]^{2} \, \frac{1}{T}
+= \left[ \widehat{\theta}_{MLE} \, \left( 1 - \widehat{\theta}_{MLE} \right) \right]^{2} \, \frac{1}{T} \\
+& = I \left[ \widehat{\theta}_{MLE} \right]^{-1} \,
+\left[
+\widehat{\theta}_{MLE} \, \left( 1 - \widehat{\theta}_{MLE} \right)
+\right]
+  \end{split}
+\end{equation}
+
+Delta近似容易导致方差协方差矩阵被低估。可以写出误差项
+
+\begin{equation}
+I \left[ \theta \right]^{-1} - I_{Delta} \left[ \theta \right]^{-1} =
+\frac{\theta \left( 1 - \theta \right) - \left[ \theta \left( 1 - \theta \right) \right]^{2}}{T},
+\end{equation}
+
+或者误差项的偏移(相对误差)
+
+\begin{equation}
+\frac{
+\left| I \left[ \theta \right]^{-1} - I_{Delta} \left[ \theta \right]^{-1} \right|
+}{
+I \left[ \theta \right]^{-1}
+} =
+\frac{
+\frac{\theta \left( 1 - \theta \right) - \left[ \theta \left( 1 - \theta \right) \right]^{2}}{T}
+}{
+\frac{\theta \, \left( 1 - \theta \right)}{T}
+} = 1 - \theta \left( 1 - \theta \right)
+\end{equation}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{12}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} 误差项}
+        \PY{n}{ax} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{121}\PY{p}{,} \PY{n}{projection}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{3d}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{delta} \PY{o}{=} \PY{l+m+mf}{0.025}
+        \PY{n}{T\PYZus{}range} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{100}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} numpy.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None)[source]}
+        \PY{c+c1}{\PYZsh{} https://docs.scipy.org/doc/numpy\PYZhy{}1.13.0/reference/generated/numpy.linspace.html}
+        \PY{n}{TH\PYZus{}range} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} numpy.meshgrid(*xi, **kwargs)[source]}
+        \PY{c+c1}{\PYZsh{} https://docs.scipy.org/doc/numpy\PYZhy{}1.13.0/reference/generated/numpy.meshgrid.html}
+        \PY{c+c1}{\PYZsh{} [X,Y] = meshgrid(x,y) 将向量x和y定义的区域转换成矩阵X和Y，}
+        \PY{c+c1}{\PYZsh{} 这两个矩阵可以用来表示mesh和surf的三维空间点以及两个变量的赋值。}
+        \PY{c+c1}{\PYZsh{} 其中矩阵X的行向量是向量x的简单复制，而矩阵Y的列向量是向量y的简单复制。}
+        \PY{n}{T\PYZus{}grid}\PY{p}{,} \PY{n}{TH\PYZus{}grid} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{meshgrid}\PY{p}{(}\PY{n}{T\PYZus{}range}\PY{p}{,} \PY{n}{TH\PYZus{}range}\PY{p}{)}
+        \PY{c+c1}{\PYZsh{} 误差项的测算}
+        \PY{n}{E\PYZus{}grid} \PY{o}{=} \PY{p}{(}\PY{n}{TH\PYZus{}grid} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{TH\PYZus{}grid}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{n}{TH\PYZus{}grid} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{TH\PYZus{}grid}\PY{p}{)}\PY{p}{)} \PY{o}{*}\PY{o}{*} \PY{l+m+mi}{2}\PY{p}{)}\PY{o}{/}\PY{n}{T\PYZus{}grid}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{plot\PYZus{}wireframe}\PY{p}{(}\PY{n}{T\PYZus{}grid}\PY{p}{,} \PY{n}{TH\PYZus{}grid}\PY{p}{,} \PY{n}{E\PYZus{}grid}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZsh{}348ABD}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set}\PY{p}{(}
+            \PY{n}{title} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Absolute Error from the Delta Method}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+            \PY{n}{xlabel}\PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{T}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+            \PY{n}{ylabel}\PY{o}{=} \PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdl{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{theta\PYZdl{}}\PY{l+s+s2}{\PYZdq{}}
+        \PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{xaxis}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{pane\PYZus{}color} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{yaxis}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{pane\PYZus{}color} \PY{o}{=} \PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+
+        \PY{c+c1}{\PYZsh{} 误差项的偏移(相对误差)}
+        \PY{n}{ax} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{122}\PY{p}{)}
+        \PY{n}{X} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{X} \PY{o}{*} \PY{p}{(}\PY{l+m+mi}{1}\PY{o}{\PYZhy{}}\PY{n}{X}\PY{p}{)}\PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{set}\PY{p}{(}
+            \PY{n}{title} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Relative Error from the Delta Method}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+            \PY{n}{xlabel} \PY{o}{=} \PY{l+s+sa}{r}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdl{}}\PY{l+s+s2}{\PYZbs{}}\PY{l+s+s2}{theta\PYZdl{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
+            \PY{n}{ylim} \PY{o}{=} \PY{p}{(}\PY{l+m+mf}{0.7}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}
+        \PY{p}{)}
+        \PY{n}{ax}\PY{o}{.}\PY{n}{vlines}\PY{p}{(}\PY{n}{theta\PYZus{}hat\PYZus{}analytic}\PY{p}{,} \PY{l+m+mf}{0.7}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{r}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}7}]:} <matplotlib.collections.LineCollection at 0x125ab96a0>
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{./Figures/output_12_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+
+    \begin{itemize}
+\tightlist
+\item
+  左图可以看出，绝对误差项随着样本数量\(T\)的增加而逐渐增大，相对误差的变化则与\(T\)无关。
+\item
+  右图可以看出，在最大似然估计的解析解(\(\theta = 0.22\))处，相对误差的值约为\(82\%\)。
+\end{itemize}
+
+\subsubsection{最大似然估计：算法举例}
+\label{ux6700ux5927ux4f3cux7136ux4f30ux8ba1ux7b97ux6cd5ux4e3eux4f8b}
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{c+c1}{\PYZsh{} 载入}
+    \PY{k+kn}{from} \PY{n+nn}{scipy} \PY{k}{import} \PY{n}{optimize}
+
+    \PY{c+c1}{\PYZsh{} 构建转换方程}
+    \PY{n}{transform} \PY{o}{=} \PY{k}{lambda} \PY{n}{phi}\PY{p}{:} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{phi}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{l+m+mi}{1} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{phi}\PY{p}{)}\PY{p}{)}
+    \PY{c+c1}{\PYZsh{}\PYZsh{} 转换方程的斜率(一阶导数)}
+    \PY{n}{transform\PYZus{}grad} \PY{o}{=} \PY{k}{lambda} \PY{n}{phi}\PY{p}{:} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{phi}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{n}{phi}\PY{p}{)}\PY{p}{)} \PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+
+    \PY{c+c1}{\PYZsh{} 构建优化所调用的方程。为负，是因为我们使用最小化的算法。}
+    \PY{n}{f} \PY{o}{=} \PY{k}{lambda} \PY{n}{params}\PY{p}{:} \PY{o}{\PYZhy{}}\PY{n}{\PYZus{}loglike}\PY{p}{(}
+        \PY{n}{transform}\PY{p}{(}\PY{n}{params}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{nobs}\PY{p}{,} \PY{n}{Y}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
+    \PY{p}{)}
+    \PY{n}{fprime} \PY{o}{=} \PY{k}{lambda} \PY{n}{params}\PY{p}{:} \PY{n}{np}\PY{o}{.}\PY{n}{matrix}\PY{p}{(}
+        \PY{o}{\PYZhy{}}\PY{n}{\PYZus{}score}\PY{p}{(}
+            \PY{n}{transform}\PY{p}{(}\PY{n}{params}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{nobs}\PY{p}{,} \PY{n}{Y}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
+        \PY{p}{)}
+    \PY{p}{)}
+    \PY{n}{fhess} \PY{o}{=} \PY{k}{lambda} \PY{n}{params}\PY{p}{:} \PY{n}{np}\PY{o}{.}\PY{n}{matrix}\PY{p}{(}
+        \PY{o}{\PYZhy{}}\PY{n}{\PYZus{}hessian}\PY{p}{(}
+            \PY{n}{transform}\PY{p}{(}\PY{n}{params}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{nobs}\PY{p}{,} \PY{n}{Y}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
+        \PY{p}{)}
+    \PY{p}{)}
+\end{Verbatim}
+
+scipy.optimize可以使用一系列算法，这里以两种方法为例作简要介绍。
+
+第一种方法叫做
+\href{https://en.wikipedia.org/wiki/Nonlinear_conjugate_gradient_method}{牛顿共轭梯度法(Newton
+Conjugate Gradient Method, Newton-CG method)}\index{Newton
+Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}。
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{c+c1}{\PYZsh{} 利用牛顿共轭梯度法作最大似然估计}
+
+    \PY{c+c1}{\PYZsh{}\PYZpc{}timeit res\PYZus{}ncg = optimize.fmin\PYZus{}ncg(f, np.array([0.5]), fprime, fhess=fhess, disp=False)}
+    \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Timing: 10 loops, best of 3: 4.89 ms per loop}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+    \PY{n}{res\PYZus{}ncg} \PY{o}{=} \PY{n}{optimize}\PY{o}{.}\PY{n}{fmin\PYZus{}ncg} \PY{p}{(}\PY{n}{f}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.5}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{fprime}\PY{p}{,} \PY{n}{fhess} \PY{o}{=} \PY{n}{fhess}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+    \PY{n}{var\PYZus{}ncg} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{inv}\PY{p}{(}
+        \PY{o}{\PYZhy{}}\PY{n}{\PYZus{}hessian}\PY{p}{(}\PY{n}{transform}\PY{p}{(}\PY{n}{res\PYZus{}ncg}\PY{p}{)}\PY{p}{,} \PY{n}{nobs}\PY{p}{,} \PY{n}{Y}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+    \PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}
+    \PY{c+c1}{\PYZsh{}var\PYZus{}ncg = np.linalg.inv(\PYZhy{}\PYZus{}hessian(transform(res\PYZus{}ncg), nobs, Y.sum()))[0,0]}
+    \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Newton\PYZhy{}CG MLE estimate: }\PY{l+s+si}{\PYZpc{}.2f}\PY{l+s+s2}{ (}\PY{l+s+si}{\PYZpc{}.10f}\PY{l+s+s2}{)}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{transform}\PY{p}{(}\PY{n}{res\PYZus{}ncg}\PY{p}{)}\PY{p}{,} \PY{n}{var\PYZus{}ncg}\PY{o}{*}\PY{o}{*}\PY{l+m+mf}{0.5}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+Timing: 10 loops, best of 3: 4.89 ms per loop
+Optimization terminated successfully.
+     Current function value: 52.690796
+     Iterations: 35
+     Function evaluations: 51
+     Gradient evaluations: 85
+     Hessian evaluations: 35
+Newton-CG MLE estimate: 0.22 (0.0414252425)
+
+\end{Verbatim}
+
+第二种方法叫做BFMG法\href{https://en.wikipedia.org/wiki/Broyden–Fletcher–Goldfarb–Shanno_algorithm}{(Broyden--Fletcher--Goldfarb--Shanno
+algorithm, BFMG method)}\index{BFMG algorithm \dotfill BFMG算法}。
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{c+c1}{\PYZsh{} 利用BFMG法作最大似然估计}
+     \PY{c+c1}{\PYZsh{}\PYZpc{}timeit res\PYZus{}bfgs = optimize.fmin\PYZus{}bfgs(f, np.array([0.5]), fprime=fprime, disp=False)}
+     \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Timing: 1000 loops, best of 3: 1.85 ms per loop}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+     \PY{n}{res\PYZus{}bfgs\PYZus{}full} \PY{o}{=} \PY{n}{optimize}\PY{o}{.}\PY{n}{fmin\PYZus{}bfgs}\PY{p}{(}\PY{n}{f}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+m+mf}{0.5}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{fprime} \PY{o}{=} \PY{n}{fprime}\PY{p}{,} \PY{n}{full\PYZus{}output} \PY{o}{=} \PY{k+kc}{True}\PY{p}{)}
+     \PY{n}{res\PYZus{}bfgs} \PY{o}{=} \PY{n}{res\PYZus{}bfgs\PYZus{}full}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+     \PY{n}{est\PYZus{}var\PYZus{}bfgs} \PY{o}{=} \PY{n}{res\PYZus{}bfgs\PYZus{}full}\PY{p}{[}\PY{l+m+mi}{3}\PY{p}{]}
+
+     \PY{c+c1}{\PYZsh{} 计算信息矩阵；计算信息矩阵的逆矩阵，得到的方差协方差矩阵}
+     \PY{n}{var\PYZus{}bfgs} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{inv}\PY{p}{(}
+         \PY{o}{\PYZhy{}}\PY{n}{\PYZus{}hessian}\PY{p}{(}\PY{n}{transform}\PY{p}{(}\PY{n}{res\PYZus{}bfgs}\PY{p}{)}\PY{p}{,} \PY{n}{nobs}\PY{p}{,} \PY{n}{Y}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+     \PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}
+     \PY{c+c1}{\PYZsh{} 根据(解析)delta方法得到的方差协方差矩阵}
+     \PY{n}{var\PYZus{}bfgs\PYZus{}delta} \PY{o}{=} \PY{p}{(}\PY{n}{transform\PYZus{}grad}\PY{p}{(}\PY{n}{res\PYZus{}bfgs}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{*} \PY{n}{est\PYZus{}var\PYZus{}bfgs}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}
+
+     \PY{n+nb}{print}\PY{p}{(}
+         \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{BFGS MLE estimate: }\PY{l+s+si}{\PYZpc{}.2f}\PY{l+s+s2}{ (}\PY{l+s+si}{\PYZpc{}.10f}\PY{l+s+s2}{)}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{transform}\PY{p}{(}\PY{n}{res\PYZus{}bfgs}\PY{p}{)}\PY{p}{,} \PY{n}{var\PYZus{}bfgs}\PY{o}{*}\PY{o}{*}\PY{l+m+mf}{0.5}\PY{p}{)}
+     \PY{p}{)}
+     \PY{n+nb}{print}\PY{p}{(}
+         \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{BFGS MLE estimate (delta) : }\PY{l+s+si}{\PYZpc{}.2f}\PY{l+s+s2}{ (}\PY{l+s+si}{\PYZpc{}.10f}\PY{l+s+s2}{)}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{transform}\PY{p}{(}\PY{n}{res\PYZus{}bfgs}\PY{p}{)}\PY{p}{,} \PY{n}{var\PYZus{}bfgs\PYZus{}delta} \PY{o}{*}\PY{o}{*} \PY{l+m+mf}{0.5}\PY{p}{)}
+     \PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+Timing: 1000 loops, best of 3: 1.85 ms per loop
+Optimization terminated successfully.
+     Current function value: 52.690796
+     Iterations: 6
+     Function evaluations: 7
+     Gradient evaluations: 7
+BFGS MLE estimate: 0.22 (0.0414246303)
+BFGS MLE estimate (delta) : 0.22 (0.0171611895)
+
+\end{Verbatim}
+
+进而我们有误差项和误差项的偏移
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{n}{absolute\PYZus{}error} \PY{o}{=} \PY{n}{var\PYZus{}bfgs} \PY{o}{\PYZhy{}} \PY{n}{var\PYZus{}bfgs\PYZus{}delta}
+     \PY{n}{relative\PYZus{}error} \PY{o}{=} \PY{p}{(}\PY{n}{var\PYZus{}bfgs} \PY{o}{\PYZhy{}} \PY{n}{var\PYZus{}bfgs\PYZus{}delta}\PY{p}{)} \PY{o}{/} \PY{n}{var\PYZus{}bfgs}
+
+     \PY{n+nb}{print}\PY{p}{(}\PY{n}{absolute\PYZus{}error}\PY{p}{)}
+     \PY{n+nb}{print}\PY{p}{(}\PY{n}{relative\PYZus{}error}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+0.00142149357495
+0.828376209448
+
+\end{Verbatim}
+
+第三种方法是\href{https://en.wikipedia.org/wiki/Newton\%27s_method}{牛顿拉夫森法(Newton-Raphson
+method)}\index{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}。比起前两种方法来，牛顿拉夫森法的数值计算速度更快，但稳健性较低。python的 \href{http://www.statsmodels.org/stable/index.html}{statsmodels}包提供了这种算法的程序。
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{c+c1}{\PYZsh{} 利用BFMG法作最大似然估计}
+     \PY{c+c1}{\PYZsh{} 导入Statsmodels包}
+     \PY{k+kn}{from} \PY{n+nn}{statsmodels}\PY{n+nn}{.}\PY{n+nn}{base}\PY{n+nn}{.}\PY{n+nn}{model} \PY{k}{import} \PY{n}{LikelihoodModel}
+
+     \PY{k}{class} \PY{n+nc}{Bernoulli}\PY{p}{(}\PY{n}{LikelihoodModel}\PY{p}{)}\PY{p}{:}
+         \PY{n}{\PYZus{}loglike} \PY{o}{=} \PY{k}{lambda} \PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{theta}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{s}\PY{p}{:} \PY{n}{\PYZus{}loglike}\PY{p}{(}\PY{n}{theta}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{s}\PY{p}{)}
+         \PY{n}{\PYZus{}score} \PY{o}{=} \PY{k}{lambda} \PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{theta}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{s}\PY{p}{:} \PY{n}{\PYZus{}score}\PY{p}{(}\PY{n}{theta}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{s}\PY{p}{)}
+         \PY{n}{\PYZus{}hessian} \PY{o}{=} \PY{k}{lambda} \PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{theta}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{s}\PY{p}{:} \PY{n}{\PYZus{}hessian}\PY{p}{(}\PY{n}{theta}\PY{p}{,} \PY{n}{T}\PY{p}{,} \PY{n}{s}\PY{p}{)}
+
+         \PY{k}{def} \PY{n+nf}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{endog}\PY{p}{,} \PY{n}{exog}\PY{o}{=}\PY{k+kc}{None}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}\PY{p}{:}
+             \PY{c+c1}{\PYZsh{} numpy.asarray(a, dtype=None, order=None)[source]}
+             \PY{c+c1}{\PYZsh{} https://docs.scipy.org/doc/numpy\PYZhy{}1.13.0/reference/generated/numpy.asarray.html}
+             \PY{n}{endog} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{asarray}\PY{p}{(}\PY{n}{endog}\PY{p}{)}
+             \PY{n+nb}{super}\PY{p}{(}\PY{n}{Bernoulli}\PY{p}{,} \PY{n+nb+bp}{self}\PY{p}{)}\PY{o}{.}\PY{n+nf+fm}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{(}\PY{n}{endog}\PY{p}{,} \PY{n}{exog}\PY{p}{,} \PY{o}{*}\PY{o}{*}\PY{n}{kwargs}\PY{p}{)}
+             \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{T} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{endog}\PY{o}{.}\PY{n}{shape}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+             \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{s} \PY{o}{=} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{endog}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)}
+
+         \PY{k}{def} \PY{n+nf}{loglike}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{params}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+     \PY{l+s+sd}{        Joint log\PYZhy{}likelihood for Bernoulli trials}
+     \PY{l+s+sd}{        \PYZdq{}\PYZdq{}\PYZdq{}}
+             \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}loglike}\PY{p}{(}\PY{n}{params}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{T}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{s}\PY{p}{)}
+
+         \PY{k}{def} \PY{n+nf}{score}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{params}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+     \PY{l+s+sd}{        Gradient of the joint log\PYZhy{}likelihood for Bernoulli trials}
+     \PY{l+s+sd}{        \PYZdq{}\PYZdq{}\PYZdq{}}
+             \PY{k}{return} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}score}\PY{p}{(}\PY{n}{params}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{T}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{s}\PY{p}{)}
+
+         \PY{k}{def} \PY{n+nf}{hessian}\PY{p}{(}\PY{n+nb+bp}{self}\PY{p}{,} \PY{n}{params}\PY{p}{)}\PY{p}{:}
+             \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{}}
+     \PY{l+s+sd}{        Hessian of the joint log\PYZhy{}likelihood for Bernoulli trials}
+     \PY{l+s+sd}{        \PYZdq{}\PYZdq{}\PYZdq{}}
+             \PY{k}{return} \PY{n}{np}\PY{o}{.}\PY{n}{matrix}\PY{p}{(}\PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{\PYZus{}hessian}\PY{p}{(}\PY{n}{params}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{T}\PY{p}{,} \PY{n+nb+bp}{self}\PY{o}{.}\PY{n}{s}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{n}{mod} \PY{o}{=} \PY{n}{Bernoulli}\PY{p}{(}\PY{n}{Y}\PY{p}{)}
+     \PY{c+c1}{\PYZsh{}\PYZpc{}timeit res = mod.fit(start\PYZus{}params=[0.5], disp=False)}
+     \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1000 loops, best of 3: 277 µs per loop}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+     \PY{c+c1}{\PYZsh{} 最大似然估计}
+     \PY{n}{res} \PY{o}{=} \PY{n}{mod}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{start\PYZus{}params}\PY{o}{=}\PY{p}{[}\PY{l+m+mf}{0.5}\PY{p}{]}\PY{p}{)}
+     \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Statsmodels MLE Estimate: }\PY{l+s+si}{\PYZpc{}.2f}\PY{l+s+s2}{ (}\PY{l+s+si}{\PYZpc{}.10f}\PY{l+s+s2}{)}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{res}\PY{o}{.}\PY{n}{params}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{res}\PY{o}{.}\PY{n}{bse}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+1000 loops, best of 3: 277 µs per loop
+Optimization terminated successfully.
+     Current function value: 0.526908
+     Iterations 2
+Statsmodels MLE Estimate: 0.22 (0.0414246304)
+
+\end{Verbatim}
