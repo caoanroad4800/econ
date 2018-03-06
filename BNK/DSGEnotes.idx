@@ -30,7 +30,6 @@
 \indexentry{transition matrix \dotfill 转移矩阵|hyperpage}{110}
 \indexentry{transition probability \dotfill 转移概率|hyperpage}{110}
 \indexentry{tensor \dotfill 张量|hyperpage}{111}
-\indexentry{Kronecker product \dotfill 克罗内克乘积|hyperpage}{111}
 \indexentry{curse of dimensionality \dotfill 维数灾难|hyperpage}{112}
 \indexentry{polynomial!complete \dotfill 完全多项式|hyperpage}{112}
 \indexentry{finite elements method \dotfill 有限元法|hyperpage}{112}
@@ -69,7 +68,7 @@
 \indexentry{weight function \dotfill 权重方程|hyperpage}{124}
 \indexentry{norm \dotfill 范数|hyperpage}{125}
 \indexentry{moment \dotfill 矩|hyperpage}{125}
-\indexentry{Kronecker product \dotfill 克罗内乘积|hyperpage}{125}
+\indexentry{Kronecker product\dotfill 克罗内克乘积|hyperpage}{125}
 \indexentry{inner product \dotfill 内积|hyperpage}{125}
 \indexentry{polynomial!orthonormal \dotfill 标准正交多项式|hyperpage}{125}
 \indexentry{polynomial!monic orthogonal \dotfill 首一正交多项式|hyperpage}{125}
@@ -134,7 +133,6 @@
 \indexentry{Galerkin method \dotfill 伽辽金近似法|hyperpage}{160}
 \indexentry{Sobolev space! \dotfill 索伯列夫空间|hyperpage}{160}
 \indexentry{polynomial!Lagrange \dotfill 拉格朗日多项式|hyperpage}{161}
-\indexentry{Kronecker product \dotfill 克罗内克乘积|hyperpage}{161}
 \indexentry{Hilbert space \dotfill 希尔伯特空间|hyperpage}{162}
 \indexentry{inner product!duality \dotfill 双内积|hyperpage}{162}
 \indexentry{coercive form \dotfill 强制形式|hyperpage}{162}
@@ -165,262 +163,261 @@
 \indexentry{integrable singular points \dotfill 可积奇异点|hyperpage}{173}
 \indexentry{adaptive quadrature \dotfill 适应性求积|hyperpage}{174}
 \indexentry{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则|hyperpage}{175}
-\indexentry{angular frequency \dotfill 角频率|hyperpage}{175}
-\indexentry{Fourier transform! \dotfill 傅里叶变换|hyperpage}{175}
-\indexentry{Fourier transform!Semidiscrete \dotfill 半离散傅里叶变换|hyperpage}{175}
-\indexentry{Fourier series \dotfill 傅里叶级数|hyperpage}{175}
-\indexentry{Fourier transform!Discrete \dotfill 离散傅里叶变换|hyperpage}{175}
-\indexentry{angular frequency \dotfill 角频率|hyperpage}{176}
-\indexentry{angular frequency \dotfill 角频率|hyperpage}{177}
-\indexentry{linear frequency \dotfill 线频率|hyperpage}{177}
-\indexentry{wavenumber \dotfill 波数|hyperpage}{177}
-\indexentry{Lorentzian function \dotfill 洛伦兹方程|hyperpage}{178}
-\indexentry{full width at half maximum(FWHM) \dotfill 半峰全宽|hyperpage}{179}
-\indexentry{Gaussian function \dotfill 高斯方程|hyperpage}{179}
-\indexentry{dirac delta function \dotfill 狄拉克方程|hyperpage}{180}
-\indexentry{Paley-Wiener theorems \dotfill 佩利——维纳诸定理|hyperpage}{181}
-\indexentry{periodic function \dotfill 周期方程|hyperpage}{181}
-\indexentry{Fourier series \dotfill 傅里叶|hyperpage}{182}
-\indexentry{Fourier cosine series \dotfill 傅里叶余弦级数|hyperpage}{184}
-\indexentry{Fourier sine series \dotfill 傅里叶正弦级数|hyperpage}{184}
-\indexentry{Gibbs phenomenon \dotfill 吉布斯现象|hyperpage}{185}
-\indexentry{Fourier synthesis \dotfill 傅里叶综合|hyperpage}{186}
-\indexentry{Plancherel's theorem \dotfill 普朗歇尔定理|hyperpage}{187}
-\indexentry{Poisson summation formula \dotfill 泊松求和式|hyperpage}{187}
-\indexentry{Jacobian function \dotfill 雅各比方程|hyperpage}{189}
-\indexentry{convolution \dotfill 卷积|hyperpage}{189}
-\indexentry{boundary value problem \dotfill 边界值问题|hyperpage}{191}
-\indexentry{exterior algebra \dotfill 外代数|hyperpage}{191}
-\indexentry{self-adjoint operator|hyperpage}{191}
-\indexentry{divergence theorem \dotfill 高斯散度定理|hyperpage}{191}
-\indexentry{Ostrogradsky-Gauss theorem \dotfill 奥斯特罗格拉德斯基——高斯定理|hyperpage}{191}
-\indexentry{Gauss theorem \dotfill 高斯散度定理|hyperpage}{191}
-\indexentry{trace \dotfill 迹|hyperpage}{192}
-\indexentry{integration by parts \dotfill 分部积分|hyperpage}{192}
-\indexentry{Green identities!first 格林第一恒等式|hyperpage}{192}
-\indexentry{Green identities!second 格林第二恒等式|hyperpage}{192}
-\indexentry{Kronecker product \dotfill 克罗内乘积|hyperpage}{193}
-\indexentry{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件|hyperpage}{193}
-\indexentry{Neumann boundary value condition \dotfill 诺依曼边界值条件|hyperpage}{193}
-\indexentry{Robin boundary value condition \dotfill 罗宾边界值条件|hyperpage}{193}
-\indexentry{norm \dotfill 范数|hyperpage}{195}
-\indexentry{support \dotfill 支撑|hyperpage}{195}
-\indexentry{Hölder space \dotfill 霍德尔空间|hyperpage}{195}
-\indexentry{Lipschitz continuous function \dotfill 利普希茨连续方程|hyperpage}{195}
-\indexentry{Lipschitz hypograph \dotfill 利普希茨亚图|hyperpage}{195}
-\indexentry{Lipschitz domain \dotfill 利普希茨域|hyperpage}{195}
-\indexentry{index family \dotfill 索引族|hyperpage}{195}
-\indexentry{|hyperpage}{195}
-\indexentry{cover(topology) \dotfill 覆盖(拓扑学)|hyperpage}{196}
-\indexentry{Hölder continuous \dotfill 霍德尔连续|hyperpage}{196}
-\indexentry{piecewise smooth boundary \dotfill 分段平滑边界|hyperpage}{196}
-\indexentry{Lesbegue space \dotfill 勒贝格空间|hyperpage}{196}
-\indexentry{Lebesgue integrable function \dotfill 勒贝格可积方程|hyperpage}{196}
-\indexentry{sigma!algebra \dotfill sigma代数|hyperpage}{196}
-\indexentry{complement \dotfill 补集|hyperpage}{196}
-\indexentry{union \dotfill 并集|hyperpage}{196}
-\indexentry{powerset \dotfill 幂集|hyperpage}{196}
-\indexentry{axiomatic set theory \dotfill 公理集合论|hyperpage}{196}
-\indexentry{ZFC axioms \dotfill ZFC集合论|hyperpage}{196}
-\indexentry{family of sets \dotfill 集族|hyperpage}{196}
-\indexentry{cardinality \dotfill 势|hyperpage}{197}
-\indexentry{intersection \dotfill 交集|hyperpage}{197}
-\indexentry{extended real number line \dotfill 扩展实数线|hyperpage}{197}
-\indexentry{measure \dotfill 测度|hyperpage}{197}
-\indexentry{countable additivity \dotfill 可数可加性|hyperpage}{197}
-\indexentry{sigma!additivity \dotfill sigma可加|hyperpage}{197}
-\indexentry{measurable space \dotfill 可测空间|hyperpage}{197}
-\indexentry{measurable sets \dotfill 可测集合|hyperpage}{197}
-\indexentry{triple 三元组|hyperpage}{197}
-\indexentry{measure!counting \dotfill 计数测度|hyperpage}{198}
-\indexentry{sigma!finite \dotfill sigma有限|hyperpage}{198}
-\indexentry{norm \dotfill 范数|hyperpage}{198}
-\indexentry{vector space \dotfill 向量空间|hyperpage}{198}
-\indexentry{zero vector \dotfill 零向量|hyperpage}{198}
-\indexentry{seminorm! \dotfill 半范数|hyperpage}{198}
-\indexentry{subadditivity \dotfill 次可加|hyperpage}{198}
-\indexentry{normed vector space \dotfill 赋范向量空间|hyperpage}{199}
-\indexentry{quotient space \dotfill 商空间|hyperpage}{199}
-\indexentry{equivalence of norms \dotfill 范数等价|hyperpage}{199}
-\indexentry{seminorm!trivial \dotfill 平凡半范数|hyperpage}{199}
-\indexentry{p-norm \dotfill p范数|hyperpage}{199}
-\indexentry{LP-norm \dotfill LP范数|hyperpage}{199}
-\indexentry{grid distance \dotfill 网格距离|hyperpage}{199}
-\indexentry{taxicab geometry \dotfill 出租车距离|hyperpage}{199}
-\indexentry{Manhattan distance \dotfill 曼哈顿距离|hyperpage}{199}
-\indexentry{Euclidean norm \dotfill 欧几里得范数|hyperpage}{199}
-\indexentry{L-infinity norm|hyperpage}{199}
-\indexentry{maximum norm \dotfill 最大范数|hyperpage}{199}
-\indexentry{uniform norm \dotfill 均匀范数|hyperpage}{199}
-\indexentry{Chebyshev distance \dotfill 切比雪夫距离|hyperpage}{199}
-\indexentry{sequence space!countably infinite dimensional \dotfill 可数无限维数列空间|hyperpage}{200}
-\indexentry{triangle inequality \dotfill 三角不等式|hyperpage}{201}
-\indexentry{Minkowski inequality \dotfill 闵可夫斯基不等式|hyperpage}{201}
-\indexentry{vector space!normed \dotfill 赋范向量空间|hyperpage}{201}
-\indexentry{triangle inequality \dotfill 三角不等式|hyperpage}{201}
-\indexentry{Hölder's inequality \dotfill 霍德尔不等式|hyperpage}{202}
-\indexentry{Minkowski inequality!integral \dotfill 闵可夫斯基积分不等式|hyperpage}{202}
-\indexentry{seminormed vector space \dotfill 半赋范向量空间|hyperpage}{202}
-\indexentry{Banach space \dotfill 巴拿赫空间|hyperpage}{203}
-\indexentry{Lebesgue space!weighted \dotfill 加权勒贝格空间|hyperpage}{203}
-\indexentry{Hilbert space \dotfill 希尔伯特空间|hyperpage}{203}
-\indexentry{inner product \dotfill 内积|hyperpage}{204}
-\indexentry{inner product space \dotfill 内积空间|hyperpage}{204}
-\indexentry{convergence!absolute \dotfill 绝对收敛|hyperpage}{204}
-\indexentry{completeness!Euclidean space \dotfill 完备性(欧几里得空间)|hyperpage}{204}
-\indexentry{complex plane \dotfill 复数平面|hyperpage}{205}
-\indexentry{complex modulus \dotfill 复数绝对值|hyperpage}{205}
-\indexentry{conjugate \dotfill 共轭复数|hyperpage}{205}
-\indexentry{Hermitian symmetric \dotfill 埃米特对称|hyperpage}{205}
-\indexentry{dual space \dotfill 对偶空间|hyperpage}{205}
-\indexentry{Cauchy-Schwarz inequality \dotfill 柯西——施瓦茨不等式|hyperpage}{206}
-\indexentry{differentiability classification \dotfill 方程微分的类|hyperpage}{207}
-\indexentry{integration by parts \dotfill 分部积分公式|hyperpage}{207}
-\indexentry{integration by parts \dotfill 分部积分|hyperpage}{208}
-\indexentry{generalized partial derivative \dotfill 广义偏导数|hyperpage}{208}
-\indexentry{Parseval theorem \dotfill 帕塞瓦尔定理|hyperpage}{209}
-\indexentry{Fourier series \dotfill 傅里叶级数|hyperpage}{209}
-\indexentry{Sobolev-Slobodeckij!space \dotfill Sobolev–Slobodeckij空间|hyperpage}{210}
-\indexentry{Hölder condition \dotfill 霍德尔条件|hyperpage}{210}
-\indexentry{Sobolev-Slobodeckij!norm \dotfill Sobolev-Slobodeckij范数|hyperpage}{210}
-\indexentry{Sobolev-Slobodeckij!seminorm \dotfill Sobolev-Slobodeckij半范数|hyperpage}{210}
+\indexentry{angular frequency \dotfill 角频率|hyperpage}{179}
+\indexentry{Fourier transform! \dotfill 傅里叶变换|hyperpage}{179}
+\indexentry{Fourier transform!Semidiscrete \dotfill 半离散傅里叶变换|hyperpage}{179}
+\indexentry{Fourier series \dotfill 傅里叶级数|hyperpage}{179}
+\indexentry{Fourier transform!Discrete \dotfill 离散傅里叶变换|hyperpage}{179}
+\indexentry{angular frequency \dotfill 角频率|hyperpage}{180}
+\indexentry{angular frequency \dotfill 角频率|hyperpage}{181}
+\indexentry{linear frequency \dotfill 线频率|hyperpage}{181}
+\indexentry{wavenumber \dotfill 波数|hyperpage}{181}
+\indexentry{Lorentzian function \dotfill 洛伦兹方程|hyperpage}{183}
+\indexentry{full width at half maximum(FWHM) \dotfill 半峰全宽|hyperpage}{183}
+\indexentry{Gaussian function \dotfill 高斯方程|hyperpage}{183}
+\indexentry{dirac delta function \dotfill 狄拉克方程|hyperpage}{184}
+\indexentry{Paley-Wiener theorems \dotfill 佩利——维纳诸定理|hyperpage}{185}
+\indexentry{periodic function \dotfill 周期方程|hyperpage}{185}
+\indexentry{Fourier series \dotfill 傅里叶|hyperpage}{186}
+\indexentry{Fourier cosine series \dotfill 傅里叶余弦级数|hyperpage}{188}
+\indexentry{Fourier sine series \dotfill 傅里叶正弦级数|hyperpage}{188}
+\indexentry{Gibbs phenomenon \dotfill 吉布斯现象|hyperpage}{189}
+\indexentry{Fourier synthesis \dotfill 傅里叶综合|hyperpage}{190}
+\indexentry{Plancherel's theorem \dotfill 普朗歇尔定理|hyperpage}{191}
+\indexentry{Poisson summation formula \dotfill 泊松求和式|hyperpage}{191}
+\indexentry{Jacobian function \dotfill 雅各比方程|hyperpage}{193}
+\indexentry{convolution \dotfill 卷积|hyperpage}{193}
+\indexentry{boundary value problem \dotfill 边界值问题|hyperpage}{197}
+\indexentry{exterior algebra \dotfill 外代数|hyperpage}{197}
+\indexentry{self-adjoint operator|hyperpage}{197}
+\indexentry{divergence theorem \dotfill 高斯散度定理|hyperpage}{197}
+\indexentry{Ostrogradsky-Gauss theorem \dotfill 奥斯特罗格拉德斯基——高斯定理|hyperpage}{197}
+\indexentry{Gauss theorem \dotfill 高斯散度定理|hyperpage}{197}
+\indexentry{trace \dotfill 迹|hyperpage}{198}
+\indexentry{integration by parts \dotfill 分部积分|hyperpage}{198}
+\indexentry{Green identities!first 格林第一恒等式|hyperpage}{198}
+\indexentry{Green identities!second 格林第二恒等式|hyperpage}{198}
+\indexentry{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件|hyperpage}{199}
+\indexentry{Neumann boundary value condition \dotfill 诺依曼边界值条件|hyperpage}{199}
+\indexentry{Robin boundary value condition \dotfill 罗宾边界值条件|hyperpage}{199}
+\indexentry{norm \dotfill 范数|hyperpage}{201}
+\indexentry{support \dotfill 支撑|hyperpage}{201}
+\indexentry{Hölder space \dotfill 霍德尔空间|hyperpage}{201}
+\indexentry{Lipschitz continuous function \dotfill 利普希茨连续方程|hyperpage}{201}
+\indexentry{Lipschitz hypograph \dotfill 利普希茨亚图|hyperpage}{201}
+\indexentry{Lipschitz domain \dotfill 利普希茨域|hyperpage}{201}
+\indexentry{index family \dotfill 索引族|hyperpage}{201}
+\indexentry{|hyperpage}{201}
+\indexentry{cover(topology) \dotfill 覆盖(拓扑学)|hyperpage}{202}
+\indexentry{Hölder continuous \dotfill 霍德尔连续|hyperpage}{202}
+\indexentry{piecewise smooth boundary \dotfill 分段平滑边界|hyperpage}{202}
+\indexentry{Lesbegue space \dotfill 勒贝格空间|hyperpage}{202}
+\indexentry{Lebesgue integrable function \dotfill 勒贝格可积方程|hyperpage}{202}
+\indexentry{sigma!algebra \dotfill sigma代数|hyperpage}{202}
+\indexentry{complement \dotfill 补集|hyperpage}{202}
+\indexentry{union \dotfill 并集|hyperpage}{202}
+\indexentry{powerset \dotfill 幂集|hyperpage}{202}
+\indexentry{axiomatic set theory \dotfill 公理集合论|hyperpage}{202}
+\indexentry{ZFC axioms \dotfill ZFC集合论|hyperpage}{202}
+\indexentry{family of sets \dotfill 集族|hyperpage}{202}
+\indexentry{cardinality \dotfill 势|hyperpage}{203}
+\indexentry{intersection \dotfill 交集|hyperpage}{203}
+\indexentry{extended real number line \dotfill 扩展实数线|hyperpage}{203}
+\indexentry{measure \dotfill 测度|hyperpage}{203}
+\indexentry{countable additivity \dotfill 可数可加性|hyperpage}{203}
+\indexentry{sigma!additivity \dotfill sigma可加|hyperpage}{203}
+\indexentry{measurable space \dotfill 可测空间|hyperpage}{203}
+\indexentry{measurable sets \dotfill 可测集合|hyperpage}{203}
+\indexentry{triple 三元组|hyperpage}{203}
+\indexentry{measure!counting \dotfill 计数测度|hyperpage}{204}
+\indexentry{sigma!finite \dotfill sigma有限|hyperpage}{204}
+\indexentry{norm \dotfill 范数|hyperpage}{204}
+\indexentry{vector space \dotfill 向量空间|hyperpage}{204}
+\indexentry{zero vector \dotfill 零向量|hyperpage}{204}
+\indexentry{seminorm! \dotfill 半范数|hyperpage}{204}
+\indexentry{subadditivity \dotfill 次可加|hyperpage}{204}
+\indexentry{normed vector space \dotfill 赋范向量空间|hyperpage}{205}
+\indexentry{quotient space \dotfill 商空间|hyperpage}{205}
+\indexentry{equivalence of norms \dotfill 范数等价|hyperpage}{205}
+\indexentry{seminorm!trivial \dotfill 平凡半范数|hyperpage}{205}
+\indexentry{p-norm \dotfill p范数|hyperpage}{205}
+\indexentry{LP-norm \dotfill LP范数|hyperpage}{205}
+\indexentry{grid distance \dotfill 网格距离|hyperpage}{205}
+\indexentry{taxicab geometry \dotfill 出租车距离|hyperpage}{205}
+\indexentry{Manhattan distance \dotfill 曼哈顿距离|hyperpage}{205}
+\indexentry{Euclidean norm \dotfill 欧几里得范数|hyperpage}{205}
+\indexentry{L-infinity norm|hyperpage}{205}
+\indexentry{maximum norm \dotfill 最大范数|hyperpage}{205}
+\indexentry{uniform norm \dotfill 均匀范数|hyperpage}{205}
+\indexentry{Chebyshev distance \dotfill 切比雪夫距离|hyperpage}{205}
+\indexentry{sequence space!countably infinite dimensional \dotfill 可数无限维数列空间|hyperpage}{206}
+\indexentry{triangle inequality \dotfill 三角不等式|hyperpage}{207}
+\indexentry{Minkowski inequality \dotfill 闵可夫斯基不等式|hyperpage}{207}
+\indexentry{vector space!normed \dotfill 赋范向量空间|hyperpage}{207}
+\indexentry{triangle inequality \dotfill 三角不等式|hyperpage}{207}
+\indexentry{Hölder's inequality \dotfill 霍德尔不等式|hyperpage}{208}
+\indexentry{Minkowski inequality!integral \dotfill 闵可夫斯基积分不等式|hyperpage}{208}
+\indexentry{seminormed vector space \dotfill 半赋范向量空间|hyperpage}{208}
+\indexentry{Banach space \dotfill 巴拿赫空间|hyperpage}{209}
+\indexentry{Lebesgue space!weighted \dotfill 加权勒贝格空间|hyperpage}{209}
+\indexentry{Hilbert space \dotfill 希尔伯特空间|hyperpage}{209}
+\indexentry{inner product \dotfill 内积|hyperpage}{210}
+\indexentry{inner product space \dotfill 内积空间|hyperpage}{210}
+\indexentry{convergence!absolute \dotfill 绝对收敛|hyperpage}{210}
+\indexentry{completeness!Euclidean space \dotfill 完备性(欧几里得空间)|hyperpage}{210}
+\indexentry{complex plane \dotfill 复数平面|hyperpage}{211}
+\indexentry{complex modulus \dotfill 复数绝对值|hyperpage}{211}
+\indexentry{conjugate \dotfill 共轭复数|hyperpage}{211}
+\indexentry{Hermitian symmetric \dotfill 埃米特对称|hyperpage}{211}
 \indexentry{dual space \dotfill 对偶空间|hyperpage}{211}
-\indexentry{Hölder inequality \dotfill 霍德尔不等式|hyperpage}{211}
-\indexentry{Hölder inequality!generalization \dotfill 广义霍德尔不等式|hyperpage}{211}
-\indexentry{embedding theorem of Sobolev space \dotfill 索伯列夫空间的嵌入定理|hyperpage}{212}
-\indexentry{embeddings \dotfill 嵌入|hyperpage}{212}
-\indexentry{norm equivalence theorem of Sobolev space|hyperpage}{214}
-\indexentry{equivalence of norms \dotfill 范数等价|hyperpage}{215}
-\indexentry{Poincaré inequality \dotfill 庞加莱不等式|hyperpage}{218}
-\indexentry{Schwarz inequality \dotfill 施瓦茨不等式|hyperpage}{218}
-\indexentry{Bramble-Hilbert Lemma \dotfill Bramble-Hilbert引理|hyperpage}{219}
-\indexentry{test space \dotfill 试探空间|hyperpage}{221}
-\indexentry{distribution \dotfill 分布|hyperpage}{221}
-\indexentry{distribution!regular \dotfill 正则分布|hyperpage}{221}
-\indexentry{distribution!singular \dotfill 奇异分布|hyperpage}{221}
-\indexentry{Dirac distribution \dotfill 狄拉克分布|hyperpage}{221}
-\indexentry{rapidly decreasing function \dotfill 急减方程|hyperpage}{222}
-\indexentry{rapidly decreasing space \dotfill 急减空间|hyperpage}{222}
-\indexentry{tempered distribution space \dotfill 缓增分布空间|hyperpage}{222}
-\indexentry{Fourier transform! \dotfill 傅里叶变换|hyperpage}{222}
-\indexentry{Fourier transform!inverse \dotfill 逆傅里叶变换|hyperpage}{222}
-\indexentry{Fourier transform!rotational symmetries \dotfill 傅里叶变换的旋转对称|hyperpage}{222}
-\indexentry{polar coordinate system \dotfill 极坐标系|hyperpage}{222}
-\indexentry{spherical coordinate system \dotfill 三维坐标系|hyperpage}{223}
-\indexentry{potential!Bessel \dotfill 贝塞尔位势|hyperpage}{224}
-\indexentry{uniform cone condition \dotfill 均匀法锥条件|hyperpage}{225}
-\indexentry{interpolation theorem \dotfill 插值定理|hyperpage}{225}
-\indexentry{chain rule \dotfill 链式法则|hyperpage}{226}
-\indexentry{Sobolev-Slobodeckij norm \dotfill Sobolev-Slobodeckij范数|hyperpage}{227}
-\indexentry{equivalence of norms \dotfill 范数等价|hyperpage}{227}
-\indexentry{dual space \dotfill 对偶空间|hyperpage}{227}
-\indexentry{duality pairing \dotfill 对偶配对|hyperpage}{227}
-\indexentry{interior boundary trace \dotfill 内界迹|hyperpage}{229}
-\indexentry{Riesz representation theorem \dotfill 里兹表现定理|hyperpage}{231}
-\indexentry{Riesz map \dotfill 里兹映射|hyperpage}{233}
-\indexentry{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理|hyperpage}{234}
-\indexentry{contraction mapping \dotfill 收缩映射|hyperpage}{234}
-\indexentry{Banach space \dotfill 巴拿赫空间|hyperpage}{235}
-\indexentry{kernel \dotfill 核|hyperpage}{235}
-\indexentry{null space \dotfill 零空间|hyperpage}{235}
-\indexentry{orthogonal complement \dotfill 正交补|hyperpage}{235}
-\indexentry{range \dotfill 值域|hyperpage}{236}
-\indexentry{iamge \dotfill 像|hyperpage}{236}
-\indexentry{adjoint operator\dotfill 伴随算子|hyperpage}{236}
-\indexentry{closed range theorem \dotfill 闭值域定理|hyperpage}{236}
-\indexentry{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理|hyperpage}{242}
-\indexentry{Gårding inequality \dotfill Gårding不等式|hyperpage}{244}
-\indexentry{compact operator \dotfill 紧凑算子|hyperpage}{244}
-\indexentry{Riesz-Schauder theorem \dotfill Riesz-Schauder定理|hyperpage}{245}
-\indexentry{Fredholm alternative theorem \dotfill 弗雷德霍姆二择一定理|hyperpage}{245}
-\indexentry{injection \dotfill 内射|hyperpage}{245}
-\indexentry{trace \dotfill 迹|hyperpage}{246}
-\indexentry{Green identities!first 格林第一恒等式|hyperpage}{246}
-\indexentry{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件|hyperpage}{247}
-\indexentry{Neumann boundary value condition \dotfill 诺依曼边界值条件|hyperpage}{253}
-\indexentry{Robin boundary value condition \dotfill 罗宾边界值条件|hyperpage}{257}
-\indexentry{Green identities!second 格林第二恒等式|hyperpage}{258}
-\indexentry{Riesz representation theorem \dotfill 里兹表现定理|hyperpage}{258}
-\indexentry{boundary integral equations \dotfill 边界积分等式|hyperpage}{258}
-\indexentry{fundamental solution \dotfill 基本解|hyperpage}{258}
-\indexentry{Laplace operator \dotfill 拉普拉斯算子|hyperpage}{258}
-\indexentry{tempered distribution space \dotfill 缓增分布空间|hyperpage}{259}
-\indexentry{trigonometric integral \dotfill 三角积分|hyperpage}{260}
-\indexentry{sine integral \dotfill 正弦积分|hyperpage}{260}
-\indexentry{sinc finction!unnormalized \dotfill 非标准化sinc方程|hyperpage}{260}
-\indexentry{sinc finction!normalized \dotfill 标准化sinc方程|hyperpage}{260}
-\indexentry{Bessel function \dotfill 贝塞尔方程|hyperpage}{262}
-\indexentry{Poisson equation \dotfill 泊松方程|hyperpage}{263}
-\indexentry{Laplace function \dotfill 拉普拉斯方程|hyperpage}{263}
-\indexentry{potential!Newton  \dotfill 牛顿位势|hyperpage}{263}
-\indexentry{spherical coordinate system \dotfill 三维坐标系|hyperpage}{264}
-\indexentry{duality pairing \dotfill 对偶配对|hyperpage}{266}
-\indexentry{singular integral!weak \dotfill 弱奇异积分|hyperpage}{267}
-\indexentry{surface integral \dotfill 表面积分|hyperpage}{267}
-\indexentry{potential!single layer \dotfill 单层位势|hyperpage}{268}
-\indexentry{singular integral!weak \dotfill 弱奇异积分|hyperpage}{269}
-\indexentry{surface integral \dotfill 表面积分|hyperpage}{269}
-\indexentry{potential!adjoint double layer \dotfill 伴随双层位势算子|hyperpage}{270}
-\indexentry{potential!adjoint double layer \dotfill 伴随双层位势|hyperpage}{273}
-\indexentry{potential!double layer \dotfill 双层位势算子|hyperpage}{273}
-\indexentry{Cauchy principal value \dotfill 柯西主值|hyperpage}{277}
-\indexentry{exterior normal vector \dotfill 外部法向量|hyperpage}{278}
-\indexentry{rotation \dotfill 旋转|hyperpage}{278}
-\indexentry{closed curve \dotfill 闭曲线|hyperpage}{279}
-\indexentry{reference element \dotfill 参考元|hyperpage}{281}
-\indexentry{rotation \dotfill 旋转|hyperpage}{281}
-\indexentry{Calderón projection \dotfill 卡尔德隆投影|hyperpage}{284}
-\indexentry{natural density \dotfill 自然密度|hyperpage}{289}
-\indexentry{capacity \dotfill 容度|hyperpage}{289}
-\indexentry{ellipticity!semi \dotfill 半椭圆性|hyperpage}{291}
-\indexentry{ellipticity!semi \dotfill 半椭圆性|hyperpage}{293}
-\indexentry{Dirichlet to Neumann map \dotfill 狄利克雷到诺依曼的映射|hyperpage}{294}
-\indexentry{Steklov-Poincaré operator \dotfill Steklov-Poincaré算子|hyperpage}{294}
-\indexentry{Calderón projection \dotfill 卡尔德隆投影|hyperpage}{302}
-\indexentry{Fredholm boundary integral function!first kind \dotfill 第一类弗雷德霍姆边界积分方程|hyperpage}{302}
-\indexentry{Fredholm boundary integral function!second kind \dotfill 第二类弗雷德霍姆边界积分方程|hyperpage}{302}
-\indexentry{Neumann series \dotfill 诺依曼级数|hyperpage}{302}
-\indexentry{Neumann series \dotfill 诺依曼级数|hyperpage}{303}
-\indexentry{conforming trial spaces \dotfill 协调检测空间|hyperpage}{310}
-\indexentry{Galerkin-Bubnov method \dotfill 伽辽金——布博诺夫法|hyperpage}{310}
-\indexentry{Galerkin Orthogonality \dotfill 伽辽金正交|hyperpage}{311}
-\indexentry{stiffness matrix \dotfill 刚度矩阵|hyperpage}{311}
-\indexentry{Céa lemma, \dotfill 齐亚引理|hyperpage}{312}
-\indexentry{Strang's First Lemma \dotfill 斯特朗第一引理|hyperpage}{313}
-\indexentry{Strang's Second Lemma \dotfill 斯特朗第二引理|hyperpage}{314}
-\indexentry{Galerkin-Petrov method \dotfill 伽辽金——佩特洛夫法|hyperpage}{315}
-\indexentry{Babuška-Brezzi-Ladyshenskaya condition \dotfill BBL条件|hyperpage}{319}
-\indexentry{compact operator \dotfill 紧凑算子|hyperpage}{322}
-\indexentry{mesh \dotfill 网格|hyperpage}{325}
-\indexentry{decomposition! \dotfill 分解(有限元)|hyperpage}{325}
-\indexentry{node \dotfill 结点|hyperpage}{325}
-\indexentry{edge \dotfill 边|hyperpage}{325}
-\indexentry{decomposition!admissible \dotfill 容许分解|hyperpage}{325}
-\indexentry{mesh size!local \dotfill 局部网格尺寸|hyperpage}{326}
-\indexentry{finite element!regular \dotfill 正则型有限元|hyperpage}{326}
-\indexentry{mesh size!global \dotfill 全局网格尺寸|hyperpage}{326}
-\indexentry{quansi-uniform!globally \dotfill 全局拟一致|hyperpage}{327}
-\indexentry{quasi-uniform!locally \dotfill 局部拟一致|hyperpage}{327}
-\indexentry{finite element!neighboring \dotfill 相邻有限元|hyperpage}{327}
-\indexentry{parameterization!local \dotfill 局部参数化|hyperpage}{327}
-\indexentry{reference element \dotfill 参考元|hyperpage}{327}
+\indexentry{Cauchy-Schwarz inequality \dotfill 柯西——施瓦茨不等式|hyperpage}{212}
+\indexentry{differentiability classification \dotfill 方程微分的类|hyperpage}{213}
+\indexentry{integration by parts \dotfill 分部积分公式|hyperpage}{213}
+\indexentry{integration by parts \dotfill 分部积分|hyperpage}{214}
+\indexentry{generalized partial derivative \dotfill 广义偏导数|hyperpage}{214}
+\indexentry{Parseval theorem \dotfill 帕塞瓦尔定理|hyperpage}{215}
+\indexentry{Fourier series \dotfill 傅里叶级数|hyperpage}{215}
+\indexentry{Sobolev-Slobodeckij!space \dotfill Sobolev–Slobodeckij空间|hyperpage}{216}
+\indexentry{Hölder condition \dotfill 霍德尔条件|hyperpage}{216}
+\indexentry{Sobolev-Slobodeckij!norm \dotfill Sobolev-Slobodeckij范数|hyperpage}{216}
+\indexentry{Sobolev-Slobodeckij!seminorm \dotfill Sobolev-Slobodeckij半范数|hyperpage}{216}
+\indexentry{dual space \dotfill 对偶空间|hyperpage}{217}
+\indexentry{Hölder inequality \dotfill 霍德尔不等式|hyperpage}{217}
+\indexentry{Hölder inequality!generalization \dotfill 广义霍德尔不等式|hyperpage}{217}
+\indexentry{embedding theorem of Sobolev space \dotfill 索伯列夫空间的嵌入定理|hyperpage}{218}
+\indexentry{embeddings \dotfill 嵌入|hyperpage}{218}
+\indexentry{norm equivalence theorem of Sobolev space|hyperpage}{220}
+\indexentry{equivalence of norms \dotfill 范数等价|hyperpage}{221}
+\indexentry{Poincaré inequality \dotfill 庞加莱不等式|hyperpage}{224}
+\indexentry{Schwarz inequality \dotfill 施瓦茨不等式|hyperpage}{224}
+\indexentry{Bramble-Hilbert Lemma \dotfill Bramble-Hilbert引理|hyperpage}{225}
+\indexentry{test space \dotfill 试探空间|hyperpage}{227}
+\indexentry{distribution \dotfill 分布|hyperpage}{227}
+\indexentry{distribution!regular \dotfill 正则分布|hyperpage}{227}
+\indexentry{distribution!singular \dotfill 奇异分布|hyperpage}{227}
+\indexentry{Dirac distribution \dotfill 狄拉克分布|hyperpage}{227}
+\indexentry{rapidly decreasing function \dotfill 急减方程|hyperpage}{228}
+\indexentry{rapidly decreasing space \dotfill 急减空间|hyperpage}{228}
+\indexentry{tempered distribution space \dotfill 缓增分布空间|hyperpage}{228}
+\indexentry{Fourier transform! \dotfill 傅里叶变换|hyperpage}{228}
+\indexentry{Fourier transform!inverse \dotfill 逆傅里叶变换|hyperpage}{228}
+\indexentry{Fourier transform!rotational symmetries \dotfill 傅里叶变换的旋转对称|hyperpage}{228}
+\indexentry{polar coordinate system \dotfill 极坐标系|hyperpage}{228}
+\indexentry{spherical coordinate system \dotfill 三维坐标系|hyperpage}{229}
+\indexentry{potential!Bessel \dotfill 贝塞尔位势|hyperpage}{230}
+\indexentry{uniform cone condition \dotfill 均匀法锥条件|hyperpage}{231}
+\indexentry{interpolation theorem \dotfill 插值定理|hyperpage}{231}
+\indexentry{chain rule \dotfill 链式法则|hyperpage}{232}
+\indexentry{Sobolev-Slobodeckij norm \dotfill Sobolev-Slobodeckij范数|hyperpage}{233}
+\indexentry{equivalence of norms \dotfill 范数等价|hyperpage}{233}
+\indexentry{dual space \dotfill 对偶空间|hyperpage}{233}
+\indexentry{duality pairing \dotfill 对偶配对|hyperpage}{233}
+\indexentry{interior boundary trace \dotfill 内界迹|hyperpage}{235}
+\indexentry{Riesz representation theorem \dotfill 里兹表现定理|hyperpage}{237}
+\indexentry{Riesz map \dotfill 里兹映射|hyperpage}{239}
+\indexentry{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理|hyperpage}{240}
+\indexentry{contraction mapping \dotfill 收缩映射|hyperpage}{240}
+\indexentry{Banach space \dotfill 巴拿赫空间|hyperpage}{241}
+\indexentry{kernel \dotfill 核|hyperpage}{241}
+\indexentry{null space \dotfill 零空间|hyperpage}{241}
+\indexentry{orthogonal complement \dotfill 正交补|hyperpage}{241}
+\indexentry{range \dotfill 值域|hyperpage}{242}
+\indexentry{iamge \dotfill 像|hyperpage}{242}
+\indexentry{adjoint operator\dotfill 伴随算子|hyperpage}{242}
+\indexentry{closed range theorem \dotfill 闭值域定理|hyperpage}{242}
+\indexentry{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理|hyperpage}{248}
+\indexentry{Gårding inequality \dotfill Gårding不等式|hyperpage}{250}
+\indexentry{compact operator \dotfill 紧凑算子|hyperpage}{250}
+\indexentry{Riesz-Schauder theorem \dotfill Riesz-Schauder定理|hyperpage}{251}
+\indexentry{Fredholm alternative theorem \dotfill 弗雷德霍姆二择一定理|hyperpage}{251}
+\indexentry{injection \dotfill 内射|hyperpage}{251}
+\indexentry{trace \dotfill 迹|hyperpage}{252}
+\indexentry{Green identities!first 格林第一恒等式|hyperpage}{252}
+\indexentry{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件|hyperpage}{253}
+\indexentry{Neumann boundary value condition \dotfill 诺依曼边界值条件|hyperpage}{259}
+\indexentry{Robin boundary value condition \dotfill 罗宾边界值条件|hyperpage}{263}
+\indexentry{Green identities!second 格林第二恒等式|hyperpage}{264}
+\indexentry{Riesz representation theorem \dotfill 里兹表现定理|hyperpage}{264}
+\indexentry{boundary integral equations \dotfill 边界积分等式|hyperpage}{264}
+\indexentry{fundamental solution \dotfill 基本解|hyperpage}{264}
+\indexentry{Laplace operator \dotfill 拉普拉斯算子|hyperpage}{264}
+\indexentry{tempered distribution space \dotfill 缓增分布空间|hyperpage}{265}
+\indexentry{trigonometric integral \dotfill 三角积分|hyperpage}{266}
+\indexentry{sine integral \dotfill 正弦积分|hyperpage}{266}
+\indexentry{sinc finction!unnormalized \dotfill 非标准化sinc方程|hyperpage}{266}
+\indexentry{sinc finction!normalized \dotfill 标准化sinc方程|hyperpage}{266}
+\indexentry{Bessel function \dotfill 贝塞尔方程|hyperpage}{268}
+\indexentry{Poisson equation \dotfill 泊松方程|hyperpage}{269}
+\indexentry{Laplace function \dotfill 拉普拉斯方程|hyperpage}{269}
+\indexentry{potential!Newton  \dotfill 牛顿位势|hyperpage}{269}
+\indexentry{spherical coordinate system \dotfill 三维坐标系|hyperpage}{270}
+\indexentry{duality pairing \dotfill 对偶配对|hyperpage}{272}
+\indexentry{singular integral!weak \dotfill 弱奇异积分|hyperpage}{273}
+\indexentry{surface integral \dotfill 表面积分|hyperpage}{273}
+\indexentry{potential!single layer \dotfill 单层位势|hyperpage}{274}
+\indexentry{singular integral!weak \dotfill 弱奇异积分|hyperpage}{275}
+\indexentry{surface integral \dotfill 表面积分|hyperpage}{275}
+\indexentry{potential!adjoint double layer \dotfill 伴随双层位势算子|hyperpage}{276}
+\indexentry{potential!adjoint double layer \dotfill 伴随双层位势|hyperpage}{279}
+\indexentry{potential!double layer \dotfill 双层位势算子|hyperpage}{279}
+\indexentry{Cauchy principal value \dotfill 柯西主值|hyperpage}{283}
+\indexentry{exterior normal vector \dotfill 外部法向量|hyperpage}{284}
+\indexentry{rotation \dotfill 旋转|hyperpage}{284}
+\indexentry{closed curve \dotfill 闭曲线|hyperpage}{285}
+\indexentry{reference element \dotfill 参考元|hyperpage}{287}
+\indexentry{rotation \dotfill 旋转|hyperpage}{287}
+\indexentry{Calderón projection \dotfill 卡尔德隆投影|hyperpage}{290}
+\indexentry{natural density \dotfill 自然密度|hyperpage}{295}
+\indexentry{capacity \dotfill 容度|hyperpage}{295}
+\indexentry{ellipticity!semi \dotfill 半椭圆性|hyperpage}{297}
+\indexentry{ellipticity!semi \dotfill 半椭圆性|hyperpage}{299}
+\indexentry{Dirichlet to Neumann map \dotfill 狄利克雷到诺依曼的映射|hyperpage}{300}
+\indexentry{Steklov-Poincaré operator \dotfill Steklov-Poincaré算子|hyperpage}{300}
+\indexentry{Calderón projection \dotfill 卡尔德隆投影|hyperpage}{308}
+\indexentry{Fredholm boundary integral function!first kind \dotfill 第一类弗雷德霍姆边界积分方程|hyperpage}{308}
+\indexentry{Fredholm boundary integral function!second kind \dotfill 第二类弗雷德霍姆边界积分方程|hyperpage}{308}
+\indexentry{Neumann series \dotfill 诺依曼级数|hyperpage}{308}
+\indexentry{Neumann series \dotfill 诺依曼级数|hyperpage}{309}
+\indexentry{conforming trial spaces \dotfill 协调检测空间|hyperpage}{316}
+\indexentry{Galerkin-Bubnov method \dotfill 伽辽金——布博诺夫法|hyperpage}{316}
+\indexentry{Galerkin Orthogonality \dotfill 伽辽金正交|hyperpage}{317}
+\indexentry{stiffness matrix \dotfill 刚度矩阵|hyperpage}{317}
+\indexentry{Céa lemma, \dotfill 齐亚引理|hyperpage}{318}
+\indexentry{Strang's First Lemma \dotfill 斯特朗第一引理|hyperpage}{319}
+\indexentry{Strang's Second Lemma \dotfill 斯特朗第二引理|hyperpage}{320}
+\indexentry{Galerkin-Petrov method \dotfill 伽辽金——佩特洛夫法|hyperpage}{321}
+\indexentry{Babuška-Brezzi-Ladyshenskaya condition \dotfill BBL条件|hyperpage}{325}
+\indexentry{compact operator \dotfill 紧凑算子|hyperpage}{328}
+\indexentry{mesh \dotfill 网格|hyperpage}{331}
+\indexentry{decomposition! \dotfill 分解(有限元)|hyperpage}{331}
+\indexentry{node \dotfill 结点|hyperpage}{331}
+\indexentry{edge \dotfill 边|hyperpage}{331}
+\indexentry{decomposition!admissible \dotfill 容许分解|hyperpage}{331}
+\indexentry{mesh size!local \dotfill 局部网格尺寸|hyperpage}{332}
 \indexentry{finite element!regular \dotfill 正则型有限元|hyperpage}{332}
-\indexentry{trial space \dotfill 检测空间|hyperpage}{333}
-\indexentry{base function \dotfill 基方程|hyperpage}{333}
-\indexentry{form function \dotfill 形式方程|hyperpage}{333}
-\indexentry{mass matrix!local \dotfill 局部质量矩阵|hyperpage}{334}
-\indexentry{quansi-uniform!globally \dotfill 全局拟一致|hyperpage}{338}
-\indexentry{probability density function(PDF) \dotfill 概率密度方程|hyperpage}{345}
-\indexentry{likelihood function \dotfill 似然方程|hyperpage}{345}
-\indexentry{conditional bias \dotfill 条件偏误|hyperpage}{346}
-\indexentry{unbiased estimate \dotfill 无偏估计|hyperpage}{346}
-\indexentry{mean square error (MSE) \dotfill 均方误差|hyperpage}{346}
-\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差|hyperpage}{346}
-\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界|hyperpage}{347}
-\indexentry{Fischer information matrix \dotfill 费雪信息矩阵|hyperpage}{347}
-\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)|hyperpage}{348}
-\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)|hyperpage}{348}
-\indexentry{Bernoulli trials \dotfill 伯努利实验|hyperpage}{349}
-\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法|hyperpage}{357}
-\indexentry{BFMG algorithm \dotfill BFMG算法|hyperpage}{357}
-\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法|hyperpage}{358}
+\indexentry{mesh size!global \dotfill 全局网格尺寸|hyperpage}{332}
+\indexentry{quansi-uniform!globally \dotfill 全局拟一致|hyperpage}{333}
+\indexentry{quasi-uniform!locally \dotfill 局部拟一致|hyperpage}{333}
+\indexentry{finite element!neighboring \dotfill 相邻有限元|hyperpage}{333}
+\indexentry{parameterization!local \dotfill 局部参数化|hyperpage}{333}
+\indexentry{reference element \dotfill 参考元|hyperpage}{333}
+\indexentry{finite element!regular \dotfill 正则型有限元|hyperpage}{338}
+\indexentry{trial space \dotfill 检测空间|hyperpage}{339}
+\indexentry{base function \dotfill 基方程|hyperpage}{339}
+\indexentry{form function \dotfill 形式方程|hyperpage}{339}
+\indexentry{mass matrix!local \dotfill 局部质量矩阵|hyperpage}{340}
+\indexentry{quansi-uniform!globally \dotfill 全局拟一致|hyperpage}{344}
+\indexentry{probability density function(PDF) \dotfill 概率密度方程|hyperpage}{351}
+\indexentry{likelihood function \dotfill 似然方程|hyperpage}{351}
+\indexentry{conditional bias \dotfill 条件偏误|hyperpage}{352}
+\indexentry{unbiased estimate \dotfill 无偏估计|hyperpage}{352}
+\indexentry{mean square error (MSE) \dotfill 均方误差|hyperpage}{352}
+\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差|hyperpage}{352}
+\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界|hyperpage}{353}
+\indexentry{Fischer information matrix \dotfill 费雪信息矩阵|hyperpage}{353}
+\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)|hyperpage}{354}
+\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)|hyperpage}{354}
+\indexentry{Bernoulli trials \dotfill 伯努利实验|hyperpage}{355}
+\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法|hyperpage}{363}
+\indexentry{BFMG algorithm \dotfill BFMG算法|hyperpage}{363}
+\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法|hyperpage}{364}

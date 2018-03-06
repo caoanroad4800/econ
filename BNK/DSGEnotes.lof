@@ -26,16 +26,17 @@
 \contentsline {figure}{\numberline {7.F.4}{\ignorespaces 龙格现象$(N=6)$}}{171}{figure.b.7.F.4}
 \contentsline {figure}{\numberline {7.F.5}{\ignorespaces 比较矩形法则和梯形法则下，近似误差随$N$值增大的收敛情况}}{172}{figure.b.7.F.5}
 \contentsline {figure}{\numberline {7.F.6}{\ignorespaces 适应性求积}}{174}{figure.b.7.F.6}
-\contentsline {figure}{\numberline {7.G.1}{\ignorespaces 傅里叶变换}}{176}{figure.b.7.G.1}
-\contentsline {figure}{\numberline {7.G.2}{\ignorespaces 洛伦兹方程$(\alpha = 2)$}}{179}{figure.b.7.G.2}
-\contentsline {figure}{\numberline {7.G.3}{\ignorespaces $f(t) = \qopname \relax o{cos}^{2} \left ( 3 t \right ), t \in (-2, 2)$}}{183}{figure.b.7.G.3}
-\contentsline {figure}{\numberline {7.G.4}{\ignorespaces 锯齿波}}{185}{figure.b.7.G.4}
-\contentsline {figure}{\numberline {7.G.5}{\ignorespaces 吉布斯现象}}{186}{figure.b.7.G.5}
+\contentsline {figure}{\numberline {7.F.7}{\ignorespaces 非周期方程的$T$-周期扩展$t \in [0,1]$}}{178}{figure.b.7.F.7}
+\contentsline {figure}{\numberline {7.G.1}{\ignorespaces 傅里叶变换}}{181}{figure.b.7.G.1}
+\contentsline {figure}{\numberline {7.G.2}{\ignorespaces 洛伦兹方程$(\alpha = 2)$}}{183}{figure.b.7.G.2}
+\contentsline {figure}{\numberline {7.G.3}{\ignorespaces $f(t) = \qopname \relax o{cos}^{2} \left ( 3 t \right ), t \in (-2, 2)$}}{188}{figure.b.7.G.3}
+\contentsline {figure}{\numberline {7.G.4}{\ignorespaces 锯齿波}}{189}{figure.b.7.G.4}
+\contentsline {figure}{\numberline {7.G.5}{\ignorespaces 吉布斯现象}}{190}{figure.b.7.G.5}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {8.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$}}{325}{figure.8.9.1}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)}}{326}{figure.8.9.2}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)}}{328}{figure.8.9.3}
-\contentsline {figure}{\numberline {8.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$}}{337}{figure.8.9.4}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$}}{331}{figure.8.9.1}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)}}{332}{figure.8.9.2}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)}}{334}{figure.8.9.3}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$}}{343}{figure.8.9.4}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
