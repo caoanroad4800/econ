@@ -1,17 +1,17 @@
 \begin{theindex}
 
   \item adaptive quadrature \dotfill 适应性求积, \hyperpage{174}
-  \item adjoint operator\dotfill 伴随算子, \hyperpage{232}
+  \item adjoint operator\dotfill 伴随算子, \hyperpage{236}
   \item angular frequency \dotfill 角频率, \hyperpage{175--177}
-  \item axiomatic set theory \dotfill 公理集合论, \hyperpage{192}
+  \item axiomatic set theory \dotfill 公理集合论, \hyperpage{196}
 
   \indexspace
 
   \item Babuška-Brezzi-Ladyshenskaya condition \dotfill BBL条件, 
-		\hyperpage{315}
-  \item Banach space \dotfill 巴拿赫空间, \hyperpage{199}, 
-		\hyperpage{231}
-  \item base function \dotfill 基方程, \hyperpage{329}
+		\hyperpage{319}
+  \item Banach space \dotfill 巴拿赫空间, \hyperpage{203}, 
+		\hyperpage{235}
+  \item base function \dotfill 基方程, \hyperpage{333}
   \item basis
     \subitem Chebyshev polynomial \dotfill 切比雪夫多项式(基), 
 		\hyperpage{105}
@@ -25,32 +25,32 @@
     \subitem unidimensional \dotfill 单维基, \hyperpage{104}
   \item basis function \dotfill 基方程, \hyperpage{101}
   \item Bellman equation \dotfill 贝尔曼等式, \hyperpage{25}
-  \item Bernoulli trials \dotfill 伯努利实验, \hyperpage{345}
-  \item Bessel function \dotfill 贝塞尔方程, \hyperpage{258}
+  \item Bernoulli trials \dotfill 伯努利实验, \hyperpage{349}
+  \item Bessel function \dotfill 贝塞尔方程, \hyperpage{262}
   \item Beta distribution \dotfill 贝塔分布, \hyperpage{141}
   \item Beta integral \dotfill 贝塔积分, \hyperpage{121}
-  \item BFMG algorithm \dotfill BFMG算法, \hyperpage{353}
+  \item BFMG algorithm \dotfill BFMG算法, \hyperpage{357}
   \item bijection \dotfill 双射, \hyperpage{164}
   \item binomial theorem \dotfill 二项式定理, \hyperpage{120}
   \item boundary integral equations \dotfill 边界积分等式, 
-		\hyperpage{254}
+		\hyperpage{258}
   \item boundary value problem \dotfill 边界值问题, 
-		\hyperpage{187}
+		\hyperpage{191}
   \item Bramble-Hilbert Lemma \dotfill Bramble-Hilbert引理, 
-		\hyperpage{215}
+		\hyperpage{219}
 
   \indexspace
 
   \item Calderón projection \dotfill 卡尔德隆投影, 
-		\hyperpage{280}, \hyperpage{298}
-  \item capacity \dotfill 容度, \hyperpage{285}
-  \item cardinality \dotfill 势, \hyperpage{193}
-  \item Cauchy principal value \dotfill 柯西主值, \hyperpage{273}
+		\hyperpage{284}, \hyperpage{302}
+  \item capacity \dotfill 容度, \hyperpage{289}
+  \item cardinality \dotfill 势, \hyperpage{197}
+  \item Cauchy principal value \dotfill 柯西主值, \hyperpage{277}
   \item Cauchy sequnce \dotfill 柯西序列, \hyperpage{164}
   \item Cauchy-Schwarz inequality \dotfill 柯西——施瓦茨不等式, 
-		\hyperpage{202}
-  \item chain rule \dotfill 链式法则, \hyperpage{222}
-  \item Chebyshev distance \dotfill 切比雪夫距离, \hyperpage{195}
+		\hyperpage{206}
+  \item chain rule \dotfill 链式法则, \hyperpage{226}
+  \item Chebyshev distance \dotfill 切比雪夫距离, \hyperpage{199}
   \item Christoffel numbers \dotfill 克里斯托费尔数, 
 		\hyperpage{131}
   \item Christoffel-Darboux relation \dotfill 克里斯托费尔——达布关系, 
@@ -59,154 +59,156 @@
 		\hyperpage{122}, \hyperpage{143}
   \item Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则, 
 		\hyperpage{175}
-  \item closed curve \dotfill 闭曲线, \hyperpage{275}
-  \item closed range theorem \dotfill 闭值域定理, \hyperpage{232}
+  \item closed curve \dotfill 闭曲线, \hyperpage{279}
+  \item closed range theorem \dotfill 闭值域定理, \hyperpage{236}
   \item coercive form \dotfill 强制形式, \hyperpage{162}
   \item collocation
     \subitem  \dotfill 配点, \hyperpage{106}, \hyperpage{117}
     \subitem orthogonal \dotfill 正交配点, \hyperpage{106}, 
 		\hyperpage{117}
-  \item compact operator \dotfill 紧凑算子, \hyperpage{240}, 
-		\hyperpage{318}
-  \item complement \dotfill 补集, \hyperpage{192}
+  \item compact operator \dotfill 紧凑算子, \hyperpage{244}, 
+		\hyperpage{322}
+  \item complement \dotfill 补集, \hyperpage{196}
   \item completeness
     \subitem Euclidean space \dotfill 完备性(欧几里得空间), 
-		\hyperpage{200}
-  \item complex modulus \dotfill 复数绝对值, \hyperpage{201}
+		\hyperpage{204}
+  \item complex modulus \dotfill 复数绝对值, \hyperpage{205}
   \item complex number
     \subitem imaginary part \dotfill 虚部(复数), \hyperpage{164}
     \subitem real part \dotfill 实部(复数), \hyperpage{164}
-  \item complex plane \dotfill 复数平面, \hyperpage{201}
-  \item conditional bias \dotfill 条件偏误, \hyperpage{342}
+  \item complex plane \dotfill 复数平面, \hyperpage{205}
+  \item conditional bias \dotfill 条件偏误, \hyperpage{346}
   \item conditional density \dotfill 条件密度, \hyperpage{155}
   \item conforming trial spaces \dotfill 协调检测空间, 
-		\hyperpage{306}
-  \item conjugate \dotfill 共轭复数, \hyperpage{201}
+		\hyperpage{310}
+  \item conjugate \dotfill 共轭复数, \hyperpage{205}
   \item continuous inverse \dotfill 连续逆, \hyperpage{164}
-  \item contraction mapping \dotfill 收缩映射, \hyperpage{230}
+  \item contraction mapping \dotfill 收缩映射, \hyperpage{234}
   \item convergence
-    \subitem absolute \dotfill 绝对收敛, \hyperpage{200}
-  \item countable additivity \dotfill 可数可加性, \hyperpage{193}
-  \item cover(topology) \dotfill 覆盖(拓扑学), \hyperpage{192}
+    \subitem absolute \dotfill 绝对收敛, \hyperpage{204}
+  \item convolution \dotfill 卷积, \hyperpage{189}
+  \item countable additivity \dotfill 可数可加性, \hyperpage{197}
+  \item cover(topology) \dotfill 覆盖(拓扑学), \hyperpage{196}
   \item Cramér-Rao lower Bound \dotfill 克拉美罗下界, 
-		\hyperpage{343}
+		\hyperpage{347}
   \item curse of dimensionality \dotfill 维数灾难, \hyperpage{109}, 
 		\hyperpage{112}
   \item Céa lemma, \dotfill 齐亚引理, \hyperpage{165}, 
-		\hyperpage{308}
+		\hyperpage{312}
 
   \indexspace
 
   \item decomposition
-    \subitem  \dotfill 分解(有限元), \hyperpage{321}
-    \subitem admissible \dotfill 容许分解, \hyperpage{321}
+    \subitem  \dotfill 分解(有限元), \hyperpage{325}
+    \subitem admissible \dotfill 容许分解, \hyperpage{325}
   \item differentiability classification \dotfill 方程微分的类, 
-		\hyperpage{203}
+		\hyperpage{207}
   \item dirac delta function \dotfill 狄拉克方程, \hyperpage{117}, 
 		\hyperpage{180}
-  \item Dirac distribution \dotfill 狄拉克分布, \hyperpage{217}
+  \item Dirac distribution \dotfill 狄拉克分布, \hyperpage{221}
   \item Dirichlet boundary value condition \dotfill 狄利克雷边界值条件, 
-		\hyperpage{189}, \hyperpage{243}
+		\hyperpage{193}, \hyperpage{247}
   \item Dirichlet condition
     \subitem  homogeneous 齐次狄利克雷条件, \hyperpage{163}
   \item Dirichlet to Neumann map \dotfill 狄利克雷到诺依曼的映射, 
-		\hyperpage{290}
+		\hyperpage{294}
   \item distance function \dotfill 距离方程, \hyperpage{102}
   \item distribution
-    \subitem regular \dotfill 正则分布, \hyperpage{217}
-    \subitem singular \dotfill 奇异分布, \hyperpage{217}
+    \subitem regular \dotfill 正则分布, \hyperpage{221}
+    \subitem singular \dotfill 奇异分布, \hyperpage{221}
     \subitem stationary \dotfill 平稳分布, \hyperpage{110}
-  \item distribution \dotfill 分布, \hyperpage{217}
-  \item divergence theorem \dotfill 高斯散度定理, \hyperpage{187}
-  \item dual space \dotfill 对偶空间, \hyperpage{201}, 
-		\hyperpage{207}, \hyperpage{223}
-  \item duality pairing \dotfill 对偶配对, \hyperpage{223}, 
-		\hyperpage{262}
+  \item distribution \dotfill 分布, \hyperpage{221}
+  \item divergence theorem \dotfill 高斯散度定理, \hyperpage{191}
+  \item dual space \dotfill 对偶空间, \hyperpage{205}, 
+		\hyperpage{211}, \hyperpage{227}
+  \item duality pairing \dotfill 对偶配对, \hyperpage{227}, 
+		\hyperpage{266}
   \item dynamic programming \dotfill 动态规划, \hyperpage{23}
 
   \indexspace
 
-  \item edge \dotfill 边, \hyperpage{321}
+  \item edge \dotfill 边, \hyperpage{325}
   \item ellipticity
-    \subitem semi \dotfill 半椭圆性, \hyperpage{287}, 
-		\hyperpage{289}
+    \subitem semi \dotfill 半椭圆性, \hyperpage{291}, 
+		\hyperpage{293}
   \item embedding theorem of Sobolev space \dotfill 索伯列夫空间的嵌入定理, 
-		\hyperpage{208}
-  \item embeddings \dotfill 嵌入, \hyperpage{208}
+		\hyperpage{212}
+  \item embeddings \dotfill 嵌入, \hyperpage{212}
   \item ensemble mean suqare error (EMSE)\dotfill 整体均方误差, 
-		\hyperpage{342}
+		\hyperpage{346}
   \item Envelope Theorem \dotfill 包络定理, \hyperpage{23}
-  \item equivalence of norms \dotfill 范数等价, \hyperpage{195}, 
-		\hyperpage{211}, \hyperpage{223}
-  \item Euclidean norm \dotfill 欧几里得范数, \hyperpage{195}
+  \item equivalence of norms \dotfill 范数等价, \hyperpage{199}, 
+		\hyperpage{215}, \hyperpage{227}
+  \item Euclidean norm \dotfill 欧几里得范数, \hyperpage{199}
   \item Euler integral representation \dotfill 欧拉积分表达式, 
 		\hyperpage{121}
   \item Euler transformation formula \dotfill 欧拉转换公式, 
 		\hyperpage{122}
   \item extended real number line \dotfill 扩展实数线, 
-		\hyperpage{193}
-  \item exterior algebra \dotfill 外代数, \hyperpage{187}
+		\hyperpage{197}
+  \item exterior algebra \dotfill 外代数, \hyperpage{191}
   \item exterior normal vector \dotfill 外部法向量, 
-		\hyperpage{274}
+		\hyperpage{278}
 
   \indexspace
 
-  \item family of sets \dotfill 集族, \hyperpage{192}
+  \item family of sets \dotfill 集族, \hyperpage{196}
   \item finite element
-    \subitem neighboring \dotfill 相邻有限元, \hyperpage{323}
-    \subitem regular \dotfill 正则型有限元, \hyperpage{322}, 
-		\hyperpage{328}
+    \subitem neighboring \dotfill 相邻有限元, \hyperpage{327}
+    \subitem regular \dotfill 正则型有限元, \hyperpage{326}, 
+		\hyperpage{332}
   \item finite elements method \dotfill 有限元法, \hyperpage{112}
   \item Fischer information matrix \dotfill 费雪信息矩阵, 
-		\hyperpage{343}
-  \item form function \dotfill 形式方程, \hyperpage{329}
+		\hyperpage{347}
+  \item form function \dotfill 形式方程, \hyperpage{333}
   \item Fourier cosine series \dotfill 傅里叶余弦级数, 
 		\hyperpage{184}
   \item Fourier series \dotfill 傅里叶, \hyperpage{182}
   \item Fourier series \dotfill 傅里叶级数, \hyperpage{175}, 
-		\hyperpage{205}
+		\hyperpage{209}
   \item Fourier sine series \dotfill 傅里叶正弦级数, 
 		\hyperpage{184}
+  \item Fourier synthesis \dotfill 傅里叶综合, \hyperpage{186}
   \item Fourier transform
     \subitem  \dotfill 傅里叶变换, \hyperpage{175}, 
-		\hyperpage{218}
+		\hyperpage{222}
     \subitem Discrete \dotfill 离散傅里叶变换, \hyperpage{175}
-    \subitem inverse \dotfill 逆傅里叶变换, \hyperpage{218}
+    \subitem inverse \dotfill 逆傅里叶变换, \hyperpage{222}
     \subitem rotational symmetries \dotfill 傅里叶变换的旋转对称, 
-		\hyperpage{218}
+		\hyperpage{222}
     \subitem Semidiscrete \dotfill 半离散傅里叶变换, 
 		\hyperpage{175}
   \item Fredholm alternative theorem \dotfill 弗雷德霍姆二择一定理, 
-		\hyperpage{241}
+		\hyperpage{245}
   \item Fredholm boundary integral function
     \subitem first kind \dotfill 第一类弗雷德霍姆边界积分方程, 
-		\hyperpage{298}
+		\hyperpage{302}
     \subitem second kind \dotfill 第二类弗雷德霍姆边界积分方程, 
-		\hyperpage{298}
+		\hyperpage{302}
   \item full width at half maximum(FWHM) \dotfill 半峰全宽, 
 		\hyperpage{179}
-  \item fundamental solution \dotfill 基本解, \hyperpage{254}
+  \item fundamental solution \dotfill 基本解, \hyperpage{258}
 
   \indexspace
 
   \item Galerkin method \dotfill 伽辽金近似法, \hyperpage{160}
   \item Galerkin Orthogonality \dotfill 伽辽金正交, 
-		\hyperpage{307}
-  \item Galerkin-Bubnov method \dotfill 伽辽金——布博诺夫法, 
-		\hyperpage{306}
-  \item Galerkin-Petrov method \dotfill 伽辽金——佩特洛夫法, 
 		\hyperpage{311}
+  \item Galerkin-Bubnov method \dotfill 伽辽金——布博诺夫法, 
+		\hyperpage{310}
+  \item Galerkin-Petrov method \dotfill 伽辽金——佩特洛夫法, 
+		\hyperpage{315}
   \item gamma distribution \dotfill 伽玛分布, \hyperpage{137}
   \item Gauss quadrature formula \dotfill 高斯求积公式, 
 		\hyperpage{131}
   \item Gauss summation formula \dotfill{高斯求和公式}, 
 		\hyperpage{121}
-  \item Gauss theorem \dotfill 高斯散度定理, \hyperpage{187}
+  \item Gauss theorem \dotfill 高斯散度定理, \hyperpage{191}
   \item Gauss-Hermite quadrature \dotfill 高斯——埃米特求积, 
 		\hyperpage{158}
   \item Gaussian function \dotfill 高斯方程, \hyperpage{179}
   \item generalized partial derivative \dotfill 广义偏导数, 
-		\hyperpage{204}
+		\hyperpage{208}
   \item generating function
     \subitem Hermite polynomial \dotfill 母方程(埃米特多项式), 
 		\hyperpage{136}
@@ -220,25 +222,26 @@
 		\hyperpage{150}
     \subitem the second kind Chebyshev polynomial \dotfill 母方程(第二类切比雪夫多项式), 
 		\hyperpage{150}
+  \item Gibbs phenomenon \dotfill 吉布斯现象, \hyperpage{185}
   \item Gram-Schmidt orthogonality process \dotfill 格拉姆-施密特正交化过程, 
 		\hyperpage{125}
   \item Green identities
-    \subitem first 格林第一恒等式, \hyperpage{188}, 
-		\hyperpage{242}
-    \subitem second 格林第二恒等式, \hyperpage{188}, 
-		\hyperpage{254}
+    \subitem first 格林第一恒等式, \hyperpage{192}, 
+		\hyperpage{246}
+    \subitem second 格林第二恒等式, \hyperpage{192}, 
+		\hyperpage{258}
   \item grid \dotfill 网格, \hyperpage{113}
-  \item grid distance \dotfill 网格距离, \hyperpage{195}
-  \item Gårding inequality \dotfill Gårding不等式, \hyperpage{240}
+  \item grid distance \dotfill 网格距离, \hyperpage{199}
+  \item Gårding inequality \dotfill Gårding不等式, \hyperpage{244}
 
   \indexspace
 
   \item h-refinement finite elements\dotfill h——改进(有限元分析), 
 		\hyperpage{115}
   \item Hankel moment matrix \dotfill 汉克尔矩阵, \hyperpage{126}
-  \item Hermitian symmetric \dotfill 埃米特对称, \hyperpage{201}
+  \item Hermitian symmetric \dotfill 埃米特对称, \hyperpage{205}
   \item Hilbert space \dotfill 希尔伯特空间, \hyperpage{162}, 
-		\hyperpage{199}
+		\hyperpage{203}
   \item hp-adaptive finite elements \dotfill hp——有限元法, 
 		\hyperpage{115}
   \item hypergeometric
@@ -253,88 +256,92 @@
 		\hyperpage{142}
     \subitem Laguerre polynomial \dotfill 超几何方程(拉盖尔多项式), 
 		\hyperpage{138}
-  \item Hölder condition \dotfill 霍德尔条件, \hyperpage{206}
-  \item Hölder continuous \dotfill 霍德尔连续, \hyperpage{192}
+  \item Hölder condition \dotfill 霍德尔条件, \hyperpage{210}
+  \item Hölder continuous \dotfill 霍德尔连续, \hyperpage{196}
   \item Hölder inequality
     \subitem generalization \dotfill 广义霍德尔不等式, 
-		\hyperpage{207}
-  \item Hölder inequality \dotfill 霍德尔不等式, \hyperpage{207}
-  \item Hölder space \dotfill 霍德尔空间, \hyperpage{191}
+		\hyperpage{211}
+  \item Hölder inequality \dotfill 霍德尔不等式, \hyperpage{211}
+  \item Hölder space \dotfill 霍德尔空间, \hyperpage{195}
   \item Hölder's inequality \dotfill 霍德尔不等式, 
-		\hyperpage{198}
+		\hyperpage{202}
 
   \indexspace
 
-  \item iamge \dotfill 像, \hyperpage{232}
+  \item iamge \dotfill 像, \hyperpage{236}
   \item Inada condition \dotfill 稻田条件, \hyperpage{24}
-  \item index family \dotfill 索引族, \hyperpage{191}
+  \item index family \dotfill 索引族, \hyperpage{195}
   \item inf-sup condition \dotfill 上极限——下极限条件, 
 		\hyperpage{163}
-  \item injection \dotfill 内射, \hyperpage{241}
+  \item injection \dotfill 内射, \hyperpage{245}
   \item injection \dotfill 单射, \hyperpage{164}
   \item inner product
     \subitem duality \dotfill 双内积, \hyperpage{162}
-  \item inner product \dotfill 内积, \hyperpage{125}, \hyperpage{200}
-  \item inner product space \dotfill 内积空间, \hyperpage{200}
+  \item inner product \dotfill 内积, \hyperpage{125}, \hyperpage{204}
+  \item inner product space \dotfill 内积空间, \hyperpage{204}
   \item integrable singular points \dotfill 可积奇异点, 
 		\hyperpage{173}
-  \item integration by parts \dotfill 分部积分, \hyperpage{188}, 
-		\hyperpage{204}
+  \item integration by parts \dotfill 分部积分, \hyperpage{192}, 
+		\hyperpage{208}
   \item integration by parts \dotfill 分部积分公式, 
-		\hyperpage{203}
-  \item interior boundary trace \dotfill 内界迹, \hyperpage{225}
+		\hyperpage{207}
+  \item interior boundary trace \dotfill 内界迹, \hyperpage{229}
   \item interpolation
     \subitem Chebyshev \dotfill 切比雪夫插值, \hyperpage{106}, 
 		\hyperpage{151}
     \subitem Lagrange \dotfill 拉格朗日插值法, \hyperpage{131}
-  \item interpolation theorem \dotfill 插值定理, \hyperpage{221}
-  \item intersection \dotfill 交集, \hyperpage{193}
+  \item interpolation theorem \dotfill 插值定理, \hyperpage{225}
+  \item intersection \dotfill 交集, \hyperpage{197}
 
   \indexspace
 
-  \item kernel \dotfill 核, \hyperpage{231}
+  \item Jacobian function \dotfill 雅各比方程, \hyperpage{189}
+
+  \indexspace
+
+  \item kernel \dotfill 核, \hyperpage{235}
   \item Korn inequality \dotfill 科恩不等式, \hyperpage{163}
   \item Kronecker product \dotfill 克罗内乘积, \hyperpage{125}, 
-		\hyperpage{189}
+		\hyperpage{193}
   \item Kronecker product \dotfill 克罗内克乘积, \hyperpage{111}, 
 		\hyperpage{161}
 
   \indexspace
 
-  \item L-infinity norm, \hyperpage{195}
+  \item L-infinity norm, \hyperpage{199}
   \item Lagrange interpolation \dotfill 拉格朗日插值, 
 		\hyperpage{152}
   \item Lamé elasticity parameters \dotfill 拉梅弹性参数, 
 		\hyperpage{163}
-  \item Laplace function \dotfill 拉普拉斯方程, \hyperpage{259}
-  \item Laplace operator \dotfill 拉普拉斯算子, \hyperpage{254}
+  \item Laplace function \dotfill 拉普拉斯方程, \hyperpage{263}
+  \item Laplace operator \dotfill 拉普拉斯算子, \hyperpage{258}
   \item Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理, 
-		\hyperpage{163}, \hyperpage{230}, \hyperpage{238}
+		\hyperpage{163}, \hyperpage{234}, \hyperpage{242}
   \item Lebesgue integrable function \dotfill 勒贝格可积方程, 
-		\hyperpage{192}
+		\hyperpage{196}
   \item Lebesgue space
-    \subitem weighted \dotfill 加权勒贝格空间, \hyperpage{199}
+    \subitem weighted \dotfill 加权勒贝格空间, \hyperpage{203}
   \item Leibniz rule \dotfill 莱布尼兹法则, \hyperpage{133}
-  \item Lesbegue space \dotfill 勒贝格空间, \hyperpage{192}
+  \item Lesbegue space \dotfill 勒贝格空间, \hyperpage{196}
   \item Levenberg-Marquardt algorithm \dotfill 莱文贝格——马夸特方法, 
 		\hyperpage{116}
-  \item likelihood function \dotfill 似然方程, \hyperpage{341}
+  \item likelihood function \dotfill 似然方程, \hyperpage{345}
   \item linear frequency \dotfill 线频率, \hyperpage{177}
   \item Lipschitz continuous function \dotfill 利普希茨连续方程, 
-		\hyperpage{191}
-  \item Lipschitz domain \dotfill 利普希茨域, \hyperpage{191}
+		\hyperpage{195}
+  \item Lipschitz domain \dotfill 利普希茨域, \hyperpage{195}
   \item Lipschitz hypograph \dotfill 利普希茨亚图, 
-		\hyperpage{191}
+		\hyperpage{195}
   \item Lorentzian function \dotfill 洛伦兹方程, \hyperpage{178}
-  \item LP-norm \dotfill LP范数, \hyperpage{195}
+  \item LP-norm \dotfill LP范数, \hyperpage{199}
 
   \indexspace
 
-  \item Manhattan distance \dotfill 曼哈顿距离, \hyperpage{195}
+  \item Manhattan distance \dotfill 曼哈顿距离, \hyperpage{199}
   \item Markov chain
     \subitem finite \dotfill 有限马尔科夫链, \hyperpage{110}
   \item mass matrix
-    \subitem local \dotfill 局部质量矩阵, \hyperpage{330}
+    \subitem local \dotfill 局部质量矩阵, \hyperpage{334}
   \item matrix
     \subitem identity \dotfill 单位矩阵, \hyperpage{129}
     \subitem infinite Jacobi \dotfill 无限雅各比矩阵, 
@@ -342,52 +349,52 @@
     \subitem leading principle submatrix \dotfill 领先主子矩阵, 
 		\hyperpage{128}
     \subitem tridiagonal \dotfill 三角对角矩阵, \hyperpage{128}
-  \item maximum norm \dotfill 最大范数, \hyperpage{195}
-  \item mean square error (MSE) \dotfill 均方误差, \hyperpage{342}
-  \item measurable sets \dotfill 可测集合, \hyperpage{193}
-  \item measurable space \dotfill 可测空间, \hyperpage{193}
+  \item maximum norm \dotfill 最大范数, \hyperpage{199}
+  \item mean square error (MSE) \dotfill 均方误差, \hyperpage{346}
+  \item measurable sets \dotfill 可测集合, \hyperpage{197}
+  \item measurable space \dotfill 可测空间, \hyperpage{197}
   \item measure
-    \subitem counting \dotfill 计数测度, \hyperpage{194}
-  \item measure \dotfill 测度, \hyperpage{193}
-  \item mesh \dotfill 网格, \hyperpage{321}
+    \subitem counting \dotfill 计数测度, \hyperpage{198}
+  \item measure \dotfill 测度, \hyperpage{197}
+  \item mesh \dotfill 网格, \hyperpage{325}
   \item mesh size
-    \subitem global \dotfill 全局网格尺寸, \hyperpage{322}
-    \subitem local \dotfill 局部网格尺寸, \hyperpage{322}
+    \subitem global \dotfill 全局网格尺寸, \hyperpage{326}
+    \subitem local \dotfill 局部网格尺寸, \hyperpage{326}
   \item metric function \dotfill 度量方程, \hyperpage{102}
   \item Minkowski inequality
     \subitem integral \dotfill 闵可夫斯基积分不等式, 
-		\hyperpage{198}
+		\hyperpage{202}
   \item Minkowski inequality \dotfill 闵可夫斯基不等式, 
-		\hyperpage{197}
+		\hyperpage{201}
   \item moment \dotfill 矩, \hyperpage{125}
 
   \indexspace
 
-  \item natural density \dotfill 自然密度, \hyperpage{285}
+  \item natural density \dotfill 自然密度, \hyperpage{289}
   \item Neumann boundary value condition \dotfill 诺依曼边界值条件, 
-		\hyperpage{189}, \hyperpage{249}
-  \item Neumann series \dotfill 诺依曼级数, \hyperpage{298, 299}
+		\hyperpage{193}, \hyperpage{253}
+  \item Neumann series \dotfill 诺依曼级数, \hyperpage{302, 303}
   \item Newton algorithm \dotfill 牛顿算法, \hyperpage{116}
   \item Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法, 
-		\hyperpage{353}
+		\hyperpage{357}
   \item Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法, 
-		\hyperpage{354}
+		\hyperpage{358}
   \item Newton—Cotes Rule \dotfill 牛顿——寇特斯法则, 
 		\hyperpage{167}
-  \item node \dotfill 结点, \hyperpage{113}, \hyperpage{321}
+  \item node \dotfill 结点, \hyperpage{113}, \hyperpage{325}
   \item norm \dotfill 范数, \hyperpage{125}, \hyperpage{163}, 
-		\hyperpage{191}, \hyperpage{194}
-  \item norm equivalence theorem of Sobolev space, \hyperpage{210}
+		\hyperpage{195}, \hyperpage{198}
+  \item norm equivalence theorem of Sobolev space, \hyperpage{214}
   \item normal distribution \dotfill 正态分布, \hyperpage{133}
   \item normed vector space \dotfill 赋范向量空间, 
-		\hyperpage{195}
-  \item null space \dotfill 零空间, \hyperpage{231}
+		\hyperpage{199}
+  \item null space \dotfill 零空间, \hyperpage{235}
   \item numerical integration \dotfill 数值积分, \hyperpage{167}
   \item numerical quadrature \dotfill 数值求积, \hyperpage{167}
 
   \indexspace
 
-  \item orthogonal complement \dotfill 正交补, \hyperpage{231}
+  \item orthogonal complement \dotfill 正交补, \hyperpage{235}
   \item orthogonality condition
     \subitem Hermite polynomial \dotfill 正交条件(埃米特多项式), 
 		\hyperpage{134}
@@ -402,18 +409,18 @@
     \subitem the second kind Chebishev polynomial \dotfill 正交条件(第二类切比雪夫多项式), 
 		\hyperpage{149}
   \item Ostrogradsky-Gauss theorem \dotfill 奥斯特罗格拉德斯基——高斯定理, 
-		\hyperpage{187}
+		\hyperpage{191}
 
   \indexspace
 
-  \item p-norm \dotfill p范数, \hyperpage{195}
+  \item p-norm \dotfill p范数, \hyperpage{199}
   \item p-refinement finite elements \dotfill p——改进(有限元分析), 
 		\hyperpage{115}
   \item Paley-Wiener theorems \dotfill 佩利——维纳诸定理, 
 		\hyperpage{181}
   \item parameterization
-    \subitem local \dotfill 局部参数化, \hyperpage{323}
-  \item Parseval theorem \dotfill 帕塞瓦尔定理, \hyperpage{205}
+    \subitem local \dotfill 局部参数化, \hyperpage{327}
+  \item Parseval theorem \dotfill 帕塞瓦尔定理, \hyperpage{209}
   \item Pascal triangle identity \dotfill 帕斯卡三角, 
 		\hyperpage{133}
   \item periodic function \dotfill 周期方程, \hyperpage{181}
@@ -424,13 +431,17 @@
   \item piecewise linear approximation \dotfill 分段线性近似, 
 		\hyperpage{115}
   \item piecewise smooth boundary \dotfill 分段平滑边界, 
-		\hyperpage{192}
+		\hyperpage{196}
+  \item Plancherel's theorem \dotfill 普朗歇尔定理, 
+		\hyperpage{187}
   \item Pochhammer symbol \dotfill 伯赫哈默尔符号, 
 		\hyperpage{119}, \hyperpage{121}
   \item Poincaré inequality \dotfill 庞加莱不等式, 
-		\hyperpage{214}
-  \item Poisson equation \dotfill 泊松方程, \hyperpage{259}
-  \item polar coordinate system \dotfill 极坐标系, \hyperpage{218}
+		\hyperpage{218}
+  \item Poisson equation \dotfill 泊松方程, \hyperpage{263}
+  \item Poisson summation formula \dotfill 泊松求和式, 
+		\hyperpage{187}
+  \item polar coordinate system \dotfill 极坐标系, \hyperpage{222}
   \item polynomial
     \subitem Chebyshev, first kind \dotfill 第一类切比雪夫多项式, 
 		\hyperpage{148}
@@ -447,16 +458,16 @@
 		\hyperpage{125}
   \item potential
     \subitem adjoint double layer \dotfill 伴随双层位势, 
-		\hyperpage{269}
+		\hyperpage{273}
     \subitem adjoint double layer \dotfill 伴随双层位势算子, 
-		\hyperpage{266}
-    \subitem Bessel \dotfill 贝塞尔位势, \hyperpage{220}
-    \subitem double layer \dotfill 双层位势算子, \hyperpage{269}
-    \subitem Newton  \dotfill 牛顿位势, \hyperpage{259}
-    \subitem single layer \dotfill 单层位势, \hyperpage{264}
-  \item powerset \dotfill 幂集, \hyperpage{192}
+		\hyperpage{270}
+    \subitem Bessel \dotfill 贝塞尔位势, \hyperpage{224}
+    \subitem double layer \dotfill 双层位势算子, \hyperpage{273}
+    \subitem Newton  \dotfill 牛顿位势, \hyperpage{263}
+    \subitem single layer \dotfill 单层位势, \hyperpage{268}
+  \item powerset \dotfill 幂集, \hyperpage{196}
   \item probability density function(PDF) \dotfill 概率密度方程, 
-		\hyperpage{341}
+		\hyperpage{345}
   \item projection method \dotfill 映射法, \hyperpage{101}
   \item pseudospectral \dotfill 伪光谱, \hyperpage{117}
 
@@ -466,35 +477,35 @@
   \item quadrature rule \dotfill 求积法则, \hyperpage{167}
   \item quadrature weights \dotfill 求积权重, \hyperpage{167}
   \item quansi-uniform
-    \subitem globally \dotfill 全局拟一致, \hyperpage{323}, 
-		\hyperpage{334}
+    \subitem globally \dotfill 全局拟一致, \hyperpage{327}, 
+		\hyperpage{338}
   \item quasi-uniform
-    \subitem locally \dotfill 局部拟一致, \hyperpage{323}
-  \item quotient space \dotfill 商空间, \hyperpage{195}
+    \subitem locally \dotfill 局部拟一致, \hyperpage{327}
+  \item quotient space \dotfill 商空间, \hyperpage{199}
 
   \indexspace
 
   \item r-refinement finite elements \dotfill r——改进(有限元分析), 
 		\hyperpage{115}
-  \item range \dotfill 值域, \hyperpage{232}
+  \item range \dotfill 值域, \hyperpage{236}
   \item rapidly decreasing function \dotfill 急减方程, 
-		\hyperpage{218}
-  \item rapidly decreasing space \dotfill 急减空间, \hyperpage{218}
+		\hyperpage{222}
+  \item rapidly decreasing space \dotfill 急减空间, \hyperpage{222}
   \item rectangular (quadrature) rule \dotfill 矩形(求积)法则, 
 		\hyperpage{167}
-  \item reference element \dotfill 参考元, \hyperpage{277}, 
-		\hyperpage{323}
+  \item reference element \dotfill 参考元, \hyperpage{281}, 
+		\hyperpage{327}
   \item residual function (projection method) \index{残差方程(映射法)}, 
 		\hyperpage{101}
   \item Riemann-Stieltjes integral \dotfill 黎曼——斯蒂尔杰斯积分, 
 		\hyperpage{124}
-  \item Riesz map \dotfill 里兹映射, \hyperpage{229}
+  \item Riesz map \dotfill 里兹映射, \hyperpage{233}
   \item Riesz representation theorem \dotfill 里兹表现定理, 
-		\hyperpage{227}, \hyperpage{254}
+		\hyperpage{231}, \hyperpage{258}
   \item Riesz-Schauder theorem \dotfill Riesz-Schauder定理, 
-		\hyperpage{241}
+		\hyperpage{245}
   \item Robin boundary value condition \dotfill 罗宾边界值条件, 
-		\hyperpage{189}, \hyperpage{253}
+		\hyperpage{193}, \hyperpage{257}
   \item Rodrigues formula
     \subitem Hermite polynomial\dotfill 罗德里格斯公式(埃米特多项式), 
 		\hyperpage{133}
@@ -508,14 +519,14 @@
 		\hyperpage{149}
     \subitem the second kind Chebyshev polynomial \dotfill 罗德里格斯公式(第二类切比雪夫多项式), 
 		\hyperpage{149}
-  \item rotation \dotfill 旋转, \hyperpage{274}, \hyperpage{277}
+  \item rotation \dotfill 旋转, \hyperpage{278}, \hyperpage{281}
   \item Runge phenomenon \dotfill 龙格现象, \hyperpage{170}
 
   \indexspace
 
-  \item Schwarz inequality \dotfill 施瓦茨不等式, \hyperpage{214}
+  \item Schwarz inequality \dotfill 施瓦茨不等式, \hyperpage{218}
   \item score (maximum likelihood) \dotfill 评分(最大似然估计), 
-		\hyperpage{344}
+		\hyperpage{348}
   \item second order linear differential equation
     \subitem Hermite polynomial \dotfill 二阶线性微分方程(埃米特多项式), 
 		\hyperpage{136}
@@ -524,69 +535,69 @@
     \subitem Laguerre polynomial \dotfill 二阶线性微分方程(拉盖尔多项式), 
 		\hyperpage{141}
   \item selected points \dotfill 选点, \hyperpage{117}
-  \item self-adjoint operator, \hyperpage{187}
+  \item self-adjoint operator, \hyperpage{191}
   \item seminorm
-    \subitem  \dotfill 半范数, \hyperpage{194}
-    \subitem trivial \dotfill 平凡半范数, \hyperpage{195}
+    \subitem  \dotfill 半范数, \hyperpage{198}
+    \subitem trivial \dotfill 平凡半范数, \hyperpage{199}
   \item seminormed vector space \dotfill 半赋范向量空间, 
-		\hyperpage{198}
+		\hyperpage{202}
   \item sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计), 
-		\hyperpage{344}
+		\hyperpage{348}
   \item sequence space
     \subitem countably infinite dimensional \dotfill 可数无限维数列空间, 
-		\hyperpage{196}
+		\hyperpage{200}
   \item sigma
-    \subitem additivity \dotfill sigma可加, \hyperpage{193}
-    \subitem algebra \dotfill sigma代数, \hyperpage{192}
-    \subitem finite \dotfill sigma有限, \hyperpage{194}
+    \subitem additivity \dotfill sigma可加, \hyperpage{197}
+    \subitem algebra \dotfill sigma代数, \hyperpage{196}
+    \subitem finite \dotfill sigma有限, \hyperpage{198}
   \item Simpson's (quadrature) rule \dotfill 辛普森(求积)法则, 
 		\hyperpage{170}
   \item sinc finction
-    \subitem normalized \dotfill 标准化sinc方程, \hyperpage{256}
+    \subitem normalized \dotfill 标准化sinc方程, \hyperpage{260}
     \subitem unnormalized \dotfill 非标准化sinc方程, 
-		\hyperpage{256}
-  \item sine integral \dotfill 正弦积分, \hyperpage{256}
+		\hyperpage{260}
+  \item sine integral \dotfill 正弦积分, \hyperpage{260}
   \item singular integral
-    \subitem weak \dotfill 弱奇异积分, \hyperpage{263}, 
-		\hyperpage{265}
+    \subitem weak \dotfill 弱奇异积分, \hyperpage{267}, 
+		\hyperpage{269}
   \item Sobolev space
     \subitem  \dotfill 索伯列夫空间, \hyperpage{160}
   \item Sobolev-Slobodeckij
-    \subitem norm \dotfill Sobolev-Slobodeckij范数, \hyperpage{206}
+    \subitem norm \dotfill Sobolev-Slobodeckij范数, \hyperpage{210}
     \subitem seminorm \dotfill Sobolev-Slobodeckij半范数, 
-		\hyperpage{206}
+		\hyperpage{210}
     \subitem space \dotfill Sobolev–Slobodeckij空间, 
-		\hyperpage{206}
+		\hyperpage{210}
   \item Sobolev-Slobodeckij norm \dotfill Sobolev-Slobodeckij范数, 
-		\hyperpage{223}
+		\hyperpage{227}
   \item spectral elements \dotfill 光谱元, \hyperpage{115}
   \item spectral method \dotfill 光谱法, \hyperpage{104}
   \item spectral method \dotfill 有限元法, \hyperpage{104}
   \item spherical coordinate system \dotfill 三维坐标系, 
-		\hyperpage{219}, \hyperpage{260}
+		\hyperpage{223}, \hyperpage{264}
   \item Steklov-Poincaré operator \dotfill Steklov-Poincaré算子, 
-		\hyperpage{290}
-  \item stiffness matrix \dotfill 刚度矩阵, \hyperpage{307}
+		\hyperpage{294}
+  \item stiffness matrix \dotfill 刚度矩阵, \hyperpage{311}
   \item Stokes equations \dotfill 斯托克斯公式, \hyperpage{163}
   \item Stone-Weierstrass Theorem \dotfill 斯通-魏尔斯特拉斯定理, 
 		\hyperpage{104}
   \item Strang's First Lemma \dotfill 斯特朗第一引理, 
-		\hyperpage{309}
+		\hyperpage{313}
   \item Strang's Second Lemma \dotfill 斯特朗第二引理, 
-		\hyperpage{310}
-  \item subadditivity \dotfill 次可加, \hyperpage{194}
-  \item support \dotfill 支撑, \hyperpage{191}
-  \item surface integral \dotfill 表面积分, \hyperpage{263}, 
-		\hyperpage{265}
+		\hyperpage{314}
+  \item subadditivity \dotfill 次可加, \hyperpage{198}
+  \item support \dotfill 支撑, \hyperpage{195}
+  \item surface integral \dotfill 表面积分, \hyperpage{267}, 
+		\hyperpage{269}
 
   \indexspace
 
-  \item taxicab geometry \dotfill 出租车距离, \hyperpage{195}
+  \item taxicab geometry \dotfill 出租车距离, \hyperpage{199}
   \item telescoping sum \dotfill 裂项和, \hyperpage{129}
   \item tempered distribution space \dotfill 缓增分布空间, 
-		\hyperpage{218}, \hyperpage{255}
+		\hyperpage{222}, \hyperpage{259}
   \item tensor \dotfill 张量, \hyperpage{111}
-  \item test space \dotfill 试探空间, \hyperpage{217}
+  \item test space \dotfill 试探空间, \hyperpage{221}
   \item three-term recurrence relation
     \subitem Hermite polynomial \dotfill 三项递推关系(埃米特多项式), 
 		\hyperpage{135}
@@ -602,35 +613,35 @@
 		\hyperpage{149}
     \subitem the second kind Chebishev polynomial \dotfill 三项递推关系(第二类切比雪夫多项式), 
 		\hyperpage{149}
-  \item trace \dotfill 迹, \hyperpage{188}, \hyperpage{242}
+  \item trace \dotfill 迹, \hyperpage{192}, \hyperpage{246}
   \item transition matrix \dotfill 转移矩阵, \hyperpage{110}
   \item transition probability \dotfill 转移概率, \hyperpage{110}
   \item trapezoidal (quadrature) rule \dotfill 梯形(求积)法则, 
 		\hyperpage{168}
-  \item trial space \dotfill 检测空间, \hyperpage{329}
-  \item triangle inequality \dotfill 三角不等式, \hyperpage{197}
-  \item trigonometric integral \dotfill 三角积分, \hyperpage{256}
-  \item triple 三元组, \hyperpage{193}
+  \item trial space \dotfill 检测空间, \hyperpage{333}
+  \item triangle inequality \dotfill 三角不等式, \hyperpage{201}
+  \item trigonometric integral \dotfill 三角积分, \hyperpage{260}
+  \item triple 三元组, \hyperpage{197}
   \item truncation
     \subitem Chebyshev \dotfill 切比雪夫截断, \hyperpage{106}, 
 		\hyperpage{154}
 
   \indexspace
 
-  \item unbiased estimate \dotfill 无偏估计, \hyperpage{342}
+  \item unbiased estimate \dotfill 无偏估计, \hyperpage{346}
   \item uniform cone condition \dotfill 均匀法锥条件, 
-		\hyperpage{221}
+		\hyperpage{225}
   \item uniform convergence \dotfill 均匀收敛, \hyperpage{117}
   \item uniform distribution \dotfill 均匀分布, \hyperpage{145}
-  \item uniform norm \dotfill 均匀范数, \hyperpage{195}
-  \item union \dotfill 并集, \hyperpage{192}
+  \item uniform norm \dotfill 均匀范数, \hyperpage{199}
+  \item union \dotfill 并集, \hyperpage{196}
 
   \indexspace
 
   \item value function \dotfill 价值方程, \hyperpage{25}
   \item vector space
-    \subitem normed \dotfill 赋范向量空间, \hyperpage{197}
-  \item vector space \dotfill 向量空间, \hyperpage{194}
+    \subitem normed \dotfill 赋范向量空间, \hyperpage{201}
+  \item vector space \dotfill 向量空间, \hyperpage{198}
 
   \indexspace
 
@@ -641,7 +652,7 @@
 
   \indexspace
 
-  \item zero vector \dotfill 零向量, \hyperpage{194}
-  \item ZFC axioms \dotfill ZFC集合论, \hyperpage{192}
+  \item zero vector \dotfill 零向量, \hyperpage{198}
+  \item ZFC axioms \dotfill ZFC集合论, \hyperpage{196}
 
 \end{theindex}

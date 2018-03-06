@@ -556,7 +556,7 @@ $p=2$时的牛顿——寇特斯求积，又称辛普森法则(Simpson's rule)\i
   \item 实值方程的傅里叶变换
 \end{itemize}
 
-\textit{导数的傅里叶变换}。对于某一给定方程$f(x)$，如果我们可以求得其傅里叶变换$\tilde{f}(k)$，那么$f(x)$的导数也很容易写出。首先写出$f(t)$的傅里叶综合表达式(Fourier synthesis equation)\todo{做一个reference}
+\textit{导数的傅里叶变换}。对于某一给定方程$f(x)$，如果我们可以求得其傅里叶变换$\tilde{f}(k)$，那么$f(x)$的导数也很容易写出。首先写出$f(t)$的傅里叶综合表达式(Fourier synthesis equation, 第\ref{eq:fourier-series-synthesis}节)
 \begin{equation*}
   f(x) = \int_{-\infty}^{\infty} \tilde{f}(k) \exp \left( i k x \right) \, \mathrm{d} k,
 \end{equation*}
@@ -730,7 +730,7 @@ RHS的被积方程
     FWHM \left[ G_{\sigma} \left( x \right) \right]
     & = 2 \sqrt{ \ln 2} \sigma, \\
     FWHM \left[ G_{\sigma} \left( x \right) \right] \cdot FWHM \left[ \widetilde{G}_{\sigma} \left( x \right) \right]
-    = \left( 2 \sqrt{\ln 2} \sigma \right) \cdot
+    & = \left( 2 \sqrt{\ln 2} \sigma \right) \cdot
     \left( \frac{4 \sqrt{\ln 2}}{\sigma}\right) = 8 \left( \ln 2\right)^{2},
   \end{split}
 \end{equation}
@@ -959,7 +959,7 @@ RHS的被积方程
   \delta_{\nu,1} + 2 \delta_{\nu,0} + \delta_{\nu,-1}
   \right],
 \end{equation*}
-换句话说，傅里叶级数的系数$\tilde{f}_{\nu}$只有在$\nu = \left\{ -1, 0 ,1 \right\}$时不等于$0$。那么，将$f(t)$用傅里叶综合形式\todo{做一个ref}写为
+换句话说，傅里叶级数的系数$\tilde{f}_{\nu}$只有在$\nu = \left\{ -1, 0 ,1 \right\}$时不等于$0$。那么，将$f(t)$用傅里叶综合形式(第\ref{eq:fourier-series-synthesis}节)写为
 \begin{equation}
   \label{eq:fourier-series-expo-coef-cal}
   \begin{split}
@@ -1058,7 +1058,229 @@ RHS的被积方程
 
 \subsubsection{吉布斯现象}
 \label{sec:fourier-series-gibbs-phenomenon}
-前文可见，通过加总一系列弦波方程(假定其中每一个弦波都是平滑的)，可以生成图\ref{fig:fourier-series-sawwave}一般参差状不连续的锯齿方程，
+前文可见，通过加总一系列弦波方程(假定其中每一个弦波都是平滑的)，可以生成图\ref{fig:fourier-series-sawwave}一般参差状不连续的锯齿方程，但这是有限定条件的：如果我们只截取全部傅里叶级数中的一段，即只加总有限个项(总共有无数个项加总)的话，这意味着只对$f(t)$作有限个傅里叶综合的话，就会产生吉布斯现象(Gibbs phenomenon)\index{Gibbs phenomenon \dotfill 吉布斯现象}：这是指，在对非连续方程作不完全傅里叶综合时，在不连续点附近所出现的震荡。如图\ref{fig:fourier-series-gibbs-phenomenon}所示，原方程$f(t)$为锯齿方程，$f_{N}(t), n=2,5,10,20$分别为对$f(t)$所做的不完全傅里叶综合
+\begin{equation*}
+  f_{N}(t) = \sum_{\nu = - N}^{N} \tilde{f}_{\nu} \cdot \exp \left( i \nu \omega_{0} t \right).
+\end{equation*}
+不难看出，在远离不连续点(如$t=0,1$)的地方，$N$越是大，傅里叶级数越能对原方程作精确近似。而反之则不然：在接近不连续点的地方，傅里叶级数的近似精度并为随着$N$的升高而显著提升。
+
+\begin{figure}[htbp]
+   \caption{吉布斯现象}
+  \centering
+  \includegraphics[width=10cm]{./Figures/20180305-gibbs-phenomenon.png}
+  \label{fig:fourier-series-gibbs-phenomenon}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+
+\subsubsection{傅里叶级数的收敛}
+\label{sec:fourier-series-convergence}
+
+图\ref{fig:fourier-series-gibbs-phenomenon}也揭示了傅里叶级数的又一个重要特征：如果非连续方程$f(t)$在$t^{*}$点不连续，那么它的傅里叶级数$\sum \tilde{f}_{\nu} \exp \left( i \nu \omega_{0} t^{*} \right)$收敛至这一不连续的中点，即
+\begin{equation*}
+\begin{split}
+  & \lim_{N \rightarrow \infty}
+  \sum_{\nu = - N}^{N}
+  \tilde{f}_{\nu} \cdot \exp \left( i \nu \omega_{0} t^{*} \right)
+  \approx \frac{1}{2}
+  \left[
+  f \left( t_{-}^{*}\right) + f \left( t_{+}^{*}\right)
+  \right], \\
+  & f \left( t_{-}^{*}\right) \equiv \lim_{\varepsilon \rightarrow 0} f \left( t^{*} - \varepsilon \right), \quad f \left( t_{+}^{*}\right) \equiv \lim_{\varepsilon \rightarrow 0} f \left( t^{*} + \varepsilon \right), \, \varepsilon > 0.
+\end{split}
+\end{equation*}
+
+根据这一性质，如果我们在$[0,T]$区间内，对一个并非以$[0,T]$为周期的不连续方程作傅里叶级数的近似，那么用$t=0$点作傅里叶近似，可得$\frac{1}{2} \left[ f(0) + f(T)\right]$，这在图\ref{fig:fourier-series-gibbs-phenomenon}中有所反映。
 
 
-\end{subappendices}
+\subsubsection{傅里叶分析是无损转换过程}
+\label{sec:fourier-lossless}
+傅里叶分析的又一个重要特征表现为，对原方程的傅里叶转换是无损(lossless)的，即$f(t)$中的信息在$f(t) \rightarrow \tilde{f}(\omega)$的过程中没有损耗。为了说明这一点，首先来介绍傅里叶综合(Fourier synthesis)\index{Fourier synthesis \dotfill 傅里叶综合}的概念：存在关于$f(t)$的傅里叶级数$\tilde{f}(\omega)$，并且可以根据傅里叶级数向回逆推得到原方程$f(t)$，表示为
+\begin{equation}
+  \label{eq:fourier-series-synthesis}
+  f(t) = \int_{-\infty}^{\infty} \exp \left( i \omega t \right) \cdot \tilde{f}(\omega) \, \mathrm{d} \omega,
+\end{equation}
+即将一系列指数方程(或弦波曲线)加权加总，权重由与频率$\omega$有关的傅里叶变换$\tilde{f}(\omega)$给出；加总后的方程即原方程$f(t)$。
+
+\begin{theorem}[帕赛瓦尔定理(傅里叶变换)]
+\label{theorem:fourier-parseval-theorem}
+我们说\eqref{eq:fourier-series-synthesis}是精确无损的，是指原域中的$f(t)$和傅里叶域中的$\tilde{f}(\omega)$之间相互转换不会产生信息损耗，这称为帕塞瓦尔定理(Parseval's theorem)。
+\end{theorem}
+\begin{proof}
+  设两方程的内积(inner product)满足
+  \begin{equation*}
+    \langle f, g \rangle = \int_{-\infty}^{\infty} f^{*}(t) g(t) \, \mathrm{d}(t),
+  \end{equation*}
+  引入傅里叶综合形式\eqref{eq:fourier-series-synthesis}分别替代RHS被积方程中的$f^{*}$和$g(t)$，有
+  \begin{equation}
+    \label{eq:fourier-series-parseval-theorem}
+    \begin{split}
+      \langle f, g \rangle & = \int_{-\infty}^{\infty} f^{*}(t) g(t) \, \mathrm{d}(t) \\
+      & = \int_{-\infty}^{\infty}
+      \left\{
+      \int_{- \infty}^{\infty}
+      \exp \left( - i \omega t \right) \tilde{f}^{*} \left( \omega \right) \, \mathrm{d} \omega
+      \right\}
+      \cdot
+      \left\{
+      \int_{-\infty}^{\infty}
+      \exp \left( i \omega^{'} t \right) \tilde{g} \left( \omega^{'} \right) \, \mathrm{d}\omega^{'}
+      \right\}
+      \, \mathrm{d} t \\
+      & = \int_{-\infty}^{\infty}
+      \tilde{f}^{*} \left( \omega \right)
+      \int_{-\infty}^{\infty}
+      \tilde{g} \left( \omega^{'} \right)
+      \underbrace{
+      \left\{
+      \int_{-\infty}^{\infty}
+      \exp \left[ i \left( \omega^{'} - \omega \right) t \right] \, \mathrm{d} t
+      \right\}
+      }_{= 2 \pi \delta \left( \omega^{'} - \omega \right)}
+      \, \mathrm{d} \omega^{'} \, \mathrm{d} \omega \\
+      & =
+      \int_{-\infty}^{\infty}
+      \tilde{f}^{*} \left( \omega \right)
+      \int_{-\infty}^{\infty}
+      \tilde{g} \left( \omega^{'} \right)
+      2 \pi \delta \left( \omega^{'} - \omega \right)
+      \, \mathrm{d} \omega^{'} \, \mathrm{d} \omega \\
+      & = 2 \pi \int_{-\infty}^{\infty}
+      \tilde{f}^{*} \left( \omega \right)
+      \tilde{g} \left( \omega \right)
+      \, \mathrm{d} \omega,
+    \end{split}
+  \end{equation}
+  也就是说，原方程的内积$\langle f,g \rangle$等于它们两个的傅里叶变换相乘$\tilde{f}^{*}\left( \omega \right) \tilde{g} \left( \omega \right)$后的积。
+\end{proof}
+
+\begin{theorem}[普朗歇尔定理(傅里叶变换)]
+  \label{theorem:fourier-series-plancherel-theorem}
+在帕塞瓦尔定理(Theorem \ref{theorem:fourier-parseval-theorem})的基础上，设$f(t) \equiv g(t)$，那么由式\eqref{eq:fourier-series-parseval-theorem}可得
+\begin{equation}
+  \label{eq:fourier-series-plancherel-theorem}
+  \langle f, g \rangle = \int_{-\infty}^{\infty} \left| f(t) \right|^{2} \, \mathrm{d} t
+  = 2 \pi \int_{-\infty}^{\infty} \left| \tilde{f} \left( \omega \right) \right|^{2} \, \mathrm{d} \omega,
+\end{equation}
+又称普朗歇尔定理(Plancherel's theorem)\index{Plancherel's theorem \dotfill 普朗歇尔定理}。
+\end{theorem}
+
+现在将区间$\left( - \infty, \infty \right)$缩小到某个定区间$\left[ 0, T \right]$，来看傅里叶级数中方程转换的信息损耗问题。之所以关注定区间$\left[ 0, T \right]$，要么是因为原方程$f(t)$是$T$-周期方程，要么是我们的研究中只关注特定区间内方程值的变化。
+\begin{theorem}[帕赛瓦尔定理(傅里叶级数)]
+\label{theorem:fourier-parseval-theorem-series}
+在$[0,T]$区间内，由Theorem \ref{theorem:fourier-parseval-theorem}可得
+\begin{equation}
+  \label{eq:fourier-parseval-theorem-series}
+  \int_{0}^{T} f^{*} \left( t \right) g \left( t \right) \, \mathrm{d} t
+  = T \sum_{\nu = - \infty}^{\infty} \tilde{f}_{\nu}^{*} \tilde{g}_{\nu}.
+\end{equation}
+\end{theorem}
+
+\begin{theorem}[普朗歇尔定理(傅里叶级数)]
+  \label{theorem:fourier-series-plancherel-theorem-series}
+在$[0,T]$区间内，由Theorem \ref{theorem:fourier-series-plancherel-theorem}可得
+\begin{equation}
+  \label{eq:fourier-series-plancherel-theorem-series}
+  \int_{0}^{T} \left| f(t) \right|^{2} \, \mathrm{d} t
+  = T \sum_{\nu = - \infty}^{\infty} \left| \tilde{f}_{\nu} \right|^{2}.
+\end{equation}
+\end{theorem}
+
+根据帕塞瓦尔定理和普朗歇尔定理，在数值计算过程中，我们既可以求解实区间中的原始方程，也可以求解傅里叶空间中的变换方程，二者等价。实际求解哪一种取决于哪个更容易计算。
+
+\subsection{泊松求和式}
+\label{sec:fourier-poisson-summation-formula}
+采用类似于帕塞瓦尔定理的思路，也有另一种在实域或傅里叶域近似求积的方法，称泊松求和式(Poisson summation formula)\index{Poisson summation formula \dotfill 泊松求和式}。
+\begin{theorem}
+  具体说来，假定关于方程$f(t)$，我们想要求得一组等宽分布的时间点(对应宽度$\Delta t$)下$f(t)$值的和。根据泊松求和式，我们也可以计算傅里叶域中一组等宽分布(对应宽度$\frac{2 \pi}{\Delta t}$)的$\tilde{f}\left( \omega \right)$的值，两种方法等价。
+
+  \begin{equation}
+    \label{eq:fourier-poisson-summation-formula}
+    \sum_{n = - \infty}^{\infty} f \left( n \Delta t \right)
+    =
+    \frac{2 \pi}{\Delta t}  \sum_{\nu = - \infty}^{\infty}
+    \tilde{f} \left( \frac{2 \pi \nu}{\Delta t} \right).
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  用傅里叶综合表达式改写\eqref{eq:fourier-poisson-summation-formula}LHS
+  \begin{equation*}
+    \begin{split}
+      \sum_{n=-\infty}^{\infty} f \left( n \Delta t \right)
+      & =
+      \sum_{n=-\infty}^{\infty}
+      \left[
+      \int_{-\infty}^{\infty} \tilde{f} \left( \omega \right)
+      \exp \left( i n \omega \Delta t \right) \, \mathrm{d} \omega
+      \right]\\
+      & = \int_{-\infty}^{\infty} \tilde{f} \left( \omega \right)
+      \underbrace{
+      \sum_{n=-\infty}^{\infty}
+      \exp \left( i n \omega \Delta t \right)
+      }_{= 2 \pi \sum_{\nu} \delta \left( \omega \Delta t - 2 \nu \pi \right)}
+      \, \mathrm{d} \omega \\
+      & = \int_{-\infty}^{\infty} \tilde{f} \left( \omega \right)
+      2 \pi \underbrace{
+      \sum_{\nu} \delta \left( \omega \Delta t - 2 \nu \pi \right)
+      }_{\eqqcolon \mathcal{A}}
+      \, \mathrm{d} \omega,
+    \end{split}
+  \end{equation*}
+
+  最后一行等式中，将$f \left( n \Delta t \right)$理解为一个关于$\omega \Delta t - 2 \nu \pi$的狄拉克方程，可分两种情况进一步分析
+  \begin{itemize}
+    \item 如果$\omega \Delta t$是$2 \pi$的整数倍($\nu \in \mathcal{Z}$可以是任意整数)，那么$\sum_{n=-\infty}^{\infty} f \left( n \Delta t \right) = \infty$。
+    \item 否则，$\mathcal{A}$就是一组狄拉克方程$\delta \left( \omega \Delta t - 2 \nu \pi \right)$之和，每个狄拉克方程对应不同的$\nu$值；进而
+    $\sum_{n=-\infty}^{\infty} f \left( n \Delta t \right) =0$，各项之间相互抵消。
+  \end{itemize}
+
+由狄拉克方程的性质
+\begin{equation*}
+  \delta \left( a x - b \right) = \frac{1}{a} \delta \left( x - \frac{b}{a} \right)
+\end{equation*}
+可进一步得到
+
+\begin{equation*}
+\begin{split}
+    \sum_{n=-\infty}^{\infty} f \left( n \Delta t \right)
+    & = 2 \pi \sum_{\nu} \int_{-\infty}^{\infty} \tilde{f} \left( \omega \right) \delta \left( \omega \Delta t - 2 \nu \pi \right) \, \mathrm{d} \omega\\
+    & = \frac{2 \pi}{\Delta t} \sum_{\nu} \int_{-\infty}^{\infty}
+    \tilde{f} \left( \omega \right)
+    \delta \left( \omega - \frac{2 \nu \pi}{\Delta t} \right) \, \mathrm{d} \omega\\
+    & = \frac{2 \pi}{\Delta t} \sum_{\nu = - \infty}^{\infty} \tilde{f} \left( \nu \frac{2 \pi}{\Delta t} \right),
+\end{split}
+\end{equation*}
+证毕。
+\end{proof}
+
+两个值域中各有一组点，两组点的单位相同\footnote{
+$\tilde{f}$的单位=$f$的单位/频率=$f$的单位$\times$(时间)，其中时间用$\Delta t$来表示。因此$\tilde{f}$的单位/$\Delta t$=$f$的单位。}。
+为了简化表达，设$\Delta \omega \equiv \frac{2 \pi}{\Delta t}$，则\eqref{eq:fourier-poisson-summation-formula}改写为
+\begin{equation}
+  \label{eq:fourier-poisson-summation-formula-simp}
+  \sum_{n = - \infty}^{\infty} f \left( n \Delta t \right)
+  = \Delta \omega \sum_{\nu = - \infty}^{\infty}
+  \tilde{f} \left( \nu \cdot \Delta \omega \right),
+\end{equation}
+值得留意的是$\Delta t$和$\Delta \omega$呈反比例，即，在原时间域中，若是对原方程$f(t)$取密集的配点求$\sum f(\cdot)$，对应较小的$\Delta t$值，那么在对应的傅里叶域中，就涉及到较高的频率值$\Delta \omega$——换句话说，原域中的配点越是密，在稀疏频率域中对应的点就越是稀疏。
+
+随着$f(\cdot)$的形式不同，泊松求和式的一些具体应用如下。
+
+\subsubsection{高斯方程的泊松求和}
+\label{eq:fourier-poisson-gaussian}
+
+在前面介绍过，一个高斯方程的傅里叶变换也是一个高斯方程(第\ref{sec:fourier-gaussian}节)。结合本节的知识我们可以作进一步判断：对高斯方程形式原方程配点越宽(如，实域宽度$\sigma$)，其变换后的高斯形式方程越窄(如，傅里叶域对应的宽度$\frac{2}{\sigma}$)。
+
+因此，设一个以$x$为参数的关于$t$的高斯方程$ T_{x}(t)=\exp \left( - t^{2} \pi x \right)$，要求$\sum T_{x}(t)$。在$\sum T_{x}(t)$的收敛速度较慢的情况下，我们可以利用泊松求和式，在傅里叶空间中进行求和计算\footnote{快速收敛的原因可能如，$\pi x$的值较小，从而导致$\sum T_{x}(t)$收敛缓慢。}。具体说来，$T_{x}(t)$的傅里叶变换
+\begin{equation*}
+  \begin{split}
+    \widetilde{T}_{x} \left( \omega \right)
+    & = \frac{1}{2 \pi} \int_{-\infty}^{\infty} \exp \left( - i \omega t \right) T_{x}(t) \, \mathrm{d} t \\
+    & = \frac{1}{2 \pi} \int_{-\infty}^{\infty}
+    \exp \left( - i \omega t - t^{2} \pi x \right)  \, \mathrm{d} t \\
+    & = \frac{1}{2 \pi \sqrt{x}}
+    \exp \left(
+    - \frac{\omega^{2}}{4 \pi x}
+    \right),
+  \end{split}
+\end{equation*}
