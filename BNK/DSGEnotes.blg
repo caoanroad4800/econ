@@ -30,45 +30,45 @@ Warning--empty journal in Stachurski:2008wc
 `journal' is a missing field, not a string, for entry Wood:1975vn
 while executing---line 1514 of file model4-names.bst
 Warning--empty journal in Wood:1975vn
-You've used 216 entries,
+You've used 217 entries,
             2973 wiz_defined-function locations,
-            1872 strings with 36115 characters,
-and the built_in function-call counts, 152281 in all, are:
-= -- 13330
-> -- 3649
+            1877 strings with 36278 characters,
+and the built_in function-call counts, 153296 in all, are:
+= -- 13422
+> -- 3675
 < -- 203
-+ -- 1424
-- -- 1201
-* -- 16696
-:= -- 21985
-add.period$ -- 670
-call.type$ -- 216
-change.case$ -- 1446
-chr.to.int$ -- 218
-cite$ -- 231
-duplicate$ -- 11906
-empty$ -- 12399
-format.name$ -- 1810
-if$ -- 29488
++ -- 1434
+- -- 1210
+* -- 16818
+:= -- 22123
+add.period$ -- 673
+call.type$ -- 217
+change.case$ -- 1454
+chr.to.int$ -- 219
+cite$ -- 232
+duplicate$ -- 11986
+empty$ -- 12482
+format.name$ -- 1822
+if$ -- 29685
 int.to.chr$ -- 8
 int.to.str$ -- 1
-missing$ -- 1834
-newline$ -- 1083
-num.names$ -- 876
-pop$ -- 2017
+missing$ -- 1844
+newline$ -- 1088
+num.names$ -- 880
+pop$ -- 2025
 preamble$ -- 1
-purify$ -- 1259
+purify$ -- 1266
 quote$ -- 0
-skip$ -- 3143
+skip$ -- 3156
 stack$ -- 0
-substring$ -- 12593
-swap$ -- 6804
+substring$ -- 12707
+swap$ -- 6846
 text.length$ -- 24
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1749
+type$ -- 1758
 warning$ -- 15
-while$ -- 1046
+while$ -- 1052
 width$ -- 0
-write$ -- 2956
+write$ -- 2970
 (There were 6 error messages)

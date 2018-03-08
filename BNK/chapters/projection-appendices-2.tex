@@ -283,6 +283,18 @@ $p=2$时的牛顿——寇特斯求积，又称辛普森法则(Simpson's rule)\i
 \label{sec:ninc-tips}
 以牛顿——寇特斯法则为例，介绍几个小技巧。它们对其他如克伦肖——柯蒂斯法则也适用。
 
+\subsubsection{定区间单位的换算}
+\label{sec:ninc-tips-improper-change}
+对于方程$\int_{a}^{b} f(t) \, \mathrm{d} t$的求积问题，常常需要将区间从$[a,b]$转换为$[-1,1]$。可以设一个新的方程$g(u), u \in [-1,1]$，满足
+\begin{equation}
+  \label{eq:ninc-tips-improper-change}
+  g(u) = f \left[ a + \frac{b-a}{2} \left( u + 1 \right) \right], \quad u \in [-1,1],
+\end{equation}
+那么
+\begin{equation*}
+  \int_{a}^{b} f(t) \, \mathrm{d} t \Leftrightarrow \int_{-1}^{1} g(u) \, \mathrm{d} u.
+\end{equation*}
+
 \subsubsection{无限区间求积}
 \label{sec:ninc-tips-improper-integral}
 有时会遇到求含有无限区间的积分问题如
@@ -397,17 +409,17 @@ $p=2$时的牛顿——寇特斯求积，又称辛普森法则(Simpson's rule)\i
 %  \small{Source: PBOC.}
 \end{figure}
 
-\subsection{克伦肖——柯蒂斯法则}
-\label{sec:ninc-cc-rules}
+\subsection{梯形法则的近似误差}
+\label{sec:ninc-cc-trapezoidal-error}
 
-如前文所述，牛顿——柯蒂斯求积法则(第\ref{sec:nint-nc-rule}节)的近似误差随着分段数$N$的衰减速度并不够令人满意；若是尝试利用更高阶多项式被积方程做近似，还会受到龙格现象的干扰。因此在实际应用中，常常并不会直接使用牛顿——柯蒂斯法则。一个更好的方案是克伦肖——柯蒂斯求积法则(Clenshaw-Curtis Rule)\index{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则}。
-在了解傅里叶分析(第\ref{sec:fourier-analysis}节)的基本要点之后，我们可以对这个法则有大致介绍。
+如前文所述，牛顿——寇特斯求积法则(第\ref{sec:nint-nc-rule}节)的近似误差随着分段数$N$的衰减速度并不够令人满意；若是尝试利用更高阶多项式被积方程做近似，还会受到龙格现象的干扰。因此在实际应用中，常常并不会直接使用牛顿——柯蒂斯法则。一个更好的方案是克伦肖——柯蒂斯求积法则(Clenshaw-Curtis Rule)\index{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则}。
+在了解傅里叶分析(第\ref{sec:fourier-analysis}节)的基本要点之后，我们可以对这个法则有大致介绍。首先来看梯形法则的近似误差分析。
 
 
-\subsubsection{梯形法则的近似误差}
+%\subsection{梯形法则的近似误差}
 %傅里叶级数收敛分析}
 %\label{sec:ninc-cc-trapezoidao-convergence}
-\label{sec:ninc-cc-trapezoidal-error}
+%\label{sec:ninc-cc-trapezoidal-error}
 现在假定我们的目标是求解积分$\mathcal{I} = \int_{0}^{T} f(t) \, \mathrm{d} t$。根据梯形法则\eqref{eq:ninc-nc-trapezoidal-rule}可以做$N$个点的近似
 \begin{equation}
   \label{eq:ninc-cc-trape-approx}
@@ -550,14 +562,14 @@ $\varepsilon_{N}^{trap}$从而可以理解为第$\pm N$个，第$\pm 2N$个，$\
   \varepsilon_{N}^{trap} \equiv \left| \mathcal{I} - I_{N}^{trap} \right| = \left| \sum_{p = - \infty, p \neq 0}^{\infty} \tilde{f}_{p N} \right|.
 \end{equation}
 
-\subsubsection{连续非周期方程的傅里叶级数收敛}
+\subsubsection{非周期方程的傅里叶级数收敛}
 \label{sec:ninc-cc-trapezoidao-convergence}
 
 同样地，分析即使进展到\eqref{eq:ninc-cc-trape-approx-error}这一步，我们还是不知道傅里叶级数系数$\left\{ \tilde{f}_{p N}\right\}$的值，因而无法直接数值计算做近似求积。不过我们可以用傅里叶分析的平滑——衰减特性(第\ref{sec:fourier-smoothness-decay}节)，来观察误差随着$N$的增大而衰减的速度有多快(收敛速度)。
 
 随着被积方程$f(t)$是周期方程还是非周期方程，我们分两种情况来分析。首先考虑$f(t)$是平滑方程，但不满足$f(0)=f(T)$的情况。此时我们利用\eqref{eq:ninc-cc-trape-fsynthesis-coef}计算的傅里叶级数系数$\tilde{f}_{\nu}$是一个不连续方程。
 
-为了在这种情况下做收敛分析，一个较原始的方案是\footnote{注意这里讨论的$T$-周期扩展方案较为直观易于理解，但精度上有所欠缺。在下文中我们将对$f(t)$做更精致的周期扩展。}\todo{reference}：将$[0,T]$中的这一段$f(t)$截取出来，以$T$周期为单位向前向后做重复扩展，所形成的一个新周期方程定义为$f^{per}(t)$，作为$f(t)$的$T$-周期扩展，见图\ref{fig:ninc-cc-trape-extension-convergence}。
+为了在这种情况下做收敛分析，一个较原始的方案是\footnote{注意这里讨论的$T$-周期扩展方案较为直观易于理解，但精度上有所欠缺。在下文中我们将对$f(t)$做更精致的周期扩展见第\ref{sec:ninc-cc-rule-transform-problem-g}节。两种方案的比较见第\pageref{footnote:fanganbijiao}页脚注。}\todo{reference}：将$[0,T]$中的这一段$f(t)$截取出来，以$T$周期为单位向前向后做重复扩展，所形成的一个新周期方程定义为$f^{per}(t)$，作为$f(t)$的$T$-周期扩展，见图\ref{fig:ninc-cc-trape-extension-convergence}。
 
 \begin{figure}[htbp]
    \caption{非周期方程的$T$-周期扩展$t \in [0,1]$}
@@ -643,3 +655,419 @@ $\varepsilon_{N}^{trap}$从而可以理解为第$\pm N$个，第$\pm 2N$个，$\
 \end{split}
 \end{equation*}
 忽略掉常数项可得，梯形法则下对非周期方程$f(t)$求积的近似误差$\varepsilon_{N}^{trap} \sim \frac{1}{N^{2}}$，即等比收敛至$\frac{1}{N^{2}}$。
+
+\subsubsection{周期方程的傅里叶级数收敛}
+来考虑$f(t) \in C^{\infty}$是平滑的$T$-周期方程的情况。此时
+\begin{equation*}
+  f(0) = f(T), \, f^{'}(0)=f^{'}(T), \, f^{''}(0)=f^{''}(T), \, \ldots
+\end{equation*}
+根据佩利——维纳诸定理(Theorem \ref{theorem:paley-wiener-theorems})，这类方程在傅里叶域中，傅里叶系数的强度(magtinute) $\left| \tilde{f}_{\nu} \right|$的衰减速度比任何多项式在$\nu$的衰减速度都快，例如$\left| \tilde{f}_{N} \right| \sim \exp \left( - \alpha \left| N \right| \right)$。此时误差项可以写为
+\begin{equation*}
+  \varepsilon_{N}^{trap} =
+  \left|
+  \sum_{p \neq 0} \tilde{f}_{p N}
+  \right| =
+  \sum_{p \neq 0 } \exp \left( - \alpha N \left| p \right| \right) \sim \exp \left( - \alpha N \right),
+\end{equation*}
+即周期方程$f(t)$的梯形法则近似误差项等比例收敛至$\exp \left( - \alpha N \right)$。
+
+\subsection{克伦肖——柯蒂斯求积法则}
+\label{sec:ninc-cc-quadrature-rule}
+上节分析了为什么梯形法则下的傅里叶级数近似误差可以很快速的指数收敛(如果原方程是周期方程)，或是以较慢的速度收敛(如果原方程是非周期方程)。对于非周期方程的情况，能不能让近似误差收敛的速度加快？克伦肖——柯蒂斯求积法则(Clenshaw-Curtis Rule)\index{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则}的作用就在于，将非周期方程转换为周期方程的形式，从而加快梯形法则误差项的收敛速度。大致说来分为三个步骤
+\begin{itemize}
+  \item 将非周期方程转换为周期方程，
+  \item 将求积式改写为傅里叶系数和，
+  \item 应用求积法则做近似，
+\end{itemize}
+以下分别作以说明。
+
+\subsubsection{将非周期方程$f(t)$转换为周期方程$g(t)$}
+\label{sec:ninc-cc-rule-transform}
+假定我们要在$[-1,1]$区间中数值求积
+\begin{equation}
+  \label{eq:ninc-cc-rule-transform-problem}
+  \mathcal{I} = \int_{-1}^{1} f(t) \, \mathrm{d} t,
+\end{equation}
+如果原空间是$[a,b]$而不是$[-1,1]$，可以参考第\ref{sec:ninc-tips-improper-change}的转换方法。
+
+$[-1,1]$区间恰好是$\cos \theta, \, \theta \in [0, \pi]$的取值范围，因此可做参数化处理，设$t = \cos \theta$，定义新方程如图\ref{fig:ninc-cc-rule-transform-problem-ftog}所示。
+\begin{equation}
+  \label{eq:ninc-cc-rule-transform-problem-ftog}
+  g(\theta) \equiv f \left( \cos \theta \right).
+\end{equation}
+
+
+\begin{figure}[htbp]
+   \caption{$f(t)$和$g(\theta)$}
+  \centering
+  \includegraphics[width=10cm]{./Figures/20180307-ftog.png}
+  \label{fig:ninc-cc-rule-transform-problem-ftog}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+
+$g(\theta)$有如下特征：
+\begin{itemize}
+  \item 是个周期方程，周期$T = 2 \pi$，
+  \item 是个偶方程，满足$g(- \theta) = g (\theta)$，
+  \item $ g(\theta) $随着$\theta$从$0$到$\pi$的路径，勾勒出$f(t)$随着$t$从$1$到$-1$的变化路径，
+  \item  $f(t)$在实域$(-\infty, 1)$和$(1, \infty)$中的变化路径，无法由$g(\theta)$表现出来。
+\end{itemize}
+
+$g(\theta)$的傅里叶级数表现形式包含一组弦波之和，每一个弦波的频率都是基准频率$\omega_{0} = \frac{2 \pi}{T} = 1$的整数倍
+\begin{equation}
+\label{eq:ninc-cc-rule-transform-g-fseries}
+\begin{split}
+  g(\theta) & = \sum_{\nu = - \infty}^{\infty} \tilde{g}_{\nu} \exp \left( i \nu \theta \right),\\
+  \tilde{g}_{\nu} & = \frac{1}{2 \pi} \int_{0}^{2 \pi} g(\theta) \exp \left( - i \nu \theta \right) \, \mathrm{d} \theta.
+\end{split}
+\end{equation}
+
+或者$g(\theta)$也可以用傅里叶余弦级数的形式表示为
+\begin{equation}
+  \label{eq:ninc-cc-rule-transform-g-fseries-cos}
+  g(\theta) = \frac{\tilde{a}_{0}}{2} +
+  \sum_{\nu = 1}^{\infty} \tilde{a}_{\nu} \cos \left( \nu \theta \right).
+\end{equation}
+
+两组傅里叶系数$\left\{ \tilde{a}_{\nu} \right\}$，$\left\{ \tilde{g}_{\nu} \right\}$之间的关系为
+\begin{equation}
+  \label{eq:ninc-cc-rule-transform-g-fseries-relation}
+  \tilde{a}_{0} = 2 \tilde{g}_{0}, \quad \tilde{a}_{\nu} = 2 \left( \tilde{g}_{\nu} + \tilde{g}_{- \nu} \right) = 2 \tilde{g}_{\nu},
+\end{equation}
+这是由于$g(\theta)=g(-\theta) \Rightarrow \tilde{g}_{\nu} = \tilde{g}_{-\theta}$。
+
+此外$\left\{ \tilde{a}_{\nu} \right\}$可以表示为如下形式
+\begin{equation}
+  \label{eq:ninc-cc-rule-transform-g-coef-a}
+  \tilde{a}_{\nu} = \frac{1}{\pi} \int_{0}^{2 \pi} g(\theta) \cos \left( \nu \theta \right) \, \mathrm{d} \theta.
+\end{equation}
+
+由\eqref{eq:ninc-cc-rule-transform-g-coef-a}可见，每个系数$\tilde{a}_{\nu}$都是一个被积方程$g(\theta) \cos \left( \nu \theta \right)$关于其域$\theta \in [0, 2 \pi]$的积分。由于在这个域中，$g(\theta)$和$\cos \left( \nu \theta \right)$
+都是偶方程，那么$g(\theta) \cos \left( \nu \theta \right)$也是一个偶方程。这意味着积分\eqref{eq:ninc-cc-rule-transform-g-coef-a}可由一个简单的$N$个点的梯形法则来做近似求解，并且近似误差随着$N$值的增大而呈指数速度衰减。
+
+\subsubsection{原域求积问题改写为傅里叶域求和问题}
+\label{sec:ninc-cc-rule-transform-problem-g}
+目标：将关于$f(t)$的求积问题\eqref{eq:ninc-cc-rule-transform-problem}改写为关于$g(\theta)$的求积问题，用$t = \cos \theta$替换$t$可得
+\begin{equation}
+  \label{eq:ninc-cc-rule-transform-problem-g}
+  \mathcal{I} = \int_{-1}^{1} f(t) \, \mathrm{d} t
+  = \int_{0}^{\pi}
+  \underbrace{
+  f \left( \cos \theta \right)
+  }_{= g (\theta)}
+   \, \underbrace{
+  \mathrm{d} \cos \theta
+  }_{= \sin \theta \mathrm{d} \theta}
+  = \int_{0}^{\pi} g(\theta) \sin \theta \, \mathrm{d} \theta.
+\end{equation}
+尽管被积方程$g(\theta) \sin \theta$时周期方程，但积分区间$[0, \pi]$只是完整周期$[0, 2\pi]$的一般，因此我们不能直接对\eqref{eq:ninc-cc-rule-transform-problem-g}应用梯形法则来做(指数衰减的)求积。为了解决这个问题，我们将$g(\theta)$的傅里叶余弦级数表达式\eqref{eq:ninc-cc-rule-transform-g-fseries-cos}
+代入\eqref{eq:ninc-cc-rule-transform-problem-g}有
+\begin{equation}
+  \label{eq:ninc-cc-rule-transform-problem-g-cos}
+\begin{split}
+    \mathcal{I} & = \int_{0}^{\pi} g(\theta) \sin \theta \, \mathrm{d} \theta
+    = \int_{0}^{\pi}
+    \left[
+    \frac{\tilde{a}_{0}}{2} +
+    \sum_{\nu = 1}^{\infty} \tilde{a}_{\nu} \cos \left( \nu \theta \right)
+    \right]
+    \sin \theta \, \mathrm{d} \theta \\
+    & = \frac{\tilde{a}_{0}}{2}
+    \underbrace{
+    \int_{0}^{\pi} \sin \theta \, \mathrm{d} \theta
+    }_{=2}
+    + \sum_{\nu = 1}^{\infty} \tilde{a}_{\nu}
+    \underbrace{
+  \int_{0}^{\pi} \sin \theta \cos \left( \nu \theta \right) \, \mathrm{d} \theta
+  }_{=\frac{1 + \cos \left( \nu \pi \right)}{1 - \nu^{2}}} \\
+  & = \tilde{a}_{0}+
+  \sum_{\nu = 1}^{\infty} \tilde{a}_{\nu} \frac{1 + \cos \left( \nu \pi \right)}{1 - \nu^{2}},
+\end{split}
+\end{equation}
+
+其中
+\begin{equation*}
+  \cos \left( \nu \pi \right)
+  = \left( -1 \right)^{\nu}
+  = \begin{cases}
+    -1 & \nu\text{是奇数} \\
+    1 & \nu\text{是偶数}
+  \end{cases}
+\end{equation*}
+代回上式得
+\begin{equation}
+  \label{eq:ninc-cc-rule-transform-problem-g-cos-a}
+  \mathcal{I} = \tilde{a}_{0} + \sum_{\nu = 1, \nu \text{是偶数}}^{\infty} \frac{2 \tilde{a}_{\nu}}{1 - \nu^{2}},
+\end{equation}
+也即用$g(\theta)$的傅里叶余弦系数$\left\{ \tilde{a}_{\nu} \right\}$来描述 $f(t)$，进而计算求积问题。如果假定$f(t)$平滑，那么$g(\theta)$继承这一特性，是个平滑的周期方程，其傅里叶余弦系数$\tilde{a}_{\nu}$随着$\nu$值而衰减的速度比任何多项式都快\label{footnote:fanganbijiao}\footnote{与之相比，图\ref{fig:ninc-cc-trape-extension-convergence}的$T$-周期扩展方案则不能保证近似式一定收敛，这是由于它在每个周期的最末一点不连续，因此其傅里叶系数只能以等比于$\nu^{-1}$的代数速度收敛。}。
+
+在实际数值计算过程中，很难考虑到$\nu \rightarrow \infty$的情况。对此，常常要对\eqref{eq:ninc-cc-rule-transform-problem-g-cos-a}中的求和式做一个$\nu$等于某个有限值比如$N$的截断(truncation)\index{truncation \dotfill 截断}，从而最终得到对求积问题\eqref{eq:ninc-cc-rule-transform-problem}的克伦肖——柯蒂斯法则
+\begin{equation}
+  \label{eq:ninc-cc-rule-transform-problem-trunc}
+  \mathcal{I} \approx I_{N}^{CC} \equiv \tilde{a}_{0} + \sum_{\nu=1,\, \text{偶数}}^{N} \frac{2 \tilde{a}_{\nu}}{1 - \nu^{2}},
+\end{equation}
+或者用向量形式，表示为权重向量$W$和傅里叶级数系数$\tilde{\bm{a}}$的点乘
+\begin{equation}
+  \label{eq:ninc-cc-rule-transform-problem-trunc-vector}
+  \begin{split}
+      \mathcal{I} & = \bm{W} \cdot \bm{\tilde{a}}, \\
+      & \bm{\tilde{a}} =
+      \begin{pmatrix}
+        \tilde{a}_{0} \\
+        \tilde{a}_{1} \\
+        \tilde{a}_{2} \\
+        \vdots \\
+        \tilde{a}_{N}
+      \end{pmatrix}, \quad
+      \bm{W} =
+      \begin{pmatrix}
+        W_{0} \\
+        W_{1} \\
+        W_{2} \\
+        \vdots \\
+        W_{N}
+      \end{pmatrix}, \quad
+      W_{\nu} \equiv \begin{cases}
+      1 & \nu = 0, \\
+      \frac{2}{1 - \nu^{2}} & \nu \neq 0, \nu \text{是偶数}, \\
+      0 & \nu \text{是奇数}.
+      \end{cases}
+  \end{split}
+\end{equation}
+
+\subsubsection{应用求积法则做近似}
+在求得\eqref{eq:ninc-cc-rule-transform-problem-trunc}的基础上，需要计算傅里叶级数的系数$\left\{ \tilde{a}_{\nu} \right\}_{\nu}$。常见的思路是利用$N$个点的梯形法则，对傅里叶级数积分式\eqref{eq:ninc-cc-rule-transform-g-coef-a}作近似
+\footnote{事实上在这里我们可以取$M$-点梯形法则来近似\eqref{eq:ninc-cc-rule-transform-g-coef-a}，$M\neq N$并且和$N$没有明显关联。此时近似误差的衰减速度是$\exp \left( - \# M \right)$。另一方面，\eqref{eq:ninc-cc-rule-transform-problem-trunc}的衰减速度是$\exp \left( - \# N \right)$。最终我们取$ \min \left\{\exp \left( - \# M \right),\exp \left( - \# N \right) \right\}$作为全部近似求积的总误差收敛速度。}。
+
+由于\eqref{eq:ninc-cc-rule-transform-g-coef-a}也是一个沿着周期区间对周期方程求积的计算，那么其近似误差同样也随着$N$的增大而等比指数衰减。
+
+式\eqref{eq:ninc-cc-rule-transform-g-coef-a}在对$\tilde{a}_{\nu}$做梯形法则近似的过程中，取样$N$个$\nu$值的点，在原空间中的$f(\cos \theta)$和傅里叶空间中的$g(\theta)$一一对应。进而在\eqref{eq:ninc-cc-rule-transform-problem-trunc}中，便是将这$N$个取样点对应的值加权求和，即也是一个$N$个点的求积法则。
+
+
+\subsubsection{求积法则再探讨}
+回顾一下上节介绍的克伦肖——柯蒂斯法则，利用该法则求解积分问题\eqref{eq:ninc-cc-rule-transform-problem-trunc}，其中
+\begin{itemize}
+  \item $\mathcal{I}$是一个关于$g(\theta)$在傅里叶域$[0,2 \pi]$中取样后求积的方程，
+  \item $\left\{ \tilde{a}_{\nu} \right\}_{\nu}$是一组关于方程$g(\theta) \equiv f \left( \cos \theta \right)$的傅里叶系数，可以根据\eqref{eq:ninc-cc-rule-transform-g-coef-a}利用$N$个点的梯形法则近似计算得出，也即$\tilde{a}_{\nu}$是一个关于$g(\theta)$的方程。
+\end{itemize}
+
+本节我们进一步讨论如何
+\begin{itemize}
+  \item 将$\tilde{a}_{\nu}$转换为与样本方程$f(t)$有关的方程，
+  \item 将$\mathcal{I}$转换为与样本方程$f(t)$有关的方程。
+\end{itemize}
+
+先来看第一个问题。回顾\eqref{eq:ninc-cc-rule-transform-problem-ftog} \eqref{eq:ninc-cc-rule-transform-g-fseries} \eqref{eq:ninc-cc-rule-transform-g-fseries-cos} \eqref{eq:ninc-cc-rule-transform-g-fseries-relation} \eqref{eq:ninc-cc-rule-transform-g-coef-a}可见，
+$\tilde{a}_{\nu}$是个在一个周期内$[0, 2\pi]$，对周期方程$f(\cos \theta) \cos \left( \nu \theta \right)$求积的运算
+\begin{equation*}
+  \tilde{a}_{\nu} = \frac{1}{2 \pi} \int_{0}^{2 \pi} f(\cos \theta) \cos \left( \nu \theta \right) \mathrm{d} \theta,
+\end{equation*}
+那么可以用$N$个点的梯形法则对上式做近似估计，估计的误差随着取样点数$N$的增加而呈指数速度等比衰减
+\footnote{
+通常来讲，误差项呈指数速度快速收敛的前提是原方程$f(t)$平滑：克伦肖——柯蒂斯法则的周期化算法\eqref{eq:ninc-cc-rule-transform-problem-ftog}消除了时间周期最末端一点的不连续性(从而使得这种算法优于前文提出的原始周期化方案)，但无法消除$f(t)$在周期内其他位置可能存在的不连续性。
+
+从技术上来讲，$f(t)$的平滑只能确保误差项的收敛速度超过$N$值对应的任意多项式。在必要的情况下，确保误差项指数收敛的更严格前提是假定$f(t)$时解析的(analytic)，即$f$在所关注域内的任意一点上，任意级泰勒级数均收敛。
+
+在数值近似的实际操作过程中，平滑方程假定和解析方程假定的区别并不大，从而我们可以在一般意义上仅假定$f(t)$是平滑的，就可以确保傅里叶级数的近似误差呈指数收敛。}
+。由于被积方程 $f(\cos \theta) \cos \left( \nu \theta \right)$是个偶方程，我们可以取原周期的一半$[0, \pi]$求积，并将常数乘以2
+\begin{equation*}
+  \tilde{a}_{\nu} = \frac{2}{\pi} \int_{0}^{\pi} f(\cos \theta) \cos \left( \nu \theta \right) \, \mathrm{d} \theta.
+\end{equation*}
+
+对上式应用$N$点梯形法则
+\begin{equation}
+  \label{eq:ninc-cc-af-1}
+  \tilde{a}_{\nu} = \frac{2}{N}  \overline{\sum}_{n=0}^{N} f \left( \cos \theta_{n} \right) \cos \left( \nu \theta_{n} \right), \quad \theta_{n} \equiv \frac{n \pi}{N},
+\end{equation}
+其中$\overline{\sum}_{n=0}^{N}$是一个简化表述，表示首项$n=0$
+和末项$n=N$要在前面乘以$1/2$。
+
+\eqref{eq:ninc-cc-af-1}也可以进一步简化表述为
+\begin{equation}
+  \label{eq:ninc-cc-af-2}
+  \begin{split}
+    & \tilde{a}_{\nu}  = \sum_{n} \Lambda_{\nu n} f \left( t_{n} \right),\\
+    & t_{n} \equiv \cos \left( \frac{\pi n}{N} \right), \quad \Lambda_{\nu n} \equiv \begin{cases}
+    \frac{1}{N} \cos \left( \frac{n \nu \Pi}{N} \right), & n=0 \\
+    \frac{2}{N} \cos \left( \frac{n \nu \Pi}{N} \right), & n=1,2,\ldots,N-1 \\
+    \frac{1}{N} \cos \left( \frac{n \nu \Pi}{N} \right), & n=N,
+    \end{cases}
+  \end{split}
+\end{equation}
+其中$t_{n}$可称为切比雪夫点(Chebyshev points)。在\eqref{eq:ninc-cc-af-2}中，用到同一组二次项值$\cos \left( \frac{n \nu \pi}{N} \right)$来对$f(t)$做取样，计算不同的系数值$\tilde{a}_{\nu}$。这意味着，可以将\eqref{eq:ninc-cc-af-2}改写为以下矩阵形式
+\begin{equation}
+  \label{eq:ninc-cc-af-matrix}
+  \tilde{\bm{a}} = \bm{\Lambda} \cdot \bm{f},
+\end{equation}
+其中
+\begin{itemize}
+  \item $\bm{\tilde{a}}$是$\left( N+1 \right) \times 1$的傅里叶系数向量
+\begin{equation*}
+  \bm{\tilde{a}}=\left[ \tilde{a}_{0}, \tilde{a}_{1}, \ldots, \tilde{a}_{N} \right]^{\top}.
+\end{equation*}
+  \item $\bm{f}$是个$\left( N+1 \right) \times 1$的抽样值向量
+  \begin{equation*}
+    \bm{f}=\left[ f(t_{0}), f(t_{1}), \ldots, f(t_{N}) \right]^{\top}, \quad t_{n} \equiv \frac{n \pi}{N}.
+  \end{equation*}
+  \item $\bm{\Lambda}$是一个$\left( N+1 \right) \times \left( N+1 \right)$矩阵，含有元素$\Lambda_{\nu n}$
+  \begin{equation}
+    \label{eq:ninc-cc-matrix-lambda}
+    \Lambda = \frac{2}{N}
+    \begin{pmatrix}
+      \frac{1}{2} & 1 & 1 & 1 & \ldots & \frac{1}{2} \\
+      \frac{1}{2} & \cos \frac{\pi}{N} & \cos \frac{2 \pi}{N} & \cos \frac{3 \pi}{N} & \ldots & \frac{1}{2} \cos \pi \\
+      \frac{1}{2} & \cos \frac{2 \pi}{N} & \cos \frac{4 \pi}{N} & \cos \frac{6 \pi}{N} & \ldots & \frac{1}{2} \cos 2 \pi \\
+      \frac{1}{2} & \cos \frac{3 \pi}{N} & \cos \frac{6 \pi}{N} & \cos \frac{9 \pi}{N} & \ldots & \frac{1}{2} \cos 3 \pi \\
+      \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+      \frac{1}{2} & \cos \pi & \cos 2 \pi & \cos 3 \pi & \ldots & \frac{1}{2} \cos N \pi
+    \end{pmatrix}
+  \end{equation}
+\end{itemize}
+
+
+现在来看第二个问题，用抽样样本值$f$来表示$\mathcal{I}$。已知\eqref{eq:ninc-cc-rule-transform-problem-trunc-vector}将求积问题$\mathcal{I}$表示为域傅里叶系数$\tilde{a}_{\nu}$有关的方程，
+\eqref{eq:ninc-cc-af-matrix}将$\tilde{a}_{\nu}$表示为与抽样值$f$有关的方程，抽样点为切比雪夫点$t_{N}$。那么两式联立可得用$f$表示的$\mathcal{I}$，是一个求积法则
+\begin{equation*}
+  \mathcal{I} = \bm{W}^{T} \bm{\Lambda} f,
+\end{equation*}
+或者进一步简化
+\begin{equation}
+  \label{eq:ninc-cc-rule-i-f}
+  \mathcal{I} = \bm{w} \cdot \bm{f}, \quad \bm{w} \equiv \lambda^{T} \bm{W},
+\end{equation}
+$\bm{w}$是一个$\left( N + 1 \right) \times 1$的权重向量。
+
+\eqref{eq:ninc-cc-rule-i-f}等价于
+\begin{equation}
+  \label{eq:ninc-cc-rule-i-f-extend}
+  \mathcal{I} = \int_{-1}^{1} f(t) \, \mathcal{d}t = \sum_{n=0}^{N} w_{n} f \left( t_{n} \right),
+\end{equation}
+这成为一个$(N+1)$个点的求积法则，利用$N+1$个抽样$f$的加权求和来近似$\mathcal{I}$。其中权重向量$\bm{w}$的计算步骤为
+\begin{itemize}
+  \item 利用\eqref{eq:ninc-cc-rule-transform-problem-trunc-vector}计算$\bm{W}$，
+  \item 利用\eqref{eq:ninc-cc-matrix-lambda}计算$\bm{\Lambda}$，
+  \item 利用$\bm{w} = \bm{\Lambda}^{\top} W$算得$\bm{w}$。
+\end{itemize}
+
+当$N$是偶数时，克伦肖——柯蒂斯求积法则中权重$\bm{w}$的显性形式
+\begin{equation}
+  w_{m} = \begin{cases}
+  \frac{1}{N^{2} -1} & m=0 \\
+  \frac{2}{N} \left\{
+  1 +
+  \left[
+  \sum_{n=1}^{\frac{N}{2} - 1} \left( \frac{2}{1 - 4 n^{2}} \right)
+  \cos \left( \frac{2 m n \pi }{N} \right)
+  \right]
+  + \frac{\cos m \pi}{1 - N^{2}}
+  \right\} & m = 1,\ldots,N-1 \\
+  \frac{1}{N^{2} - 1}, & m = N
+  \end{cases}
+\end{equation}
+
+\subsubsection{程序实现}
+举例，求积问题
+\begin{equation*}
+\begin{split}
+    \mathcal{I} & = \int_{-1}^{1} f(x) \, \mathrm{d} x, \quad  f(x) = x \cdot \sin \left(
+    2 \cdot \exp \left( 2 \cdot \sin
+    \left( 2 \cdot \exp \left( 2 x \right)\right)
+    \right)
+    \right)
+\end{split}
+\end{equation*}
+
+Mathematica可用内建函数NIntegrate[ ]来计算求解，如
+%需要安装mmacells和MathematicaCellsToTeX
+%https://github.com/jkuczm/mmacells
+%kpsewhich -var-value=TEXMFHOME
+%/home/yanyuan/texmf
+\begin{mmaCell}[functionlocal=y]{Input}
+func[x_] := x*Sin[2  Exp[2  Sin[2 Exp[2  x]]]]
+\end{mmaCell}
+\begin{mmaCell}{Input}
+NIntegrate[func[x], {x, -1, 1}, Method -> "ClenshawCurtisRule"]
+\end{mmaCell}
+\begin{mmaCell}{Output}
+0.336733
+\end{mmaCell}
+
+Matlab中并没有直接内建的用于克伦肖——柯蒂斯数值积分程序。我们用
+\href{https://github.com/chebfun/chebfun}{chebfun}的程序来计算，代码如下。
+
+
+\begin{lstlisting}[language=Matlab]
+% 假定要对方程f(x)在[-1,1]求积
+x = chebfun('x');
+f = @(x) x.*sin(2*exp(2*sin(2*exp(2*x))));
+% 输入help @查询命令
+% .* 表示按元素相乘 *表示矩阵乘
+fc = chebfun(f);
+LW = 'linewidth';
+FS = 'fontsize';
+MS = 'markersize';
+figure, plot (fc, LW, 1.2)
+title('Function f', FS, 16)
+\end{lstlisting}
+输出$f(x), x \in [-1,1]$见图\ref{fig:ninc-cc-code-f}。
+\begin{figure}[htbp]
+   \caption{$f(x), x \in [-1,1]$}
+  \centering
+  \includegraphics[width=10cm]{./Figures/20180308-function-f.eps}
+  \label{fig:ninc-cc-code-f}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+
+\begin{lstlisting}[language=Matlab]
+% 输出积分的数值近似值
+Ichebfun = sum(fc)
+\end{lstlisting}
+返回值$0.336732834781728$。
+
+作克伦肖——柯蒂斯法则近似，和Gauss-Legendre近似\citep{Glaser:2007ky}
+\begin{lstlisting}[language=Matlab]
+% 求积近似过程中，使用了多少插值点
+Npts = length(fc)
+
+[s,w] = chebpts(Npts); % 使用chebshev points
+% s 是在[-1,1]之间插值的若干点(N)
+% w 是对应的权重矩阵
+% 两个矩阵相乘，得到求积的值，命名为Iclenshawcurtis，等同于sum(fc)的命令
+Iclenshawcurtis = w * f(s)
+
+% 也可以尝试用Legendre points (gauss-legendre求积算法)
+[s,w] = legpts(Npts);
+Igauss = w * f(s)
+\end{lstlisting}
+
+绘制图形，描述将两种近似方法测得的近似误差，随着$N$值增大的指数衰减情况，输出结果见图\ref{fig:ninc-cc-code-f-error}。
+\begin{lstlisting}[language=Matlab]
+% 绘出采用Gauss-legendre算法，误差项的收敛情况. semilogy与plot命令类似，除了similogy输出log形式的值
+semilogy(NN, err, '.-', LW, 1, MS, 16), grid on
+ylim([1e-18 1])
+xlabel('Npts', FS, 12), ylabel('Error', FS, 12)
+title('Gauss quadrature convergence', FS, 16), toc % toc 输出计算时间
+
+% 现在将Gauss-Legendre算法和Clenshaw-Curtis算法的误差收敛情况都绘制出来
+hold on, tic, err = [];
+for Npts = NN
+    [s,w] = chebpts(Npts);
+    Iclenshawcurtis = w * f(s);
+    err = [err abs(Iclenshawcurtis-Ichebfun)];
+end
+semilogy(NN, err, '.-r', LW, 1, MS, 16)
+title('Gauss-Legendre and Clenshaw-Curtis', FS, 16)
+legend('Gauss-Legendre', 'Clenshaw-Curtis', 'location', 'southwest'), toc
+\end{lstlisting}
+
+
+\begin{figure}[htbp]
+   \caption{求积法则误差的衰减}
+  \centering
+  \includegraphics[width=10cm]{./Figures/20180308-quadrature-rules-error.eps}
+  \label{fig:ninc-cc-code-f-error}
+%
+%  \small{Source: PBOC.}
+\end{figure}
