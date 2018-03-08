@@ -1,4 +1,4 @@
-\begin{thebibliography}{217}
+\begin{thebibliography}{260}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -63,6 +63,16 @@
   Pricing Models with Recursive Utility}}.
 \newblock \bibinfo{type}{Technical Report} \bibinfo{number}{87};
   \bibinfo{year}{2011}.
+%Type = Article
+\bibitem[{Altig et~al.(2011)Altig, Christiano, Eichenbaum and
+  Lind{\'e}}]{Altig:2011eu}
+\bibinfo{author}{Altig\xfnm[ D.]}, \bibinfo{author}{Christiano\xfnm[ L.J.]},
+  \bibinfo{author}{Eichenbaum\xfnm[ M.]}, \bibinfo{author}{Lind{\'e}\xfnm[
+  J.]}.
+\newblock \bibinfo{title}{{Firm-specific capital, nominal rigidities and the
+  business cycle}}.
+\newblock \bibinfo{journal}{Review of Economic Dynamics}
+  \bibinfo{year}{2011};\bibinfo{volume}{14}(\bibinfo{number}{2}):\bibinfo{pages}{225--247}.
 %Type = Article
 \bibitem[{Alvarez and Jermann(2004)}]{Alvarez:2004ix}
 \bibinfo{author}{Alvarez\xfnm[ F.]}, \bibinfo{author}{Jermann\xfnm[ U.J.]}.
@@ -204,6 +214,13 @@
   editors. \bibinfo{booktitle}{Advances in Automatic Differentiation}.
   \bibinfo{address}{Berlin, Heidelberg}: \bibinfo{publisher}{Springer Berlin
   Heidelberg}; \bibinfo{year}{2008}. p. \bibinfo{pages}{303--313}.
+%Type = Article
+\bibitem[{Basu(1995)}]{Basu:1995vl}
+\bibinfo{author}{Basu\xfnm[ S.]}.
+\newblock \bibinfo{title}{{Intermediate Goods and Business Cycles: Implications
+  for Productivity and Welfare}}.
+\newblock \bibinfo{journal}{The American Economic Review}
+  \bibinfo{year}{1995};\bibinfo{volume}{85}(\bibinfo{number}{3}):\bibinfo{pages}{512--531}.
 %Type = Book
 \bibitem[{Bayoumi et~al.(2004)Bayoumi, Faruqee, Laxton, Karam, Rebucci, Lee,
   Hunt and Tchakarov}]{Bayoumi:2004vx}
@@ -254,6 +271,14 @@
 \newblock \bibinfo{title}{{\textbf{Inflation Expectations and Inflation
   Forecasting}}}.
 \newblock \bibinfo{year}{2007}.
+%Type = Article
+\bibitem[{Bernanke et~al.(2005)Bernanke, Boivin and Eliasz}]{Bernanke:2005vn}
+\bibinfo{author}{Bernanke\xfnm[ B.S.]}, \bibinfo{author}{Boivin\xfnm[ J.]},
+  \bibinfo{author}{Eliasz\xfnm[ P.]}.
+\newblock \bibinfo{title}{{Measuring the Effects of Monetary Policy: A
+  Factor-Augmented Vector Autoregressive (FAVAR) Approach}}.
+\newblock \bibinfo{journal}{The Quarterly Journal of Economics}
+  \bibinfo{year}{2005};:\bibinfo{pages}{387--422}.
 %Type = Incollection
 \bibitem[{Bernanke et~al.(1999)Bernanke, Gertler and Gilchrist}]{Bernanke1999}
 \bibinfo{author}{Bernanke\xfnm[ B.S.]}, \bibinfo{author}{Gertler\xfnm[ M.]},
@@ -302,6 +327,22 @@
 \bibinfo{author}{Bogachev\xfnm[ V.I.]}.
 \newblock \bibinfo{title}{{Measure Theory Volume II}}.
 \newblock \bibinfo{publisher}{Springer}, \bibinfo{year}{2007}{\natexlab{b}}.
+%Type = Article
+\bibitem[{Boldrin et~al.(2001)Boldrin, Christiano and Fisher}]{Boldrin:2001hb}
+\bibinfo{author}{Boldrin\xfnm[ M.]}, \bibinfo{author}{Christiano\xfnm[ L.J.]},
+  \bibinfo{author}{Fisher\xfnm[ J.D.M.]}.
+\newblock \bibinfo{title}{{Habit Persistence, Asset Returns, and the Business
+  Cycle}}.
+\newblock \bibinfo{journal}{The American Economic Review}
+  \bibinfo{year}{2001};\bibinfo{volume}{91}(\bibinfo{number}{1}):\bibinfo{pages}{149--166}.
+%Type = Article
+\bibitem[{Bouakez et~al.(2005)Bouakez, Cardia and Ruge-Murcia}]{Bouakez:2005da}
+\bibinfo{author}{Bouakez\xfnm[ H.]}, \bibinfo{author}{Cardia\xfnm[ E.]},
+  \bibinfo{author}{Ruge-Murcia\xfnm[ F.J.]}.
+\newblock \bibinfo{title}{{Habit Formation and the Persistence of Monetary
+  Shocks}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{2005};\bibinfo{volume}{52}(\bibinfo{number}{6}):\bibinfo{pages}{1073--1088}.
 %Type = Book
 \bibitem[{Boyd(2001)}]{Boyd:2001wt}
 \bibinfo{author}{Boyd\xfnm[ J.P.]}.
@@ -388,6 +429,35 @@
 \newblock \bibinfo{publisher}{Princeton University Press},
   \bibinfo{year}{2011}.
 %Type = Article
+\bibitem[{Carroll et~al.(1997)Carroll, Overland and Weil}]{Carroll:1997ba}
+\bibinfo{author}{Carroll\xfnm[ C.D.]}, \bibinfo{author}{Overland\xfnm[ J.]},
+  \bibinfo{author}{Weil\xfnm[ D.N.]}.
+\newblock \bibinfo{title}{{Comparison Utility in a Growth Model}}.
+\newblock \bibinfo{journal}{Journal of Economic Growth}
+  \bibinfo{year}{1997};\bibinfo{volume}{2}(\bibinfo{number}{4}):\bibinfo{pages}{339--367}.
+%Type = Article
+\bibitem[{Carroll et~al.(2000)Carroll, Overland and Weil}]{Carroll:2000em}
+\bibinfo{author}{Carroll\xfnm[ C.D.]}, \bibinfo{author}{Overland\xfnm[ J.]},
+  \bibinfo{author}{Weil\xfnm[ D.N.]}.
+\newblock \bibinfo{title}{{Saving and Growth with Habit Formation}}.
+\newblock \bibinfo{journal}{The American Economic Review}
+  \bibinfo{year}{2000};\bibinfo{volume}{90}(\bibinfo{number}{3}):\bibinfo{pages}{341--355}.
+%Type = Article
+\bibitem[{Chadha and Corrado(2012)}]{Chadha:2012jl}
+\bibinfo{author}{Chadha\xfnm[ J.S.]}, \bibinfo{author}{Corrado\xfnm[ L.]}.
+\newblock \bibinfo{title}{{Macro-prudential policy on liquidity: What does a
+  DSGE model tell us?}}
+\newblock \bibinfo{journal}{Journal of Economics and Business}
+  \bibinfo{year}{2012};\bibinfo{volume}{64}(\bibinfo{number}{1}):\bibinfo{pages}{37--62}.
+%Type = Article
+\bibitem[{Chadha et~al.(2008)Chadha, Corrado and Holly}]{Chadha:2008uh}
+\bibinfo{author}{Chadha\xfnm[ J.S.]}, \bibinfo{author}{Corrado\xfnm[ L.]},
+  \bibinfo{author}{Holly\xfnm[ S.]}.
+\newblock \bibinfo{title}{{Reconnecting money to inflation: the role of the
+  external finance premium}}.
+\newblock \bibinfo{journal}{Cambridge Working Papers in Economics}
+  \bibinfo{year}{2008};\bibinfo{volume}{0852}.
+%Type = Article
 \bibitem[{Cheng and Cheng(2005)}]{Cheng:2005cd}
 \bibinfo{author}{Cheng\xfnm[ A.H.D.]}, \bibinfo{author}{Cheng\xfnm[ D.T.]}.
 \newblock \bibinfo{title}{{Heritage and early history of the boundary element
@@ -408,6 +478,24 @@
   Undetermined Coefficients}}.
 \newblock \bibinfo{journal}{Computational Economics}
   \bibinfo{year}{2002};\bibinfo{volume}{20}(\bibinfo{number}{1}):\bibinfo{pages}{21--55}.
+%Type = Article
+\bibitem[{Christiano and Eichenbaum(1992)}]{Christiano:1992fz}
+\bibinfo{author}{Christiano\xfnm[ L.J.]}, \bibinfo{author}{Eichenbaum\xfnm[
+  M.]}.
+\newblock \bibinfo{title}{{Liquidity Effects and the Monetary Transmission
+  Mechanism}}.
+\newblock \bibinfo{journal}{The American Economic Review}
+  \bibinfo{year}{1992};\bibinfo{volume}{82}(\bibinfo{number}{2}):\bibinfo{pages}{346--353}.
+%Type = Incollection
+\bibitem[{Christiano et~al.(1999)Christiano, Eichenbaum and
+  Evans}]{Christiano:1999uw}
+\bibinfo{author}{Christiano\xfnm[ L.J.]}, \bibinfo{author}{Eichenbaum\xfnm[
+  M.]}, \bibinfo{author}{Evans\xfnm[ C.L.]}.
+\newblock \bibinfo{title}{{Chapter 2 Monetary policy shocks: What have we
+  learned and to what end? A2 -}}.
+\newblock In: \bibinfo{booktitle}{Handbook of Macroeconomics}.
+  \bibinfo{publisher}{Elsevier}; \bibinfo{year}{1999}. p.
+  \bibinfo{pages}{65--148 T2 --}.
 %Type = Article
 \bibitem[{Christiano and Fisher(2000)}]{Christiano:2000bw}
 \bibinfo{author}{Christiano\xfnm[ L.J.]}, \bibinfo{author}{Fisher\xfnm[
@@ -472,6 +560,13 @@
 \newblock \bibinfo{title}{{Asset Pricing}}.
 \newblock (Revised Edition). \bibinfo{publisher}{Princeton University Press},
   \bibinfo{year}{2000}.
+%Type = Article
+\bibitem[{Constantinides(1990)}]{Constantinides:1990cu}
+\bibinfo{author}{Constantinides\xfnm[ G.M.]}.
+\newblock \bibinfo{title}{{Habit Formation: A Resolution of the Equity Premium
+  Puzzle}}.
+\newblock \bibinfo{journal}{Journal of Political Economy}
+  \bibinfo{year}{1990};\bibinfo{volume}{98}(\bibinfo{number}{3}):\bibinfo{pages}{519--543}.
 %Type = Book
 \bibitem[{Cooley(1995)}]{Cooley:1995tq}
 \bibinfo{author}{Cooley\xfnm[ T.F.]}.
@@ -499,6 +594,13 @@
   Science and Technology:Volume 4 Integral Equations and Numerical Methods}}.
 \newblock \bibinfo{address}{Berlin, Heidelberg}: \bibinfo{publisher}{Springer},
   \bibinfo{year}{1990}.
+%Type = Booklet
+\bibitem[{De~Walque et~al.(2006)De~Walque, Smets and Wouters}]{DeWalque:2006wf}
+\bibinfo{author}{De~Walque\xfnm[ G.]}, \bibinfo{author}{Smets\xfnm[ F.]},
+  \bibinfo{author}{Wouters\xfnm[ R.]}.
+\newblock \bibinfo{title}{{Firm-specific Production Factors in a DSGE Model
+  with Taylor Price Setting}}.
+\newblock \bibinfo{year}{2006}.
 %Type = Article
 \bibitem[{Del~Negro and Schorfheide(2011)}]{DelNegro:2011wu}
 \bibinfo{author}{Del~Negro\xfnm[ M.]}, \bibinfo{author}{Schorfheide\xfnm[ F.]}.
@@ -558,6 +660,13 @@
   Dynamic Economies}. \bibinfo{publisher}{OUP Oxford}; \bibinfo{year}{1999}. p.
   \bibinfo{pages}{13--29}.
 %Type = Article
+\bibitem[{Dixit and Stiglitz(1977)}]{Dixit:1977tv}
+\bibinfo{author}{Dixit\xfnm[ A.K.]}, \bibinfo{author}{Stiglitz\xfnm[ J.E.]}.
+\newblock \bibinfo{title}{{Monopolistic Competition and Optimum Product
+  Diversity}}.
+\newblock \bibinfo{journal}{The American Economic Review}
+  \bibinfo{year}{1977};\bibinfo{volume}{67}(\bibinfo{number}{3}):\bibinfo{pages}{297--308}.
+%Type = Article
 \bibitem[{Edge et~al.(2010)Edge, Kiley and Laforte}]{Edge:2010gp}
 \bibinfo{author}{Edge\xfnm[ R.M.]}, \bibinfo{author}{Kiley\xfnm[ M.T.]},
   \bibinfo{author}{Laforte\xfnm[ J.P.]}.
@@ -581,12 +690,27 @@
 \newblock \bibinfo{journal}{International Journal of Central Banking}
   \bibinfo{year}{2006};.
 %Type = Article
+\bibitem[{Erceg et~al.(2000)Erceg, Henderson and Levin}]{Erceg:2000dm}
+\bibinfo{author}{Erceg\xfnm[ C.J.]}, \bibinfo{author}{Henderson\xfnm[ D.W.]},
+  \bibinfo{author}{Levin\xfnm[ A.T.]}.
+\newblock \bibinfo{title}{{Optimal monetary policy with staggered wage and
+  price contracts}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{2000};\bibinfo{volume}{46}(\bibinfo{number}{2}):\bibinfo{pages}{281--313}.
+%Type = Article
 \bibitem[{Fagan et~al.(2005)Fagan, Henry and Mestre}]{Fagan:2005hv}
 \bibinfo{author}{Fagan\xfnm[ G.]}, \bibinfo{author}{Henry\xfnm[ J.r.m.]},
   \bibinfo{author}{Mestre\xfnm[ R.]}.
 \newblock \bibinfo{title}{{An area-wide model for the euro area}}.
 \newblock \bibinfo{journal}{Economic Modelling}
   \bibinfo{year}{2005};\bibinfo{volume}{22}(\bibinfo{number}{1}):\bibinfo{pages}{39--59}.
+%Type = Techreport
+\bibitem[{Fernald(2009)}]{Fernald2009}
+\bibinfo{author}{Fernald\xfnm[ J.]}.
+\newblock \bibinfo{title}{{A Quarterly, Utilization-Adjusted Series on Total
+  Factor Productivity}}.
+\newblock \bibinfo{type}{Technical Report}; Federal Reserve Bank of San
+  Francisco; \bibinfo{year}{2009}.
 %Type = Article
 \bibitem[{Fern{\'a}ndez-Villaverde(2010)}]{FernandezVillaverde:2010fq}
 \bibinfo{author}{Fern{\'a}ndez-Villaverde\xfnm[ J.]}.
@@ -670,6 +794,27 @@
   Engineering}
   \bibinfo{year}{2010};\bibinfo{volume}{84}(\bibinfo{number}{3}):\bibinfo{pages}{253--304}.
 %Type = Book
+\bibitem[{Frisch(1932)}]{Frisch:1932wk}
+\bibinfo{author}{Frisch\xfnm[ R.]}.
+\newblock \bibinfo{title}{{New methods of measuring marginal utility}}.
+\newblock volume~\bibinfo{volume}{3}.
+\newblock \bibinfo{address}{T{\"u}bingen}: \bibinfo{publisher}{Mohr},
+  \bibinfo{year}{1932}.
+%Type = Article
+\bibitem[{Frisch(1959)}]{Frisch:1959jt}
+\bibinfo{author}{Frisch\xfnm[ R.]}.
+\newblock \bibinfo{title}{{A Complete Scheme for Computing All Direct and Cross
+  Demand Elasticities in a Model with Many Sectors}}.
+\newblock \bibinfo{journal}{Econometrica}
+  \bibinfo{year}{1959};\bibinfo{volume}{27}(\bibinfo{number}{2}):\bibinfo{pages}{177--196}.
+%Type = Article
+\bibitem[{Fuhrer(2000)}]{Fuhrer:2000ez}
+\bibinfo{author}{Fuhrer\xfnm[ J.C.]}.
+\newblock \bibinfo{title}{{Habit Formation in Consumption and Its Implications
+  for Monetary-Policy Models}}.
+\newblock \bibinfo{journal}{The American Economic Review}
+  \bibinfo{year}{2000};\bibinfo{volume}{90}(\bibinfo{number}{3}):\bibinfo{pages}{367--390}.
+%Type = Book
 \bibitem[{Gal{\'\i}(2008)}]{Gali:2005gp}
 \bibinfo{author}{Gal{\'\i}\xfnm[ J.]}.
 \newblock \bibinfo{title}{{Monetary Policy, inflation, and the Business Cycle:
@@ -695,6 +840,13 @@
 \newblock \bibinfo{journal}{Journal of Monetary Economics}
   \bibinfo{year}{2011};\bibinfo{volume}{58}(\bibinfo{number}{1}):\bibinfo{pages}{17--34}.
 %Type = Article
+\bibitem[{Gilchrist(2007)}]{Gilchrist:2007iv}
+\bibinfo{author}{Gilchrist\xfnm[ S.]}.
+\newblock \bibinfo{title}{{Comment on: Banking and interest rates in monetary
+  policy analysis: A quantitative exploration}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{2007};\bibinfo{volume}{54}(\bibinfo{number}{5}):\bibinfo{pages}{1508--1514}.
+%Type = Article
 \bibitem[{Glaser et~al.(2007)Glaser, Liu and Rokhlin}]{Glaser:2007ky}
 \bibinfo{author}{Glaser\xfnm[ A.]}, \bibinfo{author}{Liu\xfnm[ X.]},
   \bibinfo{author}{Rokhlin\xfnm[ V.]}.
@@ -702,6 +854,23 @@
   Special Functions}}.
 \newblock \bibinfo{journal}{SIAM Journal on Scientific Computing}
   \bibinfo{year}{2007};\bibinfo{volume}{29}(\bibinfo{number}{4}):\bibinfo{pages}{1420--1438}.
+%Type = Incollection
+\bibitem[{Goodfriend(2005)}]{Goodfriend:2005ts}
+\bibinfo{author}{Goodfriend\xfnm[ M.]}.
+\newblock \bibinfo{title}{{Narrow Money, Broad Money, and the Transmission of
+  Monetary Policy }}.
+\newblock In: \bibinfo{booktitle}{Models and Monetary Policy: Research in the
+  Tradition of Dale Henderson, Richard Porter, and Peter Tinsley}.
+  \bibinfo{publisher}{Board of Governors of the Federal Re% serve System, Ch.
+  Narrow Money, Broad Money, and the Transmission of Monetary Policy};
+  \bibinfo{year}{2005}. .
+%Type = Article
+\bibitem[{Goodfriend and McCallum(2007)}]{Goodfriend:2007fq}
+\bibinfo{author}{Goodfriend\xfnm[ M.]}, \bibinfo{author}{McCallum\xfnm[ B.T.]}.
+\newblock \bibinfo{title}{{Banking and interest rates in monetary policy
+  analysis: A quantitative exploration}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{2007};\bibinfo{volume}{54}(\bibinfo{number}{5}):\bibinfo{pages}{1480--1507}.
 %Type = Book
 \bibitem[{Gradshteyn and Ryzhik(2014)}]{Gradshteyn:2014uy}
 \bibinfo{author}{Gradshteyn\xfnm[ I.S.]}, \bibinfo{author}{Ryzhik\xfnm[ I.M.]}.
@@ -724,6 +893,22 @@
 \newblock \bibinfo{journal}{The American Economic Review}
   \bibinfo{year}{1984};\bibinfo{volume}{74}(\bibinfo{number}{2}):\bibinfo{pages}{194--199}.
 %Type = Article
+\bibitem[{Greenwood et~al.(1988)Greenwood, Hercowitz and
+  Huffman}]{Greenwood:1988jn}
+\bibinfo{author}{Greenwood\xfnm[ J.]}, \bibinfo{author}{Hercowitz\xfnm[ Z.]},
+  \bibinfo{author}{Huffman\xfnm[ G.W.]}.
+\newblock \bibinfo{title}{{Investment, Capacity Utilization, and the Real
+  Business Cycle}}.
+\newblock \bibinfo{journal}{The American Economic Review}
+  \bibinfo{year}{1988};\bibinfo{volume}{78}(\bibinfo{number}{3}):\bibinfo{pages}{402--417}.
+%Type = Article
+\bibitem[{Guerr{\'o}n-Quintana(2008)}]{GuerronQuintana:2008jo}
+\bibinfo{author}{Guerr{\'o}n-Quintana\xfnm[ P.A.]}.
+\newblock \bibinfo{title}{{Refinements on macroeconomic modeling: The role of
+  non-separability and heterogeneous labor supply}}.
+\newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
+  \bibinfo{year}{2008};\bibinfo{volume}{32}(\bibinfo{number}{11}):\bibinfo{pages}{3613--3630}.
+%Type = Article
 \bibitem[{Guiggiani et~al.(1992)Guiggiani, Krishnasamy, Rudolphi and
   Rizzo}]{Guiggiani:1992cm}
 \bibinfo{author}{Guiggiani\xfnm[ M.]}, \bibinfo{author}{Krishnasamy\xfnm[ G.]},
@@ -732,6 +917,12 @@
   Hypersingular Boundary Integral Equations}}.
 \newblock \bibinfo{journal}{Journal of Applied Mechanics}
   \bibinfo{year}{1992};\bibinfo{volume}{59}(\bibinfo{number}{3}):\bibinfo{pages}{604--614}.
+%Type = Article
+\bibitem[{Hansen(1985)}]{Hansen:1985ku}
+\bibinfo{author}{Hansen\xfnm[ G.D.]}.
+\newblock \bibinfo{title}{{Indivisible labor and the business cycle}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{1985};\bibinfo{volume}{16}(\bibinfo{number}{3}):\bibinfo{pages}{309--327}.
 %Type = Article
 \bibitem[{Hansen et~al.(2008)Hansen, Heaton and Li}]{Hansen:2008bh}
 \bibinfo{author}{Hansen\xfnm[ L.P.]}, \bibinfo{author}{Heaton\xfnm[ J.C.]},
@@ -771,6 +962,20 @@
 \newblock \bibinfo{title}{{Post-Keynesian Economics }}.
 \newblock \bibinfo{type}{Technical Report} \bibinfo{number}{2015 ECON 12}; UNSW
   Business School; \bibinfo{year}{2015}.
+%Type = Article
+\bibitem[{Hayashi(1982)}]{Hayashi:1982bc}
+\bibinfo{author}{Hayashi\xfnm[ F.]}.
+\newblock \bibinfo{title}{{Tobin's Marginal q and Average q: A Neoclassical
+  Interpretation}}.
+\newblock \bibinfo{journal}{Econometrica}
+  \bibinfo{year}{1982};\bibinfo{volume}{50}(\bibinfo{number}{1}):\bibinfo{pages}{213--224}.
+%Type = Book
+\bibitem[{Heer and Maussner(2009)}]{Heer:2009ig}
+\bibinfo{author}{Heer\xfnm[ B.]}, \bibinfo{author}{Maussner\xfnm[ A.]}.
+\newblock \bibinfo{title}{{Dynamic General Equilibrium Modeling}}.
+\newblock Computational Methods and Applications. \bibinfo{address}{Berlin,
+  Heidelberg}: \bibinfo{publisher}{Springer Science {\&} Business Media},
+  \bibinfo{year}{2009}.
 %Type = Book
 \bibitem[{Heinonen(2005)}]{Heinonen:2005wq}
 \bibinfo{author}{Heinonen\xfnm[ J.]}.
@@ -927,6 +1132,14 @@
 \newblock \bibinfo{journal}{Economica}
   \bibinfo{year}{1937};\bibinfo{volume}{4}(\bibinfo{number}{16}):\bibinfo{pages}{440--447}.
 %Type = Article
+\bibitem[{Kashyap et~al.(2002)Kashyap, Rajan and Stein}]{Kashyap2002}
+\bibinfo{author}{Kashyap\xfnm[ A.K.]}, \bibinfo{author}{Rajan\xfnm[ R.]},
+  \bibinfo{author}{Stein\xfnm[ J.C.]}.
+\newblock \bibinfo{title}{{Banks as Liquidity Providers: An Explanation for the
+  Coexistence of Lending and Deposit-Taking}}.
+\newblock \bibinfo{journal}{Journal of Finance}
+  \bibinfo{year}{2002};\bibinfo{volume}{57}(\bibinfo{number}{1}):\bibinfo{pages}{33--73}.
+%Type = Article
 \bibitem[{Kim et~al.(2008)Kim, Kim, Schaumburg and Sims}]{Kim:2008jw}
 \bibinfo{author}{Kim\xfnm[ J.]}, \bibinfo{author}{Kim\xfnm[ S.]},
   \bibinfo{author}{Schaumburg\xfnm[ E.]}, \bibinfo{author}{Sims\xfnm[ C.A.]}.
@@ -1002,6 +1215,13 @@
 \newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
   \bibinfo{year}{2000};\bibinfo{volume}{24}(\bibinfo{number}{10}):\bibinfo{pages}{1405--1423}.
 %Type = Article
+\bibitem[{Kocherlakota(1996)}]{Kocherlakota:1996jk}
+\bibinfo{author}{Kocherlakota\xfnm[ N.R.]}.
+\newblock \bibinfo{title}{{Implications of Efficient Risk Sharing without
+  Commitment}}.
+\newblock \bibinfo{journal}{Review of Economic Studies}
+  \bibinfo{year}{1996};\bibinfo{volume}{63}(\bibinfo{number}{4}):\bibinfo{pages}{595--609}.
+%Type = Article
 \bibitem[{Koop et~al.(1996)Koop, Pesaran and Potter}]{Koop:1996cs}
 \bibinfo{author}{Koop\xfnm[ G.]}, \bibinfo{author}{Pesaran\xfnm[ M.H.]},
   \bibinfo{author}{Potter\xfnm[ S.M.]}.
@@ -1016,6 +1236,26 @@
   Persistent Processes}}.
 \newblock \bibinfo{journal}{Review of Economic Dynamics}
   \bibinfo{year}{2010};\bibinfo{volume}{13}(\bibinfo{number}{3}):\bibinfo{pages}{701--714}.
+%Type = Article
+\bibitem[{Krusell et~al.(2008)Krusell, Mukoyama, Rogerson and
+  {\c{S}}ahin}]{Krusell:2008bw}
+\bibinfo{author}{Krusell\xfnm[ P.]}, \bibinfo{author}{Mukoyama\xfnm[ T.]},
+  \bibinfo{author}{Rogerson\xfnm[ R.]}, \bibinfo{author}{{\c{S}}ahin\xfnm[
+  A.]}.
+\newblock \bibinfo{title}{{Aggregate implications of indivisible labor,
+  incomplete markets, and labor market frictions}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{2008};\bibinfo{volume}{55}(\bibinfo{number}{5}):\bibinfo{pages}{961--979}.
+%Type = Article
+\bibitem[{Krusell et~al.(2011)Krusell, Mukoyama, Rogerson and
+  {\c{S}}ahin}]{Krusell:2011bv}
+\bibinfo{author}{Krusell\xfnm[ P.]}, \bibinfo{author}{Mukoyama\xfnm[ T.]},
+  \bibinfo{author}{Rogerson\xfnm[ R.]}, \bibinfo{author}{{\c{S}}ahin\xfnm[
+  A.]}.
+\newblock \bibinfo{title}{{A three state model of worker flows in general
+  equilibrium}}.
+\newblock \bibinfo{journal}{Journal of Economic Theory}
+  \bibinfo{year}{2011};\bibinfo{volume}{146}(\bibinfo{number}{3}):\bibinfo{pages}{1107--1133}.
 %Type = Article
 \bibitem[{Kydland and Prescott(1982)}]{Kydland:1982cd}
 \bibinfo{author}{Kydland\xfnm[ F.E.]}, \bibinfo{author}{Prescott\xfnm[ E.C.]}.
@@ -1081,6 +1321,12 @@
 \newblock \bibinfo{title}{{Econometric policy evaluation: A critique}}.
 \newblock \bibinfo{journal}{Carnegie-Rochester Conference Series on Public
   Policy} \bibinfo{year}{1976};\bibinfo{volume}{1}:\bibinfo{pages}{19--46}.
+%Type = Article
+\bibitem[{Lucas and Prescott(1971)}]{Lucasjoin:1971hx}
+\bibinfo{author}{Lucas\xfnm[ R.E.]}, \bibinfo{author}{Prescott\xfnm[ E.C.]}.
+\newblock \bibinfo{title}{{Investment Under Uncertainty}}.
+\newblock \bibinfo{journal}{Econometrica}
+  \bibinfo{year}{1971};\bibinfo{volume}{39}(\bibinfo{number}{5}):\bibinfo{pages}{659--681}.
 %Type = Article
 \bibitem[{Marcet and Marshall(1994)}]{Marcet:1994vw}
 \bibinfo{author}{Marcet\xfnm[ A.]}, \bibinfo{author}{Marshall\xfnm[ D.A.]}.
@@ -1185,6 +1431,11 @@
 \bibinfo{author}{Moll\xfnm[ V.H.]}.
 \newblock \bibinfo{title}{{Special Integrals of Gradshteyn and Ryzhik: the
   Proofs - Volume II}}, \bibinfo{year}{2016}.
+%Type = Article
+\bibitem[{Mulligan(2001)}]{Mulligan:2001wf}
+\bibinfo{author}{Mulligan\xfnm[ C.B.]}.
+\newblock \bibinfo{title}{{Aggregate implications of indivisible labor}}.
+\newblock \bibinfo{journal}{Advances in Macroeconomics} \bibinfo{year}{2001};.
 %Type = Techreport
 \bibitem[{Murchison and Rennison(2006)}]{Murchison:2006wc}
 \bibinfo{author}{Murchison\xfnm[ S.]}, \bibinfo{author}{Rennison\xfnm[ A.]}.
@@ -1228,6 +1479,19 @@
   principle}}.
 \newblock \bibinfo{journal}{Journal of Fixed Point Theory and Applications}
   \bibinfo{year}{2007};\bibinfo{volume}{2}(\bibinfo{number}{2}):\bibinfo{pages}{221--223}.
+%Type = Article
+\bibitem[{Phaneuf et~al.(2015)Phaneuf, Sims and Victor}]{Phaneuf:2015vp}
+\bibinfo{author}{Phaneuf\xfnm[ L.]}, \bibinfo{author}{Sims\xfnm[ E.R.]},
+  \bibinfo{author}{Victor\xfnm[ J.G.]}.
+\newblock \bibinfo{title}{{Inflation, Output, and Markup Dynamics with
+  Forward-Looking Wage and Price Setters}}.
+\newblock \bibinfo{journal}{NBER Working Paper} \bibinfo{year}{2015};.
+%Type = Article
+\bibitem[{Prescott(1986)}]{Prescott:1986ej}
+\bibinfo{author}{Prescott\xfnm[ E.C.]}.
+\newblock \bibinfo{title}{{Theory ahead of business-cycle measurement}}.
+\newblock \bibinfo{journal}{Carnegie-Rochester Conference Series on {\ldots}}
+  \bibinfo{year}{1986};\bibinfo{volume}{25 IS -}:\bibinfo{pages}{11--44}.
 %Type = Book
 \bibitem[{Privault(2013)}]{Privault:2013vc}
 \bibinfo{author}{Privault\xfnm[ N.]}.
@@ -1248,6 +1512,27 @@
 \newblock \bibinfo{title}{{An Introduction to Partial Differential Equations}}.
 \newblock \bibinfo{edition}{2nd} ed.
 \newblock \bibinfo{publisher}{Springer}, \bibinfo{year}{2004}.
+%Type = Article
+\bibitem[{Rogerson(1988)}]{Rogerson:1988js}
+\bibinfo{author}{Rogerson\xfnm[ R.]}.
+\newblock \bibinfo{title}{{Indivisible labor, lotteries and equilibrium}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{1988};\bibinfo{volume}{21}(\bibinfo{number}{1}):\bibinfo{pages}{3--16}.
+%Type = Article
+\bibitem[{Rogerson and Wallenius(2009{\natexlab{a}})}]{Rogerson:2009ez}
+\bibinfo{author}{Rogerson\xfnm[ R.]}, \bibinfo{author}{Wallenius\xfnm[ J.]}.
+\newblock \bibinfo{title}{{Micro and macro elasticities in a life cycle model
+  with taxes}}.
+\newblock \bibinfo{journal}{Monetary Policy and Capital AccumulationMonetary
+  Policy and Capital}
+  \bibinfo{year}{2009}{\natexlab{a}};\bibinfo{volume}{144}(\bibinfo{number}{6}):\bibinfo{pages}{2277--2292}.
+%Type = Article
+\bibitem[{Rogerson and Wallenius(2009{\natexlab{b}})}]{Rogerson:2009eza}
+\bibinfo{author}{Rogerson\xfnm[ R.]}, \bibinfo{author}{Wallenius\xfnm[ J.]}.
+\newblock \bibinfo{title}{{Micro and macro elasticities in a life cycle model
+  with taxes}}.
+\newblock \bibinfo{journal}{Journal of Economic Theory}
+  \bibinfo{year}{2009}{\natexlab{b}};\bibinfo{volume}{144}(\bibinfo{number}{6}):\bibinfo{pages}{2277--2292}.
 %Type = Incollection
 \bibitem[{Rouwenhorst(1995)}]{Rouwenhorst:1995tq}
 \bibinfo{author}{Rouwenhorst\xfnm[ K.G.]}.
@@ -1338,11 +1623,24 @@
 \newblock \bibinfo{journal}{Econometrica}
   \bibinfo{year}{1956};\bibinfo{volume}{24}(\bibinfo{number}{1}):\bibinfo{pages}{74}.
 %Type = Article
+\bibitem[{Sims(1992)}]{Sims:1992bw}
+\bibinfo{author}{Sims\xfnm[ C.A.]}.
+\newblock \bibinfo{title}{{Interpreting the macroeconomic time series facts:
+  The effects of monetary policy}}.
+\newblock \bibinfo{journal}{European Economic Review} \bibinfo{year}{1992};.
+%Type = Article
 \bibitem[{Sims(2002)}]{Sims:2002jc}
 \bibinfo{author}{Sims\xfnm[ C.A.]}.
 \newblock \bibinfo{title}{{Solving Linear Rational Expectations Models}}.
 \newblock \bibinfo{journal}{Computational Economics}
   \bibinfo{year}{2002};\bibinfo{volume}{20}(\bibinfo{number}{1-2}):\bibinfo{pages}{1--20}.
+%Type = Article
+\bibitem[{Sims et~al.(1982)Sims, Goldfeld and Sachs}]{Sims:1982ks}
+\bibinfo{author}{Sims\xfnm[ C.A.]}, \bibinfo{author}{Goldfeld\xfnm[ S.M.]},
+  \bibinfo{author}{Sachs\xfnm[ J.D.]}.
+\newblock \bibinfo{title}{{Policy Analysis with Econometric Models}}.
+\newblock \bibinfo{journal}{Brookings Papers on Economic Activity}
+  \bibinfo{year}{1982};\bibinfo{volume}{1982}(\bibinfo{number}{1}):\bibinfo{pages}{107}.
 %Type = Article
 \bibitem[{Smets and Wouters(2003)}]{Smets:2003ic}
 \bibinfo{author}{Smets\xfnm[ F.]}, \bibinfo{author}{Wouters\xfnm[ R.]}.
@@ -1425,6 +1723,22 @@
   to Monetary Policy}}.
 \newblock \bibinfo{journal}{Federal Researve Bank of Philadelphia Working
   Paper} \bibinfo{year}{2012};\bibinfo{volume}{12}(\bibinfo{number}{28}).
+%Type = Article
+\bibitem[{Sveen and Weinke(2005)}]{Sveen:2005db}
+\bibinfo{author}{Sveen\xfnm[ T.]}, \bibinfo{author}{Weinke\xfnm[ L.]}.
+\newblock \bibinfo{title}{{New perspectives on capital, sticky prices, and the
+  Taylor principle}}.
+\newblock \bibinfo{journal}{Monetary Policy and Capital AccumulationMonetary
+  Policy and Capital}
+  \bibinfo{year}{2005};\bibinfo{volume}{123}(\bibinfo{number}{1}):\bibinfo{pages}{21--39}.
+%Type = Incollection
+\bibitem[{Svensson(2010)}]{Svensson:2010wq}
+\bibinfo{author}{Svensson\xfnm[ L.E.O.]}.
+\newblock \bibinfo{title}{{Chapter 22 - Inflation Targeting}}.
+\newblock In: \bibinfo{editor}{Woodford\xfnm[ M.]}, editor.
+  \bibinfo{booktitle}{Handbook of Monetary Economics}.
+  \bibinfo{publisher}{Elsevier}; \bibinfo{year}{2010}. p.
+  \bibinfo{pages}{1237--1302 T2 --}.
 %Type = Article
 \bibitem[{Swanson et~al.(2006)Swanson, Anderson and Levin}]{Swanson:2006gy}
 \bibinfo{author}{Swanson\xfnm[ E.T.]}, \bibinfo{author}{Anderson\xfnm[ G.S.]},
@@ -1525,6 +1839,13 @@
 \bibinfo{author}{Yosida\xfnm[ K.]}.
 \newblock \bibinfo{title}{{Functional Analysis}}.
 \newblock \bibinfo{publisher}{Spinger}, \bibinfo{year}{1978}.
+%Type = Article
+\bibitem[{Yun(1996)}]{Yun:1996tx}
+\bibinfo{author}{Yun\xfnm[ T.]}.
+\newblock \bibinfo{title}{{Nominal price rigidity, money supply endogeneity,
+  and business cycles}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{1996};\bibinfo{volume}{37}(\bibinfo{number}{2}):\bibinfo{pages}{345--370}.
 %Type = Book
 \bibitem[{朱彦元(2018)}]{Zhuyanyuan:2018tm}
 \bibinfo{author}{朱彦元\xfnm[]}.

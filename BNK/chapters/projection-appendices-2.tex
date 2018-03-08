@@ -188,7 +188,7 @@ $p=2$时的牛顿——寇特斯求积，又称辛普森法则(Simpson's rule)\i
 \subsubsection{龙格现象}
 \label{sec:ninc-nc-runge}
 %20180227-Runge-phenomenon.png
-一个自然出现的问题：更高阶的牛顿——寇特斯法则会不会带来更精确的近似解？很遗憾，答案是否定的。这是由于龙格现象(Runge phenomenon)\index{Runge phenomenon \dotfill 龙格现象}：当我们试图利用子空间中等距分布的点做更高阶多项式近似时，再查指点附近的多项式方程会出现较大幅度的震荡，从而影响最终求积估计的精确度，可参考\href{https://en.m.wikipedia.org/wiki/Runge%27s_phenomenon}{维基百科词条}。图\ref{fig:ninc-nc-higher-runge-phenomenon}中，蓝线和绿线分别表示$p=5$和$p=9$时的差值多项式近似，对应$N=6$。红线表示龙格方程(Runge function)。
+一个自然出现的问题：更高阶的牛顿——寇特斯法则会不会带来更精确的近似解？很遗憾，答案是否定的。这是由于龙格现象(Runge phenomenon)\index{Runge phenomenon \dotfill 龙格现象}：当我们试图利用子空间中等距分布的点做更高阶多项式近似时，在插值点附近的多项式方程会出现较大幅度的震荡，从而影响最终求积估计的精确度，可参考\href{https://en.m.wikipedia.org/wiki/Runge%27s_phenomenon}{维基百科词条}。图\ref{fig:ninc-nc-higher-runge-phenomenon}中，蓝线和绿线分别表示$p=5$和$p=9$时的差值多项式近似，对应$N=6$。红线表示龙格方程(Runge function)。
 
 \begin{figure}[htbp]
    \caption{龙格现象$(N=6)$}
@@ -966,7 +966,7 @@ $\bm{w}$是一个$\left( N + 1 \right) \times 1$的权重向量。
   \end{cases}
 \end{equation}
 
-\subsubsection{程序实现}
+\subsection{程序实现}
 举例，求积问题
 \begin{equation*}
 \begin{split}
