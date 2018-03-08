@@ -365,9 +365,9 @@ c_n = \frac{\left(a_1\right)_n \left(a_2\right)_n \ldots \left(a_p\right)_n}{\le
     \label{eq:poly-moment-def}
     \mu_n = \int_a^b w(x) \lambda^n \, d \lambda, \quad i=0,1,2\ldots
   \end{equation}
-    \item $\delta_{mn}$是克罗内克符(Kronecker delta symbol) \index{Kronecker product \dotfill 克罗内乘积}，它用于描述
+    \item $\delta_{mn}$是克罗内克(Kronecker product) \index{Kronecker product\dotfill 克罗内克乘积}，表达如下关系
     \begin{equation}
-      \label{poly-kronecker}
+      \label{eq:poly-kronecker}
       \delta_{m,n} = \begin{cases}
       0 & m \neq n, \\
       1 & m=n.
@@ -885,6 +885,7 @@ $\hookrightarrow$
 \end{proof}
 
 \section{常见的正交多项式类型}
+\label{eq:poly-orthogonality-types}
 本节介绍几种常见的正交多项式(表格\ref{tab:poly-ortho-poly-classical})，包括
 \begin{itemize}
   \item 埃米特多项式(Hermite polynomials)
@@ -2777,7 +2778,7 @@ $V_N$满足如下特征：首先，$V_N$是个有限维度空间，$N < \infty$�
   \label{eq:pj-galerkin-psi-kronecker}
   \psi_j(x_i) = \delta_{ij}, \quad i,j=1,2,\ldots,N,
 \end{equation}
-其中$\delta_{ij}$表示克罗内克乘积\index{Kronecker product \dotfill 克罗内克乘积}。因此我们有近似方程
+其中$\delta_{ij}$表示克罗内克乘积。因此我们有近似方程
 \begin{equation}
   \label{eq:pj-galerkin-approx-fun}
   u_N = \sum_{j=1}^{N} U_j \psi_j, \quad U_j \in \mathbb{R},

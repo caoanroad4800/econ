@@ -91,15 +91,28 @@
 %% for the whole article with \linenumbers after \end{frontmatter}.
 %\usepackage{lineno}
 % for Matlab code
+\usepackage{xcolor} % Allow colors to be defined
+%\usepackage{color} % red, greend, blue, yellow, cyan, magenta, black, white
+%\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, blue
+%\definecolor{mylilas}{RGB}{170,55,241}
 \usepackage{listings}
-%\lstset{language=matlab,frame=single}
+\lstset{
+    frame=single,
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numbersep=9pt, % this defines how far the numbers are from the text
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},
+}
+
 \usepackage{verbatim}
 \usepackage{upquote} % Upright quotes for verbatim code
 \usepackage{fancyvrb} % verbatim replacement that allows latex
 %\usepackage{verbatimbox} % use  \begin{verbbox} instead of \begin{verbatim} in case a frame box is needed.
 %\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
 % for Mathematica code
-%\usepackage{mmacells}
+\usepackage{mmacells}
 \usepackage[titletoc]{appendix}
 \usepackage{chngcntr}
 \usepackage{etoolbox}
@@ -161,7 +174,6 @@
 %\usepackage{mathpazo}
 %\usepackage{caption}
 \usepackage{adjustbox} % Used to constrain images to a maximum size
-\usepackage{xcolor} % Allow colors to be defined
 \usepackage{enumerate} % Needed for markdown enumerations to work
 \usepackage{eurosym} % defines \euro
 \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
