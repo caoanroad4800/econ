@@ -17,7 +17,7 @@
 
 在操作层面上，这意味着首先如\eqref{eq:pj-linear-combination-theta-psi}， 选取某种恰当的基$\left\{ \Psi_i (\bm{x})\right\}_{i=0}^{\infty}$，用基与系数内积并求和的方法构建$d(\bm{x} | \theta)$；进而如\eqref{eq:pj-residual-function-def}，对$\mathcal{H}$做$\Psi$的映射，求得$\theta$。就这两个环节来说，显然，选取不同形式的基和映射算法的组合，会出现不同的映射法，在不同的文献中，有时也会给它们以一些专有的称呼，以与其他映射法相区分。
 
-经济学家很早就将映射理论应用到经验研究中去了，进入20世纪90年代后，映射法逐渐成为一种成熟的宏观经济学研究方法，主要归功于\cite{Judd:1992vv,Gaspar:1997we,Judd:1998uy}的贡献\footnote{与扰动法相比，映射法的思路更为现代，但在自然科学、工程学研究中也有许多年的悠久历史了。映射法的前身之一光谱法(spectral methods)至少可上溯至\cite{Lanczos:1938hy}，另一个前身有限元法(finite elements methods, FEM)来自于波音工程师\cite{Clough:1960wq}的开创性工作；关于有限元法的早期发展可见\cite{Clough:1999uo}。}。
+经济学家很早就将映射理论应用到经验研究中去了，进入20世纪90年代后，映射法逐渐成为一种成熟的宏观经济学研究方法，主要归功于\cite{Judd:1992gs,Gaspar:1997we,Judd:1998uy}的贡献\footnote{与扰动法相比，映射法的思路更为现代，但在自然科学、工程学研究中也有许多年的悠久历史了。映射法的前身之一光谱法(spectral methods)至少可上溯至\cite{Lanczos:1938hy}，另一个前身有限元法(finite elements methods, FEM)来自于波音工程师\cite{Clough:1960wq}的开创性工作；关于有限元法的早期发展可见\cite{Clough:1999uo}。}。
 
 大致说来，映射法比扰动法更易于描述，但算法实现上则较为困难。下面是一个映射法的基本算法描述：
 \begin{algorithm}[映射法的基本算法] 可简述如下：
@@ -695,6 +695,672 @@
 
 $j+1$个配点的选取方法有很多，一个常用方法称正交配点法(orthogonal collocation)\index{collocation!orthogonal \dotfill 正交配点}，是指在值域$\Omega$中对于向量$\bm{x}$对应的每一组状态变量，都用$j+1$次切比雪夫多项式的根(有$j+1$个)予以表示。根据切比雪夫插值定理(定理\ref{sec:poly-chebyshev-interpolation})，利用正交配点法生成的近似方程系统，会收敛至、甚至有时是均匀收敛(uniform convergence)\index{uniform convergence \dotfill 均匀收敛}至未知方程$d$。
 
-\subsection{伽辽金法或瑞利——里兹法}
+\subsection{伽辽金法}
 \label{sec:pj-weight-galerkin}
-\todo{完备(completeness)的脚注\pageref{def:completeness-space}}。
+第四种权重方程$\phi_{i}(x)$的选取方法为,设它等于近似计算过程中求得的基方程$\psi_{i-1}(x)$，满足
+\begin{equation*}
+  \phi_{i} = \psi_{i-1}(x),
+\end{equation*}
+又称伽辽金近似法(Galerkin method,第\ref{sec:pj-galerkin-approximation}节\index{Galerkin method \dotfill 伽辽金近似法})。
+
+对应地，残差$R \left( \cdot | \theta \right)$的加权积分为$0$
+\begin{equation*}
+  \int_{\Omega} \psi_{i}(x) R \left( \cdot | \theta \right) \, \mathrm{d} x =0, \quad i = 1, \ldots, j+1,
+\end{equation*}
+即是说残差项正交于每一个对应的基方程。
+
+伽辽金法的编程代码难写，但优点在于近似结果高度精确且稳健。如果基方程$\psi_{i}(x), \, i = 1, \ldots, j+1$在$J$上完备\footnote{完备(completeness)的定义，见第\pageref{def:completeness-space}页脚注。}，那么随着$j \rightarrow \infty$，伽辽金近似会逐渐点收敛(pointwise)至真实解
+\begin{equation*}
+  \lim_{j \rightarrow \infty} d^{j} \left( \cdot | \theta \right) = d \left( \cdot \right),
+\end{equation*}
+相关证明可参考Theorem \ref{theorem:pj-galerkin-approximation-convergence}，
+Theorem \ref{theorem:pj-galerkin-approximation-limit-convergence}。
+
+实际研究结果表明，$j$阶伽辽金近似的精确度，可以达到$j+1$或者$j+2$阶配点近似(伪光谱法)的程度。
+
+\subsection{两个近似技巧}
+\label{sec:pj-approximation-tips}
+考虑这样一个经典的非线性方程系统
+\begin{equation}
+  \label{eq:pj-nonlin-sys}
+  \int_{\Omega} \phi_{i}(x) R\left( \cdot | \theta \right) \, \mathrm{d} x, \quad i = 1,\ldots,j+1,
+\end{equation}
+当系数向量$\theta$中的元素较多时，和/或我们很难得到适当的初始猜测值$\theta_{0}$时，近似求解的计算会变得很困难。实际近似过程中，我们常用以下两个技巧来提高计算速度与近似解的稳健性。
+
+\subsubsection{系统变形}
+\label{sec:pj-approximation-tips-transformation}
+求解系统\eqref{eq:pj-nonlin-sys}最大的瓶颈在于系统的非线性，并且求解难度随着非线性的程度而指数上升。因此在进行数值近似之前，常可以对系统做变形来降低非线性的程度。例如跨期消费的欧拉方程
+\begin{equation*}
+  \frac{1}{C_{t}} = \beta E_{t} \frac{1}{C_{t+1}} R_{t+1},
+\end{equation*}
+其中$R_{t+1}$表示资本的总回报率。\cite{Judd:1992gs}建议系统变形如下
+\begin{equation*}
+  \beta C_{t} = \left( E_{t} \frac{1}{C_{t+1}} R_{t+1} \right)^{-1},
+\end{equation*}
+这样LHS是线性形式，RHS比原式更接近线性形式了。对于某个状态变量$x_{t}$而言，在原来的系统中，残差$R\left( \cdot | \theta \right)$的计算方式如下
+\begin{equation*}
+  R\left( \cdot | \theta \right) = \frac{1}{
+  C_{t} \left( x_{t} | \theta \right)
+  }
+  - \beta E_{t}
+  \left[
+  \frac{1}{
+  C_{t+1} \left( x_{t} | \theta \right)
+  } R_{t+1} \left( x_{t} | \theta \right)
+  \right],
+\end{equation*}
+
+若是采用系统变形的思路，变形后的残差$\tilde{R} \left( \cdot | \theta \right)$计算式为
+\begin{equation*}
+  \tilde{R} \left( \cdot | \theta \right)
+  = \beta C_{t} \left( x_{t} | \theta \right)
+  - \left[
+  E_{t} \frac{1}{
+  C_{t+1} \left( x_{t} | \theta \right)
+  } R_{t+1} \left( x_{t} | \theta \right)
+  \right]^{-1}.
+\end{equation*}
+
+\subsubsection{系统规模缩减}
+\label{sec:pj-approximation-tips-reduction}
+如前所述，我们说\eqref{eq:pj-nonlin-sys}的规模较大时，往往是指系数$\theta$的数量较多。在近似求解过程中，常常可以分步骤进行：首先在大系统中提取一组核心变量构成小系统，近似求解小系统，将近似解输入大系统中求得最终的完整解，这个思路可称为分步求解法。当系统中含有正交基方程(如切比雪夫多项式)时，分步求解法显得非常可靠：不再直接用$j+1$个基方程来直接求解大系统，而是首先提取出$j^{'}+1 << j+1$个基方程做近似求解小系统，将其作为猜测接代入大系统中，展开下一个阶段的近似。
+
+举例来说，我们想要求一个$m$维系统中，含有10个切比雪夫多项式的，$10 \times m$个方程的系统。首先我们做3个切比雪夫多项式，$3 \times m$个方程的小系统求解，将近似得到的系数作为大方程系统的初始猜测值的一部分，$\theta_{0} = \left[ \theta^{3}, 0_{1 \times m}, \ldots, 0_{1 \times m}\right]$，即第一组系数$\theta^{3}$来自小系统的计算，其余更多系数的初始猜测值设为$0$。由于前3个和后7个切比雪夫多项式正交，那么引入额外的7个$0$不会导致系统解发生太大改变：将$\theta^{3}$作初始猜测值因而是非常理想的。此外，由于切比雪夫多项式具有快速收敛的特点，越是高阶的切比雪夫多项式，其对应的系数就越接近于$0$，那么将$\theta^{3}$作为初始猜测值的一部分，也是有信息含量的\footnote{上例将整个系统截为两段分步展开研究。随着实际需要，可以分为更多段，在写投影法的代码时，可将这些段写为与特定数量的多项式有关，进而在一个loop循环中迭代运行程序，使得由$j'$向$j$的近似以较高速度或者较低速度进行。}。
+
+\section{投影法求解DSGE模型举例}
+\label{sec:pj-example-solution-dsge}
+举一个实际案例，介绍如何应用投影法，即切比雪夫多项式和正交配点等技术，来求解DSGE模型。
+
+\subsection{模型设定}
+\label{sec:pj-example-setup}
+考虑一个经典的含有内生劳动力供应决定机制的随机内生经济增长模型。假定这是个中心化模型(centralized economy)
+\footnote{
+用中心化经济模型来介绍投影法的应用，主要原因是...懒...投影法一样可以用于求解去中心化的经济模型，又称竞争均衡模型。并且事实上，投影法的最突出优势恰恰在于，它更适合用于分析常常处于非帕累托最优状态的分散经济体，如见第\pageref{footnote:pj-solution-approximation-tradeoff}页的讨论。
+}。典型家庭的消费和劳动力供应决策，由前向CCRA效用函数来表现
+\begin{equation*}
+  E_{0} \sum_{t=1}^{\infty} \beta^{t-1} \frac{
+  \left[
+  c_{t}^{\tau} \left( 1 - \ell_{t} \right)^{1 - \tau}
+  \right]^{1 - \eta}
+  }{1 - \eta},
+\end{equation*}
+其中\begin{itemize}
+\item $0 < \beta < 1$表示时间贴现，
+\item $\eta$是跨期替代弹性，反映家庭的风险厌恶程度，
+\item $1/\tau$是劳动力供应的Frisch替代弹性，见第\ref{sec:Frish-elasticity}节。
+\item $E_{0}$，$t=0$时刻的条件期望符。
+\end{itemize}
+
+经济体中有且只有一种最终商品，总量生产函数
+\begin{equation}
+  \label{eq:pj-solution-example-y}
+  y_{t} = \exp \left(Z_{t} \right) k_{t}^{\alpha} \ell_{t}^{1 - \alpha},
+\end{equation}
+其中\begin{itemize}
+\item $k_{t}$是总的实物资本存量，积累形式满足运动法则
+\begin{equation*}
+  k_{t+1} = \left( 1 - \delta \right) k_{t} + i_{t},
+\end{equation*}
+$i_{t}$表示当期的实物资本投资，
+\item $\ell_{t}$是总劳动力，
+\item $z_{t}$表示生产率，是一个随机$AR(1)$过程，满足
+\begin{equation*}
+  z_{t} = \rho z_{t-1} + \epsilon_{t}, \quad \left| \rho \right| < 1, \quad \epsilon_{t} \sim \mathcal{N} \left( 0, \sigma^{2} \right),
+\end{equation*}
+\end{itemize}
+
+经济体中的总资源约束条件
+\begin{equation*}
+  y_{t} = c_{t} + i_{t}.
+\end{equation*}
+
+\subsection{社会规划者问题}
+\label{sec:pj-example-bellmann}
+社会规划者问题可表示为，在给定初始条件$\left\{k_{0}, z_{0} \right\}$的情况下，追求价值方程$V \left( k_{t}, z_{t} \right)$的最大化，即贝尔曼等式(Bellman equation)\index{Bellman equation \dotfill 贝尔曼等式}
+
+\begin{equation}
+  \label{eq:pj-example-bellmann}
+  \begin{split}
+    & V \left( k_{t}, z_{t} \right)
+    = \max_{\left\{ c_{t}, \ell_{t} \right\}}
+    \frac{
+    \left[
+    c_{t}^{\tau} \left( 1 - \ell_{t} \right)^{1 - \tau}
+    \right]^{1 - \eta}
+    }{1 - \eta}
+    + \beta E_{t} V_{k_{t+1}, z_{t+1}},\\
+    & \text{s.t.} \begin{cases}
+    k_{t+1} = \exp \left( z_{t} \right) k_{t}^{\alpha} \ell_{t}^{1 - \alpha} + \left( 1 - \delta \right) k_{t} - c_{t}, \\
+    z_{t} = \rho z_{t-1} + \epsilon_{t}.
+    \end{cases}
+  \end{split}
+\end{equation}
+
+实际求解过程中我们只需要考虑状态变量$k_{t}$和决策变量$\ell_{t}$；$c_{t}$则时一个关于$k_{t}$和$\ell_{t}$的变量。为了说明这一点，首先我们有
+\begin{equation*}
+  \begin{split}
+    MPL & \coloneqq \frac{\partial y_{t}}{\partial \ell_{t}} = \left( 1 - \alpha \right) \exp \left( z_{t} \right) k_{t}^{\alpha} \ell_{t}^{- \alpha}, \\
+    MUC & \coloneqq \tau c_{t}^{\tau - 1} \left( 1 - \ell_{t} \right)^{1 - \tau} \left[ \cdot \right]^{-\eta}, \\
+    MUL & \coloneqq - \tau \left( 1 - \tau \right) c_{t}^{\tau} \left( 1 - \ell_{t} \right)^{- \tau} \left[ \cdot \right]^{-\eta},
+  \end{split}
+\end{equation*}
+其中$MPL$表示劳动的边际产出，$MUC, MUL$分别表示消费和劳动的边际效用(负效用)。
+
+进而可得
+\begin{equation}
+  \label{eq:pj-solution-example-c}
+\begin{split}
+    & MUC + MUL \frac{1}{MPL} = 0, \\
+    & \hookrightarrow
+    \left[ \cdot \right]^{-\eta} \tau c_{t}^{\tau - 1} \left( 1 - \ell_{t} \right)^{1 - \tau} =
+    \frac{
+    \left[ \cdot \right]^{-\eta} \left( 1 - \tau \right) c_{t}^{\tau} \left(1 - \ell \right)^{-\tau}
+    }{
+    \left(1 - \alpha \right) \exp \left( z_{t} \right) k_{t}^{\alpha} \ell_{t}^{-\alpha}
+    }, \\
+    & \hookrightarrow
+    \frac{\tau}{1 - \tau} \left( 1 - \ell_{t} \right)
+    = \frac{
+    c_{t}
+    }{
+    \left( 1- \alpha \right) \exp \left( z_{t} \right) k_{t}^{\alpha} \ell_{t}^{-\alpha}
+    }, \\
+    & \hookrightarrow
+    c_{t} = \frac{\tau}{1-\tau} \left(1 - \alpha \right)
+    \exp \left( z_{t} \right) k_{t}^{\alpha} \ell_{t}^{-\alpha} \left( 1 - \ell_{t} \right).
+\end{split}
+\end{equation}
+
+\subsection{参数校准}
+\label{sec:pj-example-calibration}
+求解模型需要为参数赋值。本节先用参数校准，在下文介绍DSGE的估计方法时将进一步讨论参数赋值的方法\todo{做一个reference}。
+
+\begin{equation*}
+  \left(\beta, \eta, \tau, \alpha, \delta, \rho, \sigma \right) = \left( 0.991, 5.000, 0.357, 0.300, 0.0196, 0.950, 0.007 \right).
+\end{equation*}
+大多数参数值的选取都与经验研究中的发现相近。唯一的例外是$\eta = 5$，接近一系列经验测算值中的最高值。$\eta$的值越高，意味着消费者的风险厌恶程度越高，消费行为越是缺乏耐心。在DSGE模型中之所以取如此高的$\eta$，是为了使模型中的行为人对市场中的波动更加敏感，经济行为具有更高的预防倾向(precautionary behaviors)，进而决策法则的曲率(curvature)更高。而曲率越高，就表示方程系统的非线性程度越高，从而投影法近似的难度就越大。
+
+除此而外，还需要对$AR(1)$的外生技术冲击过程$z_{t}$做离散化处理(discretization)，见第\ref{sec:pj-local-discretization}节。设$n=5$，即$\left\{ z_{1},z_{2},z_{3},z_{4},z_{5} \right\}$。无条件标准差设为$\pm 3$。进而我们有转移矩阵$P_{z,z^{'}}$，矩阵中的元素$p_{m,n}$表示当前技术水平$z_{m}$，在下一时间段变为$z_{n}$的概率。
+
+\subsection{分步求解}
+\label{sec:pj-example-steps}
+在无法直接求得系统\eqref{sec:pj-example-bellmann}解析解的情况下，近似求解的目标可以分步表示如下，所需的动态规划知识，见第\ref{sec:dp}章。
+
+第一阶段，近似价值方程$V \left( k_{t} \right)$和劳动力供应的决策法则
+$\ell \left( k_{t} \right)$，设为$\left\{
+V^{j} \left( k_{t} | \theta^{V,j} \right),
+\ell^{j}\left(k_{t} | \theta^{\ell,j} \right)
+\right\}$，其中系数为$\left\{ \theta^{\ell,j}, \theta^{V,j} \right\}$。
+
+设5个马尔科夫链用$j=1,2,3,4,5$表示，11个切比雪夫结点$T_{i} \left( \cdot \right)$用$i=0,1,\ldots,10$表示，定义式如\eqref{eq:poly-chebyshev-1-def}。那么价值方程和劳动力供应的决策法则可以近似表示为
+\begin{align}
+  \label{eq:pj-exmaple-teps-value}
+  & V^{j} \left( k_{t} | \theta^{V,j} \right) = \sum_{i=0}^{10} \theta_{i}^{V,j}
+  T_{i} \left( k _{t} \right), \\
+  \label{eq:pj-exmaple-teps-labor}
+  & \ell^{j}\left(k_{t} | \theta^{\ell,j} \right) =
+  \sum_{i=0}^{10} \theta_{i}^{\ell, j} T_{i} \left( k_{t} \right),
+\end{align}
+
+
+第二阶段，已知$\ell^{j}\left( k_{t} | \theta^{\ell,j} \right)$的近似值\eqref{eq:pj-exmaple-teps-labor}计算而得，在此基础上可计算近似值$\left\{ y^{j} \left( k_{t} \right), c^{j} \left(k_{t} \right) , k^{j} \left( k_{t} \right) \right\}$：
+\begin{itemize}
+\item 由总量生产函数\eqref{eq:pj-solution-example-y}可得$y^{j} \left( k_{t} \right)$
+\begin{equation}
+  \label{eq:pj-solution-example-y-approx}
+  y^{j} \left( k_{t} \right) = \exp \left( z_{t} \right) k_{t}^{\alpha}
+  \left[
+  \ell^{j} \left( k_{t} | \theta^{\ell,j} \right)
+  \right]^{1 - \alpha}.
+\end{equation}
+\item 由\eqref{eq:pj-solution-example-c}可得$c^{j} \left( k_{t} \right)$
+\begin{equation}
+  \label{eq:pj-solution-example-c-approx}
+  c^{j} \left( k_{t} \right) =
+  \frac{\tau}{1-\tau} \left(1 - \alpha \right)
+  \exp \left( z_{t} \right) k_{t}^{\alpha}
+  \left[ \ell^{j} \left( k_{t} | \theta^{\ell,j} \right) \right]^{- \alpha}
+  \left[ 1 - \ell^{j} \left( k_{t} | \theta^{\ell,j} \right) \right].
+\end{equation}
+\item 下一时段的资本存量由\eqref{eq:pj-example-bellmann}给出
+\begin{equation}
+  \label{eq:pj-solution-example-knext-approx}
+  k^{j} \left(k_{t} \right) =
+  \exp \left( z_{t} \right) K_{t}^{\alpha}
+  \left[ \ell^{j} \left( k_{t} | \theta^{\ell,j} \right) \right]^{1-\alpha}
+  + \left( 1 - \delta \right) k_{t} - c^{j} \left( k_{t} \right).
+\end{equation}
+\end{itemize}
+
+\label{footnote:pj-solution-approximation-tradeoff}
+值得指出的是，上面的求解过程中，我们设一个状态变量$k_{t}$，一个决策变量$\ell_{t}$为第一阶段投影近似的对象。而类似地，也可以将分步求解的方案设计为，第一阶段投影近似消费和资本存量的决策方程，第二阶段投影近似劳动力决策和价值方程。这两个方案是等价的。这从另一个侧面印证了投影法在求解分散化的去中心经济系统时(各个部门的子系统由竞争均衡条件彼此联系起来)时，具有高度的灵活性。在实际研究中具体采取哪种方案，可以视建模难度、计算(编程)难度和研究目标之间的权衡取舍而灵活决定。
+
+第三阶段，求解近似系数$\left\{ \theta^{\ell,j}, \theta^{V,j} \right\}$。
+
+为了得到系统的近似解，需要确定$\left\{ \theta^{\ell,j}, \theta^{V,j} \right\}$的值：这可以通过价值方程来计算。将贝尔曼等式\eqref{eq:pj-example-bellmann}改写为
+\begin{equation}
+  \label{eq:pj-example-bellmann-approx}
+  V^{j} \left( k_{t} | \theta^{V,j} \right)
+  = \frac{
+  \left\{
+  \left[ c^{j} \left(k_{t} \right) \right]^{\tau}
+  \left[ 1 - \ell_{t}^{j} \left( k_{t} | \theta^{\ell,j} \right) \right]^{1 - \tau}
+  \right\}^{1 - \eta}
+  }{1-\eta}
+  + \underbrace{
+  \beta E_{t} V^{j} \left( K_{t+1} | \theta^{V,j} \right)
+  }_{\eqqcolon \mathcal{A}}
+  ,
+\end{equation}
+上式已经在最优决策下，因此省去$\max$符。根据离散化的设定，当期价值方程$V^{j}(\cdot | \cdot)$在下期变为$V^{m} (\cdot | \cdot)$的概率，由转移矩阵$P_{z,z^{'}}$给出，对应其中的概率元素$p_{jm}$。以$p_{jm}$为权重，\eqref{eq:pj-example-bellmann-approx}RHS的后半部分$\mathcal{A}$可以改写为
+\begin{equation*}
+  \mathcal{A} \coloneqq \beta E_{t} V^{j} \left( K_{t+1} | \theta^{V,j} \right)
+  = \beta \sum_{m=1}^{5} p_{jm} V^{j} \left( k^{j}(k_{t}) | \theta^{V,j} \right),
+\end{equation*}
+这样我们将所有对于下一时段的期望值$E_{t} \left[ \cdot \right]$写为当期项的加权和，对应权重概率$p_{jm}$。依次引入\eqref{eq:pj-exmaple-teps-value}，
+\eqref{eq:pj-exmaple-teps-labor}，
+\eqref{eq:pj-solution-example-c-approx}， \eqref{eq:pj-solution-example-knext-approx} 替换
+$V^{j} \left( k_{t} | \theta^{V,j} \right),
+\ell^{j} \left( k_{t} | \theta^{\ell,j} \right),
+c^{j} \left( k_{t} \right),
+k^{j} \left( k_{t} \right)$，\eqref{eq:pj-example-bellmann-approx}最终改写为
+\begin{equation}
+  \label{eq:pj-example-bellman-approx-final}
+  \sum_{i=0}^{10} \theta_{i}^{V,j} T_{i} \left( k_{t} \right)
+  = \frac{1}{1-\eta}
+  \left\{
+  \left[
+  c^{j} \left( k_{t} \right)
+  \right]^{\tau}
+  \left[
+  1 - \sum_{i=0}^{10} \theta_{i}^{\ell, j} T_{i} \left( k_{t} \right)
+  \right]^{1 - \tau}
+  \right\}^{1 - \eta}
+  + \beta \sum_{m=1}^{t} p_{j,m} \sum_{i=0}^{10} \theta_{i}^{V,j} T_{i} \left( k_{t} \right).
+\end{equation}
+
+此外，模型中跨期消费的欧拉等式满足
+\begin{equation*}
+  u^{'} \left( c_{t} \right) = \beta E_{\epsilon^{'} | \epsilon} V^{'} \left( k_{t}^{'}\right),
+\end{equation*}
+那么用类似的方式可得欧拉等式的近似方程
+\begin{equation}
+  \label{eq:pj-example-euler-approx-final}
+  \frac{
+  \left[
+  c_{t}^{\tau}
+  \left( 1 -
+  \sum_{i=0}^{10} \theta_{i}^{\ell, j} T_{i} \left( k_{t} \right)
+  \right)^{1 - \tau}
+  \right]^{1-\eta}
+  }{
+  c_{t}
+  }
+  = \beta E_{t} \sum_{m=1}^{5} p_{jm}
+  \sum_{i=0}^{10} \theta_{i}^{V,j}
+  T_{i}^{'} \left( k^{j} \left( k_{t} \right) \right),
+\end{equation}
+其中$T_{i}^{'} \left( k^{j} \left( k_{t} \right) \right) \coloneqq \frac{\partial}{ \partial  k^{j} \left( k_{t} \right)} T_{i}\left( k^{j} \left( k_{t} \right) \right)$。
+
+将贝尔曼等式的近似式\eqref{eq:pj-example-bellman-approx-final}，和欧拉等式的近似式\eqref{eq:pj-example-euler-approx-final}连起来，构建一个残差方程系统
+\begin{equation}
+  \label{eq:pj-example-residual-approx}
+  R\left( k_{t}, z_{j} | \theta^{V,j}, \theta^{\ell, j} \right) =
+  \begin{cases}
+    \mathcal{A}_{1}, \\
+    \mathcal{A}_{2},
+  \end{cases}
+\end{equation}
+其中
+\begin{align*}
+  \mathcal{A}_{1} & \coloneqq \sum_{i=0}^{10} \theta_{i}^{V,j} T_{i} \left( k_{t} \right)
+  - \frac{
+  \left\{
+  \left[
+  c^{j} \left( k_{t} \right)
+  \right]^{\tau}
+  \left[
+  1 - \sum_{i=0}^{10} \theta_{i}^{\ell, j} T_{i} \left( k_{t} \right)
+  \right]^{1 - \tau}
+  \right\}^{1 - \eta}
+  }{1-\eta}
+  - \beta \sum_{m=1}^{t} p_{j,m} \sum_{i=0}^{10} \theta_{i}^{V,j} T_{i} \left( k_{t} \right), \\
+  \mathcal{A}_{2} & \coloneqq
+  \frac{
+  \left[
+  c_{t}^{\tau}
+  \left( 1 -
+  \sum_{i=0}^{10} \theta_{i}^{\ell, j} T_{i} \left( k_{t} \right)
+  \right)^{1 - \tau}
+  \right]^{1-\eta}
+  }{
+  c_{t}
+  }
+  - \beta E_{t} \sum_{m=1}^{5} p_{jm}
+  \sum_{i=0}^{10} \theta_{i}^{V,j}
+  T_{i}^{'} \left( k^{j} \left( k_{t} \right) \right),
+\end{align*}
+$\theta$是$\theta_{i}^{V,j}$和$ \theta_{i}^{\ell,j}$的集合，$z_{j}$是离散化处理后的外生冲击变量(因而取消时间下角标)。
+
+根据这样的设定不能看出，如果我们
+\begin{itemize}
+  \item 用11个切比雪夫多项式近似价值方程式\eqref{eq:pj-exmaple-teps-value}，
+  \item 用11个切比雪夫多项式近似劳动力供应的决策方程\eqref{eq:pj-exmaple-teps-labor}，
+  \item 用5个状态水平描述外生技术冲击$z_{j}$，
+\end{itemize}
+那么$\theta$共有$11 \times 2 \times 5 = 110$个元素。这100个系数值的求解，可用牛顿——拉夫森(Newton-Raphson method)做近似求解，程序实现如见第\ref{ux6700ux5927ux4f3cux7136ux4f30ux8ba1ux7b97ux6cd5ux4e3eux4f8b}节。为了提高计算效率，可采取前述的分步求解法：先取3个切比雪夫多项式计算近似解，代入11个多项式的大系统中作为初始猜测值的前3项，余下部分设为$0$，再进行下一轮的近似计算。
+
+\begin{figure}[htbp]
+   \caption[随机NCGT模型的投影法近似求解]{随机内生经济增长模型的投影法近似求解}
+  \centering
+  \includegraphics[width=12cm]{./Figures/20180325-projection-residual-analysis}
+  \label{fig:pj-simulations-residual}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+
+图\ref{fig:pj-simulations-residual}描述了用投影法求解随机新古典内生经济增长模型的模拟结果，从左上到右下分别表示价值方程的近似，消费、劳动力供应、资本积累决策方程的近似。五条颜色的线段分别表示5种技术冲击水平。横轴是状态变量$k_{t}$。
+\begin{itemize}
+  \item 价值方程的近似，符合模型设定，即价值方程是关于$k_{t}$和$z_{t}$的凹函数(concave)。
+  \item 值得注意的是右下图，资本积累的决策方程，基本呈近似线性特征，这暗示着模型设定中资本积累式的线性型设定是比较合理的。
+\end{itemize}
+
+在求得1个价值方程和3个决策方程的近似式的基础上，我们便可以进一步对模型做仿真，计算冲击响应方程，并展开福利效果分析了。
+
+投影法做近似求解可以达到非常高的精度，对误差项精度的进一步解读，可见下一节\todo{做一个ref}。总的说来，图\ref{fig:pj-simulations-residual}的近似解足以代替(离散生产率水平设定下的)新随机新古典主义增长模型的解析解。
+
+
+\section{稀疏网格}
+\label{sec:pj-sparsity}
+高维DSGE模型的求解普遍受到维数灾难的限制，是公认难题。在利用完全多项式来近似求解高维系统的过程中，一种可以更好处理维数灾难的投影法是稀疏网格法(sparse grid)\index{sparse grid \dotfill 稀疏网格}，又称Smolyak算法\index{Smolyak algorithm \dotfill Smolyak算法}。
+
+数学上的Smolyak算法介绍，可见\cite{Smolyak:1963tu,Delvos:1982cg, Barthelmann:2000bq}，一个全面的文献综述可见\cite{Bungartz:2004tc}。
+
+\cite{Krueger:2004gh, Malin:2011hf}等首次尝试将Smolyak算法引入经济学研究中去，尤其是DSGE模型的求解。随后，一系列相关工作逐渐展开，如
+\begin{enumerate}
+  \item \cite{FernandezVillaverde:2015hs}利用Smolyak算法求解一个有着利率零下限设定的5个状态变量的新凯恩斯模型。
+  \item \cite{FernandezVillaverde:2016wg}利用Smolyak算法求解一个存在大规模灾难性风险设定的12个状态变量的新凯恩斯模型。
+  \item \cite{Gordon:2011ki}用Smolyak算法求解一个动态的异质行为人模型，异质性表现为总量层面上的分布方程，以一个状态变量直接进入模型当中。
+  \item \cite{Malin:2011hf}对一个大规模、高度非线性DSGE模型做出精确估计，模型中含有20个连续状态变量。高度非线性表现一系列生产函数和效用函数的曲率上。
+  \item  除了Smolyak算法之外，稀疏网格矩阵的另一种方法，是基于遍历集合(ergodic set)\index{ergodic set \dotfill 遍历集}来求解高维非线性系统，解释效果和精度也较为理想，可参考\cite{Maliar:2011jd,Judd:2011kb,Judd:2011iw}等。一个全面的介绍可见\cite{Maliar:2015fw}。
+\end{enumerate}
+
+这里以\cite{Krueger:2004gh, Malin:2011hf}为例，介绍用Smolyak算法求解DSGE模型的基本思路。研究的目标依旧是近似求解一个由$n$个状态变量构成的方程，如决策方程、价值方程、期望方程等，表示为\footnote{
+两个简单的扩展：一是
+\begin{equation*}
+d: \left[ -k,k \right]^{n} \mapsto \left[ -1,1 \right]^{n}, \, k \neq 1,
+\end{equation*}
+可参考如第\ref{sec:pj-sparsity-steps-interval}节。二是
+\begin{equation*}
+  d: \left[ -k,k \right]^{n} \mapsto \mathrm{R}^{m}, \, m \neq n, m >0, n > 0.
+\end{equation*}
+
+}
+\begin{equation*}
+  d: \left[ -1,1 \right]^{n} \mapsto \mathrm{R}^{m}.
+\end{equation*}
+
+Smolyak算法的求解思路为，找到一个由若干点组成的网格$\mathrm{G}(q,n), \, q > n$，以及一个近似方程$d \left( x | \theta, q, n\right):\left[ -1, 1 \right]^{n} \mapsto \mathrm{R}$，这个近似方程由系数向量$\theta$予以描述，使得
+\begin{itemize}
+  \item 在网格$\mathrm{G}(q,n)$中的任意一点$x_{i} \in \mathrm{G}(q,n)$，待求解的未知方程$d(\cdot)$和近似方程$d \left( \cdot | \theta, q , n \right)$相等，即$\mathcal{H} \left( \cdot \right)$算子得到充分满足
+  \begin{equation*}
+    d \left( x_{i} \right) = d \left( \cdot | \theta, q , n \right), \, \forall \, x_{i} \in \mathrm{G}(q,n).
+  \end{equation*}
+  \item 在不属于网格的点$x_{i} \notin \mathrm{G}(q,n)$，近似方程$d \left( \cdot | \theta, q , n \right)$接近原方程$d \left( \cdot \right)$，即残差接近于$0$。
+\end{itemize}
+
+不难看出，$q$的作用在于描述网格的大小，以及衡量近似解的精确程度。
+
+Smolyak算法的核心在于，如何选取恰当的网格$\mathrm{G}(q,n)$，以确保系数向量$\theta$不会随着$n$而爆炸。
+
+Smolyak编程较难，但有突出优点：
+\begin{itemize}
+  \item 在多种基于多项式近似的算法中，它(几乎)是最优的算法\citep{Barthelmann:2000bq}，
+  \item 它提供全局解，即对许多方程空间来说都(几乎)是普遍最优的。
+\end{itemize}
+
+\subsection{Smolyak法的步骤}
+\label{sec:pj-sparsity-steps}
+如上文所述，Smolyak算法的核心是选定适宜的稀疏网格$\mathrm{G}(q,n)$和近似方程$d \left( \cdot | \theta, q, n\right)$。以下是常见步骤。
+
+\subsubsection{状态变量的域转换}
+\label{sec:pj-sparsity-steps-interval}
+任意状态变量$\left\{ \tilde{x}_{\ell} \right\}_{\ell = 1}^{n}: \left[ a, b \right]^{n}$，可用如下方法线性平移至单位域$[-1,1]^{n}$中，变为$\left\{ x_{\ell} \right\}_{\ell = 1}^{n}: \left[ -1, 1 \right]^{n}$：
+\begin{equation}
+  \label{eq:pj-sparsity-steps-interval}
+  x_{\ell} = 2 \frac{\tilde{x}_{\ell} - a}{b-a} -1, \quad \ell = 1, \ldots, n.
+\end{equation}
+
+\subsubsection{状态变量的域转换}
+\label{sec:pj-sparsity-steps-poly-order}
+定义多项式的阶，$m_{i}, i=1,2,\ldots$从而在随后的步骤中，用$m_{i-1}$阶多项式来近似原方程$d(\cdot)$：
+\begin{equation}
+  \label{eq:pj-sparsity-steps-poly-order}
+  m_{i} = \begin{cases}
+  1 & i = 1, \\
+  2^{i-1} +1, & i=2,3,\ldots
+  \end{cases}
+\end{equation}
+
+\subsubsection{建立克伦肖——柯蒂斯结点}
+\label{sec:pj-sparsity-steps-cc-nodes}
+构建复数集合$\mathrm{g}^{i} = \left\{ \xi_{1}^{i}, \ldots, \xi_{m_i}^{i} \right\} \subset \left[ -1 , 1 \right]$，每个上角标为$i$的集合中都包含有$m_{i}$个克伦肖——柯蒂斯结点(Clenshaw-Curtis nodes, \index{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则}见第\ref{sec:ninc-cc-quadrature-rule}节)。
+$\xi_{j}^{i}, \, j=1,2,\ldots, m_{i}$的值是切比雪夫多项式\eqref{eq:poly-chebyshev-1-def}，取值范围在上下极值(extrema)$\left[ -1, 1 \right]$之间，满足
+  \begin{equation}
+    \label{eq:pj-sparsity-cc-nodes}
+    \xi_{j}^{i} = - \cos \left( \frac{j - 1}{m_{i}-1}\right) \pi, \quad j = 1,\ldots,m_{i}.
+  \end{equation}
+
+  举例来说，\begin{itemize}
+  \item 当$i=1$时，$m_{1}=1$，初始集合设为$\mathrm{g}^{1} = \left\{ \xi^{1} \right\} = \left\{ 0 \right\}$，只有一个值。
+  \item 当$i=2$时，$m_{2} = 3$，3阶切比雪夫多项式构成$\mathrm{g}^{2} = \left\{ -1, 0, 1 \right\}$。
+  \item 当$i=3$时，$m_{2} = 5$，$\mathrm{g}^{2} = \left\{ -1, - \cos \left( \frac{\pi}{4} \right), 0, - \cos \left( \frac{3 \pi}{4} \right), 1 \right\}.$
+  \item 当$i=4$时，$m_{4} = 9$，$\mathrm{g}^{4} = \left\{ -1, -\cos \frac{\pi}{8}, -\cos \frac{\pi}{4}, -\sin \frac{\pi}{8}, 0, \sin \frac{\pi}{8}, - \cos \frac{3}{4} \pi, \cos \frac{\pi}{8}, 1 \right\}$，
+\end{itemize}
+以此类推。可见随着$i$的逐渐增加，$m_{i}$指数增加，集合$\mathrm{g}^{i-1}$中的值都包含在了$\mathrm{g}^{i}$中。(向下兼容性)。这个性质对Smolyak算法来说至关重要。
+
+\subsubsection{构建稀疏网格}
+\label{sec:pj-sparsity-steps-sparse-grid}
+给定系统中状态变量的数量$n$，对于任意$q > n, q \in \mathcal{Z}$，可将稀疏网格$\mathrm{G} \left( q,n \right)$定义为一个由一系列笛卡尔乘积(cartesian product)\index{cartesian product \dotfill 笛卡尔乘积}所组成的并集
+\begin{equation*}
+  \mathrm{G} \left( q,n \right) = \bigcup_{q-n+1 \le \left| \Upsilon \right| \le q} \left( \mathrm{g}^{i_1} \times \mathrm{g}^{i_2} \times \ldots \times \mathrm{g}^{i_n}\right), \quad \left| \Upsilon \right| \equiv \sum_{\ell=1}^{n} i_{\ell}.
+\end{equation*}
+
+以一个$n=2$个连续状态变量的DSGE模型为例，我们选取$q=3$，那么稀疏网格
+\begin{equation*}
+  \begin{split}
+    \mathrm{G} \left( 3, 2 \right)
+    & = \bigcup_{2 \le \left| \Upsilon \right| < 3} \left( \mathrm{g}^{i_1} \times \mathrm{g}^{i_2} \right) \\
+    & = \left( \mathrm{g}^{1} \times \mathrm{g}^{1} \right)
+    \cup
+    \left( \mathrm{g}^{1} \times \mathrm{g}^{2} \right)
+    \cup
+    \left( \mathrm{g}^{2} \times \mathrm{g}^{1} \right) \\
+    & = \left\{ (-1,0), (0,1), (0,0), (0,-1), (1,0) \right\},
+  \end{split}
+\end{equation*}
+将这些坐标绘制出来，见图\ref{fig:pj-sparse-grid-example}左上角。
+
+\begin{figure}[htbp]
+   \caption[稀疏网格]{稀疏网格$\mathrm{G}(3,2),\mathrm{G}(4,2),\mathrm{G}(5,2),\mathrm{G}(6,2)$}
+  \centering
+  \includegraphics[width=12cm]{./Figures/20180325-sparse-grid-example}
+  \label{fig:pj-sparse-grid-example}
+
+  \small{来源: \cite{Krueger:2004gh} Figure 1。}
+\end{figure}
+
+如果选$q=4$，那么
+\begin{equation*}
+  \begin{split}
+    \mathrm{G} \left( 4, 2 \right)
+    = & \bigcup_{3 \le \left| \Upsilon \right| < 4} \left( \mathrm{g}^{i_1} \times \mathrm{g}^{i_2} \right) \\
+    = & \left( \mathrm{g}^{1} \times \mathrm{g}^{2} \right)
+    \cup
+    \left( \mathrm{g}^{1} \times \mathrm{g}^{3} \right)
+    \cup
+    \left( \mathrm{g}^{2} \times \mathrm{g}^{2} \right)
+    \cup
+    \left( \mathrm{g}^{3} \times \mathrm{g}^{1} \right)\\
+    = & \left\{
+    (-1,-1),(-1,0),(-1,1),
+    \left( -\cos\frac{3}{4}\pi, 0 \right),
+    \left( -\cos\frac{1}{4}\pi, 0 \right), \right.\\
+    & \left. (0,-1), \left(0, -\cos\frac{3}{4}\pi \right), \left(0, -\cos\frac{1}{4}\pi \right), (0,0), (0,1),
+    (1,-1), (1,0), (1,1)
+    \right\},
+  \end{split}
+\end{equation*}
+坐标对应图\ref{fig:pj-sparse-grid-example}右上角。以此类推，图\ref{fig:pj-sparse-grid-example}的左下、右下分别绘出$\mathrm{G} \left(5,2 \right)$和$\mathrm{G} \left(6,2 \right)$的坐标。
+$\mathrm{G} \left( 5,3 \right)$的网格点，见图\ref{fig:pj-sparse-grid-example-g53}。
+\begin{figure}[htbp]
+   \caption{稀疏网格$\mathrm{G}(5,3)$}
+  \centering
+  \includegraphics[width=12cm]{./Figures/20180325-sparse-grid-G53}
+  \label{fig:pj-sparse-grid-example-g53}
+  %
+  %\small{来源: \cite{Krueger:2004gh} Figure 1。}
+\end{figure}
+
+从图\ref{fig:pj-sparse-grid-example}和\ref{fig:pj-sparse-grid-example-g53}不难看出稀疏网格的两个重要特征：
+\begin{enumerate}
+  \item 网格点在全部值域空间中的分布是不均匀的，越是靠近边缘的地区，和越是靠近域中心的位置，网格点越是密集。
+  \item 一个$q=n+2$的稀疏网格中，有网格点数$2n(n-1)+4n+1$个。总结一般规律：网格$\mathrm{G}(q,n)$的势(cardinality)\index{cardinality \dotfill 势}随着$n^{2}$而呈多项式级数型增长。若$q = n+3$，则势随$n^{3}$呈多项式技术型增长。事实上在给定$n$不变的情况下，$q-n$的值越大，对应的网格点越多，数值求解越耗费资源。
+
+  幸运的是，对大多数DSGE系统而言，$q=n+2$或者$q=n+3$就足以达到较为理想的近似精度了。
+\end{enumerate}
+
+在构建稀疏网格的过程中，之所以选用切比雪夫结点构建网格点的集合，是因为在克伦肖——柯蒂斯求积过程中，切比雪夫点具有很理想的嵌套性特征(nestedness)\index{nestedness of Chebyshev nodes \dotfill 嵌套性(切比雪夫结点)}，该特征对于将$card \left( \mathrm{G}(q,n)\right)$控制在可操作范围内来说至关重要。例如，矩形网格的节点数是$5^n$个，总点数随着系统维度$n$的增加而指数上升；若$n=2$，这意味着需要在$[-1,1]^{2}$的二维空间中绘制$25$个结点。而得益于切比雪夫结点的嵌套性，在部署Smolyak算法的过程中，我们只需要考虑全部25个结点中的13个就够了——网格变得``稀疏''了。随着$n$的变化，普通矩形网格点数和稀疏网格点数，如表\ref{tab:pj-sparsity-nodes-comp}所示，相对于普通网格(如矩形网格)的指数增速，稀疏网格在控制网格点数量的增加(势)上有很大优势。
+
+\begin{table}[htbp]
+  \label{tab:pj-sparsity-nodes-comp}
+\begin{center}
+    \scriptsize
+    \def\arraystretch{1.2}
+    \centering
+    \caption{网格结点的数量比较}
+    \begin{threeparttable}
+    \begin{tabular}{lrr}
+        \hline
+        $n$ & $card \left( \mathrm{G} \right)$\tnote{*} & $5^{n}$ \tnote{**}\\
+        \hline
+        2 & 13 & 25 \\
+        3 & 25 & 125 \\
+        4 & 41 & 625 \\
+        5 & 61 & 3125 \\
+        12 & 313 & 244,140,625 \\
+        \hline
+    \end{tabular}
+    \begin{tablenotes}
+        %\singlespacing
+        \footnotesize
+        \item[*] \tiny{稀疏网格结点的势$card \left( \mathrm{G} \left( q,n) \right) \right), \, q=n+2$。}
+        \item[**] \tiny{普通网格结点的势，等于$5^{n}$。}
+    \end{tablenotes}
+\end{threeparttable}
+\end{center}
+\end{table}
+
+\subsubsection{构建张量积方程}
+\label{sec:pj-sparsity-tensor-product}
+我们将多元多项式的乘积简化表示为张量积(tensor product)的形式(第\ref{sec:pj-multidimen-tensor}节)，记为$p^{\left| \Upsilon \right|} \left( x | \theta \right)$
+\begin{equation*}
+  p^{\left| \Upsilon \right|} \left( x | \theta \right)
+  \equiv
+  \sum_{\ell_{1} =1}^{m_{i_{1}}} \ldots \sum_{\ell_{n}=1}^{m_{i_{n}}}
+  \left( \theta_{\ell_{1} \ldots \ell_{n}} \right)
+  \left[
+  \psi_{\ell_{1}} \left( x_{1} \right)
+  \ldots \psi_{\ell_{n}} \left( x_{n} \right)
+  \right],
+\end{equation*}
+其中
+\begin{itemize}
+  \item \begin{equation*}
+  \left| \Upsilon \right| \equiv \sum_{\ell=1}^{n} i_{\ell},
+  \end{equation*}
+  \item \begin{equation*}
+  x \in [-1,1], \quad x = \left\{ x_{1}, \ldots, x_{n} \right\},
+  \end{equation*}
+  \item $\theta$是含有全部系数的堆栈，
+  \begin{equation*}
+    \theta = \left\{ \theta_{\ell_{1}, \ldots \ell_{n}} \right\},
+  \end{equation*}
+  \item 设基方程$\psi_{i} \left( x_{i} \right)$等于上一阶的切比雪夫多项式\footnote{这里选取切比雪夫多项式作为基方程，是因为切比雪夫多项式已经成为Smolyak算法求解DSGE系统所普遍采用的准则了。但也有其他选取方式的有益尝试，例如\cite{Nobile:2008kv}将有限元和Smolyak方法相结合，把值域$\Omega$分为若干元，在每个元中构建局部基方程再做加权求和。}，
+  \begin{equation*}
+    \psi_{i} \left( x_{i} \right) = T_{i-1} \left( x_{i} \right), \quad i=1,\ldots,n
+  \end{equation*}
+  其中根据切比雪夫多项式的性质，设初始点$T_{0}(x_{i}) =1$。
+\end{itemize}
+
+那么，对于一个$n=2, \, q=3$的DSGE系统而言，$\left| \Upsilon \right|=\left\{ 2 , 3 \right\}$，分两种情况。
+\begin{equation*}
+  \begin{split}
+    p^{\left| \Upsilon \right|, \, i=1,2} =
+    \begin{cases}
+    p^{\left| 2 \right|} \left( x | \theta \right) =  p^{1,1} \left( x | \theta \right), \\
+    p^{\left| 3 \right|} \left( x | \theta \right) =  p^{1,2} \left( x | \theta \right) + p^{2,1} \left( x | \theta \right),
+     \end{cases}
+  \end{split}
+\end{equation*}
+其中
+\begin{equation*}
+  \begin{split}
+    & \begin{cases}
+    i=1 \Rightarrow m_{1}=1, \\
+    i=2 \Rightarrow m_{2}=3,
+    \end{cases} \\
+    & p^{1,1} \left( x | \theta \right) =
+    \sum_{\ell_{1}=1}^{m_{1}} \ldots \sum_{\ell_{n}=1}^{m_{1}} \theta_{\ell_{1} \ell_{2}} \psi_{\ell_{1}} \left( x_{1} \right) \psi_{\ell_{2}} \left( x_{2} \right) = \theta_{11}, \\
+    & p^{1,2} \left( x | \theta \right) =
+    \sum_{\ell_{1}=1}^{m_{1}} \ldots \sum_{\ell_{n}=1}^{m_{2}} \theta_{\ell_{1} \ell_{2}} \psi_{\ell_{1}} \left( x_{1} \right) \psi_{\ell_{2}} \left( x_{2} \right)
+     = \theta_{11} + \theta_{12} \psi_{2} \left( x_{2} \right)
+     + \theta_{13} \psi_{3} \left( x_{2} \right), \\
+     & p^{2,1} \left( x | \theta \right)
+     = \sum_{\ell_{1} =1}^{m_{2}} \sum_{\ell_{n}=1}^{m_{1}} \theta_{\ell_{1} \ell_{2}} \psi_{\ell_{1}} \left(x_{1} \right) \psi_{\ell_{2}} \left(x_{2} \right)
+     = \theta_{11} + \theta_{21} \psi_{2} \left( x_{1} \right) + \theta_{31} \psi_{3} \left(x_{1} \right) = \theta_{11} + \theta_{21} T_{1} \left( x_{1} \right) + \theta_{31} T_{2} \left( x_{1} \right).
+  \end{split}
+\end{equation*}
+
+或者可以通过简化系数堆栈$\theta$，来进一步简化上式。对于任意一个网格中的点$k_{1}, \ldots, k_{n}$，有
+\begin{equation}
+  \label{eq:pj-sparsity-theta-tensor-expansion}
+  \begin{split}
+    \theta = \theta_{\ell_{1} \ldots \ell_{n}}
+    = \frac{
+    2^{n}
+    }{
+    \left( k_{1} - 1 \right) \ldots \left( k_{n} - 1 \right)
+    }
+    \frac{
+    1
+    }{
+    c_{\ell_{1}} \cdot c_{\ell_{n}}
+    }
+    \sum_{j_{1} =1}^{k_{1}} \ldots \sum_{j_{n} =1}^{k_{n}}
+    \frac{
+    1
+    }{
+    c_{j_{1}} \cdot c_{j_{n}}
+    }
+    \left[
+    \psi_{\ell_{1}} \left( \xi_{1} \right)
+    \psi_{\ell_{d}} \left( \xi_{n} \right)
+    \right]
+    d \left( xi_{1}, \ldots, \xi_{n} \right),
+  \end{split}
+\end{equation}
+其中
+\begin{itemize}
+  \item
+  \begin{equation*}
+  c_{j} =
+  \begin{cases}
+  2 & j=1, \\
+  1 & \forall \, j=2,3,\ldots
+  \end{cases}
+  \end{equation*}
+  \item $\xi_{k} \in \mathrm{g}^{i}$表示克伦肖——柯蒂斯结点，如式\eqref{eq:pj-sparsity-cc-nodes}。
+\end{itemize}
+
+不难看出，这种张量积的近似测算方法，本质上来说就是在值域中，以克伦肖——柯蒂斯结点作插值。

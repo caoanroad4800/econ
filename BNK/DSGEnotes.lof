@@ -21,32 +21,35 @@
 \contentsline {figure}{\numberline {12.1}{\ignorespaces 张量模拟}}{208}{figure.12.3.1}
 \contentsline {figure}{\numberline {12.1}{\ignorespaces kinks}}{209}{figure.12.4.1}
 \contentsline {figure}{\numberline {12.2}{\ignorespaces 三角方程形式}}{210}{figure.12.4.2}
-\contentsline {figure}{\numberline {12.C.1}{\ignorespaces 正交多项式满足的关系}}{229}{figure.3.12.C.1}
-\contentsline {figure}{\numberline {12.C.2}{\ignorespaces 正态分布}}{230}{figure.3.12.C.2}
-\contentsline {figure}{\numberline {12.C.3}{\ignorespaces 埃米特多项式}}{231}{figure.3.12.C.3}
-\contentsline {figure}{\numberline {12.C.4}{\ignorespaces 伽玛分布}}{233}{figure.3.12.C.4}
-\contentsline {figure}{\numberline {12.C.5}{\ignorespaces 贝塔分布}}{238}{figure.3.12.C.5}
-\contentsline {figure}{\numberline {12.C.6}{\ignorespaces 切比雪夫插值近似}}{249}{figure.3.12.C.6}
-\contentsline {figure}{\numberline {12.F.1}{\ignorespaces 矩形法则$(N=4)$}}{264}{figure.3.12.F.1}
-\contentsline {figure}{\numberline {12.F.2}{\ignorespaces 梯形法则$(N=4)$}}{264}{figure.3.12.F.2}
-\contentsline {figure}{\numberline {12.F.3}{\ignorespaces 3阶牛顿——寇特斯法则，对应子区间中的4个配点}}{266}{figure.3.12.F.3}
-\contentsline {figure}{\numberline {12.F.4}{\ignorespaces 龙格现象$(N=6)$}}{267}{figure.3.12.F.4}
-\contentsline {figure}{\numberline {12.F.5}{\ignorespaces 比较矩形法则和梯形法则下，近似误差随$N$值增大的收敛情况}}{268}{figure.3.12.F.5}
-\contentsline {figure}{\numberline {12.F.6}{\ignorespaces 适应性求积}}{271}{figure.3.12.F.6}
-\contentsline {figure}{\numberline {12.F.7}{\ignorespaces 非周期方程的$T$-周期扩展$t \in [0,1]$}}{274}{figure.3.12.F.7}
-\contentsline {figure}{\numberline {12.F.8}{\ignorespaces $f(t)$和$g(\theta )$}}{276}{figure.3.12.F.8}
-\contentsline {figure}{\numberline {12.F.9}{\ignorespaces $f(x), x \in [-1,1]$}}{281}{figure.3.12.F.9}
-\contentsline {figure}{\numberline {12.F.10}{\ignorespaces 求积法则误差的衰减}}{283}{figure.3.12.F.10}
-\contentsline {figure}{\numberline {12.G.1}{\ignorespaces 傅里叶变换}}{284}{figure.3.12.G.1}
-\contentsline {figure}{\numberline {12.G.2}{\ignorespaces 洛伦兹方程$(\alpha = 2)$}}{287}{figure.3.12.G.2}
-\contentsline {figure}{\numberline {12.G.3}{\ignorespaces $f(t) = \qopname \relax o{cos}^{2} \left ( 3 t \right ), t \in (-2, 2)$}}{292}{figure.3.12.G.3}
-\contentsline {figure}{\numberline {12.G.4}{\ignorespaces 锯齿波}}{293}{figure.3.12.G.4}
-\contentsline {figure}{\numberline {12.G.5}{\ignorespaces 吉布斯现象}}{294}{figure.3.12.G.5}
+\contentsline {figure}{\numberline {12.1}{\ignorespaces 随机NCGT模型的投影法近似求解}}{219}{figure.12.6.1}
+\contentsline {figure}{\numberline {12.1}{\ignorespaces 稀疏网格}}{222}{figure.12.7.1}
+\contentsline {figure}{\numberline {12.2}{\ignorespaces 稀疏网格$\mathrm {G}(5,3)$}}{222}{figure.12.7.2}
+\contentsline {figure}{\numberline {12.C.1}{\ignorespaces 正交多项式满足的关系}}{239}{figure.3.12.C.1}
+\contentsline {figure}{\numberline {12.C.2}{\ignorespaces 正态分布}}{240}{figure.3.12.C.2}
+\contentsline {figure}{\numberline {12.C.3}{\ignorespaces 埃米特多项式}}{241}{figure.3.12.C.3}
+\contentsline {figure}{\numberline {12.C.4}{\ignorespaces 伽玛分布}}{243}{figure.3.12.C.4}
+\contentsline {figure}{\numberline {12.C.5}{\ignorespaces 贝塔分布}}{248}{figure.3.12.C.5}
+\contentsline {figure}{\numberline {12.C.6}{\ignorespaces 切比雪夫插值近似}}{259}{figure.3.12.C.6}
+\contentsline {figure}{\numberline {12.F.1}{\ignorespaces 矩形法则$(N=4)$}}{274}{figure.3.12.F.1}
+\contentsline {figure}{\numberline {12.F.2}{\ignorespaces 梯形法则$(N=4)$}}{274}{figure.3.12.F.2}
+\contentsline {figure}{\numberline {12.F.3}{\ignorespaces 3阶牛顿——寇特斯法则，对应子区间中的4个配点}}{276}{figure.3.12.F.3}
+\contentsline {figure}{\numberline {12.F.4}{\ignorespaces 龙格现象$(N=6)$}}{277}{figure.3.12.F.4}
+\contentsline {figure}{\numberline {12.F.5}{\ignorespaces 比较矩形法则和梯形法则下，近似误差随$N$值增大的收敛情况}}{278}{figure.3.12.F.5}
+\contentsline {figure}{\numberline {12.F.6}{\ignorespaces 适应性求积}}{281}{figure.3.12.F.6}
+\contentsline {figure}{\numberline {12.F.7}{\ignorespaces 非周期方程的$T$-周期扩展$t \in [0,1]$}}{284}{figure.3.12.F.7}
+\contentsline {figure}{\numberline {12.F.8}{\ignorespaces $f(t)$和$g(\theta )$}}{286}{figure.3.12.F.8}
+\contentsline {figure}{\numberline {12.F.9}{\ignorespaces $f(x), x \in [-1,1]$}}{291}{figure.3.12.F.9}
+\contentsline {figure}{\numberline {12.F.10}{\ignorespaces 求积法则误差的衰减}}{293}{figure.3.12.F.10}
+\contentsline {figure}{\numberline {12.G.1}{\ignorespaces 傅里叶变换}}{294}{figure.3.12.G.1}
+\contentsline {figure}{\numberline {12.G.2}{\ignorespaces 洛伦兹方程$(\alpha = 2)$}}{297}{figure.3.12.G.2}
+\contentsline {figure}{\numberline {12.G.3}{\ignorespaces $f(t) = \qopname \relax o{cos}^{2} \left ( 3 t \right ), t \in (-2, 2)$}}{302}{figure.3.12.G.3}
+\contentsline {figure}{\numberline {12.G.4}{\ignorespaces 锯齿波}}{303}{figure.3.12.G.4}
+\contentsline {figure}{\numberline {12.G.5}{\ignorespaces 吉布斯现象}}{304}{figure.3.12.G.5}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {13.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$}}{435}{figure.13.9.1}
-\contentsline {figure}{\numberline {13.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)}}{436}{figure.13.9.2}
-\contentsline {figure}{\numberline {13.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)}}{438}{figure.13.9.3}
-\contentsline {figure}{\numberline {13.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$}}{447}{figure.13.9.4}
+\contentsline {figure}{\numberline {13.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$}}{445}{figure.13.9.1}
+\contentsline {figure}{\numberline {13.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)}}{446}{figure.13.9.2}
+\contentsline {figure}{\numberline {13.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)}}{448}{figure.13.9.3}
+\contentsline {figure}{\numberline {13.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$}}{457}{figure.13.9.4}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}

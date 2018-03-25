@@ -1,4 +1,4 @@
-PWD /Users/YYZ/Soft/git/econ/econ/BNK
+PWD /home/yanyuan/Soft/git/econ/BNK
 INPUT /usr/local/texlive/2017/texmf.cnf
 INPUT /usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt
@@ -107,9 +107,8 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/scheme/ctex-scheme-chine
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex-name-utf8.cfg
 INPUT /dev/null
-INPUT /Library/Fonts/Songti.ttc
-INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def
-INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-mac.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def
+INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/fontset/ctex-fontset-fandol.def
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex.cfg
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/ctex/config/ctex.cfg
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/xltxtra/xltxtra.sty
@@ -489,6 +488,9 @@ INPUT ./Figures/20170917-linear-trans-state-chebyshev.png
 INPUT ./Figures/20170920-tensor-coefficient.png
 INPUT ./Figures/20170921-kinks-fem.png
 INPUT ./Figures/20170921-tent-function.png
+INPUT ./Figures/20180325-projection-residual-analysis.png
+INPUT ./Figures/20180325-sparse-grid-example.png
+INPUT ./Figures/20180325-sparse-grid-G53.png
 INPUT ./chapters/projection-appendices.tex
 INPUT ./chapters/projection-appendices.tex
 INPUT ./Figures/20170905-poly-types-formulas.pdf

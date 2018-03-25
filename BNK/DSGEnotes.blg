@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: DSGEnotes.aux
 The style file: model4-names.bst
-Reallocated field_info (elt_size=4) to 10980 items from 5000.
+Reallocated field_info (elt_size=4) to 11256 items from 5000.
 Database file #1: ./refs/papers.bib
 Warning--missing institution in Aldrich:2011wz
 Warning--missing institution in Andreasen:2016cd
@@ -32,45 +32,45 @@ Warning--empty journal in Stachurski:2008wc
 `journal' is a missing field, not a string, for entry Wood:1975vn
 while executing---line 1514 of file model4-names.bst
 Warning--empty journal in Wood:1975vn
-You've used 260 entries,
+You've used 272 entries,
             2973 wiz_defined-function locations,
-            2106 strings with 42631 characters,
-and the built_in function-call counts, 188471 in all, are:
-= -- 16592
-> -- 4461
-< -- 233
-+ -- 1740
-- -- 1472
-* -- 20796
-:= -- 27045
-add.period$ -- 807
-call.type$ -- 260
-change.case$ -- 1760
-chr.to.int$ -- 261
-cite$ -- 276
-duplicate$ -- 14803
-empty$ -- 15389
-format.name$ -- 2195
-if$ -- 36517
+            2175 strings with 44678 characters,
+and the built_in function-call counts, 199045 in all, are:
+= -- 17550
+> -- 4717
+< -- 239
++ -- 1839
+- -- 1559
+* -- 22027
+:= -- 28514
+add.period$ -- 843
+call.type$ -- 272
+change.case$ -- 1849
+chr.to.int$ -- 273
+cite$ -- 288
+duplicate$ -- 15650
+empty$ -- 16248
+format.name$ -- 2322
+if$ -- 38563
 int.to.chr$ -- 9
 int.to.str$ -- 1
-missing$ -- 2223
-newline$ -- 1304
-num.names$ -- 1054
-pop$ -- 2372
+missing$ -- 2333
+newline$ -- 1364
+num.names$ -- 1102
+pop$ -- 2469
 preamble$ -- 1
-purify$ -- 1525
+purify$ -- 1602
 quote$ -- 0
-skip$ -- 3760
+skip$ -- 3919
 stack$ -- 0
-substring$ -- 16222
-swap$ -- 8353
+substring$ -- 17312
+swap$ -- 8797
 text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 2139
+type$ -- 2247
 warning$ -- 16
-while$ -- 1289
+while$ -- 1357
 width$ -- 0
-write$ -- 3569
+write$ -- 3736
 (There were 6 error messages)

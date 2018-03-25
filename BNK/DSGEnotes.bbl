@@ -1,4 +1,4 @@
-\begin{thebibliography}{260}
+\begin{thebibliography}{272}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -204,6 +204,15 @@
 \newblock \bibinfo{title}{{Linear Algebra and Linear Models}}.
 \newblock \bibinfo{publisher}{Springer Science {\&} Business Media},
   \bibinfo{year}{2012}.
+%Type = Article
+\bibitem[{Barthelmann et~al.(2000)Barthelmann, Novak and
+  Ritter}]{Barthelmann:2000bq}
+\bibinfo{author}{Barthelmann\xfnm[ V.]}, \bibinfo{author}{Novak\xfnm[ E.]},
+  \bibinfo{author}{Ritter\xfnm[ K.]}.
+\newblock \bibinfo{title}{{High Dimensional Polynomial Interpolation on Sparse
+  Grids}}.
+\newblock \bibinfo{journal}{Advances in Computational Mathematics}
+  \bibinfo{year}{2000};\bibinfo{volume}{12}(\bibinfo{number}{4}):\bibinfo{pages}{273--288}.
 %Type = Incollection
 \bibitem[{Bastani and Guerrieri(2008)}]{Bastani:2008ha}
 \bibinfo{author}{Bastani\xfnm[ H.]}, \bibinfo{author}{Guerrieri\xfnm[ L.]}.
@@ -393,6 +402,12 @@
 \newblock \bibinfo{title}{{The unfortunate uselessness of most'state of the
   art' academic monetary economics}}.
 \newblock \bibinfo{journal}{MPRA paper} \bibinfo{year}{2009};.
+%Type = Article
+\bibitem[{Bungartz and Griebel(2004)}]{Bungartz:2004tc}
+\bibinfo{author}{Bungartz\xfnm[ H.J.]}, \bibinfo{author}{Griebel\xfnm[ M.]}.
+\newblock \bibinfo{title}{{Sparse Grids}}.
+\newblock \bibinfo{journal}{Acta Numerica}
+  \bibinfo{year}{2004};\bibinfo{volume}{13}:\bibinfo{pages}{147--269}.
 %Type = Article
 \bibitem[{Caldara et~al.(2012)Caldara, Fern{\'a}ndez-Villaverde,
   Rubio-Ramı́rez and Yao}]{Caldara:2012fr}
@@ -607,6 +622,12 @@
 \newblock \bibinfo{title}{{Bayesian macroeconometrics}}.
 \newblock \bibinfo{journal}{The Oxford handbook of Bayesian {\ldots}}
   \bibinfo{year}{2011};.
+%Type = Article
+\bibitem[{Delvos(1982)}]{Delvos:1982cg}
+\bibinfo{author}{Delvos\xfnm[ F.J.]}.
+\newblock \bibinfo{title}{{d-Variate Boolean interpolation}}.
+\newblock \bibinfo{journal}{Journal of Approximation Theory}
+  \bibinfo{year}{1982};\bibinfo{volume}{34}(\bibinfo{number}{2}):\bibinfo{pages}{99--114}.
 %Type = Book
 \bibitem[{Demkowicz(2006)}]{Demkowicz:2006ww}
 \bibinfo{author}{Demkowicz\xfnm[ L.]}.
@@ -718,6 +739,17 @@
 \newblock \bibinfo{journal}{SERIEs}
   \bibinfo{year}{2010};\bibinfo{volume}{1}(\bibinfo{number}{1-2}):\bibinfo{pages}{3--49}.
 %Type = Article
+\bibitem[{Fern{\'a}ndez-Villaverde et~al.(2015)Fern{\'a}ndez-Villaverde,
+  Gordon, Guerr{\'o}n-Quintana and
+  Rubio-Ramı́rez}]{FernandezVillaverde:2015hs}
+\bibinfo{author}{Fern{\'a}ndez-Villaverde\xfnm[ J.]},
+  \bibinfo{author}{Gordon\xfnm[ G.]},
+  \bibinfo{author}{Guerr{\'o}n-Quintana\xfnm[ P.A.]},
+  \bibinfo{author}{Rubio-Ramı́rez\xfnm[ J.F.]}.
+\newblock \bibinfo{title}{{Nonlinear Adventures at the Zero Lower Bound}}.
+\newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
+  \bibinfo{year}{2015};\bibinfo{volume}{57}:\bibinfo{pages}{182--204}.
+%Type = Article
 \bibitem[{Fern{\'a}ndez-Villaverde et~al.(2011)Fern{\'a}ndez-Villaverde,
   Gurerr{\'o}n-Quintana, Rubio-Ramı́rez and
   Uribe}]{FernandezVillaverde:2011us}
@@ -729,6 +761,13 @@
   Shocks}}.
 \newblock \bibinfo{journal}{American Economic Review}
   \bibinfo{year}{2011};\bibinfo{volume}{101}:\bibinfo{pages}{2530--2561}.
+%Type = Article
+\bibitem[{Fern{\'a}ndez-Villaverde and
+  Levintal(2016)}]{FernandezVillaverde:2016wg}
+\bibinfo{author}{Fern{\'a}ndez-Villaverde\xfnm[ J.]},
+  \bibinfo{author}{Levintal\xfnm[ O.]}.
+\newblock \bibinfo{title}{{Solution Methods for Models with Rare Disasters}}.
+\newblock \bibinfo{journal}{NBER Working Papers} \bibinfo{year}{2016};.
 %Type = Article
 \bibitem[{Fern{\'a}ndez-Villaverde and
   Rubio-Ramı́rez(2004)}]{FernandezVillaverde:2004fg}
@@ -871,6 +910,12 @@
   analysis: A quantitative exploration}}.
 \newblock \bibinfo{journal}{Journal of Monetary Economics}
   \bibinfo{year}{2007};\bibinfo{volume}{54}(\bibinfo{number}{5}):\bibinfo{pages}{1480--1507}.
+%Type = Article
+\bibitem[{Gordon(2011)}]{Gordon:2011ki}
+\bibinfo{author}{Gordon\xfnm[ G.]}.
+\newblock \bibinfo{title}{{Computing Dynamic Heterogeneous-Agent Economies:
+  Tracking the Distribution}}.
+\newblock \bibinfo{journal}{PIER Working Paper} \bibinfo{year}{2011};.
 %Type = Book
 \bibitem[{Gradshteyn and Ryzhik(2014)}]{Gradshteyn:2014uy}
 \bibinfo{author}{Gradshteyn\xfnm[ I.S.]}, \bibinfo{author}{Ryzhik\xfnm[ I.M.]}.
@@ -1066,19 +1111,12 @@
 \newblock \bibinfo{address}{London}: \bibinfo{publisher}{Springer},
   \bibinfo{year}{2014}.
 %Type = Article
-\bibitem[{Judd(1992{\natexlab{a}})}]{Judd:1992vv}
-\bibinfo{author}{Judd\xfnm[ K.L.]}.
-\newblock \bibinfo{title}{{Projection Methods for Solving Aggregate Growth
-  Models}}.
-\newblock \bibinfo{journal}{Journal of Economic Theory}
-  \bibinfo{year}{1992}{\natexlab{a}};:\bibinfo{pages}{410--452}.
-%Type = Article
-\bibitem[{Judd(1992{\natexlab{b}})}]{Judd:1992gs}
+\bibitem[{Judd(1992)}]{Judd:1992gs}
 \bibinfo{author}{Judd\xfnm[ K.L.]}.
 \newblock \bibinfo{title}{{Projection methods for solving aggregate growth
   models}}.
 \newblock \bibinfo{journal}{Journal of Economic Theory}
-  \bibinfo{year}{1992}{\natexlab{b}};\bibinfo{volume}{58}(\bibinfo{number}{2}):\bibinfo{pages}{410--452}.
+  \bibinfo{year}{1992};\bibinfo{volume}{58}(\bibinfo{number}{2}):\bibinfo{pages}{410--452}.
 %Type = Book
 \bibitem[{Judd(1998)}]{Judd:1998uy}
 \bibinfo{author}{Judd\xfnm[ K.L.]}.
@@ -1108,12 +1146,21 @@
 \newblock \bibinfo{journal}{Economic Theory}
   \bibinfo{year}{2003};\bibinfo{volume}{18}(\bibinfo{number}{1}):\bibinfo{pages}{127--157}.
 %Type = Article
-\bibitem[{Judd et~al.(2011)Judd, Maliar and Maliar}]{Judd:2011iw}
+\bibitem[{Judd et~al.(2011{\natexlab{a}})Judd, Maliar and Maliar}]{Judd:2011iw}
 \bibinfo{author}{Judd\xfnm[ K.L.]}, \bibinfo{author}{Maliar\xfnm[ L.]},
   \bibinfo{author}{Maliar\xfnm[ S.]}.
 \newblock \bibinfo{title}{{How to Solve Dynamic Stochastic Models Computing
   Expectations Just Once}}.
-\newblock \bibinfo{journal}{NBER Working Paper} \bibinfo{year}{2011};.
+\newblock \bibinfo{journal}{NBER Working Paper}
+  \bibinfo{year}{2011}{\natexlab{a}};.
+%Type = Article
+\bibitem[{Judd et~al.(2011{\natexlab{b}})Judd, Maliar and Maliar}]{Judd:2011kb}
+\bibinfo{author}{Judd\xfnm[ K.L.]}, \bibinfo{author}{Maliar\xfnm[ L.]},
+  \bibinfo{author}{Maliar\xfnm[ S.]}.
+\newblock \bibinfo{title}{{Numerically Stable and Accurate Stochastic
+  Simulation Approaches for Solving Dynamic Economic Models}}.
+\newblock \bibinfo{journal}{Quantitative Economics}
+  \bibinfo{year}{2011}{\natexlab{b}};\bibinfo{volume}{2}(\bibinfo{number}{2}):\bibinfo{pages}{173--210}.
 %Type = Article
 \bibitem[{Jung and Steinbach(2002)}]{Jung:2002jk}
 \bibinfo{author}{Jung\xfnm[ M.]}, \bibinfo{author}{Steinbach\xfnm[ O.]}.
@@ -1237,6 +1284,13 @@
 \newblock \bibinfo{journal}{Review of Economic Dynamics}
   \bibinfo{year}{2010};\bibinfo{volume}{13}(\bibinfo{number}{3}):\bibinfo{pages}{701--714}.
 %Type = Article
+\bibitem[{Krueger and Kubler(2004)}]{Krueger:2004gh}
+\bibinfo{author}{Krueger\xfnm[ D.]}, \bibinfo{author}{Kubler\xfnm[ F.]}.
+\newblock \bibinfo{title}{{Computing Equilibrium in OLG Models with Stochastic
+  Production}}.
+\newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
+  \bibinfo{year}{2004};\bibinfo{volume}{28}(\bibinfo{number}{7}):\bibinfo{pages}{1411--1436}.
+%Type = Article
 \bibitem[{Krusell et~al.(2008)Krusell, Mukoyama, Rogerson and
   {\c{S}}ahin}]{Krusell:2008bw}
 \bibinfo{author}{Krusell\xfnm[ P.]}, \bibinfo{author}{Mukoyama\xfnm[ T.]},
@@ -1327,6 +1381,30 @@
 \newblock \bibinfo{title}{{Investment Under Uncertainty}}.
 \newblock \bibinfo{journal}{Econometrica}
   \bibinfo{year}{1971};\bibinfo{volume}{39}(\bibinfo{number}{5}):\bibinfo{pages}{659--681}.
+%Type = Article
+\bibitem[{Maliar and Maliar(2015)}]{Maliar:2015fw}
+\bibinfo{author}{Maliar\xfnm[ L.]}, \bibinfo{author}{Maliar\xfnm[ S.]}.
+\newblock \bibinfo{title}{{Merging Simulation and Projection approaches to
+  Solve High-dimensional Problems with an Application to a New Keynesian
+  Model}}.
+\newblock \bibinfo{journal}{Quantitative Economics}
+  \bibinfo{year}{2015};\bibinfo{volume}{6}(\bibinfo{number}{1}):\bibinfo{pages}{1--47}.
+%Type = Article
+\bibitem[{Maliar et~al.(2011)Maliar, Maliar and Judd}]{Maliar:2011jd}
+\bibinfo{author}{Maliar\xfnm[ S.]}, \bibinfo{author}{Maliar\xfnm[ L.]},
+  \bibinfo{author}{Judd\xfnm[ K.L.]}.
+\newblock \bibinfo{title}{{Solving the multi-country real business cycle model
+  using ergodic set methods}}.
+\newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
+  \bibinfo{year}{2011};\bibinfo{volume}{35}(\bibinfo{number}{2}):\bibinfo{pages}{207--228}.
+%Type = Article
+\bibitem[{Malin et~al.(2011)Malin, Krueger and Kubler}]{Malin:2011hf}
+\bibinfo{author}{Malin\xfnm[ B.A.]}, \bibinfo{author}{Krueger\xfnm[ D.]},
+  \bibinfo{author}{Kubler\xfnm[ F.]}.
+\newblock \bibinfo{title}{{Solving the Multi-country Real Business Cycle Model
+  Using a Smolyak-collocation Method}}.
+\newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
+  \bibinfo{year}{2011};\bibinfo{volume}{35}(\bibinfo{number}{2}):\bibinfo{pages}{229--239}.
 %Type = Article
 \bibitem[{Marcet and Marshall(1994)}]{Marcet:1994vw}
 \bibinfo{author}{Marcet\xfnm[ A.]}, \bibinfo{author}{Marshall\xfnm[ D.A.]}.
@@ -1458,6 +1536,14 @@
   Notes in Mathematics}}.
 \newblock \bibinfo{address}{Berlin, Heidelberg}: \bibinfo{publisher}{Springer
   Berlin Heidelberg}, \bibinfo{year}{1971}.
+%Type = Article
+\bibitem[{Nobile et~al.(2008)Nobile, Tempone and Webster}]{Nobile:2008kv}
+\bibinfo{author}{Nobile\xfnm[ F.]}, \bibinfo{author}{Tempone\xfnm[ R.]},
+  \bibinfo{author}{Webster\xfnm[ C.G.]}.
+\newblock \bibinfo{title}{{A Sparse Grid Stochastic Collocation Method for
+  Partial Differential Equations with Random Input Data}}.
+\newblock \bibinfo{journal}{SIAM Journal on Numerical Analysis}
+  \bibinfo{year}{2008};\bibinfo{volume}{46}(\bibinfo{number}{5}):\bibinfo{pages}{2309--2345}.
 %Type = Article
 \bibitem[{Obstfeld and Rogoff(1995)}]{Obstfeld:1995jp}
 \bibinfo{author}{Obstfeld\xfnm[ M.]}, \bibinfo{author}{Rogoff\xfnm[ K.]}.
@@ -1648,6 +1734,13 @@
   Model of the Euro Area}}.
 \newblock \bibinfo{journal}{Journal of the European Economic Association}
   \bibinfo{year}{2003};\bibinfo{volume}{1}(\bibinfo{number}{5}):\bibinfo{pages}{1123--1175}.
+%Type = Article
+\bibitem[{Smolyak(1963)}]{Smolyak:1963tu}
+\bibinfo{author}{Smolyak\xfnm[ S.A.]}.
+\newblock \bibinfo{title}{{Quadrature and Interpolation Formulas for Tensor
+  Products of Certain Classes of Functions}}.
+\newblock \bibinfo{journal}{Dokl Akad Nauk SSSR}
+  \bibinfo{year}{1963};\bibinfo{volume}{148}(\bibinfo{number}{5}):\bibinfo{pages}{1042--1045}.
 %Type = Article
 \bibitem[{S{\"o}derlind(1999)}]{Soderlind:1999kg}
 \bibinfo{author}{S{\"o}derlind\xfnm[ P.]}.
