@@ -133,7 +133,7 @@
   \left( y_{t} - \hat{\mu}_{y} \right)^{\top}, \quad \, \mu_{y} = \frac{1}{T} \sum_{t=1}^{T} y_{t}.
 \end{equation}
 
-在满足一定的正则条件的前提下，根据强大数法则(strong law of large numbers, SSLN)和中心极限定理(central limit theorem, CLT)样本自协方差，$\widehat{\Gamma}_{yy} \left(h \right)$收敛至全体自协方差$\Gamma_{yy} \left(h \right)$，这些正则条件如
+在满足一定的正则条件的前提下，根据强大数法则(strong law of large numbers, SSLN)和中心极限定理(central limit theorem, CLT，第\ref{sec:kernel-gaussian-central-limit-theorem}节)样本自协方差，$\widehat{\Gamma}_{yy} \left(h \right)$收敛至全体自协方差$\Gamma_{yy} \left(h \right)$，这些正则条件如
 \begin{itemize}
   \item 向量过程$y_{t}$的协方差是平稳的，
   \item $y_{t}$的序列相关的衰减速度足够快，
@@ -296,4 +296,8 @@ $p$值的选取标准，可通过贝叶斯信息量(Bayesian information criteri
   \right\},
 \end{equation}
 其中$\mathbb{I} \left\{ \cdot \right\}$是一个指示方程(indicator function)\index{indicator function \dotfill 指示方程}
-见\eqref{eq:euler-complex-indicator-function-def}，$\mathbb{B} \left( \omega | \lambda \right)$构成一个频率带(frequency band)\index{frequency band \dotfill 频率带}。关于核方程的简要介绍，可参考第\todo{ref}节。
+见\eqref{eq:euler-complex-indicator-function-def}，$\mathbb{B} \left( \omega | \lambda \right) = \lambda T \left( 2 \pi \right)$构成一个频率带(frequency band)\index{frequency band \dotfill 频率带}。关于核方程的简要介绍，可参考第\ref{sec:kernel-analysis}节。
+
+如果有$\lim_{T \rightarrow \infty} \lambda \rightarrow 0$，即随着$T \rightarrow \infty$，频率的带宽缩减至$0$，那么对应地，$\mathbb{B} \left( \omega | \lambda \right)$中$\omega_{j}$的数量增大到无穷，平滑周期图算子因而是一致估计算子。
+
+在经验研究中常常使用高斯核方程如$\exp \left( i \omega t \right)$作基方程(第\ref{sec:gaussian-kernel-fourier}节)，从而$\mathcal{K}(x)$的值等于一个标准正态分布的随机变量的密度分布方程。

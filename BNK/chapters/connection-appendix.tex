@@ -417,7 +417,7 @@
 \subsection{高斯核}
 \label{sec:kernel-gaussian}
 %mchung teaching notes.
-一个常见的高斯核方程(kernel function!Gaussian)\index{kernel function!Gaussian \dotfill 高斯核方程}，随着维度的不同，可以表示如下
+一个常见的高斯核方程(Gaussian kernel function)\index{kernel function!Gaussian \dotfill 高斯核方程}，随着维度的不同，可以表示如下
 \begin{align}
   \label{eq:kernel-gaussian-dim1}
   G^{(1)} \left( x ; \sigma \right) & = \frac{1}{\sqrt{2 \pi} \sigma}
@@ -512,9 +512,9 @@
 
 高斯核方程的值域是$\left( - \infty, \infty \right)$，但在现实应用中， $\left| x \right| > \sigma$的高斯核往往小到可以忽略不计。(如Mathematica计算$\sigma = 1, \, x = 5 \sigma$的高斯核)。
 
-\subsection{一些方程}
-\label{sec:kernel-gaussian-prep}
-高斯核方程是一个半局部(semi-local)方程。之所以不是全局部的方程，是由于其卷积内部仍然存在着方差$\sigma$，从而使得空间里存在一个高斯加权范围(Gaussian weighted extend)。在下一节我们将提出一个通用方程来将其全局化，在此之前，本节先介绍一些基础知识。
+\subsection{狄拉克方程}
+\label{sec:kernel-gaussian-dirac}
+高斯核方程是一个半局部(semi-local)方程。之所以不是全局部的方程，是由于其卷积内部仍然存在着方差$\sigma$，从而使得空间里存在一个高斯加权范围(Gaussian weighted extend)。在下一节我们将提出一个通用方程来将其全局化，在此之前，本节先介绍一下狄拉克方程。
 
 当将方差$\sigma$取其极限值$\lim \sigma \rightarrow 0$时，高斯核方程变成Delta方程的一种特殊形式，又称德尔塔-狄拉克方程(Delta-Dirac function)\index{Delta Dirac function \dotfill 狄拉克方程} $\delta(\cdot)$：
 \begin{equation}
@@ -562,34 +562,171 @@
 %  \small{Source: PBOC.}
 \end{figure}
 
-取$\lim \sigma \rightarrow 0$，内部方差趋近于$0$，此时的误差方程我们成为Heaviside 单位阶跃方程(unit step function)\index{unit step function \dotfill 单位阶跃方程}，又称黑维塞方程(Heaviside function)\index{Heaviside function \dotfill 黑维塞方程}。
+取$\lim \sigma \rightarrow 0$，内部方差趋近于$0$，此时的误差方程我们成为Heaviside 单位阶跃方程(unit step function)\index{unit step function \dotfill 单位阶跃方程}，又称黑维塞方程(Heaviside function)\index{Heaviside function \dotfill 黑维塞方程}。黑维塞方程的导数也是一个狄拉克方程。
+
+\begin{figure}[htbp]
+  \caption{黑维塞方程(单位阶跃方程)}
+  \centering
+  \includegraphics[width=12cm]{./Figures/20180405-heaviside-unit-step-function}
+  \label{fig:heaviside-unite-step-function}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+
+\subsection{高斯核和二项式系数的关系}
+\label{sec:kernel-gaussian-binomial}
+高斯核方程也常用于多项式的幂，如
+\begin{equation*}
+  \begin{split}
+    (x+y)^{20}
+    =& x^{20}+20 x^{19} y+190 x^{18} y^2+1140 x^{17} y^3+4845 x^{16} y^4+15504 x^{15} y^5+38760 x^{14} y^6+77520 x^{13} y^7\\
+    &+125970 x^{12} y^8+167960 x^{11} y^9+184756 x^{10}
+   y^{10}+167960 x^9 y^{11}+125970 x^8 y^{12}+77520 x^7 y^{13}\\
+   &+38760 x^6 y^{14}+15504 x^5 y^{15}+4845 x^4 y^{16}+1140 x^3 y^{17}+190 x^2 y^{18}+20 x y^{19}+y^{20},
+  \end{split}
+\end{equation*}
+RHS中各项前的系数，称二项式系数(binomial coefficients)\index{binomial coefficients \dotfill 二项式系数}。二项式系数常常表示为
+\begin{equation*}
+  \begin{pmatrix}
+    n \\ m
+  \end{pmatrix}
+\end{equation*}
+的形式，在Mathematica中用$Binomial[n,m]$来生成，见图\ref{fig:binomial-coefficients}，从左到右分别是一维和二维二项式系数的示例。
+
+\begin{figure}[htbp]
+  \caption{二项式系数}
+  \centering
+  \includegraphics[width=12cm]{./Figures/20180405-binomial-coefficients}
+  \label{fig:binomial-coefficients}
+%
+%  \small{Source: PBOC.}
+\end{figure}
 
 
+\subsection{中心极限定理}
+\label{sec:kernel-gaussian-central-limit-theorem}
+设两个块方程$f(x), \, g(x)$，均由两个黑维塞方程相加而得，定义为
+\begin{equation*}
+  \begin{split}
+    f(x) & \coloneqq UniteStep \left( \frac{1}{2} + x \right) + UniteStep \left( \frac{1}{2} + - \right) -1, \\
+     g(x) & \coloneqq UniteStep \left( \frac{1}{2} + x \right) - UniteStep \left( \frac{1}{2} + - \right) -1, \\
+  \end{split}
+\end{equation*}
+见图\eqref{fig:convolution-fg}，不难看出，两个黑维塞方程相加减还是黑维塞方程。
 
+\begin{figure}[htbp]
+  \caption{黑维塞方程相加减}
+  \centering
+  \includegraphics[width=10cm]{./Figures/20180405-convolution-fg}
+  \label{fig:convolution-fg}
+%
+%  \small{Source: PBOC.}
+\end{figure}
 
+现在求卷积$\langle f(x), \, g (x) \rangle$
+\begin{equation*}
+  \langle f(x), \, g (x) \rangle =
+  \int_{-\infty}^{\infty} f \left( x \right) \, g \left( x - x_{1} \right) \, \mathrm{d} x,
+\end{equation*}
+见图\ref{fig:convolution-fg-1}，不难看出，两个块方程的卷积是一个三角方程。
+\begin{figure}[htbp]
+  \caption{两个块方程的卷积是一个三角方程}
+  \centering
+  \includegraphics[width=10cm]{./Figures/20180405-convolution-fg-1}
+  \label{fig:convolution-fg-1}
+%
+%  \small{Source: PBOC.}
+\end{figure}
 
+若对卷积再做一次卷积$  \langle \langle f(x), \, g (x) \rangle, \, g (x) \rangle$
+\begin{equation*}
+  \Big\langle \langle f(x), \, g (x) \rangle, \, g (x) \Big\rangle
+  = \int_{-\infty}^{\infty}
+  \left\{
+  \int_{-\infty}^{\infty} f \left( x \right) \, g \left( x - x_{1} \right) \, \mathrm{d} x
+  \right\}
+  \, g \left( x - x_{1} \right) \, \mathrm{d} x,
+\end{equation*}
+如图\ref{fig:convolution-fg-2}，可见对块方程，用它和自身再做一次卷积，二次卷积的结果看起来就很接近一个高斯核方程了。
+\begin{figure}[htbp]
+  \caption{两个块方程卷积的卷积接近一个高斯分布}
+  \centering
+  \includegraphics[width=10cm]{./Figures/20180405-convolution-fg-2}
+  \label{fig:convolution-fg-2}
+%
+%  \small{Source: PBOC.}
+\end{figure}
 
+随着我们进一步作第$3,4,\ldots,N$次卷积，$N \rightarrow \infty$时的结果就是一个高斯核方程。这便是中心极限定理(central limit theorem, CLT)\index{central limit theorem (CLT) \dotfill 中心极限定理}。
 
+\subsection{各向同性和各向异性}
+\label{sec:kernel-gaussian-isotropy-anisotropy}
+前面提到的高斯方程都具有各项同性(isotropy)\index{isotropy}的特征，意味着如果方差相同，那么方程向各个方向的变化是相同的。以2维高斯方程\eqref{eq:kernel-gaussian-dim2}为例，设$\sigma =1$，则(讨论1维没有意义)
+\begin{equation*}
+  \begin{split}
+    \frac{\partial}{\partial x} G^{(2)} \left( x,y;1 \right)
+    & = \frac{x}{2 \pi}
+    \exp \left(  - \frac{x^{2} + y^{2}}{2} \right),\\
+    \frac{\partial}{\partial y} G^{(2)} \left( x,y;1 \right)
+    & = \frac{y}{2 \pi}
+    \exp \left(  - \frac{x^{2} + y^{2}}{2} \right),
+  \end{split}
+\end{equation*}
+高斯核对$x,y$的偏导表现为图\ref{fig:gaussian-isotropy-2d}中的箭头，沿着各个方向的变化幅度相同，呈圆形；每个箭头所指的方向，构成一个梯度向量(gradient vector)。
+\begin{figure}[htbp]
+  \caption{2维空间中高斯方程的各项同性}
+  \centering
+  \includegraphics[width=10cm]{./Figures/20180405-isotropy}
+  \label{fig:gaussian-isotropy-2d}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+类似地，保持方差不变，3维高斯方程的导数表现为一个球形。
 
+另一方面，如果方差不同，那么$N>1$维高斯方程在各个维度中的变化不同，我们称之为各向异性(anisotropy)\index{anistropy \dotfill 各向异性}，如图\ref{fig:gaussian-anisotropy-2d}。
+\begin{figure}[htbp]
+  \caption{2维空间中高斯方程的各项异性}
+  \centering
+  \includegraphics[width=12cm]{./Figures/20180405-anisotropy}
+  \label{fig:gaussian-anisotropy-2d}
+%
+%  \small{Source: PBOC.}
+\end{figure}
 
+\subsubsection{高斯核方程的傅里叶变换}
+\label{sec:gaussian-kernel-fourier}
+实际研究中常常将实值域中的求积问题变换为傅里叶域中来计算，因为后者更方便。更多傅里叶变换的介绍见第\ref{sec:fourier-analysis}节。
 
+傅里叶变换$\mathcal{F}$常用来表示，对应基方程$\exp \left( i \omega x \right)$，常用的傅里叶变换以及逆傅里叶变换$\mathcal{F}^{-1}$可表示为
+\begin{align}
+  \label{eq:gaussian-kernel-fourier-trans}
+  \mathcal{F} \left( f(x) \right) & = F \left( \omega \right)
+  \frac{1}{2 \sqrt{\pi}} \int_{-\infty}^{\infty} f(x) \, \exp \left( i \omega x \right) \, \mathrm{d} x = \frac{1}{2 \sqrt{\pi}} \exp \left( - \frac{1}{2} \sigma^{2} \omega^{2} \right), \\
+  \mathcal{F}^{-1} \left( F \left( \omega \right) \right)
+  & = \frac{1}{2 \sqrt{\pi}} \int_{-\infty}^{\infty} F \left( \omega \right) \exp \left( - i \omega x \right) d \omega.
+\end{align}
+在Mathematica中，可以自己写出$\mathcal{F}, \, \mathcal{F}^{-1}$的程序，或者用自带程序，见图\ref{fig:fourier-transform-mma.png}。
+\begin{figure}[htbp]
+  \caption{傅里叶变换、逆傅里叶变换的Mathematica程序}
+  \centering
+  \includegraphics[width=12cm]{./Figures/20180405-fourier-transform-mma}
+  \label{fig:fourier-transform-mma.png}
+%
+%  \small{Source: PBOC.}
+\end{figure}
 
+不难看出，对高斯核方程的傅里叶变换还是一个傅里叶变换，只是频率变化为$\omega$。这一特性为高斯核方程所独有。原域中的带宽(方差)系数$\sigma$，在新的傅里叶变换中表现为和频率$\omega$相乘的形式出现。$\sigma$值越大，方差越大，高斯核越宽，其对应的傅里叶域中的核越窄，$\omega$越小，如下图\ref{fig:fourier-transform-kernel-compare.png}，从左至右分别对应$\sigma = 1,2,3$，从上到下分别是原域中的高斯核方程，以及对应的傅里叶变换。
 
+\begin{figure}[htbp]
+  \caption{傅里叶变换、逆傅里叶变换的Mathematica程序}
+  \centering
+  \includegraphics[width=15cm]{./Figures/20180405-kernel-compare.png}
+  \label{fig:fourier-transform-kernel-compare.png}
+%
+%  \small{Source: PBOC.}
+\end{figure}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+对高斯核方程$G(x;\sigma)$的傅里叶变换$\mathcal{F} g(x;\sigma)$，有许多种不同的称谓，若$g(x;\sigma)$是信号，那么$\mathcal{F} g(x;\sigma)$可称为光谱(spectrum)，起到滤波的作用，又称带宽滤波(bandpass filter, BPF)\index{bandpass filter (BPF) \dotfill 带宽滤波}。
 
 
 

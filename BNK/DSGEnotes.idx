@@ -462,17 +462,22 @@
 \indexentry{error function \dotfill 误差方程}{507}
 \indexentry{unit step function \dotfill 单位阶跃方程}{507}
 \indexentry{Heaviside function \dotfill 黑维塞方程}{507}
-\indexentry{probability density function (PDF)!\dotfill 概率密度方程}{511}
-\indexentry{likelihood function \dotfill 似然方程}{511}
-\indexentry{conditional bias \dotfill 条件偏误}{512}
-\indexentry{unbiased estimate \dotfill 无偏估计}{512}
-\indexentry{mean square error (MSE) \dotfill 均方误差}{512}
-\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差}{512}
-\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界}{513}
-\indexentry{Fischer information matrix \dotfill 费雪信息矩阵}{513}
-\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)}{514}
-\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)}{514}
-\indexentry{Bernoulli trials \dotfill 伯努利实验}{515}
-\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}{523}
-\indexentry{BFMG algorithm \dotfill BFMG算法}{523}
-\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}{524}
+\indexentry{binomial coefficients \dotfill 二项式系数}{508}
+\indexentry{central limit theorem (CLT) \dotfill 中心极限定理}{510}
+\indexentry{isotropy}{510}
+\indexentry{anistropy \dotfill 各向异性}{510}
+\indexentry{bandpass filter (BPF) \dotfill 带宽滤波}{513}
+\indexentry{probability density function (PDF)!\dotfill 概率密度方程}{517}
+\indexentry{likelihood function \dotfill 似然方程}{517}
+\indexentry{conditional bias \dotfill 条件偏误}{518}
+\indexentry{unbiased estimate \dotfill 无偏估计}{518}
+\indexentry{mean square error (MSE) \dotfill 均方误差}{518}
+\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差}{518}
+\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界}{519}
+\indexentry{Fischer information matrix \dotfill 费雪信息矩阵}{519}
+\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)}{520}
+\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)}{520}
+\indexentry{Bernoulli trials \dotfill 伯努利实验}{521}
+\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}{529}
+\indexentry{BFMG algorithm \dotfill BFMG算法}{529}
+\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}{530}

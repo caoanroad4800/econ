@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.26)  5 APR 2018 17:08
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.26)  6 APR 2018 02:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3647,18 +3647,49 @@ File: ./Figures/20180404-gaussian-amplitude-sigma.pdf Graphic file (type pdf)
  [505] [506]
 File: ./Figures/20180405-gaussian-sigma-value.png Graphic file (type bmp)
 <./Figures/20180405-gaussian-sigma-value.png>
-) [507] [508
+File: ./Figures/20180405-heaviside-unit-step-function.png Graphic file (type bm
+p)
+<./Figures/20180405-heaviside-unit-step-function.png>
 
-] [509] [510] (./chapters/mle.tex
+Overfull \hbox (26.01682pt too wide) detected at line 587
+[]
+ []
+
+[507]
+File: ./Figures/20180405-binomial-coefficients.png Graphic file (type bmp)
+<./Figures/20180405-binomial-coefficients.png>
+
+Underfull \vbox (badness 7451) has occurred while \output is active []
+
+ [508]
+File: ./Figures/20180405-convolution-fg.png Graphic file (type bmp)
+<./Figures/20180405-convolution-fg.png>
+File: ./Figures/20180405-convolution-fg-1.png Graphic file (type bmp)
+<./Figures/20180405-convolution-fg-1.png>
+File: ./Figures/20180405-convolution-fg-2.png Graphic file (type bmp)
+<./Figures/20180405-convolution-fg-2.png>
+
+[509]
+File: ./Figures/20180405-isotropy.png Graphic file (type bmp)
+<./Figures/20180405-isotropy.png>
+File: ./Figures/20180405-anisotropy.png Graphic file (type bmp)
+<./Figures/20180405-anisotropy.png>
+File: ./Figures/20180405-fourier-transform-mma.png Graphic file (type bmp)
+<./Figures/20180405-fourier-transform-mma.png>
+File: ./Figures/20180405-kernel-compare.png Graphic file (type bmp)
+<./Figures/20180405-kernel-compare.png>
+) [510] [511] [512] [513] [514
+
+] [515] [516] (./chapters/mle.tex
 第十七章
-[511
+[517
 
-] [512] [513] [514] [515]
+] [518] [519] [520] [521]
 
 LaTeX Font Warning: Font shape `TU/NotoSansCJKSC(0)/m/it' undefined
 (Font)              using `TU/NotoSansCJKSC(0)/m/n' instead on input line 406.
 
-[516]
+[522]
 File: ./Figures/output_5_0.png Graphic file (type bmp)
 <./Figures/output_5_0.png>
 
@@ -3666,20 +3697,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 482--483
 
  []
 
-[517]
+[523]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [518]
+ [524]
 Underfull \hbox (badness 4217) in paragraph at lines 608--609
 []\TU/FandolSong-Regular(0)/m/n/10 在 很 多 情 况 下，|  我 们 无 法 通 过 解 析 法 求 得 最 大 化 的
  解。|  这 时 需 要 数 值 近 似 求 解，|  利
  []
 
-[519] [520]
+[525] [526]
 Overfull \hbox (6.8423pt too wide) detected at line 746
 []
  []
 
-[521]
+[527]
 File: ./Figures/output_12_1.png Graphic file (type bmp)
 <./Figures/output_12_1.png>
 
@@ -3687,61 +3718,61 @@ Underfull \hbox (badness 10000) in paragraph at lines 816--817
 
  []
 
-[522] [523] [524] [525]) (./chapters/housing.tex [526]
+[528] [529] [530] [531]) (./chapters/housing.tex [532]
 第十八章
-[527
+[533
 
-] [528] [529]) [530] [531
+] [534] [535]) [536] [537
 
-] [532] [533
+] [538] [539
 
-] [534] (./chapters/PK.tex
+] [540] (./chapters/PK.tex
 第一章
-[535
+[541
 
-]) (./chapters/KNKNCE.tex [536]
+]) (./chapters/KNKNCE.tex [542]
 第二章
-[537
+[543
 
-] [538] [539] [540] [541]) [542] (./DSGEnotes.bbl [543
+] [544] [545] [546] [547]) [548] (./DSGEnotes.bbl [549
 
-] [544] [545]
-[546] [547] [548] [549]
+] [550] [551]
+[552] [553] [554] [555]
 Underfull \hbox (badness 1681) in paragraph at lines 1024--1030
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[550] [551] [552] [553] [554] [555] [556] [557] [558]) [559] [560
+[556] [557] [558] [559] [560] [561] [562] [563] [564]) [565] [566
 
 ]
-(./DSGEnotes.lof [561])
+(./DSGEnotes.lof [567])
 \tf@lof=\write9
 \openout9 = `DSGEnotes.lof'.
 
- [562] (./DSGEnotes.lot)
+ [568] (./DSGEnotes.lot)
 \tf@lot=\write10
 \openout10 = `DSGEnotes.lot'.
 
- [563
+ [569
 
-] [564
+] [570
 
 ] (./DSGEnotes.tdo
-[565])
+[571])
 \tf@tdo=\write11
 \openout11 = `DSGEnotes.tdo'.
 
- [566]
+ [572]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
- (./DSGEnotes.ind [567
+ (./DSGEnotes.ind [573
 
 
-] [568] [569] [570] [571] [572] [573]
-[574] [575
-\indexentry{残差方程(映射法)}{575}
-] [576] [577]) [578]
+] [574] [575] [576] [577] [578] [579]
+[580] [581
+\indexentry{残差方程(映射法)}{581}
+] [582] [583]) [584]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 491.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 491.
  (./DSGEnotes.aux)
@@ -3751,14 +3782,17 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 491.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 54706 strings out of 493007
- 1127407 string characters out of 6134605
- 1608359 words of memory out of 5000000
- 57711 multiletter control sequences out of 15000+600000
+ 54756 strings out of 493007
+ 1129259 string characters out of 6134605
+ 1608111 words of memory out of 5000000
+ 57752 multiletter control sequences out of 15000+600000
  545493 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  76i,27n,146p,10415b,3282s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (578 pages, 9054972 bytes).
+Output written on DSGEnotes.xdv (584 pages, 9109136 bytes).

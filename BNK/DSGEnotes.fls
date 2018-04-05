@@ -608,6 +608,15 @@ INPUT ./Figures/20180401-complex-plane.png
 INPUT ./Figures/20180401-sinh-cosh-x.pdf
 INPUT ./Figures/20180404-gaussian-amplitude-sigma.pdf
 INPUT ./Figures/20180405-gaussian-sigma-value.png
+INPUT ./Figures/20180405-heaviside-unit-step-function.png
+INPUT ./Figures/20180405-binomial-coefficients.png
+INPUT ./Figures/20180405-convolution-fg.png
+INPUT ./Figures/20180405-convolution-fg-1.png
+INPUT ./Figures/20180405-convolution-fg-2.png
+INPUT ./Figures/20180405-isotropy.png
+INPUT ./Figures/20180405-anisotropy.png
+INPUT ./Figures/20180405-fourier-transform-mma.png
+INPUT ./Figures/20180405-kernel-compare.png
 INPUT ./chapters/mle.tex
 INPUT ./chapters/mle.tex
 INPUT ./Figures/output_5_0.png
