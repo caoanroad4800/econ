@@ -451,7 +451,7 @@ Flexible price aggregate output $\Rightarrow $
 可见flexible price $(\phi =0)$情况下，名义波动不会对真实变量产生影响。
 
 \subsection{output gap}
-\label{output-gap}
+\label{sec:output-gap}
 定义output gap $\ln X_t \equiv \ln Y_t - \ln Y_t^f$，表示flexible price $(\phi = 0)$情况下产出$Y_t^f$与sticky price $(\phi >0)$情况下产出$Y_t$的差。
 
 稳定状态下，$Y^f$的值由式\eqref{eq:flexible-price-agg-output}给出；
@@ -490,7 +490,7 @@ output gap的性质，分两种情况来讨论：
     \theta_{\pi} \cdot (\pi_t - \pi) + \theta_{x} \cdot (\ln X_t - \ln X)
   \right] + \varepsilon_{i,t},
 \end{equation}
-其中$i_t$表示名义利率。$X_t$表示output gap，见第\ref{output-gap}节。去掉下角标的变量表示其稳态值。$0 \le \rho_i \le 1$表示smoothing parameter。$\theta_\pi \ge 0$，$\theta_{x} \ge 0$。外生利率冲击$E\{ \varepsilon_{i,t}\} = 0$。
+其中$i_t$表示名义利率。$X_t$表示output gap，见第\ref{sec:output-gap}节。去掉下角标的变量表示其稳态值。$0 \le \rho_i \le 1$表示smoothing parameter。$\theta_\pi \ge 0$，$\theta_{x} \ge 0$。外生利率冲击$E\{ \varepsilon_{i,t}\} = 0$。
 
 不难看出式\eqref{eq:MP-Taylor-Rule}的Taylor法则是个局部调整的货币政策：如果将稳态值$i$和$\pi$视作长期目标，则中央银行根据上期名义利率（距其稳态值）的偏离程度，以及当前期目标值（距其稳态值）的偏离程度，来灵活调整当期的名义利率；当前期目标值包括通货膨胀和output gap。一旦当期名义利率的调整目标确定，中央银行即通过向市场印发货币等手段，调节市场上的货币量，来实现其名义利率的目标。
 
@@ -705,7 +705,7 @@ flexible price下的产出水平式\eqref{eq:flexible-price-agg-output} $\Righta
   \tilde{\pi}_t = \left(\frac{1-\phi}{\phi}\right) \cdot (1-\phi \cdot \beta) \cdot \tilde{mc}_{t} + \beta \cdot E_t \tilde{\pi}_{t+1}.
 \end{equation}
 
-式\eqref{eq:log-lin-reset-price-inflation-mc}又被称为New Keynesian Philips Curve (NKPC)，它反映了中央银行对产出和通货膨胀的trade off。也可以用式\eqref{eq:log-lin-labor-supply}中的output gap $\tilde{X}_t$代替边际成本$mc_{t}$，NKPC改写为
+式\eqref{eq:log-lin-reset-price-inflation-mc}又被称为New Keynesian Philips Curve (NKPC)\index{New Keynesian Philips Curve (NKPC) \dotfill 新凯恩斯主义菲利普斯曲线}，它反映了中央银行对产出和通货膨胀的trade off。也可以用式\eqref{eq:log-lin-labor-supply}中的output gap $\tilde{X}_t$代替边际成本$mc_{t}$，NKPC改写为
 \begin{align}
   \label{eq:log-lin-reset-price-inflation-gap}
   \tilde{\pi}_t &= \left(\frac{1-\phi}{\phi}\right) \cdot (1-\phi \cdot \beta) \cdot \left[(\sigma + \eta) \cdot \left(\tilde{Y}_t - \tilde{Y}_t^f \right)\right] + \beta \cdot E_t \tilde{\pi}_{t+1}\nonumber \\

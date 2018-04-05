@@ -1,0 +1,6 @@
+PWD /home/yanyuan/Soft/econ/econ/BNK
+INPUT /usr/local/texlive/2017/texmf.cnf
+INPUT /usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt
+INPUT connection-appendix.tex
+OUTPUT connection-appendix.log

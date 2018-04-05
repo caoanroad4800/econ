@@ -1,4 +1,4 @@
-\begin{thebibliography}{272}
+\begin{thebibliography}{291}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -397,6 +397,13 @@
   model}}.
 \newblock \bibinfo{type}{Technical Report}; \bibinfo{year}{2006}.
 %Type = Article
+\bibitem[{Brumm and Scheidegger(2017)}]{Brumm:2017bn}
+\bibinfo{author}{Brumm\xfnm[ J.]}, \bibinfo{author}{Scheidegger\xfnm[ S.]}.
+\newblock \bibinfo{title}{{Using Adaptive Sparse Grids to Solve
+  High-Dimensional Dynamic Models}}.
+\newblock \bibinfo{journal}{Econometrica}
+  \bibinfo{year}{2017};\bibinfo{volume}{85}(\bibinfo{number}{5}):\bibinfo{pages}{1575--1612}.
+%Type = Article
 \bibitem[{Buiter(2009)}]{Buiter:2009ww}
 \bibinfo{author}{Buiter\xfnm[ W.H.]}.
 \newblock \bibinfo{title}{{The unfortunate uselessness of most'state of the
@@ -501,16 +508,6 @@
   Mechanism}}.
 \newblock \bibinfo{journal}{The American Economic Review}
   \bibinfo{year}{1992};\bibinfo{volume}{82}(\bibinfo{number}{2}):\bibinfo{pages}{346--353}.
-%Type = Incollection
-\bibitem[{Christiano et~al.(1999)Christiano, Eichenbaum and
-  Evans}]{Christiano:1999uw}
-\bibinfo{author}{Christiano\xfnm[ L.J.]}, \bibinfo{author}{Eichenbaum\xfnm[
-  M.]}, \bibinfo{author}{Evans\xfnm[ C.L.]}.
-\newblock \bibinfo{title}{{Chapter 2 Monetary policy shocks: What have we
-  learned and to what end? A2 -}}.
-\newblock In: \bibinfo{booktitle}{Handbook of Macroeconomics}.
-  \bibinfo{publisher}{Elsevier}; \bibinfo{year}{1999}. p.
-  \bibinfo{pages}{65--148 T2 --}.
 %Type = Article
 \bibitem[{Christiano and Fisher(2000)}]{Christiano:2000bw}
 \bibinfo{author}{Christiano\xfnm[ L.J.]}, \bibinfo{author}{Fisher\xfnm[
@@ -539,6 +536,16 @@
   \bibinfo{booktitle}{Handbook of Monetary Economics}.
   \bibinfo{publisher}{Elsevier}; \bibinfo{year}{2010}. p.
   \bibinfo{pages}{285--367 T2 --}.
+%Type = Article
+\bibitem[{{Christiano, Lawrence J} et~al.(1999){Christiano, Lawrence J},
+  {Eichenbaum, Martin} and {Evans, Charles L}}]{Christiano:1999uw}
+\bibinfo{author}{{Christiano, Lawrence J}\xfnm[]},
+  \bibinfo{author}{{Eichenbaum, Martin}\xfnm[]}, \bibinfo{author}{{Evans,
+  Charles L}\xfnm[]}.
+\newblock \bibinfo{title}{{Chapter 2 Monetary policy shocks: What have we
+  learned and to what end?}}
+\newblock \bibinfo{journal}{Handbook of Macroeconomics}
+  \bibinfo{year}{1999};\bibinfo{volume}{1}:\bibinfo{pages}{65--148}.
 %Type = Article
 \bibitem[{Christoffel et~al.(2008)Christoffel, Coenen and
   Warne}]{Christoffel:2008vq}
@@ -617,6 +624,13 @@
   with Taylor Price Setting}}.
 \newblock \bibinfo{year}{2006}.
 %Type = Article
+\bibitem[{Del~Negro and Schorfheide(2008)}]{DelNegro:2008de}
+\bibinfo{author}{Del~Negro\xfnm[ M.]}, \bibinfo{author}{Schorfheide\xfnm[ F.]}.
+\newblock \bibinfo{title}{{Forming priors for DSGE models (and how it affects
+  the assessment of nominal rigidities)}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{2008};\bibinfo{volume}{55}(\bibinfo{number}{7}):\bibinfo{pages}{1191--1208}.
+%Type = Article
 \bibitem[{Del~Negro and Schorfheide(2011)}]{DelNegro:2011wu}
 \bibinfo{author}{Del~Negro\xfnm[ M.]}, \bibinfo{author}{Schorfheide\xfnm[ F.]}.
 \newblock \bibinfo{title}{{Bayesian macroeconometrics}}.
@@ -680,6 +694,14 @@
 \newblock In: \bibinfo{booktitle}{Computational Methods for the Study of
   Dynamic Economies}. \bibinfo{publisher}{OUP Oxford}; \bibinfo{year}{1999}. p.
   \bibinfo{pages}{13--29}.
+%Type = Incollection
+\bibitem[{Diebold et~al.(2010)Diebold, Kilian and Nerlove}]{Diebold:2010ei}
+\bibinfo{author}{Diebold\xfnm[ F.X.]}, \bibinfo{author}{Kilian\xfnm[ L.]},
+  \bibinfo{author}{Nerlove\xfnm[ M.]}.
+\newblock \bibinfo{title}{{Time series analysis}}.
+\newblock In: \bibinfo{booktitle}{Macroeconometrics and Time Series Analysis}.
+  \bibinfo{address}{London}: \bibinfo{publisher}{Palgrave Macmillan, London};
+  \bibinfo{year}{2010}. p. \bibinfo{pages}{317--342}.
 %Type = Article
 \bibitem[{Dixit and Stiglitz(1977)}]{Dixit:1977tv}
 \bibinfo{author}{Dixit\xfnm[ A.K.]}, \bibinfo{author}{Stiglitz\xfnm[ J.E.]}.
@@ -795,6 +817,16 @@
   Approach}}.
 \newblock \bibinfo{journal}{The Review of Economic Studies}
   \bibinfo{year}{2007};\bibinfo{volume}{74}(\bibinfo{number}{4}):\bibinfo{pages}{1059--1087}.
+%Type = Article
+\bibitem[{Fern{\'a}ndez-Villaverde et~al.(2006)Fern{\'a}ndez-Villaverde,
+  Rubio-Ramı́rez and Santos}]{FernandezVillaverde:2006fl}
+\bibinfo{author}{Fern{\'a}ndez-Villaverde\xfnm[ J.]},
+  \bibinfo{author}{Rubio-Ramı́rez\xfnm[ J.F.]}, \bibinfo{author}{Santos\xfnm[
+  M.S.]}.
+\newblock \bibinfo{title}{{Convergence Properties of the Likelihood of Computed
+  Dynamic Models}}.
+\newblock \bibinfo{journal}{Econometrica}
+  \bibinfo{year}{2006};\bibinfo{volume}{74}(\bibinfo{number}{1}):\bibinfo{pages}{93--119}.
 %Type = Incollection
 \bibitem[{Fern{\'a}ndez-Villaverde et~al.(2016)Fern{\'a}ndez-Villaverde,
   Rubio-Ramı́rez and Schorfheide}]{FernandezVillaverde:2016wy}
@@ -1162,6 +1194,14 @@
 \newblock \bibinfo{journal}{Quantitative Economics}
   \bibinfo{year}{2011}{\natexlab{b}};\bibinfo{volume}{2}(\bibinfo{number}{2}):\bibinfo{pages}{173--210}.
 %Type = Article
+\bibitem[{Judd et~al.(2014)Judd, Maliar, Maliar and Valero}]{Judd:2014ce}
+\bibinfo{author}{Judd\xfnm[ K.L.]}, \bibinfo{author}{Maliar\xfnm[ L.]},
+  \bibinfo{author}{Maliar\xfnm[ S.]}, \bibinfo{author}{Valero\xfnm[ R.]}.
+\newblock \bibinfo{title}{{Smolyak Method for Solving Dynamic Economic Models:
+  Lagrange Interpolation, Anisotropic Grid and Adaptive Domain}}.
+\newblock \bibinfo{journal}{Journal of Economic Dynamics and {\ldots}}
+  \bibinfo{year}{2014};\bibinfo{volume}{44}(\bibinfo{number}{1}):\bibinfo{pages}{92--123}.
+%Type = Article
 \bibitem[{Jung and Steinbach(2002)}]{Jung:2002jk}
 \bibinfo{author}{Jung\xfnm[ M.]}, \bibinfo{author}{Steinbach\xfnm[ O.]}.
 \newblock \bibinfo{title}{{A Finite Element-Boundary Element Algorithm for
@@ -1268,6 +1308,11 @@
   Commitment}}.
 \newblock \bibinfo{journal}{Review of Economic Studies}
   \bibinfo{year}{1996};\bibinfo{volume}{63}(\bibinfo{number}{4}):\bibinfo{pages}{595--609}.
+%Type = Unpublished
+\bibitem[{Kogan and Mitra(2014)}]{Kogan:2014vf}
+\bibinfo{author}{Kogan\xfnm[ L.]}, \bibinfo{author}{Mitra\xfnm[ I.]}.
+\newblock \bibinfo{title}{{Accuracy Verification for Numerical Solutions of
+  Equilibiurm Models}}; \bibinfo{year}{2014}.
 %Type = Article
 \bibitem[{Koop et~al.(1996)Koop, Pesaran and Potter}]{Koop:1996cs}
 \bibinfo{author}{Koop\xfnm[ G.]}, \bibinfo{author}{Pesaran\xfnm[ M.H.]},
@@ -1276,6 +1321,12 @@
   Models}}.
 \newblock \bibinfo{journal}{Journal of Econometrics}
   \bibinfo{year}{1996};\bibinfo{volume}{74}(\bibinfo{number}{1}):\bibinfo{pages}{119--147}.
+%Type = Book
+\bibitem[{Koopmans(1995)}]{Koopmans:1995vn}
+\bibinfo{author}{Koopmans\xfnm[ L.H.]}.
+\newblock \bibinfo{title}{{The Spectral Analysis of Time Series}}.
+\newblock \bibinfo{address}{San Diego}: \bibinfo{publisher}{Academic Press},
+  \bibinfo{year}{1995}.
 %Type = Article
 \bibitem[{Kopecky and Suen(2010)}]{Kopecky:2010du}
 \bibinfo{author}{Kopecky\xfnm[ K.A.]}, \bibinfo{author}{Suen\xfnm[ R.M.]}.
@@ -1311,6 +1362,13 @@
 \newblock \bibinfo{journal}{Journal of Economic Theory}
   \bibinfo{year}{2011};\bibinfo{volume}{146}(\bibinfo{number}{3}):\bibinfo{pages}{1107--1133}.
 %Type = Article
+\bibitem[{Krusell and Smith~Jr(1998)}]{Krusell:1998cl}
+\bibinfo{author}{Krusell\xfnm[ P.]}, \bibinfo{author}{Smith~Jr\xfnm[ A.A.]}.
+\newblock \bibinfo{title}{{Income and wealth heterogeneity in the
+  macroeconomy}}.
+\newblock \bibinfo{journal}{Journal of Political Economy}
+  \bibinfo{year}{1998};\bibinfo{volume}{106}(\bibinfo{number}{5}):\bibinfo{pages}{867--896}.
+%Type = Article
 \bibitem[{Kydland and Prescott(1982)}]{Kydland:1982cd}
 \bibinfo{author}{Kydland\xfnm[ F.E.]}, \bibinfo{author}{Prescott\xfnm[ E.C.]}.
 \newblock \bibinfo{title}{{Time to build and aggregate fluctuations}}.
@@ -1344,11 +1402,18 @@
 \newblock \bibinfo{journal}{The Quarterly Journal of Economics}
   \bibinfo{year}{1968};\bibinfo{volume}{82}(\bibinfo{number}{3}):\bibinfo{pages}{465--473}.
 %Type = Article
-\bibitem[{Levintal(2017)}]{Levintal:2017dm}
+\bibitem[{Levintal(2017{\natexlab{a}})}]{Levintal:2017dm}
 \bibinfo{author}{Levintal\xfnm[ O.]}.
 \newblock \bibinfo{title}{{Fifth-Order Perturbation Solution to DSGE Models}}.
 \newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
-  \bibinfo{year}{2017};\bibinfo{volume}{80}:\bibinfo{pages}{1--16}.
+  \bibinfo{year}{2017}{\natexlab{a}};\bibinfo{volume}{80}:\bibinfo{pages}{1--16}.
+%Type = Article
+\bibitem[{Levintal(2017{\natexlab{b}})}]{Levintal:2017bp}
+\bibinfo{author}{Levintal\xfnm[ O.]}.
+\newblock \bibinfo{title}{{Taylor Projection: A New Solution Method to Dynamic
+  General Equilibrium Models}}.
+\newblock \bibinfo{journal}{SSRN Electronic Journal}
+  \bibinfo{year}{2017}{\natexlab{b}};.
 %Type = Book
 \bibitem[{Lifanov et~al.(2003)Lifanov, Poltavskii and
   Vainikko}]{Lifanov:2003va}
@@ -1389,6 +1454,14 @@
   Model}}.
 \newblock \bibinfo{journal}{Quantitative Economics}
   \bibinfo{year}{2015};\bibinfo{volume}{6}(\bibinfo{number}{1}):\bibinfo{pages}{1--47}.
+%Type = Article
+\bibitem[{Maliar et~al.(2012)Maliar, Maliar and Villemot}]{Maliar:2012gv}
+\bibinfo{author}{Maliar\xfnm[ L.]}, \bibinfo{author}{Maliar\xfnm[ S.]},
+  \bibinfo{author}{Villemot\xfnm[ S.]}.
+\newblock \bibinfo{title}{{Taking Perturbation to the Accuracy Frontier: A
+  Hybrid of Local and Global Solutions}}.
+\newblock \bibinfo{journal}{Computational Economics}
+  \bibinfo{year}{2012};\bibinfo{volume}{42}(\bibinfo{number}{3}):\bibinfo{pages}{307--325}.
 %Type = Article
 \bibitem[{Maliar et~al.(2011)Maliar, Maliar and Judd}]{Maliar:2011jd}
 \bibinfo{author}{Maliar\xfnm[ S.]}, \bibinfo{author}{Maliar\xfnm[ L.]},
@@ -1565,6 +1638,14 @@
   principle}}.
 \newblock \bibinfo{journal}{Journal of Fixed Point Theory and Applications}
   \bibinfo{year}{2007};\bibinfo{volume}{2}(\bibinfo{number}{2}):\bibinfo{pages}{221--223}.
+%Type = Incollection
+\bibitem[{Peralta-Alva and Santos(2014)}]{PeraltaAlva:2014cn}
+\bibinfo{author}{Peralta-Alva\xfnm[ A.]}, \bibinfo{author}{Santos\xfnm[ M.S.]}.
+\newblock \bibinfo{title}{{Analysis of Numerical Errors}}.
+\newblock In: \bibinfo{editor}{Schmedders\xfnm[ K.]},
+  \bibinfo{editor}{Judd\xfnm[ K.L.]}, editors. \bibinfo{booktitle}{Handbook of
+  Computational Economics}. \bibinfo{publisher}{Elsevier};
+  \bibinfo{year}{2014}. p. \bibinfo{pages}{517--556}.
 %Type = Article
 \bibitem[{Phaneuf et~al.(2015)Phaneuf, Sims and Victor}]{Phaneuf:2015vp}
 \bibinfo{author}{Phaneuf\xfnm[ L.]}, \bibinfo{author}{Sims\xfnm[ E.R.]},
@@ -1578,6 +1659,12 @@
 \newblock \bibinfo{title}{{Theory ahead of business-cycle measurement}}.
 \newblock \bibinfo{journal}{Carnegie-Rochester Conference Series on {\ldots}}
   \bibinfo{year}{1986};\bibinfo{volume}{25 IS -}:\bibinfo{pages}{11--44}.
+%Type = Article
+\bibitem[{Preston and Roca(2007)}]{Preston:2007fu}
+\bibinfo{author}{Preston\xfnm[ B.]}, \bibinfo{author}{Roca\xfnm[ M.]}.
+\newblock \bibinfo{title}{{Incomplete Markets, Heterogeneity and Macroeconomic
+  Dynamics}}.
+\newblock \bibinfo{journal}{NBER Working Papers} \bibinfo{year}{2007};.
 %Type = Book
 \bibitem[{Privault(2013)}]{Privault:2013vc}
 \bibinfo{author}{Privault\xfnm[ N.]}.
@@ -1663,6 +1750,33 @@
 \newblock \bibinfo{journal}{Journal of Economic Theory}
   \bibinfo{year}{1992};\bibinfo{volume}{57}(\bibinfo{number}{1}):\bibinfo{pages}{222--229}.
 %Type = Article
+\bibitem[{Santos(2000)}]{Santos:2000ex}
+\bibinfo{author}{Santos\xfnm[ M.S.]}.
+\newblock \bibinfo{title}{{Accuracy of Numerical Solutions Using the Euler
+  Equation Residuals}}.
+\newblock \bibinfo{journal}{Econometrica}
+  \bibinfo{year}{2000};\bibinfo{volume}{68}(\bibinfo{number}{6}):\bibinfo{pages}{1377--1402}.
+%Type = Article
+\bibitem[{Santos and Peralta-Alva(2005)}]{Santos:2005dz}
+\bibinfo{author}{Santos\xfnm[ M.S.]}, \bibinfo{author}{Peralta-Alva\xfnm[ A.]}.
+\newblock \bibinfo{title}{{Accuracy of Simulations for Stochastic Dynamic
+  Models}}.
+\newblock \bibinfo{journal}{Econometrica}
+  \bibinfo{year}{2005};\bibinfo{volume}{73}(\bibinfo{number}{6}):\bibinfo{pages}{1939--1976}.
+%Type = Article
+\bibitem[{Santos and Rust(2006)}]{Santos:2006fz}
+\bibinfo{author}{Santos\xfnm[ M.S.]}, \bibinfo{author}{Rust\xfnm[ J.]}.
+\newblock \bibinfo{title}{{Convergence Properties of Policy Iteration}}.
+\newblock \bibinfo{journal}{SIAM Journal on Control and Optimization}
+  \bibinfo{year}{2006};\bibinfo{volume}{42}(\bibinfo{number}{6}):\bibinfo{pages}{2094--2115}.
+%Type = Article
+\bibitem[{Santos and Vigo-Aguiar(1998)}]{Santos:1998de}
+\bibinfo{author}{Santos\xfnm[ M.S.]}, \bibinfo{author}{Vigo-Aguiar\xfnm[ J.]}.
+\newblock \bibinfo{title}{{Analysis of a Numerical Dynamic Programming
+  Algorithm Applied to Economic Models}}.
+\newblock \bibinfo{journal}{Econometrica}
+  \bibinfo{year}{1998};\bibinfo{volume}{66}(\bibinfo{number}{2}):\bibinfo{pages}{409}.
+%Type = Article
 \bibitem[{Schmitt-Groh{\'e} and Uribe(2004)}]{SchmittGroh:2004da}
 \bibinfo{author}{Schmitt-Groh{\'e}\xfnm[ S.]}, \bibinfo{author}{Uribe\xfnm[
   M.]}.
@@ -1670,6 +1784,12 @@
   Second-Order Approximation to the Policy Function}}.
 \newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
   \bibinfo{year}{2004};\bibinfo{volume}{28}(\bibinfo{number}{4}):\bibinfo{pages}{755--775}.
+%Type = Article
+\bibitem[{Schorfheide(2005)}]{Schorfheide:2005jg}
+\bibinfo{author}{Schorfheide\xfnm[ F.]}.
+\newblock \bibinfo{title}{{VAR Forecasting Under Misspecification}}.
+\newblock \bibinfo{journal}{Journal of Econometrics}
+  \bibinfo{year}{2005};\bibinfo{volume}{128}(\bibinfo{number}{1}):\bibinfo{pages}{99--136}.
 %Type = Article
 \bibitem[{Schorfheide(2011)}]{Schorfheide:2011tp}
 \bibinfo{author}{Schorfheide\xfnm[ F.]}.
@@ -1690,6 +1810,12 @@
   Applications}}.
 \newblock \bibinfo{publisher}{Springer Science {\&} Business Media},
   \bibinfo{year}{2011}.
+%Type = Book
+\bibitem[{Shumway and Stoffer(2017)}]{Shumway:2017ej}
+\bibinfo{author}{Shumway\xfnm[ R.H.]}, \bibinfo{author}{Stoffer\xfnm[ D.S.]}.
+\newblock \bibinfo{title}{{Time Series Analysis and Its Applications}}.
+\newblock Springer Texts in Statistics. \bibinfo{address}{Cham}:
+  \bibinfo{publisher}{Springer International Publishing}, \bibinfo{year}{2017}.
 %Type = Article
 \bibitem[{Sikorski(1985)}]{Sikorski:1985ew}
 \bibinfo{author}{Sikorski\xfnm[ K.]}.
@@ -1760,6 +1886,13 @@
 \bibinfo{author}{Stachurski\xfnm[ J.]}.
 \newblock \bibinfo{title}{{Economic Dynamics}}
   \bibinfo{year}{2008};:\bibinfo{pages}{1--392}.
+%Type = Article
+\bibitem[{Stachurski and Martin(2008)}]{Stachurski:2008dt}
+\bibinfo{author}{Stachurski\xfnm[ J.]}, \bibinfo{author}{Martin\xfnm[ V.]}.
+\newblock \bibinfo{title}{{Computing the Distributions of Economic Models via
+  Simulation}}.
+\newblock \bibinfo{journal}{Econometrica}
+  \bibinfo{year}{2008};\bibinfo{volume}{76}(\bibinfo{number}{2}):\bibinfo{pages}{443--450}.
 %Type = Article
 \bibitem[{Steinbach and Wendland(2001)}]{Steinbach:2001he}
 \bibinfo{author}{Steinbach\xfnm[ O.]}, \bibinfo{author}{Wendland\xfnm[ W.L.]}.

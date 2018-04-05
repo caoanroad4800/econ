@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.22)  26 MAR 2018 01:17
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.26)  5 APR 2018 17:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2412,6 +2412,51 @@ s
 \c@proposition=\count362
 \c@remark=\count363
 
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen334
+\captionmargin@=\dimen335
+\captionwidth=\dimen336
+\caption@tempdima=\dimen337
+\caption@indent=\dimen338
+\caption@parindent=\dimen339
+\caption@hangindent=\dimen340
+)
+\c@ContinuedFloat=\count364
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: longtable package is loaded.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
+)
+Package caption Info: rotating package is loaded.
+Package caption Info: threeparttable package is loaded.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip96
+\subfigcapskip=\skip97
+\subfigcaptopadj=\dimen341
+\subfigbottomskip=\skip98
+\subfigcapmargin=\dimen342
+\subfiglabelskip=\skip99
+\c@subfigure=\count365
+\c@lofdepth=\count366
+\c@subtable=\count367
+\c@lotdepth=\count368
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/local/texlive/2017/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip100
+\subfig@bottom=\skip101
+)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/adjustbox/adjustbox.sty
 Package: adjustbox 2012/05/21 v1.0 Adjusting TeX boxes (trim, clip, ...)
 
@@ -2426,30 +2471,30 @@ Package: trimclip 2012/05/16 v1.0 Trim and clip general TeX material
 Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
 \collectedbox=\box83
 )
-\tc@llx=\dimen334
-\tc@lly=\dimen335
-\tc@urx=\dimen336
-\tc@ury=\dimen337
+\tc@llx=\dimen343
+\tc@lly=\dimen344
+\tc@urx=\dimen345
+\tc@ury=\dimen346
 Package trimclip Info: Using driver 'tc-xetex.def'.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/adjustbox/tc-xetex.def
 File: tc-xetex.def 2012/05/13 v1.0 Clipping driver for xetex
 ))
-\adjbox@Width=\dimen338
-\adjbox@Height=\dimen339
-\adjbox@Depth=\dimen340
-\adjbox@Totalheight=\dimen341
+\adjbox@Width=\dimen347
+\adjbox@Height=\dimen348
+\adjbox@Depth=\dimen349
+\adjbox@Totalheight=\dimen350
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count364
+\c@checkoddpage=\count369
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box84
-\sift@deathcycles=\count365
-\@vwid@loff=\dimen342
-\@vwid@roff=\dimen343
+\sift@deathcycles=\count370
+\@vwid@loff=\dimen351
+\@vwid@roff=\dimen352
 ))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
@@ -2461,11 +2506,11 @@ Package: eurosym 1998/08/06 v1.1 European currency symbol ``Euro''
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2011/09/28 v3.5.2 Customized lists
-\labelindent=\skip96
-\enit@outerparindent=\dimen344
+\labelindent=\skip102
+\enit@outerparindent=\dimen353
 \enit@toks=\toks57
 \enit@inbox=\box86
-\enitdp@description=\count366
+\enitdp@description=\count371
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/imakeidx/imakeidx.sty
 Package: imakeidx 2016/10/15 v1.3e Package for typesetting indices in a synchro
@@ -2473,23 +2518,23 @@ nous mode
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
-\c@tracingmulticols=\count367
+\c@tracingmulticols=\count372
 \mult@box=\box87
-\multicol@leftmargin=\dimen345
-\c@unbalance=\count368
-\c@collectmore=\count369
-\doublecol@number=\count370
-\multicoltolerance=\count371
-\multicolpretolerance=\count372
-\full@width=\dimen346
-\page@free=\dimen347
-\premulticols=\dimen348
-\postmulticols=\dimen349
-\multicolsep=\skip97
-\multicolbaselineskip=\skip98
+\multicol@leftmargin=\dimen354
+\c@unbalance=\count373
+\c@collectmore=\count374
+\doublecol@number=\count375
+\multicoltolerance=\count376
+\multicolpretolerance=\count377
+\full@width=\dimen355
+\page@free=\dimen356
+\premulticols=\dimen357
+\postmulticols=\dimen358
+\multicolsep=\skip103
+\multicolbaselineskip=\skip104
 \partial@page=\box88
 \last@line=\box89
-\maxbalancingoverflow=\dimen350
+\maxbalancingoverflow=\dimen359
 \mult@rightbox=\box90
 \mult@grightbox=\box91
 \mult@gfirstbox=\box92
@@ -2511,22 +2556,22 @@ Package: multicol 2017/04/11 v1.8q multicolumn formatting (FMi)
 \@tempa=\box108
 \@tempa=\box109
 \@tempa=\box110
-\c@columnbadness=\count373
-\c@finalcolumnbadness=\count374
-\last@try=\dimen351
-\multicolovershoot=\dimen352
-\multicolundershoot=\dimen353
+\c@columnbadness=\count378
+\c@finalcolumnbadness=\count379
+\last@try=\dimen360
+\multicolovershoot=\dimen361
+\multicolundershoot=\dimen362
 \mult@nat@firstbox=\box111
 \colbreak@box=\box112
-\mc@col@check@num=\count375
+\mc@col@check@num=\count380
 ))
 \DSGEnotes@idxfile=\write6
 \openout6 = `DSGEnotes.idx'.
 
 
 Writing index file DSGEnotes.idx
-Package hyperref Info: Option `breaklinks' set `true' on input line 379.
-Package hyperref Info: Option `colorlinks' set `true' on input line 379.
+Package hyperref Info: Option `breaklinks' set `true' on input line 381.
+Package hyperref Info: Option `colorlinks' set `true' on input line 381.
 \pFqmuskip=\muskip19
 (/usr/local/texlive/2017/texmf-dist/tex/latex/cool/cool.sty
 Package: cool 2006/12/29 v1.35 COntent Oriented LaTeX
@@ -2536,67 +2581,67 @@ Package: coollist 2009/09/20 v1.4 COntent Oriented LaTeX Lists
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/coolstr/coolstr.sty
 Package: coolstr 2009/09/09 v2.2 COntent Oriented LaTeX Strings
-\c@COOL@strlen=\count376
-\c@COOL@strpointer=\count377
-\c@COOL@str@index=\count378
-\c@COOL@str@start=\count379
-\c@COOL@str@end=\count380
+\c@COOL@strlen=\count381
+\c@COOL@strpointer=\count382
+\c@COOL@str@index=\count383
+\c@COOL@str@start=\count384
+\c@COOL@str@end=\count385
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/forloop/forloop.sty
 Package: forloop 2006/09/18 v3.0 For Loops for LaTeX
 )
-\c@COOL@listlen=\count381
-\c@COOL@listpointer=\count382
-\c@COOL@intsum=\count383
-\c@COOL@register@ct=\count384
-\c@COOL@register@len=\count385
+\c@COOL@listlen=\count386
+\c@COOL@listpointer=\count387
+\c@COOL@intsum=\count388
+\c@COOL@register@ct=\count389
+\c@COOL@register@len=\count390
 )
-\c@COOL@ct=\count386
-\c@COOL@ct@=\count387
-\c@COOL@multideriv=\count388
-\c@COOL@row=\count389
-\c@COOL@col=\count390
+\c@COOL@ct=\count391
+\c@COOL@ct@=\count392
+\c@COOL@multideriv=\count393
+\c@COOL@row=\count394
+\c@COOL@col=\count395
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
 
 (/usr/local/texlive/2017/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 Package: xeCJK-listings 2018/02/27 v3.6.1 xeCJK patch file for listings
-\l__xeCJK_listings_max_char_int=\count391
-\l__xeCJK_listings_flag_int=\count392
+\l__xeCJK_listings_max_char_int=\count396
+\l__xeCJK_listings_flag_int=\count397
 )
 (./DSGEnotes.aux)
 \openout1 = `DSGEnotes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 404.
-LaTeX Font Info:    ... okay on input line 404.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 404.
-LaTeX Font Info:    ... okay on input line 404.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 404.
-LaTeX Font Info:    ... okay on input line 404.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 404.
-LaTeX Font Info:    ... okay on input line 404.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 404.
-LaTeX Font Info:    ... okay on input line 404.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 404.
-LaTeX Font Info:    ... okay on input line 404.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 404.
-LaTeX Font Info:    ... okay on input line 404.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 404.
-LaTeX Font Info:    ... okay on input line 404.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 404.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 404.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 406.
+LaTeX Font Info:    ... okay on input line 406.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 406.
+LaTeX Font Info:    ... okay on input line 406.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 406.
+LaTeX Font Info:    ... okay on input line 406.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 406.
+LaTeX Font Info:    ... okay on input line 406.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 406.
+LaTeX Font Info:    ... okay on input line 406.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 406.
+LaTeX Font Info:    ... okay on input line 406.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 406.
+LaTeX Font Info:    ... okay on input line 406.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 406.
+LaTeX Font Info:    ... okay on input line 406.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 406.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 406.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 404.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 404.
-LaTeX Font Info:    ... okay on input line 404.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 404.
-LaTeX Font Info:    ... okay on input line 404.
+LaTeX Font Info:    ... okay on input line 406.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 406.
+LaTeX Font Info:    ... okay on input line 406.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 406.
+LaTeX Font Info:    ... okay on input line 406.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 404.
+LaTeX Info: Redefining \selectfont on input line 406.
 .................................................
 . fontspec info: "setup-math"
 . 
@@ -2604,57 +2649,57 @@ LaTeX Info: Redefining \selectfont on input line 404.
 .................................................
 \symlegacymaths=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 404.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 404.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 404.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 404.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 404.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 404.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 404.
-LaTeX Font Info:    Redeclaring math accent \check on input line 404.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 404.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 404.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 404.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 404.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 404.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 406.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 406.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 406.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 406.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 406.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 406.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 406.
+LaTeX Font Info:    Redeclaring math accent \check on input line 406.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 406.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 406.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 406.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 406.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 406.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 404.
+(Font)              `operators' in the math version `normal' on input line 406.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 404.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 406.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 404.
+(Font)              `operators' in the math version `bold' on input line 406.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 404.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 406.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 404.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 406.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 404.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 406.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 404.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/bx/n on input line 406.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 404.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 406.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 404.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 406.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/bx/n on input line 404.
+(Font)                  TU/lmr/m/n --> TU/lmr/bx/n on input line 406.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/bx/it on input line 404.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/bx/it on input line 406.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 404.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 406.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 404.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 406.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
@@ -2662,20 +2707,20 @@ T3\textscriptg already defined.
 
 fontencoding T3 patched
 )
-\c@lstlisting=\count393
+\c@lstlisting=\count398
 \AtBeginShipoutBox=\box113
-Package hyperref Info: Link coloring ON on input line 404.
+Package hyperref Info: Link coloring ON on input line 406.
  (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count394
+\c@section@level=\count399
 )
-LaTeX Info: Redefining \ref on input line 404.
-LaTeX Info: Redefining \pageref on input line 404.
-LaTeX Info: Redefining \nameref on input line 404.
+LaTeX Info: Redefining \ref on input line 406.
+LaTeX Info: Redefining \pageref on input line 406.
+LaTeX Info: Redefining \nameref on input line 406.
 
 (./DSGEnotes.out) (./DSGEnotes.out)
 \@outlinefile=\write7
@@ -2719,7 +2764,11 @@ Package marginnote Info: \pdfoutput not 0 or unimportant and
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-ABD: EveryShipout initializing macros (./chapters/titlepage.tex
+ABD: EveryShipout initializing macros
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfigure package is loaded.
+Package caption Info: End \AtBeginDocument code.
+ (./chapters/titlepage.tex
 File: ./Figures/Prof-Miew.jpg Graphic file (type bmp)
 <./Figures/Prof-Miew.jpg>
  [1
@@ -2742,34 +2791,34 @@ LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <10> not
 (Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
  input line 111.
  [4]
-[5] [6] [7] [8] [9] [10] [11])
+[5] [6] [7] [8] [9] [10] [11] [12])
 \tf@toc=\write8
 \openout8 = `DSGEnotes.toc'.
 
- (./chapters/preface.tex [12]
+ (./chapters/preface.tex [13] [14
+
+]
 第一章
-) [13
+) [15] [16
 
-] [14
-
-] [15] [16] (./chapters/basic-BNK.tex
+] [17] [18] (./chapters/basic-BNK.tex
 第二章
 Missing character: There is no Ｃ in font cmmi10!
-[17
+[19
 
-] [18] [19] [20] [21]
+] [20] [21] [22] [23]
 File: Figures/R-simul-pi-pisharp-nup.pdf Graphic file (type pdf)
 <use Figures/R-simul-pi-pisharp-nup.pdf>
- [22] [23] [24] [25] [26] [27] [28])
-(./chapters/medium-DSGE.tex [29] [30]
+ [24] [25] [26] [27] [28] [29] [30])
+(./chapters/medium-DSGE.tex [31] [32]
 第三章
-[31
+[33
 
-] [32] [33]
+] [34] [35]
 Underfull \vbox (badness 1365) has occurred while \output is active []
 
- [34]
-[35] [36] [37] [38] [39] [40] [41]
+ [36]
+[37] [38] [39] [40] [41] [42] [43]
 Overfull \hbox (29.18652pt too wide) detected at line 729
 []
  []
@@ -2779,52 +2828,52 @@ Overfull \hbox (50.43169pt too wide) detected at line 754
 []
  []
 
-[42] [43] [44] [45] [46]
+[44] [45] [46] [47] [48]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [47] [48] [49]
+ [49] [50] [51]
 Underfull \vbox (badness 1221) has occurred while \output is active []
 
- [50]
-[51]
+ [52]
+[53]
 Overfull \hbox (6.72968pt too wide) detected at line 1490
 []
  []
 
-[52]
+[54]
 Overfull \hbox (25.88887pt too wide) detected at line 1582
 []
  []
 
-[53] [54]) (./chapters/medium-DSGE-appendix.tex [55] [56
+[55] [56]) (./chapters/medium-DSGE-appendix.tex [57] [58
 
-] [57] [58]
+] [59] [60]
 Underfull \hbox (badness 5203) in paragraph at lines 213--214
 []\TU/FandolSong-Regular(0)/m/n/10 在 \TU/lmr/m/n/10 capital adjustment cost \TU
 /FandolSong-Regular(0)/m/n/10 设 定 下，|  家 庭 部 门 优 化 条 件 表 示 为 通 过 选 择 投 入 组 合
  []
 
-[59]
+[61]
 Overfull \hbox (13.77956pt too wide) detected at line 228
 []
  []
 
-[60] [61]) (./chapters/MSDSGE.tex [62]
+[62] [63]) (./chapters/MSDSGE.tex [64]
 第四章
-[63
+[65
 
-] [64] [65]
+] [66] [67]
 Overfull \hbox (35.64401pt too wide) detected at line 201
 []
  []
 
-[66] [67] [68] [69] [70]
+[68] [69] [70] [71] [72]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [71] [72] [73] [74] [75] [76] [77]
+ [73] [74] [75] [76] [77] [78] [79]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [78]
-[79]
+ [80]
+[81]
 Overfull \hbox (20.37433pt too wide) in paragraph at lines 1021--1024
 []$\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 ^^U[]; ^^V[]; C[]; i[]; \OT1/cmr/m/n/10 ^
 ^E[]\OML/cmm/m/it/10 ; R[]; u[]; Z[]; I[]; v[];  []; w[]; w[]; []; []; N[]; [];
@@ -2838,35 +2887,35 @@ T; ^^O[]; ^^_; ^^^[]; ^^P[]; ^^K; ^^P[]; ^^^[]; ^^O[]; F; ^^Z[]; ^^^[]; ^^^[];
 s[]; ^^Z[]; ^^Z[]; ^^Z[]; ^^Z[]; ^^Z[]; s[]; s[]; s[]; s[]; s[][] 
  []
 
-[80] [81] [82] [83] [84] [85]
+[82] [83] [84] [85] [86] [87]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [86]) (./chapters/DSGE-banking.tex [87] [88
+ [88]) (./chapters/DSGE-banking.tex [89] [90
 
 ]
 第五章
-[89] [90] [91]
+[91] [92] [93]
 Overfull \hbox (60.15652pt too wide) detected at line 241
 []
  []
 
-[92] [93]
+[94] [95]
 Underfull \hbox (badness 10000) in paragraph at lines 289--290
 []\TU/FandolSong-Regular(0)/m/n/10 市 场 价 格 和 利 率，|  包 括 劳 动 力 和 资 本 价 格，|  总 物 
 价 水 平，|  影 子 价 格 和 国 债 利 率
  []
 
-[94] [95] [96] [97]) (./chapters/DSGE-CIA.tex [98]
+[96] [97] [98] [99]) (./chapters/DSGE-CIA.tex [100]
 第六章
 File: ./Figures/20170324-CIA-outline.pdf Graphic file (type pdf)
 <use ./Figures/20170324-CIA-outline.pdf>
-[99
+[101
 
-] [100]
+] [102]
 Overfull \hbox (34.29382pt too wide) detected at line 158
 []
  []
 
-[101] [102] [103]
+[103] [104] [105]
 Overfull \hbox (18.16705pt too wide) in paragraph at lines 328--329
 []\TU/FandolSong-Regular(0)/m/n/10 模 型 均 衡 方 程 组 由 \TU/lmr/m/n/10 9 \TU/FandolS
 ong-Regular(0)/m/n/10 个 内 生 变 量 和 \TU/lmr/m/n/10 2 \TU/FandolSong-Regular(0)/m/
@@ -2875,74 +2924,74 @@ n/10 个 外 生 变 量 $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 K[]; N[]; D[]; C[];
 g$
  []
 
-[104] [105] [106]) [107] [108
+[106] [107] [108]) [109] [110
 
-] [109] [110] (./chapters/solution-strategies.tex
+] [111] [112] (./chapters/solution-strategies.tex
 第七章
-[111
+[113
 
-] [112] [113]
+] [114] [115]
 File: ./Figures/20170701-DSGE-workflow.pdf Graphic file (type pdf)
 <use ./Figures/20170701-DSGE-workflow.pdf>
- [114]
+ [116]
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
 ine 130.
- [115] [116] [117]) (./chapters/dynamic-programming.tex
-[118]
+ [117] [118] [119]) (./chapters/dynamic-programming.tex
+[120]
 第八章
-[119
+[121
 
-] [120]
+] [122]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [121] [122] [123] [124] [125] [126]
+ [123] [124] [125] [126] [127] [128]
 File: ./Figures/20180212-envelope-theorem.png Graphic file (type bmp)
 <./Figures/20180212-envelope-theorem.png>
 )
-(./chapters/optimal-control.tex [127] [128
+(./chapters/optimal-control.tex [129] [130
 
 ]
 第九章
-[129] [130]
+[131] [132]
 Underfull \vbox (badness 1540) has occurred while \output is active []
 
- [131]
+ [133]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [132]
-[133] (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
+ [134]
+[135] (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-[134]
+[136]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [135]
-[136]) (./chapters/rational-expectation-solutions.tex [137] [138
+ [137]
+[138]) (./chapters/rational-expectation-solutions.tex [139] [140
 
 ]
 第十章
-[139] [140] [141]
+[141] [142] [143]
 Overfull \hbox (26.91222pt too wide) detected at line 220
 []
  []
 
-[142]
+[144]
 Overfull \hbox (12.07216pt too wide) detected at line 266
 [][] [] \OML/cmm/m/it/10 E [] \OT1/cmr/m/n/10 = [] [] \OML/cmm/m/it/10 :
  []
 
-[143] [144]
+[145] [146]
 Missing character: There is no 。 in font [lmroman10-regular]:mapping=tex-text;!
 
 Overfull \hbox (2.07617pt too wide) detected at line 470
 [] \OML/cmm/m/it/10 E [] \OT1/cmr/m/n/10 = [] [] + [] [][]
  []
 
-[145] [146] [147]
+[147] [148] [149]
 Overfull \hbox (69.42162pt too wide) detected at line 620
 []
  []
 
-[148] [149] [150] [151] [152]
+[150] [151] [152] [153] [154]
 Underfull \hbox (badness 10000) in paragraph at lines 1023--1025
 \TU/FandolSong-Regular(0)/m/n/10 那 么 在 我 们 知 道 了 方 程 $\OML/cmm/m/it/10 f[]$ \TU
 /FandolSong-Regular(0)/m/n/10 近 似 形 式 的 情 况 下，|  一 旦 我 们 得 到 未 来 期 的 条 件 期 望
@@ -2956,36 +3005,36 @@ t/10 x[]$\TU/FandolSong-Regular(0)/m/n/10 。|  换 句 话 说，|  一 旦 我
 m/m/it/10 x[]$ \TU/FandolSong-Regular(0)/m/n/10 的 值，|
  []
 
-[153]
+[155]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [154] [155] [156]) (./chapters/perturbation.tex [157] [158
+ [156] [157] [158]) (./chapters/perturbation.tex [159] [160
 
 ]
 第十一章
-[159] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170]
-[171]
+[161] [162] [163] [164] [165] [166] [167] [168] [169] [170] [171] [172]
+[173]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [172] [173] [174] [175] [176] [177] [178] [179] [180] [181] [182]
-[183] [184]) (./chapters/rational-expectation-solutions-2.tex [185] [186
+ [174] [175] [176] [177] [178] [179] [180] [181] [182] [183] [184]
+[185] [186]) (./chapters/rational-expectation-solutions-2.tex [187] [188
 
 ]
-[187] [188] [189] [190]
+[189] [190] [191] [192]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [191] [192] [193]
+ [193] [194] [195]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [194] [195])
-(./chapters/projection.tex [196]
+ [196] [197])
+(./chapters/projection.tex [198]
 第十二章
-[197
+[199
 
 ]
 Overfull \hbox (14.56113pt too wide) detected at line 98
 []
  []
 
-[198] [199]
-\g__fontspec_family_NotoSansCJKSC_int=\count395
+[200] [201]
+\g__fontspec_family_NotoSansCJKSC_int=\count400
 .................................................
 . fontspec info: "no-font-shape"
 . 
@@ -3011,27 +3060,29 @@ Overfull \hbox (14.56113pt too wide) detected at line 98
 .................................................
 File: ./Figures/20170917-monomial-mcl.png Graphic file (type bmp)
 <./Figures/20170917-monomial-mcl.png>
- [200]
+ [202] [203]
 File: ./Figures/20170917-chebyshev-poly.pdf Graphic file (type pdf)
 <use ./Figures/20170917-chebyshev-poly.pdf>
- [201]
 File: ./Figures/20170917-cheb-roots-n-range.png Graphic file (type bmp)
 <./Figures/20170917-cheb-roots-n-range.png>
 File: ./Figures/20170917-linear-trans-state-chebyshev.png Graphic file (type bm
 p)
 <./Figures/20170917-linear-trans-state-chebyshev.png>
- [202] [203] [204] [205] [206] [207]
+ [204] [205] [206] [207] [208] [209]
 File: ./Figures/20170920-tensor-coefficient.png Graphic file (type bmp)
 <./Figures/20170920-tensor-coefficient.png>
- [208]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [210]
 File: ./Figures/20170921-kinks-fem.png Graphic file (type bmp)
 <./Figures/20170921-kinks-fem.png>
- [209]
+
+[211]
 File: ./Figures/20170921-tent-function.png Graphic file (type bmp)
 <./Figures/20170921-tent-function.png>
 Missing character: There is no 。 in font [lmroman10-regular]:mapping=tex-text;!
-
-[210] [211] [212] [213] [214] [215] [216]
+ [212] [213] [214] [215] [216] [217] [218]
 Underfull \hbox (badness 10000) in paragraph at lines 889--894
 []\TU/FandolSong-Regular(0)/m/n/10 第 一 阶 段，|  近 似 价 值 方 程 $\OML/cmm/m/it/10 V [
 ]$ \TU/FandolSong-Regular(0)/m/n/10 和 劳 动 力 供 应 的 决 策 法 则 $\OML/cmm/m/it/10 ` [
@@ -3044,28 +3095,30 @@ Underfull \hbox (badness 7907) in paragraph at lines 906--908
 /FandolSong-Regular(0)/m/n/10 的 近 似 值[]计 算 而 得，|  在 此 基 础 上 可 计 算 近 似 值
  []
 
-[217]
+[219] [220]
 File: ./Figures/20180325-projection-residual-analysis.png Graphic file (type bm
 p)
 <./Figures/20180325-projection-residual-analysis.png>
- [218] [219] [220]
+ [221] [222]
 File: ./Figures/20180325-sparse-grid-example.png Graphic file (type bmp)
 <./Figures/20180325-sparse-grid-example.png>
+ [223]
 File: ./Figures/20180325-sparse-grid-G53.png Graphic file (type bmp)
 <./Figures/20180325-sparse-grid-G53.png>
- [221] [222]
-Underfull \hbox (badness 10000) in paragraph at lines 1257--1258
-[]\TU/FandolSong-Regular(0)/m/n/5 稀 疏 网 格 结 点 的 势
- []
+ [224]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[223]
-Overfull \hbox (33.83849pt too wide) detected at line 1323
+ [225]
+Overfull \hbox (33.83849pt too wide) detected at line 1328
 []
  []
 
-) (./chapters/projection-appendices.tex [224] [225
+[226] [227]
+Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
+ [228]) (./chapters/projection-appendices.tex [229] [230
 
-]
+] [231]
 Overfull \hbox (34.72533pt too wide) detected at line 67
 [][]\OML/cmm/m/it/10 F[][][] []
  []
@@ -3076,8 +3129,8 @@ Overfull \hbox (8.0942pt too wide) detected at line 92
 /10 x[] \OT1/cmr/m/n/10 = [] [][] = [] [][] = \OML/cmm/m/it/10 x [][]F[][];
  []
 
-[226] [227] [228] [229] [230] [231] [232] [233]
-Underfull \hbox (badness 1490) in paragraph at lines 620--621
+[232] [233] [234] [235] [236] [237] [238] [239]
+Underfull \hbox (badness 1490) in paragraph at lines 621--622
 []\TU/FandolSong-Regular(0)/m/n/10 在 求 得 首 一 多 项 式 $\OMS/cmsy/m/n/10 f\OML/cmm/
 m/it/10 p[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^U\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/
 10 g[]$ \TU/FandolSong-Regular(0)/m/n/10 的 三 项 递 归 关 系 系 数 $\OT1/cmr/m/n/10 (\O
@@ -3085,32 +3138,32 @@ ML/cmm/m/it/10 ^^K[]; ^^M[]\OT1/cmr/m/n/10 )$ \TU/FandolSong-Regular(0)/m/n/10
 后，|  对 应 的 标 准 多 项 式
  []
 
-[234] [235] [236] [237]
+[240] [241] [242] [243]
 File: ./Figures/20170905-poly-types-formulas.pdf Graphic file (type pdf)
 <use ./Figures/20170905-poly-types-formulas.pdf>
- [238]
+ [244]
 File: ./Figures/20170905-normal-distri.png Graphic file (type bmp)
 <./Figures/20170905-normal-distri.png>
- [239]
+ [245]
 File: ./Figures/20170905-hermite-examples-7-8.png Graphic file (type bmp)
 <./Figures/20170905-hermite-examples-7-8.png>
- [240] [241] [242]
+ [246] [247] [248]
 File: ./Figures/20170906-gamma-distri.png Graphic file (type bmp)
 <./Figures/20170906-gamma-distri.png>
- [243] [244] [245]
-[246]
-Overfull \hbox (55.45842pt too wide) detected at line 1433
+ [249] [250] [251]
+[252]
+Overfull \hbox (55.45842pt too wide) detected at line 1434
 []
  []
 
 File: ./Figures/20170906-beta-distri.png Graphic file (type bmp)
 <./Figures/20170906-beta-distri.png>
-[247] [248]
-Overfull \hbox (11.27658pt too wide) detected at line 1653
+[253] [254]
+Overfull \hbox (11.27658pt too wide) detected at line 1654
 []
  []
 
-[249]
+[255]
 Missing character: There is no 贝 in font [lmroman7-regular]:mapping=tex-text;!
 Missing character: There is no 塔 in font [lmroman7-regular]:mapping=tex-text;!
 Missing character: There is no 积 in font [lmroman7-regular]:mapping=tex-text;!
@@ -3119,87 +3172,87 @@ Missing character: There is no 贝 in font [lmroman7-regular]:mapping=tex-text;!
 Missing character: There is no 塔 in font [lmroman7-regular]:mapping=tex-text;!
 Missing character: There is no 积 in font [lmroman7-regular]:mapping=tex-text;!
 Missing character: There is no 分 in font [lmroman7-regular]:mapping=tex-text;!
- [250] [251] [252] [253] [254] [255]
+ [256] [257] [258] [259] [260] [261]
 Underfull \vbox (badness 3872) has occurred while \output is active []
 
- [256]
-[257] [258]
+ [262]
+[263] [264]
 File: ./Figures/20170926-interpolation-simulation.png Graphic file (type bmp)
 <./Figures/20170926-interpolation-simulation.png>
- [259]
-Underfull \hbox (badness 10000) in paragraph at lines 2358--2358
+ [265]
+Underfull \hbox (badness 10000) in paragraph at lines 2359--2359
 []\TU/lmtt/m/n/10 subplot(4,2,1),plot(f, '-b'), hold on, plot(pn0, '.--r'), hol
 d on, plot(f-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2359--2359
+Underfull \hbox (badness 10000) in paragraph at lines 2360--2360
 []\TU/lmtt/m/n/10 subplot(4,2,2),plot(f, '-b'), hold on, plot(pn1, '.--r'), hol
 d on, plot(f-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2360--2360
+Underfull \hbox (badness 10000) in paragraph at lines 2361--2361
 []\TU/lmtt/m/n/10 subplot(4,2,3),plot(f, '-b'), hold on, plot(pn2, '.--r'), hol
 d on, plot(f-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2361--2361
+Underfull \hbox (badness 10000) in paragraph at lines 2362--2362
 []\TU/lmtt/m/n/10 subplot(4,2,4),plot(f, '-b'), hold on, plot(pn3, '.--r'), hol
 d on, plot(f-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2362--2362
+Underfull \hbox (badness 10000) in paragraph at lines 2363--2363
 []\TU/lmtt/m/n/10 subplot(4,2,5),plot(f, '-b'), hold on, plot(pn4, '.--r'), hol
 d on, plot(f-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2363--2363
+Underfull \hbox (badness 10000) in paragraph at lines 2364--2364
 []\TU/lmtt/m/n/10 subplot(4,2,6),plot(f, '-b'), hold on, plot(pn5, '.--r'), hol
 d on, plot(f-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2364--2364
+Underfull \hbox (badness 10000) in paragraph at lines 2365--2365
 []\TU/lmtt/m/n/10 subplot(4,2,7),plot(f, '-b'), hold on, plot(pn6, '.--r'), hol
 d on, plot(f-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2365--2365
+Underfull \hbox (badness 10000) in paragraph at lines 2366--2366
 []\TU/lmtt/m/n/10 subplot(4,2,8),plot(f, '-b'), hold on, plot(pn7, '.--r'), hol
 d on, plot(f-
  []
 
-[260] [261] [262]
-Overfull \hbox (56.20865pt too wide) in paragraph at lines 2535--2535
+[266] [267] [268]
+Overfull \hbox (56.20865pt too wide) in paragraph at lines 2536--2536
 []     \TU/lmtt/m/n/10 -0.0673   -0.0504   -0.0336   -0.0168         0    0.016
 8    0.0336    0.0504    0.0673[] 
  []
 
 
-Overfull \hbox (3.70865pt too wide) in paragraph at lines 2546--2546
+Overfull \hbox (3.70865pt too wide) in paragraph at lines 2547--2547
 []           \TU/lmtt/m/n/10 0         0    0    0    0.0002    0.0931    0.756
 9    0.1997    0.0009[] 
  []
 
 
-Overfull \hbox (3.70865pt too wide) in paragraph at lines 2547--2547
+Overfull \hbox (3.70865pt too wide) in paragraph at lines 2548--2548
 []           \TU/lmtt/m/n/10 0         0         0    0    0    0.0001    0.074
 7    0.7405    0.2347[] 
  []
 
 
-Overfull \hbox (29.95865pt too wide) in paragraph at lines 2548--2548
+Overfull \hbox (29.95865pt too wide) in paragraph at lines 2549--2549
 []           \TU/lmtt/m/n/10 0         0         0         0         0    0    
 0.0001    0.0592    0.7644[] 
  []
 
 
-Overfull \hbox (56.20865pt too wide) in paragraph at lines 2553--2553
+Overfull \hbox (56.20865pt too wide) in paragraph at lines 2554--2554
 []      \TU/lmtt/m/n/10 0.0108    0.0428    0.1144    0.2064    0.2513    0.206
 4    0.1144    0.0428    0.0108[] 
  []
@@ -3207,60 +3260,60 @@ Overfull \hbox (56.20865pt too wide) in paragraph at lines 2553--2553
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [263]
-[264] [265]
-Overfull \hbox (56.20865pt too wide) in paragraph at lines 2729--2729
+ [269]
+[270] [271]
+Overfull \hbox (56.20865pt too wide) in paragraph at lines 2730--2730
 []     \TU/lmtt/m/n/10 -0.0634   -0.0476   -0.0317   -0.0159         0    0.015
 9    0.0317    0.0476    0.0634[] 
  []
 
-[266] [267] [268]
-Underfull \hbox (badness 5036) in paragraph at lines 2913--2913
+[272] [273] [274]
+Underfull \hbox (badness 5036) in paragraph at lines 2914--2914
 [][][]\TU/FandolSong-Regular(0)/m/n/8 关 于 稳 态 斯 托 克 斯 公 式 弱 形 式 的 分 析，|  以 及 上 
 极 限  |— —|  下 极 限 条 件，|  可 参 考 \TU/lmr/m/n/8 Chen Long \TU/FandolSong-Regular(0
 )/m/n/8 的 讲 义 [][]\TU/lmr/m/n/8 https://
  []
 
-[269] [270] [271]
-Underfull \hbox (badness 1715) in paragraph at lines 3093--3096
+[275] [276] [277]
+Underfull \hbox (badness 1715) in paragraph at lines 3094--3097
 \TU/FandolSong-Regular(0)/m/n/10 我 们 证 明[]即 可。|  这 是 因 为 既 然 子 空 间 $\OML/cmm/m/
 it/10 V[]$ \TU/FandolSong-Regular(0)/m/n/10 是 有 限 维 度 的，|  那 么 一 旦[]成 立，|
  []
 
-) (./chapters/projection-appendices-2.tex [272]
+) (./chapters/projection-appendices-2.tex [278]
 File: ./Figures/20180227-rectangular-rule-example.png Graphic file (type bmp)
 <./Figures/20180227-rectangular-rule-example.png>
- [273]
+ [279]
 File: ./Figures/20180227-trapezoidal-rule-example.png Graphic file (type bmp)
 <./Figures/20180227-trapezoidal-rule-example.png>
- [274]
+ [280]
 File: ./Figures/20180227-nc-higher.png Graphic file (type bmp)
 <./Figures/20180227-nc-higher.png>
- [275]
+ [281]
 File: ./Figures/20180227-Runge-phenomenon.png Graphic file (type bmp)
 <./Figures/20180227-Runge-phenomenon.png>
- [276]
-[277]
+ [282]
+[283]
 File: ./Figures/20180227-nc-higher-error-convergence.png Graphic file (type bmp
 )
 <./Figures/20180227-nc-higher-error-convergence.png>
- [278] [279]
+ [284] [285]
 File: ./Figures/20170227-nc-adaptive-quadrature.png Graphic file (type bmp)
 <./Figures/20170227-nc-adaptive-quadrature.png>
- [280] [281] [282]
+ [286] [287] [288]
 File: ./Figures/20180306-fourier-period-extension.png Graphic file (type bmp)
 <./Figures/20180306-fourier-period-extension.png>
- [283] [284] [285]
+ [289] [290] [291]
 File: ./Figures/20180307-ftog.png Graphic file (type bmp)
 <./Figures/20180307-ftog.png>
- [286] [287] [288]
-[289]
+ [292] [293] [294]
+[295]
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
 * Font 'FandolHei-Regular' does not contain script 'CJK'.
 *************************************************
-\g__fontspec_family_FandolHei-Regular_int=\count396
+\g__fontspec_family_FandolHei-Regular_int=\count401
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -3291,71 +3344,71 @@ Overfull \hbox (48.00003pt too wide) in paragraph at lines 992--994
 [][][] 
  []
 
-[290]
+[296]
 File: ./Figures/20180308-function-f.eps Graphic file (type eps)
 <./Figures/20180308-function-f.eps>
- [291]
+ [297]
 File: ./Figures/20180308-quadrature-rules-error.eps Graphic file (type eps)
 <./Figures/20180308-quadrature-rules-error.eps>
-) (./chapters/projection-appendices-3.tex [292]
+) (./chapters/projection-appendices-3.tex [298]
 Overfull \hbox (68.53407pt too wide) in paragraph at lines 34--42
 [][]
  []
 
-
-Underfull \vbox (badness 1540) has occurred while \output is active []
-
- [293]
+[299]
 File: ./Figures/20180302-frequencies-etc.pdf Graphic file (type pdf)
 <use ./Figures/20180302-frequencies-etc.pdf>
-
-[294]
+ [300]
 Overfull \hbox (77.7451pt too wide) in paragraph at lines 125--136
 [][]
  []
 
-[295]
+[301]
 File: ./Figures/20180304-lorentzian-example.png Graphic file (type bmp)
 <./Figures/20180304-lorentzian-example.png>
- [296]
-Underfull \vbox (badness 1365) has occurred while \output is active []
+ [302]
+Underfull \vbox (badness 1147) has occurred while \output is active []
 
- [297]
-[298] [299] [300]
+ [303]
+[304] [305] [306]
 File: ./Figures/20180305-cos3tsq.png Graphic file (type bmp)
 <./Figures/20180305-cos3tsq.png>
- [301]
+ [307]
 File: ./Figures/20180305-sawtooth-wave.png Graphic file (type bmp)
 <./Figures/20180305-sawtooth-wave.png>
- [302]
+ [308]
 File: ./Figures/20180305-gibbs-phenomenon.png Graphic file (type bmp)
 <./Figures/20180305-gibbs-phenomenon.png>
- [303] [304] [305] [306]
+ [309] [310] [311] [312]
 Overfull \hbox (23.82pt too wide) detected at line 1045
 []
  []
 
-[307] [308] [309]) (./chapters/bem-fem-01-potentials.tex [310]
+[313] [314] [315]) (./chapters/comparison.tex [316]
 第十三章
-[311
+[317
 
-] [312] [313]) (./chapters/bem-fem-02-spaces.tex [314] [315] [316]
+]) (./chapters/bem-fem-01-potentials.tex [318]
+第十四章
+[319
+
+] [320] [321]) (./chapters/bem-fem-02-spaces.tex [322] [323] [324]
 Underfull \hbox (badness 1675) in paragraph at lines 190--191
 []$\OML/cmm/m/it/10 ^^V$ \TU/FandolSong-Regular(0)/m/it/10 是 可 数 的 次 可 加 方 程 \T
 U/lmr/m/it/10 (countably subadditive)\TU/FandolSong-Regular(0)/m/it/10 。|  在 $\
 OT1/cmr/m/n/10 ^^F$ \TU/FandolSong-Regular(0)/m/it/10 中 的 任 何 可 数 可 测 集 合
  []
 
-[317] [318] [319] [320] [321] [322] [323] [324] [325] [326] [327] [328]
-[329] [330] [331] [332] [333]
+[325] [326] [327] [328] [329] [330] [331] [332] [333] [334] [335] [336]
+[337] [338] [339] [340] [341]
 Missing character: There is no 或 in font [lmroman10-regular]:mapping=tex-text;!
- [334] [335] [336]
+ [342] [343] [344]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [337]
+ [345]
 Missing character: There is no 。 in font [lmroman10-regular]:mapping=tex-text;!
- [338] [339] [340]
-[341] [342] [343] [344] [345] [346] [347] [348])
-(./chapters/bem-fem-03-varmethod.tex [349] [350] [351] [352]
+ [346] [347] [348]
+[349] [350] [351] [352] [353] [354] [355] [356])
+(./chapters/bem-fem-03-varmethod.tex [357] [358] [359] [360]
 Underfull \hbox (badness 1072) in paragraph at lines 292--293
 []\TU/FandolSong-Regular(0)/m/n/10 证 明 $\OML/cmm/m/it/10 u \OMS/cmsy/m/n/10 2 \
 OML/cmm/m/it/10 X$ \TU/FandolSong-Regular(0)/m/n/10 是 最 小 化 问 题 和 变 分 问 题 的 唯 一
@@ -3363,27 +3416,27 @@ OML/cmm/m/it/10 X$ \TU/FandolSong-Regular(0)/m/n/10 是 最 小 化 问 题 和 
 Regular(0)/m/n/10 ，|  也
  []
 
-[353] [354] [355] [356] [357] [358] [359] [360] [361] [362] [363]
+[361] [362] [363] [364] [365] [366] [367] [368] [369] [370] [371]
 Underfull \hbox (badness 1527) in paragraph at lines 1163--1165
 []\TU/FandolSong-Regular(0)/m/n/10 根 据 拉 克 斯 一 密 格 拉 蒙 定 理 \TU/lmr/m/n/10 (Theo
-rem [][]13.14[][])\TU/FandolSong-Regular(0)/m/n/10 ，|  可 以 证 明 混 合 算 子 方 程 \TU/
+rem [][]14.14[][])\TU/FandolSong-Regular(0)/m/n/10 ，|  可 以 证 明 混 合 算 子 方 程 \TU/
 lmr/m/n/10 (\TU/FandolSong-Regular(0)/m/n/10 鞍 点 变 分 问
  []
 
-[364] [365]) (./chapters/bem-fem-04-varbvp.tex [366] [367] [368] [369] [370]
-[371] [372] [373]
+[372] [373]) (./chapters/bem-fem-04-varbvp.tex [374] [375] [376] [377] [378]
+[379] [380] [381]
 Underfull \hbox (badness 3590) in paragraph at lines 720--721
-[][]\TU/lmr/bx/n/10 Theorem 13.27 \TU/lmr/m/n/10 (\TU/FandolSong-Regular(0)/m/n
+[][]\TU/lmr/bx/n/10 Theorem 14.27 \TU/lmr/m/n/10 (\TU/FandolSong-Regular(0)/m/n
 /10 诺 依 曼 边 界 值 问 题 的 鞍 点 变 分 法 求 解\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/Fand
 olSong-Regular(0)/m/it/10 诺 依 曼 边 界 值 的 鞍 点 变 分 问
  []
 
-[374] [375] [376] [377]) (./chapters/bem-fem-05-laplaceop.tex [378]
+[382] [383] [384] [385]) (./chapters/bem-fem-05-laplaceop.tex [386]
 Overfull \hbox (12.85089pt too wide) detected at line 200
 []
  []
 
-[379]
+[387]
 Overfull \hbox (9.80759pt too wide) detected at line 276
 \OML/cmm/m/it/10 ,[]\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 ^^W\OT1/cmr/m/n/10 (\OM
 L/cmm/m/it/10 z\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^W\OT1/cmr/m/n/10 (\OMS/cm
@@ -3391,75 +3444,221 @@ sy/m/n/10 j\OML/cmm/m/it/10 z\OMS/cmsy/m/n/10 j\OT1/cmr/m/n/10 ) = [][] [] \OML
 /cmm/m/it/10 :
  []
 
-[380]
+[388]
 Underfull \hbox (badness 1019) in paragraph at lines 398--399
 []\TU/FandolSong-Regular(0)/m/n/10 对 于 二 维 空 间 $\OML/cmm/m/it/10 d \OT1/cmr/m/n
 /10 = 2$ \TU/FandolSong-Regular(0)/m/n/10 的 情 况，|  首 先 要 对 基 本 解 的 逆 傅 里 叶 变 换 
 作 一 定 的 正 则 化 处 理
  []
 
-[381]
+[389]
 Overfull \hbox (0.67883pt too wide) detected at line 539
 []
  []
 
-[382]) (./chapters/bem-fem-0601-boundintop.tex [383] [384] [385] [386] [387]
-[388] [389] [390]
+[390]) (./chapters/bem-fem-0601-boundintop.tex [391] [392] [393] [394] [395]
+[396] [397] [398]
 Underfull \hbox (badness 1527) in paragraph at lines 828--829
-[][]\TU/lmr/bx/n/10 Lemma 13.22 \TU/lmr/m/n/10 (\TU/FandolSong-Regular(0)/m/n/1
+[][]\TU/lmr/bx/n/10 Lemma 14.22 \TU/lmr/m/n/10 (\TU/FandolSong-Regular(0)/m/n/1
 0 伴 随 双 层 位 势 算 子\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/FandolSong-Regular(0)/
 m/it/10 给 定 密 度 方 程 $\OML/cmm/m/it/10 w \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 H[]
 \OT1/cmr/m/n/10 (^^@)$\TU/FandolSong-Regular(0)/m/it/10 ，|  对 应 内 部 共 形 导 数
  []
 
-[391] [392] [393] [394] [395] [396]) (./chapters/bem-fem-0602-boundintop.tex
-[397] [398] [399] [400] [401] [402] [403] [404]
+[399] [400] [401] [402] [403] [404]) (./chapters/bem-fem-0602-boundintop.tex
+[405] [406] [407] [408] [409] [410] [411] [412]
 Overfull \hbox (1.62463pt too wide) detected at line 1278
 []
  []
 
-[405] [406] [407] [408] [409] [410]) (./chapters/bem-fem-0603-boundintop.tex
-[411] [412] [413] [414] [415] [416] [417])
-(./chapters/bem-fem-0604-boundintop.tex [418] [419] [420])
-(./chapters/bem-fem-07-bie.tex [421] [422] [423] [424] [425] [426] [427]
-[428] [429]) (./chapters/bem-fem-08-approx.tex [430] [431] [432] [433] [434]
-[435] [436] [437] [438]
+[413] [414] [415] [416] [417] [418]) (./chapters/bem-fem-0603-boundintop.tex
+[419] [420] [421] [422] [423] [424] [425])
+(./chapters/bem-fem-0604-boundintop.tex [426] [427] [428])
+(./chapters/bem-fem-07-bie.tex [429] [430] [431] [432] [433] [434] [435]
+[436] [437]) (./chapters/bem-fem-08-approx.tex [438] [439] [440] [441] [442]
+[443] [444] [445] [446]
 Underfull \hbox (badness 1199) in paragraph at lines 698--700
 \TU/FandolSong-Regular(0)/m/n/10 上 式 又 称 \TU/lmr/m/n/10 Babuška-Brezzi-Ladyshen
 skaya (BBL) \TU/FandolSong-Regular(0)/m/n/10 条 件[]。|  通 常 来 说 我 们 无 法 直 接 从 \TU
 /lmr/m/n/10 Theorem
  []
 
-[439] [440] [441] [442] [443] [444]) (./chapters/bem-fem-0901-finele.tex
+[447] [448] [449] [450] [451] [452]) (./chapters/bem-fem-0901-finele.tex
 File: ./Figures/20171209-finele-nodes.jpg Graphic file (type bmp)
 <./Figures/20171209-finele-nodes.jpg>
 
-[445]
+[453]
 File: ./Figures/20171209-decompo-adm-inadm.jpg Graphic file (type bmp)
 <./Figures/20171209-decompo-adm-inadm.jpg>
- [446]
+ [454]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
 File: ./Figures/20171210-finele-refele.jpg Graphic file (type bmp)
 <./Figures/20171210-finele-refele.jpg>
- [447] [448] [449] [450] [451]) (./chapters/bem-fem-0902-finele.tex
-[452] [453] [454] [455] [456]
+ [455] [456] [457] [458] [459]) (./chapters/bem-fem-0902-finele.tex
+[460] [461] [462] [463] [464]
 File: ./Figures/20171214-trial-space-basis.jpg Graphic file (type bmp)
 <./Figures/20171214-trial-space-basis.jpg>
- [457] [458]) [459] [460
-
-] [461] [462] [463
+ [465] [466]) (./chapters/error.tex [467] [468
 
 ]
-[464] (./chapters/mle.tex
-第十四章
-[465
+第十五章
+[469] [470]
+Overfull \hbox (29.17671pt too wide) detected at line 163
+[]
+ []
 
-] [466] [467] [468] [469]
+
+Overfull \hbox (24.73607pt too wide) detected at line 198
+[]
+ []
+
+[471]
+File: ./Figures/20180328-eee-ncgt-analysis.png Graphic file (type bmp)
+<./Figures/20180328-eee-ncgt-analysis.png>
+File: ./Figures/20180328-eee-comp-pt.png Graphic file (type bmp)
+<./Figures/20180328-eee-comp-pt.png>
+File: ./Figures/20180328-eee-comp-pj.png Graphic file (type bmp)
+<./Figures/20180328-eee-comp-pj.png>
+ [472] [473]) [474] [475
+
+] [476] (./chapters/connection.tex
+第十六章
+
+LaTeX Warning: Marginpar on page 477 moved.
+
+
+LaTeX Warning: Marginpar on page 477 moved.
+
+[477
+
+] [478] [479] [480]
+Underfull \vbox (badness 1584) has occurred while \output is active []
+
+ [481]
+[482]
+Overfull \hbox (82.37936pt too wide) detected at line 473
+[]
+ []
+
+[483] [484]
+Overfull \hbox (48.00003pt too wide) in paragraph at lines 568--570
+[][][] 
+ []
+
+
+Overfull \hbox (10.0521pt too wide) detected at line 582
+\OT1/cmr/m/n/10 ^^@[] [] = []
+ []
+
+[485]
+File: ./Figures/20180401-fevd.png Graphic file (type bmp)
+<./Figures/20180401-fevd.png>
+ [486] [487]
+File: ./Figures/20180403-spectral-decomposition.png Graphic file (type bmp)
+<./Figures/20180403-spectral-decomposition.png>
+ [488] [489]
+File: ./Figures/20180403-irfs-output.png Graphic file (type bmp)
+<./Figures/20180403-irfs-output.png>
+ [490]
+Underfull \hbox (badness 3108) in paragraph at lines 980--981
+[]\TU/FandolSong-Regular(0)/m/n/10 在 此 基 础 上，|  对 于 消 费 欧 拉 等 式 的 条 件 矩[]和 泰 勒 
+法 则 的 条 件 矩[]，|  都 可 遵
+ []
+
+[491]) (./chapters/connection-2.tex
+Overfull \hbox (59.99347pt too wide) in alignment at lines 17--40
+ [] [] [] [] [] 
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 40
+ []
+
+
+Overfull \hbox (59.99347pt too wide) in alignment at lines 40--60
+ [] [] [] [] [] 
+ []
+
+[492]
+Overfull \hbox (59.99347pt too wide) in alignment at lines 60--80
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (59.99347pt too wide) in alignment at lines 80--100
+ [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (59.99347pt too wide) in alignment at lines 100--123
+ [] [] [] [] [] 
+ []
+
+[493]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [494]
+[495]
+File: ./Figures/20180404-corss-correlations.png Graphic file (type bmp)
+<./Figures/20180404-corss-correlations.png>
+
+Underfull \hbox (badness 1424) in paragraph at lines 249--250
+[]\TU/FandolSong-Regular(0)/m/n/10 直 观 上 来 看，|  我 们 似 乎 很 容 易 用 样 本 的 周 期 图 \TU
+/lmr/m/n/10 (periodgram)[]\TU/FandolSong-Regular(0)/m/n/10 来 做 光 谱 密 度 的 近 似 估 
+计，|
+ []
+
+
+Underfull \vbox (badness 1057) has occurred while \output is active []
+
+ [496])
+(./chapters/connection-appendix.tex [497] [498
+
+]
+File: ./Figures/20180401-sin-cos-derivatives.png Graphic file (type bmp)
+<./Figures/20180401-sin-cos-derivatives.png>
+ [499]
+File: ./Figures/20180315-taylor-n1.pdf Graphic file (type pdf)
+<use ./Figures/20180315-taylor-n1.pdf>
+File: ./Figures/20180315-taylor-n3.pdf Graphic file (type pdf)
+<use ./Figures/20180315-taylor-n3.pdf>
+File: ./Figures/20180315-taylor-n5.pdf Graphic file (type pdf)
+<use ./Figures/20180315-taylor-n5.pdf>
+File: ./Figures/20180315-taylor-n7.pdf Graphic file (type pdf)
+<use ./Figures/20180315-taylor-n7.pdf>
+File: ./Figures/20180315-taylor-n9.pdf Graphic file (type pdf)
+<use ./Figures/20180315-taylor-n9.pdf>
+File: ./Figures/20180315-taylor-n11.pdf Graphic file (type pdf)
+<use ./Figures/20180315-taylor-n11.pdf>
+File: ./Figures/20180315-taylor-n13.pdf Graphic file (type pdf)
+<use ./Figures/20180315-taylor-n13.pdf>
+File: ./Figures/20180315-taylor-n15.pdf Graphic file (type pdf)
+<use ./Figures/20180315-taylor-n15.pdf>
+ [500] [501]
+File: ./Figures/20180401-complex-plane.png Graphic file (type bmp)
+<./Figures/20180401-complex-plane.png>
+ [502]
+[503]
+File: ./Figures/20180401-sinh-cosh-x.pdf Graphic file (type pdf)
+<use ./Figures/20180401-sinh-cosh-x.pdf>
+ [504]
+File: ./Figures/20180404-gaussian-amplitude-sigma.pdf Graphic file (type pdf)
+<use ./Figures/20180404-gaussian-amplitude-sigma.pdf>
+ [505] [506]
+File: ./Figures/20180405-gaussian-sigma-value.png Graphic file (type bmp)
+<./Figures/20180405-gaussian-sigma-value.png>
+) [507] [508
+
+] [509] [510] (./chapters/mle.tex
+第十七章
+[511
+
+] [512] [513] [514] [515]
 
 LaTeX Font Warning: Font shape `TU/NotoSansCJKSC(0)/m/it' undefined
 (Font)              using `TU/NotoSansCJKSC(0)/m/n' instead on input line 406.
 
-[470]
+[516]
 File: ./Figures/output_5_0.png Graphic file (type bmp)
 <./Figures/output_5_0.png>
 
@@ -3467,20 +3666,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 482--483
 
  []
 
-[471]
+[517]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [472]
+ [518]
 Underfull \hbox (badness 4217) in paragraph at lines 608--609
 []\TU/FandolSong-Regular(0)/m/n/10 在 很 多 情 况 下，|  我 们 无 法 通 过 解 析 法 求 得 最 大 化 的
  解。|  这 时 需 要 数 值 近 似 求 解，|  利
  []
 
-[473] [474]
+[519] [520]
 Overfull \hbox (6.8423pt too wide) detected at line 746
 []
  []
 
-[475]
+[521]
 File: ./Figures/output_12_1.png Graphic file (type bmp)
 <./Figures/output_12_1.png>
 
@@ -3488,78 +3687,78 @@ Underfull \hbox (badness 10000) in paragraph at lines 816--817
 
  []
 
-[476] [477] [478] [479]) (./chapters/housing.tex [480]
-第十五章
-[481
+[522] [523] [524] [525]) (./chapters/housing.tex [526]
+第十八章
+[527
 
-] [482] [483]) [484] [485
+] [528] [529]) [530] [531
 
-] [486] [487
+] [532] [533
 
-] [488] (./chapters/PK.tex
+] [534] (./chapters/PK.tex
 第一章
-[489
+[535
 
-]) (./chapters/KNKNCE.tex [490]
+]) (./chapters/KNKNCE.tex [536]
 第二章
-[491
+[537
 
-] [492] [493] [494] [495]) [496] (./DSGEnotes.bbl [497
+] [538] [539] [540] [541]) [542] (./DSGEnotes.bbl [543
 
-] [498] [499]
-[500] [501] [502] [503]
-Underfull \hbox (badness 1681) in paragraph at lines 992--998
+] [544] [545]
+[546] [547] [548] [549]
+Underfull \hbox (badness 1681) in paragraph at lines 1024--1030
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[504] [505] [506] [507] [508] [509] [510]) [511] [512
+[550] [551] [552] [553] [554] [555] [556] [557] [558]) [559] [560
 
-] (./DSGEnotes.lof
-[513])
+]
+(./DSGEnotes.lof [561])
 \tf@lof=\write9
 \openout9 = `DSGEnotes.lof'.
 
- [514] (./DSGEnotes.lot)
+ [562] (./DSGEnotes.lot)
 \tf@lot=\write10
 \openout10 = `DSGEnotes.lot'.
 
- [515
+ [563
 
-] [516
+] [564
 
-] (./DSGEnotes.tdo)
+] (./DSGEnotes.tdo
+[565])
 \tf@tdo=\write11
 \openout11 = `DSGEnotes.tdo'.
 
- [517] [518
-
-]
+ [566]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
+ (./DSGEnotes.ind [567
 
-(./DSGEnotes.ind [519
 
-] [520] [521] [522] [523] [524] [525] [526
-\indexentry{残差方程(映射法)}{526}
-] [527] [528]) [529]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 483.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 483.
+] [568] [569] [570] [571] [572] [573]
+[574] [575
+\indexentry{残差方程(映射法)}{575}
+] [576] [577]) [578]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 491.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 491.
  (./DSGEnotes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 483.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 483.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 491.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 491.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 52997 strings out of 493007
- 1087815 string characters out of 6134605
- 1583049 words of memory out of 5000000
- 56052 multiletter control sequences out of 15000+600000
+ 54706 strings out of 493007
+ 1127407 string characters out of 6134605
+ 1608359 words of memory out of 5000000
+ 57711 multiletter control sequences out of 15000+600000
  545493 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 76i,27n,146p,10415b,3280s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,27n,146p,10415b,3282s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (529 pages, 8232228 bytes).
+Output written on DSGEnotes.xdv (578 pages, 9054972 bytes).

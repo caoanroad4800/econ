@@ -48,7 +48,7 @@
 
 % Table packages:
 % Multi-page tables and rotating:
-    \usepackage{longtable,rotating}
+    \usepackage{longtable, rotating}
 % Allows use of three-part tables:
     \usepackage{threeparttable}
     \usepackage{booktabs}  % table support for pandoc > 1.12.2
@@ -71,6 +71,7 @@
 \newcommand{\trace}{\operatorname{trace}}
 \newcommand{\meas}{\operatorname{meas}}
 \newcommand{\argmax}{\operatorname{argmax}}
+\newcommand{\modd}{\operatorname{mod}}
 %\newcommand{\dett}{\operatorname{det}}
 %% The numcompress package shorten the last page in references.
 %% `nodots' option removes dots from firstnames in references.
@@ -105,6 +106,7 @@
     numbersep=9pt, % this defines how far the numbers are from the text
     %emph=[2]{word1,word2}, emphstyle=[2]{style},
 }
+
 
 \usepackage{verbatim}
 \usepackage{upquote} % Upright quotes for verbatim code
@@ -172,7 +174,7 @@
 \newtheorem{remark}{Remark}[chapter]
 
 %\usepackage{mathpazo}
-%\usepackage{caption}
+\usepackage{caption, subfigure}
 \usepackage{adjustbox} % Used to constrain images to a maximum size
 \usepackage{enumerate} % Needed for markdown enumerations to work
 \usepackage{eurosym} % defines \euro
@@ -431,7 +433,7 @@
 \input{./chapters/projection-appendices.tex}
 \input{./chapters/projection-appendices-2.tex}
 \input{./chapters/projection-appendices-3.tex}
-
+\input{./chapters/comparison.tex}
 %\chapter{有界元法和有限元法}
 %\label{sec:bem-fem-methods}
 %边界值问题：位势方程
@@ -456,10 +458,16 @@
 %有限元
 \input{./chapters/bem-fem-0901-finele.tex}
 \input{./chapters/bem-fem-0902-finele.tex}
-\part{模型估计}
 
+\input{./chapters/error.tex}
+\part{模型估计}
+\label{sec:estimation-dsge}
+\input{./chapters/connection.tex}
+\input{./chapters/connection-2.tex}
+\input{./chapters/connection-appendix.tex}
 
 \part{待分类}
+%\input{./chapters/test.tex}
 \input{./chapters/mle.tex}
 \input{./chapters/housing.tex}
 \part{附录}

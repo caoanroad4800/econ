@@ -1,6 +1,7 @@
+% 来个测试吧。
 % 假定要对方程f(x)在[-1,1]求积
 x = chebfun('x');
-f = @(x) x.*sin(2*exp(2*sin(2*exp(2*x)))); 
+f = @(x) x.*sin(2*exp(2*sin(2*exp(2*x))));
 % 输入help @查询命令
 % .* 表示按元素相乘 *表示矩阵乘
 fc = chebfun(f);

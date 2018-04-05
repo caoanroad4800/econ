@@ -7,7 +7,7 @@
 
 \section{简介}
 \label{sec:mle-intro}
-设一个$M \times 1$的向量$g$，描述一组随机数据。对应地，设一个$K \times 1$的参数向量$\theta$，用来描述这组随机数据$g$。那么，概率密度方程(probability density function, PDF)\index{probability density function(PDF) \dotfill 概率密度方程} $pr(g|\theta)$用于表示，在给定$\theta$的情况下，随机数据$g$的抽样分布(sampling distribution)。
+设一个$M \times 1$的向量$g$，描述一组随机数据。对应地，设一个$K \times 1$的参数向量$\theta$，用来描述这组随机数据$g$。那么，概率密度方程(probability density function, PDF)\index{probability density function (PDF)!\dotfill 概率密度方程} $pr(g|\theta)$用于表示，在给定$\theta$的情况下，随机数据$g$的抽样分布(sampling distribution)。一个常见的PDF是高斯概率密度方程(Gaussian PDF)，可见第\ref{sec:kernel-gaussian}节。
 
 反之，若在现实中已经观测到了$g$，则我们可将$pr(g|\theta)$看成是一个关于参数$\theta$的方程，称为似然方程(likelihood function)\index{likelihood function \dotfill 似然方程}，定义为$L(\theta | g)$
 \begin{equation*}

@@ -43,7 +43,12 @@
 
 \section{分析框架}
 \label{sec:pta-perturbation-framework}
-扰动法致力于近似求解状态——空间系统$\mathcal{H}(d) = \bm{0}$，其中$d:\Omega \rightarrow \mathcal{R}^{m}$表示由一系列均衡条件和预算约束条件组成的方程系统，对应$n$个状态变量组成的向量$\bm{x}$以及相关系数$\theta$。求解的基本思路是对围绕状态变量的非随机稳定点做泰勒级数展开。以二阶泰勒级数展开为例：
+扰动法致力于近似求解状态——空间系统
+\begin{equation}
+  \label{sec:pta-problem-h}
+  \mathcal{H}(d) = \bm{0},
+\end{equation}
+其中$d:\Omega \rightarrow \mathcal{R}^{m}$表示由一系列均衡条件和预算约束条件组成的方程系统，对应$n$个状态变量组成的向量$\bm{x}$以及相关系数$\theta$。求解的基本思路是对围绕状态变量的非随机稳定点做泰勒级数展开。以二阶泰勒级数展开为例：
 \begin{equation}
   \label{eq:ptb-tse-2nd-example}
   d_i^2(\bm{x},\theta) = \theta_{i,0} + \theta_{i,1} (\bm{x}-\bm{x}_0)^{\top} +  (\bm{x}-\bm{x}_0) \theta_{i,2} (\bm{x}-\bm{x}_0)^{\top}, \quad i=1,2,\ldots m,
@@ -60,6 +65,7 @@
 
 与传统线性近似法相比(\citep{King:1988bk,King:1988kf,King:2002ih}，本文第\ref{sec:rational-exp-chap}章)，线性近似与一阶扰动法基本等同。而更高阶扰动法是将一阶扰动(近似线性)化的经济系统结构一般化到更一般的形式，引入额外项，从而使得近似式具有更高的解释效力。
 \begin{remark}[扰动法的线性化和对数线性化]
+  \label{remark:loglinearization}
   通常来说，线性化是指对状态变量(或对状态变量针对模型中的某些量做预处理后)进行线性调整。类似地，对数线性化描述状态变量距离其稳定状态的对数偏离程度，以某一变量$x \in \bm{x}$举例，定义$\hat{x} = \log \left(x / \bar{x} \right)$，其中$\bar{x}$是稳态值。则二阶近似
   \begin{equation*}
     d_i^2(\hat{\bm{x}},\theta) = \theta_{i,0} + \theta_{i,1} (\hat{\bm{x}} - \hat{\bm{x}}_0)^{\top} +  (\hat{\bm{x}} - \hat{\bm{x}}_0) \theta_{i,2} (\hat{\bm{x}} - \hat{\bm{x}}_0)^{\top}, \quad i=1,2,\ldots m,

@@ -1,602 +1,650 @@
-\contentsline {chapter}{\numberline {第一章\hspace {.3em}}前言}{13}{chapter.1}
-\contentsline {part}{第一部分\hspace {1em}模型构建}{15}{part.1}
-\contentsline {chapter}{\numberline {第二章\hspace {.3em}}基准New Keynesian模型}{17}{chapter.2}
-\contentsline {section}{\numberline {2.1}家庭部门}{17}{section.2.1}
-\contentsline {section}{\numberline {2.2}企业部门}{18}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}最终产品生产部门}{18}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}中间产品生产部门}{18}{subsection.2.2.2}
-\contentsline {subsubsection}{成本最小化：边际成本与工资}{18}{subsubsection*.2}
-\contentsline {subsubsection}{利润最大化：定价策略}{19}{subsubsection*.3}
-\contentsline {subsection}{\numberline {2.2.3}最终产品定价：Calvo assupmtion}{20}{subsection.2.2.3}
-\contentsline {section}{\numberline {2.3}外生技术冲击}{20}{section.2.3}
-\contentsline {section}{\numberline {2.4}总量均衡}{21}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}家庭部门消费的决定}{21}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}price dispersion}{21}{subsection.2.4.2}
-\contentsline {section}{\numberline {2.5}（非随机的）稳定状态}{22}{section.2.5}
-\contentsline {section}{\numberline {2.6}flexible price equilibrium 和 output gap}{23}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}flexible price equilibrium}{23}{subsection.2.6.1}
-\contentsline {subsection}{\numberline {2.6.2}output gap}{24}{subsection.2.6.2}
-\contentsline {section}{\numberline {2.7}Taylor法则}{24}{section.2.7}
-\contentsline {section}{\numberline {2.8}完整的均衡条件}{25}{section.2.8}
-\contentsline {section}{\numberline {2.9}对数线性化}{26}{section.2.9}
-\contentsline {subsection}{\numberline {2.9.1}对数线性化计算}{26}{subsection.2.9.1}
-\contentsline {subsection}{\numberline {2.9.2}线性模型}{29}{subsection.2.9.2}
-\contentsline {chapter}{\numberline {第三章\hspace {.3em}}Medium-Sized DSGE模型}{31}{chapter.3}
-\contentsline {section}{\numberline {3.1}产品的生产部门}{31}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}最终产品生产部门}{31}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}中间产品生产部门}{31}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}中间产品生产者的边际成本}{32}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}中间产品生产者的定价}{34}{subsection.3.1.4}
-\contentsline {subsubsection}{updating生产者的定价策略}{34}{subsubsection*.4}
-\contentsline {subsubsection}{Aggregate Price Index}{36}{subsubsection*.5}
-\contentsline {subsection}{\numberline {3.1.5}price dispersion index}{36}{subsection.3.1.5}
-\contentsline {subsection}{\numberline {3.1.6}投资的调节成本}{37}{subsection.3.1.6}
-\contentsline {subsection}{\numberline {3.1.7}总产出的分配}{37}{subsection.3.1.7}
-\contentsline {subsubsection}{可变的资本利用率}{38}{subsubsection*.6}
-\contentsline {section}{\numberline {3.2}家庭部门}{38}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}劳动力投入：同质化假定还是异质化假定？}{38}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}劳动力承包商}{39}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}家庭行为}{40}{subsection.3.2.3}
-\contentsline {subsubsection}{（消费）习惯的形成}{40}{subsubsection*.7}
-\contentsline {subsection}{\numberline {3.2.4}劳工联盟的工资策略}{40}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}wage dispersion index}{43}{subsection.3.2.5}
-\contentsline {subsection}{\numberline {3.2.6}家庭预算约束条件}{44}{subsection.3.2.6}
-\contentsline {subsection}{\numberline {3.2.7}资本积累}{44}{subsection.3.2.7}
-\contentsline {subsubsection}{资本净收益}{45}{subsubsection*.8}
-\contentsline {subsection}{\numberline {3.2.8}家庭部门最大化问题}{45}{subsection.3.2.8}
-\contentsline {subsubsection}{FOC wrt C}{45}{subsubsection*.9}
-\contentsline {subsubsection}{FOC wrt $\Delta _t$}{46}{subsubsection*.10}
-\contentsline {subsubsection}{FOC wrt I}{46}{subsubsection*.11}
-\contentsline {subsubsection}{FOC wrt K}{47}{subsubsection*.12}
-\contentsline {subsubsection}{FOC wrt u}{47}{subsubsection*.13}
-\contentsline {subsubsection}{FOC wrt B}{47}{subsubsection*.14}
-\contentsline {section}{\numberline {3.3}Price Philips Curve}{48}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}price dispersion index的线性近似}{48}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}两个辅助变量的线性近似}{48}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}reset price inflation的线性近似}{49}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {3.3.4}Price Philips Curve}{49}{subsection.3.3.4}
-\contentsline {section}{\numberline {3.4}Wage Philips Curve}{49}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}稳定状态的描述}{50}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}wage inflation}{50}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}辅助变量}{50}{subsection.3.4.3}
-\contentsline {subsection}{\numberline {3.4.4}劳动力供应}{51}{subsection.3.4.4}
-\contentsline {subsection}{\numberline {3.4.5}边际劳动成本}{51}{subsection.3.4.5}
-\contentsline {subsection}{\numberline {3.4.6}wage price inflation}{51}{subsection.3.4.6}
-\contentsline {subsection}{\numberline {3.4.7}其他辅助变量}{52}{subsection.3.4.7}
-\contentsline {section}{\numberline {3.5}比较两条philips curve}{54}{section.3.5}
-\contentsline {chapter}{Appendices}{57}{chapter*.15}
-\contentsline {section}{附录 \numberline {3.A}scaled variables}{57}{section.1.3.A}
-\contentsline {subsection}{\numberline {3.A.1}几个没写完的说明}{58}{subsection.1.3.A.1}
-\contentsline {section}{附录 \numberline {3.B}Frisch elasticity of labor supply}{58}{section.1.3.B}
-\contentsline {subsection}{\numberline {3.B.1}定义}{58}{subsection.1.3.B.1}
-\contentsline {subsection}{\numberline {3.B.2}举例}{59}{subsection.1.3.B.2}
-\contentsline {section}{附录 \numberline {3.C}调节成本的常见设定形式及比较}{59}{section.1.3.C}
-\contentsline {subsection}{\numberline {3.C.1}家庭部门优化条件}{60}{subsection.1.3.C.1}
-\contentsline {subsection}{\numberline {3.C.2}比较线性和非线性调节成本}{61}{subsection.1.3.C.2}
-\contentsline {subsection}{\numberline {3.C.3}比较投资调节成本和资本调节成本}{61}{subsection.1.3.C.3}
-\contentsline {chapter}{\numberline {第四章\hspace {.3em}}NK-DSGE模型}{63}{chapter.4}
-\contentsline {section}{\numberline {4.1}Intrduction}{63}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}模型中的六个生产部门}{63}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}几点说明}{63}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}解析模型}{64}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}劳动承包部门}{64}{subsection.4.2.1}
-\contentsline {subsubsection}{对$l^{th}$劳动力的需求}{64}{subsubsection*.16}
-\contentsline {subsubsection}{总工资水平}{64}{subsubsection*.17}
-\contentsline {subsubsection}{工资分布指标}{65}{subsubsection*.18}
-\contentsline {subsection}{\numberline {4.2.2}家庭部门}{65}{subsection.4.2.2}
-\contentsline {subsubsection}{资本形成}{65}{subsubsection*.19}
-\contentsline {subsubsection}{资本服务品}{65}{subsubsection*.20}
-\contentsline {subsubsection}{效用函数}{66}{subsubsection*.21}
-\contentsline {subsubsection}{预算约束条件}{66}{subsubsection*.22}
-\contentsline {subsubsection}{家庭最大化问题}{66}{subsubsection*.23}
-\contentsline {subsubsection}{与工资设定无关的一阶条件}{67}{subsubsection*.24}
-\contentsline {subsubsection}{工资设定的backward indexation分析}{68}{subsubsection*.25}
-\contentsline {subsubsection}{涉及工资设定的一阶条件}{69}{subsubsection*.26}
-\contentsline {subsubsection}{相对调整工资}{70}{subsubsection*.27}
-\contentsline {subsection}{\numberline {4.2.3}最终产品生产部门}{71}{subsection.4.2.3}
-\contentsline {subsubsection}{对$j^{th}$中间产品的需求}{71}{subsubsection*.28}
-\contentsline {subsubsection}{总价格水平}{71}{subsubsection*.29}
-\contentsline {subsection}{\numberline {4.2.4}中间产品生产部门}{72}{subsection.4.2.4}
-\contentsline {subsubsection}{生产的边际成本}{72}{subsubsection*.30}
-\contentsline {subsubsection}{对投入要素的需求}{73}{subsubsection*.31}
-\contentsline {subsubsection}{边际成本}{73}{subsubsection*.32}
-\contentsline {subsubsection}{利润函数}{73}{subsubsection*.33}
-\contentsline {subsubsection}{价格设定的backward indexation分析}{74}{subsubsection*.34}
-\contentsline {subsubsection}{利润最大化问题}{74}{subsubsection*.35}
-\contentsline {subsubsection}{调整价格的通胀率}{76}{subsubsection*.36}
-\contentsline {subsection}{\numberline {4.2.5}政府部门}{76}{subsection.4.2.5}
-\contentsline {subsubsection}{政府支出}{76}{subsubsection*.37}
-\contentsline {subsubsection}{政府预算约束}{76}{subsubsection*.38}
-\contentsline {subsection}{\numberline {4.2.6}中央银行}{76}{subsection.4.2.6}
-\contentsline {subsection}{\numberline {4.2.7}总量层面的均衡}{77}{subsection.4.2.7}
-\contentsline {subsubsection}{总利润}{77}{subsubsection*.39}
-\contentsline {subsubsection}{家庭总预算约束}{77}{subsubsection*.40}
-\contentsline {subsubsection}{总产出的使用}{78}{subsubsection*.41}
-\contentsline {subsubsection}{总量生产函数}{78}{subsubsection*.42}
-\contentsline {subsubsection}{价格分布指标的演化}{79}{subsubsection*.43}
-\contentsline {subsubsection}{总物价水平的演化}{79}{subsubsection*.44}
-\contentsline {subsubsection}{总工资水平的演化}{79}{subsubsection*.45}
-\contentsline {subsection}{\numberline {4.2.8}外生过程}{80}{subsection.4.2.8}
-\contentsline {subsection}{\numberline {4.2.9}均衡条件的完整解集}{80}{subsection.4.2.9}
-\contentsline {subsection}{\numberline {4.2.10}非随机的稳定状态}{82}{subsection.4.2.10}
-\contentsline {chapter}{\numberline {第五章\hspace {.3em}}DSGE with banking}{89}{chapter.5}
-\contentsline {section}{\numberline {5.1}Introduction}{89}{section.5.1}
-\contentsline {section}{\numberline {5.2}模型设定}{89}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}家庭及生产部门}{89}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}银行部门}{90}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}政府(中央银行)部门}{91}{subsection.5.2.3}
-\contentsline {subsection}{\numberline {5.2.4}技术冲击}{91}{subsection.5.2.4}
-\contentsline {subsection}{\numberline {5.2.5}实际消费}{91}{subsection.5.2.5}
-\contentsline {section}{\numberline {5.3}一阶条件}{92}{section.5.3}
-\contentsline {section}{\numberline {5.4}均衡条件}{93}{section.5.4}
-\contentsline {section}{\numberline {5.5}利率}{94}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}资产市场基准利率}{94}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}抵押品收益率}{94}{subsection.5.5.2}
-\contentsline {subsubsection}{流动性债券收益率}{94}{subsubsection*.46}
-\contentsline {subsubsection}{流动性资本收益率}{95}{subsubsection*.47}
-\contentsline {subsection}{\numberline {5.5.3}银行间拆借利率（无抵押）}{95}{subsection.5.5.3}
-\contentsline {subsection}{\numberline {5.5.4}贷款利率（有抵押）}{95}{subsection.5.5.4}
-\contentsline {subsection}{\numberline {5.5.5}存款利率}{95}{subsection.5.5.5}
-\contentsline {subsection}{\numberline {5.5.6}外部融资溢价}{96}{subsection.5.5.6}
-\contentsline {subsubsection}{无抵押贷款的外部融资溢价}{96}{subsubsection*.48}
-\contentsline {subsubsection}{有抵押贷款的外部融资溢价}{96}{subsubsection*.49}
-\contentsline {subsubsection}{比较}{96}{subsubsection*.50}
-\contentsline {subsection}{\numberline {5.5.7}抵押品收益率与外部融资溢价的关联}{96}{subsection.5.5.7}
-\contentsline {section}{\numberline {5.6}稳定状态}{97}{section.5.6}
-\contentsline {subsection}{\numberline {5.6.1}核心稳态系统}{97}{subsection.5.6.1}
-\contentsline {subsubsection}{}{97}{subsubsection*.51}
-\contentsline {subsubsection}{}{97}{subsubsection*.52}
-\contentsline {subsubsection}{}{98}{subsubsection*.53}
-\contentsline {subsection}{\numberline {5.6.2}稳定状态利率}{98}{subsection.5.6.2}
-\contentsline {chapter}{\numberline {第六章\hspace {.3em}}Cash in advance}{99}{chapter.6}
-\contentsline {section}{\numberline {6.1}家庭部门}{99}{section.6.1}
-\contentsline {section}{\numberline {6.2}企业部门}{100}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}生产规模}{100}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}利润的使用}{100}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}银行部门}{101}{section.6.3}
-\contentsline {section}{\numberline {6.4}一阶条件}{101}{section.6.4}
-\contentsline {subsection}{\numberline {6.4.1}家庭部门}{101}{subsection.6.4.1}
-\contentsline {subsection}{\numberline {6.4.2}企业部门}{101}{subsection.6.4.2}
-\contentsline {subsection}{\numberline {6.4.3}银行部门}{102}{subsection.6.4.3}
-\contentsline {subsection}{\numberline {6.4.4}一阶条件的整理}{102}{subsection.6.4.4}
-\contentsline {section}{\numberline {6.5}市场均衡及部门最优行为}{102}{section.6.5}
-\contentsline {subsection}{\numberline {6.5.1}4个市场均衡条件}{102}{subsection.6.5.1}
-\contentsline {subsubsection}{劳动力市场均衡}{102}{subsubsection*.54}
-\contentsline {subsubsection}{产品市场均衡}{102}{subsubsection*.55}
-\contentsline {subsubsection}{货币市场均衡}{103}{subsubsection*.56}
-\contentsline {subsubsection}{信贷市场均衡}{103}{subsubsection*.57}
-\contentsline {subsection}{\numberline {6.5.2}部门最优行为}{103}{subsection.6.5.2}
-\contentsline {subsubsection}{劳动力市场}{103}{subsubsection*.58}
-\contentsline {subsubsection}{产品市场}{103}{subsubsection*.59}
-\contentsline {subsubsection}{货币市场}{103}{subsubsection*.60}
-\contentsline {subsubsection}{信贷市场}{103}{subsubsection*.61}
-\contentsline {section}{\numberline {6.6}外生冲击}{104}{section.6.6}
-\contentsline {section}{\numberline {6.7}均衡方程组}{104}{section.6.7}
-\contentsline {section}{\numberline {6.8}去趋势的均衡状态}{105}{section.6.8}
-\contentsline {part}{第二部分\hspace {1em}模型求解}{109}{part.2}
-\contentsline {chapter}{\numberline {第七章\hspace {.3em}}DSGE模型求解方法简论}{111}{chapter.7}
-\contentsline {section}{\numberline {7.1}简论的简论}{111}{section.7.1}
-\contentsline {section}{\numberline {7.2}pros and cons}{113}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}cons}{113}{subsection.7.2.1}
-\contentsline {subsection}{\numberline {7.2.2}pros}{113}{subsection.7.2.2}
-\contentsline {section}{\numberline {7.3}工作流程}{114}{section.7.3}
-\contentsline {section}{\numberline {7.4}模型设定}{115}{section.7.4}
-\contentsline {section}{\numberline {7.5}求解方法}{116}{section.7.5}
-\contentsline {subsection}{\numberline {7.5.1}近似线性展开}{116}{subsection.7.5.1}
-\contentsline {subsubsection}{(1阶)线性化近似}{116}{subsubsection*.63}
-\contentsline {subsubsection}{(1阶)对数线性化近似}{117}{subsubsection*.64}
-\contentsline {subsubsection}{2阶近似}{117}{subsubsection*.65}
-\contentsline {section}{\numberline {7.6}求解线性随机差分方程系统}{118}{section.7.6}
-\contentsline {chapter}{\numberline {第八章\hspace {.3em}}动态规划}{119}{chapter.8}
-\contentsline {section}{\numberline {8.1}包络定理}{119}{section.8.1}
-\contentsline {section}{\numberline {8.2}例:吃蛋糕(直接求解法)}{120}{section.8.2}
-\contentsline {section}{\numberline {8.3}吃蛋糕(动态规划)}{121}{section.8.3}
-\contentsline {subsection}{\numberline {8.3.1}有限时间段的动态规划问题}{121}{subsection.8.3.1}
-\contentsline {subsection}{\numberline {8.3.2}无限时间段的动态规划问题}{123}{subsection.8.3.2}
-\contentsline {section}{\numberline {8.4}随机问题}{125}{section.8.4}
-\contentsline {section}{\numberline {8.5}包络定理和欧拉等式的关系}{125}{section.8.5}
-\contentsline {chapter}{\numberline {第九章\hspace {.3em}}线性二次最优控制}{129}{chapter.9}
-\contentsline {section}{\numberline {9.1}目标方程和状态转移方程}{129}{section.9.1}
-\contentsline {section}{\numberline {9.2}价值方程}{129}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}一阶条件}{130}{subsection.9.2.1}
-\contentsline {subsubsection}{计算一阶条件所需的部分矩阵运算}{130}{subsubsection*.68}
-\contentsline {section}{\numberline {9.3}政策方程}{131}{section.9.3}
-\contentsline {subsection}{\numberline {9.3.1}政策方程满足确定性等价条件}{131}{subsection.9.3.1}
-\contentsline {section}{\numberline {9.4}线性政策方程和二次价值方程}{131}{section.9.4}
-\contentsline {subsection}{\numberline {9.4.1}价值方程满足确定性等价条件}{132}{subsection.9.4.1}
-\contentsline {subsection}{\numberline {9.4.2}代数矩阵Riccati方程}{133}{subsection.9.4.2}
-\contentsline {section}{\numberline {9.5}数值方法}{133}{section.9.5}
-\contentsline {section}{\numberline {9.6}范例}{133}{section.9.6}
-\contentsline {subsection}{\numberline {9.6.1}最优线性二次控制问题}{134}{subsection.9.6.1}
-\contentsline {subsection}{\numberline {9.6.2}Matlab程序}{134}{subsection.9.6.2}
-\contentsline {subsection}{\numberline {9.6.3}Matlab程序输出}{136}{subsection.9.6.3}
-\contentsline {chapter}{\numberline {第十章\hspace {.3em}}理性期望模型}{139}{chapter.10}
-\contentsline {section}{\numberline {10.1}简介}{139}{section.10.1}
-\contentsline {section}{\numberline {10.2}数值算法}{140}{section.10.2}
-\contentsline {section}{\numberline {10.3}一个简单的随机增长模型}{141}{section.10.3}
-\contentsline {subsection}{\numberline {10.3.1}稳定状态}{141}{subsection.10.3.1}
-\contentsline {subsection}{\numberline {10.3.2}对数线性化}{141}{subsection.10.3.2}
-\contentsline {subsubsection}{外生技术冲击的对数线性化}{142}{subsubsection*.69}
-\contentsline {subsubsection}{Euler equation的对数线性化}{142}{subsubsection*.70}
-\contentsline {subsubsection}{预算约束条件的对数线性化}{142}{subsubsection*.71}
-\contentsline {subsection}{\numberline {10.3.3}状态——空间表现形式}{143}{subsection.10.3.3}
-\contentsline {section}{\numberline {10.4}特征值——特征方程分解法}{143}{section.10.4}
-\contentsline {subsection}{\numberline {10.4.1}特征值——特征方程分解法}{143}{subsection.10.4.1}
-\contentsline {subsection}{\numberline {10.4.2}解的存在性以及唯一性}{145}{subsection.10.4.2}
-\contentsline {subsection}{\numberline {10.4.3}应用Blanchard-Kahn算法实例}{146}{subsection.10.4.3}
-\contentsline {section}{\numberline {10.5}未定系数法}{147}{section.10.5}
-\contentsline {subsection}{\numberline {10.5.1}模型范例}{148}{subsection.10.5.1}
-\contentsline {subsection}{\numberline {10.5.2}未定系数法求解}{148}{subsection.10.5.2}
-\contentsline {subsection}{\numberline {10.5.3}求解系数矩阵A, B}{149}{subsection.10.5.3}
-\contentsline {subsubsection}{求解系数矩阵A}{149}{subsubsection*.73}
-\contentsline {subsubsection}{求解系数矩阵$B$}{150}{subsubsection*.74}
-\contentsline {subsection}{\numberline {10.5.4}存在性及唯一性的探讨}{150}{subsection.10.5.4}
-\contentsline {section}{\numberline {10.6}期望误差法}{150}{section.10.6}
-\contentsline {subsection}{\numberline {10.6.1}模型范例}{151}{subsection.10.6.1}
-\contentsline {subsection}{\numberline {10.6.2}期望误差法求解}{151}{subsection.10.6.2}
-\contentsline {subsubsection}{不稳定分块求解}{152}{subsubsection*.75}
-\contentsline {subsubsection}{稳定分块求解}{152}{subsubsection*.76}
-\contentsline {subsubsection}{期望误差求解}{152}{subsubsection*.77}
-\contentsline {subsubsection}{稳定分块求解}{153}{subsubsection*.78}
-\contentsline {subsubsection}{内生变量向量$x_t$求解}{153}{subsubsection*.79}
-\contentsline {subsection}{\numberline {10.6.3}存在性及唯一性的探讨}{153}{subsection.10.6.3}
-\contentsline {section}{\numberline {10.7}参数化期望法}{153}{section.10.7}
-\contentsline {subsection}{\numberline {10.7.1}参数化期望法示例}{154}{subsection.10.7.1}
-\contentsline {section}{\numberline {10.8}Schur分解法}{155}{section.10.8}
-\contentsline {subsection}{\numberline {10.8.1}Schur分解的定义}{156}{subsection.10.8.1}
-\contentsline {subsection}{\numberline {10.8.2}爆炸分块矩阵的解}{156}{subsection.10.8.2}
-\contentsline {subsection}{\numberline {10.8.3}稳定分块矩阵的解}{157}{subsection.10.8.3}
-\contentsline {subsection}{\numberline {10.8.4}原经济系统的解}{157}{subsection.10.8.4}
-\contentsline {chapter}{\numberline {第十一章\hspace {.3em}}扰动法}{159}{chapter.11}
-\contentsline {section}{\numberline {11.1}扰动法简介}{159}{section.11.1}
-\contentsline {section}{\numberline {11.2}分析框架}{159}{section.11.2}
-\contentsline {section}{\numberline {11.3}求解方法}{160}{section.11.3}
-\contentsline {subsection}{\numberline {11.3.1}状态——空间形式}{160}{subsection.11.3.1}
-\contentsline {subsection}{\numberline {11.3.2}稳定状态}{161}{subsection.11.3.2}
-\contentsline {subsubsection}{系统缩减}{161}{subsubsection*.81}
-\contentsline {subsubsection}{变量标准化与参数赋值}{161}{subsubsection*.82}
-\contentsline {subsubsection}{多变量标准化与参数赋值}{162}{subsubsection*.83}
-\contentsline {subsection}{\numberline {11.3.3}外生随机过程}{162}{subsection.11.3.3}
-\contentsline {subsubsection}{外生冲击的波动的线性特征}{163}{subsubsection*.84}
-\contentsline {subsubsection}{扰动参数的讨论}{164}{subsubsection*.85}
-\contentsline {subsubsection}{扰动法近似解与仿真结果的稳定性}{164}{subsubsection*.86}
-\contentsline {subsection}{\numberline {11.3.4}设想解}{164}{subsection.11.3.4}
-\contentsline {subsubsection}{可求导性的探讨}{165}{subsubsection*.88}
-\contentsline {subsubsection}{导数的计算}{165}{subsubsection*.90}
-\contentsline {subsection}{\numberline {11.3.5}一阶扰动}{165}{subsection.11.3.5}
-\contentsline {subsubsection}{$F_x(\cdot )$的求解}{166}{subsubsection*.91}
-\contentsline {subsubsection}{$F_{\sigma }(\cdot )$的求解}{168}{subsubsection*.93}
-\contentsline {subsubsection}{确定性等价条件}{169}{subsubsection*.94}
-\contentsline {subsection}{\numberline {11.3.6}二阶扰动}{170}{subsection.11.3.6}
-\contentsline {subsubsection}{$F_{xx}(\cdot )$的求解}{171}{subsubsection*.95}
-\contentsline {subsubsection}{$F_{\sigma \sigma (\cdot )}$的求解}{171}{subsubsection*.96}
-\contentsline {subsubsection}{$F_{\sigma x}(\cdot )$的求解}{172}{subsubsection*.97}
-\contentsline {subsection}{\numberline {11.3.7}更高阶扰动}{172}{subsection.11.3.7}
-\contentsline {subsection}{\numberline {11.3.8}例}{173}{subsection.11.3.8}
-\contentsline {subsubsection}{模型设定}{173}{subsubsection*.98}
-\contentsline {subsubsection}{稳定状态}{174}{subsubsection*.99}
-\contentsline {subsubsection}{对模型做扰动近似}{174}{subsubsection*.100}
-\contentsline {subsubsection}{一阶展开}{175}{subsubsection*.101}
-\contentsline {subsubsection}{二阶展开}{176}{subsubsection*.102}
-\contentsline {subsubsection}{数值解}{176}{subsubsection*.103}
-\contentsline {section}{\numberline {11.4}剪枝算法}{178}{section.11.4}
-\contentsline {section}{\numberline {11.5}变量的变换}{178}{section.11.5}
-\contentsline {subsection}{\numberline {11.5.1}例1}{179}{subsection.11.5.1}
-\contentsline {subsection}{\numberline {11.5.2}例2}{180}{subsection.11.5.2}
-\contentsline {subsection}{\numberline {11.5.3}最优变量变换：参数的选取}{181}{subsection.11.5.3}
-\contentsline {subsection}{\numberline {11.5.4}对数线性化和对数正态线性化}{181}{subsection.11.5.4}
-\contentsline {subsubsection}{(对数偏移形式的)对数线性化}{181}{subsubsection*.106}
-\contentsline {subsubsection}{(对数形式的)对数线性化}{182}{subsubsection*.107}
-\contentsline {subsubsection}{对数正态线性化}{182}{subsubsection*.108}
-\contentsline {subsubsection}{比较}{182}{subsubsection*.109}
-\contentsline {section}{\numberline {11.6}价值方程迭代中的扰动法}{183}{section.11.6}
-\contentsline {chapter}{Appendices}{187}{chapter*.110}
-\contentsline {section}{附录 \numberline {11.A}Schur补和对称正(半)定矩阵}{187}{section.2.11.A}
-\contentsline {subsection}{\numberline {11.A.1}Schur补}{187}{subsection.2.11.A.1}
-\contentsline {subsubsection}{A的Schur补以及系统解}{187}{subsubsection*.111}
-\contentsline {subsubsection}{D的Schur补以及系统解}{188}{subsubsection*.112}
-\contentsline {subsection}{\numberline {11.A.2}利用Schur分解法判断可逆正定矩阵}{189}{subsection.2.11.A.2}
-\contentsline {subsection}{\numberline {11.A.3}利用Schur分解法判断可逆正半定矩阵}{190}{subsection.2.11.A.3}
-\contentsline {subsubsection}{判定方法}{190}{subsubsection*.113}
-\contentsline {subsubsection}{判断$M$是否正半定}{192}{subsubsection*.114}
-\contentsline {section}{附录 \numberline {11.B}伪逆矩阵}{193}{section.2.11.B}
-\contentsline {subsection}{\numberline {11.B.1}用SVD法做伪逆矩阵分解}{193}{subsection.2.11.B.1}
-\contentsline {subsection}{\numberline {11.B.2}用SVD法做 M 的矩阵分解}{195}{subsection.2.11.B.2}
-\contentsline {chapter}{\numberline {第十二章\hspace {.3em}}映射法}{197}{chapter.12}
-\contentsline {section}{\numberline {12.1}简介}{197}{section.12.1}
-\contentsline {subsection}{\numberline {12.1.1}例}{198}{subsection.12.1.1}
-\contentsline {subsubsection}{与计量经济学中的``映射''的关系}{199}{subsubsection*.118}
-\contentsline {subsubsection}{映射法与参数化期望法}{199}{subsubsection*.119}
-\contentsline {section}{\numberline {12.2}全局基的选取——单维基光谱法}{200}{section.12.2}
-\contentsline {subsection}{\numberline {12.2.1}单项式}{200}{subsection.12.2.1}
-\contentsline {subsection}{\numberline {12.2.2}三角序列}{201}{subsection.12.2.2}
-\contentsline {subsection}{\numberline {12.2.3}雅各比多项式}{201}{subsection.12.2.3}
-\contentsline {subsection}{\numberline {12.2.4}切比雪夫多项式}{201}{subsection.12.2.4}
-\contentsline {subsubsection}{变量的变换}{205}{subsubsection*.121}
-\contentsline {subsubsection}{伯依德原则}{205}{subsubsection*.122}
-\contentsline {section}{\numberline {12.3}局部基的选取(1)}{205}{section.12.3}
-\contentsline {subsection}{\numberline {12.3.1}离散状态变量}{206}{subsection.12.3.1}
-\contentsline {subsection}{\numberline {12.3.2}张量与完全多项式}{207}{subsection.12.3.2}
-\contentsline {section}{\numberline {12.4}局部基的选取(2)：有限元法}{208}{section.12.4}
-\contentsline {section}{\numberline {12.5}目标方程的选取}{211}{section.12.5}
-\contentsline {subsection}{\numberline {12.5.1}最小方差}{212}{subsection.12.5.1}
-\contentsline {subsection}{\numberline {12.5.2}子域}{212}{subsection.12.5.2}
-\contentsline {subsection}{\numberline {12.5.3}配点}{213}{subsection.12.5.3}
-\contentsline {subsubsection}{配点法}{213}{subsubsection*.126}
-\contentsline {subsubsection}{配点的选取：正交配点法}{213}{subsubsection*.127}
-\contentsline {subsection}{\numberline {12.5.4}伽辽金法}{213}{subsection.12.5.4}
-\contentsline {subsection}{\numberline {12.5.5}两个近似技巧}{214}{subsection.12.5.5}
-\contentsline {subsubsection}{系统变形}{214}{subsubsection*.128}
-\contentsline {subsubsection}{系统规模缩减}{214}{subsubsection*.129}
-\contentsline {section}{\numberline {12.6}投影法求解DSGE模型举例}{215}{section.12.6}
-\contentsline {subsection}{\numberline {12.6.1}模型设定}{215}{subsection.12.6.1}
-\contentsline {subsection}{\numberline {12.6.2}社会规划者问题}{216}{subsection.12.6.2}
-\contentsline {subsection}{\numberline {12.6.3}参数校准}{216}{subsection.12.6.3}
-\contentsline {subsection}{\numberline {12.6.4}分步求解}{217}{subsection.12.6.4}
-\contentsline {section}{\numberline {12.7}稀疏网格}{219}{section.12.7}
-\contentsline {subsection}{\numberline {12.7.1}Smolyak法的步骤}{220}{subsection.12.7.1}
-\contentsline {subsubsection}{状态变量的域转换}{220}{subsubsection*.132}
-\contentsline {subsubsection}{状态变量的域转换}{221}{subsubsection*.133}
-\contentsline {subsubsection}{建立克伦肖——柯蒂斯结点}{221}{subsubsection*.134}
-\contentsline {subsubsection}{构建稀疏网格}{221}{subsubsection*.135}
-\contentsline {subsubsection}{构建张量积方程}{223}{subsubsection*.136}
-\contentsline {chapter}{Appendices}{225}{chapter*.137}
-\contentsline {section}{附录 \numberline {12.A}超几何方程}{225}{section.3.12.A}
-\contentsline {section}{附录 \numberline {12.B}多项式}{230}{section.3.12.B}
-\contentsline {subsection}{\numberline {12.B.1}正交集}{230}{subsection.3.12.B.1}
-\contentsline {subsection}{\numberline {12.B.2}正交多项式}{231}{subsection.3.12.B.2}
-\contentsline {subsubsection}{正定}{232}{subsubsection*.138}
-\contentsline {subsection}{\numberline {12.B.3}递推关系}{233}{subsection.3.12.B.3}
-\contentsline {subsection}{\numberline {12.B.4}雅各比矩阵和克里斯托费尔——达布关系}{234}{subsection.3.12.B.4}
-\contentsline {subsection}{\numberline {12.B.5}正交多项式的根}{236}{subsection.3.12.B.5}
-\contentsline {subsection}{\numberline {12.B.6}高斯求积}{237}{subsection.3.12.B.6}
-\contentsline {section}{附录 \numberline {12.C}常见的正交多项式类型}{238}{section.3.12.C}
-\contentsline {subsection}{\numberline {12.C.1}埃米特多项式}{239}{subsection.3.12.C.1}
-\contentsline {subsection}{\numberline {12.C.2}拉盖尔多项式}{243}{subsection.3.12.C.2}
-\contentsline {subsection}{\numberline {12.C.3}雅各比多项式}{247}{subsection.3.12.C.3}
-\contentsline {subsection}{\numberline {12.C.4}勒让德多项式}{251}{subsection.3.12.C.4}
-\contentsline {subsection}{\numberline {12.C.5}切比雪夫多项式}{254}{subsection.3.12.C.5}
-\contentsline {section}{附录 \numberline {12.D}AR(1)过程的离散方法}{261}{section.3.12.D}
-\contentsline {subsection}{\numberline {12.D.1}Tauchen(1986)法}{261}{subsection.3.12.D.1}
-\contentsline {subsection}{\numberline {12.D.2}Tauchen and Hussey (1991)法}{264}{subsection.3.12.D.2}
-\contentsline {subsection}{\numberline {12.D.3}Rouwenhorst(1995)法}{265}{subsection.3.12.D.3}
-\contentsline {section}{附录 \numberline {12.E}伽辽金近似}{266}{section.3.12.E}
-\contentsline {subsection}{\numberline {12.E.1}举例：1维空间中的伽辽金近似}{266}{subsection.3.12.E.1}
-\contentsline {subsection}{\numberline {12.E.2}伽辽金近似}{268}{subsection.3.12.E.2}
-\contentsline {subsection}{\numberline {12.E.3}强制型方程形式的伽辽金近似收敛}{271}{subsection.3.12.E.3}
-\contentsline {subsection}{\numberline {12.E.4}仅满足上极限——下极限关系方程形式的伽辽金近似收敛}{272}{subsection.3.12.E.4}
-\contentsline {section}{附录 \numberline {12.F}数值求积}{272}{section.3.12.F}
-\contentsline {subsection}{\numberline {12.F.1}牛顿——寇特斯法则}{273}{subsection.3.12.F.1}
-\contentsline {subsubsection}{矩形法则}{273}{subsubsection*.145}
-\contentsline {subsubsection}{梯形法则}{274}{subsubsection*.146}
-\contentsline {subsubsection}{更高阶牛顿——寇特斯法则}{275}{subsubsection*.147}
-\contentsline {subsubsection}{龙格现象}{276}{subsubsection*.148}
-\contentsline {subsubsection}{误差的收敛}{276}{subsubsection*.149}
-\contentsline {subsection}{\numberline {12.F.2}几个小技巧}{278}{subsection.3.12.F.2}
-\contentsline {subsubsection}{定区间单位的换算}{279}{subsubsection*.150}
-\contentsline {subsubsection}{无限区间求积}{279}{subsubsection*.151}
-\contentsline {subsection}{\numberline {12.F.3}求积中的可积奇异点问题}{279}{subsection.3.12.F.3}
-\contentsline {subsubsection}{提取奇异点}{279}{subsubsection*.152}
-\contentsline {subsubsection}{奇异点消除}{280}{subsubsection*.153}
-\contentsline {subsubsection}{Epsilon扩展}{280}{subsubsection*.154}
-\contentsline {subsubsection}{适应性求积}{280}{subsubsection*.155}
-\contentsline {subsection}{\numberline {12.F.4}梯形法则的近似误差}{280}{subsection.3.12.F.4}
-\contentsline {subsubsection}{非周期方程的傅里叶级数收敛}{283}{subsubsection*.156}
-\contentsline {subsubsection}{周期方程的傅里叶级数收敛}{285}{subsubsection*.158}
-\contentsline {subsection}{\numberline {12.F.5}克伦肖——柯蒂斯求积法则}{285}{subsection.3.12.F.5}
-\contentsline {subsubsection}{将非周期方程$f(t)$转换为周期方程$g(t)$}{286}{subsubsection*.159}
-\contentsline {subsubsection}{原域求积问题改写为傅里叶域求和问题}{287}{subsubsection*.160}
-\contentsline {subsubsection}{应用求积法则做近似}{288}{subsubsection*.161}
-\contentsline {subsubsection}{求积法则再探讨}{288}{subsubsection*.162}
-\contentsline {subsection}{\numberline {12.F.6}程序实现}{290}{subsection.3.12.F.6}
-\contentsline {section}{附录 \numberline {12.G}傅里叶分析}{292}{section.3.12.G}
-\contentsline {subsection}{\numberline {12.G.1}傅里叶变换}{293}{subsection.3.12.G.1}
-\contentsline {subsubsection}{一些概念}{294}{subsubsection*.163}
-\contentsline {subsubsection}{线频率和角频率}{295}{subsubsection*.164}
-\contentsline {subsubsection}{域}{295}{subsubsection*.165}
-\contentsline {subsubsection}{单位}{295}{subsubsection*.166}
-\contentsline {subsubsection}{傅里叶变换的性质}{295}{subsubsection*.167}
-\contentsline {subsection}{\numberline {12.G.2}脉冲方程的傅里叶变换}{296}{subsection.3.12.G.2}
-\contentsline {subsubsection}{洛伦兹变换}{296}{subsubsection*.168}
-\contentsline {subsubsection}{高斯变换}{297}{subsubsection*.169}
-\contentsline {subsection}{\numberline {12.G.3}非脉冲方程的傅里叶变换}{298}{subsection.3.12.G.3}
-\contentsline {subsection}{\numberline {12.G.4}原方程的平滑和傅里叶变换方程的衰减}{299}{subsection.3.12.G.4}
-\contentsline {subsection}{\numberline {12.G.5}傅里叶级数}{299}{subsection.3.12.G.5}
-\contentsline {subsubsection}{两种表达形式的比较}{300}{subsubsection*.170}
-\contentsline {subsubsection}{复杂指数形式的系数计算}{301}{subsubsection*.171}
-\contentsline {subsubsection}{傅里叶余弦级数}{302}{subsubsection*.172}
-\contentsline {subsubsection}{吉布斯现象}{303}{subsubsection*.173}
-\contentsline {subsubsection}{傅里叶级数的收敛}{304}{subsubsection*.174}
-\contentsline {subsubsection}{傅里叶分析是无损转换过程}{304}{subsubsection*.175}
-\contentsline {subsection}{\numberline {12.G.6}泊松求和式}{305}{subsection.3.12.G.6}
-\contentsline {subsubsection}{高斯方程的泊松求和}{306}{subsubsection*.176}
-\contentsline {subsubsection}{雅各比方程}{307}{subsubsection*.177}
-\contentsline {subsection}{\numberline {12.G.7}傅里叶分析与卷积}{307}{subsection.3.12.G.7}
-\contentsline {subsection}{\numberline {12.G.8}高维傅里叶变换}{309}{subsection.3.12.G.8}
-\contentsline {subsection}{\numberline {12.G.9}一些指数求和的背景知识}{309}{subsection.3.12.G.9}
-\contentsline {subsubsection}{连续、有限时间域}{309}{subsubsection*.178}
-\contentsline {subsubsection}{正交性}{309}{subsubsection*.179}
-\contentsline {subsubsection}{连续、无限时间域}{310}{subsubsection*.180}
-\contentsline {subsubsection}{离散时间域}{310}{subsubsection*.181}
-\contentsline {subsubsection}{高斯求积}{310}{subsubsection*.182}
-\contentsline {chapter}{\numberline {第十三章\hspace {.3em}}有界元法和有限元法}{311}{chapter.13}
-\contentsline {section}{\numberline {13.1}边界值问题：位势方程}{311}{section.13.1}
-\contentsline {subsection}{\numberline {13.1.1}偏微分算子及椭圆边界值问题}{311}{subsection.13.1.1}
-\contentsline {subsection}{\numberline {13.1.2}边界条件}{311}{subsection.13.1.2}
-\contentsline {subsection}{\numberline {13.1.3}诺依曼边界值问题}{314}{subsection.13.1.3}
-\contentsline {section}{\numberline {13.2}方程空间}{314}{section.13.2}
-\contentsline {subsection}{\numberline {13.2.1}$C^{k}(\Omega ),C^{k,\kappa }(\Omega )$空间}{314}{subsection.13.2.1}
-\contentsline {subsection}{\numberline {13.2.2}勒贝格$L^p(\Omega )$空间}{316}{subsection.13.2.2}
-\contentsline {subsubsection}{$\sigma $代数}{316}{subsubsection*.183}
-\contentsline {subsubsection}{测度，可测空间，测度空间}{317}{subsubsection*.184}
-\contentsline {subsubsection}{范数}{318}{subsubsection*.185}
-\contentsline {subsubsection}{有限维度的可数勒贝格空间(p >= 1)}{319}{subsubsection*.186}
-\contentsline {subsubsection}{有限维度的可数勒贝格空间(0 <= p <= 1)}{320}{subsubsection*.187}
-\contentsline {subsubsection}{无限维度的勒贝格空间(p不可数)}{320}{subsubsection*.188}
-\contentsline {subsubsection}{无限维度的不可数勒贝格空间}{320}{subsubsection*.189}
-\contentsline {subsubsection}{加权勒贝格空间}{323}{subsubsection*.191}
-\contentsline {subsection}{\numberline {13.2.3}希尔伯特(H)空间}{323}{subsection.13.2.3}
-\contentsline {subsubsection}{例：欧几里得空间}{323}{subsubsection*.192}
-\contentsline {subsection}{\numberline {13.2.4}索伯列夫$W^{k,p}(\Omega )$空间}{327}{subsection.13.2.4}
-\contentsline {subsubsection}{微分的类以及平滑方程}{327}{subsubsection*.193}
-\contentsline {subsubsection}{分部积分}{327}{subsubsection*.194}
-\contentsline {subsubsection}{广义积分}{327}{subsubsection*.195}
-\contentsline {subsubsection}{整数阶次的单维索伯列夫空间}{329}{subsubsection*.196}
-\contentsline {subsubsection}{整数阶次的单维索伯列夫空间(p=2)}{329}{subsubsection*.197}
-\contentsline {subsubsection}{多维索伯列夫空间}{330}{subsubsection*.198}
-\contentsline {subsubsection}{分数次阶索伯列夫空间：Sobolev-Slobodeckij空间法}{330}{subsubsection*.199}
-\contentsline {subsubsection}{索伯列夫空间的性质：嵌入定理}{331}{subsubsection*.200}
-\contentsline {subsubsection}{索伯列夫空间的性质：范数等价}{334}{subsubsection*.201}
-\contentsline {subsubsection}{索伯列夫空间的Bramble-Hilbert引理}{339}{subsubsection*.202}
-\contentsline {subsubsection}{索伯列夫空间的分布}{341}{subsubsection*.203}
-\contentsline {subsubsection}{流形索伯列夫空间}{346}{subsubsection*.204}
-\contentsline {section}{\numberline {13.3}变分法}{349}{section.13.3}
-\contentsline {subsection}{\numberline {13.3.1}算子方程}{349}{subsection.13.3.1}
-\contentsline {subsection}{\numberline {13.3.2}椭圆算子}{353}{subsection.13.3.2}
-\contentsline {subsection}{\numberline {13.3.3}算子与稳定性条件}{355}{subsection.13.3.3}
-\contentsline {subsection}{\numberline {13.3.4}含有限制条件的算子方程}{357}{subsection.13.3.4}
-\contentsline {subsection}{\numberline {13.3.5}混合算子方程(鞍点变分问题)}{359}{subsection.13.3.5}
-\contentsline {subsection}{\numberline {13.3.6}强制算子方程}{365}{subsection.13.3.6}
-\contentsline {section}{\numberline {13.4}变分法求解边界值问题}{366}{section.13.4}
-\contentsline {subsection}{\numberline {13.4.1}位势方程基本介绍}{366}{subsection.13.4.1}
-\contentsline {subsection}{\numberline {13.4.2}狄利克雷边界值问题1}{367}{subsection.13.4.2}
-\contentsline {subsubsection}{将狄利克雷边界值问题改写为变分问题}{367}{subsubsection*.205}
-\contentsline {subsubsection}{解的存在性与唯一性}{368}{subsubsection*.206}
-\contentsline {subsubsection}{共形导数}{369}{subsubsection*.207}
-\contentsline {subsubsection}{带有齐次偏微分方程的狄利克雷边界值问题弱解}{370}{subsubsection*.208}
-\contentsline {subsubsection}{狄利克雷边界值问题的强解简述}{370}{subsubsection*.209}
-\contentsline {subsection}{\numberline {13.4.3}狄利克雷边界值问题2}{371}{subsection.13.4.3}
-\contentsline {subsubsection}{解的唯一存在性}{371}{subsubsection*.210}
-\contentsline {subsubsection}{调整鞍点变分问题}{372}{subsubsection*.211}
-\contentsline {subsection}{\numberline {13.4.4}诺依曼边界值问题}{373}{subsection.13.4.4}
-\contentsline {subsubsection}{将诺依曼边界值问题改写为变分问题}{373}{subsubsection*.212}
-\contentsline {subsubsection}{解的存在性与唯一性}{374}{subsubsection*.213}
-\contentsline {subsubsection}{鞍点变分问题}{374}{subsubsection*.214}
-\contentsline {subsubsection}{调整鞍点变分问题}{375}{subsubsection*.215}
-\contentsline {subsubsection}{诺依曼边界值问题的通解}{376}{subsubsection*.216}
-\contentsline {subsection}{\numberline {13.4.5}混合边界值问题}{376}{subsection.13.4.5}
-\contentsline {subsection}{\numberline {13.4.6}罗宾边界值问题}{377}{subsection.13.4.6}
-\contentsline {section}{\numberline {13.5}拉普拉斯算子的基本解}{378}{section.13.5}
-\contentsline {subsection}{\numberline {13.5.1}基本解}{378}{subsection.13.5.1}
-\contentsline {subsection}{\numberline {13.5.2}拉普拉斯算子}{379}{subsection.13.5.2}
-\contentsline {subsection}{\numberline {13.5.3}三维空间的基本解}{380}{subsection.13.5.3}
-\contentsline {subsection}{\numberline {13.5.4}二维空间的基本解}{381}{subsection.13.5.4}
-\contentsline {subsection}{\numberline {13.5.5}基本解总结}{383}{subsection.13.5.5}
-\contentsline {section}{\numberline {13.6}边界积分算子}{383}{section.13.6}
-\contentsline {subsection}{\numberline {13.6.1}牛顿位势}{383}{subsection.13.6.1}
-\contentsline {subsection}{\numberline {13.6.2}单层位势}{389}{subsection.13.6.2}
-\contentsline {subsection}{\numberline {13.6.3}伴随双层位势}{391}{subsection.13.6.3}
-\contentsline {subsection}{\numberline {13.6.4}双层位势}{394}{subsection.13.6.4}
-\contentsline {subsection}{\numberline {13.6.5}超奇异边界积分算子}{397}{subsection.13.6.5}
-\contentsline {subsubsection}{二维空间}{398}{subsubsection*.217}
-\contentsline {subsubsection}{三维空间}{401}{subsubsection*.218}
-\contentsline {subsection}{\numberline {13.6.6}边界积分算子之间的关系}{404}{subsection.13.6.6}
-\contentsline {subsection}{\numberline {13.6.7}单层位势算子的椭圆性和可逆性}{405}{subsection.13.6.7}
-\contentsline {subsubsection}{鞍点变分问题求证椭圆性}{409}{subsubsection*.220}
-\contentsline {subsubsection}{单层位势算子的可逆性}{411}{subsubsection*.222}
-\contentsline {subsection}{\numberline {13.6.8}超奇异边界积分算子的椭圆性}{411}{subsection.13.6.8}
-\contentsline {subsubsection}{超奇异边界积分算子的半椭圆性}{411}{subsubsection*.223}
-\contentsline {subsubsection}{椭圆性所处子空间的替代方案}{413}{subsubsection*.224}
-\contentsline {subsection}{\numberline {13.6.9}Steklov-Poincaré算子}{414}{subsection.13.6.9}
-\contentsline {subsection}{\numberline {13.6.10}双层位势的收缩属性}{415}{subsection.13.6.10}
-\contentsline {subsection}{\numberline {13.6.11}边界积分算子的映射特性}{419}{subsection.13.6.11}
-\contentsline {section}{\numberline {13.7}边界积分方程}{421}{section.13.7}
-\contentsline {subsection}{\numberline {13.7.1}狄利克雷边界值问题}{422}{subsection.13.7.1}
-\contentsline {subsubsection}{直接法求解狄利克雷边界值问题}{422}{subsubsection*.225}
-\contentsline {subsubsection}{间接法求解狄利克雷边界值问题}{423}{subsubsection*.226}
-\contentsline {subsection}{\numberline {13.7.2}诺依曼边界值问题}{425}{subsection.13.7.2}
-\contentsline {subsection}{\numberline {13.7.3}混合边界值问题}{428}{subsection.13.7.3}
-\contentsline {subsubsection}{直接法}{428}{subsubsection*.227}
-\contentsline {subsubsection}{间接映射法}{429}{subsubsection*.228}
-\contentsline {subsection}{\numberline {13.7.4}罗宾边界值问题}{430}{subsection.13.7.4}
-\contentsline {section}{\numberline {13.8}近似方法}{430}{section.13.8}
-\contentsline {subsection}{\numberline {13.8.1}伽辽金——布博诺夫法}{430}{subsection.13.8.1}
-\contentsline {subsubsection}{近似解的唯一可解性}{431}{subsubsection*.229}
-\contentsline {subsubsection}{近似解的稳定性}{432}{subsubsection*.230}
-\contentsline {subsubsection}{近似解的收敛性}{433}{subsubsection*.231}
-\contentsline {subsection}{\numberline {13.8.2}线性形近似}{433}{subsection.13.8.2}
-\contentsline {subsection}{\numberline {13.8.3}算子的近似}{434}{subsection.13.8.3}
-\contentsline {subsection}{\numberline {13.8.4}伽辽金——佩特洛夫法}{436}{subsection.13.8.4}
-\contentsline {subsection}{\numberline {13.8.5}混合边界值问题}{438}{subsection.13.8.5}
-\contentsline {subsubsection}{混合算子方程的鞍点变分问题}{438}{subsubsection*.233}
-\contentsline {subsubsection}{伽辽金变分问题}{438}{subsubsection*.234}
-\contentsline {subsubsection}{线性方程系统}{438}{subsubsection*.235}
-\contentsline {subsubsection}{舒尔补系统}{438}{subsubsection*.236}
-\contentsline {subsubsection}{唯一可解性}{439}{subsubsection*.237}
-\contentsline {subsubsection}{稳定性测度}{440}{subsubsection*.238}
-\contentsline {subsubsection}{误差测度项}{441}{subsubsection*.239}
-\contentsline {subsubsection}{离散稳定条件}{442}{subsubsection*.240}
-\contentsline {subsection}{\numberline {13.8.6}强制算子}{442}{subsection.13.8.6}
-\contentsline {section}{\numberline {13.9}有限元}{445}{section.13.9}
-\contentsline {subsection}{\numberline {13.9.1}参考元}{445}{subsection.13.9.1}
-\contentsline {subsubsection}{基本概念}{445}{subsubsection*.241}
-\contentsline {subsubsection}{一维空间的局部参数化}{447}{subsubsection*.242}
-\contentsline {subsubsection}{二维空间的局部参数化}{448}{subsubsection*.243}
-\contentsline {subsubsection}{三维空间的局部参数化}{450}{subsubsection*.244}
-\contentsline {subsubsection}{识别方程等价范的测度不等式}{452}{subsubsection*.245}
-\contentsline {subsection}{\numberline {13.9.2}形式方程}{453}{subsection.13.9.2}
-\contentsline {subsubsection}{常数型形式方程}{453}{subsubsection*.246}
-\contentsline {subsubsection}{线性形式方程}{453}{subsubsection*.247}
-\contentsline {subsubsection}{二次形式方程}{455}{subsubsection*.248}
-\contentsline {subsection}{\numberline {13.9.3}检测空间}{457}{subsection.13.9.3}
-\contentsline {subsubsection}{检测空间的插值算子}{458}{subsubsection*.249}
-\contentsline {subsubsection}{检测空间的投影算子}{459}{subsubsection*.250}
-\contentsline {part}{第三部分\hspace {1em}模型估计}{461}{part.3}
-\contentsline {part}{第四部分\hspace {1em}待分类}{463}{part.4}
-\contentsline {chapter}{\numberline {第十四章\hspace {.3em}}最大似然估计}{465}{chapter.14}
-\contentsline {section}{\numberline {14.1}简介}{465}{section.14.1}
-\contentsline {section}{\numberline {14.2}近似的测度}{465}{section.14.2}
-\contentsline {subsection}{\numberline {14.2.1}估计的偏误：标量参数}{466}{subsection.14.2.1}
-\contentsline {subsubsection}{偏误}{466}{subsubsection*.251}
-\contentsline {subsubsection}{可测度性}{466}{subsubsection*.252}
-\contentsline {subsubsection}{测度的方差和均方误差}{466}{subsubsection*.253}
-\contentsline {subsection}{\numberline {14.2.2}估计的偏误：向量参数}{466}{subsection.14.2.2}
-\contentsline {subsubsection}{平均偏误}{467}{subsubsection*.254}
-\contentsline {subsubsection}{测度的方差和均方误差}{467}{subsubsection*.255}
-\contentsline {section}{\numberline {14.3}费雪信息矩阵和克拉美罗下界}{467}{section.14.3}
-\contentsline {subsection}{\numberline {14.3.1}标量参数}{467}{subsection.14.3.1}
-\contentsline {subsection}{\numberline {14.3.2}向量参数}{468}{subsection.14.3.2}
-\contentsline {section}{\numberline {14.4}最大似然估计}{468}{section.14.4}
-\contentsline {subsection}{\numberline {14.4.1}最大似然估计：to be or not to be?}{468}{subsection.14.4.1}
-\contentsline {section}{\numberline {14.5}伯努利实验：最大似然估计法}{469}{section.14.5}
-\contentsline {section}{\numberline {14.6}伯努利实验：最大似然估计的Python程序实现}{470}{section.14.6}
-\contentsline {subsection}{\numberline {14.6.1}模型构建}{470}{subsection.14.6.1}
-\contentsline {subsection}{\numberline {14.6.2}似然方程}{472}{subsection.14.6.2}
-\contentsline {subsection}{\numberline {14.6.3}最大似然估计：解析法}{472}{subsection.14.6.3}
-\contentsline {subsection}{\numberline {14.6.4}最大似然估计：数值法}{473}{subsection.14.6.4}
-\contentsline {subsection}{\numberline {14.6.5}无约束参数\(g(\varphi )\)构成的模型系统}{474}{subsection.14.6.5}
-\contentsline {subsubsection}{Delta近似法}{475}{subsubsection*.256}
-\contentsline {subsubsection}{最大似然估计：算法举例}{476}{subsubsection*.257}
-\contentsline {chapter}{\numberline {第十五章\hspace {.3em}}工作论文}{481}{chapter.15}
-\contentsline {section}{\numberline {15.1}问题的提出}{481}{section.15.1}
-\contentsline {subsection}{\numberline {15.1.1}研究目标}{481}{subsection.15.1.1}
-\contentsline {subsection}{\numberline {15.1.2}模型设定}{481}{subsection.15.1.2}
-\contentsline {section}{\numberline {15.2}境内金融中介部门}{482}{section.15.2}
-\contentsline {part}{第五部分\hspace {1em}附录}{485}{part.5}
-\contentsline {chapter}{Appendices}{}{section*.261}
-\contentsline {chapter}{附录 \numberline {第一章\hspace {.3em}}Post-Keynesian Economics的一个小综述}{489}{附录.4.A}
-\contentsline {section}{\numberline {A.1}Introduction}{489}{section.4.A.1}
-\contentsline {section}{\numberline {A.2}PK的主要方法论}{489}{section.4.A.2}
-\contentsline {section}{\numberline {A.3}PK下的市场结构与定价}{489}{section.4.A.3}
-\contentsline {subsection}{\numberline {A.3.1}PK下的市场结构}{489}{subsection.4.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}PK下的定价策略}{489}{subsection.4.A.3.2}
-\contentsline {section}{\numberline {A.4}PK下的宏观经济}{489}{section.4.A.4}
-\contentsline {section}{\numberline {A.5}PK视野下的经济政策}{490}{section.4.A.5}
-\contentsline {chapter}{附录 \numberline {第二章\hspace {.3em}}Keynesian, New Keynesian and New Classical Economics}{491}{附录.4.B}
-\contentsline {section}{\numberline {B.1}Keynesian的四个核心}{491}{section.4.B.1}
-\contentsline {subsection}{\numberline {B.1.1}失业与有效工资理论}{491}{subsection.4.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}价格变化与经济波动}{492}{subsection.4.B.1.2}
-\contentsline {subsection}{\numberline {B.1.3}储蓄与投资，信贷配给}{493}{subsection.4.B.1.3}
-\contentsline {subsection}{\numberline {B.1.4}供应与技术进步}{493}{subsection.4.B.1.4}
-\contentsline {section}{\numberline {B.2}New Keynesian经济学的四个核心}{493}{section.4.B.2}
-\contentsline {subsection}{\numberline {B.2.1}有效工资}{493}{subsection.4.B.2.1}
-\contentsline {subsection}{\numberline {B.2.2}资产配给}{493}{subsection.4.B.2.2}
-\contentsline {subsection}{\numberline {B.2.3}信贷配给}{493}{subsection.4.B.2.3}
-\contentsline {subsection}{\numberline {B.2.4}货币政策}{494}{subsection.4.B.2.4}
-\contentsline {subsection}{\numberline {B.2.5}小结}{494}{subsection.4.B.2.5}
-\contentsline {section}{\numberline {B.3}凯恩斯的不足}{494}{section.4.B.3}
-\contentsline {subsection}{\numberline {B.3.1}债券和股票的区别}{495}{subsection.4.B.3.1}
-\contentsline {subsection}{\numberline {B.3.2}需求和供应}{495}{subsection.4.B.3.2}
-\contentsline {subsection}{\numberline {B.3.3}投资的决定因素}{495}{subsection.4.B.3.3}
-\contentsline {subsection}{\numberline {B.3.4}货币政策}{496}{subsection.4.B.3.4}
-\contentsline {section}{\numberline {B.4}小结}{496}{section.4.B.4}
+\contentsline {chapter}{\numberline {第一章\hspace {.3em}}前言}{15}{chapter.1}
+\contentsline {part}{第一部分\hspace {1em}模型构建}{17}{part.1}
+\contentsline {chapter}{\numberline {第二章\hspace {.3em}}基准New Keynesian模型}{19}{chapter.2}
+\contentsline {section}{\numberline {2.1}家庭部门}{19}{section.2.1}
+\contentsline {section}{\numberline {2.2}企业部门}{20}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}最终产品生产部门}{20}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}中间产品生产部门}{20}{subsection.2.2.2}
+\contentsline {subsubsection}{成本最小化：边际成本与工资}{20}{subsubsection*.2}
+\contentsline {subsubsection}{利润最大化：定价策略}{21}{subsubsection*.3}
+\contentsline {subsection}{\numberline {2.2.3}最终产品定价：Calvo assupmtion}{22}{subsection.2.2.3}
+\contentsline {section}{\numberline {2.3}外生技术冲击}{22}{section.2.3}
+\contentsline {section}{\numberline {2.4}总量均衡}{23}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}家庭部门消费的决定}{23}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}price dispersion}{23}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}（非随机的）稳定状态}{24}{section.2.5}
+\contentsline {section}{\numberline {2.6}flexible price equilibrium 和 output gap}{25}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}flexible price equilibrium}{25}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}output gap}{26}{subsection.2.6.2}
+\contentsline {section}{\numberline {2.7}Taylor法则}{26}{section.2.7}
+\contentsline {section}{\numberline {2.8}完整的均衡条件}{27}{section.2.8}
+\contentsline {section}{\numberline {2.9}对数线性化}{28}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}对数线性化计算}{28}{subsection.2.9.1}
+\contentsline {subsection}{\numberline {2.9.2}线性模型}{31}{subsection.2.9.2}
+\contentsline {chapter}{\numberline {第三章\hspace {.3em}}Medium-Sized DSGE模型}{33}{chapter.3}
+\contentsline {section}{\numberline {3.1}产品的生产部门}{33}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}最终产品生产部门}{33}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}中间产品生产部门}{33}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}中间产品生产者的边际成本}{34}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}中间产品生产者的定价}{36}{subsection.3.1.4}
+\contentsline {subsubsection}{updating生产者的定价策略}{36}{subsubsection*.5}
+\contentsline {subsubsection}{Aggregate Price Index}{38}{subsubsection*.6}
+\contentsline {subsection}{\numberline {3.1.5}price dispersion index}{38}{subsection.3.1.5}
+\contentsline {subsection}{\numberline {3.1.6}投资的调节成本}{39}{subsection.3.1.6}
+\contentsline {subsection}{\numberline {3.1.7}总产出的分配}{39}{subsection.3.1.7}
+\contentsline {subsubsection}{可变的资本利用率}{40}{subsubsection*.7}
+\contentsline {section}{\numberline {3.2}家庭部门}{40}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}劳动力投入：同质化假定还是异质化假定？}{40}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}劳动力承包商}{41}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}家庭行为}{42}{subsection.3.2.3}
+\contentsline {subsubsection}{（消费）习惯的形成}{42}{subsubsection*.8}
+\contentsline {subsection}{\numberline {3.2.4}劳工联盟的工资策略}{42}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}wage dispersion index}{45}{subsection.3.2.5}
+\contentsline {subsection}{\numberline {3.2.6}家庭预算约束条件}{46}{subsection.3.2.6}
+\contentsline {subsection}{\numberline {3.2.7}资本积累}{46}{subsection.3.2.7}
+\contentsline {subsubsection}{资本净收益}{47}{subsubsection*.9}
+\contentsline {subsection}{\numberline {3.2.8}家庭部门最大化问题}{47}{subsection.3.2.8}
+\contentsline {subsubsection}{FOC wrt C}{47}{subsubsection*.10}
+\contentsline {subsubsection}{FOC wrt $\Delta _t$}{48}{subsubsection*.11}
+\contentsline {subsubsection}{FOC wrt I}{48}{subsubsection*.12}
+\contentsline {subsubsection}{FOC wrt K}{49}{subsubsection*.13}
+\contentsline {subsubsection}{FOC wrt u}{49}{subsubsection*.14}
+\contentsline {subsubsection}{FOC wrt B}{49}{subsubsection*.15}
+\contentsline {section}{\numberline {3.3}Price Philips Curve}{50}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}price dispersion index的线性近似}{50}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}两个辅助变量的线性近似}{50}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}reset price inflation的线性近似}{51}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Price Philips Curve}{51}{subsection.3.3.4}
+\contentsline {section}{\numberline {3.4}Wage Philips Curve}{51}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}稳定状态的描述}{52}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}wage inflation}{52}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}辅助变量}{52}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}劳动力供应}{53}{subsection.3.4.4}
+\contentsline {subsection}{\numberline {3.4.5}边际劳动成本}{53}{subsection.3.4.5}
+\contentsline {subsection}{\numberline {3.4.6}wage price inflation}{53}{subsection.3.4.6}
+\contentsline {subsection}{\numberline {3.4.7}其他辅助变量}{54}{subsection.3.4.7}
+\contentsline {section}{\numberline {3.5}比较两条philips curve}{56}{section.3.5}
+\contentsline {chapter}{Appendices}{59}{chapter*.16}
+\contentsline {section}{附录 \numberline {3.A}scaled variables}{59}{section.1.3.A}
+\contentsline {subsection}{\numberline {3.A.1}几个没写完的说明}{60}{subsection.1.3.A.1}
+\contentsline {section}{附录 \numberline {3.B}Frisch elasticity of labor supply}{60}{section.1.3.B}
+\contentsline {subsection}{\numberline {3.B.1}定义}{60}{subsection.1.3.B.1}
+\contentsline {subsection}{\numberline {3.B.2}举例}{61}{subsection.1.3.B.2}
+\contentsline {section}{附录 \numberline {3.C}调节成本的常见设定形式及比较}{61}{section.1.3.C}
+\contentsline {subsection}{\numberline {3.C.1}家庭部门优化条件}{62}{subsection.1.3.C.1}
+\contentsline {subsection}{\numberline {3.C.2}比较线性和非线性调节成本}{63}{subsection.1.3.C.2}
+\contentsline {subsection}{\numberline {3.C.3}比较投资调节成本和资本调节成本}{63}{subsection.1.3.C.3}
+\contentsline {chapter}{\numberline {第四章\hspace {.3em}}NK-DSGE模型}{65}{chapter.4}
+\contentsline {section}{\numberline {4.1}Intrduction}{65}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}模型中的六个生产部门}{65}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}几点说明}{65}{subsection.4.1.2}
+\contentsline {section}{\numberline {4.2}解析模型}{66}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}劳动承包部门}{66}{subsection.4.2.1}
+\contentsline {subsubsection}{对$l^{th}$劳动力的需求}{66}{subsubsection*.17}
+\contentsline {subsubsection}{总工资水平}{66}{subsubsection*.18}
+\contentsline {subsubsection}{工资分布指标}{67}{subsubsection*.19}
+\contentsline {subsection}{\numberline {4.2.2}家庭部门}{67}{subsection.4.2.2}
+\contentsline {subsubsection}{资本形成}{67}{subsubsection*.20}
+\contentsline {subsubsection}{资本服务品}{67}{subsubsection*.21}
+\contentsline {subsubsection}{效用函数}{68}{subsubsection*.22}
+\contentsline {subsubsection}{预算约束条件}{68}{subsubsection*.23}
+\contentsline {subsubsection}{家庭最大化问题}{68}{subsubsection*.24}
+\contentsline {subsubsection}{与工资设定无关的一阶条件}{69}{subsubsection*.25}
+\contentsline {subsubsection}{工资设定的backward indexation分析}{70}{subsubsection*.26}
+\contentsline {subsubsection}{涉及工资设定的一阶条件}{71}{subsubsection*.27}
+\contentsline {subsubsection}{相对调整工资}{72}{subsubsection*.28}
+\contentsline {subsection}{\numberline {4.2.3}最终产品生产部门}{73}{subsection.4.2.3}
+\contentsline {subsubsection}{对$j^{th}$中间产品的需求}{73}{subsubsection*.29}
+\contentsline {subsubsection}{总价格水平}{73}{subsubsection*.30}
+\contentsline {subsection}{\numberline {4.2.4}中间产品生产部门}{74}{subsection.4.2.4}
+\contentsline {subsubsection}{生产的边际成本}{74}{subsubsection*.31}
+\contentsline {subsubsection}{对投入要素的需求}{75}{subsubsection*.32}
+\contentsline {subsubsection}{边际成本}{75}{subsubsection*.33}
+\contentsline {subsubsection}{利润函数}{75}{subsubsection*.34}
+\contentsline {subsubsection}{价格设定的backward indexation分析}{76}{subsubsection*.35}
+\contentsline {subsubsection}{利润最大化问题}{76}{subsubsection*.36}
+\contentsline {subsubsection}{调整价格的通胀率}{78}{subsubsection*.37}
+\contentsline {subsection}{\numberline {4.2.5}政府部门}{78}{subsection.4.2.5}
+\contentsline {subsubsection}{政府支出}{78}{subsubsection*.38}
+\contentsline {subsubsection}{政府预算约束}{78}{subsubsection*.39}
+\contentsline {subsection}{\numberline {4.2.6}中央银行}{78}{subsection.4.2.6}
+\contentsline {subsection}{\numberline {4.2.7}总量层面的均衡}{79}{subsection.4.2.7}
+\contentsline {subsubsection}{总利润}{79}{subsubsection*.40}
+\contentsline {subsubsection}{家庭总预算约束}{79}{subsubsection*.41}
+\contentsline {subsubsection}{总产出的使用}{80}{subsubsection*.42}
+\contentsline {subsubsection}{总量生产函数}{80}{subsubsection*.43}
+\contentsline {subsubsection}{价格分布指标的演化}{81}{subsubsection*.44}
+\contentsline {subsubsection}{总物价水平的演化}{81}{subsubsection*.45}
+\contentsline {subsubsection}{总工资水平的演化}{81}{subsubsection*.46}
+\contentsline {subsection}{\numberline {4.2.8}外生过程}{82}{subsection.4.2.8}
+\contentsline {subsection}{\numberline {4.2.9}均衡条件的完整解集}{82}{subsection.4.2.9}
+\contentsline {subsection}{\numberline {4.2.10}非随机的稳定状态}{84}{subsection.4.2.10}
+\contentsline {chapter}{\numberline {第五章\hspace {.3em}}DSGE with banking}{91}{chapter.5}
+\contentsline {section}{\numberline {5.1}Introduction}{91}{section.5.1}
+\contentsline {section}{\numberline {5.2}模型设定}{91}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}家庭及生产部门}{91}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}银行部门}{92}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}政府(中央银行)部门}{93}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}技术冲击}{93}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}实际消费}{93}{subsection.5.2.5}
+\contentsline {section}{\numberline {5.3}一阶条件}{94}{section.5.3}
+\contentsline {section}{\numberline {5.4}均衡条件}{95}{section.5.4}
+\contentsline {section}{\numberline {5.5}利率}{96}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}资产市场基准利率}{96}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}抵押品收益率}{96}{subsection.5.5.2}
+\contentsline {subsubsection}{流动性债券收益率}{96}{subsubsection*.47}
+\contentsline {subsubsection}{流动性资本收益率}{97}{subsubsection*.48}
+\contentsline {subsection}{\numberline {5.5.3}银行间拆借利率（无抵押）}{97}{subsection.5.5.3}
+\contentsline {subsection}{\numberline {5.5.4}贷款利率（有抵押）}{97}{subsection.5.5.4}
+\contentsline {subsection}{\numberline {5.5.5}存款利率}{97}{subsection.5.5.5}
+\contentsline {subsection}{\numberline {5.5.6}外部融资溢价}{98}{subsection.5.5.6}
+\contentsline {subsubsection}{无抵押贷款的外部融资溢价}{98}{subsubsection*.49}
+\contentsline {subsubsection}{有抵押贷款的外部融资溢价}{98}{subsubsection*.50}
+\contentsline {subsubsection}{比较}{98}{subsubsection*.51}
+\contentsline {subsection}{\numberline {5.5.7}抵押品收益率与外部融资溢价的关联}{98}{subsection.5.5.7}
+\contentsline {section}{\numberline {5.6}稳定状态}{99}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}核心稳态系统}{99}{subsection.5.6.1}
+\contentsline {subsubsection}{}{99}{subsubsection*.52}
+\contentsline {subsubsection}{}{99}{subsubsection*.53}
+\contentsline {subsubsection}{}{100}{subsubsection*.54}
+\contentsline {subsection}{\numberline {5.6.2}稳定状态利率}{100}{subsection.5.6.2}
+\contentsline {chapter}{\numberline {第六章\hspace {.3em}}Cash in advance}{101}{chapter.6}
+\contentsline {section}{\numberline {6.1}家庭部门}{101}{section.6.1}
+\contentsline {section}{\numberline {6.2}企业部门}{102}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}生产规模}{102}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}利润的使用}{102}{subsection.6.2.2}
+\contentsline {section}{\numberline {6.3}银行部门}{103}{section.6.3}
+\contentsline {section}{\numberline {6.4}一阶条件}{103}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}家庭部门}{103}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}企业部门}{103}{subsection.6.4.2}
+\contentsline {subsection}{\numberline {6.4.3}银行部门}{104}{subsection.6.4.3}
+\contentsline {subsection}{\numberline {6.4.4}一阶条件的整理}{104}{subsection.6.4.4}
+\contentsline {section}{\numberline {6.5}市场均衡及部门最优行为}{104}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}4个市场均衡条件}{104}{subsection.6.5.1}
+\contentsline {subsubsection}{劳动力市场均衡}{104}{subsubsection*.56}
+\contentsline {subsubsection}{产品市场均衡}{104}{subsubsection*.57}
+\contentsline {subsubsection}{货币市场均衡}{105}{subsubsection*.58}
+\contentsline {subsubsection}{信贷市场均衡}{105}{subsubsection*.59}
+\contentsline {subsection}{\numberline {6.5.2}部门最优行为}{105}{subsection.6.5.2}
+\contentsline {subsubsection}{劳动力市场}{105}{subsubsection*.60}
+\contentsline {subsubsection}{产品市场}{105}{subsubsection*.61}
+\contentsline {subsubsection}{货币市场}{105}{subsubsection*.62}
+\contentsline {subsubsection}{信贷市场}{105}{subsubsection*.63}
+\contentsline {section}{\numberline {6.6}外生冲击}{106}{section.6.6}
+\contentsline {section}{\numberline {6.7}均衡方程组}{106}{section.6.7}
+\contentsline {section}{\numberline {6.8}去趋势的均衡状态}{107}{section.6.8}
+\contentsline {part}{第二部分\hspace {1em}模型求解}{111}{part.2}
+\contentsline {chapter}{\numberline {第七章\hspace {.3em}}DSGE模型求解方法简论}{113}{chapter.7}
+\contentsline {section}{\numberline {7.1}简论的简论}{113}{section.7.1}
+\contentsline {section}{\numberline {7.2}pros and cons}{115}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}cons}{115}{subsection.7.2.1}
+\contentsline {subsection}{\numberline {7.2.2}pros}{115}{subsection.7.2.2}
+\contentsline {section}{\numberline {7.3}工作流程}{116}{section.7.3}
+\contentsline {section}{\numberline {7.4}模型设定}{117}{section.7.4}
+\contentsline {section}{\numberline {7.5}求解方法}{118}{section.7.5}
+\contentsline {subsection}{\numberline {7.5.1}近似线性展开}{118}{subsection.7.5.1}
+\contentsline {subsubsection}{(1阶)线性化近似}{118}{subsubsection*.66}
+\contentsline {subsubsection}{(1阶)对数线性化近似}{119}{subsubsection*.67}
+\contentsline {subsubsection}{2阶近似}{119}{subsubsection*.68}
+\contentsline {section}{\numberline {7.6}求解线性随机差分方程系统}{120}{section.7.6}
+\contentsline {chapter}{\numberline {第八章\hspace {.3em}}动态规划}{121}{chapter.8}
+\contentsline {section}{\numberline {8.1}包络定理}{121}{section.8.1}
+\contentsline {section}{\numberline {8.2}例:吃蛋糕(直接求解法)}{122}{section.8.2}
+\contentsline {section}{\numberline {8.3}吃蛋糕(动态规划)}{123}{section.8.3}
+\contentsline {subsection}{\numberline {8.3.1}有限时间段的动态规划问题}{123}{subsection.8.3.1}
+\contentsline {subsection}{\numberline {8.3.2}无限时间段的动态规划问题}{125}{subsection.8.3.2}
+\contentsline {section}{\numberline {8.4}随机问题}{127}{section.8.4}
+\contentsline {section}{\numberline {8.5}包络定理和欧拉等式的关系}{127}{section.8.5}
+\contentsline {chapter}{\numberline {第九章\hspace {.3em}}线性二次最优控制}{131}{chapter.9}
+\contentsline {section}{\numberline {9.1}目标方程和状态转移方程}{131}{section.9.1}
+\contentsline {section}{\numberline {9.2}价值方程}{131}{section.9.2}
+\contentsline {subsection}{\numberline {9.2.1}一阶条件}{132}{subsection.9.2.1}
+\contentsline {subsubsection}{计算一阶条件所需的部分矩阵运算}{132}{subsubsection*.73}
+\contentsline {section}{\numberline {9.3}政策方程}{133}{section.9.3}
+\contentsline {subsection}{\numberline {9.3.1}政策方程满足确定性等价条件}{133}{subsection.9.3.1}
+\contentsline {section}{\numberline {9.4}线性政策方程和二次价值方程}{133}{section.9.4}
+\contentsline {subsection}{\numberline {9.4.1}价值方程满足确定性等价条件}{134}{subsection.9.4.1}
+\contentsline {subsection}{\numberline {9.4.2}代数矩阵Riccati方程}{135}{subsection.9.4.2}
+\contentsline {section}{\numberline {9.5}数值方法}{135}{section.9.5}
+\contentsline {section}{\numberline {9.6}范例}{135}{section.9.6}
+\contentsline {subsection}{\numberline {9.6.1}最优线性二次控制问题}{136}{subsection.9.6.1}
+\contentsline {subsection}{\numberline {9.6.2}Matlab程序}{136}{subsection.9.6.2}
+\contentsline {subsection}{\numberline {9.6.3}Matlab程序输出}{138}{subsection.9.6.3}
+\contentsline {chapter}{\numberline {第十章\hspace {.3em}}理性期望模型}{141}{chapter.10}
+\contentsline {section}{\numberline {10.1}简介}{141}{section.10.1}
+\contentsline {section}{\numberline {10.2}数值算法}{142}{section.10.2}
+\contentsline {section}{\numberline {10.3}一个简单的随机增长模型}{143}{section.10.3}
+\contentsline {subsection}{\numberline {10.3.1}稳定状态}{143}{subsection.10.3.1}
+\contentsline {subsection}{\numberline {10.3.2}对数线性化}{143}{subsection.10.3.2}
+\contentsline {subsubsection}{外生技术冲击的对数线性化}{144}{subsubsection*.74}
+\contentsline {subsubsection}{Euler equation的对数线性化}{144}{subsubsection*.75}
+\contentsline {subsubsection}{预算约束条件的对数线性化}{144}{subsubsection*.76}
+\contentsline {subsection}{\numberline {10.3.3}状态——空间表现形式}{145}{subsection.10.3.3}
+\contentsline {section}{\numberline {10.4}特征值——特征方程分解法}{145}{section.10.4}
+\contentsline {subsection}{\numberline {10.4.1}特征值——特征方程分解法}{145}{subsection.10.4.1}
+\contentsline {subsection}{\numberline {10.4.2}解的存在性以及唯一性}{147}{subsection.10.4.2}
+\contentsline {subsection}{\numberline {10.4.3}应用Blanchard-Kahn算法实例}{148}{subsection.10.4.3}
+\contentsline {section}{\numberline {10.5}未定系数法}{149}{section.10.5}
+\contentsline {subsection}{\numberline {10.5.1}模型范例}{150}{subsection.10.5.1}
+\contentsline {subsection}{\numberline {10.5.2}未定系数法求解}{150}{subsection.10.5.2}
+\contentsline {subsection}{\numberline {10.5.3}求解系数矩阵A, B}{151}{subsection.10.5.3}
+\contentsline {subsubsection}{求解系数矩阵A}{151}{subsubsection*.78}
+\contentsline {subsubsection}{求解系数矩阵$B$}{152}{subsubsection*.79}
+\contentsline {subsection}{\numberline {10.5.4}存在性及唯一性的探讨}{152}{subsection.10.5.4}
+\contentsline {section}{\numberline {10.6}期望误差法}{152}{section.10.6}
+\contentsline {subsection}{\numberline {10.6.1}模型范例}{153}{subsection.10.6.1}
+\contentsline {subsection}{\numberline {10.6.2}期望误差法求解}{153}{subsection.10.6.2}
+\contentsline {subsubsection}{不稳定分块求解}{154}{subsubsection*.80}
+\contentsline {subsubsection}{稳定分块求解}{154}{subsubsection*.81}
+\contentsline {subsubsection}{期望误差求解}{154}{subsubsection*.82}
+\contentsline {subsubsection}{稳定分块求解}{155}{subsubsection*.83}
+\contentsline {subsubsection}{内生变量向量$x_t$求解}{155}{subsubsection*.84}
+\contentsline {subsection}{\numberline {10.6.3}存在性及唯一性的探讨}{155}{subsection.10.6.3}
+\contentsline {section}{\numberline {10.7}参数化期望法}{155}{section.10.7}
+\contentsline {subsection}{\numberline {10.7.1}参数化期望法示例}{156}{subsection.10.7.1}
+\contentsline {section}{\numberline {10.8}Schur分解法}{157}{section.10.8}
+\contentsline {subsection}{\numberline {10.8.1}Schur分解的定义}{158}{subsection.10.8.1}
+\contentsline {subsection}{\numberline {10.8.2}爆炸分块矩阵的解}{158}{subsection.10.8.2}
+\contentsline {subsection}{\numberline {10.8.3}稳定分块矩阵的解}{159}{subsection.10.8.3}
+\contentsline {subsection}{\numberline {10.8.4}原经济系统的解}{159}{subsection.10.8.4}
+\contentsline {chapter}{\numberline {第十一章\hspace {.3em}}扰动法}{161}{chapter.11}
+\contentsline {section}{\numberline {11.1}扰动法简介}{161}{section.11.1}
+\contentsline {section}{\numberline {11.2}分析框架}{161}{section.11.2}
+\contentsline {section}{\numberline {11.3}求解方法}{162}{section.11.3}
+\contentsline {subsection}{\numberline {11.3.1}状态——空间形式}{162}{subsection.11.3.1}
+\contentsline {subsection}{\numberline {11.3.2}稳定状态}{163}{subsection.11.3.2}
+\contentsline {subsubsection}{系统缩减}{163}{subsubsection*.86}
+\contentsline {subsubsection}{变量标准化与参数赋值}{164}{subsubsection*.87}
+\contentsline {subsubsection}{多变量标准化与参数赋值}{164}{subsubsection*.88}
+\contentsline {subsection}{\numberline {11.3.3}外生随机过程}{165}{subsection.11.3.3}
+\contentsline {subsubsection}{外生冲击的波动的线性特征}{165}{subsubsection*.89}
+\contentsline {subsubsection}{扰动参数的讨论}{166}{subsubsection*.90}
+\contentsline {subsubsection}{扰动法近似解与仿真结果的稳定性}{166}{subsubsection*.91}
+\contentsline {subsection}{\numberline {11.3.4}设想解}{166}{subsection.11.3.4}
+\contentsline {subsubsection}{可求导性的探讨}{167}{subsubsection*.93}
+\contentsline {subsubsection}{导数的计算}{167}{subsubsection*.95}
+\contentsline {subsection}{\numberline {11.3.5}一阶扰动}{167}{subsection.11.3.5}
+\contentsline {subsubsection}{$F_x(\cdot )$的求解}{168}{subsubsection*.96}
+\contentsline {subsubsection}{$F_{\sigma }(\cdot )$的求解}{170}{subsubsection*.98}
+\contentsline {subsubsection}{确定性等价条件}{171}{subsubsection*.99}
+\contentsline {subsection}{\numberline {11.3.6}二阶扰动}{172}{subsection.11.3.6}
+\contentsline {subsubsection}{$F_{xx}(\cdot )$的求解}{173}{subsubsection*.100}
+\contentsline {subsubsection}{$F_{\sigma \sigma (\cdot )}$的求解}{174}{subsubsection*.101}
+\contentsline {subsubsection}{$F_{\sigma x}(\cdot )$的求解}{174}{subsubsection*.102}
+\contentsline {subsection}{\numberline {11.3.7}更高阶扰动}{174}{subsection.11.3.7}
+\contentsline {subsection}{\numberline {11.3.8}例}{175}{subsection.11.3.8}
+\contentsline {subsubsection}{模型设定}{175}{subsubsection*.103}
+\contentsline {subsubsection}{稳定状态}{176}{subsubsection*.104}
+\contentsline {subsubsection}{对模型做扰动近似}{176}{subsubsection*.105}
+\contentsline {subsubsection}{一阶展开}{177}{subsubsection*.106}
+\contentsline {subsubsection}{二阶展开}{178}{subsubsection*.107}
+\contentsline {subsubsection}{数值解}{178}{subsubsection*.108}
+\contentsline {section}{\numberline {11.4}剪枝算法}{180}{section.11.4}
+\contentsline {section}{\numberline {11.5}变量的变换}{180}{section.11.5}
+\contentsline {subsection}{\numberline {11.5.1}例1}{181}{subsection.11.5.1}
+\contentsline {subsection}{\numberline {11.5.2}例2}{182}{subsection.11.5.2}
+\contentsline {subsection}{\numberline {11.5.3}最优变量变换：参数的选取}{183}{subsection.11.5.3}
+\contentsline {subsection}{\numberline {11.5.4}对数线性化和对数正态线性化}{183}{subsection.11.5.4}
+\contentsline {subsubsection}{(对数偏移形式的)对数线性化}{183}{subsubsection*.111}
+\contentsline {subsubsection}{(对数形式的)对数线性化}{184}{subsubsection*.112}
+\contentsline {subsubsection}{对数正态线性化}{184}{subsubsection*.113}
+\contentsline {subsubsection}{比较}{184}{subsubsection*.114}
+\contentsline {section}{\numberline {11.6}价值方程迭代中的扰动法}{185}{section.11.6}
+\contentsline {chapter}{Appendices}{189}{chapter*.115}
+\contentsline {section}{附录 \numberline {11.A}Schur补和对称正(半)定矩阵}{189}{section.2.11.A}
+\contentsline {subsection}{\numberline {11.A.1}Schur补}{189}{subsection.2.11.A.1}
+\contentsline {subsubsection}{A的Schur补以及系统解}{189}{subsubsection*.116}
+\contentsline {subsubsection}{D的Schur补以及系统解}{190}{subsubsection*.117}
+\contentsline {subsection}{\numberline {11.A.2}利用Schur分解法判断可逆正定矩阵}{191}{subsection.2.11.A.2}
+\contentsline {subsection}{\numberline {11.A.3}利用Schur分解法判断可逆正半定矩阵}{192}{subsection.2.11.A.3}
+\contentsline {subsubsection}{判定方法}{192}{subsubsection*.118}
+\contentsline {subsubsection}{判断$M$是否正半定}{194}{subsubsection*.119}
+\contentsline {section}{附录 \numberline {11.B}伪逆矩阵}{195}{section.2.11.B}
+\contentsline {subsection}{\numberline {11.B.1}用SVD法做伪逆矩阵分解}{195}{subsection.2.11.B.1}
+\contentsline {subsection}{\numberline {11.B.2}用SVD法做 M 的矩阵分解}{197}{subsection.2.11.B.2}
+\contentsline {chapter}{\numberline {第十二章\hspace {.3em}}映射法}{199}{chapter.12}
+\contentsline {section}{\numberline {12.1}简介}{199}{section.12.1}
+\contentsline {subsection}{\numberline {12.1.1}例}{200}{subsection.12.1.1}
+\contentsline {subsubsection}{与计量经济学中的``映射''的关系}{201}{subsubsection*.123}
+\contentsline {subsubsection}{映射法与参数化期望法}{201}{subsubsection*.124}
+\contentsline {section}{\numberline {12.2}全局基的选取——单维基光谱法}{202}{section.12.2}
+\contentsline {subsection}{\numberline {12.2.1}单项式}{202}{subsection.12.2.1}
+\contentsline {subsection}{\numberline {12.2.2}三角序列}{203}{subsection.12.2.2}
+\contentsline {subsection}{\numberline {12.2.3}雅各比多项式}{203}{subsection.12.2.3}
+\contentsline {subsection}{\numberline {12.2.4}切比雪夫多项式}{203}{subsection.12.2.4}
+\contentsline {subsubsection}{变量的变换}{207}{subsubsection*.130}
+\contentsline {subsubsection}{伯依德原则}{207}{subsubsection*.131}
+\contentsline {section}{\numberline {12.3}局部基的选取(1)}{207}{section.12.3}
+\contentsline {subsection}{\numberline {12.3.1}离散状态变量}{208}{subsection.12.3.1}
+\contentsline {subsection}{\numberline {12.3.2}张量与完全多项式}{209}{subsection.12.3.2}
+\contentsline {section}{\numberline {12.4}局部基的选取(2)：有限元法}{211}{section.12.4}
+\contentsline {section}{\numberline {12.5}目标方程的选取}{214}{section.12.5}
+\contentsline {subsection}{\numberline {12.5.1}最小方差}{214}{subsection.12.5.1}
+\contentsline {subsection}{\numberline {12.5.2}子域}{215}{subsection.12.5.2}
+\contentsline {subsection}{\numberline {12.5.3}配点}{215}{subsection.12.5.3}
+\contentsline {subsubsection}{配点法}{215}{subsubsection*.138}
+\contentsline {subsubsection}{配点的选取：正交配点法}{215}{subsubsection*.139}
+\contentsline {subsection}{\numberline {12.5.4}伽辽金法}{215}{subsection.12.5.4}
+\contentsline {subsection}{\numberline {12.5.5}两个近似技巧}{216}{subsection.12.5.5}
+\contentsline {subsubsection}{系统变形}{216}{subsubsection*.140}
+\contentsline {subsubsection}{系统规模缩减}{217}{subsubsection*.141}
+\contentsline {section}{\numberline {12.6}投影法求解DSGE模型举例}{217}{section.12.6}
+\contentsline {subsection}{\numberline {12.6.1}模型设定}{217}{subsection.12.6.1}
+\contentsline {subsection}{\numberline {12.6.2}社会规划者问题}{218}{subsection.12.6.2}
+\contentsline {subsection}{\numberline {12.6.3}参数校准}{218}{subsection.12.6.3}
+\contentsline {subsection}{\numberline {12.6.4}分步求解}{219}{subsection.12.6.4}
+\contentsline {section}{\numberline {12.7}稀疏网格}{221}{section.12.7}
+\contentsline {subsection}{\numberline {12.7.1}Smolyak法的步骤}{223}{subsection.12.7.1}
+\contentsline {subsubsection}{状态变量的域转换}{223}{subsubsection*.145}
+\contentsline {subsubsection}{选定多项式的阶}{223}{subsubsection*.146}
+\contentsline {subsubsection}{建立克伦肖——柯蒂斯结点}{223}{subsubsection*.147}
+\contentsline {subsubsection}{构建稀疏网格}{223}{subsubsection*.148}
+\contentsline {subsubsection}{构建张量积方程}{226}{subsubsection*.153}
+\contentsline {subsubsection}{构建插值方程}{227}{subsubsection*.154}
+\contentsline {subsubsection}{求解多项式的系数}{228}{subsubsection*.155}
+\contentsline {subsection}{\numberline {12.7.2}稀疏网格的一些扩展}{228}{subsection.12.7.2}
+\contentsline {chapter}{Appendices}{231}{chapter*.157}
+\contentsline {section}{附录 \numberline {12.A}超几何方程}{231}{section.3.12.A}
+\contentsline {section}{附录 \numberline {12.B}多项式}{236}{section.3.12.B}
+\contentsline {subsection}{\numberline {12.B.1}正交集}{236}{subsection.3.12.B.1}
+\contentsline {subsection}{\numberline {12.B.2}正交多项式}{237}{subsection.3.12.B.2}
+\contentsline {subsubsection}{正定}{238}{subsubsection*.158}
+\contentsline {subsection}{\numberline {12.B.3}递推关系}{239}{subsection.3.12.B.3}
+\contentsline {subsection}{\numberline {12.B.4}雅各比矩阵和克里斯托费尔——达布关系}{240}{subsection.3.12.B.4}
+\contentsline {subsection}{\numberline {12.B.5}正交多项式的根}{242}{subsection.3.12.B.5}
+\contentsline {subsection}{\numberline {12.B.6}高斯求积}{243}{subsection.3.12.B.6}
+\contentsline {section}{附录 \numberline {12.C}常见的正交多项式类型}{244}{section.3.12.C}
+\contentsline {subsection}{\numberline {12.C.1}埃米特多项式}{245}{subsection.3.12.C.1}
+\contentsline {subsection}{\numberline {12.C.2}拉盖尔多项式}{249}{subsection.3.12.C.2}
+\contentsline {subsection}{\numberline {12.C.3}雅各比多项式}{253}{subsection.3.12.C.3}
+\contentsline {subsection}{\numberline {12.C.4}勒让德多项式}{257}{subsection.3.12.C.4}
+\contentsline {subsection}{\numberline {12.C.5}切比雪夫多项式}{260}{subsection.3.12.C.5}
+\contentsline {section}{附录 \numberline {12.D}AR(1)过程的离散方法}{267}{section.3.12.D}
+\contentsline {subsection}{\numberline {12.D.1}Tauchen(1986)法}{267}{subsection.3.12.D.1}
+\contentsline {subsection}{\numberline {12.D.2}Tauchen and Hussey (1991)法}{270}{subsection.3.12.D.2}
+\contentsline {subsection}{\numberline {12.D.3}Rouwenhorst(1995)法}{271}{subsection.3.12.D.3}
+\contentsline {section}{附录 \numberline {12.E}伽辽金近似}{272}{section.3.12.E}
+\contentsline {subsection}{\numberline {12.E.1}举例：1维空间中的伽辽金近似}{272}{subsection.3.12.E.1}
+\contentsline {subsection}{\numberline {12.E.2}伽辽金近似}{274}{subsection.3.12.E.2}
+\contentsline {subsection}{\numberline {12.E.3}强制型方程形式的伽辽金近似收敛}{277}{subsection.3.12.E.3}
+\contentsline {subsection}{\numberline {12.E.4}仅满足上极限——下极限关系方程形式的伽辽金近似收敛}{278}{subsection.3.12.E.4}
+\contentsline {section}{附录 \numberline {12.F}数值求积}{278}{section.3.12.F}
+\contentsline {subsection}{\numberline {12.F.1}牛顿——寇特斯法则}{279}{subsection.3.12.F.1}
+\contentsline {subsubsection}{矩形法则}{279}{subsubsection*.173}
+\contentsline {subsubsection}{梯形法则}{280}{subsubsection*.175}
+\contentsline {subsubsection}{更高阶牛顿——寇特斯法则}{281}{subsubsection*.177}
+\contentsline {subsubsection}{龙格现象}{282}{subsubsection*.179}
+\contentsline {subsubsection}{误差的收敛}{282}{subsubsection*.181}
+\contentsline {subsection}{\numberline {12.F.2}几个小技巧}{284}{subsection.3.12.F.2}
+\contentsline {subsubsection}{定区间单位的换算}{285}{subsubsection*.183}
+\contentsline {subsubsection}{无限区间求积}{285}{subsubsection*.184}
+\contentsline {subsection}{\numberline {12.F.3}求积中的可积奇异点问题}{285}{subsection.3.12.F.3}
+\contentsline {subsubsection}{提取奇异点}{285}{subsubsection*.185}
+\contentsline {subsubsection}{奇异点消除}{286}{subsubsection*.186}
+\contentsline {subsubsection}{Epsilon扩展}{286}{subsubsection*.187}
+\contentsline {subsubsection}{适应性求积}{286}{subsubsection*.188}
+\contentsline {subsection}{\numberline {12.F.4}梯形法则的近似误差}{286}{subsection.3.12.F.4}
+\contentsline {subsubsection}{非周期方程的傅里叶级数收敛}{289}{subsubsection*.190}
+\contentsline {subsubsection}{周期方程的傅里叶级数收敛}{291}{subsubsection*.193}
+\contentsline {subsection}{\numberline {12.F.5}克伦肖——柯蒂斯求积法则}{291}{subsection.3.12.F.5}
+\contentsline {subsubsection}{将非周期方程$f(t)$转换为周期方程$g(t)$}{292}{subsubsection*.194}
+\contentsline {subsubsection}{原域求积问题改写为傅里叶域求和问题}{293}{subsubsection*.196}
+\contentsline {subsubsection}{应用求积法则做近似}{294}{subsubsection*.197}
+\contentsline {subsubsection}{求积法则再探讨}{294}{subsubsection*.198}
+\contentsline {subsection}{\numberline {12.F.6}程序实现}{296}{subsection.3.12.F.6}
+\contentsline {section}{附录 \numberline {12.G}傅里叶分析}{298}{section.3.12.G}
+\contentsline {subsection}{\numberline {12.G.1}傅里叶变换}{299}{subsection.3.12.G.1}
+\contentsline {subsubsection}{一些概念}{300}{subsubsection*.202}
+\contentsline {subsubsection}{线频率和角频率}{301}{subsubsection*.204}
+\contentsline {subsubsection}{域}{301}{subsubsection*.205}
+\contentsline {subsubsection}{单位}{301}{subsubsection*.207}
+\contentsline {subsubsection}{傅里叶变换的性质}{301}{subsubsection*.208}
+\contentsline {subsection}{\numberline {12.G.2}脉冲方程的傅里叶变换}{302}{subsection.3.12.G.2}
+\contentsline {subsubsection}{洛伦兹变换}{302}{subsubsection*.209}
+\contentsline {subsubsection}{高斯变换}{303}{subsubsection*.211}
+\contentsline {subsection}{\numberline {12.G.3}非脉冲方程的傅里叶变换}{304}{subsection.3.12.G.3}
+\contentsline {subsection}{\numberline {12.G.4}原方程的平滑和傅里叶变换方程的衰减}{305}{subsection.3.12.G.4}
+\contentsline {subsection}{\numberline {12.G.5}傅里叶级数}{305}{subsection.3.12.G.5}
+\contentsline {subsubsection}{两种表达形式的比较}{306}{subsubsection*.212}
+\contentsline {subsubsection}{复杂指数形式的系数计算}{307}{subsubsection*.213}
+\contentsline {subsubsection}{傅里叶余弦级数}{308}{subsubsection*.215}
+\contentsline {subsubsection}{吉布斯现象}{309}{subsubsection*.217}
+\contentsline {subsubsection}{傅里叶级数的收敛}{310}{subsubsection*.219}
+\contentsline {subsubsection}{傅里叶分析是无损转换过程}{310}{subsubsection*.220}
+\contentsline {subsection}{\numberline {12.G.6}泊松求和式}{311}{subsection.3.12.G.6}
+\contentsline {subsubsection}{高斯方程的泊松求和}{312}{subsubsection*.221}
+\contentsline {subsubsection}{雅各比方程}{313}{subsubsection*.222}
+\contentsline {subsection}{\numberline {12.G.7}傅里叶分析与卷积}{313}{subsection.3.12.G.7}
+\contentsline {subsection}{\numberline {12.G.8}高维傅里叶变换}{315}{subsection.3.12.G.8}
+\contentsline {subsection}{\numberline {12.G.9}一些指数求和的背景知识}{315}{subsection.3.12.G.9}
+\contentsline {subsubsection}{连续、有限时间域}{315}{subsubsection*.224}
+\contentsline {subsubsection}{正交性}{315}{subsubsection*.225}
+\contentsline {subsubsection}{连续、无限时间域}{316}{subsubsection*.226}
+\contentsline {subsubsection}{离散时间域}{316}{subsubsection*.227}
+\contentsline {subsubsection}{高斯求积}{316}{subsubsection*.228}
+\contentsline {chapter}{\numberline {第十三章\hspace {.3em}}扰动法和投影法的比较}{317}{chapter.13}
+\contentsline {section}{\numberline {13.1}优缺点}{317}{section.13.1}
+\contentsline {section}{\numberline {13.2}实际研究中用哪个？}{318}{section.13.2}
+\contentsline {section}{\numberline {13.3}混合求解法}{318}{section.13.3}
+\contentsline {chapter}{\numberline {第十四章\hspace {.3em}}有界元法和有限元法}{319}{chapter.14}
+\contentsline {section}{\numberline {14.1}边界值问题：位势方程}{319}{section.14.1}
+\contentsline {subsection}{\numberline {14.1.1}偏微分算子及椭圆边界值问题}{319}{subsection.14.1.1}
+\contentsline {subsection}{\numberline {14.1.2}边界条件}{319}{subsection.14.1.2}
+\contentsline {subsection}{\numberline {14.1.3}诺依曼边界值问题}{322}{subsection.14.1.3}
+\contentsline {section}{\numberline {14.2}方程空间}{322}{section.14.2}
+\contentsline {subsection}{\numberline {14.2.1}$C^{k}(\Omega ),C^{k,\kappa }(\Omega )$空间}{322}{subsection.14.2.1}
+\contentsline {subsection}{\numberline {14.2.2}勒贝格$L^p(\Omega )$空间}{324}{subsection.14.2.2}
+\contentsline {subsubsection}{$\sigma $代数}{324}{subsubsection*.229}
+\contentsline {subsubsection}{测度，可测空间，测度空间}{325}{subsubsection*.230}
+\contentsline {subsubsection}{范数}{326}{subsubsection*.231}
+\contentsline {subsubsection}{有限维度的可数勒贝格空间(p >= 1)}{327}{subsubsection*.232}
+\contentsline {subsubsection}{有限维度的可数勒贝格空间(0 <= p <= 1)}{328}{subsubsection*.233}
+\contentsline {subsubsection}{无限维度的勒贝格空间(p不可数)}{328}{subsubsection*.234}
+\contentsline {subsubsection}{无限维度的不可数勒贝格空间}{328}{subsubsection*.235}
+\contentsline {subsubsection}{加权勒贝格空间}{331}{subsubsection*.237}
+\contentsline {subsection}{\numberline {14.2.3}希尔伯特(H)空间}{331}{subsection.14.2.3}
+\contentsline {subsubsection}{例：欧几里得空间}{331}{subsubsection*.238}
+\contentsline {subsection}{\numberline {14.2.4}索伯列夫$W^{k,p}(\Omega )$空间}{335}{subsection.14.2.4}
+\contentsline {subsubsection}{微分的类以及平滑方程}{335}{subsubsection*.239}
+\contentsline {subsubsection}{分部积分}{335}{subsubsection*.240}
+\contentsline {subsubsection}{广义积分}{335}{subsubsection*.241}
+\contentsline {subsubsection}{整数阶次的单维索伯列夫空间}{337}{subsubsection*.242}
+\contentsline {subsubsection}{整数阶次的单维索伯列夫空间(p=2)}{337}{subsubsection*.243}
+\contentsline {subsubsection}{多维索伯列夫空间}{338}{subsubsection*.244}
+\contentsline {subsubsection}{分数次阶索伯列夫空间：Sobolev-Slobodeckij空间法}{338}{subsubsection*.245}
+\contentsline {subsubsection}{索伯列夫空间的性质：嵌入定理}{339}{subsubsection*.246}
+\contentsline {subsubsection}{索伯列夫空间的性质：范数等价}{342}{subsubsection*.247}
+\contentsline {subsubsection}{索伯列夫空间的Bramble-Hilbert引理}{347}{subsubsection*.248}
+\contentsline {subsubsection}{索伯列夫空间的分布}{349}{subsubsection*.249}
+\contentsline {subsubsection}{流形索伯列夫空间}{354}{subsubsection*.250}
+\contentsline {section}{\numberline {14.3}变分法}{357}{section.14.3}
+\contentsline {subsection}{\numberline {14.3.1}算子方程}{357}{subsection.14.3.1}
+\contentsline {subsection}{\numberline {14.3.2}椭圆算子}{361}{subsection.14.3.2}
+\contentsline {subsection}{\numberline {14.3.3}算子与稳定性条件}{363}{subsection.14.3.3}
+\contentsline {subsection}{\numberline {14.3.4}含有限制条件的算子方程}{365}{subsection.14.3.4}
+\contentsline {subsection}{\numberline {14.3.5}混合算子方程(鞍点变分问题)}{367}{subsection.14.3.5}
+\contentsline {subsection}{\numberline {14.3.6}强制算子方程}{373}{subsection.14.3.6}
+\contentsline {section}{\numberline {14.4}变分法求解边界值问题}{374}{section.14.4}
+\contentsline {subsection}{\numberline {14.4.1}位势方程基本介绍}{374}{subsection.14.4.1}
+\contentsline {subsection}{\numberline {14.4.2}狄利克雷边界值问题1}{375}{subsection.14.4.2}
+\contentsline {subsubsection}{将狄利克雷边界值问题改写为变分问题}{375}{subsubsection*.251}
+\contentsline {subsubsection}{解的存在性与唯一性}{376}{subsubsection*.252}
+\contentsline {subsubsection}{共形导数}{377}{subsubsection*.253}
+\contentsline {subsubsection}{带有齐次偏微分方程的狄利克雷边界值问题弱解}{378}{subsubsection*.254}
+\contentsline {subsubsection}{狄利克雷边界值问题的强解简述}{378}{subsubsection*.255}
+\contentsline {subsection}{\numberline {14.4.3}狄利克雷边界值问题2}{379}{subsection.14.4.3}
+\contentsline {subsubsection}{解的唯一存在性}{379}{subsubsection*.256}
+\contentsline {subsubsection}{调整鞍点变分问题}{380}{subsubsection*.257}
+\contentsline {subsection}{\numberline {14.4.4}诺依曼边界值问题}{381}{subsection.14.4.4}
+\contentsline {subsubsection}{将诺依曼边界值问题改写为变分问题}{381}{subsubsection*.258}
+\contentsline {subsubsection}{解的存在性与唯一性}{382}{subsubsection*.259}
+\contentsline {subsubsection}{鞍点变分问题}{382}{subsubsection*.260}
+\contentsline {subsubsection}{调整鞍点变分问题}{383}{subsubsection*.261}
+\contentsline {subsubsection}{诺依曼边界值问题的通解}{384}{subsubsection*.262}
+\contentsline {subsection}{\numberline {14.4.5}混合边界值问题}{384}{subsection.14.4.5}
+\contentsline {subsection}{\numberline {14.4.6}罗宾边界值问题}{385}{subsection.14.4.6}
+\contentsline {section}{\numberline {14.5}拉普拉斯算子的基本解}{386}{section.14.5}
+\contentsline {subsection}{\numberline {14.5.1}基本解}{386}{subsection.14.5.1}
+\contentsline {subsection}{\numberline {14.5.2}拉普拉斯算子}{387}{subsection.14.5.2}
+\contentsline {subsection}{\numberline {14.5.3}三维空间的基本解}{388}{subsection.14.5.3}
+\contentsline {subsection}{\numberline {14.5.4}二维空间的基本解}{389}{subsection.14.5.4}
+\contentsline {subsection}{\numberline {14.5.5}基本解总结}{391}{subsection.14.5.5}
+\contentsline {section}{\numberline {14.6}边界积分算子}{391}{section.14.6}
+\contentsline {subsection}{\numberline {14.6.1}牛顿位势}{391}{subsection.14.6.1}
+\contentsline {subsection}{\numberline {14.6.2}单层位势}{397}{subsection.14.6.2}
+\contentsline {subsection}{\numberline {14.6.3}伴随双层位势}{399}{subsection.14.6.3}
+\contentsline {subsection}{\numberline {14.6.4}双层位势}{402}{subsection.14.6.4}
+\contentsline {subsection}{\numberline {14.6.5}超奇异边界积分算子}{405}{subsection.14.6.5}
+\contentsline {subsubsection}{二维空间}{406}{subsubsection*.263}
+\contentsline {subsubsection}{三维空间}{409}{subsubsection*.264}
+\contentsline {subsection}{\numberline {14.6.6}边界积分算子之间的关系}{412}{subsection.14.6.6}
+\contentsline {subsection}{\numberline {14.6.7}单层位势算子的椭圆性和可逆性}{413}{subsection.14.6.7}
+\contentsline {subsubsection}{鞍点变分问题求证椭圆性}{417}{subsubsection*.266}
+\contentsline {subsubsection}{单层位势算子的可逆性}{419}{subsubsection*.268}
+\contentsline {subsection}{\numberline {14.6.8}超奇异边界积分算子的椭圆性}{419}{subsection.14.6.8}
+\contentsline {subsubsection}{超奇异边界积分算子的半椭圆性}{419}{subsubsection*.269}
+\contentsline {subsubsection}{椭圆性所处子空间的替代方案}{421}{subsubsection*.270}
+\contentsline {subsection}{\numberline {14.6.9}Steklov-Poincaré算子}{422}{subsection.14.6.9}
+\contentsline {subsection}{\numberline {14.6.10}双层位势的收缩属性}{423}{subsection.14.6.10}
+\contentsline {subsection}{\numberline {14.6.11}边界积分算子的映射特性}{427}{subsection.14.6.11}
+\contentsline {section}{\numberline {14.7}边界积分方程}{429}{section.14.7}
+\contentsline {subsection}{\numberline {14.7.1}狄利克雷边界值问题}{430}{subsection.14.7.1}
+\contentsline {subsubsection}{直接法求解狄利克雷边界值问题}{430}{subsubsection*.271}
+\contentsline {subsubsection}{间接法求解狄利克雷边界值问题}{431}{subsubsection*.272}
+\contentsline {subsection}{\numberline {14.7.2}诺依曼边界值问题}{433}{subsection.14.7.2}
+\contentsline {subsection}{\numberline {14.7.3}混合边界值问题}{436}{subsection.14.7.3}
+\contentsline {subsubsection}{直接法}{436}{subsubsection*.273}
+\contentsline {subsubsection}{间接映射法}{437}{subsubsection*.274}
+\contentsline {subsection}{\numberline {14.7.4}罗宾边界值问题}{438}{subsection.14.7.4}
+\contentsline {section}{\numberline {14.8}近似方法}{438}{section.14.8}
+\contentsline {subsection}{\numberline {14.8.1}伽辽金——布博诺夫法}{438}{subsection.14.8.1}
+\contentsline {subsubsection}{近似解的唯一可解性}{439}{subsubsection*.275}
+\contentsline {subsubsection}{近似解的稳定性}{440}{subsubsection*.276}
+\contentsline {subsubsection}{近似解的收敛性}{441}{subsubsection*.277}
+\contentsline {subsection}{\numberline {14.8.2}线性形近似}{441}{subsection.14.8.2}
+\contentsline {subsection}{\numberline {14.8.3}算子的近似}{442}{subsection.14.8.3}
+\contentsline {subsection}{\numberline {14.8.4}伽辽金——佩特洛夫法}{444}{subsection.14.8.4}
+\contentsline {subsection}{\numberline {14.8.5}混合边界值问题}{446}{subsection.14.8.5}
+\contentsline {subsubsection}{混合算子方程的鞍点变分问题}{446}{subsubsection*.279}
+\contentsline {subsubsection}{伽辽金变分问题}{446}{subsubsection*.280}
+\contentsline {subsubsection}{线性方程系统}{446}{subsubsection*.281}
+\contentsline {subsubsection}{舒尔补系统}{446}{subsubsection*.282}
+\contentsline {subsubsection}{唯一可解性}{447}{subsubsection*.283}
+\contentsline {subsubsection}{稳定性测度}{448}{subsubsection*.284}
+\contentsline {subsubsection}{误差测度项}{449}{subsubsection*.285}
+\contentsline {subsubsection}{离散稳定条件}{450}{subsubsection*.286}
+\contentsline {subsection}{\numberline {14.8.6}强制算子}{450}{subsection.14.8.6}
+\contentsline {section}{\numberline {14.9}有限元}{453}{section.14.9}
+\contentsline {subsection}{\numberline {14.9.1}参考元}{453}{subsection.14.9.1}
+\contentsline {subsubsection}{基本概念}{453}{subsubsection*.287}
+\contentsline {subsubsection}{一维空间的局部参数化}{455}{subsubsection*.290}
+\contentsline {subsubsection}{二维空间的局部参数化}{456}{subsubsection*.291}
+\contentsline {subsubsection}{三维空间的局部参数化}{458}{subsubsection*.293}
+\contentsline {subsubsection}{识别方程等价范的测度不等式}{460}{subsubsection*.294}
+\contentsline {subsection}{\numberline {14.9.2}形式方程}{461}{subsection.14.9.2}
+\contentsline {subsubsection}{常数型形式方程}{461}{subsubsection*.295}
+\contentsline {subsubsection}{线性形式方程}{461}{subsubsection*.296}
+\contentsline {subsubsection}{二次形式方程}{463}{subsubsection*.297}
+\contentsline {subsection}{\numberline {14.9.3}检测空间}{465}{subsection.14.9.3}
+\contentsline {subsubsection}{检测空间的插值算子}{466}{subsubsection*.299}
+\contentsline {subsubsection}{检测空间的投影算子}{467}{subsubsection*.300}
+\contentsline {chapter}{\numberline {第十五章\hspace {.3em}}误差分析}{469}{chapter.15}
+\contentsline {section}{\numberline {15.1}理论分析}{469}{section.15.1}
+\contentsline {section}{\numberline {15.2}初步评估}{469}{section.15.2}
+\contentsline {section}{\numberline {15.3}chi方误差检测}{470}{section.15.3}
+\contentsline {section}{\numberline {15.4}欧拉等式误差检测}{470}{section.15.4}
+\contentsline {section}{\numberline {15.5}误差值的改进}{474}{section.15.5}
+\contentsline {part}{第三部分\hspace {1em}模型估计}{475}{part.3}
+\contentsline {chapter}{\numberline {第十六章\hspace {.3em}}将DSGE模型和实际数据联系起来}{477}{chapter.16}
+\contentsline {section}{\numberline {16.1}典型DSGE模型}{477}{section.16.1}
+\contentsline {subsection}{\numberline {16.1.1}对数线性化均衡条件}{478}{subsection.16.1.1}
+\contentsline {subsection}{\numberline {16.1.2}模型求解}{480}{subsection.16.1.2}
+\contentsline {subsubsection}{产出的运动法则}{480}{subsubsection*.308}
+\contentsline {subsubsection}{劳动收入份额的运动法则}{480}{subsubsection*.309}
+\contentsline {subsubsection}{通货膨胀率的运动法则}{481}{subsubsection*.310}
+\contentsline {subsubsection}{利率的运动法则}{481}{subsubsection*.311}
+\contentsline {subsubsection}{外生冲击}{481}{subsubsection*.312}
+\contentsline {subsection}{\numberline {16.1.3}状态——空间表现式}{482}{subsection.16.1.3}
+\contentsline {subsubsection}{从DSGE模型到状态空间模型}{483}{subsubsection*.313}
+\contentsline {section}{\numberline {16.2}模型的含义}{484}{section.16.2}
+\contentsline {subsection}{\numberline {16.2.1}自协方差，预测误差方差}{484}{subsection.16.2.1}
+\contentsline {subsubsection}{协方差}{485}{subsubsection*.317}
+\contentsline {subsubsection}{预测误差}{485}{subsubsection*.318}
+\contentsline {subsection}{\numberline {16.2.2}光谱分析}{487}{subsection.16.2.2}
+\contentsline {subsection}{\numberline {16.2.3}冲击响应方程}{489}{subsection.16.2.3}
+\contentsline {subsubsection}{条件矩的限制}{490}{subsubsection*.322}
+\contentsline {section}{\numberline {16.3}经验验证}{492}{section.16.3}
+\contentsline {subsection}{\numberline {16.3.1}自协方差}{495}{subsection.16.3.1}
+\contentsline {subsection}{\numberline {16.3.2}光谱分析}{497}{subsection.16.3.2}
+\contentsline {chapter}{Appendices}{499}{chapter*.326}
+\contentsline {section}{附录 \numberline {16.A}欧拉公式(复分析)}{499}{section.4.16.A}
+\contentsline {subsection}{\numberline {16.A.1}欧拉公式和欧拉恒等式}{499}{subsection.4.16.A.1}
+\contentsline {subsection}{\numberline {16.A.2}欧拉公式的作用}{502}{subsection.4.16.A.2}
+\contentsline {subsubsection}{复数的坐标形式}{502}{subsubsection*.329}
+\contentsline {subsubsection}{复数的乘除}{503}{subsubsection*.331}
+\contentsline {subsubsection}{对复数的取幂}{503}{subsubsection*.332}
+\contentsline {subsubsection}{复值夹角}{504}{subsubsection*.333}
+\contentsline {section}{附录 \numberline {16.B}高斯核方程}{505}{section.4.16.B}
+\contentsline {subsection}{\numberline {16.B.1}高斯核}{505}{subsection.4.16.B.1}
+\contentsline {subsection}{\numberline {16.B.2}标准化}{505}{subsection.4.16.B.2}
+\contentsline {subsection}{\numberline {16.B.3}瀑布特征}{506}{subsection.4.16.B.3}
+\contentsline {subsection}{\numberline {16.B.4}带宽参数}{506}{subsection.4.16.B.4}
+\contentsline {subsection}{\numberline {16.B.5}一些方程}{507}{subsection.4.16.B.5}
+\contentsline {part}{第四部分\hspace {1em}待分类}{509}{part.4}
+\contentsline {chapter}{\numberline {第十七章\hspace {.3em}}最大似然估计}{511}{chapter.17}
+\contentsline {section}{\numberline {17.1}简介}{511}{section.17.1}
+\contentsline {section}{\numberline {17.2}近似的测度}{511}{section.17.2}
+\contentsline {subsection}{\numberline {17.2.1}估计的偏误：标量参数}{512}{subsection.17.2.1}
+\contentsline {subsubsection}{偏误}{512}{subsubsection*.337}
+\contentsline {subsubsection}{可测度性}{512}{subsubsection*.338}
+\contentsline {subsubsection}{测度的方差和均方误差}{512}{subsubsection*.339}
+\contentsline {subsection}{\numberline {17.2.2}估计的偏误：向量参数}{512}{subsection.17.2.2}
+\contentsline {subsubsection}{平均偏误}{513}{subsubsection*.340}
+\contentsline {subsubsection}{测度的方差和均方误差}{513}{subsubsection*.341}
+\contentsline {section}{\numberline {17.3}费雪信息矩阵和克拉美罗下界}{513}{section.17.3}
+\contentsline {subsection}{\numberline {17.3.1}标量参数}{513}{subsection.17.3.1}
+\contentsline {subsection}{\numberline {17.3.2}向量参数}{514}{subsection.17.3.2}
+\contentsline {section}{\numberline {17.4}最大似然估计}{514}{section.17.4}
+\contentsline {subsection}{\numberline {17.4.1}最大似然估计：to be or not to be?}{514}{subsection.17.4.1}
+\contentsline {section}{\numberline {17.5}伯努利实验：最大似然估计法}{515}{section.17.5}
+\contentsline {section}{\numberline {17.6}伯努利实验：最大似然估计的Python程序实现}{516}{section.17.6}
+\contentsline {subsection}{\numberline {17.6.1}模型构建}{516}{subsection.17.6.1}
+\contentsline {subsection}{\numberline {17.6.2}似然方程}{518}{subsection.17.6.2}
+\contentsline {subsection}{\numberline {17.6.3}最大似然估计：解析法}{518}{subsection.17.6.3}
+\contentsline {subsection}{\numberline {17.6.4}最大似然估计：数值法}{519}{subsection.17.6.4}
+\contentsline {subsection}{\numberline {17.6.5}无约束参数\(g(\varphi )\)构成的模型系统}{520}{subsection.17.6.5}
+\contentsline {subsubsection}{Delta近似法}{521}{subsubsection*.342}
+\contentsline {subsubsection}{最大似然估计：算法举例}{522}{subsubsection*.343}
+\contentsline {chapter}{\numberline {第十八章\hspace {.3em}}工作论文}{527}{chapter.18}
+\contentsline {section}{\numberline {18.1}问题的提出}{527}{section.18.1}
+\contentsline {subsection}{\numberline {18.1.1}研究目标}{527}{subsection.18.1.1}
+\contentsline {subsection}{\numberline {18.1.2}模型设定}{527}{subsection.18.1.2}
+\contentsline {section}{\numberline {18.2}境内金融中介部门}{528}{section.18.2}
+\contentsline {part}{第五部分\hspace {1em}附录}{531}{part.5}
+\contentsline {chapter}{Appendices}{}{section*.347}
+\contentsline {chapter}{附录 \numberline {第一章\hspace {.3em}}Post-Keynesian Economics的一个小综述}{535}{附录.5.A}
+\contentsline {section}{\numberline {A.1}Introduction}{535}{section.5.A.1}
+\contentsline {section}{\numberline {A.2}PK的主要方法论}{535}{section.5.A.2}
+\contentsline {section}{\numberline {A.3}PK下的市场结构与定价}{535}{section.5.A.3}
+\contentsline {subsection}{\numberline {A.3.1}PK下的市场结构}{535}{subsection.5.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}PK下的定价策略}{535}{subsection.5.A.3.2}
+\contentsline {section}{\numberline {A.4}PK下的宏观经济}{535}{section.5.A.4}
+\contentsline {section}{\numberline {A.5}PK视野下的经济政策}{536}{section.5.A.5}
+\contentsline {chapter}{附录 \numberline {第二章\hspace {.3em}}Keynesian, New Keynesian and New Classical Economics}{537}{附录.5.B}
+\contentsline {section}{\numberline {B.1}Keynesian的四个核心}{537}{section.5.B.1}
+\contentsline {subsection}{\numberline {B.1.1}失业与有效工资理论}{537}{subsection.5.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}价格变化与经济波动}{538}{subsection.5.B.1.2}
+\contentsline {subsection}{\numberline {B.1.3}储蓄与投资，信贷配给}{539}{subsection.5.B.1.3}
+\contentsline {subsection}{\numberline {B.1.4}供应与技术进步}{539}{subsection.5.B.1.4}
+\contentsline {section}{\numberline {B.2}New Keynesian经济学的四个核心}{539}{section.5.B.2}
+\contentsline {subsection}{\numberline {B.2.1}有效工资}{539}{subsection.5.B.2.1}
+\contentsline {subsection}{\numberline {B.2.2}资产配给}{539}{subsection.5.B.2.2}
+\contentsline {subsection}{\numberline {B.2.3}信贷配给}{539}{subsection.5.B.2.3}
+\contentsline {subsection}{\numberline {B.2.4}货币政策}{540}{subsection.5.B.2.4}
+\contentsline {subsection}{\numberline {B.2.5}小结}{540}{subsection.5.B.2.5}
+\contentsline {section}{\numberline {B.3}凯恩斯的不足}{540}{section.5.B.3}
+\contentsline {subsection}{\numberline {B.3.1}债券和股票的区别}{541}{subsection.5.B.3.1}
+\contentsline {subsection}{\numberline {B.3.2}需求和供应}{541}{subsection.5.B.3.2}
+\contentsline {subsection}{\numberline {B.3.3}投资的决定因素}{541}{subsection.5.B.3.3}
+\contentsline {subsection}{\numberline {B.3.4}货币政策}{542}{subsection.5.B.3.4}
+\contentsline {section}{\numberline {B.4}小结}{542}{section.5.B.4}

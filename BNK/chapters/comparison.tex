@@ -1,0 +1,75 @@
+%!TEX root = ../DSGEnotes.tex
+\chapter{扰动法和投影法的比较}
+\label{sec:pt-pj-comp}
+
+\section{优缺点}
+\label{sec:pt-pj-comp-analysis}
+扰动法
+\begin{enumerate}
+  \item 显著优势：
+  \begin{enumerate}
+     \item 相对易于理解、易于编程。
+     \item 较高的计算效率。
+
+     例如12个左右状态变量的DSGE模型，若是采用3阶扰动法做近似(matlab + dynare平台)，可以在笔记本上实现秒级的求解速度。
+  \end{enumerate}
+  \item 明显不足：
+  \begin{enumerate}
+    \item 本质上来说还是局部近似。
+
+    泰勒级数近似方法有时只有在近似点附近表现良好，稍微远离近似点就会产生较大误差，当DSGE模型的非线性程度较高时(常常如此)，这一现象表现的更明显。尽管扰动法近似解也具有一定程度上的全局性特征\citep{Swanson:2006gy, Aruoba:2006cz, Caldara:2012fr}，但在每一个具体应用中，都需要针对求得的局部近似解，作全局的稳健性检验，这不得不说是一个额外负担。
+
+    \item 精确度。
+
+    对于一些追求高精度近似的DSGE研究来说，(哪怕是高阶)扰动法的近似精度可能无法达标。
+
+    \item 前提假定过强。
+
+    应用扰动法的前提是假定方程是连续、可导的。而连续可导性条件在引入利率的DSGE模型中往往不能满足，往往存在Kinks、限制条件(binding constraints)等，如图\ref{fig:pj-kinks}。\footnote{对此，一些研究从模型设定本身来处理不连续的情况，如引入惩罚方程(penalty function)\index{penalty function \dotfill 惩罚方程}，如\cite{Preston:2007fu}。事实上，由许多国家央行主持的引入负利率的政策实验也表明，零下界(zero lower bound, ZLB)的限定条件可能更接近于惩罚方程的一种形式，而非传统意义上的kinks。}。
+  \end{enumerate}
+\end{enumerate}
+
+投影法
+\begin{enumerate}
+  \item 显著优势：
+
+  全局解，高精度。
+
+  这是受益于(切比雪夫)多项式和有限元分析法的性质，使得投影法的近似解是全局解，并且具有很高的精确度\citep{Aruoba:2006cz, Caldara:2012fr}，这使得它能处理甚至是最复杂的DSGE系统，如包括一些突发限制条件，非常规形状，局部特殊性等。
+
+  \item 明显不足
+
+  计算成本偏高。
+
+  尤其是编写代码的难度，具有很强的维数灾难的特征！
+\end{enumerate}
+
+\section{实际研究中用哪个？}
+\label{sec:pt-pj-comp-choose}
+在扰动法和投影法一众可选的近似求解方案挑选哪一个展开实际研究，应当视情况而定。
+
+\begin{enumerate}
+  \item 如果要求解一个含有20个左右状态变量的中等规模新凯恩斯模型，那么扰动法可能是理想的求解方案。
+
+因为新凯恩斯模型往往定义良好，在大多数情况下，用局部近似求解法足以达到目的。
+\begin{itemize}
+  \item 一阶近似可提供对经济周期相关信息的估计，如方差、协方差等。
+  \item 二、三甚至更高阶近似，在经过谨慎处理之后，可提供福利效果分析的估计\citep{Levintal:2017dm}。
+\end{itemize}
+
+\item 如果要求解含有(金融等)部门摩擦、较高风险厌恶程度的的DSGE模型，同时状态变量的数量较少，那么更适于采用投影法。
+
+\item 处于实际研究目的的需要，有时甚至可以用扰动法、投影法分别求解同一个系统，比较两者在编程时间、程序计算时间、近似精度等方面的表现。
+\end{enumerate}
+
+\section{混合求解法}
+\label{sec:pt-pj-comp-hybrid}
+
+通过比较扰动法和投影法的优缺点，我们也可以探讨一种混合求解策略，将二者的长处结合起来。如\cite[Sec 5.6]{Judd:1998uy}提出如下混合算法的思路，进而作了举例说明：
+\begin{enumerate}
+  \item 用扰动法，构建一组待求解DSGE系统的基方程，
+  \item 应用格拉姆-施密特正交化过程(Gram-Schmidt ortorthogonality proprocess， 第\ref{sec:orthogonality-polynomials}节)\index{Gram-Schmidt orthogonality process \dotfill 格拉姆-施密特正交化过程}，构建另一组基方程，与第一步算得的基方程正交。
+  \item 对第二步算得的基方程做投影法近似。
+\end{enumerate}
+
+近期的一系列研究也采用了混合求解的思路，如\cite{Maliar:2012gv, FernandezVillaverde:2016wg, Levintal:2017bp}等。\cite{FernandezVillaverde:2016wg}发现，在计算含有罕见风险的大约12个状态变量的DSGE模型时，混合策略比单纯的扰动法、投影法都具有更高的精确度。

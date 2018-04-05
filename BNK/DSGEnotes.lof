@@ -1,55 +1,80 @@
 \addvspace {10.0pt}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces 数值模拟：$\{\pi ^{\#},\nu ^p\}$ vs $\pi $。模拟过程中设参数值$\phi =0.25$，$\epsilon =10$， $\beta = 0.99$。}}{30}{figure.2.1}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces 数值模拟：$\{\pi ^{\#},\nu ^p\}$ vs $\pi $。模拟过程中设参数值$\phi =0.25$，$\epsilon =10$， $\beta = 0.99$。\relax }}{32}{figure.caption.4}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {6.1}{\ignorespaces CIA DSGE模型结构图}}{99}{figure.6.0.1}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces CIA DSGE模型结构图\relax }}{101}{figure.caption.55}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {7.1}{\ignorespaces DSGE模型的工作流程}}{114}{figure.7.3.1}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces DSGE模型的工作流程\relax }}{116}{figure.caption.64}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {8.1}{\ignorespaces 不同$m$取值下的包络定理}}{127}{figure.8.5.1}
-\addvspace {10.0pt}
-\addvspace {10.0pt}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces 不同$m$取值下的包络定理\relax }}{129}{figure.caption.72}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {12.1}{\ignorespaces 单项式方程}}{201}{figure.12.2.1}
-\contentsline {figure}{\numberline {12.2}{\ignorespaces 切比雪夫多项式$T_n(x)$}}{203}{figure.12.2.2}
-\contentsline {figure}{\numberline {12.3}{\ignorespaces 切比雪夫多项式的根}}{204}{figure.12.2.3}
-\contentsline {figure}{\numberline {12.4}{\ignorespaces 切比雪夫多项式的根}}{204}{figure.12.2.4}
-\contentsline {figure}{\numberline {12.1}{\ignorespaces 张量模拟}}{208}{figure.12.3.1}
-\contentsline {figure}{\numberline {12.1}{\ignorespaces kinks}}{209}{figure.12.4.1}
-\contentsline {figure}{\numberline {12.2}{\ignorespaces 三角方程形式}}{210}{figure.12.4.2}
-\contentsline {figure}{\numberline {12.1}{\ignorespaces 随机NCGT模型的投影法近似求解}}{219}{figure.12.6.1}
-\contentsline {figure}{\numberline {12.1}{\ignorespaces 稀疏网格}}{222}{figure.12.7.1}
-\contentsline {figure}{\numberline {12.2}{\ignorespaces 稀疏网格$\mathrm {G}(5,3)$}}{222}{figure.12.7.2}
-\contentsline {figure}{\numberline {12.C.1}{\ignorespaces 正交多项式满足的关系}}{239}{figure.3.12.C.1}
-\contentsline {figure}{\numberline {12.C.2}{\ignorespaces 正态分布}}{240}{figure.3.12.C.2}
-\contentsline {figure}{\numberline {12.C.3}{\ignorespaces 埃米特多项式}}{241}{figure.3.12.C.3}
-\contentsline {figure}{\numberline {12.C.4}{\ignorespaces 伽玛分布}}{243}{figure.3.12.C.4}
-\contentsline {figure}{\numberline {12.C.5}{\ignorespaces 贝塔分布}}{248}{figure.3.12.C.5}
-\contentsline {figure}{\numberline {12.C.6}{\ignorespaces 切比雪夫插值近似}}{259}{figure.3.12.C.6}
-\contentsline {figure}{\numberline {12.F.1}{\ignorespaces 矩形法则$(N=4)$}}{274}{figure.3.12.F.1}
-\contentsline {figure}{\numberline {12.F.2}{\ignorespaces 梯形法则$(N=4)$}}{274}{figure.3.12.F.2}
-\contentsline {figure}{\numberline {12.F.3}{\ignorespaces 3阶牛顿——寇特斯法则，对应子区间中的4个配点}}{276}{figure.3.12.F.3}
-\contentsline {figure}{\numberline {12.F.4}{\ignorespaces 龙格现象$(N=6)$}}{277}{figure.3.12.F.4}
-\contentsline {figure}{\numberline {12.F.5}{\ignorespaces 比较矩形法则和梯形法则下，近似误差随$N$值增大的收敛情况}}{278}{figure.3.12.F.5}
-\contentsline {figure}{\numberline {12.F.6}{\ignorespaces 适应性求积}}{281}{figure.3.12.F.6}
-\contentsline {figure}{\numberline {12.F.7}{\ignorespaces 非周期方程的$T$-周期扩展$t \in [0,1]$}}{284}{figure.3.12.F.7}
-\contentsline {figure}{\numberline {12.F.8}{\ignorespaces $f(t)$和$g(\theta )$}}{286}{figure.3.12.F.8}
-\contentsline {figure}{\numberline {12.F.9}{\ignorespaces $f(x), x \in [-1,1]$}}{291}{figure.3.12.F.9}
-\contentsline {figure}{\numberline {12.F.10}{\ignorespaces 求积法则误差的衰减}}{293}{figure.3.12.F.10}
-\contentsline {figure}{\numberline {12.G.1}{\ignorespaces 傅里叶变换}}{294}{figure.3.12.G.1}
-\contentsline {figure}{\numberline {12.G.2}{\ignorespaces 洛伦兹方程$(\alpha = 2)$}}{297}{figure.3.12.G.2}
-\contentsline {figure}{\numberline {12.G.3}{\ignorespaces $f(t) = \qopname \relax o{cos}^{2} \left ( 3 t \right ), t \in (-2, 2)$}}{302}{figure.3.12.G.3}
-\contentsline {figure}{\numberline {12.G.4}{\ignorespaces 锯齿波}}{303}{figure.3.12.G.4}
-\contentsline {figure}{\numberline {12.G.5}{\ignorespaces 吉布斯现象}}{304}{figure.3.12.G.5}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {13.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$}}{445}{figure.13.9.1}
-\contentsline {figure}{\numberline {13.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)}}{446}{figure.13.9.2}
-\contentsline {figure}{\numberline {13.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)}}{448}{figure.13.9.3}
-\contentsline {figure}{\numberline {13.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$}}{457}{figure.13.9.4}
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {12.1}{\ignorespaces 单项式方程}}{203}{figure.caption.125}
+\contentsline {figure}{\numberline {12.2}{\ignorespaces 切比雪夫多项式$T_n(x)$\relax }}{205}{figure.caption.126}
+\contentsline {figure}{\numberline {12.3}{\ignorespaces 切比雪夫多项式的根}}{206}{figure.caption.127}
+\contentsline {figure}{\numberline {12.4}{\ignorespaces 切比雪夫多项式的根}}{206}{figure.caption.128}
+\contentsline {figure}{\numberline {12.1}{\ignorespaces 张量模拟}}{210}{figure.caption.132}
+\contentsline {figure}{\numberline {12.1}{\ignorespaces kinks}}{211}{figure.caption.135}
+\contentsline {figure}{\numberline {12.2}{\ignorespaces 三角方程形式\relax }}{212}{figure.caption.136}
+\contentsline {figure}{\numberline {12.1}{\ignorespaces 随机NCGT模型的投影法近似求解}}{221}{figure.caption.143}
+\contentsline {figure}{\numberline {12.1}{\ignorespaces 稀疏网格}}{224}{figure.caption.149}
+\contentsline {figure}{\numberline {12.2}{\ignorespaces 稀疏网格$\mathrm {G}(5,3)$\relax }}{225}{figure.caption.150}
+\contentsline {figure}{\numberline {12.C.1}{\ignorespaces 正交多项式满足的关系\relax }}{245}{figure.caption.161}
+\contentsline {figure}{\numberline {12.C.2}{\ignorespaces 正态分布\relax }}{246}{figure.caption.162}
+\contentsline {figure}{\numberline {12.C.3}{\ignorespaces 埃米特多项式\relax }}{247}{figure.caption.163}
+\contentsline {figure}{\numberline {12.C.4}{\ignorespaces 伽玛分布\relax }}{249}{figure.caption.164}
+\contentsline {figure}{\numberline {12.C.5}{\ignorespaces 贝塔分布\relax }}{254}{figure.caption.166}
+\contentsline {figure}{\numberline {12.C.6}{\ignorespaces 切比雪夫插值近似\relax }}{265}{figure.caption.167}
+\contentsline {figure}{\numberline {12.F.1}{\ignorespaces 矩形法则$(N=4)$\relax }}{280}{figure.caption.174}
+\contentsline {figure}{\numberline {12.F.2}{\ignorespaces 梯形法则$(N=4)$\relax }}{280}{figure.caption.176}
+\contentsline {figure}{\numberline {12.F.3}{\ignorespaces 3阶牛顿——寇特斯法则，对应子区间中的4个配点\relax }}{282}{figure.caption.178}
+\contentsline {figure}{\numberline {12.F.4}{\ignorespaces 龙格现象$(N=6)$\relax }}{283}{figure.caption.180}
+\contentsline {figure}{\numberline {12.F.5}{\ignorespaces 比较矩形法则和梯形法则下，近似误差随$N$值增大的收敛情况\relax }}{284}{figure.caption.182}
+\contentsline {figure}{\numberline {12.F.6}{\ignorespaces 适应性求积\relax }}{287}{figure.caption.189}
+\contentsline {figure}{\numberline {12.F.7}{\ignorespaces 非周期方程的$T$-周期扩展$t \in [0,1]$\relax }}{290}{figure.caption.192}
+\contentsline {figure}{\numberline {12.F.8}{\ignorespaces $f(t)$和$g(\theta )$\relax }}{292}{figure.caption.195}
+\contentsline {figure}{\numberline {12.F.9}{\ignorespaces $f(x), x \in [-1,1]$\relax }}{297}{figure.caption.199}
+\contentsline {figure}{\numberline {12.F.10}{\ignorespaces 求积法则误差的衰减\relax }}{299}{figure.caption.200}
+\contentsline {figure}{\numberline {12.G.1}{\ignorespaces 傅里叶变换\relax }}{300}{figure.caption.203}
+\contentsline {figure}{\numberline {12.G.2}{\ignorespaces 洛伦兹方程$(\alpha = 2)$\relax }}{303}{figure.caption.210}
+\contentsline {figure}{\numberline {12.G.3}{\ignorespaces $f(t) = \qopname \relax o{cos}^{2} \left ( 3 t \right ), t \in (-2, 2)$\relax }}{308}{figure.caption.214}
+\contentsline {figure}{\numberline {12.G.4}{\ignorespaces 锯齿波\relax }}{309}{figure.caption.216}
+\contentsline {figure}{\numberline {12.G.5}{\ignorespaces 吉布斯现象\relax }}{310}{figure.caption.218}
+\addvspace {10.0pt}
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {14.1}{\ignorespaces 有限元$\tau _{\ell }$及其结点$x_{k}$\relax }}{453}{figure.caption.288}
+\contentsline {figure}{\numberline {14.2}{\ignorespaces 容许分解，以及不容许分解的三角分解($d=2$)\relax }}{454}{figure.caption.289}
+\contentsline {figure}{\numberline {14.3}{\ignorespaces 有限元$\tau _{\ell }$和参考元$\tau $($d=2$)\relax }}{456}{figure.caption.292}
+\contentsline {figure}{\numberline {14.4}{\ignorespaces 检测空间$\mathcal {S}_{h}^{1}\left (\mathcal {T}_{N} \right )$的基$\psi _{k}^{1}(x)$\relax }}{465}{figure.caption.298}
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {15.1}{\ignorespaces 欧拉等式误差检测\relax }}{472}{figure.caption.301}
+\contentsline {figure}{\numberline {15.2}{\ignorespaces 欧拉等式误差检测的比较\relax }}{473}{figure.caption.302}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {扰动法}}}{473}{subfigure.15.4.3.2}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {投影法}}}{473}{subfigure.15.4.3.2}
+\addvspace {10.0pt}
+\contentsline {figure}{\numberline {16.1}{\ignorespaces 预测误差的方差分解\relax }}{487}{figure.caption.319}
+\contentsline {figure}{\numberline {16.2}{\ignorespaces 预测误差的方差分解\relax }}{489}{figure.caption.320}
+\contentsline {figure}{\numberline {16.3}{\ignorespaces 产出的冲击响应方程\relax }}{490}{figure.caption.321}
+\contentsline {figure}{\numberline {16.1}{\ignorespaces 抽样观测数据的跨相关\relax }}{496}{figure.caption.324}
+\contentsline {figure}{\numberline {16.A.1}{\ignorespaces 正弦函数的导数\relax }}{500}{figure.caption.327}
+\contentsline {figure}{\numberline {16.A.2}{\ignorespaces 麦克劳林级数的示例：对$\qopname \relax o{sin}(x)$(蓝色曲线)沿着$x_{0}=0$作$n$阶泰勒级数展开(红色曲线)。\relax }}{501}{figure.caption.328}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$n=1$}}}{501}{figure.caption.328}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$n=3$}}}{501}{figure.caption.328}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$n=5$}}}{501}{figure.caption.328}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$n=7$}}}{501}{figure.caption.328}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$n=9$}}}{501}{figure.caption.328}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$n=11$}}}{501}{figure.caption.328}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {$n=13$}}}{501}{figure.caption.328}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {$n=15$}}}{501}{figure.caption.328}
+\contentsline {figure}{\numberline {16.A.3}{\ignorespaces 正弦函数的导数\relax }}{503}{figure.caption.330}
+\contentsline {figure}{\numberline {16.A.4}{\ignorespaces 双曲正弦/余弦方程,$x \in \left [ -3 \pi , 3 \pi \right ]$\relax }}{504}{figure.caption.334}
+\contentsline {figure}{\numberline {16.B.1}{\ignorespaces 高斯核方程的振幅随带宽的增加而显著降低\relax }}{506}{figure.caption.335}
+\contentsline {figure}{\numberline {16.B.2}{\ignorespaces 误差方程(累积高斯方程)随$\sigma $值的变化\relax }}{507}{figure.caption.336}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}

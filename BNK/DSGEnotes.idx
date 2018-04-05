@@ -1,434 +1,478 @@
-\indexentry{dynamic programming \dotfill 动态规划}{119}
-\indexentry{Envelope Theorem \dotfill 包络定理}{119}
-\indexentry{Inada condition \dotfill 稻田条件}{120}
-\indexentry{value function \dotfill 价值方程}{121}
-\indexentry{Bellman equation \dotfill 贝尔曼等式}{121}
-\indexentry{projection method \dotfill 映射法}{197}
-\indexentry{weighted residual methods \dotfill 加权残差法}{197}
-\indexentry{basis function \dotfill 基方程}{197}
-\indexentry{residual function (projection method) \index{残差方程(映射法)}}{197}
-\indexentry{metric function \dotfill 度量方程}{198}
-\indexentry{distance function \dotfill 距离方程}{198}
-\indexentry{metric function!discrete \unhbox \voidb@x \cleaders \hbox to.44em{\hss .\hss }\hfill \kern \z@ 离散度量方程}{198}
-\indexentry{basis!global \dotfill 全局基}{200}
-\indexentry{basis!local \dotfill 局部基}{200}
-\indexentry{spectral method \dotfill 光谱法}{200}
-\indexentry{spectral method \dotfill 有限元法}{200}
-\indexentry{basis!unidimensional \dotfill 单维基}{200}
-\indexentry{basis!monomial \dotfill 单项式(基)}{200}
-\indexentry{Stone-Weierstrass Theorem \dotfill 斯通-魏尔斯特拉斯定理}{200}
-\indexentry{basis!trigonometric series \dotfill 三角序列(基)}{201}
-\indexentry{basis!Jacobi polynomial \dotfill 雅各比多项式(基)}{201}
-\indexentry{basis!Chebyshev polynomial \dotfill 切比雪夫多项式(基)}{201}
-\indexentry{interpolation!Chebyshev \dotfill 切比雪夫插值}{202}
-\indexentry{collocation! \dotfill 配点}{202}
-\indexentry{collocation!orthogonal \dotfill 正交配点}{202}
-\indexentry{truncation!Chebyshev \dotfill 切比雪夫截断}{202}
-\indexentry{curse of dimensionality \dotfill 维数灾难}{205}
-\indexentry{Markov chain!finite \dotfill 有限马尔科夫链}{206}
-\indexentry{distribution!stationary \dotfill 平稳分布}{206}
-\indexentry{transition matrix \dotfill 转移矩阵}{206}
-\indexentry{transition probability \dotfill 转移概率}{206}
-\indexentry{tensor \dotfill 张量}{207}
-\indexentry{curse of dimensionality \dotfill 维数灾难}{208}
-\indexentry{polynomial!complete \dotfill 完全多项式}{208}
-\indexentry{finite elements method \dotfill 有限元法}{208}
-\indexentry{node \dotfill 结点}{209}
-\indexentry{grid \dotfill 网格}{209}
-\indexentry{piecewise linear approximation \dotfill 分段线性近似}{211}
-\indexentry{h-refinement finite elements\dotfill h——改进(有限元分析)}{211}
-\indexentry{r-refinement finite elements \dotfill r——改进(有限元分析)}{211}
-\indexentry{p-refinement finite elements \dotfill p——改进(有限元分析)}{211}
-\indexentry{spectral elements \dotfill 光谱元}{211}
-\indexentry{hp-adaptive finite elements \dotfill hp——有限元法}{211}
-\indexentry{Newton algorithm \dotfill 牛顿算法}{212}
-\indexentry{Levenberg-Marquardt algorithm \dotfill 莱文贝格——马夸特方法}{212}
-\indexentry{collocation! \dotfill 配点}{213}
-\indexentry{pseudospectral \dotfill 伪光谱}{213}
-\indexentry{selected points \dotfill 选点}{213}
-\indexentry{dirac delta function \dotfill 狄拉克方程}{213}
-\indexentry{collocation!orthogonal \dotfill 正交配点}{213}
-\indexentry{uniform convergence \dotfill 均匀收敛}{213}
-\indexentry{Galerkin method \dotfill 伽辽金近似法}{213}
-\indexentry{Bellman equation \dotfill 贝尔曼等式}{216}
-\indexentry{sparse grid \dotfill 稀疏网格}{219}
-\indexentry{Smolyak algorithm \dotfill Smolyak算法}{219}
-\indexentry{ergodic set \dotfill 遍历集}{220}
-\indexentry{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则}{221}
-\indexentry{cartesian product \dotfill 笛卡尔乘积}{221}
-\indexentry{cardinality \dotfill 势}{223}
-\indexentry{nestedness of Chebyshev nodes \dotfill 嵌套性(切比雪夫结点)}{223}
-\indexentry{hypergeometric!series \dotfill 超几何序列}{225}
-\indexentry{hypergeometric!series, monic \dotfill 首一超几何序列}{225}
-\indexentry{Pochhammer symbol \dotfill 伯赫哈默尔符号}{225}
-\indexentry{hypergeometric!function \dotfill 超几何方程}{225}
-\indexentry{hypergeometric!function, generalized \dotfill 广义超几何方程}{226}
-\indexentry{binomial theorem \dotfill 二项式定理}{226}
-\indexentry{Euler integral representation \dotfill 欧拉积分表达式}{227}
-\indexentry{Beta integral \dotfill 贝塔积分}{227}
-\indexentry{Pochhammer symbol \dotfill 伯赫哈默尔符号}{227}
-\indexentry{Gauss summation formula \dotfill{高斯求和公式}}{227}
-\indexentry{Gamma function \unhbox \voidb@x \cleaders \hbox to.44em{\hss .\hss }\hfill \kern \z@ {伽马方程}}{227}
-\indexentry{Chu-Vandermonde summation \dotfill 朱世杰——范德蒙德求和公式}{228}
-\indexentry{Pfaff's transformation formula \dotfill 法夫转换公式}{228}
-\indexentry{Euler transformation formula \dotfill 欧拉转换公式}{228}
-\indexentry{Pfaff-Saalschütz summation formula \dotfill 法夫——萨尔舒茨求和公式}{229}
-\indexentry{Riemann-Stieltjes integral \dotfill 黎曼——斯蒂尔杰斯积分}{230}
-\indexentry{weight function \dotfill 权重方程}{230}
-\indexentry{norm \dotfill 范数}{231}
-\indexentry{moment \dotfill 矩}{231}
-\indexentry{Kronecker product\dotfill 克罗内克乘积}{231}
-\indexentry{inner product \dotfill 内积}{231}
-\indexentry{polynomial!orthonormal \dotfill 标准正交多项式}{231}
-\indexentry{polynomial!monic orthogonal \dotfill 首一正交多项式}{231}
-\indexentry{Gram-Schmidt orthogonality process \dotfill 格拉姆-施密特正交化过程}{231}
-\indexentry{Hankel moment matrix \dotfill 汉克尔矩阵}{232}
-\indexentry{three-term recurrence relation!monic polynomial \dotfill 三项递推关系(首一正交多项式)}{233}
-\indexentry{three-term recurrence relation!orthonormal polynomial \dotfill 三项递推关系(标准正交多项式)}{233}
-\indexentry{matrix!tridiagonal \dotfill 三角对角矩阵}{234}
-\indexentry{matrix!infinite Jacobi \dotfill 无限雅各比矩阵}{234}
-\indexentry{matrix!leading principle submatrix \dotfill 领先主子矩阵}{234}
-\indexentry{Christoffel-Darboux relation \dotfill 克里斯托费尔——达布关系}{234}
-\indexentry{telescoping sum \dotfill 裂项和}{235}
-\indexentry{matrix!identity \dotfill 单位矩阵}{235}
-\indexentry{Gauss quadrature formula \dotfill 高斯求积公式}{237}
-\indexentry{interpolation!Lagrange \dotfill 拉格朗日插值法}{237}
-\indexentry{Christoffel numbers \dotfill 克里斯托费尔数}{237}
-\indexentry{normal distribution \dotfill 正态分布}{239}
-\indexentry{polynomial!Hermite \dotfill{埃米特多项式} }{239}
-\indexentry{Rodrigues formula!Hermite polynomial\dotfill 罗德里格斯公式(埃米特多项式)}{239}
-\indexentry{Leibniz rule \dotfill 莱布尼兹法则}{239}
-\indexentry{Pascal triangle identity \dotfill 帕斯卡三角}{239}
-\indexentry{orthogonality condition!Hermite polynomial \dotfill 正交条件(埃米特多项式)}{240}
-\indexentry{three-term recurrence relation!Hermite polynomial \dotfill 三项递推关系(埃米特多项式)}{241}
-\indexentry{second order linear differential equation!Hermite polynomial \dotfill 二阶线性微分方程(埃米特多项式)}{242}
-\indexentry{generating function!Hermite polynomial \dotfill 母方程(埃米特多项式)}{242}
-\indexentry{gamma distribution \dotfill 伽玛分布}{243}
-\indexentry{polynomial!Laguerre \dotfill 拉盖尔多项式}{243}
-\indexentry{Rodrigues formula!Laguerre polynomial\dotfill 罗德里格斯公式(拉盖尔多项式)}{243}
-\indexentry{hypergeometric function!Laguerre polynomial \dotfill 超几何方程(拉盖尔多项式)}{244}
-\indexentry{orthogonality condition!Laguerre polynomial \dotfill 正交条件(拉盖尔多项式)}{244}
-\indexentry{generating function!Laguerre polynomial \dotfill 母方程(拉盖尔多项式)}{245}
-\indexentry{three-term recurrence relation!Laguerre polynomial \dotfill 三项递推关系(拉盖尔多项式)}{245}
-\indexentry{second order linear differential equation!Laguerre polynomial \dotfill 二阶线性微分方程(拉盖尔多项式)}{247}
-\indexentry{Beta distribution \dotfill 贝塔分布}{247}
-\indexentry{polynomial!Jacobi \dotfill 雅各比多项式}{247}
-\indexentry{Rodrigues formula!Jacoby polynomial \dotfill 罗德里格斯公式(雅各比多项式)}{247}
-\indexentry{hypergeometric function!Jacobi polynomial \dotfill 超几何方程(雅各比多项式)}{248}
-\indexentry{Chu-Vandermonde summation \dotfill 朱世杰——范德蒙德求和公式}{249}
-\indexentry{orthogonality condition!Jacobi polynomial \dotfill 正交条件(雅各比多项式)}{250}
-\indexentry{second order linear differential equation!Jacobi Polynomial \dotfill 二阶线性微分方程(雅各比多项式)}{251}
-\indexentry{generating function!Jacobi polynomial \dotfill 母方程(雅各比多项式)}{251}
-\indexentry{uniform distribution \dotfill 均匀分布}{251}
-\indexentry{Rodrigues formula!Legendre polynomial \dotfill 罗德里格斯共识(勒让德多项式)}{251}
-\indexentry{orthogonality condition!Legendre polynomial \dotfill 正交关系(勒让德多项式)}{252}
-\indexentry{generating function!Legendre polynomial \dotfill 母方程(勒让德多项式)}{253}
-\indexentry{three-term recurrence relation!Legendre polynomial \dotfill 三项递推关系(勒让德多项式)}{253}
-\indexentry{polynomial!Chebyshev, first kind \dotfill 第一类切比雪夫多项式}{254}
-\indexentry{polynomial!Chebyshev, second kind \dotfill 第二类切比雪夫多项式}{254}
-\indexentry{Rodrigues formula!the first kind Chebyshev polynomial \dotfill 罗德里格斯公式(第一类切比雪夫多项式)}{255}
-\indexentry{Rodrigues formula!the second kind Chebyshev polynomial \dotfill 罗德里格斯公式(第二类切比雪夫多项式)}{255}
-\indexentry{orthogonality condition!the first kind Chebishev polynomial \dotfill 正交条件(第一类切比雪夫多项式)}{255}
-\indexentry{orthogonality condition!the second kind Chebishev polynomial \dotfill 正交条件(第二类切比雪夫多项式)}{255}
-\indexentry{three-term recurrence relation!the first kind Chebishev polynomial \dotfill 三项递推关系(第一类切比雪夫多项式)}{255}
-\indexentry{three-term recurrence relation!the second kind Chebishev polynomial \dotfill 三项递推关系(第二类切比雪夫多项式)}{255}
-\indexentry{generating function!the first kind Chebyshev polynomial \dotfill 母方程(第一类切比雪夫多项式)}{256}
-\indexentry{generating function!the second kind Chebyshev polynomial \dotfill 母方程(第二类切比雪夫多项式)}{256}
-\indexentry{interpolation!Chebyshev \dotfill 切比雪夫插值}{257}
-\indexentry{Lagrange interpolation \dotfill 拉格朗日插值}{258}
-\indexentry{truncation!Chebyshev \dotfill 切比雪夫截断}{260}
-\indexentry{conditional density \dotfill 条件密度}{261}
-\indexentry{Gauss-Hermite quadrature \dotfill 高斯——埃米特求积}{264}
-\indexentry{Galerkin method \dotfill 伽辽金近似法}{266}
-\indexentry{Sobolev space! \dotfill 索伯列夫空间}{266}
-\indexentry{polynomial!Lagrange \dotfill 拉格朗日多项式}{267}
-\indexentry{Hilbert space \dotfill 希尔伯特空间}{268}
-\indexentry{inner product!duality \dotfill 双内积}{268}
-\indexentry{coercive form \dotfill 强制形式}{268}
-\indexentry{norm \dotfill 范数}{269}
-\indexentry{Dirichlet condition! homogeneous 齐次狄利克雷条件}{269}
-\indexentry{Lamé elasticity parameters \dotfill 拉梅弹性参数}{269}
-\indexentry{Korn inequality \dotfill 科恩不等式}{269}
-\indexentry{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理}{269}
-\indexentry{Stokes equations \dotfill 斯托克斯公式}{269}
-\indexentry{inf-sup condition \dotfill 上极限——下极限条件}{269}
-\indexentry{bijection \dotfill 双射}{270}
-\indexentry{continuous inverse \dotfill 连续逆}{270}
-\indexentry{complex number!imaginary part \dotfill 虚部(复数)}{270}
-\indexentry{complex number!real part \dotfill 实部(复数)}{270}
-\indexentry{injection \dotfill 单射}{270}
-\indexentry{Cauchy sequnce \dotfill 柯西序列}{270}
-\indexentry{Céa lemma, \dotfill 齐亚引理}{271}
-\indexentry{numerical integration \dotfill 数值积分}{273}
-\indexentry{numerical quadrature \dotfill 数值求积}{273}
-\indexentry{quadrature points \dotfill 求积点}{273}
-\indexentry{quadrature weights \dotfill 求积权重}{273}
-\indexentry{quadrature rule \dotfill 求积法则}{273}
-\indexentry{Newton—Cotes Rule \dotfill 牛顿——寇特斯法则}{273}
-\indexentry{rectangular (quadrature) rule \dotfill 矩形(求积)法则}{273}
-\indexentry{trapezoidal (quadrature) rule \dotfill 梯形(求积)法则}{274}
-\indexentry{Simpson's (quadrature) rule \dotfill 辛普森(求积)法则}{276}
-\indexentry{Runge phenomenon \dotfill 龙格现象}{276}
-\indexentry{integrable singular points \dotfill 可积奇异点}{279}
-\indexentry{adaptive quadrature \dotfill 适应性求积}{280}
-\indexentry{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则}{280}
-\indexentry{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则}{285}
-\indexentry{truncation \dotfill 截断}{288}
-\indexentry{angular frequency \dotfill 角频率}{292}
-\indexentry{Fourier transform! \dotfill 傅里叶变换}{293}
-\indexentry{Fourier transform!Semidiscrete \dotfill 半离散傅里叶变换}{293}
-\indexentry{Fourier series \dotfill 傅里叶级数}{293}
-\indexentry{Fourier transform!Discrete \dotfill 离散傅里叶变换}{293}
-\indexentry{angular frequency \dotfill 角频率}{294}
-\indexentry{angular frequency \dotfill 角频率}{295}
-\indexentry{linear frequency \dotfill 线频率}{295}
-\indexentry{wavenumber \dotfill 波数}{295}
-\indexentry{Lorentzian function \dotfill 洛伦兹方程}{296}
-\indexentry{full width at half maximum(FWHM) \dotfill 半峰全宽}{297}
-\indexentry{Gaussian function \dotfill 高斯方程}{297}
-\indexentry{dirac delta function \dotfill 狄拉克方程}{298}
-\indexentry{Paley-Wiener theorems \dotfill 佩利——维纳诸定理}{299}
-\indexentry{periodic function \dotfill 周期方程}{299}
-\indexentry{Fourier series \dotfill 傅里叶}{300}
-\indexentry{Fourier cosine series \dotfill 傅里叶余弦级数}{302}
-\indexentry{Fourier sine series \dotfill 傅里叶正弦级数}{302}
-\indexentry{Gibbs phenomenon \dotfill 吉布斯现象}{303}
-\indexentry{Fourier synthesis \dotfill 傅里叶综合}{304}
-\indexentry{Plancherel's theorem \dotfill 普朗歇尔定理}{305}
-\indexentry{Poisson summation formula \dotfill 泊松求和式}{305}
-\indexentry{Jacobian function \dotfill 雅各比方程}{307}
-\indexentry{convolution \dotfill 卷积}{307}
-\indexentry{boundary value problem \dotfill 边界值问题}{311}
-\indexentry{exterior algebra \dotfill 外代数}{311}
-\indexentry{self-adjoint operator}{311}
-\indexentry{divergence theorem \dotfill 高斯散度定理}{311}
-\indexentry{Ostrogradsky-Gauss theorem \dotfill 奥斯特罗格拉德斯基——高斯定理}{311}
-\indexentry{Gauss theorem \dotfill 高斯散度定理}{311}
-\indexentry{trace \dotfill 迹}{312}
-\indexentry{integration by parts \dotfill 分部积分}{312}
-\indexentry{Green identities!first 格林第一恒等式}{312}
-\indexentry{Green identities!second 格林第二恒等式}{312}
-\indexentry{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件}{313}
-\indexentry{Neumann boundary value condition \dotfill 诺依曼边界值条件}{313}
-\indexentry{Robin boundary value condition \dotfill 罗宾边界值条件}{313}
-\indexentry{norm \dotfill 范数}{315}
-\indexentry{support \dotfill 支撑}{315}
-\indexentry{Hölder space \dotfill 霍德尔空间}{315}
-\indexentry{Lipschitz continuous function \dotfill 利普希茨连续方程}{315}
-\indexentry{Lipschitz hypograph \dotfill 利普希茨亚图}{315}
-\indexentry{Lipschitz domain \dotfill 利普希茨域}{315}
-\indexentry{index family \dotfill 索引族}{315}
-\indexentry{}{315}
-\indexentry{cover(topology) \dotfill 覆盖(拓扑学)}{316}
-\indexentry{Hölder continuous \dotfill 霍德尔连续}{316}
-\indexentry{piecewise smooth boundary \dotfill 分段平滑边界}{316}
-\indexentry{Lesbegue space \dotfill 勒贝格空间}{316}
-\indexentry{Lebesgue integrable function \dotfill 勒贝格可积方程}{316}
-\indexentry{sigma!algebra \dotfill sigma代数}{316}
-\indexentry{complement \dotfill 补集}{316}
-\indexentry{union \dotfill 并集}{316}
-\indexentry{powerset \dotfill 幂集}{316}
-\indexentry{axiomatic set theory \dotfill 公理集合论}{316}
-\indexentry{ZFC axioms \dotfill ZFC集合论}{316}
-\indexentry{family of sets \dotfill 集族}{316}
-\indexentry{cardinality \dotfill 势}{317}
-\indexentry{intersection \dotfill 交集}{317}
-\indexentry{extended real number line \dotfill 扩展实数线}{317}
-\indexentry{measure \dotfill 测度}{317}
-\indexentry{countable additivity \dotfill 可数可加性}{317}
-\indexentry{sigma!additivity \dotfill sigma可加}{317}
-\indexentry{measurable space \dotfill 可测空间}{317}
-\indexentry{measurable sets \dotfill 可测集合}{317}
-\indexentry{triple 三元组}{317}
-\indexentry{measure!counting \dotfill 计数测度}{318}
-\indexentry{sigma!finite \dotfill sigma有限}{318}
-\indexentry{norm \dotfill 范数}{318}
-\indexentry{vector space \dotfill 向量空间}{318}
-\indexentry{zero vector \dotfill 零向量}{318}
-\indexentry{seminorm! \dotfill 半范数}{318}
-\indexentry{subadditivity \dotfill 次可加}{318}
-\indexentry{normed vector space \dotfill 赋范向量空间}{319}
-\indexentry{quotient space \dotfill 商空间}{319}
-\indexentry{equivalence of norms \dotfill 范数等价}{319}
-\indexentry{seminorm!trivial \dotfill 平凡半范数}{319}
-\indexentry{p-norm \dotfill p范数}{319}
-\indexentry{LP-norm \dotfill LP范数}{319}
-\indexentry{grid distance \dotfill 网格距离}{319}
-\indexentry{taxicab geometry \dotfill 出租车距离}{319}
-\indexentry{Manhattan distance \dotfill 曼哈顿距离}{319}
-\indexentry{Euclidean norm \dotfill 欧几里得范数}{319}
-\indexentry{L-infinity norm}{319}
-\indexentry{maximum norm \dotfill 最大范数}{319}
-\indexentry{uniform norm \dotfill 均匀范数}{319}
-\indexentry{Chebyshev distance \dotfill 切比雪夫距离}{319}
-\indexentry{sequence space!countably infinite dimensional \dotfill 可数无限维数列空间}{320}
-\indexentry{triangle inequality \dotfill 三角不等式}{321}
-\indexentry{Minkowski inequality \dotfill 闵可夫斯基不等式}{321}
-\indexentry{vector space!normed \dotfill 赋范向量空间}{321}
-\indexentry{triangle inequality \dotfill 三角不等式}{321}
-\indexentry{Hölder's inequality \dotfill 霍德尔不等式}{322}
-\indexentry{Minkowski inequality!integral \dotfill 闵可夫斯基积分不等式}{322}
-\indexentry{seminormed vector space \dotfill 半赋范向量空间}{322}
-\indexentry{Banach space \dotfill 巴拿赫空间}{323}
-\indexentry{Lebesgue space!weighted \dotfill 加权勒贝格空间}{323}
-\indexentry{Hilbert space \dotfill 希尔伯特空间}{323}
-\indexentry{inner product \dotfill 内积}{324}
-\indexentry{inner product space \dotfill 内积空间}{324}
-\indexentry{convergence!absolute \dotfill 绝对收敛}{324}
-\indexentry{completeness!Euclidean space \dotfill 完备性(欧几里得空间)}{324}
-\indexentry{complex plane \dotfill 复数平面}{325}
-\indexentry{complex modulus \dotfill 复数绝对值}{325}
-\indexentry{conjugate \dotfill 共轭复数}{325}
-\indexentry{Hermitian symmetric \dotfill 埃米特对称}{325}
-\indexentry{dual space \dotfill 对偶空间}{325}
-\indexentry{Cauchy-Schwarz inequality \dotfill 柯西——施瓦茨不等式}{326}
-\indexentry{differentiability classification \dotfill 方程微分的类}{327}
-\indexentry{integration by parts \dotfill 分部积分公式}{327}
-\indexentry{integration by parts \dotfill 分部积分}{328}
-\indexentry{generalized partial derivative \dotfill 广义偏导数}{328}
-\indexentry{Parseval theorem \dotfill 帕塞瓦尔定理}{329}
-\indexentry{Fourier series \dotfill 傅里叶级数}{329}
-\indexentry{Sobolev-Slobodeckij!space \dotfill Sobolev–Slobodeckij空间}{330}
-\indexentry{Hölder condition \dotfill 霍德尔条件}{330}
-\indexentry{Sobolev-Slobodeckij!norm \dotfill Sobolev-Slobodeckij范数}{330}
-\indexentry{Sobolev-Slobodeckij!seminorm \dotfill Sobolev-Slobodeckij半范数}{330}
-\indexentry{dual space \dotfill 对偶空间}{331}
-\indexentry{Hölder inequality \dotfill 霍德尔不等式}{331}
-\indexentry{Hölder inequality!generalization \dotfill 广义霍德尔不等式}{331}
-\indexentry{embedding theorem of Sobolev space \dotfill 索伯列夫空间的嵌入定理}{332}
-\indexentry{embeddings \dotfill 嵌入}{332}
-\indexentry{norm equivalence theorem of Sobolev space}{334}
-\indexentry{equivalence of norms \dotfill 范数等价}{335}
-\indexentry{Poincaré inequality \dotfill 庞加莱不等式}{338}
-\indexentry{Schwarz inequality \dotfill 施瓦茨不等式}{338}
-\indexentry{Bramble-Hilbert Lemma \dotfill Bramble-Hilbert引理}{339}
-\indexentry{test space \dotfill 试探空间}{341}
-\indexentry{distribution \dotfill 分布}{341}
-\indexentry{distribution!regular \dotfill 正则分布}{341}
-\indexentry{distribution!singular \dotfill 奇异分布}{341}
-\indexentry{Dirac distribution \dotfill 狄拉克分布}{341}
-\indexentry{rapidly decreasing function \dotfill 急减方程}{342}
-\indexentry{rapidly decreasing space \dotfill 急减空间}{342}
-\indexentry{tempered distribution space \dotfill 缓增分布空间}{342}
-\indexentry{Fourier transform! \dotfill 傅里叶变换}{342}
-\indexentry{Fourier transform!inverse \dotfill 逆傅里叶变换}{342}
-\indexentry{Fourier transform!rotational symmetries \dotfill 傅里叶变换的旋转对称}{342}
-\indexentry{polar coordinate system \dotfill 极坐标系}{342}
-\indexentry{spherical coordinate system \dotfill 三维坐标系}{343}
-\indexentry{potential!Bessel \dotfill 贝塞尔位势}{344}
-\indexentry{uniform cone condition \dotfill 均匀法锥条件}{345}
-\indexentry{interpolation theorem \dotfill 插值定理}{345}
-\indexentry{chain rule \dotfill 链式法则}{346}
-\indexentry{Sobolev-Slobodeckij norm \dotfill Sobolev-Slobodeckij范数}{347}
-\indexentry{equivalence of norms \dotfill 范数等价}{347}
-\indexentry{dual space \dotfill 对偶空间}{347}
-\indexentry{duality pairing \dotfill 对偶配对}{347}
-\indexentry{interior boundary trace \dotfill 内界迹}{349}
-\indexentry{Riesz representation theorem \dotfill 里兹表现定理}{351}
-\indexentry{Riesz map \dotfill 里兹映射}{353}
-\indexentry{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理}{354}
-\indexentry{contraction mapping \dotfill 收缩映射}{354}
-\indexentry{Banach space \dotfill 巴拿赫空间}{355}
-\indexentry{kernel \dotfill 核}{355}
-\indexentry{null space \dotfill 零空间}{355}
-\indexentry{orthogonal complement \dotfill 正交补}{356}
-\indexentry{range \dotfill 值域}{356}
-\indexentry{iamge \dotfill 像}{356}
-\indexentry{adjoint operator\dotfill 伴随算子}{356}
-\indexentry{closed range theorem \dotfill 闭值域定理}{356}
-\indexentry{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理}{363}
-\indexentry{Gårding inequality \dotfill Gårding不等式}{365}
-\indexentry{compact operator \dotfill 紧凑算子}{365}
-\indexentry{Riesz-Schauder theorem \dotfill Riesz-Schauder定理}{365}
-\indexentry{Fredholm alternative theorem \dotfill 弗雷德霍姆二择一定理}{365}
-\indexentry{injection \dotfill 内射}{365}
-\indexentry{trace \dotfill 迹}{366}
-\indexentry{Green identities!first 格林第一恒等式}{366}
-\indexentry{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件}{367}
-\indexentry{Neumann boundary value condition \dotfill 诺依曼边界值条件}{373}
-\indexentry{Robin boundary value condition \dotfill 罗宾边界值条件}{377}
-\indexentry{Green identities!second 格林第二恒等式}{378}
-\indexentry{Riesz representation theorem \dotfill 里兹表现定理}{378}
-\indexentry{boundary integral equations \dotfill 边界积分等式}{379}
-\indexentry{fundamental solution \dotfill 基本解}{379}
-\indexentry{Laplace operator \dotfill 拉普拉斯算子}{379}
-\indexentry{tempered distribution space \dotfill 缓增分布空间}{379}
-\indexentry{trigonometric integral \dotfill 三角积分}{381}
-\indexentry{sine integral \dotfill 正弦积分}{381}
-\indexentry{sinc finction!unnormalized \dotfill 非标准化sinc方程}{381}
-\indexentry{sinc finction!normalized \dotfill 标准化sinc方程}{381}
-\indexentry{Bessel function \dotfill 贝塞尔方程}{382}
-\indexentry{Poisson equation \dotfill 泊松方程}{383}
-\indexentry{Laplace function \dotfill 拉普拉斯方程}{383}
-\indexentry{potential!Newton  \dotfill 牛顿位势}{383}
-\indexentry{spherical coordinate system \dotfill 三维坐标系}{385}
-\indexentry{duality pairing \dotfill 对偶配对}{386}
-\indexentry{singular integral!weak \dotfill 弱奇异积分}{387}
-\indexentry{surface integral \dotfill 表面积分}{387}
-\indexentry{potential!single layer \dotfill 单层位势}{389}
-\indexentry{singular integral!weak \dotfill 弱奇异积分}{390}
-\indexentry{surface integral \dotfill 表面积分}{390}
-\indexentry{potential!adjoint double layer \dotfill 伴随双层位势算子}{391}
-\indexentry{potential!adjoint double layer \dotfill 伴随双层位势}{393}
-\indexentry{potential!double layer \dotfill 双层位势算子}{394}
-\indexentry{Cauchy principal value \dotfill 柯西主值}{398}
-\indexentry{exterior normal vector \dotfill 外部法向量}{398}
-\indexentry{rotation \dotfill 旋转}{398}
-\indexentry{closed curve \dotfill 闭曲线}{399}
-\indexentry{reference element \dotfill 参考元}{401}
-\indexentry{rotation \dotfill 旋转}{401}
-\indexentry{Calderón projection \dotfill 卡尔德隆投影}{404}
-\indexentry{natural density \dotfill 自然密度}{409}
-\indexentry{capacity \dotfill 容度}{409}
-\indexentry{ellipticity!semi \dotfill 半椭圆性}{411}
-\indexentry{ellipticity!semi \dotfill 半椭圆性}{414}
-\indexentry{Dirichlet to Neumann map \dotfill 狄利克雷到诺依曼的映射}{415}
-\indexentry{Steklov-Poincaré operator \dotfill Steklov-Poincaré算子}{415}
-\indexentry{Calderón projection \dotfill 卡尔德隆投影}{422}
-\indexentry{Fredholm boundary integral function!first kind \dotfill 第一类弗雷德霍姆边界积分方程}{422}
-\indexentry{Fredholm boundary integral function!second kind \dotfill 第二类弗雷德霍姆边界积分方程}{423}
-\indexentry{Neumann series \dotfill 诺依曼级数}{423}
-\indexentry{Neumann series \dotfill 诺依曼级数}{424}
-\indexentry{conforming trial spaces \dotfill 协调检测空间}{431}
-\indexentry{Galerkin-Bubnov method \dotfill 伽辽金——布博诺夫法}{431}
-\indexentry{Galerkin Orthogonality \dotfill 伽辽金正交}{431}
-\indexentry{stiffness matrix \dotfill 刚度矩阵}{431}
-\indexentry{Céa lemma, \dotfill 齐亚引理}{432}
-\indexentry{Strang's First Lemma \dotfill 斯特朗第一引理}{434}
-\indexentry{Strang's Second Lemma \dotfill 斯特朗第二引理}{435}
-\indexentry{Galerkin-Petrov method \dotfill 伽辽金——佩特洛夫法}{436}
-\indexentry{Babuška-Brezzi-Ladyshenskaya condition \dotfill BBL条件}{439}
-\indexentry{compact operator \dotfill 紧凑算子}{442}
-\indexentry{mesh \dotfill 网格}{445}
-\indexentry{decomposition! \dotfill 分解(有限元)}{445}
-\indexentry{node \dotfill 结点}{445}
-\indexentry{edge \dotfill 边}{445}
-\indexentry{decomposition!admissible \dotfill 容许分解}{446}
-\indexentry{mesh size!local \dotfill 局部网格尺寸}{446}
-\indexentry{finite element!regular \dotfill 正则型有限元}{446}
-\indexentry{mesh size!global \dotfill 全局网格尺寸}{447}
-\indexentry{quansi-uniform!globally \dotfill 全局拟一致}{447}
-\indexentry{quasi-uniform!locally \dotfill 局部拟一致}{447}
-\indexentry{finite element!neighboring \dotfill 相邻有限元}{447}
-\indexentry{parameterization!local \dotfill 局部参数化}{447}
-\indexentry{reference element \dotfill 参考元}{447}
-\indexentry{finite element!regular \dotfill 正则型有限元}{452}
-\indexentry{trial space \dotfill 检测空间}{453}
-\indexentry{base function \dotfill 基方程}{453}
-\indexentry{form function \dotfill 形式方程}{453}
-\indexentry{mass matrix!local \dotfill 局部质量矩阵}{454}
-\indexentry{quansi-uniform!globally \dotfill 全局拟一致}{458}
-\indexentry{probability density function(PDF) \dotfill 概率密度方程}{465}
-\indexentry{likelihood function \dotfill 似然方程}{465}
-\indexentry{conditional bias \dotfill 条件偏误}{466}
-\indexentry{unbiased estimate \dotfill 无偏估计}{466}
-\indexentry{mean square error (MSE) \dotfill 均方误差}{466}
-\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差}{466}
-\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界}{467}
-\indexentry{Fischer information matrix \dotfill 费雪信息矩阵}{467}
-\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)}{468}
-\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)}{468}
-\indexentry{Bernoulli trials \dotfill 伯努利实验}{469}
-\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}{477}
-\indexentry{BFMG algorithm \dotfill BFMG算法}{477}
-\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}{478}
+\indexentry{New Keynesian Philips Curve (NKPC) \dotfill 新凯恩斯主义菲利普斯曲线}{30}
+\indexentry{dynamic programming \dotfill 动态规划}{121}
+\indexentry{Envelope Theorem \dotfill 包络定理}{121}
+\indexentry{Inada condition \dotfill 稻田条件}{122}
+\indexentry{value function \dotfill 价值方程}{123}
+\indexentry{Bellman equation \dotfill 贝尔曼等式}{123}
+\indexentry{projection method \dotfill 映射法}{199}
+\indexentry{weighted residual methods \dotfill 加权残差法}{199}
+\indexentry{basis function \dotfill 基方程}{199}
+\indexentry{residual function (projection method) \index{残差方程(映射法)}}{199}
+\indexentry{metric function \dotfill 度量方程}{200}
+\indexentry{distance function \dotfill 距离方程}{200}
+\indexentry{metric function!discrete \unhbox \voidb@x \cleaders \hbox to.44em{\hss .\hss }\hfill \kern \z@ 离散度量方程}{200}
+\indexentry{basis!global \dotfill 全局基}{202}
+\indexentry{basis!local \dotfill 局部基}{202}
+\indexentry{spectral method \dotfill 光谱法}{202}
+\indexentry{spectral method \dotfill 有限元法}{202}
+\indexentry{basis!unidimensional \dotfill 单维基}{202}
+\indexentry{basis!monomial \dotfill 单项式(基)}{202}
+\indexentry{Stone-Weierstrass Theorem \dotfill 斯通-魏尔斯特拉斯定理}{202}
+\indexentry{basis!trigonometric series \dotfill 三角序列(基)}{203}
+\indexentry{basis!Jacobi polynomial \dotfill 雅各比多项式(基)}{203}
+\indexentry{basis!Chebyshev polynomial \dotfill 切比雪夫多项式(基)}{203}
+\indexentry{interpolation!Chebyshev \dotfill 切比雪夫插值}{204}
+\indexentry{collocation! \dotfill 配点}{204}
+\indexentry{collocation!orthogonal \dotfill 正交配点}{204}
+\indexentry{truncation!Chebyshev \dotfill 切比雪夫截断}{204}
+\indexentry{curse of dimensionality \dotfill 维数灾难}{207}
+\indexentry{Markov chain!finite \dotfill 有限马尔科夫链}{208}
+\indexentry{distribution!stationary \dotfill 平稳分布}{208}
+\indexentry{transition matrix \dotfill 转移矩阵}{208}
+\indexentry{transition probability \dotfill 转移概率}{208}
+\indexentry{tensor \dotfill 张量}{209}
+\indexentry{curse of dimensionality \dotfill 维数灾难}{210}
+\indexentry{polynomial!complete \dotfill 完全多项式}{210}
+\indexentry{finite elements method \dotfill 有限元法}{211}
+\indexentry{node \dotfill 结点}{211}
+\indexentry{grid \dotfill 网格}{211}
+\indexentry{piecewise linear approximation \dotfill 分段线性近似}{213}
+\indexentry{h-refinement finite elements\dotfill h——改进(有限元分析)}{213}
+\indexentry{r-refinement finite elements \dotfill r——改进(有限元分析)}{213}
+\indexentry{p-refinement finite elements \dotfill p——改进(有限元分析)}{213}
+\indexentry{spectral elements \dotfill 光谱元}{213}
+\indexentry{hp-adaptive finite elements \dotfill hp——有限元法}{213}
+\indexentry{Newton algorithm \dotfill 牛顿算法}{214}
+\indexentry{Levenberg-Marquardt algorithm \dotfill 莱文贝格——马夸特方法}{214}
+\indexentry{collocation! \dotfill 配点}{215}
+\indexentry{pseudospectral \dotfill 伪光谱}{215}
+\indexentry{selected points \dotfill 选点}{215}
+\indexentry{Delta Dirac function \dotfill 狄拉克方程}{215}
+\indexentry{collocation!orthogonal \dotfill 正交配点}{215}
+\indexentry{uniform convergence \dotfill 均匀收敛}{215}
+\indexentry{Galerkin method \dotfill 伽辽金近似法}{215}
+\indexentry{Bellman equation \dotfill 贝尔曼等式}{218}
+\indexentry{sparse grid \dotfill 稀疏网格}{221}
+\indexentry{Smolyak algorithm \dotfill Smolyak算法}{221}
+\indexentry{ergodic set \dotfill 遍历集}{222}
+\indexentry{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则}{223}
+\indexentry{cartesian product \dotfill 笛卡尔乘积}{223}
+\indexentry{cardinality \dotfill 势}{224}
+\indexentry{nestedness of Chebyshev nodes \dotfill 嵌套性(切比雪夫结点)}{224}
+\indexentry{anistropy \dotfill 各向异性}{228}
+\indexentry{hypergeometric!series \dotfill 超几何序列}{231}
+\indexentry{hypergeometric!series, monic \dotfill 首一超几何序列}{231}
+\indexentry{Pochhammer symbol \dotfill 伯赫哈默尔符号}{231}
+\indexentry{hypergeometric!function \dotfill 超几何方程}{231}
+\indexentry{hypergeometric!function, generalized \dotfill 广义超几何方程}{232}
+\indexentry{binomial theorem \dotfill 二项式定理}{232}
+\indexentry{Euler integral representation \dotfill 欧拉积分表达式}{233}
+\indexentry{Beta integral \dotfill 贝塔积分}{233}
+\indexentry{Pochhammer symbol \dotfill 伯赫哈默尔符号}{233}
+\indexentry{Gauss summation formula \dotfill{高斯求和公式}}{233}
+\indexentry{Gamma function \unhbox \voidb@x \cleaders \hbox to.44em{\hss .\hss }\hfill \kern \z@ {伽马方程}}{233}
+\indexentry{Chu-Vandermonde summation \dotfill 朱世杰——范德蒙德求和公式}{234}
+\indexentry{Pfaff's transformation formula \dotfill 法夫转换公式}{234}
+\indexentry{Euler transformation formula \dotfill 欧拉转换公式}{234}
+\indexentry{Pfaff-Saalschütz summation formula \dotfill 法夫——萨尔舒茨求和公式}{235}
+\indexentry{Riemann-Stieltjes integral \dotfill 黎曼——斯蒂尔杰斯积分}{236}
+\indexentry{weight function \dotfill 权重方程}{236}
+\indexentry{norm \dotfill 范数}{237}
+\indexentry{moment \dotfill 矩}{237}
+\indexentry{Kronecker product\dotfill 克罗内克乘积}{237}
+\indexentry{inner product \dotfill 内积}{237}
+\indexentry{polynomial!orthonormal \dotfill 标准正交多项式}{237}
+\indexentry{polynomial!monic orthogonal \dotfill 首一正交多项式}{237}
+\indexentry{Gram-Schmidt orthogonality process \dotfill 格拉姆-施密特正交化过程}{237}
+\indexentry{Hankel moment matrix \dotfill 汉克尔矩阵}{238}
+\indexentry{three-term recurrence relation!monic polynomial \dotfill 三项递推关系(首一正交多项式)}{239}
+\indexentry{three-term recurrence relation!orthonormal polynomial \dotfill 三项递推关系(标准正交多项式)}{239}
+\indexentry{matrix!tridiagonal \dotfill 三角对角矩阵}{240}
+\indexentry{matrix!infinite Jacobi \dotfill 无限雅各比矩阵}{240}
+\indexentry{matrix!leading principle submatrix \dotfill 领先主子矩阵}{240}
+\indexentry{Christoffel-Darboux relation \dotfill 克里斯托费尔——达布关系}{240}
+\indexentry{telescoping sum \dotfill 裂项和}{241}
+\indexentry{matrix!identity \dotfill 单位矩阵}{241}
+\indexentry{Gauss quadrature formula \dotfill 高斯求积公式}{243}
+\indexentry{interpolation!Lagrange \dotfill 拉格朗日插值法}{243}
+\indexentry{Christoffel numbers \dotfill 克里斯托费尔数}{243}
+\indexentry{normal distribution \dotfill 正态分布}{245}
+\indexentry{polynomial!Hermite \dotfill{埃米特多项式} }{245}
+\indexentry{Rodrigues formula!Hermite polynomial\dotfill 罗德里格斯公式(埃米特多项式)}{245}
+\indexentry{Leibniz rule \dotfill 莱布尼兹法则}{245}
+\indexentry{Pascal triangle identity \dotfill 帕斯卡三角}{245}
+\indexentry{orthogonality condition!Hermite polynomial \dotfill 正交条件(埃米特多项式)}{246}
+\indexentry{three-term recurrence relation!Hermite polynomial \dotfill 三项递推关系(埃米特多项式)}{247}
+\indexentry{second order linear differential equation!Hermite polynomial \dotfill 二阶线性微分方程(埃米特多项式)}{248}
+\indexentry{generating function!Hermite polynomial \dotfill 母方程(埃米特多项式)}{248}
+\indexentry{gamma distribution \dotfill 伽玛分布}{249}
+\indexentry{polynomial!Laguerre \dotfill 拉盖尔多项式}{249}
+\indexentry{Rodrigues formula!Laguerre polynomial\dotfill 罗德里格斯公式(拉盖尔多项式)}{249}
+\indexentry{hypergeometric function!Laguerre polynomial \dotfill 超几何方程(拉盖尔多项式)}{250}
+\indexentry{orthogonality condition!Laguerre polynomial \dotfill 正交条件(拉盖尔多项式)}{250}
+\indexentry{generating function!Laguerre polynomial \dotfill 母方程(拉盖尔多项式)}{251}
+\indexentry{three-term recurrence relation!Laguerre polynomial \dotfill 三项递推关系(拉盖尔多项式)}{251}
+\indexentry{second order linear differential equation!Laguerre polynomial \dotfill 二阶线性微分方程(拉盖尔多项式)}{253}
+\indexentry{Beta distribution \dotfill 贝塔分布}{253}
+\indexentry{polynomial!Jacobi \dotfill 雅各比多项式}{253}
+\indexentry{Rodrigues formula!Jacoby polynomial \dotfill 罗德里格斯公式(雅各比多项式)}{253}
+\indexentry{hypergeometric function!Jacobi polynomial \dotfill 超几何方程(雅各比多项式)}{254}
+\indexentry{Chu-Vandermonde summation \dotfill 朱世杰——范德蒙德求和公式}{255}
+\indexentry{orthogonality condition!Jacobi polynomial \dotfill 正交条件(雅各比多项式)}{256}
+\indexentry{second order linear differential equation!Jacobi Polynomial \dotfill 二阶线性微分方程(雅各比多项式)}{257}
+\indexentry{generating function!Jacobi polynomial \dotfill 母方程(雅各比多项式)}{257}
+\indexentry{uniform distribution \dotfill 均匀分布}{257}
+\indexentry{Rodrigues formula!Legendre polynomial \dotfill 罗德里格斯共识(勒让德多项式)}{257}
+\indexentry{orthogonality condition!Legendre polynomial \dotfill 正交关系(勒让德多项式)}{258}
+\indexentry{generating function!Legendre polynomial \dotfill 母方程(勒让德多项式)}{259}
+\indexentry{three-term recurrence relation!Legendre polynomial \dotfill 三项递推关系(勒让德多项式)}{259}
+\indexentry{polynomial!Chebyshev, first kind \dotfill 第一类切比雪夫多项式}{260}
+\indexentry{polynomial!Chebyshev, second kind \dotfill 第二类切比雪夫多项式}{260}
+\indexentry{Rodrigues formula!the first kind Chebyshev polynomial \dotfill 罗德里格斯公式(第一类切比雪夫多项式)}{261}
+\indexentry{Rodrigues formula!the second kind Chebyshev polynomial \dotfill 罗德里格斯公式(第二类切比雪夫多项式)}{261}
+\indexentry{orthogonality condition!the first kind Chebishev polynomial \dotfill 正交条件(第一类切比雪夫多项式)}{261}
+\indexentry{orthogonality condition!the second kind Chebishev polynomial \dotfill 正交条件(第二类切比雪夫多项式)}{261}
+\indexentry{three-term recurrence relation!the first kind Chebishev polynomial \dotfill 三项递推关系(第一类切比雪夫多项式)}{261}
+\indexentry{three-term recurrence relation!the second kind Chebishev polynomial \dotfill 三项递推关系(第二类切比雪夫多项式)}{261}
+\indexentry{generating function!the first kind Chebyshev polynomial \dotfill 母方程(第一类切比雪夫多项式)}{262}
+\indexentry{generating function!the second kind Chebyshev polynomial \dotfill 母方程(第二类切比雪夫多项式)}{262}
+\indexentry{interpolation!Chebyshev \dotfill 切比雪夫插值}{263}
+\indexentry{Lagrange interpolation \dotfill 拉格朗日插值}{264}
+\indexentry{truncation!Chebyshev \dotfill 切比雪夫截断}{266}
+\indexentry{conditional density \dotfill 条件密度}{267}
+\indexentry{Gauss-Hermite quadrature \dotfill 高斯——埃米特求积}{270}
+\indexentry{Galerkin method \dotfill 伽辽金近似法}{272}
+\indexentry{Sobolev space! \dotfill 索伯列夫空间}{272}
+\indexentry{polynomial!Lagrange \dotfill 拉格朗日多项式}{273}
+\indexentry{Hilbert space \dotfill 希尔伯特空间}{274}
+\indexentry{inner product!duality \dotfill 双内积}{274}
+\indexentry{coercive form \dotfill 强制形式}{274}
+\indexentry{norm \dotfill 范数}{275}
+\indexentry{Dirichlet condition! homogeneous 齐次狄利克雷条件}{275}
+\indexentry{Lamé elasticity parameters \dotfill 拉梅弹性参数}{275}
+\indexentry{Korn inequality \dotfill 科恩不等式}{275}
+\indexentry{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理}{275}
+\indexentry{Stokes equations \dotfill 斯托克斯公式}{275}
+\indexentry{inf-sup condition \dotfill 上极限——下极限条件}{275}
+\indexentry{bijection \dotfill 双射}{276}
+\indexentry{continuous inverse \dotfill 连续逆}{276}
+\indexentry{complex number!imaginary part \dotfill 虚部(复数)}{276}
+\indexentry{complex number!real part \dotfill 实部(复数)}{276}
+\indexentry{injection \dotfill 单射}{276}
+\indexentry{Cauchy sequnce \dotfill 柯西序列}{276}
+\indexentry{Céa lemma, \dotfill 齐亚引理}{277}
+\indexentry{numerical integration \dotfill 数值积分}{279}
+\indexentry{numerical quadrature \dotfill 数值求积}{279}
+\indexentry{quadrature points \dotfill 求积点}{279}
+\indexentry{quadrature weights \dotfill 求积权重}{279}
+\indexentry{quadrature rule \dotfill 求积法则}{279}
+\indexentry{Newton—Cotes Rule \dotfill 牛顿——寇特斯法则}{279}
+\indexentry{rectangular (quadrature) rule \dotfill 矩形(求积)法则}{279}
+\indexentry{trapezoidal (quadrature) rule \dotfill 梯形(求积)法则}{280}
+\indexentry{Simpson's (quadrature) rule \dotfill 辛普森(求积)法则}{282}
+\indexentry{Runge phenomenon \dotfill 龙格现象}{282}
+\indexentry{integrable singular points \dotfill 可积奇异点}{285}
+\indexentry{adaptive quadrature \dotfill 适应性求积}{286}
+\indexentry{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则}{286}
+\indexentry{Clenshaw-Curtis Rule \dotfill 克伦肖——柯蒂斯求积法则}{291}
+\indexentry{truncation \dotfill 截断}{294}
+\indexentry{angular frequency \dotfill 角频率}{298}
+\indexentry{Fourier transform! \dotfill 傅里叶变换}{299}
+\indexentry{Fourier transform!Semidiscrete \dotfill 半离散傅里叶变换}{299}
+\indexentry{Fourier series \dotfill 傅里叶级数}{299}
+\indexentry{Fourier transform!Discrete \dotfill 离散傅里叶变换}{299}
+\indexentry{angular frequency \dotfill 角频率}{300}
+\indexentry{angular frequency \dotfill 角频率}{301}
+\indexentry{linear frequency \dotfill 线频率}{301}
+\indexentry{wavenumber \dotfill 波数}{301}
+\indexentry{Lorentzian function \dotfill 洛伦兹方程}{302}
+\indexentry{full width at half maximum(FWHM) \dotfill 半峰全宽}{303}
+\indexentry{Gaussian function \dotfill 高斯方程}{303}
+\indexentry{Delta Dirac function \dotfill 狄拉克方程}{304}
+\indexentry{Paley-Wiener theorems \dotfill 佩利——维纳诸定理}{305}
+\indexentry{periodic function \dotfill 周期方程}{305}
+\indexentry{Fourier series \dotfill 傅里叶}{306}
+\indexentry{Fourier cosine series \dotfill 傅里叶余弦级数}{308}
+\indexentry{Fourier sine series \dotfill 傅里叶正弦级数}{308}
+\indexentry{Gibbs phenomenon \dotfill 吉布斯现象}{309}
+\indexentry{Fourier synthesis \dotfill 傅里叶综合}{310}
+\indexentry{Plancherel's theorem \dotfill 普朗歇尔定理}{311}
+\indexentry{Poisson summation formula \dotfill 泊松求和式}{311}
+\indexentry{Jacobian function \dotfill 雅各比方程}{313}
+\indexentry{convolution \dotfill 卷积}{313}
+\indexentry{penalty function \unhbox \voidb@x \cleaders \hbox to.44em{\hss .\hss }\hfill \kern \z@ 惩罚方程}{317}
+\indexentry{Gram-Schmidt orthogonality process \dotfill 格拉姆-施密特正交化过程}{318}
+\indexentry{boundary value problem \dotfill 边界值问题}{319}
+\indexentry{exterior algebra \dotfill 外代数}{319}
+\indexentry{self-adjoint operator}{319}
+\indexentry{divergence theorem \dotfill 高斯散度定理}{319}
+\indexentry{Ostrogradsky-Gauss theorem \dotfill 奥斯特罗格拉德斯基——高斯定理}{319}
+\indexentry{Gauss theorem \dotfill 高斯散度定理}{319}
+\indexentry{trace \dotfill 迹}{320}
+\indexentry{integration by parts \dotfill 分部积分}{320}
+\indexentry{Green identities!first 格林第一恒等式}{320}
+\indexentry{Green identities!second 格林第二恒等式}{320}
+\indexentry{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件}{321}
+\indexentry{Neumann boundary value condition \dotfill 诺依曼边界值条件}{321}
+\indexentry{Robin boundary value condition \dotfill 罗宾边界值条件}{321}
+\indexentry{norm \dotfill 范数}{323}
+\indexentry{support \dotfill 支撑}{323}
+\indexentry{Hölder space \dotfill 霍德尔空间}{323}
+\indexentry{Lipschitz continuous function \dotfill 利普希茨连续方程}{323}
+\indexentry{Lipschitz hypograph \dotfill 利普希茨亚图}{323}
+\indexentry{Lipschitz domain \dotfill 利普希茨域}{323}
+\indexentry{index family \dotfill 索引族}{323}
+\indexentry{}{323}
+\indexentry{cover(topology) \dotfill 覆盖(拓扑学)}{324}
+\indexentry{Hölder continuous \dotfill 霍德尔连续}{324}
+\indexentry{piecewise smooth boundary \dotfill 分段平滑边界}{324}
+\indexentry{Lesbegue space \dotfill 勒贝格空间}{324}
+\indexentry{Lebesgue integrable function \dotfill 勒贝格可积方程}{324}
+\indexentry{sigma!algebra \dotfill sigma代数}{324}
+\indexentry{complement \dotfill 补集}{324}
+\indexentry{union \dotfill 并集}{324}
+\indexentry{powerset \dotfill 幂集}{324}
+\indexentry{axiomatic set theory \dotfill 公理集合论}{324}
+\indexentry{ZFC axioms \dotfill ZFC集合论}{324}
+\indexentry{family of sets \dotfill 集族}{324}
+\indexentry{cardinality \dotfill 势}{325}
+\indexentry{intersection \dotfill 交集}{325}
+\indexentry{extended real number line \dotfill 扩展实数线}{325}
+\indexentry{measure \dotfill 测度}{325}
+\indexentry{countable additivity \dotfill 可数可加性}{325}
+\indexentry{sigma!additivity \dotfill sigma可加}{325}
+\indexentry{measurable space \dotfill 可测空间}{325}
+\indexentry{measurable sets \dotfill 可测集合}{325}
+\indexentry{triple 三元组}{325}
+\indexentry{measure!counting \dotfill 计数测度}{326}
+\indexentry{sigma!finite \dotfill sigma有限}{326}
+\indexentry{norm \dotfill 范数}{326}
+\indexentry{vector space \dotfill 向量空间}{326}
+\indexentry{zero vector \dotfill 零向量}{326}
+\indexentry{seminorm! \dotfill 半范数}{326}
+\indexentry{subadditivity \dotfill 次可加}{326}
+\indexentry{normed vector space \dotfill 赋范向量空间}{327}
+\indexentry{quotient space \dotfill 商空间}{327}
+\indexentry{equivalence of norms \dotfill 范数等价}{327}
+\indexentry{seminorm!trivial \dotfill 平凡半范数}{327}
+\indexentry{p-norm \dotfill p范数}{327}
+\indexentry{LP-norm \dotfill LP范数}{327}
+\indexentry{grid distance \dotfill 网格距离}{327}
+\indexentry{taxicab geometry \dotfill 出租车距离}{327}
+\indexentry{Manhattan distance \dotfill 曼哈顿距离}{327}
+\indexentry{Euclidean norm \dotfill 欧几里得范数}{327}
+\indexentry{L-infinity norm}{327}
+\indexentry{maximum norm \dotfill 最大范数}{327}
+\indexentry{uniform norm \dotfill 均匀范数}{327}
+\indexentry{Chebyshev distance \dotfill 切比雪夫距离}{327}
+\indexentry{sequence space!countably infinite dimensional \dotfill 可数无限维数列空间}{328}
+\indexentry{triangle inequality \dotfill 三角不等式}{329}
+\indexentry{Minkowski inequality \dotfill 闵可夫斯基不等式}{329}
+\indexentry{vector space!normed \dotfill 赋范向量空间}{329}
+\indexentry{triangle inequality \dotfill 三角不等式}{329}
+\indexentry{Hölder's inequality \dotfill 霍德尔不等式}{330}
+\indexentry{Minkowski inequality!integral \dotfill 闵可夫斯基积分不等式}{330}
+\indexentry{seminormed vector space \dotfill 半赋范向量空间}{330}
+\indexentry{Banach space \dotfill 巴拿赫空间}{331}
+\indexentry{Lebesgue space!weighted \dotfill 加权勒贝格空间}{331}
+\indexentry{Hilbert space \dotfill 希尔伯特空间}{331}
+\indexentry{inner product \dotfill 内积}{332}
+\indexentry{inner product space \dotfill 内积空间}{332}
+\indexentry{convergence!absolute \dotfill 绝对收敛}{332}
+\indexentry{completeness!Euclidean space \dotfill 完备性(欧几里得空间)}{332}
+\indexentry{complex plane \dotfill 复数平面}{333}
+\indexentry{complex modulus \dotfill 复数绝对值}{333}
+\indexentry{conjugate \dotfill 共轭复数}{333}
+\indexentry{Hermitian symmetric \dotfill 埃米特对称}{333}
+\indexentry{dual space \dotfill 对偶空间}{333}
+\indexentry{Cauchy-Schwarz inequality \dotfill 柯西——施瓦茨不等式}{334}
+\indexentry{differentiability classification \dotfill 方程微分的类}{335}
+\indexentry{integration by parts \dotfill 分部积分公式}{335}
+\indexentry{integration by parts \dotfill 分部积分}{336}
+\indexentry{generalized partial derivative \dotfill 广义偏导数}{336}
+\indexentry{Parseval theorem \dotfill 帕塞瓦尔定理}{337}
+\indexentry{Fourier series \dotfill 傅里叶级数}{337}
+\indexentry{Sobolev-Slobodeckij!space \dotfill Sobolev–Slobodeckij空间}{338}
+\indexentry{Hölder condition \dotfill 霍德尔条件}{338}
+\indexentry{Sobolev-Slobodeckij!norm \dotfill Sobolev-Slobodeckij范数}{338}
+\indexentry{Sobolev-Slobodeckij!seminorm \dotfill Sobolev-Slobodeckij半范数}{338}
+\indexentry{dual space \dotfill 对偶空间}{339}
+\indexentry{Hölder inequality \dotfill 霍德尔不等式}{339}
+\indexentry{Hölder inequality!generalization \dotfill 广义霍德尔不等式}{339}
+\indexentry{embedding theorem of Sobolev space \dotfill 索伯列夫空间的嵌入定理}{340}
+\indexentry{embeddings \dotfill 嵌入}{340}
+\indexentry{norm equivalence theorem of Sobolev space}{342}
+\indexentry{equivalence of norms \dotfill 范数等价}{343}
+\indexentry{Poincaré inequality \dotfill 庞加莱不等式}{346}
+\indexentry{Schwarz inequality \dotfill 施瓦茨不等式}{346}
+\indexentry{Bramble-Hilbert Lemma \dotfill Bramble-Hilbert引理}{347}
+\indexentry{test space \dotfill 试探空间}{349}
+\indexentry{distribution \dotfill 分布}{349}
+\indexentry{distribution!regular \dotfill 正则分布}{349}
+\indexentry{distribution!singular \dotfill 奇异分布}{349}
+\indexentry{Dirac distribution \dotfill 狄拉克分布}{349}
+\indexentry{rapidly decreasing function \dotfill 急减方程}{350}
+\indexentry{rapidly decreasing space \dotfill 急减空间}{350}
+\indexentry{tempered distribution space \dotfill 缓增分布空间}{350}
+\indexentry{Fourier transform! \dotfill 傅里叶变换}{350}
+\indexentry{Fourier transform!inverse \dotfill 逆傅里叶变换}{350}
+\indexentry{Fourier transform!rotational symmetries \dotfill 傅里叶变换的旋转对称}{350}
+\indexentry{polar coordinate system \dotfill 极坐标系}{350}
+\indexentry{spherical coordinate system \dotfill 三维坐标系}{351}
+\indexentry{potential!Bessel \dotfill 贝塞尔位势}{352}
+\indexentry{uniform cone condition \dotfill 均匀法锥条件}{353}
+\indexentry{interpolation theorem \dotfill 插值定理}{353}
+\indexentry{chain rule \dotfill 链式法则}{354}
+\indexentry{Sobolev-Slobodeckij norm \dotfill Sobolev-Slobodeckij范数}{355}
+\indexentry{equivalence of norms \dotfill 范数等价}{355}
+\indexentry{dual space \dotfill 对偶空间}{355}
+\indexentry{duality pairing \dotfill 对偶配对}{355}
+\indexentry{interior boundary trace \dotfill 内界迹}{357}
+\indexentry{Riesz representation theorem \dotfill 里兹表现定理}{359}
+\indexentry{Riesz map \dotfill 里兹映射}{361}
+\indexentry{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理}{362}
+\indexentry{contraction mapping \dotfill 收缩映射}{362}
+\indexentry{Banach space \dotfill 巴拿赫空间}{363}
+\indexentry{kernel \dotfill 核}{363}
+\indexentry{null space \dotfill 零空间}{363}
+\indexentry{orthogonal complement \dotfill 正交补}{364}
+\indexentry{range \dotfill 值域}{364}
+\indexentry{iamge \dotfill 像}{364}
+\indexentry{adjoint operator\dotfill 伴随算子}{364}
+\indexentry{closed range theorem \dotfill 闭值域定理}{364}
+\indexentry{Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理}{371}
+\indexentry{Gårding inequality \dotfill Gårding不等式}{373}
+\indexentry{compact operator \dotfill 紧凑算子}{373}
+\indexentry{Riesz-Schauder theorem \dotfill Riesz-Schauder定理}{373}
+\indexentry{Fredholm alternative theorem \dotfill 弗雷德霍姆二择一定理}{373}
+\indexentry{injection \dotfill 内射}{373}
+\indexentry{trace \dotfill 迹}{374}
+\indexentry{Green identities!first 格林第一恒等式}{374}
+\indexentry{Dirichlet boundary value condition \dotfill 狄利克雷边界值条件}{375}
+\indexentry{Neumann boundary value condition \dotfill 诺依曼边界值条件}{381}
+\indexentry{Robin boundary value condition \dotfill 罗宾边界值条件}{385}
+\indexentry{Green identities!second 格林第二恒等式}{386}
+\indexentry{Riesz representation theorem \dotfill 里兹表现定理}{386}
+\indexentry{boundary integral equations \dotfill 边界积分等式}{387}
+\indexentry{fundamental solution \dotfill 基本解}{387}
+\indexentry{Laplace operator \dotfill 拉普拉斯算子}{387}
+\indexentry{tempered distribution space \dotfill 缓增分布空间}{387}
+\indexentry{trigonometric integral \dotfill 三角积分}{389}
+\indexentry{sine integral \dotfill 正弦积分}{389}
+\indexentry{sinc finction!unnormalized \dotfill 非标准化sinc方程}{389}
+\indexentry{sinc finction!normalized \dotfill 标准化sinc方程}{389}
+\indexentry{Bessel function \dotfill 贝塞尔方程}{390}
+\indexentry{Poisson equation \dotfill 泊松方程}{391}
+\indexentry{Laplace function \dotfill 拉普拉斯方程}{391}
+\indexentry{potential!Newton  \dotfill 牛顿位势}{391}
+\indexentry{spherical coordinate system \dotfill 三维坐标系}{393}
+\indexentry{duality pairing \dotfill 对偶配对}{394}
+\indexentry{singular integral!weak \dotfill 弱奇异积分}{395}
+\indexentry{surface integral \dotfill 表面积分}{395}
+\indexentry{potential!single layer \dotfill 单层位势}{397}
+\indexentry{singular integral!weak \dotfill 弱奇异积分}{398}
+\indexentry{surface integral \dotfill 表面积分}{398}
+\indexentry{potential!adjoint double layer \dotfill 伴随双层位势算子}{399}
+\indexentry{potential!adjoint double layer \dotfill 伴随双层位势}{401}
+\indexentry{potential!double layer \dotfill 双层位势算子}{402}
+\indexentry{Cauchy principal value \dotfill 柯西主值}{406}
+\indexentry{exterior normal vector \dotfill 外部法向量}{406}
+\indexentry{rotation \dotfill 旋转}{406}
+\indexentry{closed curve \dotfill 闭曲线}{407}
+\indexentry{reference element \dotfill 参考元}{409}
+\indexentry{rotation \dotfill 旋转}{409}
+\indexentry{Calderón projection \dotfill 卡尔德隆投影}{412}
+\indexentry{natural density \dotfill 自然密度}{417}
+\indexentry{capacity \dotfill 容度}{417}
+\indexentry{ellipticity!semi \dotfill 半椭圆性}{419}
+\indexentry{ellipticity!semi \dotfill 半椭圆性}{422}
+\indexentry{Dirichlet to Neumann map \dotfill 狄利克雷到诺依曼的映射}{423}
+\indexentry{Steklov-Poincaré operator \dotfill Steklov-Poincaré算子}{423}
+\indexentry{Calderón projection \dotfill 卡尔德隆投影}{430}
+\indexentry{Fredholm boundary integral function!first kind \dotfill 第一类弗雷德霍姆边界积分方程}{430}
+\indexentry{Fredholm boundary integral function!second kind \dotfill 第二类弗雷德霍姆边界积分方程}{431}
+\indexentry{Neumann series \dotfill 诺依曼级数}{431}
+\indexentry{Neumann series \dotfill 诺依曼级数}{432}
+\indexentry{conforming trial spaces \dotfill 协调检测空间}{439}
+\indexentry{Galerkin-Bubnov method \dotfill 伽辽金——布博诺夫法}{439}
+\indexentry{Galerkin Orthogonality \dotfill 伽辽金正交}{439}
+\indexentry{stiffness matrix \dotfill 刚度矩阵}{439}
+\indexentry{Céa lemma, \dotfill 齐亚引理}{440}
+\indexentry{Strang's First Lemma \dotfill 斯特朗第一引理}{442}
+\indexentry{Strang's Second Lemma \dotfill 斯特朗第二引理}{443}
+\indexentry{Galerkin-Petrov method \dotfill 伽辽金——佩特洛夫法}{444}
+\indexentry{Babuška-Brezzi-Ladyshenskaya condition \dotfill BBL条件}{447}
+\indexentry{compact operator \dotfill 紧凑算子}{450}
+\indexentry{mesh \dotfill 网格}{453}
+\indexentry{decomposition! \dotfill 分解(有限元)}{453}
+\indexentry{node \dotfill 结点}{453}
+\indexentry{edge \dotfill 边}{453}
+\indexentry{decomposition!admissible \dotfill 容许分解}{454}
+\indexentry{mesh size!local \dotfill 局部网格尺寸}{454}
+\indexentry{finite element!regular \dotfill 正则型有限元}{454}
+\indexentry{mesh size!global \dotfill 全局网格尺寸}{455}
+\indexentry{quansi-uniform!globally \dotfill 全局拟一致}{455}
+\indexentry{quasi-uniform!locally \dotfill 局部拟一致}{455}
+\indexentry{finite element!neighboring \dotfill 相邻有限元}{455}
+\indexentry{parameterization!local \dotfill 局部参数化}{455}
+\indexentry{reference element \dotfill 参考元}{455}
+\indexentry{finite element!regular \dotfill 正则型有限元}{460}
+\indexentry{trial space \dotfill 检测空间}{461}
+\indexentry{base function \dotfill 基方程}{461}
+\indexentry{form function \dotfill 形式方程}{461}
+\indexentry{mass matrix!local \dotfill 局部质量矩阵}{462}
+\indexentry{quansi-uniform!globally \dotfill 全局拟一致}{466}
+\indexentry{random walk \dotfill 随机游走}{478}
+\indexentry{sthochastic trend process \dotfill 随机趋势过程}{478}
+\indexentry{New Keynesian Philips Curve (NKPC) \dotfill 新凯恩斯主义菲利普斯曲线}{479}
+\indexentry{Martingale Difference Sequence (MDS) \dotfill 鞅差序列}{481}
+\indexentry{measurement equation \dotfill 测量方程}{482}
+\indexentry{Lyapunov function \dotfill 李雅普诺夫方程}{485}
+\indexentry{complex conjugate \dotfill 复共轭}{487}
+\indexentry{indicator function \dotfill 指示方程}{488}
+\indexentry{spectral density \dotfill 光谱密度}{488}
+\indexentry{impulse-response functions (IRFs) \dotfill 冲击响应方程}{489}
+\indexentry{latent variable \dotfill 隐含变量}{491}
+\indexentry{Monte Carlo method \dotfill 蒙特卡洛法}{491}
+\indexentry{vector autoregressions, VARs \dotfill 向量自回归}{495}
+\indexentry{Bayesian information criterion(BIC) \dotfill 贝叶斯信息量}{496}
+\indexentry{Akaike information criterion(AIC) \dotfill 赤池信息量}{496}
+\indexentry{selection matrix \dotfill 选择矩阵}{496}
+\indexentry{periodgram \dotfill 周期图}{497}
+\indexentry{kernel \dotfill 核}{497}
+\indexentry{indicator function \dotfill 指示方程}{497}
+\indexentry{frequency band \dotfill 频率带}{497}
+\indexentry{Euler formula (complex analysis) \dotfill 欧拉公式}{499}
+\indexentry{indefinitely differentiable function \dotfill 无限可导方程}{500}
+\indexentry{Taylor series \dotfill 泰勒级数}{500}
+\indexentry{Taylor-Maclaurin series \dotfill 麦克劳林级数}{500}
+\indexentry{power series \dotfill 幂级数}{500}
+\indexentry{Euler identity \dotfill 欧拉恒等式}{502}
+\indexentry{exponentiation (complex analysis) \dotfill 取幂(复分析)}{503}
+\indexentry{De Moivre Theorem \dotfill 棣莫弗定理}{503}
+\indexentry{complex angle \dotfill 复值夹角}{504}
+\indexentry{complex conjugate \dotfill 复共轭}{504}
+\indexentry{hyperbolic function!sine \dotfill 双曲线正弦方程}{504}
+\indexentry{hyperbolic function!cosine \dotfill 双曲线余弦方程}{504}
+\indexentry{kernel function!Gaussian \dotfill 高斯核方程}{505}
+\indexentry{probability density function (PDF)!Gaussian\dotfill 高斯概率密度方程}{505}
+\indexentry{self-similarity \dotfill 自相似性}{506}
+\indexentry{Delta Dirac function \dotfill 狄拉克方程}{507}
+\indexentry{kernel function!Gaussian, culmulative \dotfill 累积高斯核方程}{507}
+\indexentry{error function \dotfill 误差方程}{507}
+\indexentry{unit step function \dotfill 单位阶跃方程}{507}
+\indexentry{Heaviside function \dotfill 黑维塞方程}{507}
+\indexentry{probability density function (PDF)!\dotfill 概率密度方程}{511}
+\indexentry{likelihood function \dotfill 似然方程}{511}
+\indexentry{conditional bias \dotfill 条件偏误}{512}
+\indexentry{unbiased estimate \dotfill 无偏估计}{512}
+\indexentry{mean square error (MSE) \dotfill 均方误差}{512}
+\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差}{512}
+\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界}{513}
+\indexentry{Fischer information matrix \dotfill 费雪信息矩阵}{513}
+\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)}{514}
+\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)}{514}
+\indexentry{Bernoulli trials \dotfill 伯努利实验}{515}
+\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}{523}
+\indexentry{BFMG algorithm \dotfill BFMG算法}{523}
+\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}{524}
