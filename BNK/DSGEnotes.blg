@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2017)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: DSGEnotes.aux
 The style file: model4-names.bst
-Reallocated field_info (elt_size=4) to 11693 items from 5000.
+Reallocated field_info (elt_size=4) to 11739 items from 5000.
 Database file #1: ./refs/papers.bib
 Warning--missing institution in Aldrich:2011wz
 Warning--missing institution in Andreasen:2016cd
@@ -33,45 +33,45 @@ Warning--empty journal in Stachurski:2008wc
 `journal' is a missing field, not a string, for entry Wood:1975vn
 while executing---line 1514 of file model4-names.bst
 Warning--empty journal in Wood:1975vn
-You've used 291 entries,
+You've used 293 entries,
             2973 wiz_defined-function locations,
-            2274 strings with 47420 characters,
-and the built_in function-call counts, 213196 in all, are:
-= -- 18798
-> -- 5074
-< -- 255
-+ -- 1978
-- -- 1678
-* -- 23655
-:= -- 30530
-add.period$ -- 901
-call.type$ -- 291
-change.case$ -- 1983
-chr.to.int$ -- 291
-cite$ -- 308
-duplicate$ -- 16741
-empty$ -- 17364
-format.name$ -- 2513
-if$ -- 41276
+            2285 strings with 47589 characters,
+and the built_in function-call counts, 215107 in all, are:
+= -- 18982
+> -- 5102
+< -- 257
++ -- 1989
+- -- 1687
+* -- 23867
+:= -- 30788
+add.period$ -- 907
+call.type$ -- 293
+change.case$ -- 1996
+chr.to.int$ -- 293
+cite$ -- 310
+duplicate$ -- 16904
+empty$ -- 17534
+format.name$ -- 2528
+if$ -- 41658
 int.to.chr$ -- 10
 int.to.str$ -- 1
-missing$ -- 2497
-newline$ -- 1458
-num.names$ -- 1180
-pop$ -- 2624
+missing$ -- 2514
+newline$ -- 1468
+num.names$ -- 1188
+pop$ -- 2637
 preamble$ -- 1
-purify$ -- 1717
+purify$ -- 1728
 quote$ -- 0
-skip$ -- 4182
+skip$ -- 4209
 stack$ -- 0
-substring$ -- 18514
-swap$ -- 9465
+substring$ -- 18756
+swap$ -- 9531
 text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 2412
+type$ -- 2430
 warning$ -- 17
-while$ -- 1457
+while$ -- 1469
 width$ -- 0
-write$ -- 3997
+write$ -- 4025
 (There were 6 error messages)

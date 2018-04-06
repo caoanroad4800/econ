@@ -140,7 +140,7 @@
   \item $y_{t}$的(至少一系列)高阶矩是有界的，等。
 \end{itemize}
 
-如果研究目标包括计算自协方差矩阵的数列\footnote{Matlab中可用xcov程序计算自协方差、跨协方差。}，一个比较有效率的求解方法是，首先建立一个辅助模型并作参数估计。第二步，将这个辅助模型的估计参数转换为自协方差数列的参数值。辅助模型有许多种类，一个较为合适的种类是线性向量自回归模型(vector autoregressions, VARs)\index{vector autoregressions, VARs \dotfill 向量自回归}，一个简单的VAR(1)可表示如下
+如果研究目标包括计算自协方差矩阵的数列\footnote{Matlab中可用xcov程序计算自协方差、跨协方差。}，一个比较有效率的求解方法是，首先建立一个辅助模型并作参数估计。第二步，将这个辅助模型的估计参数转换为自协方差数列的参数值。辅助模型有许多种类，一个较为合适的种类是线性向量自回归模型(Vector AutoregRessions, VARs)\index{VAR!(vector autoregression) \dotfill 向量自回归}，一个简单的VAR(1)可表示如下
 \begin{equation}
   \label{sec:stylized-ssrep-empirics-var1-def}
   y_{t} = \phi_{1} y_{t-1} + \phi_{0} + u_{t}, \quad u_{t} \sim i.i.d. \, \mathbb{N} \left(0, \Sigma \right),
@@ -191,7 +191,7 @@ $VAR(1)$过程的自协方差、跨协方差方程，类似于\eqref{eq:stylized
 
 实际研究过程中，有时时间序列数据并不符合VAR(1)特征。就需要在$VAR(p), \, p >1$框架下分析协自协方差
 \begin{equation}
-  \label{sec:stylized-ssrep-empirics-varp-def}
+  \label{eq:stylized-ssrep-empirics-varp-def}
   y_{t} = \phi_{1} y_{t-1} + \ldots + \phi_{p} y_{t-p} + \phi_{0} + u_{t}, \quad \, u_{t} \sim i.i.d. \, \mathbb{N} \left( 0, \Sigma \right)
 \end{equation}
 
@@ -245,8 +245,10 @@ $p$值的选取标准，可通过贝叶斯信息量(Bayesian information criteri
 
 \subsection{光谱分析}
 \label{sec:stylized-ssrep-empirics-spectral}
-
-直观上来看，我们似乎很容易用样本的周期图(periodgram)\index{periodgram \dotfill 周期图}来做光谱密度的近似估计，由\eqref{eq:stylized-ssrep-autocovariance-density}得
+光谱分析的目标是近似计算光谱密度方程。
+\subsubsection{样本平滑周期图法}
+\label{sec:stylized-ssrep-empirics-spectral-direct}
+直观上来看，对于常见的$VAR(1)$数列，我们似乎很容易用样本的周期图(periodgram)\index{periodgram \dotfill 周期图}来做光谱密度的近似估计，由\eqref{eq:stylized-ssrep-autocovariance-density}得
 \begin{equation}
   \label{eq:spectral-periodgram-def}
 \begin{split}
@@ -301,3 +303,89 @@ $p$值的选取标准，可通过贝叶斯信息量(Bayesian information criteri
 如果有$\lim_{T \rightarrow \infty} \lambda \rightarrow 0$，即随着$T \rightarrow \infty$，频率的带宽缩减至$0$，那么对应地，$\mathbb{B} \left( \omega | \lambda \right)$中$\omega_{j}$的数量增大到无穷，平滑周期图算子因而是一致估计算子。
 
 在经验研究中常常使用高斯核方程如$\exp \left( i \omega t \right)$作基方程(第\ref{sec:gaussian-kernel-fourier}节)，从而$\mathcal{K}(x)$的值等于一个标准正态分布的随机变量的密度分布方程。
+
+\subsubsection{VAR(p)的插入估值法}
+\label{sec:stylized-ssrep-empirics-spectral-indirect}
+若BIC检验结果表明观测数据更适合用VAR(p), $p >1$模型如\eqref{eq:stylized-ssrep-empirics-varp-def}，那么可利用上文提到的插入法来近似估计光谱密度。具体说来，定义全体的系数向量$\phi \coloneqq \left[ \phi_{0}, \phi_{1}, \ldots, \phi_{p} \right]^{\top}$，选择矩阵$M(z) = \left[ Iz, \ldots, Iz^{p}\right]$。设样本的近似系数向量$\hat{\phi}$是对$\phi$的一个估计。
+
+对应于VAR(1)下的\eqref{eq:stylized-ssrep-autocovariance-density-ss}，VAR(p)用插入法估计的光谱分布密度$\hat{f}_{yy}^{V} \left( \omega \right)$可表示为
+\begin{equation}
+  \label{eq:stylized-ssrep-empirics-spectral-varp-plugin}
+  \hat{f}_{yy}^{V} \left( \omega \right)
+  = \frac{1}{2 \pi}
+  \left[
+  I - \hat{\phi}^{\top} M^{\top} \left( \exp \left( - i \omega \right) \right]
+  \right]^{-1}  \hat{\Sigma} \,
+  \left[
+  I - M \left( \exp \left( - i \omega \right)  \right) \,\hat{\phi}
+  \right]^{-1},
+\end{equation}
+\eqref{eq:stylized-ssrep-empirics-spectral-varp-plugin}是
+对\eqref{eq:stylized-ssrep-autocovariance-density-ss}的一般化处理，将VAR(1)扩展到了VAR(p)的情况。
+
+\begin{figure}[htbp]
+  \caption{抽样数据的光谱分布密度}
+  \centering
+  \includegraphics[width=12cm]{./Figures/20180406-empirics-spectrum}
+  \label{fig:stylized-ssrep-empirics-spectrum}
+%
+%  \small{Source: PBOC.}
+\end{figure}
+
+图\ref{fig:stylized-ssrep-empirics-spectrum}依次绘出产出增速、劳动力收入份额、通货膨胀率和利率的光谱密度。阴影的矩形对应经济周期的频率$\left[ 0.196,0.785 \right]$。
+红色点线表示根据$VAR(1)$ \eqref{eq:stylized-ssrep-autocovariance-density-ss}近似估计算得的密度分布，蓝色实线是根据高斯核方程$G \left(\cdot ; \sigma=0.15 \right)$ \eqref{eq:spectral-periodgram-smooth}算得的平滑周期图。
+
+\begin{enumerate}
+  \item 红色点线的光谱密度分布：
+\begin{enumerate}
+  \item 左上图：由于产出增速的自相关接近于$0$，使得光谱密度相对平缓。其余3张图中，三个观测数列在低频$\omega$处的光谱密度较高，这反映了实值域中三个时间序列具有较高的持久性。
+  \item 劳动收入份额的光谱密度表现出明显的驼峰形，通胀和利率的的光谱密度随着频率$\omega$的增加而单调递减。
+\end{enumerate}
+\item 蓝色实线的平滑周期图分布：
+\begin{enumerate}
+  \item 对$\overline{f}_{yy} \left( \omega \right)$的估计值取决于带宽值的设定。我们在高斯方程中设$\sigma = 0.15$，大致说来在傅里叶域中，这对应于将样本周期图以约0.6的频带值做平均。
+  \end{enumerate}
+\end{enumerate}
+
+\subsection{冲击响应方程}
+\label{sec:stylized-ssrep-empirics-irfs}
+
+VAR(p) \eqref{eq:stylized-ssrep-empirics-varp-def}有时也被称作缩减式VAR(reduced-form VAR)\index{VAR!reduced form \dotfill 缩减式向量自回归}，这是由于新息向量$u_{t} \sim \, i.i.d. \, \mathbb{N} \left( 0, \Sigma \right)$并没有明确的结构性含义，它仅仅是前一时期的预测误差。
+
+根据DSGE模型的设定，所谓冲击响应机制，是指某些新息冲击以结构性的方式作用于经济系统，使得经济系统做出响应，表现为同期系统模拟数据和现实观测数据之间的误差，即预测误差。可见，为了将基于VAR的冲击——响应(观测数据)和DSGE模型的冲击——响应(模拟数据)联系起来，就需要将预测误差引入到一个结构新息向量$\epsilon_{t}$中，设满足关系
+\begin{equation}
+  \label{eq:stylized-ssrep-svar-forecast-error}
+  u_{t} = \phi_{\epsilon} \epsilon_{t} = \Sigma_{tr} \, \Omega \, \epsilon_{t},
+\end{equation}
+其中
+\begin{itemize}
+\item 对预测误差$u_{t}$的协方差矩阵$\Sigma$作Cholesky因式分解(Cholesky factorization)\index{factorization!Cholesky \dotfill Cholesky因式分解}，所生成的唯一的(对角元素非负)下三角矩阵，定义为$\Sigma_{tr}$，
+\item $\Omega$是一个$n \times n$正交矩阵(orthogonal matrix)，满足
+\begin{equation*}
+  \Omega \, \Omega^{\top} = I.
+\end{equation*}
+\end{itemize}
+
+引入$\Omega$的正交矩阵设定，是为了确保在状态——空间表现形式中，新息系数矩阵$\phi_{\epsilon}$可以写为如下关于$\Omega, \, \Sigma$的形式
+\begin{equation}
+  \label{eq:stylized-ssrep-svar-errorcoef-varcov}
+  \phi_{\epsilon} \phi_{\epsilon}^{\top} = \Sigma_{tr} \, \Omega \, \Omega^{\top} \, \Sigma^{\top} = \Sigma.
+\end{equation}
+这样的向量自回归模型，我们称为结构向量自回归模型SVARs (structural vector autoregressions)\index{VAR!SVAR \dotfill 结构向量自回归}。
+根据这样的架构设定，预测误差$u_{t}$的协方差矩阵$\Sigma$，与正交矩阵$\Omega$的具体选取无关。这意味着我们无法通过实际数据求得$\Omega$。大多数基于SVARs的研究文献仅仅对$\Omega$的设定做出必要的限定(restrictions)，或称之为识别(identification)。随着冲击类型的不同(如技术进步，货币政策，公共支出等)，附着在冲击上的新息也具有不同的性质，在构建模型时对应的限定/识别策略也有所区别，更详尽的综述可参考如\cite{Cochrane:1994gi, Christiano:1999uw, Stock:2001bp}等。
+
+在(利用缩减式VAR)算得样本系数矩阵$\hat{\phi}$和$\hat{\Sigma}$的近似估计，以及明确对$\Omega$中一列或多列的识别机制之后，我们可以将样本近似下的冲击响应方程表示如下
+\begin{equation}
+  \label{eq:stylized-ssrep-sample-irfs}
+  \widehat{IRF}^{V} \left( \cdot , j, h\right)
+  = C_h \left( \hat{\phi} \right) \, \hat{\Sigma_{tr}} \, \left[ \Omega \right]_{.j},
+\end{equation}
+其中
+\begin{itemize}
+  \item $C_h \left( \hat{\phi} \right)$是移动平均系数矩阵(moving average coefficient matrix)，可以通过VAR表现式\eqref{sec:stylized-ssrep-empirics-varp-companion}而算得
+  \begin{equation}
+    \label{eq:stylized-ssrep-sample-irfs-macoef}
+    C_h \left( \hat{\phi} \right) = M^{\top} \, \widetilde{\phi}_{1}^{h} \, M, \quad \, M^{\top} \equiv \left[ I_{n}, 0_{n \times n \left( p - 1 \right)} \right].
+  \end{equation}
+  \item $\left[ \mathcal{A} \right]_{.j}$表示矩阵$\mathcal{A}$的第$j$列。
+\end{itemize}

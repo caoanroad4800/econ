@@ -727,7 +727,7 @@ DiscreteLyapunovSolve[a,c]
 $\omega_{j}$的单位往往与$t$的单位有关，后者在DSGE模型中设定，如以季度为时间单位，含有32个季度的数据，那么$\omega_{j} = \frac{2 \pi}{32}$。
 一个常见的经济周期模型，可能会包含8到23个季度数据，对应的$\omega_{j} \in \left[ 0.196, 0.785 \right]$。
 
-对于$\omega \in [ - \pi, \pi )$，时间序列$y_{t}$在傅里叶域中的光谱分布，可以表示为
+对于$\omega \in [ - \pi, \pi )$，时间序列$y_{t}$\eqref{eq:stylized-ssrep-y}在傅里叶域中的光谱分布，可以表示为
 \begin{equation}
   \label{sec:stylized-ssrep-fourier-y}
   \mathcal{F}_{yy} \left( \omega \right) = \sum_{j=-m}^{m}
@@ -739,7 +739,16 @@ $\omega_{j}$的单位往往与$t$的单位有关，后者在DSGE模型中设定�
   \mathbb{I} \left\{ \omega_{j} \le \omega \right\},
 \end{equation}
 \begin{itemize}
-  \item $\overline{A \left( \omega_{j} \right)}$表示$A \left( \omega_{j} \right)$的复共轭(complex conjugate, 第\ref{sec:euler-complex-angle-conjugate}节)\index{complex conjugate \dotfill 复共轭}。
+  \item $\omega_{-j} = - \omega_{j}, \, i=\sqrt{-1}$，
+  \item 基方程为$A \left(\omega_{j} \right)$及其复共轭(complex conjugate, 第\ref{sec:euler-complex-angle-conjugate}节)\index{complex conjugate \dotfill 复共轭}$\overline{A \left( \omega_{j} \right)}$的卷积的平均值。
+  \begin{equation*}
+    A \left( \omega_{j} \right) =
+    \begin{cases}
+      a_{j} \left( \cos \theta_{\left| j \right|} + i \sin \theta_{\left| j \right|} \right) & (j > 0), \\
+      a_{j} \left( \cos \theta_{\left| j \right|} - i \sin \theta_{\left| j \right|} \right) & (j < 0),
+    \end{cases}
+  \end{equation*}
+  %\item $\overline{A \left( \omega_{j} \right)}$表示$A \left( \omega_{j} \right)$的复共轭(complex conjugate, 第\ref{sec:euler-complex-angle-conjugate}节)\index{complex conjugate \dotfill 复共轭}。
   \item $ \mathbb{I}(\cdot)$是一个指示方程(indicator function)\index{indicator function \dotfill 指示方程}，满足
   \begin{equation}
     \label{eq:euler-complex-indicator-function-def}

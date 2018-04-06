@@ -428,13 +428,13 @@
 \indexentry{Martingale Difference Sequence (MDS) \dotfill 鞅差序列}{481}
 \indexentry{measurement equation \dotfill 测量方程}{482}
 \indexentry{Lyapunov function \dotfill 李雅普诺夫方程}{485}
-\indexentry{complex conjugate \dotfill 复共轭}{487}
+\indexentry{complex conjugate \dotfill 复共轭}{488}
 \indexentry{indicator function \dotfill 指示方程}{488}
 \indexentry{spectral density \dotfill 光谱密度}{488}
 \indexentry{impulse-response functions (IRFs) \dotfill 冲击响应方程}{489}
 \indexentry{latent variable \dotfill 隐含变量}{491}
-\indexentry{Monte Carlo method \dotfill 蒙特卡洛法}{491}
-\indexentry{vector autoregressions, VARs \dotfill 向量自回归}{495}
+\indexentry{Monte Carlo method \dotfill 蒙特卡洛法}{492}
+\indexentry{VAR!(vector autoregression) \dotfill 向量自回归}{495}
 \indexentry{Bayesian information criterion(BIC) \dotfill 贝叶斯信息量}{496}
 \indexentry{Akaike information criterion(AIC) \dotfill 赤池信息量}{496}
 \indexentry{selection matrix \dotfill 选择矩阵}{496}
@@ -442,42 +442,46 @@
 \indexentry{kernel \dotfill 核}{497}
 \indexentry{indicator function \dotfill 指示方程}{497}
 \indexentry{frequency band \dotfill 频率带}{497}
-\indexentry{Euler formula (complex analysis) \dotfill 欧拉公式}{499}
-\indexentry{indefinitely differentiable function \dotfill 无限可导方程}{500}
-\indexentry{Taylor series \dotfill 泰勒级数}{500}
-\indexentry{Taylor-Maclaurin series \dotfill 麦克劳林级数}{500}
-\indexentry{power series \dotfill 幂级数}{500}
-\indexentry{Euler identity \dotfill 欧拉恒等式}{502}
-\indexentry{exponentiation (complex analysis) \dotfill 取幂(复分析)}{503}
-\indexentry{De Moivre Theorem \dotfill 棣莫弗定理}{503}
-\indexentry{complex angle \dotfill 复值夹角}{504}
-\indexentry{complex conjugate \dotfill 复共轭}{504}
-\indexentry{hyperbolic function!sine \dotfill 双曲线正弦方程}{504}
-\indexentry{hyperbolic function!cosine \dotfill 双曲线余弦方程}{504}
-\indexentry{kernel function!Gaussian \dotfill 高斯核方程}{505}
-\indexentry{probability density function (PDF)!Gaussian\dotfill 高斯概率密度方程}{505}
-\indexentry{self-similarity \dotfill 自相似性}{506}
-\indexentry{Delta Dirac function \dotfill 狄拉克方程}{507}
-\indexentry{kernel function!Gaussian, culmulative \dotfill 累积高斯核方程}{507}
-\indexentry{error function \dotfill 误差方程}{507}
-\indexentry{unit step function \dotfill 单位阶跃方程}{507}
-\indexentry{Heaviside function \dotfill 黑维塞方程}{507}
-\indexentry{binomial coefficients \dotfill 二项式系数}{508}
-\indexentry{central limit theorem (CLT) \dotfill 中心极限定理}{510}
-\indexentry{isotropy}{510}
-\indexentry{anistropy \dotfill 各向异性}{510}
-\indexentry{bandpass filter (BPF) \dotfill 带宽滤波}{513}
-\indexentry{probability density function (PDF)!\dotfill 概率密度方程}{517}
-\indexentry{likelihood function \dotfill 似然方程}{517}
-\indexentry{conditional bias \dotfill 条件偏误}{518}
-\indexentry{unbiased estimate \dotfill 无偏估计}{518}
-\indexentry{mean square error (MSE) \dotfill 均方误差}{518}
-\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差}{518}
-\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界}{519}
-\indexentry{Fischer information matrix \dotfill 费雪信息矩阵}{519}
-\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)}{520}
-\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)}{520}
-\indexentry{Bernoulli trials \dotfill 伯努利实验}{521}
-\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}{529}
-\indexentry{BFMG algorithm \dotfill BFMG算法}{529}
-\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}{530}
+\indexentry{VAR!reduced form \dotfill 缩减式向量自回归}{498}
+\indexentry{factorization!Cholesky \dotfill Cholesky因式分解}{499}
+\indexentry{VAR!SVAR \dotfill 结构向量自回归}{499}
+\indexentry{Euler formula (complex analysis) \dotfill 欧拉公式}{501}
+\indexentry{indefinitely differentiable function \dotfill 无限可导方程}{502}
+\indexentry{Taylor series \dotfill 泰勒级数}{502}
+\indexentry{Taylor-Maclaurin series \dotfill 麦克劳林级数}{502}
+\indexentry{power series \dotfill 幂级数}{502}
+\indexentry{Euler identity \dotfill 欧拉恒等式}{504}
+\indexentry{exponentiation (complex analysis) \dotfill 取幂(复分析)}{505}
+\indexentry{De Moivre Theorem \dotfill 棣莫弗定理}{505}
+\indexentry{complex angle \dotfill 复值夹角}{506}
+\indexentry{complex conjugate \dotfill 复共轭}{506}
+\indexentry{hyperbolic function!sine \dotfill 双曲线正弦方程}{506}
+\indexentry{hyperbolic function!cosine \dotfill 双曲线余弦方程}{506}
+\indexentry{kernel function!Gaussian \dotfill 高斯核方程}{507}
+\indexentry{probability density function (PDF)!Gaussian\dotfill 高斯概率密度方程}{507}
+\indexentry{self-similarity \dotfill 自相似性}{508}
+\indexentry{Delta Dirac function \dotfill 狄拉克方程}{509}
+\indexentry{kernel function!Gaussian, culmulative \dotfill 累积高斯核方程}{509}
+\indexentry{error function \dotfill 误差方程}{509}
+\indexentry{unit step function \dotfill 单位阶跃方程}{509}
+\indexentry{Heaviside function \dotfill 黑维塞方程}{509}
+\indexentry{binomial coefficients \dotfill 二项式系数}{510}
+\indexentry{central limit theorem (CLT) \dotfill 中心极限定理}{512}
+\indexentry{isotropy}{512}
+\indexentry{anistropy \dotfill 各向异性}{512}
+\indexentry{bandpass filter (BPF) \dotfill 带宽滤波}{515}
+\indexentry{flops!(floating points operations) \dotfill 浮点计算数}{515}
+\indexentry{probability density function (PDF)!\dotfill 概率密度方程}{519}
+\indexentry{likelihood function \dotfill 似然方程}{519}
+\indexentry{conditional bias \dotfill 条件偏误}{520}
+\indexentry{unbiased estimate \dotfill 无偏估计}{520}
+\indexentry{mean square error (MSE) \dotfill 均方误差}{520}
+\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差}{520}
+\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界}{521}
+\indexentry{Fischer information matrix \dotfill 费雪信息矩阵}{521}
+\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)}{522}
+\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)}{522}
+\indexentry{Bernoulli trials \dotfill 伯努利实验}{523}
+\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}{531}
+\indexentry{BFMG algorithm \dotfill BFMG算法}{531}
+\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}{532}

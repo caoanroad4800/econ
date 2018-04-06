@@ -1,0 +1,47 @@
+%!TEX root = ../DSGEnotes.tex
+
+\section{数值线性代数基础}
+\label{sec:numlin}
+
+\subsection{矩阵结构与算法复杂度}
+\label{sec:numlin-matrix-structure-algorithm-complexity}
+
+以如下线性方程的求解为例
+\begin{equation}
+  \label{eq:numlin-matrix-example}
+  \underbrace{A}_{\left(n \times n \right)}
+  \underbrace{x}_{\left( n \times 1 \right)}
+  = \underbrace{b}_{\left( 1 \times 1 \right)},
+\end{equation}
+假设$A$是非奇异矩阵(nonsingular matrix, Proposition \ref{prop:simple-schur-quadratic-optim})，以确保对于所有$b$的值，方程都有唯一解$x = A^{-1} b$。$A$表示系数矩阵。RHS的$b$设为一个常数(随后我们会讨论更复杂一些的情况，比如$b$是一个向量)。
+
+数值近似所需的时间通常以$n^{3}$计。本节介绍的线性方程系统的通用求解方法，在对实时性要求不高，或者$n$值不太大(如$<10^{3}$)的情况下，通常是有效的。
+
+系数矩阵的结构问题。在通常情况下，我们可以设系数矩阵$A$具有一些特殊形式，以提高数值求解的效率(速度)，尤其是在$n$值较大时，效率的提升可能会很明显。$A$可供选择的形式有很多种，较简单的包括密集矩阵，和稀疏形式的矩阵等\footnote{较为复杂的矩阵形式暂不讨论，如Toeplitz, Hankel, Circulant matrix等。}，稀疏形如
+\begin{itemize}
+  \item 带状矩阵(band matrix)，
+  \item 块对角矩阵(block diagonal matrix),
+  \item 稀疏矩阵(sparse matrix)，由$0$和非零元素共同构成的矩阵等。
+\end{itemize}
+
+下面以密集形矩阵为例，介绍通用解法。在介绍之前，先来看一下算法复杂度(求解效率)的判定标准。
+
+\subsection*{利用flops指标作复杂度分析}
+数值近似计算过程中常用浮点计算数flop(floating points operations, flops)\index{flops!(floating points operations) \dotfill 浮点计算数}作为测度计算效率的指标。例如求解
+\begin{equation*}
+  m^{3} + 3 m^{3} n + mn + 4 m n^{2} + 5m + 22
+\end{equation*}
+所需的浮点计算数量。需要指出的是，在统计flops时常常只统计幂次较高的项，即含有最高幂次或者主要部分的项，的浮点运算次数，而忽略余下的部分。在上例的数值求解过程中，统计flops只需要考虑$m^{3} + 3 m^{2} n + 4 m n^{2}$的部分即可；如果$m << n$，那么只需计算$4 m n^{2}$部分即可。
+
+现在来看基础矩阵——向量运算的成本。以计算内积$\langle x, y \rangle$为例，向量$x,y \in \mathbb{R}^{n}$：第一步需要执行$x_{i} \times y_{i} \forall i \in n$，共需$(n)$ flops。然后将各项加总，需 $(n-1)$ flops，一共 $(2n-1)$ flops。若只统计首项，$2n$ flops。或者更简单些，只考虑幂次，$n$ flops。
+
+\subsubsection*{标量——矩阵乘积形式}
+$\alpha x, \, \alpha \in \mathbb{R}, \, x \in \mathbb{R}^{n}$，$n$ flops。
+
+$x + y$， $n$ flops。
+
+如果$x$和$y$是稀疏矩阵，即均含有一些非零元素，那么计算速度可能更快。例如若$x$中的非零元素数量是$N$，则$\langle x,y \rangle = x^{\top} y $，有$2N$ flops。
+
+\subsubsection*{矩阵——向量乘积形式}
+
+\end{subappendices}

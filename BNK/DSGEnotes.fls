@@ -593,6 +593,7 @@ INPUT ./Figures/20180403-irfs-output.png
 INPUT ./chapters/connection-2.tex
 INPUT ./chapters/connection-2.tex
 INPUT ./Figures/20180404-corss-correlations.png
+INPUT ./Figures/20180406-empirics-spectrum.png
 INPUT ./chapters/connection-appendix.tex
 INPUT ./chapters/connection-appendix.tex
 INPUT ./Figures/20180401-sin-cos-derivatives.png
@@ -617,6 +618,8 @@ INPUT ./Figures/20180405-isotropy.png
 INPUT ./Figures/20180405-anisotropy.png
 INPUT ./Figures/20180405-fourier-transform-mma.png
 INPUT ./Figures/20180405-kernel-compare.png
+INPUT ./chapters/connection-appendix-2.tex
+INPUT ./chapters/connection-appendix-2.tex
 INPUT ./chapters/mle.tex
 INPUT ./chapters/mle.tex
 INPUT ./Figures/output_5_0.png

@@ -1,4 +1,4 @@
-\begin{thebibliography}{291}
+\begin{thebibliography}{293}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -576,6 +576,12 @@
 \newblock \bibinfo{title}{{Early finite element research at Berkeley}}.
 \newblock In: \bibinfo{booktitle}{Fifth US National Conference on Computational
   Mechanics}. \bibinfo{address}{Berkeley}; \bibinfo{year}{1999}. .
+%Type = Article
+\bibitem[{Cochrane(1994)}]{Cochrane:1994gi}
+\bibinfo{author}{Cochrane\xfnm[ J.H.]}.
+\newblock \bibinfo{title}{{Shocks}}.
+\newblock \bibinfo{journal}{Carnegie-Rochester Conference Series on Public
+  Policy} \bibinfo{year}{1994};\bibinfo{volume}{41}:\bibinfo{pages}{295--364}.
 %Type = Book
 \bibitem[{Cochrane(2000)}]{Cochrane:2000tr}
 \bibinfo{author}{Cochrane\xfnm[ J.H.]}.
@@ -1936,6 +1942,12 @@
   the Credit and Labor Markets}}.
 \newblock \bibinfo{journal}{The American Economic Review}
   \bibinfo{year}{1983};\bibinfo{volume}{73}(\bibinfo{number}{5}):\bibinfo{pages}{912--927}.
+%Type = Article
+\bibitem[{Stock and Watson(2001)}]{Stock:2001bp}
+\bibinfo{author}{Stock\xfnm[ J.H.]}, \bibinfo{author}{Watson\xfnm[ M.W.]}.
+\newblock \bibinfo{title}{{Vector Autoregressions}}.
+\newblock \bibinfo{journal}{Journal of Economic Perspectives}
+  \bibinfo{year}{2001};\bibinfo{volume}{15}(\bibinfo{number}{4}):\bibinfo{pages}{101--115}.
 %Type = Book
 \bibitem[{Stokey et~al.(1989)Stokey, Lucas and Prescott}]{Stokey1989}
 \bibinfo{author}{Stokey\xfnm[ N.]}, \bibinfo{author}{Lucas\xfnm[ R.E.]},
