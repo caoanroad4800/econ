@@ -1,22 +1,22 @@
 # Fdb version 3
-["bibtex DSGEnotes"] 1523032936 "DSGEnotes.aux" "DSGEnotes.bbl" "DSGEnotes" 1523032964
+["bibtex DSGEnotes"] 1523113855 "DSGEnotes.aux" "DSGEnotes.bbl" "DSGEnotes" 1523113877
   "./model4-names.bst" 1521669868 28214 de501ffbf7fe1fde2983e5f043e9abba ""
   "./refs/papers.bib" 1522510596 678598 6f75c5a11e0925d1de56ddbe1a53c303 ""
-  "DSGEnotes.aux" 1523032950 328468 99dbd4649601a0e075b99c4eb2cceb39 ""
+  "DSGEnotes.aux" 1523113865 331129 7902754bdb0ed398ef1b2c829be66ac6 ""
   (generated)
-  "DSGEnotes.blg"
   "DSGEnotes.bbl"
-["makeindex DSGEnotes.idx"] 1523032552 "DSGEnotes.idx" "DSGEnotes.ind" "DSGEnotes" 1523032964
-  "DSGEnotes.idx" 1523032949 32893 f8b025c63d23c075547c3a3eb6eefd05 ""
+  "DSGEnotes.blg"
+["makeindex DSGEnotes.idx"] 1523113410 "DSGEnotes.idx" "DSGEnotes.ind" "DSGEnotes" 1523113877
+  "DSGEnotes.idx" 1523113864 33777 6612941015b701fbf009cf40e8d7dedf ""
   (generated)
   "DSGEnotes.ilg"
   "DSGEnotes.ind"
-["xdvipdfmx"] 1523032950 "DSGEnotes.xdv" "DSGEnotes.pdf" "DSGEnotes" 1523032964
-  "DSGEnotes.xdv" 1523032950 9171164 af4dba0de46f0a8848ad1dbe5e4061f2 "xelatex"
+["xdvipdfmx"] 1523113865 "DSGEnotes.xdv" "DSGEnotes.pdf" "DSGEnotes" 1523113877
+  "DSGEnotes.xdv" 1523113865 9272620 e3e26075b3d9d6ddfd13f328ea2ccae7 "xelatex"
   (generated)
   "DSGEnotes.pdf"
-["xelatex"] 1523032943 "DSGEnotes.tex" "DSGEnotes.xdv" "DSGEnotes" 1523032964
-  "/dev/null" 1523010756 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1523113858 "DSGEnotes.tex" "DSGEnotes.xdv" "DSGEnotes" 1523113877
+  "/dev/null" 1523139989 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1480098689 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1480098698 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -264,15 +264,15 @@
   "/usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf" 1518824182 33095 db9a077a3f94a5d0b580d566a7906714 ""
   "/usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt" 1522076234 3705430 bbd4532d3f1f657a4a47bcec7697a189 ""
   "/usr/local/texlive/2017/texmf.cnf" 1521724866 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "DSGEnotes.aux" 1523032950 328468 99dbd4649601a0e075b99c4eb2cceb39 ""
-  "DSGEnotes.bbl" 1523032936 109533 cec1468421998916c47adc0e5fdb7cba "bibtex DSGEnotes"
-  "DSGEnotes.ind" 1523032950 27405 7151ff82be8cb98d69ee7ecf8015ff44 "makeindex DSGEnotes.idx"
-  "DSGEnotes.lof" 1523032950 9071 915133d2748172f6d92fbf79b76ca9f9 ""
-  "DSGEnotes.lot" 1523032950 1360 d26c3ab2c5e6d9f5d7eee1c21c2cdbc0 ""
-  "DSGEnotes.out" 1523032950 51477 0697817930c0980a13ae7f96b35b62a0 ""
-  "DSGEnotes.tdo" 1523032950 5707 587f856611f7a0452ede4ef4c9f542ab ""
-  "DSGEnotes.tex" 1523032516 22595 80028f965865335527740111440fc558 ""
-  "DSGEnotes.toc" 1523032950 56956 eb5b3d5db0297855d096117db5107b5e ""
+  "DSGEnotes.aux" 1523113865 331129 7902754bdb0ed398ef1b2c829be66ac6 ""
+  "DSGEnotes.bbl" 1523113855 109533 cec1468421998916c47adc0e5fdb7cba "bibtex DSGEnotes"
+  "DSGEnotes.ind" 1523113864 28106 36dffa4200c0cbe5099f0bd16e30de3b "makeindex DSGEnotes.idx"
+  "DSGEnotes.lof" 1523113865 9071 915133d2748172f6d92fbf79b76ca9f9 ""
+  "DSGEnotes.lot" 1523113865 1360 d26c3ab2c5e6d9f5d7eee1c21c2cdbc0 ""
+  "DSGEnotes.out" 1523113865 51987 535dbfd5123c9b2a06fd71254a6d5048 ""
+  "DSGEnotes.tdo" 1523113865 5707 2b1e850ba52164a2d154d6d4565cbfd6 ""
+  "DSGEnotes.tex" 1523081422 22635 ba8fdea8e21e3ca684cdb203b9659914 ""
+  "DSGEnotes.toc" 1523113865 57784 3237286d1c9edc5b5e5e95696a004a7f ""
   "Figures/20170227-nc-adaptive-quadrature.png" 1521669868 18727 4c22ccc5916c4a40cd4feeb168535e23 ""
   "Figures/20170324-CIA-outline.pdf" 1521669868 13444 0fbcfab11c5d5ac247f3be41753e2c70 ""
   "Figures/20170701-DSGE-workflow.pdf" 1521669868 24784 3dad30f7cd4c3d60db20c6400a8a86df ""
@@ -365,8 +365,8 @@
   "chapters/bem-fem-0901-finele.tex" 1521669868 26837 1b028eaa27bbf76aca8fe7c2a6437ae7 ""
   "chapters/bem-fem-0902-finele.tex" 1521669868 23527 3f151337daa0b952095ca7dd77c8e39f ""
   "chapters/comparison.tex" 1522211558 4617 61972c27c7e63902efbe2cbdeb31dfb1 ""
-  "chapters/connection-2.tex" 1523029858 25525 ea55033c08a291b6cc6cd4fe26a8c5d4 ""
-  "chapters/connection-appendix-2.tex" 1523032933 3209 07f09153dd55cedb9266875e29575f88 ""
+  "chapters/connection-2.tex" 1523091358 25618 22936323d1e13210033c1c6671deef68 ""
+  "chapters/connection-appendix-2.tex" 1523113847 21808 71708fa8e74eeb54b38c361cabb9b033 ""
   "chapters/connection-appendix.tex" 1523030959 34935 6370be66cd15a95efdd7305b9a94aa8c ""
   "chapters/connection.tex" 1523012939 56126 9dde4e5f0a20836bdb15cf40a66d65a2 ""
   "chapters/dynamic-programming.tex" 1521669868 27427 68602373eae24e7e7c29b231407716f0 ""
@@ -389,13 +389,13 @@
   "mmacells.sty" 1521669868 28058 a1091b5a73c18e759cbfd79621b1d025 ""
   "numcompress.sty" 1521669867 5571 cf097ecf807971c5a27366f7496e7d10 ""
   (generated)
-  "DSGEnotes.idx"
-  "tmpbib.tex"
+  "DSGEnotes.tdo"
+  "DSGEnotes.toc"
+  "DSGEnotes.xdv"
   "DSGEnotes.out"
-  "DSGEnotes.lot"
+  "tmpbib.tex"
+  "DSGEnotes.log"
   "DSGEnotes.lof"
   "DSGEnotes.aux"
-  "DSGEnotes.xdv"
-  "DSGEnotes.toc"
-  "DSGEnotes.tdo"
-  "DSGEnotes.log"
+  "DSGEnotes.idx"
+  "DSGEnotes.lot"

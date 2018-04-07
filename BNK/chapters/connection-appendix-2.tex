@@ -43,5 +43,475 @@ $x + y$， $n$ flops。
 如果$x$和$y$是稀疏矩阵，即均含有一些非零元素，那么计算速度可能更快。例如若$x$中的非零元素数量是$N$，则$\langle x,y \rangle = x^{\top} y $，有$2N$ flops。
 
 \subsubsection*{矩阵——向量乘积形式}
+以计算下式为例
+\begin{equation*}
+  \underbrace{y}_{\left( m \times 1 \right)}
+  = \underbrace{A}_{\left( m \times n \right)}
+  \underbrace{x}_{\left( n \times 1 \right)},
+\end{equation*}
+$2 mn$ flops。
+
+$A$的特殊形式可以提升计算速度，如
+\begin{itemize}
+  \item $A$是对角矩阵，那么 $A x$计算需 $n$ flops，
+  \item $A$是系数矩阵，其中包括$N$个非零元素，那么 $A x$计算需 $2N$ flops。
+\end{itemize}
+
+如果设$A$的秩满足$\rank (A) \le \min \left\{ m, n \right\}$，并且$A$可以分解为
+\begin{equation*}
+  \underbrace{A}_{\left( m \times n \right)}
+  = \underbrace{U}_{\left( m \times p \right)}
+  \underbrace{V}_{\left( p \times n \right)},
+\end{equation*}
+那么可以首先计算 $V x$ ($2pn$ flops)，再计算$U \left( Vx \right)$ ($2mp$ flops)，总共$2 \left( m+n \right) p << 2 mn$ flops。
+
+\subsubsection*{矩阵——矩阵乘积形式}
+来看
+\begin{equation*}
+  \underbrace{C}_{\left( m \times p \right)} =
+  \underbrace{A}_{\left( m \times n \right)}
+  \underbrace{B}_{\left( n \times p \right)},
+\end{equation*}
+$2 m n p$ flops。
+
+\subsection{矩阵结构与线性系统求解}
+\label{sec:numlin-decomposition}
+
+先从较简单的线性系统\eqref{eq:numlin-matrix-example}求解开始。
+
+\subsubsection{对角矩阵}
+\label{sec:numlin-matrix-diagonal}
+设$A$是对角矩阵(diagonal matrix)\index{matrix!diagonal \dotfill 对角矩阵}，非奇异，即矩阵中元素满足$a_{ii} \neq 0 \, \forall i \in n$。那么有
+\begin{equation*}
+  a x = b \Leftrightarrow a_{ii} x_{i} = b_{i}, \, i = 1,\ldots,n,
+\end{equation*}
+对应的解$\left\{ x_{i} \right\}_{i \in n}$满足
+\begin{equation*}
+  x_{i} = \frac{b_{i}}{a_{ii}}, \quad i=1,\ldots,n,
+\end{equation*}
+$n$ flops.
+
+\subsubsection{下三角矩阵}
+若$A \in \mathbb{R}^{n \times n}$满足$a_{i,j} \, \forall j > i, \, i,j=1,\ldots,n$，我们称之为下三角矩阵(lower triangular matrix)\index{matrix!triangular, lower \dotfill 下三角矩阵}。若下三角矩阵中的所有非零元素的值都为$1$，则称为单位下三角矩阵(unit lower triangular matrix)\index{matrix!triangular, unit lower \dotfill 下三角单位矩阵}，例如一个$5 \times 5$的单位下三角矩阵
+\begin{equation*}
+\begin{pmatrix}
+   1 & 0 & 0 & 0 & 0\\
+   1 & 1 & 0 & 0 & 0\\
+   1 & 1 & 1 & 0 & 0\\
+   1 & 1 & 1 & 1 & 0\\
+   1 & 1 & 1 & 1 & 1
+ \end{pmatrix}.
+\end{equation*}
+
+当且仅当下三角矩阵$A$的全部对角元素不为$0$，即$a_{ii} \neq 0 \, \forall i =1,\ldots,n$时，$A$才是一个非奇异矩阵。
+
+非奇异下三角矩阵$A$代回原式，有
+\begin{equation*}
+  \begin{pmatrix}
+  a_{11} & 0 & \ldots & 0 \\
+  a_{21} & a_{22} &\ldots & 0 \\
+  \vdots & \ddots & \ddots & 0\\
+  a_{n1} & a_{n2} & \ldots & a_{nn}
+\end{pmatrix}
+\,
+\begin{pmatrix}
+  x_{1} \\ x_{2} \\ \vdots \\ x_{n}
+\end{pmatrix}
+=
+\begin{pmatrix}
+  b_{1} \\
+  b_{2} \\
+  \vdots \\
+  b_{n}
+\end{pmatrix}.
+\end{equation*}
+
+求解，依次有
+\begin{equation*}
+  \begin{split}
+    x_{1} & = \frac{b_{1}}{a_{11}}, \quad (1 flops)\\
+    x_{2} & = \frac{b_{2} - a_{21} x_{1}}{a_{22}}, \quad (3 flops)\\
+    x_{3} & = \frac{b_{3} - a_{31} x_{1} - a_{32} x_{2}}{a_{33}}, \quad (5 flops)\\
+    \vdots & \\
+    x_{n} & = \frac{
+    b_{n} - a_{n1} x_{1} - a_{n2} x_{2} - \ldots - a_{n,n-1} x_{n-1}
+    }{
+    a_{nn}
+    }, \quad (2n-1 flops)
+  \end{split}
+\end{equation*}
+这种求解思路称向前替换(forward subsititution)，即在每一个计算$x_{i}$的过程中，将已求解得到的$x_{1},x_{2},\ldots,x_{i-1}$作为已知量代入。总共需要计算
+\begin{equation*}
+  \Sigma = 1 + 3 + 5 + \ldots + \left( 2 n - 1 \right)
+  = n^{2} flops.
+\end{equation*}
+
+如果$A$除了下三角、非奇异之外还有其他更多一些特征，我们可以进一步优化算法，提高求解效率，使得计算数低于$n^{2}$。例如若$A$还是稀疏的或带状的，每一行中有不超过$k$个元素，则向前替代需要$\left( 2k+1 \right)$flops，总计$\left( 2k + 1 \right) n$ flops，以首项记为$\left( 2kn \right)$次。
+
+
+\subsubsection{上三角矩阵}
+若$A \in \mathbb{R}^{n \times n}$的转置$A^{\top}$是个下三角矩阵，满足$a_{i,j} =0 \, \forall i > j, \, i,j=1,\ldots,n$，我们称之为上三角矩阵(upper triangular matrix)\index{matrix!triangular, upper \dotfill 上三角矩阵}。若上三角矩阵中的所有非零元素的值都为$1$，则称为单位上三角矩阵(unit upper triangular matrix)\index{matrix!triangular, unit upper \dotfill 上三角单位矩阵}。
+
+对应的求解过程为向后替代(backward substitution)
+\begin{equation*}
+\begin{split}
+    x_{n} & = \frac{b_{n}}{a_{n-1}}, \\
+    x_{n-1} & = \frac{
+    b_{n-1} - a_{n-1,n} x_{n} x_{n}
+    }{
+    a_{n-1,n-1}
+    }, \\
+    x_{n-2} & = \frac{
+    b_{n-2} - a_{n-2,n-1} x_{n-1} - a_{n-2,n} x_{n}
+    }{
+    a_{n-2,n-2}
+    }, \\
+    \vdots & \\
+    x_{1} & = \frac{
+    b_{1} - a_{12}x_{2} - a_{13}x_{3} - \ldots - a_{1n}x_{n}
+    }{
+    a_{11}
+    },
+\end{split}
+\end{equation*}
+也是$n^{2}$ flops。若$A$稀疏，每一行最多有$k$个非零元素，那么 $\left(2 kn \right)$ flops。
+
+\subsubsection{正交矩阵}
+\label{sec:numlin-matrix-orthogonality}
+$A \in \mathbb{R}^{n \times n}$若满足如下条件，我们称之为正交矩阵(orthogonal matrix)\index{matrix!orthogonal \dotfill 正交矩阵}
+\begin{equation*}
+  A^{\top} \, A = I, \quad \text{即 } \, A^{-1} = A^{\top}.
+\end{equation*}
+
+此时线性系统$A x = b$为
+\begin{equation*}
+  x = A^{-1} b = A^{\top} b, \quad \left( 2n^{2} \right) \, flops.
+\end{equation*}
+
+若正交矩阵还具有更多属性如
+\begin{equation*}
+  A = I - 2 \, u \, u^{\top}, \quad \left\| u \right\|_{2} = 1,
+\end{equation*}
+那么
+\begin{equation*}
+  \begin{split}
+    x & = A^{-1} b = \left( I - 2 \, u \, u^{\top} \right)^{\top} \,
+    = b - 2 \, u^{\top} \, b \, u,
+    \end{split}
+\end{equation*}
+计算步骤
+\begin{itemize}
+  \item 算$u^{\top} \, b$，$\left( n \right)$ flops，
+  \item 算$u^{\top} \, b \, u $，$\left( n \right)$ flops，
+  \item 算$-2 \, u^{\top} \, b \, u $，$\left( n \right)$ flops，
+  \item 算$b - 2 \, u^{\top} \, b \, u$， $\left( n \right)$ flops，
+\end{itemize}
+$\Sigma = 4n$ flops。
+
+\subsubsection{置换矩阵}
+\label{sec:numlin-matrix-permutation}
+置换矩阵(permutation matrix)\index{matrix!permutation \dotfill 置换矩阵}是指只由$0$和$1$组成的方块矩阵，每一行和每一列都有且只有一个$1$，其余均为$0$。在线性代数中，每个$n$元置换矩阵都代表一个对$n$个元素的置换，这$n$个元素常常是$n$维空间的基。当一个矩阵乘以一个置换矩阵时，得到的是原矩阵的行(若置换矩阵在左)或列(若置换矩阵在右)经过置换后的矩阵。具体说来，每个$n$元置换都对应唯一的一个置换矩阵。设$\pi$为一个$n$元置换$\pi: \left\{ 1,\ldots,n \right\} \mapsto \left\{ 1, n \right\}$，对应映射图
+\begin{equation*}
+  \begin{pmatrix}
+    1 & 2 & \ldots & n \\
+    \pi(1) & \pi(2) & \ldots & \pi(n)
+  \end{pmatrix},
+\end{equation*}
+那么它的$n \times n$置换矩阵$P_{\pi}$是指，在第$i$行上只有$\pi(i)$位置上的系数是$1$，其余均为$0$：
+\begin{equation}
+  \label{eq:numlin-matrix-permutation}
+  P_{\pi} = \begin{pmatrix}
+  e_{\pi(1)} \\e_{\pi(2)} \\ \vdots \\ e_{\pi(n)}
+  \end{pmatrix},
+\end{equation}
+其中$e_{j}$表示正则基中的第$j$个，也即第$j$行左起第$j$个元素是$1$，其余均为$0$。
+
+此外设一个单位矩阵(identity matrix)\index{matrix!identity \dotfill 单位矩阵} $I \in \mathbb{R}^{n \times n} = \left[ e_{1}, e_{2}, e_{3}, \ldots, e_{n} \right]^{\top}$，因此置换矩阵也可以看做是对单位矩阵的某些行和列交换后所得到的矩阵。
+
+置换矩阵具有一些性质如下
+\begin{enumerate}
+  \item 设2个$n$元置换$\pi$和$\sigma$，分别对应2个$n \times n$置换矩阵$P_{\pi}, \, P_{\sigma}$，那么
+  \begin{equation*}
+    P_{\pi} P_{\sigma} = P_{\pi \, \sigma}.
+  \end{equation*}
+  \item 一个置换矩阵必然是正交矩阵，满足
+  \begin{equation*}
+    P_{\pi} \, P_{\pi}^{\top} = I,
+  \end{equation*}
+  并且它的逆矩阵也是一个置换矩阵
+  \begin{equation*}
+    P_{\pi}^{-1} = P_{\pi^{-1}} = P_{\pi}^{\top}.
+  \end{equation*}
+\end{enumerate}
+
+左乘：置换矩阵$P_{\pi}$左乘一个列向量$g$，得到的是$g$的系数经置换后的新向量
+\begin{equation*}
+  P_{\pi} \, g=
+  \begin{pmatrix}
+    e_{\pi(1)} \\
+    e_{\pi(2)} \\
+    \vdots \\
+    e_{\pi(n)} \\
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    g_{1} \\ g_{2} \\ \vdots \\ g_{n}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    g_{\pi^(1)} \\
+    g_{\pi(2)} \\
+    \vdots \\
+    g_{\pi(n)} \\
+  \end{pmatrix}.
+\end{equation*}
+
+右乘：置换矩阵$P_{\pi}$右乘一个行向量$h$，得到的是$h$的系数经置换后的新向量
+\begin{equation*}
+  h \,   P_{\pi} =
+  \begin{pmatrix}
+    h_{1} , h_{2} , \ldots , h_{n}
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    e_{\pi(1)} \\
+    e_{\pi(2)} \\
+    \vdots \\
+    e_{\pi(n)} \\
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    h_{\pi^{-1}(1)} ,
+    h_{\pi^{-1}(2)} ,
+    \ldots,
+    h_{\pi^{-1}(n)}
+  \end{pmatrix}.
+\end{equation*}
+
+例如$\pi= (1,4,2,5,3)$，对应映射
+\begin{equation*}
+  \begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 \\
+    1 & 4 & 2 & 5 & 3
+  \end{pmatrix},
+\end{equation*}
+建立置换矩阵
+\begin{equation*}
+  P_{\pi} =
+  \begin{pmatrix}
+    e_{\pi(1)} \\
+    e_{\pi(2)} \\
+    e_{\pi(3)} \\
+    e_{\pi(4)} \\
+    e_{\pi(5)}
+  \end{pmatrix}
+  = \begin{pmatrix}
+  e_{1} \\ e_{2} \\ e_{3} \\ e_{4} \\ e_{5}
+  \end{pmatrix}
+  = \begin{pmatrix}
+  1 & 0 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 1 & 0 \\
+  0 & 1 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 0 & 1 \\
+  0 & 0 & 1 & 0 & 0
+  \end{pmatrix}.
+\end{equation*}
+
+对于一个给定的向量$g = \left[ g_{1}, g_{2}, g_{3}, g_{4}, g_{5} \right]^{\top}$，我们有
+\begin{equation*}
+  P_{\pi} \, g =
+  \begin{pmatrix}
+    e_{\pi(1)} \\
+    e_{\pi(2)} \\
+    e_{\pi(3)} \\
+    e_{\pi(4)} \\
+    e_{\pi(5)}
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    g_{1} \\
+    g_{2} \\
+    g_{3} \\
+    g_{4} \\
+    g_{5}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+    e_{1} \\ e_{2} \\ e_{3} \\ e_{4} \\ e_{5}
+    \end{pmatrix}
+    \,
+    \begin{pmatrix}
+      g_{1} \\
+      g_{2} \\
+      g_{3} \\
+      g_{4} \\
+      g_{5}
+      \end{pmatrix}
+    = \begin{pmatrix}
+    g_{1} \\ g_{4} \\ g_{2} \\ g_{5} \\ g_{3}
+    \end{pmatrix}.
+\end{equation*}
+
+回到本节$Ax=b$的求解问题。如果$A$是一个转置矩阵，那么求解方法为，对向量$b$做$\pi^{-1}$的置换：
+\begin{equation*}
+  x = A_{\pi^{-1}} b = A^{T} b, \quad \left( 0 \right) flops.
+\end{equation*}
+虽然仍然涉及到浮点数的复制粘贴，但计为$0$。
+
+\subsection{矩阵分解}
+\label{sec:numlin-matrix-factorization}
+在实际求解线性系统的过程中，有时很难第一眼就看出系数矩阵$A$具有哪些特殊结构。这时可以尝试将它分解为一组非奇异矩阵的乘
+\begin{equation}
+  \label{eq:numlin-matrix-factorization-fact-step}
+\begin{split}
+    & A = A_{1} \, A_{2} \, \ldots A_{k}, \\
+    \hookrightarrow A x = b \Leftrightarrow x = A^{-1} b
+    = A_{k}^{-1} \, A_{k-1}^{-1} \, \ldots A_{1}^{-1} \, b.
+\end{split}
+\end{equation}
+
+可以从右向左求解
+\begin{equation}
+\label{eq:numlin-matrix-factorization-solution-step}
+\begin{split}
+    z_{1} & = A_{1}^{-1} b, \\
+    z_{2} & = A_{2}^{-1} z_{1} = A_{2}^{-1} A_{1}^{-1} b, \\
+    \vdots & \\
+    z_{i} = A_{i}^{-1} z_{i-1} = A_{i}^{-1} A_{i-1}^{-1} \ldots A_{1}^{-1} b,
+\end{split}
+\end{equation}
+
+在此基础上进一步计算系统的解$x$
+\begin{equation*}
+  x = A_{k}^{-1} z_{k-1} = A_{k}^{-1} A_{k-1}^{-1} \ldots A_{1}^{-1} b.
+\end{equation*}
+
+这种方法称为矩阵的因子分解(factorization)。如果$A_{i}$具有较好的结构，比如是(上或下)对角矩阵、置换矩阵等，那么分解法可用于高效求解线性系统$A x = b$。有时为了记忆方便，对于将系数矩阵做分解$A=A_{1} \ldots A_{i}$的计算过程\eqref{eq:numlin-matrix-factorization-fact-step}称为分解步骤(factorization step)，对应 $f$ flops。对于求解$z_{i} = A_{i}^{-1} z_{i-1}$ \eqref{eq:numlin-matrix-factorization-solution-step}的步骤称为求解步骤(solution step)，对应 $s$ flops。通常来说，求解步骤所需成本远高于分解步骤，$f >> s$。
+
+现在作个扩展，$b$不再是个常数而是个向量，对应线性系统
+\begin{equation*}
+\begin{split}
+  & A X = B,  \\
+  & A \in \mathbb{R}^{n \times n}, \\
+  & X = \left[ x_{1}, x_{2}, \ldots, x_{m} \right] \in \mathbb{R}^{ n \times m}, \\
+  & B = \left[ b_{1}, b_{2}, \ldots, b_{m} \right] \in \mathbb{R}^{ n \times m}.
+\end{split}
+\end{equation*}
+
+求解方法类似：$A$的分解步骤需要 $f$ flops；随后对$1,\ldots,m$分别求解$A_{i}^{-1} b_{i}$，一共需要 $(m s)$ flops，$\Sigma = \left( f + ms \right)$ flps，并且往往$f >> s$。
+
+下面介绍一些常见的因子分解法，如LU分解，Cholesky分解，$LDL^{\top}$分解等。
+
+\subsection{LU因子分解}
+\label{sec:numlin-factorization-lu}
+任意一个非奇异矩阵$A \in \mathbb{R}^{n \times n}$都可以分解为PLU的形式
+\begin{equation}
+  A = P \, L \, U,
+\end{equation}
+其中$P \in \mathbb{R}^{n \times n}$是置换矩阵，$L, U \in \mathbb{R}^{n \times n}$分别是上、下三角矩阵，这种方法称为$A$的LU分解(LU factorization)\index{matrix factorization!LU \dotfill LU分解}。结合转置矩阵的特征，上式可改写为
+\begin{equation}
+  \label{eq:numlin-factorization-lu}
+  P^{\top} A = LU,
+\end{equation}
+数值计算求解LU分解的标准算法是高斯部分主元消除法(Gaussian elimination of partial pivoting)，又称高斯行主元消除法(Gaussian elimination of row pivoting)\index{Gaussian elimination \dotfill 高斯消元}，消耗 $\frac{2}{3} n^{3}$ flops。
+
+\subsubsection{利用LU分解法求解线性方程系统}
+LU分解+分解步和求解步，是线性方程系统如$Ax=b$的标准求解方法。
+\begin{algorithm}[利用LU分解法求解线性方程系统]
+  \label{algorithm:numlin-factorization-lu}
+  给定一个线性方程系统$Ax=b$，其中系数矩阵$A$非奇异，$b$是个常数，经典的求解步骤如下：
+  \begin{enumerate}
+    \item LU因式分解，将$A$分解为$A = P \, L \, U$，$\left( \frac{2}{3} n^{3} \right)$ flops。
+    \item 置换，求解$P z_{1} = b$， $(0)$ flops。
+    \item 向前替换，求解$L \, z_{2} = z_{1}$， $\left( n^{2} \right)$ flops。
+    \item 向后替换，求解$U \, x = z_{2}$， $ \left( n^{2} \right)$ flops。
+  \end{enumerate}
+
+  总共消耗$\left( \frac{2}{3} n^{3} + 3 n^{2} \right)$ flops。
+\end{algorithm}
+
+如果$b \in \mathbb{R}^{n}$是一个向量，整个系统变成一个由$m$个方程组成的线性系统$A x_{i} = b_{i}, \, i = 1,\ldots,m$，计算方法类似，消耗成本$\left( \frac{2}{3} n^{3} + 2 m n^{2} \right)$ flops。
+
+如果非奇异矩阵$A$还具有其他一些额外的性质，如带状或系数，则可通过优化算法提高数值计算的效率。
+
+若$A$是带状矩阵(band matrix)\index{matrix!band \dotfill 带状矩阵}，指
+\begin{equation}
+  \label{eq:numlin-band-matrix-def}
+  a_{ij} = 0, \quad \text{如果 } \left| i - j \right| > k,
+\end{equation}
+其中$k < n-1$，称为$A$的带宽(bandwidth)\index{bandwidth (matrix) \dotfill 带宽(矩阵的)}。对于$k << n$的情况，计算消耗$\left( 4 n k^{2} \right)$ flops。
+
+若$A$是稀疏矩阵，那么其LU因子分解中常常同时既含有行置换，也含有列置换，即
+\begin{equation*}
+  A = P_{1} \, L \, U \, P_{2},
+\end{equation*}
+其中$P_{1}, \, P_{2}$都是置换矩阵。这时采用LU因子分解会大大提升计算效率，L和U的稀疏程度取决于$P_{1}$和$P_{2}$的具体形式。
+
+\subsection{Cholesky因子分解}
+\label{sec:numlin-factorization-cholesky}
+如果$A \in \mathbb{R}^{n \times n}$是对称且正半定的矩阵，那么可以因子分解为
+\begin{equation}
+  \label{eq:numlin-factorization-cholesky}
+  A = L \, L^{\top},
+\end{equation}
+其中L是下三角矩阵，非奇异，且对角元素值为正。这称为$A$的Cholesky因子分解(Cholesky factorization)\index{matrix factorization!Cholesky \dotfill LU分解}。当不对$A$作任何结构优化时，消耗$ \left( \frac{1}{3} n^{3} \right)$ flops。
+
+\begin{algorithm}[利用Cholesky分解求解正定线性方程系统]
+  \label{algorithm:numlin-factorization-cholesky}
+给定一组线性方程系统$A x = b$，其中系数矩阵$A$对称，正半定。那么利用Cholesky分解求解系统的算法如下
+\begin{enumerate}
+  \item Cholesky因子分解，$A = L \, L^{\top}$，$\left( \frac{1}{3} n^{3} \right)$ flops。
+  \item 向前替代，求解$L \, z_{1} = b$，$\left( n^{2} \right)$ flops。
+  \item 向后替代，求解$L^{\top} x = z_{1}$，$\left( n^{2} \right)$ flops。
+\end{enumerate}
+$\Sigma = \frac{1}{3} n^{3} + 2 n^{2} \approx \frac{1}{3} n^{3}$ flops。
+\end{algorithm}
+
+若$A$还具有进一步的特殊结构，则计算效率可进一步提高。如果$A$对称、正半定且是个带宽为$k$的带状矩阵，计算消耗$\left(n k^{2} \right)$ flops。
+
+如果$A$对称、正半定且是个稀疏矩阵$A = P \, L \, L^{\top} \, P^{\top}$，那么等价于
+\begin{equation*}
+  P^{\top} \, A \, P = L \, L^{\top},
+\end{equation*}
+换句话说，$\left( P^{\top} A P \right)$的Cholesky因子分解是$L \, L^{\top}$。
+
+原则上来说，我们可以选择任意形式的置换矩阵$P$，每1个$P$都有唯一的$L$相对应，但不同$P$的选择会大大影响数值求解的效率。对此，常常需要采用不同的启发式方法来选取最合适、或者更合适的置换矩阵类型。例如当$A$是一个稀疏型矩阵
+\begin{equation*}
+  A = \begin{pmatrix}
+  1 & u^{\top} \\ u & D
+  \end{pmatrix},
+\end{equation*}
+其中$D \in \mathbb{R}^{n \times n}$是正对角矩阵，$u \in \mathbb{R}^{n}$。
+
+$A$正定要求满足$\det A >0$
+\begin{equation*}
+  \begin{split}
+    & \det A = D - u \, u^{\top} > 0, \\
+    \hookrightarrow & D > u \, u^{\top}, \\
+    \hookrightarrow & u^{\top} D^{-1} u < 1,
+  \end{split}
+\end{equation*}
+
+对$A$的Cholesky因子分解可写作
+\begin{equation}
+  \label{eq:umlin-factorization-cholesky-a}
+  \begin{pmatrix}
+    1 & u^{\top} \\ u &  D
+  \end{pmatrix}
+  = \begin{pmatrix}
+  1 & 0 \\ u & L
+  \end{pmatrix}
+  \, \begin{pmatrix}
+  1 & u^{\top} \\ 0 & L^{\top}
+  \end{pmatrix},
+\end{equation}
+其中$L$是下三角矩阵，满足
+\begin{equation*}
+  L \, L^{\top} = D - u \, u^{\top}.
+\end{equation*}
+
+
+
+
 
 \end{subappendices}
