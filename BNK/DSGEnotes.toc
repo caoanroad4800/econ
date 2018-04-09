@@ -559,111 +559,122 @@
 \contentsline {section}{\numberline {16.1}典型DSGE模型}{477}{section.16.1}
 \contentsline {subsection}{\numberline {16.1.1}对数线性化均衡条件}{478}{subsection.16.1.1}
 \contentsline {subsection}{\numberline {16.1.2}模型求解}{480}{subsection.16.1.2}
-\contentsline {subsubsection}{产出的运动法则}{480}{subsubsection*.308}
-\contentsline {subsubsection}{劳动收入份额的运动法则}{480}{subsubsection*.309}
-\contentsline {subsubsection}{通货膨胀率的运动法则}{481}{subsubsection*.310}
-\contentsline {subsubsection}{利率的运动法则}{481}{subsubsection*.311}
-\contentsline {subsubsection}{外生冲击}{481}{subsubsection*.312}
+\contentsline {subsubsection}{产出的运动法则}{480}{subsubsection*.303}
+\contentsline {subsubsection}{劳动收入份额的运动法则}{480}{subsubsection*.304}
+\contentsline {subsubsection}{通货膨胀率的运动法则}{481}{subsubsection*.305}
+\contentsline {subsubsection}{利率的运动法则}{481}{subsubsection*.306}
+\contentsline {subsubsection}{外生冲击}{481}{subsubsection*.307}
 \contentsline {subsection}{\numberline {16.1.3}状态——空间表现式}{482}{subsection.16.1.3}
-\contentsline {subsubsection}{从DSGE模型到状态空间模型}{483}{subsubsection*.313}
-\contentsline {section}{\numberline {16.2}模型的含义}{484}{section.16.2}
+\contentsline {subsubsection}{从DSGE模型到状态空间模型}{483}{subsubsection*.308}
+\contentsline {section}{\numberline {16.2}模型的性质}{484}{section.16.2}
 \contentsline {subsection}{\numberline {16.2.1}自协方差，预测误差方差}{484}{subsection.16.2.1}
-\contentsline {subsubsection}{协方差}{485}{subsubsection*.317}
-\contentsline {subsubsection}{预测误差}{485}{subsubsection*.318}
+\contentsline {subsubsection}{协方差}{485}{subsubsection*.312}
+\contentsline {subsubsection}{预测误差}{485}{subsubsection*.313}
 \contentsline {subsection}{\numberline {16.2.2}光谱分析}{487}{subsection.16.2.2}
 \contentsline {subsection}{\numberline {16.2.3}冲击响应方程}{489}{subsection.16.2.3}
-\contentsline {subsubsection}{条件矩的限制}{490}{subsubsection*.322}
+\contentsline {subsection}{\numberline {16.2.4}条件矩的限制}{490}{subsection.16.2.4}
 \contentsline {section}{\numberline {16.3}经验验证}{492}{section.16.3}
 \contentsline {subsection}{\numberline {16.3.1}自协方差}{495}{subsection.16.3.1}
 \contentsline {subsection}{\numberline {16.3.2}光谱分析}{496}{subsection.16.3.2}
-\contentsline {subsubsection}{样本平滑周期图法}{497}{subsubsection*.325}
-\contentsline {subsubsection}{VAR(p)的插入估值法}{497}{subsubsection*.326}
+\contentsline {subsubsection}{样本平滑周期图法}{497}{subsubsection*.319}
+\contentsline {subsubsection}{VAR(p)的插入估值法}{497}{subsubsection*.320}
 \contentsline {subsection}{\numberline {16.3.3}冲击响应方程}{498}{subsection.16.3.3}
-\contentsline {chapter}{Appendices}{501}{chapter*.328}
-\contentsline {section}{附录 \numberline {16.A}欧拉公式(复分析)}{501}{section.4.16.A}
-\contentsline {subsection}{\numberline {16.A.1}欧拉公式和欧拉恒等式}{501}{subsection.4.16.A.1}
-\contentsline {subsection}{\numberline {16.A.2}欧拉公式的作用}{504}{subsection.4.16.A.2}
-\contentsline {subsubsection}{复数的坐标形式}{504}{subsubsection*.331}
-\contentsline {subsubsection}{复数的乘除}{505}{subsubsection*.333}
-\contentsline {subsubsection}{对复数的取幂}{505}{subsubsection*.334}
-\contentsline {subsubsection}{复值夹角}{506}{subsubsection*.335}
-\contentsline {section}{附录 \numberline {16.B}高斯核方程}{507}{section.4.16.B}
-\contentsline {subsection}{\numberline {16.B.1}高斯核}{507}{subsection.4.16.B.1}
-\contentsline {subsection}{\numberline {16.B.2}标准化}{507}{subsection.4.16.B.2}
-\contentsline {subsection}{\numberline {16.B.3}瀑布特征}{508}{subsection.4.16.B.3}
-\contentsline {subsection}{\numberline {16.B.4}带宽参数}{508}{subsection.4.16.B.4}
-\contentsline {subsection}{\numberline {16.B.5}狄拉克方程}{509}{subsection.4.16.B.5}
-\contentsline {subsection}{\numberline {16.B.6}高斯核和二项式系数的关系}{510}{subsection.4.16.B.6}
-\contentsline {subsection}{\numberline {16.B.7}中心极限定理}{511}{subsection.4.16.B.7}
-\contentsline {subsection}{\numberline {16.B.8}各向同性和各向异性}{512}{subsection.4.16.B.8}
-\contentsline {subsubsection}{高斯核方程的傅里叶变换}{512}{subsubsection*.346}
-\contentsline {section}{附录 \numberline {16.C}数值线性代数基础}{515}{section.4.16.C}
-\contentsline {subsection}{\numberline {16.C.1}矩阵结构与算法复杂度}{515}{subsection.4.16.C.1}
-\contentsline {subsection}{\numberline {16.C.2}矩阵结构与线性系统求解}{516}{subsection.4.16.C.2}
-\contentsline {subsubsection}{对角矩阵}{516}{subsubsection*.353}
-\contentsline {subsubsection}{下三角矩阵}{516}{subsubsection*.354}
-\contentsline {subsubsection}{上三角矩阵}{517}{subsubsection*.355}
-\contentsline {subsubsection}{正交矩阵}{518}{subsubsection*.356}
-\contentsline {subsubsection}{置换矩阵}{518}{subsubsection*.357}
-\contentsline {subsection}{\numberline {16.C.3}矩阵分解}{520}{subsection.4.16.C.3}
-\contentsline {subsection}{\numberline {16.C.4}LU因子分解}{520}{subsection.4.16.C.4}
-\contentsline {subsubsection}{利用LU分解法求解线性方程系统}{521}{subsubsection*.358}
-\contentsline {subsection}{\numberline {16.C.5}Cholesky因子分解}{521}{subsection.4.16.C.5}
-\contentsline {part}{第四部分\hspace {1em}待分类}{523}{part.4}
-\contentsline {chapter}{\numberline {第十七章\hspace {.3em}}最大似然估计}{525}{chapter.17}
-\contentsline {section}{\numberline {17.1}简介}{525}{section.17.1}
-\contentsline {section}{\numberline {17.2}近似的测度}{525}{section.17.2}
-\contentsline {subsection}{\numberline {17.2.1}估计的偏误：标量参数}{526}{subsection.17.2.1}
-\contentsline {subsubsection}{偏误}{526}{subsubsection*.359}
-\contentsline {subsubsection}{可测度性}{526}{subsubsection*.360}
-\contentsline {subsubsection}{测度的方差和均方误差}{526}{subsubsection*.361}
-\contentsline {subsection}{\numberline {17.2.2}估计的偏误：向量参数}{526}{subsection.17.2.2}
-\contentsline {subsubsection}{平均偏误}{527}{subsubsection*.362}
-\contentsline {subsubsection}{测度的方差和均方误差}{527}{subsubsection*.363}
-\contentsline {section}{\numberline {17.3}费雪信息矩阵和克拉美罗下界}{527}{section.17.3}
-\contentsline {subsection}{\numberline {17.3.1}标量参数}{527}{subsection.17.3.1}
-\contentsline {subsection}{\numberline {17.3.2}向量参数}{528}{subsection.17.3.2}
-\contentsline {section}{\numberline {17.4}最大似然估计}{528}{section.17.4}
-\contentsline {subsection}{\numberline {17.4.1}最大似然估计：to be or not to be?}{528}{subsection.17.4.1}
-\contentsline {section}{\numberline {17.5}伯努利实验：最大似然估计法}{529}{section.17.5}
-\contentsline {section}{\numberline {17.6}伯努利实验：最大似然估计的Python程序实现}{530}{section.17.6}
-\contentsline {subsection}{\numberline {17.6.1}模型构建}{530}{subsection.17.6.1}
-\contentsline {subsection}{\numberline {17.6.2}似然方程}{532}{subsection.17.6.2}
-\contentsline {subsection}{\numberline {17.6.3}最大似然估计：解析法}{532}{subsection.17.6.3}
-\contentsline {subsection}{\numberline {17.6.4}最大似然估计：数值法}{533}{subsection.17.6.4}
-\contentsline {subsection}{\numberline {17.6.5}无约束参数\(g(\varphi )\)构成的模型系统}{534}{subsection.17.6.5}
-\contentsline {subsubsection}{Delta近似法}{535}{subsubsection*.364}
-\contentsline {subsubsection}{最大似然估计：算法举例}{536}{subsubsection*.365}
-\contentsline {chapter}{\numberline {第十八章\hspace {.3em}}工作论文}{541}{chapter.18}
-\contentsline {section}{\numberline {18.1}问题的提出}{541}{section.18.1}
-\contentsline {subsection}{\numberline {18.1.1}研究目标}{541}{subsection.18.1.1}
-\contentsline {subsection}{\numberline {18.1.2}模型设定}{541}{subsection.18.1.2}
-\contentsline {section}{\numberline {18.2}境内金融中介部门}{542}{section.18.2}
-\contentsline {part}{第五部分\hspace {1em}附录}{545}{part.5}
-\contentsline {chapter}{Appendices}{}{section*.369}
-\contentsline {chapter}{附录 \numberline {第一章\hspace {.3em}}后凯恩斯主义经济学的一个小综述}{549}{附录.5.A}
-\contentsline {section}{\numberline {A.1}Introduction}{549}{section.5.A.1}
-\contentsline {section}{\numberline {A.2}PK的主要方法论}{549}{section.5.A.2}
-\contentsline {section}{\numberline {A.3}PK下的市场结构与定价}{549}{section.5.A.3}
-\contentsline {subsection}{\numberline {A.3.1}PK下的市场结构}{549}{subsection.5.A.3.1}
-\contentsline {subsection}{\numberline {A.3.2}PK下的定价策略}{549}{subsection.5.A.3.2}
-\contentsline {section}{\numberline {A.4}PK下的宏观经济}{549}{section.5.A.4}
-\contentsline {section}{\numberline {A.5}PK视野下的经济政策}{550}{section.5.A.5}
-\contentsline {chapter}{附录 \numberline {第二章\hspace {.3em}}Keynesian, New Keynesian and New Classical Economics}{551}{附录.5.B}
-\contentsline {section}{\numberline {B.1}Keynesian的四个核心}{551}{section.5.B.1}
-\contentsline {subsection}{\numberline {B.1.1}失业与有效工资理论}{551}{subsection.5.B.1.1}
-\contentsline {subsection}{\numberline {B.1.2}价格变化与经济波动}{552}{subsection.5.B.1.2}
-\contentsline {subsection}{\numberline {B.1.3}储蓄与投资，信贷配给}{553}{subsection.5.B.1.3}
-\contentsline {subsection}{\numberline {B.1.4}供应与技术进步}{553}{subsection.5.B.1.4}
-\contentsline {section}{\numberline {B.2}New Keynesian经济学的四个核心}{553}{section.5.B.2}
-\contentsline {subsection}{\numberline {B.2.1}有效工资}{553}{subsection.5.B.2.1}
-\contentsline {subsection}{\numberline {B.2.2}资产配给}{553}{subsection.5.B.2.2}
-\contentsline {subsection}{\numberline {B.2.3}信贷配给}{553}{subsection.5.B.2.3}
-\contentsline {subsection}{\numberline {B.2.4}货币政策}{554}{subsection.5.B.2.4}
-\contentsline {subsection}{\numberline {B.2.5}小结}{554}{subsection.5.B.2.5}
-\contentsline {section}{\numberline {B.3}凯恩斯的不足}{554}{section.5.B.3}
-\contentsline {subsection}{\numberline {B.3.1}债券和股票的区别}{555}{subsection.5.B.3.1}
-\contentsline {subsection}{\numberline {B.3.2}需求和供应}{555}{subsection.5.B.3.2}
-\contentsline {subsection}{\numberline {B.3.3}投资的决定因素}{555}{subsection.5.B.3.3}
-\contentsline {subsection}{\numberline {B.3.4}货币政策}{556}{subsection.5.B.3.4}
-\contentsline {section}{\numberline {B.4}小结}{556}{section.5.B.4}
+\contentsline {subsection}{\numberline {16.3.4}条件矩的限制}{499}{subsection.16.3.4}
+\contentsline {section}{\numberline {16.4}处理趋势}{500}{section.16.4}
+\contentsline {chapter}{Appendices}{503}{chapter*.325}
+\contentsline {section}{附录 \numberline {16.A}欧拉公式(复分析)}{503}{section.4.16.A}
+\contentsline {subsection}{\numberline {16.A.1}欧拉公式和欧拉恒等式}{503}{subsection.4.16.A.1}
+\contentsline {subsection}{\numberline {16.A.2}欧拉公式的作用}{506}{subsection.4.16.A.2}
+\contentsline {subsubsection}{复数的坐标形式}{506}{subsubsection*.328}
+\contentsline {subsubsection}{复数的乘除}{507}{subsubsection*.330}
+\contentsline {subsubsection}{对复数的取幂}{507}{subsubsection*.331}
+\contentsline {subsubsection}{复值夹角}{508}{subsubsection*.332}
+\contentsline {section}{附录 \numberline {16.B}高斯核方程}{509}{section.4.16.B}
+\contentsline {subsection}{\numberline {16.B.1}高斯核}{509}{subsection.4.16.B.1}
+\contentsline {subsection}{\numberline {16.B.2}标准化}{509}{subsection.4.16.B.2}
+\contentsline {subsection}{\numberline {16.B.3}瀑布特征}{510}{subsection.4.16.B.3}
+\contentsline {subsection}{\numberline {16.B.4}带宽参数}{510}{subsection.4.16.B.4}
+\contentsline {subsection}{\numberline {16.B.5}狄拉克方程}{511}{subsection.4.16.B.5}
+\contentsline {subsection}{\numberline {16.B.6}高斯核和二项式系数的关系}{512}{subsection.4.16.B.6}
+\contentsline {subsection}{\numberline {16.B.7}中心极限定理}{513}{subsection.4.16.B.7}
+\contentsline {subsection}{\numberline {16.B.8}各向同性和各向异性}{514}{subsection.4.16.B.8}
+\contentsline {subsubsection}{高斯核方程的傅里叶变换}{514}{subsubsection*.343}
+\contentsline {section}{附录 \numberline {16.C}数值线性代数基础}{517}{section.4.16.C}
+\contentsline {subsection}{\numberline {16.C.1}矩阵结构与算法复杂度}{517}{subsection.4.16.C.1}
+\contentsline {subsection}{\numberline {16.C.2}矩阵结构与线性系统求解}{518}{subsection.4.16.C.2}
+\contentsline {subsubsection}{对角矩阵}{518}{subsubsection*.350}
+\contentsline {subsubsection}{下三角矩阵}{518}{subsubsection*.351}
+\contentsline {subsubsection}{上三角矩阵}{519}{subsubsection*.352}
+\contentsline {subsubsection}{正交矩阵}{520}{subsubsection*.353}
+\contentsline {subsubsection}{置换矩阵}{520}{subsubsection*.354}
+\contentsline {subsection}{\numberline {16.C.3}矩阵分解}{522}{subsection.4.16.C.3}
+\contentsline {subsection}{\numberline {16.C.4}LU因子分解}{522}{subsection.4.16.C.4}
+\contentsline {subsubsection}{利用LU分解法求解线性方程系统}{523}{subsubsection*.355}
+\contentsline {subsection}{\numberline {16.C.5}Cholesky因子分解}{523}{subsection.4.16.C.5}
+\contentsline {subsection}{\numberline {16.C.6}LDL因子分解}{525}{subsection.4.16.C.6}
+\contentsline {subsection}{\numberline {16.C.7}块消除与Schur补}{525}{subsection.4.16.C.7}
+\contentsline {subsubsection}{变量块的高斯消元}{525}{subsubsection*.356}
+\contentsline {subsection}{\numberline {16.C.8}矩阵求逆引理}{527}{subsection.4.16.C.8}
+\contentsline {subsubsection}{扩展系统法}{529}{subsubsection*.357}
+\contentsline {subsubsection}{低秩修正矩阵}{529}{subsubsection*.358}
+\contentsline {subsection}{\numberline {16.C.9}求解欠定线性系统}{530}{subsection.4.16.C.9}
+\contentsline {subsubsection}{用QR因子分解法求解欠定系统}{531}{subsubsection*.359}
+\contentsline {subsubsection}{用LU因子分解法求解欠定系统}{532}{subsubsection*.360}
+\contentsline {part}{第四部分\hspace {1em}待分类}{533}{part.4}
+\contentsline {chapter}{\numberline {第十七章\hspace {.3em}}最大似然估计}{535}{chapter.17}
+\contentsline {section}{\numberline {17.1}简介}{535}{section.17.1}
+\contentsline {section}{\numberline {17.2}近似的测度}{535}{section.17.2}
+\contentsline {subsection}{\numberline {17.2.1}估计的偏误：标量参数}{536}{subsection.17.2.1}
+\contentsline {subsubsection}{偏误}{536}{subsubsection*.361}
+\contentsline {subsubsection}{可测度性}{536}{subsubsection*.362}
+\contentsline {subsubsection}{测度的方差和均方误差}{536}{subsubsection*.363}
+\contentsline {subsection}{\numberline {17.2.2}估计的偏误：向量参数}{536}{subsection.17.2.2}
+\contentsline {subsubsection}{平均偏误}{537}{subsubsection*.364}
+\contentsline {subsubsection}{测度的方差和均方误差}{537}{subsubsection*.365}
+\contentsline {section}{\numberline {17.3}费雪信息矩阵和克拉美罗下界}{537}{section.17.3}
+\contentsline {subsection}{\numberline {17.3.1}标量参数}{537}{subsection.17.3.1}
+\contentsline {subsection}{\numberline {17.3.2}向量参数}{538}{subsection.17.3.2}
+\contentsline {section}{\numberline {17.4}最大似然估计}{538}{section.17.4}
+\contentsline {subsection}{\numberline {17.4.1}最大似然估计：to be or not to be?}{538}{subsection.17.4.1}
+\contentsline {section}{\numberline {17.5}伯努利实验：最大似然估计法}{539}{section.17.5}
+\contentsline {section}{\numberline {17.6}伯努利实验：最大似然估计的Python程序实现}{540}{section.17.6}
+\contentsline {subsection}{\numberline {17.6.1}模型构建}{540}{subsection.17.6.1}
+\contentsline {subsection}{\numberline {17.6.2}似然方程}{542}{subsection.17.6.2}
+\contentsline {subsection}{\numberline {17.6.3}最大似然估计：解析法}{542}{subsection.17.6.3}
+\contentsline {subsection}{\numberline {17.6.4}最大似然估计：数值法}{543}{subsection.17.6.4}
+\contentsline {subsection}{\numberline {17.6.5}无约束参数\(g(\varphi )\)构成的模型系统}{544}{subsection.17.6.5}
+\contentsline {subsubsection}{Delta近似法}{545}{subsubsection*.366}
+\contentsline {subsubsection}{最大似然估计：算法举例}{546}{subsubsection*.367}
+\contentsline {chapter}{\numberline {第十八章\hspace {.3em}}工作论文}{551}{chapter.18}
+\contentsline {section}{\numberline {18.1}问题的提出}{551}{section.18.1}
+\contentsline {subsection}{\numberline {18.1.1}研究目标}{551}{subsection.18.1.1}
+\contentsline {subsection}{\numberline {18.1.2}模型设定}{551}{subsection.18.1.2}
+\contentsline {section}{\numberline {18.2}境内金融中介部门}{552}{section.18.2}
+\contentsline {part}{第五部分\hspace {1em}附录}{555}{part.5}
+\contentsline {chapter}{Appendices}{}{section*.371}
+\contentsline {chapter}{附录 \numberline {第一章\hspace {.3em}}后凯恩斯主义经济学的一个小综述}{559}{附录.5.A}
+\contentsline {section}{\numberline {A.1}Introduction}{559}{section.5.A.1}
+\contentsline {section}{\numberline {A.2}PK的主要方法论}{559}{section.5.A.2}
+\contentsline {section}{\numberline {A.3}PK下的市场结构与定价}{559}{section.5.A.3}
+\contentsline {subsection}{\numberline {A.3.1}PK下的市场结构}{559}{subsection.5.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}PK下的定价策略}{559}{subsection.5.A.3.2}
+\contentsline {section}{\numberline {A.4}PK下的宏观经济}{559}{section.5.A.4}
+\contentsline {section}{\numberline {A.5}PK视野下的经济政策}{560}{section.5.A.5}
+\contentsline {chapter}{附录 \numberline {第二章\hspace {.3em}}Keynesian, New Keynesian and New Classical Economics}{561}{附录.5.B}
+\contentsline {section}{\numberline {B.1}Keynesian的四个核心}{561}{section.5.B.1}
+\contentsline {subsection}{\numberline {B.1.1}失业与有效工资理论}{561}{subsection.5.B.1.1}
+\contentsline {subsection}{\numberline {B.1.2}价格变化与经济波动}{562}{subsection.5.B.1.2}
+\contentsline {subsection}{\numberline {B.1.3}储蓄与投资，信贷配给}{563}{subsection.5.B.1.3}
+\contentsline {subsection}{\numberline {B.1.4}供应与技术进步}{563}{subsection.5.B.1.4}
+\contentsline {section}{\numberline {B.2}New Keynesian经济学的四个核心}{563}{section.5.B.2}
+\contentsline {subsection}{\numberline {B.2.1}有效工资}{563}{subsection.5.B.2.1}
+\contentsline {subsection}{\numberline {B.2.2}资产配给}{563}{subsection.5.B.2.2}
+\contentsline {subsection}{\numberline {B.2.3}信贷配给}{563}{subsection.5.B.2.3}
+\contentsline {subsection}{\numberline {B.2.4}货币政策}{564}{subsection.5.B.2.4}
+\contentsline {subsection}{\numberline {B.2.5}小结}{564}{subsection.5.B.2.5}
+\contentsline {section}{\numberline {B.3}凯恩斯的不足}{564}{section.5.B.3}
+\contentsline {subsection}{\numberline {B.3.1}债券和股票的区别}{565}{subsection.5.B.3.1}
+\contentsline {subsection}{\numberline {B.3.2}需求和供应}{565}{subsection.5.B.3.2}
+\contentsline {subsection}{\numberline {B.3.3}投资的决定因素}{565}{subsection.5.B.3.3}
+\contentsline {subsection}{\numberline {B.3.4}货币政策}{566}{subsection.5.B.3.4}
+\contentsline {section}{\numberline {B.4}小结}{566}{section.5.B.4}

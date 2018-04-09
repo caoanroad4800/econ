@@ -594,6 +594,8 @@ INPUT ./chapters/connection-2.tex
 INPUT ./chapters/connection-2.tex
 INPUT ./Figures/20180404-corss-correlations.png
 INPUT ./Figures/20180406-empirics-spectrum.png
+INPUT ./Figures/20180409-irfs-var.png
+INPUT ./Figures/20180409-ratio-yl-cy.png
 INPUT ./chapters/connection-appendix.tex
 INPUT ./chapters/connection-appendix.tex
 INPUT ./Figures/20180401-sin-cos-derivatives.png

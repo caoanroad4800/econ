@@ -10,9 +10,9 @@
   \item 在存在不确定性的情况下，如何更有效度量参数，和制定更恰当的DSGE模型的量化政策建议？
 \end{itemize}
 
-为了回答这些问题，我们首先建立一个典型的DSGE模型\todo{1}，随后讨论该模型的性质\todo{2}。DSGE模型生成的模拟时间序列数据(以下简称模拟数据)，包括全体的矩，协方差，光谱，冲击响应方程等，可以被视为是实际观测到的数据(以下简称观测数据)中特定样本同样具有的特征，二者的比较见\todo{3}。宏观经济学时间序列中含有的一些趋势中，有些能为DSGE模型所反映出来，有些则不能，相关讨论见\todo{4}。
+为了回答这些问题，我们首先建立一个典型的DSGE模型(第\ref{sec:stylized-dsge-model}节)，随后讨论该模型的性质(第\ref{sec:stylized-model-implications}节)。DSGE模型生成的模拟时间序列数据(以下简称模拟数据)，包括全体的矩，协方差，光谱，冲击响应方程等，可以被视为是实际观测到的数据(以下简称观测数据)中特定样本同样具有的特征，二者的比较见第\ref{sec:stylized-empirics}节。宏观经济学时间序列中含有的一些趋势中，有些能为DSGE模型所反映出来，有些则不能，相关讨论见第\ref{sec:stylized-ssrep-empirics-trends}节。
 
-在掌握宏观计量经济学基础知识(PHD最初几年学习)的基础上，关于DSGE模型估计的基础教科书可参考如\cite{Canova:2011vi}\todo{DeJong and Dave (2007)}。近年来DSGE估计方面的研究进展很快，下文将介绍一系列"标准方法"，如
+在掌握宏观计量经济学基础知识(PHD最初几年学习)的基础上，关于DSGE模型估计的基础教科书可参考如\cite{Canova:2011vi, DeJong:2007ws}等。近年来DSGE估计方面的研究进展很快，下文将介绍一系列"标准方法"，如
 \begin{itemize}
   \item DSGE模型的识别
   \item 对识别稳健(identification-robust)的频率学派推断
@@ -501,7 +501,7 @@ $E_{t} \mathcal{H} \hat{\pi}_{t} \left( \phi_{t}, \lambda_{t}, z_{t}, \epsilon_{
   \end{enumerate}
 \end{remark}
 
-\section{模型的含义}
+\section{模型的性质}
 \label{sec:stylized-model-implications}
 一旦我们对状态转移方程\eqref{eq:stylized-observed-measurement-equation}含有新息(innovation)的误差向量$\epsilon_{t}$的分布信息明确了(这反映在系数矩阵$\phi_{\epsilon} \left( \theta \right)$中)，就可以最终确定DSGE模型中诸多变量的概率分步。由此，如果进一步将$\epsilon_{t}$的设为满足独立同分布
 \begin{equation*}
@@ -896,7 +896,7 @@ $\omega_{j}$的单位往往与$t$的单位有关，后者在DSGE模型中设定�
 %  \small{Source: PBOC.}
 \end{figure}
 
-\subsubsection{条件矩的限制}
+\subsection{条件矩的限制}
 \label{sec:stylized-ssrep-restrictions}
 DSGE模型中的跨期最优决策，都是以条件矩限制(conditional moment restrictions)的形式出现的。例如NKPC式\eqref{eq:stylized-nkpc}意味着以下条件矩限制需要得到满足
 \begin{equation}

@@ -57,34 +57,36 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {扰动法}}}{473}{subfigure.15.4.3.2}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {投影法}}}{473}{subfigure.15.4.3.2}
 \addvspace {10.0pt}
-\contentsline {figure}{\numberline {16.1}{\ignorespaces 预测误差的方差分解\relax }}{487}{figure.caption.319}
-\contentsline {figure}{\numberline {16.2}{\ignorespaces 预测误差的方差分解\relax }}{489}{figure.caption.320}
-\contentsline {figure}{\numberline {16.3}{\ignorespaces 产出的冲击响应方程\relax }}{490}{figure.caption.321}
-\contentsline {figure}{\numberline {16.1}{\ignorespaces 抽样观测数据的跨相关\relax }}{496}{figure.caption.324}
-\contentsline {figure}{\numberline {16.2}{\ignorespaces 抽样数据的光谱分布密度\relax }}{498}{figure.caption.327}
-\contentsline {figure}{\numberline {16.A.1}{\ignorespaces 正弦函数的导数\relax }}{502}{figure.caption.329}
-\contentsline {figure}{\numberline {16.A.2}{\ignorespaces 麦克劳林级数的示例：对$\qopname \relax o{sin}(x)$(蓝色曲线)沿着$x_{0}=0$作$n$阶泰勒级数展开(红色曲线)。\relax }}{503}{figure.caption.330}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$n=1$}}}{503}{figure.caption.330}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$n=3$}}}{503}{figure.caption.330}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$n=5$}}}{503}{figure.caption.330}
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$n=7$}}}{503}{figure.caption.330}
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$n=9$}}}{503}{figure.caption.330}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$n=11$}}}{503}{figure.caption.330}
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {$n=13$}}}{503}{figure.caption.330}
-\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {$n=15$}}}{503}{figure.caption.330}
-\contentsline {figure}{\numberline {16.A.3}{\ignorespaces 正弦函数的导数\relax }}{505}{figure.caption.332}
-\contentsline {figure}{\numberline {16.A.4}{\ignorespaces 双曲正弦/余弦方程,$x \in \left [ -3 \pi , 3 \pi \right ]$\relax }}{506}{figure.caption.336}
-\contentsline {figure}{\numberline {16.B.1}{\ignorespaces 高斯核方程的振幅随带宽的增加而显著降低\relax }}{508}{figure.caption.337}
-\contentsline {figure}{\numberline {16.B.2}{\ignorespaces 误差方程(累积高斯方程)随$\sigma $值的变化\relax }}{509}{figure.caption.338}
-\contentsline {figure}{\numberline {16.B.3}{\ignorespaces 黑维塞方程(单位阶跃方程)\relax }}{510}{figure.caption.339}
-\contentsline {figure}{\numberline {16.B.4}{\ignorespaces 二项式系数\relax }}{510}{figure.caption.340}
-\contentsline {figure}{\numberline {16.B.5}{\ignorespaces 黑维塞方程相加减\relax }}{511}{figure.caption.341}
-\contentsline {figure}{\numberline {16.B.6}{\ignorespaces 两个块方程的卷积是一个三角方程\relax }}{511}{figure.caption.342}
-\contentsline {figure}{\numberline {16.B.7}{\ignorespaces 两个块方程卷积的卷积接近一个高斯分布\relax }}{512}{figure.caption.343}
-\contentsline {figure}{\numberline {16.B.8}{\ignorespaces 2维空间中高斯方程的各项同性\relax }}{513}{figure.caption.344}
-\contentsline {figure}{\numberline {16.B.9}{\ignorespaces 2维空间中高斯方程的各项异性\relax }}{513}{figure.caption.345}
-\contentsline {figure}{\numberline {16.B.10}{\ignorespaces 傅里叶变换、逆傅里叶变换的Mathematica程序\relax }}{514}{figure.caption.347}
-\contentsline {figure}{\numberline {16.B.11}{\ignorespaces 傅里叶变换、逆傅里叶变换的Mathematica程序\relax }}{514}{figure.caption.348}
+\contentsline {figure}{\numberline {16.1}{\ignorespaces 预测误差的方差分解\relax }}{487}{figure.caption.314}
+\contentsline {figure}{\numberline {16.2}{\ignorespaces 预测误差的方差分解\relax }}{489}{figure.caption.315}
+\contentsline {figure}{\numberline {16.3}{\ignorespaces 产出的冲击响应方程\relax }}{490}{figure.caption.316}
+\contentsline {figure}{\numberline {16.1}{\ignorespaces 抽样观测数据的跨相关\relax }}{496}{figure.caption.318}
+\contentsline {figure}{\numberline {16.2}{\ignorespaces 抽样数据的光谱分布密度\relax }}{498}{figure.caption.321}
+\contentsline {figure}{\numberline {16.3}{\ignorespaces 冲击响应方程\relax }}{500}{figure.caption.322}
+\contentsline {figure}{\numberline {16.1}{\ignorespaces 中国的劳动收入份额和消费产出比\relax }}{501}{figure.caption.324}
+\contentsline {figure}{\numberline {16.A.1}{\ignorespaces 正弦函数的导数\relax }}{504}{figure.caption.326}
+\contentsline {figure}{\numberline {16.A.2}{\ignorespaces 麦克劳林级数的示例：对$\qopname \relax o{sin}(x)$(蓝色曲线)沿着$x_{0}=0$作$n$阶泰勒级数展开(红色曲线)。\relax }}{505}{figure.caption.327}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$n=1$}}}{505}{figure.caption.327}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$n=3$}}}{505}{figure.caption.327}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$n=5$}}}{505}{figure.caption.327}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$n=7$}}}{505}{figure.caption.327}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$n=9$}}}{505}{figure.caption.327}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$n=11$}}}{505}{figure.caption.327}
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces {$n=13$}}}{505}{figure.caption.327}
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces {$n=15$}}}{505}{figure.caption.327}
+\contentsline {figure}{\numberline {16.A.3}{\ignorespaces 正弦函数的导数\relax }}{507}{figure.caption.329}
+\contentsline {figure}{\numberline {16.A.4}{\ignorespaces 双曲正弦/余弦方程,$x \in \left [ -3 \pi , 3 \pi \right ]$\relax }}{508}{figure.caption.333}
+\contentsline {figure}{\numberline {16.B.1}{\ignorespaces 高斯核方程的振幅随带宽的增加而显著降低\relax }}{510}{figure.caption.334}
+\contentsline {figure}{\numberline {16.B.2}{\ignorespaces 误差方程(累积高斯方程)随$\sigma $值的变化\relax }}{511}{figure.caption.335}
+\contentsline {figure}{\numberline {16.B.3}{\ignorespaces 黑维塞方程(单位阶跃方程)\relax }}{512}{figure.caption.336}
+\contentsline {figure}{\numberline {16.B.4}{\ignorespaces 二项式系数\relax }}{512}{figure.caption.337}
+\contentsline {figure}{\numberline {16.B.5}{\ignorespaces 黑维塞方程相加减\relax }}{513}{figure.caption.338}
+\contentsline {figure}{\numberline {16.B.6}{\ignorespaces 两个块方程的卷积是一个三角方程\relax }}{513}{figure.caption.339}
+\contentsline {figure}{\numberline {16.B.7}{\ignorespaces 两个块方程卷积的卷积接近一个高斯分布\relax }}{514}{figure.caption.340}
+\contentsline {figure}{\numberline {16.B.8}{\ignorespaces 2维空间中高斯方程的各项同性\relax }}{515}{figure.caption.341}
+\contentsline {figure}{\numberline {16.B.9}{\ignorespaces 2维空间中高斯方程的各项异性\relax }}{515}{figure.caption.342}
+\contentsline {figure}{\numberline {16.B.10}{\ignorespaces 傅里叶变换、逆傅里叶变换的Mathematica程序\relax }}{516}{figure.caption.344}
+\contentsline {figure}{\numberline {16.B.11}{\ignorespaces 傅里叶变换、逆傅里叶变换的Mathematica程序\relax }}{516}{figure.caption.345}
 \addvspace {10.0pt}
 \addvspace {10.0pt}
 \addvspace {10.0pt}

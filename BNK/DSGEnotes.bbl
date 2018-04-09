@@ -1,4 +1,4 @@
-\begin{thebibliography}{293}
+\begin{thebibliography}{299}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -451,6 +451,21 @@
 \newblock \bibinfo{publisher}{Princeton University Press},
   \bibinfo{year}{2011}.
 %Type = Article
+\bibitem[{Canova et~al.(2014)Canova, Ferroni and Matthes}]{Canova:2014be}
+\bibinfo{author}{Canova\xfnm[ F.]}, \bibinfo{author}{Ferroni\xfnm[ F.]},
+  \bibinfo{author}{Matthes\xfnm[ C.]}.
+\newblock \bibinfo{title}{{Choosing the Variables to Estimate Singular DSGE
+  Models}}.
+\newblock \bibinfo{journal}{Journal of Applied Econometrics}
+  \bibinfo{year}{2014};\bibinfo{volume}{29}(\bibinfo{number}{7}):\bibinfo{pages}{1099--1117}.
+%Type = Article
+\bibitem[{Canova and Nicol{\'o}(2002)}]{Canova:2002hp}
+\bibinfo{author}{Canova\xfnm[ F.]}, \bibinfo{author}{Nicol{\'o}\xfnm[ G.D.]}.
+\newblock \bibinfo{title}{{Monetary disturbances matter for business
+  fluctuations in the G-7}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{2002};\bibinfo{volume}{49}(\bibinfo{number}{6}):\bibinfo{pages}{1131--1159}.
+%Type = Article
 \bibitem[{Carroll et~al.(1997)Carroll, Overland and Weil}]{Carroll:1997ba}
 \bibinfo{author}{Carroll\xfnm[ C.D.]}, \bibinfo{author}{Overland\xfnm[ J.]},
   \bibinfo{author}{Weil\xfnm[ D.N.]}.
@@ -629,6 +644,12 @@
 \newblock \bibinfo{title}{{Firm-specific Production Factors in a DSGE Model
   with Taylor Price Setting}}.
 \newblock \bibinfo{year}{2006}.
+%Type = Book
+\bibitem[{DeJong and Dave(2007)}]{DeJong:2007ws}
+\bibinfo{author}{DeJong\xfnm[ D.N.]}, \bibinfo{author}{Dave\xfnm[ C.]}.
+\newblock \bibinfo{title}{{Structural Macroeconometrics}}.
+\newblock \bibinfo{publisher}{Princeton University Press},
+  \bibinfo{year}{2007}.
 %Type = Article
 \bibitem[{Del~Negro and Schorfheide(2008)}]{DelNegro:2008de}
 \bibinfo{author}{Del~Negro\xfnm[ M.]}, \bibinfo{author}{Schorfheide\xfnm[ F.]}.
@@ -753,6 +774,13 @@
 \newblock \bibinfo{title}{{An area-wide model for the euro area}}.
 \newblock \bibinfo{journal}{Economic Modelling}
   \bibinfo{year}{2005};\bibinfo{volume}{22}(\bibinfo{number}{1}):\bibinfo{pages}{39--59}.
+%Type = Article
+\bibitem[{Faust(1998)}]{Faust:1998be}
+\bibinfo{author}{Faust\xfnm[ J.]}.
+\newblock \bibinfo{title}{{The robustness of identified VAR conclusions about
+  money}}.
+\newblock \bibinfo{journal}{Carnegie-Rochester Conference Series on Public
+  Policy} \bibinfo{year}{1998};\bibinfo{volume}{49}:\bibinfo{pages}{207--244}.
 %Type = Techreport
 \bibitem[{Fernald(2009)}]{Fernald2009}
 \bibinfo{author}{Fernald\xfnm[ J.]}.
@@ -1045,6 +1073,13 @@
 \newblock \bibinfo{title}{{Post-Keynesian Economics }}.
 \newblock \bibinfo{type}{Technical Report} \bibinfo{number}{2015 ECON 12}; UNSW
   Business School; \bibinfo{year}{2015}.
+%Type = Book
+\bibitem[{Hatanaka and Yamada(2012)}]{Hatanaka:2012bo}
+\bibinfo{author}{Hatanaka\xfnm[ M.]}, \bibinfo{author}{Yamada\xfnm[ H.]}.
+\newblock \bibinfo{title}{{Co-trending: A Statistical System Analysis of
+  Economic Trends}}.
+\newblock \bibinfo{publisher}{Springer Science {\&} Business Media},
+  \bibinfo{year}{2012}.
 %Type = Article
 \bibitem[{Hayashi(1982)}]{Hayashi:1982bc}
 \bibinfo{author}{Hayashi\xfnm[ F.]}.
@@ -2034,6 +2069,13 @@
 \newblock In: \bibinfo{booktitle}{Computational Methods for the Study of
   Dynamic Economies}. \bibinfo{publisher}{OUP Oxford}; \bibinfo{year}{1999}. p.
   \bibinfo{pages}{30--61}.
+%Type = Article
+\bibitem[{Uhlig(2005)}]{Uhlig:2005ks}
+\bibinfo{author}{Uhlig\xfnm[ H.]}.
+\newblock \bibinfo{title}{{What are the effects of monetary policy on output?
+  Results from an agnostic identification procedure}}.
+\newblock \bibinfo{journal}{Journal of Monetary Economics}
+  \bibinfo{year}{2005};\bibinfo{volume}{52}(\bibinfo{number}{2}):\bibinfo{pages}{381--419}.
 %Type = Book
 \bibitem[{Vainikko(1993)}]{Vainikko:1993dw}
 \bibinfo{author}{Vainikko\xfnm[ G.]}.

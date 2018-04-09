@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.26)  7 APR 2018 23:10
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.22)  9 APR 2018 17:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3523,12 +3523,6 @@ File: ./Figures/20180328-eee-comp-pj.png Graphic file (type bmp)
 
 ] [476] (./chapters/connection.tex
 第十六章
-
-LaTeX Warning: Marginpar on page 477 moved.
-
-
-LaTeX Warning: Marginpar on page 477 moved.
-
 [477
 
 ] [478] [479] [480]
@@ -3604,13 +3598,19 @@ File: ./Figures/20180404-corss-correlations.png Graphic file (type bmp)
  [496]
 File: ./Figures/20180406-empirics-spectrum.png Graphic file (type bmp)
 <./Figures/20180406-empirics-spectrum.png>
- [497] [498]) (./chapters/connection-appendix.tex [499] [500
+ [497] [498]
+File: ./Figures/20180409-irfs-var.png Graphic file (type bmp)
+<./Figures/20180409-irfs-var.png>
+ [499]
+File: ./Figures/20180409-ratio-yl-cy.png Graphic file (type bmp)
+<./Figures/20180409-ratio-yl-cy.png>
+ [500]) (./chapters/connection-appendix.tex
+[501] [502
 
 ]
 File: ./Figures/20180401-sin-cos-derivatives.png Graphic file (type bmp)
 <./Figures/20180401-sin-cos-derivatives.png>
-
-[501]
+ [503]
 File: ./Figures/20180315-taylor-n1.pdf Graphic file (type pdf)
 <use ./Figures/20180315-taylor-n1.pdf>
 File: ./Figures/20180315-taylor-n3.pdf Graphic file (type pdf)
@@ -3627,16 +3627,16 @@ File: ./Figures/20180315-taylor-n13.pdf Graphic file (type pdf)
 <use ./Figures/20180315-taylor-n13.pdf>
 File: ./Figures/20180315-taylor-n15.pdf Graphic file (type pdf)
 <use ./Figures/20180315-taylor-n15.pdf>
- [502] [503]
+ [504] [505]
 File: ./Figures/20180401-complex-plane.png Graphic file (type bmp)
 <./Figures/20180401-complex-plane.png>
- [504] [505]
+ [506] [507]
 File: ./Figures/20180401-sinh-cosh-x.pdf Graphic file (type pdf)
 <use ./Figures/20180401-sinh-cosh-x.pdf>
- [506]
+ [508]
 File: ./Figures/20180404-gaussian-amplitude-sigma.pdf Graphic file (type pdf)
 <use ./Figures/20180404-gaussian-amplitude-sigma.pdf>
- [507] [508]
+ [509] [510]
 File: ./Figures/20180405-gaussian-sigma-value.png Graphic file (type bmp)
 <./Figures/20180405-gaussian-sigma-value.png>
 File: ./Figures/20180405-heaviside-unit-step-function.png Graphic file (type bm
@@ -3647,13 +3647,13 @@ Overfull \hbox (26.01682pt too wide) detected at line 587
 []
  []
 
-[509]
+[511]
 File: ./Figures/20180405-binomial-coefficients.png Graphic file (type bmp)
 <./Figures/20180405-binomial-coefficients.png>
 
 Underfull \vbox (badness 7451) has occurred while \output is active []
 
- [510]
+ [512]
 File: ./Figures/20180405-convolution-fg.png Graphic file (type bmp)
 <./Figures/20180405-convolution-fg.png>
 File: ./Figures/20180405-convolution-fg-1.png Graphic file (type bmp)
@@ -3661,7 +3661,7 @@ File: ./Figures/20180405-convolution-fg-1.png Graphic file (type bmp)
 File: ./Figures/20180405-convolution-fg-2.png Graphic file (type bmp)
 <./Figures/20180405-convolution-fg-2.png>
 
-[511]
+[513]
 File: ./Figures/20180405-isotropy.png Graphic file (type bmp)
 <./Figures/20180405-isotropy.png>
 File: ./Figures/20180405-anisotropy.png Graphic file (type bmp)
@@ -3670,19 +3670,20 @@ File: ./Figures/20180405-fourier-transform-mma.png Graphic file (type bmp)
 <./Figures/20180405-fourier-transform-mma.png>
 File: ./Figures/20180405-kernel-compare.png Graphic file (type bmp)
 <./Figures/20180405-kernel-compare.png>
-) (./chapters/connection-appendix-2.tex [512] [513] [514] [515] [516]
-[517] [518] [519] [520] [521]) [522] [523
+) (./chapters/connection-appendix-2.tex [514] [515] [516] [517] [518]
+[519] [520] [521] [522] [523] [524] [525] [526] [527] [528] [529] [530]
+[531]) [532] [533
 
-] [524] (./chapters/mle.tex
+] [534] (./chapters/mle.tex
 第十七章
-[525
+[535
 
-] [526] [527] [528] [529]
+] [536] [537] [538] [539]
 
 LaTeX Font Warning: Font shape `TU/NotoSansCJKSC(0)/m/it' undefined
 (Font)              using `TU/NotoSansCJKSC(0)/m/n' instead on input line 406.
 
-[530]
+[540]
 File: ./Figures/output_5_0.png Graphic file (type bmp)
 <./Figures/output_5_0.png>
 
@@ -3690,20 +3691,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 482--483
 
  []
 
-[531]
+[541]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [532]
+ [542]
 Underfull \hbox (badness 4217) in paragraph at lines 608--609
 []\TU/FandolSong-Regular(0)/m/n/10 在 很 多 情 况 下，|  我 们 无 法 通 过 解 析 法 求 得 最 大 化 的
  解。|  这 时 需 要 数 值 近 似 求 解，|  利
  []
 
-[533] [534]
+[543] [544]
 Overfull \hbox (6.8423pt too wide) detected at line 746
 []
  []
 
-[535]
+[545]
 File: ./Figures/output_12_1.png Graphic file (type bmp)
 <./Figures/output_12_1.png>
 
@@ -3711,61 +3712,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 816--817
 
  []
 
-[536] [537] [538] [539]) (./chapters/housing.tex [540]
+[546] [547] [548] [549]) (./chapters/housing.tex [550]
 第十八章
-[541
-
-] [542] [543]) [544] [545
-
-] [546] [547
-
-] [548] (./chapters/PK.tex
-第一章
-[549
-
-]) (./chapters/KNKNCE.tex [550]
-第二章
 [551
 
-] [552] [553] [554] [555]) [556] (./DSGEnotes.bbl [557
+] [552] [553]) [554] [555
 
-] [558] [559]
-[560] [561] [562] [563]
-Underfull \hbox (badness 1681) in paragraph at lines 1030--1036
+] [556] [557
+
+] [558] (./chapters/PK.tex
+第一章
+[559
+
+]) (./chapters/KNKNCE.tex [560]
+第二章
+[561
+
+] [562] [563] [564] [565]) [566] (./DSGEnotes.bbl [567
+
+] [568] [569]
+[570] [571] [572] [573] [574]
+Underfull \hbox (badness 1681) in paragraph at lines 1058--1064
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[564] [565] [566] [567] [568] [569] [570] [571] [572]) [573] [574
+[575] [576] [577] [578] [579] [580] [581] [582]) [583] [584
 
-]
-(./DSGEnotes.lof [575])
+] (./DSGEnotes.lof
+[585])
 \tf@lof=\write9
 \openout9 = `DSGEnotes.lof'.
 
- [576] (./DSGEnotes.lot)
+ [586] (./DSGEnotes.lot)
 \tf@lot=\write10
 \openout10 = `DSGEnotes.lot'.
 
- [577
+ [587
 
-] [578
+] [588
 
-] (./DSGEnotes.tdo
-[579])
+] (./DSGEnotes.tdo [589])
 \tf@tdo=\write11
 \openout11 = `DSGEnotes.tdo'.
 
- [580]
+ [590]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
- (./DSGEnotes.ind [581
+
+(./DSGEnotes.ind [591
 
 
-] [582] [583] [584] [585] [586] [587]
-[588] [589
-\indexentry{残差方程(映射法)}{589}
-] [590] [591]) [592]
+] [592] [593] [594] [595] [596] [597] [598] [599] [600
+\indexentry{残差方程(映射法)}{600}
+] [601]) [602]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 493.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 493.
  (./DSGEnotes.aux)
@@ -3777,12 +3777,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 54791 strings out of 493007
- 1130479 string characters out of 6134605
- 1609360 words of memory out of 5000000
- 57783 multiletter control sequences out of 15000+600000
+ 54817 strings out of 493007
+ 1131500 string characters out of 6134605
+ 1611509 words of memory out of 5000000
+ 57807 multiletter control sequences out of 15000+600000
  545493 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  76i,27n,146p,10415b,3282s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (592 pages, 9272620 bytes).
+Output written on DSGEnotes.xdv (602 pages, 9443416 bytes).

@@ -359,7 +359,7 @@ VAR(p) \eqref{eq:stylized-ssrep-empirics-varp-def}有时也被称作缩减式VAR
 \end{equation}
 其中
 \begin{itemize}
-\item 对预测误差$u_{t}$的协方差矩阵$\Sigma$作Cholesky因式分解(Cholesky factorization)\index{factorization!Cholesky \dotfill Cholesky因式分解}，所生成的唯一的(对角元素非负)下三角矩阵，定义为$\Sigma_{tr}$，
+\item 对预测误差$u_{t}$的协方差矩阵$\Sigma$作Cholesky因式分解(Cholesky factorization,第\ref{sec:numlin-factorization-cholesky}节)\index{factorization!Cholesky \dotfill Cholesky因式分解}，所生成的唯一的(对角元素非负)下三角矩阵，定义为$\Sigma_{tr}$，
 \item $\Omega$是一个$n \times n$正交矩阵(orthogonal matrix，第\ref{sec:numlin-matrix-orthogonality}节)\index{matrix!orthogonal \dotfill 正交矩阵}，满足
 \begin{equation*}
   \Omega \, \Omega^{\top} = I.
@@ -389,3 +389,54 @@ VAR(p) \eqref{eq:stylized-ssrep-empirics-varp-def}有时也被称作缩减式VAR
   \end{equation}
   \item $\left[ \mathcal{A} \right]_{.j}$表示矩阵$\mathcal{A}$的第$j$列。
 \end{itemize}
+
+以下对IRFs的冲击——响应机制作一个响应区间的分析，即我们关注的是响应的方向(符号为正或为负)，而非某一特定的数值，又称符号限制条件(sign restrictions)。这方面的研究可参考如\cite{Faust:1998be,Canova:2002hp,Uhlig:2005ks}等，它们将矩阵$\Omega$限定在一个有限的集合区间$\mathcal{O} \left( \phi, \sigma \right)$内，对应的IRFs需要满足该限定条件：只有在集合区间内的IRFs才被识别。
+
+通过使用对数形式的产出增速、劳动收入份额，通货膨胀率和利率的VAR(1)，我们可以将这个限定条件设为：面对一个紧缩型货币政策的点冲击，模型状态变量的响应表现为，在随后4个季度中通货膨胀率降低，利率上升。此外还做了一个不影响通用性的假定：将货币政策的冲击设为向量$q$(带宽)，排在$\Omega$的第一列，用于描述冲击的效果。利用缩减式VAR估计得到的$\hat{\phi}, \, \hat{\Sigma}$，我们列出满足符号限定条件的IRFs集合，以确定单位长度向量$q$的集合，作为带宽。
+\begin{figure}[htbp]
+  \caption{冲击响应方程}\small{紧缩性货币政策冲击表现为$1$单位的标准差。通货膨胀和利率的响应未作年化处理。带宽(阴影)表示IRFs逐点估计的识别集合区间。此外在选取适当的q (例如设$q$为一个关于缩减式参数$\hat{\phi}, \, \hat{\Sigma}$的方程)的情况下，4个状态变量的IRFs收缩为一条蓝色曲线。}
+  \centering
+  \includegraphics[width=12cm]{./Figures/20180409-irfs-var}
+  \label{fig:stylized-ssrep-irfs-var}
+%
+%  \small{}
+\end{figure}
+
+如图\ref{fig:stylized-ssrep-irfs-var}所示，$t=0$时刻货币政策的点冲击，在随后$t+h$时刻产出增速、劳动收入份额、通货膨胀率、利率的已识别响应的区间用阴影表示。需要指出的是，4个状态变量的响应区间不同，尤其是产出增速和劳动收入份额的响应符号(方向)不够清晰，这是由于模拟过程中注入到系统里的货币政策冲击的符号限定不够强。
+
+\subsection{条件矩的限制}
+\label{sec:stylized-ssrep-empirics-moments}
+根据DSGE模型的均衡条件，可以推得一组条件矩限制(第\ref{sec:stylized-ssrep-restrictions}节)，这组条件矩限制是基于全体的理想状况给出的；基于实际观测到的抽样样本的平均数，可以对全体矩限制作样本矩限制的近似。但需要指出的是，这组近似矩并不是完全无条件的，例如NKPC得到的矩\eqref{eq:stylized-sspre-moment-nkpc-info-set}中含有隐含变量——当期价格加成的冲击$\lambda_{t}$，从而使得进一步从事矩分析变得困难。
+
+对全体矩限制的样本近似常常采用广义矩估计法(generalized method of moments, GMM)\index{generalized method of moments (GMM) \dotfill 广义矩估计法}，我们将在随后进一步介绍。\todo{敲进键盘之后，做一个ref}%Sec 11.4。
+
+\section{处理趋势}
+\label{sec:stylized-ssrep-empirics-trends}
+趋势(trend)是宏观经济时间序列数据的一个重要特征。在第\ref{sec:stylized-dsge-model}节典型DSGE模型的设定中，就含有了这样一种随机趋势，它由生产率过程$\log Z_{t}$产生，表现为一个含有漂移的随机游走。尽管生产率中的趋势导致模型中的其他变量如消费、产出、实际工资等也含有趋势，但根据这样的模型设定，消费产出比、劳动收入份额等都应当是平稳的。
+
+然而实际观察到的经济数据与模型的假设不符，如图  \ref{fig:stylized-ssrep-empirics-ratio-yl-cy}所示，1996-2015年间中国的这两组数据并不平稳。实际观测数据中含有的趋势并未反映在DSGE模型中，导致观测数据和模拟数据之间产生了一阶不一致。
+\begin{figure}[htbp]
+  \caption{中国的劳动收入份额和消费产出比}\small{数据来源：中国统计年鉴。}
+  \centering
+  \includegraphics[width=12cm]{./Figures/20180409-ratio-yl-cy}
+  \label{fig:stylized-ssrep-empirics-ratio-yl-cy}
+%
+%  \small{}
+\end{figure}
+
+大多数DSGE模型在实际应用过程中都暗含着反事实趋势，这是由于模型中往往包含一些共趋势(co-trending)的限制条件\citep{Hatanaka:2012bo}，例如一条最的平衡增长路径(alanced growth path, BGP)，根据这样的路径设定，模型假定
+\begin{itemize}
+  \item 产出、消费、投资、资本存量、实际工资等经济变量表现出相同的运动趋势，
+  \item 资本回报率平稳。
+\end{itemize}
+这些假设条件，或多或少都与实际观测到的数据不匹配。
+
+经济学家已提出许多种方法，致力于缩小两组数据之间的不匹配，如
+\begin{enumerate}
+  \item 对观测到的每一个变量时间序列分别作去适宜的去趋势处理，进而比较(去趋势后的)观测数据与模拟数据；
+  \item 用同一种趋势滤波对观测数据和模拟数据作处理，进而比较；
+  \item 构建混合模型，如\cite{Canova:2014be}模型一方面含有灵活的非结构性的趋势成分，另一方面利用结构DSGE模型取描述围绕缩减式趋势的上下波动；
+  \item 将更多现实中的趋势直接引入到DSGE模型的结构中。
+\end{enumerate}
+
+从宏观经济学研究的角度上来说，这4种方法中，越是接近方法4，就越值得提倡。

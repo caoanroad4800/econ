@@ -4,15 +4,15 @@
   \item adjoint operator\dotfill 伴随算子, 364
   \item Akaike information criterion(AIC) \dotfill 赤池信息量, 496
   \item angular frequency \dotfill 角频率, 298, 300, 301
-  \item anistropy \dotfill 各向异性, 228, 512
+  \item anistropy \dotfill 各向异性, 228, 514
   \item axiomatic set theory \dotfill 公理集合论, 324
 
   \indexspace
 
   \item Babuška-Brezzi-Ladyshenskaya condition \dotfill BBL条件, 447
   \item Banach space \dotfill 巴拿赫空间, 331, 363
-  \item bandpass filter (BPF) \dotfill 带宽滤波, 515
-  \item bandwidth (matrix) \dotfill 带宽(矩阵的), 521
+  \item bandpass filter (BPF) \dotfill 带宽滤波, 517
+  \item bandwidth (matrix) \dotfill 带宽(矩阵的), 523
   \item base function \dotfill 基方程, 461
   \item basis
     \subitem Chebyshev polynomial \dotfill 切比雪夫多项式(基), 
@@ -27,13 +27,13 @@
   \item Bayesian information criterion(BIC) \dotfill 贝叶斯信息量, 
 		496
   \item Bellman equation \dotfill 贝尔曼等式, 123, 218
-  \item Bernoulli trials \dotfill 伯努利实验, 529
+  \item Bernoulli trials \dotfill 伯努利实验, 539
   \item Bessel function \dotfill 贝塞尔方程, 390
   \item Beta distribution \dotfill 贝塔分布, 253
   \item Beta integral \dotfill 贝塔积分, 233
-  \item BFMG algorithm \dotfill BFMG算法, 537
+  \item BFMG algorithm \dotfill BFMG算法, 547
   \item bijection \dotfill 双射, 276
-  \item binomial coefficients \dotfill 二项式系数, 510
+  \item binomial coefficients \dotfill 二项式系数, 512
   \item binomial theorem \dotfill 二项式定理, 232
   \item boundary integral equations \dotfill 边界积分等式, 387
   \item boundary value problem \dotfill 边界值问题, 319
@@ -49,7 +49,7 @@
   \item Cauchy sequnce \dotfill 柯西序列, 276
   \item Cauchy-Schwarz inequality \dotfill 柯西——施瓦茨不等式, 
 		334
-  \item central limit theorem (CLT) \dotfill 中心极限定理, 512
+  \item central limit theorem (CLT) \dotfill 中心极限定理, 514
   \item chain rule \dotfill 链式法则, 354
   \item Chebyshev distance \dotfill 切比雪夫距离, 327
   \item Christoffel numbers \dotfill 克里斯托费尔数, 243
@@ -70,14 +70,14 @@
   \item completeness
     \subitem Euclidean space \dotfill 完备性(欧几里得空间), 
 		332
-  \item complex angle \dotfill 复值夹角, 506
-  \item complex conjugate \dotfill 复共轭, 488, 506
+  \item complex angle \dotfill 复值夹角, 508
+  \item complex conjugate \dotfill 复共轭, 488, 508
   \item complex modulus \dotfill 复数绝对值, 333
   \item complex number
     \subitem imaginary part \dotfill 虚部(复数), 276
     \subitem real part \dotfill 实部(复数), 276
   \item complex plane \dotfill 复数平面, 333
-  \item conditional bias \dotfill 条件偏误, 526
+  \item conditional bias \dotfill 条件偏误, 536
   \item conditional density \dotfill 条件密度, 267
   \item conforming trial spaces \dotfill 协调检测空间, 439
   \item conjugate \dotfill 共轭复数, 333
@@ -88,17 +88,17 @@
   \item convolution \dotfill 卷积, 313
   \item countable additivity \dotfill 可数可加性, 325
   \item cover(topology) \dotfill 覆盖(拓扑学), 324
-  \item Cramér-Rao lower Bound \dotfill 克拉美罗下界, 527
+  \item Cramér-Rao lower Bound \dotfill 克拉美罗下界, 537
   \item curse of dimensionality \dotfill 维数灾难, 207, 210
   \item Céa lemma, \dotfill 齐亚引理, 277, 440
 
   \indexspace
 
-  \item De Moivre Theorem \dotfill 棣莫弗定理, 505
+  \item De Moivre Theorem \dotfill 棣莫弗定理, 507
   \item decomposition
     \subitem  \dotfill 分解(有限元), 453
     \subitem admissible \dotfill 容许分解, 454
-  \item Delta Dirac function \dotfill 狄拉克方程, 215, 304, 509
+  \item Delta Dirac function \dotfill 狄拉克方程, 215, 304, 511
   \item differentiability classification \dotfill 方程微分的类, 
 		335
   \item Dirac distribution \dotfill 狄拉克分布, 349
@@ -128,19 +128,19 @@
 		340
   \item embeddings \dotfill 嵌入, 340
   \item ensemble mean suqare error (EMSE)\dotfill 整体均方误差, 
-		526
+		536
   \item Envelope Theorem \dotfill 包络定理, 121
   \item equivalence of norms \dotfill 范数等价, 327, 343, 355
   \item ergodic set \dotfill 遍历集, 222
-  \item error function \dotfill 误差方程, 509
+  \item error function \dotfill 误差方程, 511
   \item Euclidean norm \dotfill 欧几里得范数, 327
-  \item Euler formula (complex analysis) \dotfill 欧拉公式, 501
-  \item Euler identity \dotfill 欧拉恒等式, 504
+  \item Euler formula (complex analysis) \dotfill 欧拉公式, 503
+  \item Euler identity \dotfill 欧拉恒等式, 506
   \item Euler integral representation \dotfill 欧拉积分表达式, 
 		233
   \item Euler transformation formula \dotfill 欧拉转换公式, 234
   \item exponentiation (complex analysis) \dotfill 取幂(复分析), 
-		505
+		507
   \item extended real number line \dotfill 扩展实数线, 325
   \item exterior algebra \dotfill 外代数, 319
   \item exterior normal vector \dotfill 外部法向量, 406
@@ -154,9 +154,9 @@
     \subitem neighboring \dotfill 相邻有限元, 455
     \subitem regular \dotfill 正则型有限元, 454, 460
   \item finite elements method \dotfill 有限元法, 211
-  \item Fischer information matrix \dotfill 费雪信息矩阵, 527
+  \item Fischer information matrix \dotfill 费雪信息矩阵, 537
   \item flops
-    \subitem (floating points operations) \dotfill 浮点计算数, 515
+    \subitem (floating points operations) \dotfill 浮点计算数, 517
   \item form function \dotfill 形式方程, 461
   \item Fourier cosine series \dotfill 傅里叶余弦级数, 308
   \item Fourier series \dotfill 傅里叶, 306
@@ -195,8 +195,12 @@
   \item Gauss theorem \dotfill 高斯散度定理, 319
   \item Gauss-Hermite quadrature \dotfill 高斯——埃米特求积, 
 		270
-  \item Gaussian elimination \dotfill 高斯消元, 520
+  \item Gaussian elimination
+    \subitem  \dotfill 高斯消元法, 526
+  \item Gaussian elimination \dotfill 高斯消元, 522
   \item Gaussian function \dotfill 高斯方程, 303
+  \item generalized method of moments (GMM) \dotfill 广义矩估计法, 
+		500
   \item generalized partial derivative \dotfill 广义偏导数, 336
   \item generating function
     \subitem Hermite polynomial \dotfill 母方程(埃米特多项式), 
@@ -226,13 +230,13 @@
   \item h-refinement finite elements\dotfill h——改进(有限元分析), 
 		213
   \item Hankel moment matrix \dotfill 汉克尔矩阵, 238
-  \item Heaviside function \dotfill 黑维塞方程, 509
+  \item Heaviside function \dotfill 黑维塞方程, 511
   \item Hermitian symmetric \dotfill 埃米特对称, 333
   \item Hilbert space \dotfill 希尔伯特空间, 274, 331
   \item hp-adaptive finite elements \dotfill hp——有限元法, 213
   \item hyperbolic function
-    \subitem cosine \dotfill 双曲线余弦方程, 506
-    \subitem sine \dotfill 双曲线正弦方程, 506
+    \subitem cosine \dotfill 双曲线余弦方程, 508
+    \subitem sine \dotfill 双曲线正弦方程, 508
   \item hypergeometric
     \subitem function \dotfill 超几何方程, 231
     \subitem function, generalized \dotfill 广义超几何方程, 232
@@ -258,7 +262,7 @@
 		489
   \item Inada condition \dotfill 稻田条件, 122
   \item indefinitely differentiable function \dotfill 无限可导方程, 
-		502
+		504
   \item index family \dotfill 索引族, 323
   \item indicator function \dotfill 指示方程, 488, 497
   \item inf-sup condition \dotfill 上极限——下极限条件, 275
@@ -277,7 +281,7 @@
     \subitem Lagrange \dotfill 拉格朗日插值法, 243
   \item interpolation theorem \dotfill 插值定理, 353
   \item intersection \dotfill 交集, 325
-  \item isotropy, 512
+  \item isotropy, 514
 
   \indexspace
 
@@ -287,8 +291,8 @@
 
   \item kernel \dotfill 核, 363, 497
   \item kernel function
-    \subitem Gaussian \dotfill 高斯核方程, 507
-    \subitem Gaussian, culmulative \dotfill 累积高斯核方程, 509
+    \subitem Gaussian \dotfill 高斯核方程, 509
+    \subitem Gaussian, culmulative \dotfill 累积高斯核方程, 511
   \item Korn inequality \dotfill 科恩不等式, 275
   \item Kronecker product\dotfill 克罗内克乘积, 237
 
@@ -310,7 +314,7 @@
   \item Lesbegue space \dotfill 勒贝格空间, 324
   \item Levenberg-Marquardt algorithm \dotfill 莱文贝格——马夸特方法, 
 		214
-  \item likelihood function \dotfill 似然方程, 525
+  \item likelihood function \dotfill 似然方程, 535
   \item linear frequency \dotfill 线频率, 301
   \item Lipschitz continuous function \dotfill 利普希茨连续方程, 
 		323
@@ -329,24 +333,28 @@
   \item mass matrix
     \subitem local \dotfill 局部质量矩阵, 462
   \item matrix
-    \subitem band \dotfill 带状矩阵, 521
-    \subitem diagonal \dotfill 对角矩阵, 516
-    \subitem identity \dotfill 单位矩阵, 241, 518
+    \subitem band \dotfill 带状矩阵, 523
+    \subitem diagonal \dotfill 对角矩阵, 518
+    \subitem identity \dotfill 单位矩阵, 241, 520
     \subitem infinite Jacobi \dotfill 无限雅各比矩阵, 240
     \subitem leading principle submatrix \dotfill 领先主子矩阵, 
 		240
-    \subitem orthogonal \dotfill 正交矩阵, 499, 518
-    \subitem permutation \dotfill 置换矩阵, 518
-    \subitem triangular, lower \dotfill 下三角矩阵, 516
-    \subitem triangular, unit lower \dotfill 下三角单位矩阵, 516
-    \subitem triangular, unit upper \dotfill 上三角单位矩阵, 517
-    \subitem triangular, upper \dotfill 上三角矩阵, 517
+    \subitem orthogonal \dotfill 正交矩阵, 499, 520
+    \subitem permutation \dotfill 置换矩阵, 520
+    \subitem rank-one update \dotfill 秩一修正矩阵, 529
+    \subitem triangular, lower \dotfill 下三角矩阵, 518
+    \subitem triangular, unit lower \dotfill 下三角单位矩阵, 518
+    \subitem triangular, unit upper \dotfill 上三角单位矩阵, 519
+    \subitem triangular, upper \dotfill 上三角矩阵, 519
     \subitem tridiagonal \dotfill 三角对角矩阵, 240
   \item matrix factorization
-    \subitem Cholesky \dotfill LU分解, 521
-    \subitem LU \dotfill LU分解, 520
+    \subitem $LDL^{\top}$ \dotfill $LDL^{\top}$分解, 525
+    \subitem Cholesky \dotfill Cholesky分解, 523
+    \subitem LU \dotfill LU分解, 522
+    \subitem QR \dotfill QR分解, 531
+  \item matrix inversion lemma \dotfill 矩阵求逆引理, 528
   \item maximum norm \dotfill 最大范数, 327
-  \item mean square error (MSE) \dotfill 均方误差, 526
+  \item mean square error (MSE) \dotfill 均方误差, 536
   \item measurable sets \dotfill 可测集合, 325
   \item measurable space \dotfill 可测空间, 325
   \item measure
@@ -376,15 +384,15 @@
 		30, 479
   \item Newton algorithm \dotfill 牛顿算法, 214
   \item Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法, 
-		537
-  \item Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法, 538
+		547
+  \item Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法, 548
   \item Newton—Cotes Rule \dotfill 牛顿——寇特斯法则, 279
   \item node \dotfill 结点, 211, 453
   \item norm \dotfill 范数, 237, 275, 323, 326
   \item norm equivalence theorem of Sobolev space, 342
   \item normal distribution \dotfill 正态分布, 245
   \item normed vector space \dotfill 赋范向量空间, 327
-  \item null space \dotfill 零空间, 363
+  \item null space \dotfill 零空间, 363, 530
   \item numerical integration \dotfill 数值积分, 279
   \item numerical quadrature \dotfill 数值求积, 279
 
@@ -450,11 +458,11 @@
     \subitem double layer \dotfill 双层位势算子, 402
     \subitem Newton  \dotfill 牛顿位势, 391
     \subitem single layer \dotfill 单层位势, 397
-  \item power series \dotfill 幂级数, 502
+  \item power series \dotfill 幂级数, 504
   \item powerset \dotfill 幂集, 324
   \item probability density function (PDF)
-    \subitem \dotfill 概率密度方程, 525
-    \subitem Gaussian\dotfill 高斯概率密度方程, 507
+    \subitem \dotfill 概率密度方程, 535
+    \subitem Gaussian\dotfill 高斯概率密度方程, 509
   \item projection method \dotfill 映射法, 199
   \item pseudospectral \dotfill 伪光谱, 215
 
@@ -508,9 +516,10 @@
 
   \indexspace
 
+  \item Schur complement \dotfill Schur补, 526
   \item Schwarz inequality \dotfill 施瓦茨不等式, 346
   \item score (maximum likelihood) \dotfill 评分(最大似然估计), 
-		528
+		538
   \item second order linear differential equation
     \subitem Hermite polynomial \dotfill 二阶线性微分方程(埃米特多项式), 
 		248
@@ -521,16 +530,18 @@
   \item selected points \dotfill 选点, 215
   \item selection matrix \dotfill 选择矩阵, 496
   \item self-adjoint operator, 319
-  \item self-similarity \dotfill 自相似性, 508
+  \item self-similarity \dotfill 自相似性, 510
   \item seminorm
     \subitem  \dotfill 半范数, 326
     \subitem trivial \dotfill 平凡半范数, 327
   \item seminormed vector space \dotfill 半赋范向量空间, 330
   \item sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计), 
-		528
+		538
   \item sequence space
     \subitem countably infinite dimensional \dotfill 可数无限维数列空间, 
 		328
+  \item Sherman-Woodbury-Morrison formula \dotfill Sherman-Woodbury-Morrison公式, 
+		528
   \item sigma
     \subitem additivity \dotfill sigma可加, 325
     \subitem algebra \dotfill sigma代数, 324
@@ -574,8 +585,8 @@
   \indexspace
 
   \item taxicab geometry \dotfill 出租车距离, 327
-  \item Taylor series \dotfill 泰勒级数, 502
-  \item Taylor-Maclaurin series \dotfill 麦克劳林级数, 502
+  \item Taylor series \dotfill 泰勒级数, 504
+  \item Taylor-Maclaurin series \dotfill 麦克劳林级数, 504
   \item telescoping sum \dotfill 裂项和, 241
   \item tempered distribution space \dotfill 缓增分布空间, 350, 
 		387
@@ -611,13 +622,14 @@
 
   \indexspace
 
-  \item unbiased estimate \dotfill 无偏估计, 526
+  \item unbiased estimate \dotfill 无偏估计, 536
+  \item underdetermined system \dotfill 欠定系统, 530
   \item uniform cone condition \dotfill 均匀法锥条件, 353
   \item uniform convergence \dotfill 均匀收敛, 215
   \item uniform distribution \dotfill 均匀分布, 257
   \item uniform norm \dotfill 均匀范数, 327
   \item union \dotfill 并集, 324
-  \item unit step function \dotfill 单位阶跃方程, 509
+  \item unit step function \dotfill 单位阶跃方程, 511
 
   \indexspace
 
@@ -635,6 +647,7 @@
   \item wavenumber \dotfill 波数, 301
   \item weight function \dotfill 权重方程, 236
   \item weighted residual methods \dotfill 加权残差法, 199
+  \item Woodbury formula \dotfill Woodbury公式, 528
 
   \indexspace
 

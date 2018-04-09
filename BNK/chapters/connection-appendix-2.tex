@@ -365,7 +365,7 @@ $\Sigma = 4n$ flops。
   \label{eq:numlin-matrix-factorization-fact-step}
 \begin{split}
     & A = A_{1} \, A_{2} \, \ldots A_{k}, \\
-    \hookrightarrow A x = b \Leftrightarrow x = A^{-1} b
+    \hookrightarrow & A x = b \Leftrightarrow x = A^{-1} b
     = A_{k}^{-1} \, A_{k-1}^{-1} \, \ldots A_{1}^{-1} \, b.
 \end{split}
 \end{equation}
@@ -377,7 +377,7 @@ $\Sigma = 4n$ flops。
     z_{1} & = A_{1}^{-1} b, \\
     z_{2} & = A_{2}^{-1} z_{1} = A_{2}^{-1} A_{1}^{-1} b, \\
     \vdots & \\
-    z_{i} = A_{i}^{-1} z_{i-1} = A_{i}^{-1} A_{i-1}^{-1} \ldots A_{1}^{-1} b,
+    z_{i} &= A_{i}^{-1} z_{i-1} = A_{i}^{-1} A_{i-1}^{-1} \ldots A_{1}^{-1} b,
 \end{split}
 \end{equation}
 
@@ -454,7 +454,7 @@ LU分解+分解步和求解步，是线性方程系统如$Ax=b$的标准求解�
   \label{eq:numlin-factorization-cholesky}
   A = L \, L^{\top},
 \end{equation}
-其中L是下三角矩阵，非奇异，且对角元素值为正。这称为$A$的Cholesky因子分解(Cholesky factorization)\index{matrix factorization!Cholesky \dotfill LU分解}。当不对$A$作任何结构优化时，消耗$ \left( \frac{1}{3} n^{3} \right)$ flops。
+其中L是下三角矩阵，非奇异，且对角元素值为正。这称为$A$的Cholesky因子分解(Cholesky factorization)\index{matrix factorization!Cholesky \dotfill Cholesky分解}。当不对$A$作任何结构优化时，消耗$ \left( \frac{1}{3} n^{3} \right)$ flops。
 
 \begin{algorithm}[利用Cholesky分解求解正定线性方程系统]
   \label{algorithm:numlin-factorization-cholesky}
@@ -509,6 +509,658 @@ $A$正定要求满足$\det A >0$
 \begin{equation*}
   L \, L^{\top} = D - u \, u^{\top}.
 \end{equation*}
+
+对于一般形式的$u$而言，矩阵$\left( D - u \, u^{\top} \right)$是密集矩阵，因此可以判定$L$也是密集矩阵。那么，尽管$A$可能是非常稀疏的(比如大多数行只有两个非零元素)，其Cholesky因子$L$却仍是密集的。
+
+另一方面，假设我们将$A$的第1行、第1列置换到最后1行、最后1列，重新排序后做Cholesky因子分解，可得
+\begin{equation}
+  \label{eq:umlin-factorization-cholesky-a-redo}
+\begin{pmatrix}
+  D & u \\
+  u^{\top} & 1
+\end{pmatrix}
+= \begin{pmatrix}
+D^{\frac{1}{2}} & 0 \\
+u^{\top} \, D^{-\frac{1}{2}} & \left( 1 - u^{\top} \, D^{-1} \, u \right)^{\frac{1}{2}}
+\end{pmatrix}
+\,
+\begin{pmatrix}
+  D^{\frac{1}{2}} & D^{-\frac{1}{2}} \, u \\
+  0 & \left( 1 - u^{\top} \, D^{-1} \, u \right)^{\frac{1}{2}}
+\end{pmatrix}
+\end{equation}
+
+由\eqref{eq:umlin-factorization-cholesky-a} \eqref{eq:umlin-factorization-cholesky-a-redo}可见，Cholesky因子$L$的对角块是$(1,1)$，因此也是密集的。
+
+这个例子表明，重新排序可以极大改变Cholesky因子的稀疏性。很显然，``最好"的置换方案，或者退一步说，所有``理想"的排序方法，都是将密集的行和列置换到末尾。所谓``理想"的方法，是指较为复杂的稀疏型矩阵也许很难找到最优的置换方案，即，使得$L$中的$0$元素个数达到最大，但还是有一些启发式方案可以追求次优。
+
+在系数矩阵作Cholesky因子分解过程中，$P$的选取往往只根据$A$的稀疏结构进行，而不取决于$A$中非零元素的具体数值%\todo{与下文 $LDL^{\top}$分解法做比较}
+\footnote{与之相比较，对稀疏矩阵作$LU$分解的过程中，$P$的选取则不只取决于$A$的稀疏结构，还取决于$A$中非零元素的具体值。}。而一旦确定了$P$，我们就可以算得唯一的$L$的系数结构，也不取决于$A$中非零元素的具体数值。这成为$A$的符号因子分解(symbolic factorization step)，作为求解稀疏矩阵系统的第一个步骤。第二步是数值因子分解，即计算$L$中非零元素的值。常见的计算Cholesky因子分解的软件常常将这两个步骤的计算过程分别处理，这在大多数情况下是有必要的：第一步的计算成本往往高于第二步。
+
+\subsection[LDL因子分解]{$LDL^{\top}$因子分解}
+\label{sec:numlin-factorization-ldl}
+每个非奇异对称矩阵$A$都可因式分解为如下形式
+\begin{equation}
+  \label{eq:numlin-factorization-ldl}
+  A = P \, L \, D \, L^{\top} \, P^{\top},
+\end{equation}
+其中$P$是置换矩阵，$L$是对角元素均为正的下三角矩阵，$D$是块对角矩阵，对角块由$1 \times 1$和$2 \times 2$的非奇异对角块构成。这称为$A$的$LDL^{\top}$因子分解(LDL factorization)\index{matrix factorization!$LDL^{\top}$ \dotfill $LDL^{\top}$分解}。
+
+Cholesky分解可以被视为是一种特殊形式的$LDL^{\top}$分解：$P=I, \, D = I$。
+
+\begin{algorithm}[利用$LDL^{\top}$分解求解线性方程系统]
+  \label{algorithm:numlin-factorization-ldl}
+  给定一个线性方程$A x = b$，其中$A$非奇异。$LDL^{\top}$法求解步骤如下
+  \begin{enumerate}
+    \item $LDL^{\top}$因子分解，$A = P \, L \, D \, L^{\top} \, P^{\top}$， $\left( \frac{1}{3} n^{3} \right)$ flops。
+    \item 置换，求解$P \, z_{1} = b$， $\left( 0 \right)$ flops。
+    \item 向前替换，求解$L z_{2} = z_{1}$， $\left( n^{2} \right)$ flops。
+    \item 对角块元素求解，求解$D \, z_{3} = z_{2}$， $\left( n \right)$ flps。
+    \item 向后替换，求解$L^{\top} z_{4} = z_{3}$， $\left( n^{2} \right)$ flops。
+    \item 置换，求解$P^{\top} x = z_{4}$， $\left( 0 \right)$ flps。
+  \end{enumerate}
+\end{algorithm}
+
+当$A$具有一些特殊结构，如带状矩阵或系数矩阵时，可以进一步提高计算效率。调整过程与Cholesky因子分解的过程相似，只是要额外多考虑一个对角块$D$。此外，$LDL^{\top}$因子分解过程中，在选取$P$时，除了要(像稀疏Choleky分解那样)考虑稀疏矩阵的结构特征之外，还要考虑矩阵$A$中非零元素的值。
+
+\subsection{块消除与Schur补}
+\label{sec:numlin-block-elimination}
+
+\subsubsection{变量块的高斯消元}
+\label{sec:numlin-gaussian-elimination}
+求解线性方程系统$A x = b$的过程中，一种常用的方法是，首先利用一定方法小区部分变量元素，将剩下的变量元素组成一个更小的线性方程系统，以便提高数值计算的效率。
+
+若$A$是一个没有明显规律的密集矩阵，这种方法很难带来计算效率的提升。然而若$A$中的某一部分子矩阵含有可消除变量，易于作因子分解(例如是快对角或带状结构的)，那么应用这种方法会带来效率的显著提升。
+
+假定我们将$x \in \mathbb{R}^{n}$分为以下2个块(子向量)
+\begin{equation*}
+  \underbrace{x}_{\left( \left( n_{1} + n_{2} \right) \times 1 \right)} =
+  \begin{pmatrix}
+  \underbrace{x_{1}}_{\left( n_{1} \times 1 \right)} \\
+  \underbrace{x_{2}}_{\left( n_{2} \times 1 \right)}
+  \end{pmatrix},
+\end{equation*}
+
+相应地，待求解线性系统变为
+\begin{equation}
+  \label{eq:numlin-gaussian-elimination}
+  A x = b \Longleftrightarrow
+  \begin{pmatrix}
+    \underbrace{A_{11}}_{\left( n_{1} \times n_{1} \right)} &
+    \underbrace{A_{12}}_{\left( n_{1} \times n_{2} \right)} \\
+    \underbrace{A_{21}}_{\left( n_{2} \times n_{1} \right)}&
+    \underbrace{A_{22}}_{\left( n_{2} \times n_{2} \right)}
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x_{1} \\ x_{2}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+      b_{1} \\
+      b_{2}
+  \end{pmatrix}.
+\end{equation}
+
+若假定子矩阵$A_{11}$可逆，则可以采用如下方法，从线性方程中消去$A_{11}$：由第一行方程有
+\begin{equation}
+  \label{eq:numlin-gaussian-elimination-row1}
+  \begin{split}
+    & A_{11} x_{1} + A_{12} x_{2} = b_{1}, \\
+    \hookrightarrow & x_{1} = \frac{b_{1} - A_{12} x_{2}}{A_{11}}.
+  \end{split}
+\end{equation}
+
+代入第二行方程替换掉其中的$x_{1}$
+\begin{equation}
+  \label{eq:numlin-gaussian-elimination-row2}
+  \begin{split}
+    & A_{21} x_{1} + A_{22} x_{2} = b_{2}, \\
+    \hookrightarrow &
+    \underbrace{
+    \left( A_{22} - A_{21} A_{11}^{-1} A_{12} \right)
+    }_{\eqqcolon \mathcal{S}}
+    x_{2} = b_{2} - A_{21}A_{11}^{-1} b_{1},
+  \end{split}
+\end{equation}
+\eqref{eq:numlin-gaussian-elimination-row2}称作线性系统的缩减式(reduced equation)。
+
+\eqref{eq:numlin-gaussian-elimination-row1} \eqref{eq:numlin-gaussian-elimination-row2}等价于原系统\eqref{eq:numlin-gaussian-elimination}。缩减式中的矩阵$\mathcal{S}$称为$A$中的块$A_{11}$的Schur补(Schur complement, 第\ref{sec:simple-schur-decomp-matrix}节)\index{Schur complement \dotfill Schur补}。并且当且仅当$A$是非奇异矩阵时，$\mathcal{S}$才是非奇异矩阵。
+
+根据Schur补\eqref{eq:numlin-gaussian-elimination-row1} \eqref{eq:numlin-gaussian-elimination-row2}，我们可以利用高斯消元法(Gaussian elimination)来求解线性系统，步骤如下：
+\begin{algorithm}[高斯消元法求解线性系统]
+  \label{algorithm:numlin-gaussian-elimination}
+  给定非奇异的线性方程系统\eqref{eq:numlin-gaussian-elimination}，其中分块$A_{11}$非奇异、可逆，系统求解步骤如下：
+  \begin{enumerate}
+    \item 计算$A_{11}^{-1} A_{12}$和$A_{11}^{-1} b_{1}$，
+    \item 计算Schur补$\mathcal{S} = A_{22} - A_{21}A_{11}^{-1}$和$\tilde{b} = b_{2} - A_{21} A_{11}^{-1} b_{1}$，
+    \item 利用$\mathcal{S} x_{2} = \tilde{b}$求解$x_{2}$，
+    \item 利用$A_{11} x_{1} = b_{1} - A_{12} x_{2}$求解$x_{1}$。
+  \end{enumerate}
+\end{algorithm}
+
+事实上，我们可以将高斯消元法\index{Gaussian elimination! \dotfill 高斯消元法}理解为一种对块的分解——求解法，例如对$A$作因子分解
+\begin{equation*}
+  A =
+  \begin{pmatrix}
+    A_{11} & A_{12} \\
+    A_{21} & A_{22}
+  \end{pmatrix}
+  = \begin{pmatrix}
+  A_{11} & 0 \\
+  A_{21} & \mathcal{S}
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    I & A_{11}^{-1} \, A_{12} \\
+    0 & I
+  \end{pmatrix},
+\end{equation*}
+可见这是块形式的$LU$因子分解。那么求解系统\eqref{eq:numlin-gaussian-elimination}的思路为：
+\begin{enumerate}
+  \item 作块的向前替换，求解$z_{1}, \, z_{2}$
+  \begin{equation*}
+    \begin{pmatrix}
+    A_{11} & 0 \\
+    A_{21} & \mathcal{S}
+    \end{pmatrix}
+    \,
+    \begin{pmatrix}
+      z_{1} \\
+      z_{2}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      b_{1} \\
+      b_{2}
+    \end{pmatrix},
+  \end{equation*}
+  有
+  \begin{equation*}
+    \begin{split}
+      z_{1} & = A_{11}^{-1} b_{1}, \\
+      z_{2} & = \mathcal{S}^{-1} \, \left( b_{2} - A_{21} z_{1} \right).
+    \end{split}
+  \end{equation*}
+  \item 利用块的向后替换，求解$x_{1}, \, x_{2}$
+  \begin{equation*}
+    \begin{pmatrix}
+      I & A_{11}^{-1} A_{12} \\
+      0 & I
+    \end{pmatrix}
+    \,
+    \begin{pmatrix}
+      x_{1} \\
+      x_{2}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      z_{1} \\
+      z_{2}
+    \end{pmatrix},
+  \end{equation*}
+有
+\begin{equation*}
+  \begin{split}
+    x_{1} & = z_{1} - A_{11}^{-1} \, A_{12} \, z_{2}, \\
+    x_{2} & = z_{2}.
+  \end{split}
+\end{equation*}
+\end{enumerate}
+
+眼下利用因子分解——求解法计算线性系统，主要采取这种块分解的思路和步骤，块的大小常常由计算机程序来自动作``次优”选取。
+
+此外，如上例所示，当线性方程系统中含有一些密集的行、列时，高斯消元法和因子分解法之间其实密切相关。在高斯消元过程中也可以进一步使用因子分解法，如将$A_{11}$和$\mathcal{S}$分解为
+\begin{equation*}
+  \begin{split}
+    A_{11} & = P_{1} \, L_{1} \, U_{1} \, P_{2}, \\
+    \mathcal{S} & = P_{3} \, L_{2} \, U_{2}.
+  \end{split}
+\end{equation*}
+
+系数矩阵$A$可以改写为
+\begin{equation*}
+  \begin{split}
+    A =
+    \begin{pmatrix}
+      A_{11} & A_{12} \\
+      A_{21} & A_{22}
+    \end{pmatrix}
+      =
+      \begin{pmatrix}
+        P_{1} & 0 \\
+        0 & P_{3}
+      \end{pmatrix}
+      \,
+      \begin{pmatrix}
+        L_{1} & 0 \\
+        P_{3}^{\top} \, A_{21} \, P_{2}^{\top} \, U_{1}^{-1} & L_{2}
+      \end{pmatrix}
+      \,
+      \begin{pmatrix}
+        U_{1} & L_{1}^{-1} \, P_{1}^{T} \, A_{12} \\
+        0 & U_{2}
+      \end{pmatrix}
+      \,
+      \begin{pmatrix}
+        P_{2} & 0 \\
+        0 & I
+      \end{pmatrix}.
+  \end{split}
+\end{equation*}
+
+由$A$的对称性，可得$A_{11}$和$\mathcal{S}$的对称性，因此可以对$A_{11}$和$\mathcal{S}$作对称的因式分解。此外，对称结构也使得其他一些操作成为可能，以进一步提高矩阵乘等计算的效率。通常说来，对称结构系统的求解速度是非对称结构系统的一半。
+
+进一步，如果$A$对称且正定，那么$A_{11}$和$\mathcal{S}$也对称且正定，进而可用Cholesky因子分解法。
+
+除了$A$本身的特殊结构之外，若其分块$A_{12}, \,A_{21}, \,A_{22}$以及$\mathcal{S}$也具有一些特定的结构，那么我们也可以对这些分块再做一次Schur补——因子分解——求解，以进一步提高数值计算的效率。举例说明。
+
+例：块三角矩阵和线性方程系统。设$A_{12}=0$，那么线性系统$A x = b$呈块下三角结构
+\begin{equation*}
+  \begin{pmatrix}
+    A_{11} & 0 \\
+    A_{21} & A_{22}
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x_{1} \\
+    x_{2}
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+  b_{1} \\ b_{2}
+  \end{pmatrix},
+\end{equation*}
+此时$\mathcal{S} = A_{22}$，根据高斯消元法，作块的向前消元，有
+\begin{equation*}
+  \begin{split}
+    x_{1} & = A_{11}^{-1} \, b_{1}, \\
+    x_{2} & = A_{22}^{-1} \, \left( b_{2} - A_{21} \, x_{1} \right).
+  \end{split}
+\end{equation*}
+
+例：块对角矩阵和线性方程系统。设$A_{11}$是对角矩阵，最大不超过$\ell \times \ell$，$A_{12}, \, A_{21}, \, A_{22}$是带宽为$k$的带状矩阵。由此可得$A_{11}^{-1}$也是对角矩阵，大小与$A_{11}$相同。那么$A_{11}^{-1} \, A_{12}$也是带状矩阵，带宽为$k + \ell$。进而$\mathcal{S} = A_{22} - A_{21} \, A_{11}^{-1} \, A_{12}$也是一个带状矩阵，带宽为$2 k + \ell$。这意味着更高的计算效率。
+
+% 例：设$A$是KKT结构的，即
+% \begin{equation*}
+%   A = \begin{pmatrix}
+%   A_{11} & A_{12} \\
+%   A_{12}^{\top} & 0
+%   \end{pmatrix},
+% \end{equation*}
+% 其中$A_{11} \in \mathbb{R}^{p}$正定，$A_{12} \in \mathbb{R}^{p + m}$， $\rank A_{12} = m$。那么可以用Cholesky因子分解。
+
+\subsection{矩阵求逆引理}
+\label{sec:numlin-matrix-inversion-lemma}
+
+通过前面的介绍不难看出，高斯消元法主要是指，对原线性系统消除一部分元素变量后，得到一个规模更小的新的线性系统，再结合原系统的Schur补等信息，对新系统进行求解计算。把这个思路颠倒过来看，如果得到了一个Schur补矩阵，那么我们可以引入新的元素变量，重构原方程系统并求解。大多数情况下这么做没有好处：规模越大的系统，数值求解速度越慢。但也有例外的情况，如果比起缩减系统来，恢复出的原系统具有某些特殊结构的话，对原系统做数值求解可以进一步提升计算效率。例如线性方程系统
+\begin{equation}
+  \label{eq:numlin-inverse-system-x}
+  \left( A + B \, C \right) x = b,
+\end{equation}
+其中$A \in \mathbb{R}^{n \times n}$非奇异，$B \in \mathbb{R}^{n \times p}, \, C \in \mathbb{R}^{p \times n}$。
+
+我们可以引入一个新变量$y \equiv C x$，将\eqref{eq:numlin-inverse-system-x}改写为
+\begin{equation}
+  \label{eq:numlin-inverse-system-xy}
+  A \, x + B \, y = b, \Longleftrightarrow
+  \begin{pmatrix}
+    A & B \\
+    C & - I
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    x \\ y
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    b \\ 0
+  \end{pmatrix}.
+\end{equation}
+
+小系统\eqref{eq:numlin-inverse-system-x}中的系数矩阵$\left( A + B \, C \right)$，是大系统\eqref{eq:numlin-inverse-system-xy}中的Schur补$\mathcal{S}$，二者等价。在有些情况下，
+大系统\eqref{eq:numlin-inverse-system-xy}的计算效率比小系统\eqref{eq:numlin-inverse-system-x}高，例如$A, \,B,\, C$单个矩阵都较为稀疏，但集中在一起$\left( A + B \, C \right)$较为密集。
+
+一方面在大系统\eqref{eq:numlin-inverse-system-xy}中消除新定义的变量$y=C x$后，又会回复到小系统\eqref{eq:numlin-inverse-system-x}。另一方面，也可以在大系统\eqref{eq:numlin-inverse-system-xy}中消除原有变量$x$
+\begin{equation*}
+  \begin{split}
+    & A x + B y = b, \\
+    & x = A^{-1} \left( b - B y \right), \\
+    & y = C x = C \left( \left( b - B y \right) \right) = C A^{-1} b - C A^{-1} B y, \\
+    & \left( I + C A^{-1} B \right) y = C A^{-1} b, \\
+    & y = \left( I + CA^{-1} B \right)^{-1} C A^{-1} b,
+  \end{split}
+\end{equation*}
+进而
+\begin{equation}
+  \label{eq:numlin-inverse-system-y}
+\begin{split}
+  x & = A^{-1} \left( b - B y \right) \\
+  & = A^{-1} b - A^{-1} B
+  \left(
+  \left( I + C A^{-1} B \right)^{-1} C A^{-1} b
+  \right) \\
+  & = \left(
+  A^{-1} - A^{-1} B
+  \left( I + C A^{-1} B \right)^{-1}
+  C A^{-1}
+  \right)
+  b.
+\end{split}
+\end{equation}
+
+对于给定的$b$，将$b = \left(A + B C \right) x$代回上式，进一步得
+\begin{equation}
+  \label{eq:matrix-inversion-woodbury-matrix-identity}
+  \left( A + BC \right)^{-1}  = A^{-1} - A^{-1} B
+  \left( I + C A^{-1} B \right)^{-1}
+  C A^{-1},
+\end{equation}
+这被称为是矩阵求逆引理(matrix inversion lemma)\index{matrix inversion lemma \dotfill 矩阵求逆引理}，或Sherman-Woodbury-Morrison公式(Sherman-Woodbury-Morrison formula)\index{Sherman-Woodbury-Morrison formula \dotfill Sherman-Woodbury-Morrison公式}，简称Woodbury公式\index{Woodbury formula \dotfill Woodbury公式}。
+
+Woodbury公式的应用有很多，其中之一如，在$p$值相对较小的情况下，若我们已有一个相对有效的方法求解$A u = \nu$，则可利用Woodbury公式求解线性系统$\left( A + BC \right) x = b$。
+
+下面来看若$A$具有特殊结构的情况，假定$A$是个对角矩阵，对角元素非零，那么求解\eqref{eq:numlin-inverse-system-x}有两种方法。
+\begin{enumerate}
+  \item 直观方法是，首先定义并计算$D = A + B C$，然后求解$D x = b$，如果$\left( B C \right)$密集，那么$D$的计算消耗$\left( 2 p n^{2} \right)$ flops，对$D$的LU因子分解消耗$\frac{2}{3} n^{3}$ flops。总计$2 p n^{2} + \frac{2}{3} n^{3}$ flps。
+  \item 也可以利用Woodbury公式来达到更高的求解效率，通过\eqref{eq:numlin-inverse-system-y}从右向左计算来求得$x$：
+  \begin{enumerate}
+    \item $z= A^{-1} b $， 由于$A$是对角矩阵，计算消耗$n$ flops，
+    \item $E = I + C A^{-1} B$， $2 p^{2} n$ flops，
+    \item $E \, w = C z$，一个由p个变量构成的p个线性方程的系统。计算$E w$和$C z$分别消耗$\frac{2}{3} p^{3}$和$2 p n$ flops，总计$\frac{2}{3} p^{3}$ flops，
+    \item $x = z - A^{-1} b w$，其中矩阵向量乘$Bw$消耗$2 pn$ flops，
+    \item 总计消耗$w p^{2} n + \frac{2}{3} p^{3}$ flops。
+  \end{enumerate}
+
+  不难看出，利用Woodbury公式求解的效率更高。
+\end{enumerate}
+
+Woodbury公式的另一个重要应用是，$A$是非奇异稀疏矩阵，并且$B$和$C$都是密集矩阵的情况。类似地，求解\eqref{eq:numlin-inverse-system-x}也有两种方法。
+\begin{enumerate}
+  \item LU分解法：生成密集矩阵$D=A+BC$，然后对D做LU因子分解，再求解系统\eqref{eq:numlin-inverse-system-x}，共消耗$\frac{2}{3} n^{3} + 2 p n^{2}$ flops。
+  \item 也可以利用Woodbury公式，对其中的密集矩阵做LU分解，尤其是将$A$分解如下
+  \begin{enumerate}
+    \item $A = P_{1} L U P_{2}$，消耗$f$ flops，
+    \item $P_{1} L U P_{2} x = d$，消耗$s$ flops，
+    \item 在此基础上对系统\eqref{eq:numlin-inverse-system-x}从右向左分步计算，
+    \item 总计算消耗$f + ps + w p^{2} n + \frac{2}{3} p^{3}$ flops。
+  \end{enumerate}
+
+  若$f << \frac{2}{3} n^{3}, \, s << 2 n ^{2}$，那么利用Woodbury公式求解的效率更高。
+\end{enumerate}
+
+\subsubsection{扩展系统法}
+\label{sec:numlin-inverse-augmented-system}
+比起$n$个变量、$n$个方程的小系统\eqref{eq:numlin-inverse-system-x}来，$n+p$个变量、$n+p$个方程的新系统\eqref{eq:numlin-inverse-system-xy}又称为扩展系统(augmented system)，对应的求解方法称扩展系统法(augmented system approach)。如果$A$非常稀疏并且$p$值相对较小，那么我们可以对\eqref{eq:numlin-inverse-system-y}利用直接做稀疏LU分解，其求解效率将大大高于求解密集扩展系统\eqref{eq:numlin-inverse-system-xy}。
+具体说来
+\begin{enumerate}
+\item 对稀疏矩阵$A$作稀疏LU因子分解
+\begin{equation}
+  \label{eq:numlin-augmented-sparse-lu-factorization}
+  A=P_{1} L U P_{2},
+\end{equation}
+\item 对\eqref{eq:numlin-inverse-system-y}中的密集矩阵$\left( I + C A^{-1} B \right)$作密集LU因子分解
+\begin{equation*}
+  \left( I + C A^{-1} B \right)
+  = P_{3} \, \widetilde{L} \, \widetilde{U},
+\end{equation*}
+\item 扩展系统\eqref{eq:numlin-inverse-system-xy}中的系数矩阵因此改写为
+\begin{equation}
+  \label{eq:numlin-inverse-system-augmented-approach}
+  \begin{pmatrix}
+    A & B \\
+    C & -I
+  \end{pmatrix}\
+  =
+  \begin{pmatrix}
+    P_{1} & 0 \\
+    0 & P_{3}
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    L & 0 \\
+    P_{3}^{\top} C P_{2}^{\top} U^{-1} & - \widetilde{L}
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    U & L^{-1} P_{1}^{T} B \\
+    0 & \widetilde{U}
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    P_{2} & 0 \\
+    0 & I
+  \end{pmatrix},
+\end{equation}
+  \item 将上式代回扩展系统\eqref{eq:numlin-inverse-system-xy}中，求解。
+\end{enumerate}
+
+可以证明，扩展系统法在计算效率上等价于Woodbury公式法，证明过程略。
+
+值得指出的是，在利用稀疏LU因子分解$A$的\eqref{eq:numlin-augmented-sparse-lu-factorization}过程中，我们无法控制具体置换矩阵的形式，这导致很可能在计算机实际求解过程中，并不会用到\eqref{eq:numlin-inverse-system-augmented-approach}形式的因式分解，导致计算效率降低。这是扩展系统法的不足。然而即便如此，扩展系统法仍然是一种有竞争力的求解方法，比起Woodbury公式法来说，它更容易实施，并且其数值解也更加稳定。
+
+\subsubsection{低秩修正矩阵}
+\label{sec:numlin-lower-rank-update}
+设$A \in \mathbb{R}^{n \times n}$非奇异。$u,\nu \in \mathbb{R}^{n}$满足$1 + \nu^{\top} \, A \, u \neq 0$。则我们将目标扩展为，求解由两组线性方程共同构成的系统
+\begin{equation}
+  \label{eq:numlin-lower-rank-update}
+  \begin{cases}
+    A x = b, \\
+    \left( A + u \nu^{\top} \right) \tilde{x} = b,
+  \end{cases}
+\end{equation}
+系统中下半段的解$\tilde{x}$称为x的秩一修正矩阵(rank-one update matrix)\index{matrix!rank-one update \dotfill 秩一修正矩阵}。一旦求得$x$的解之后，利用Woodbury公式，我们可以很容易的计算$\tilde{x}$：
+\begin{equation*}
+  \begin{split}
+    \tilde{x} & = \left( A + u \nu^{\top} \right)^{-1} b \\
+    & = \left(
+    A^{-1} - \frac{1}{1 + \nu^{\top} A^{-1} u} A^{-1} u \nu^{\top} A^{-1}
+    \right) b \\
+    & = x - \frac{\nu^{\top} x }{1 + \nu^{\top} A^{-1} u} A^{-1} u.
+  \end{split}
+\end{equation*}
+
+算法如下
+\begin{algorithm}[秩一修正的计算]
+  \label{algorithm:numlin-lower-rank-update}
+\item 对$A$作因子分解，
+\item 计算$x = A^{-1} b$，
+\item 计算$w = A^{-1} u$，
+\item 计算$\tilde{x} = x - \frac{\nu^{\top} x }{1 + \nu^{\top} w} w$，
+\item 总共消耗$ \left( f + 2s \right)$ flops。
+\end{algorithm}
+
+\subsection{求解欠定线性系统}
+\label{sec:numlin-underdetermined-sys}
+欠定线性方程系统(underdetermined linear equation system)\index{underdetermined system \dotfill 欠定系统}是指诸如
+\begin{equation}
+  \label{eq:numlin-underdetermined-sys}
+  A x = b, \quad A \in \mathbb{R}^{p \times n}, \, p < n.
+\end{equation}
+
+假设$\rank A = p$，从而对于任意给定的$b$，系统至少存在一个解$x$。
+
+在一些情况下，我们只需要找到欠定系统的一个特定解$\hat{x}$就可以了。然而在某些情况下，我们需要找到全部的解：
+\begin{equation}
+  \label{eq:numlin-underdetermined-sys-solutions}
+  \left\{ x | A \, x = b \right\} = \left\{ F \, z + \hat{x} | z \in \mathbb{R}^{n-p} \right\},
+\end{equation}
+其中矩阵$F$的列是$A$的零空间(null space)\index{null space \dotfill 零空间}所对应的的基。
+
+如果$A$的前$p$列彼此不相关，那么求解欠定线性系统\eqref{eq:numlin-underdetermined-sys-solutions}的方法如下：将$A$分解为两个块，前$n \times p$设为$A_{1}$，则系统改写为
+\begin{equation*}
+  A x = \begin{pmatrix}
+  \underbrace{A_{1}}_{\left( p \times p \right)}  & \underbrace{A_{2}}_{\left( p \times \left( n - p \right) \right)}
+  \end{pmatrix} \,
+  \begin{pmatrix}
+    x_{1} \\
+    x_{2}
+  \end{pmatrix}
+  = A_{1} \, x_{1} + A_{2} \, x_{2} = b,
+\end{equation*}
+其中$A_{1}$非奇异。由此可得$x_{1} \in \mathbb{R}^{n}$的值
+\begin{equation*}
+  x_{1} = A_{1}^{-1} b - A_{1}^{-1} A_{2} x_{2},
+\end{equation*}
+在此基础上求解系统：取$\hat{x_{2}}=0, \hat{x}_{1} = A_{1}^{-1} b$，进行数值运算，计算成本等同于求解一个由p个线性方程$a_{1}\hat{x}_{1} = b$构成的系统，总共消耗 $ \left( f+s \right)$ flops，其中$f$ 用于对$A_{1}$作因式分解，$s$用于求解$A_{1} x = d$。
+
+另一种求解思路是，设$x_{2} \in \mathbb{R}^{n-p}$作为自由参数，将$A x = b$的通解表示为
+\begin{equation*}
+  x = \begin{pmatrix}
+  x_{1} \\
+  x_{2}
+  \end{pmatrix}
+  = \begin{pmatrix}
+  - A_{1}^{-1} A_{2} \\
+  I
+  \end{pmatrix}
+  \, x_{2} +
+  \begin{pmatrix}
+    A_{1}^{-1} b \\
+    0
+  \end{pmatrix},
+\end{equation*}
+由此可得\eqref{eq:numlin-underdetermined-sys-solutions}中的参数$F$和近似解$\hat{x}$
+\begin{equation*}
+  F = \begin{pmatrix}
+  -A_{1}^{-1} A_{2} \\
+  I
+  \end{pmatrix}, \quad
+  \hat{x} = \begin{pmatrix}
+  A_{1}^{-1} b \\
+  0
+  \end{pmatrix}, \quad
+  \Sigma = f + s \left( n - p + 1 \right) \text{ flops}.
+\end{equation*}
+
+现在进一步放宽前提假设条件，设$A$的前$p$列不必一定不相关。由于$\rank A = p$，我们从$A$的$n$列中选出不相关的$p$列，置换到前面来，进而用前述方法做因式分解+求解。换句话说，建立一个置换矩阵$P$，使得$\tilde{A} = A P$矩阵的前$p$列不相关，进而对$\tilde{A}$做分解
+\begin{equation*}
+  \tilde{A} = A P = \left[ A_{1}  A_{2} \right],
+\end{equation*}
+其中$A_{1}$可逆。对应地，定义$\tilde{x} = P^{T} x$，将\eqref{eq:numlin-underdetermined-sys-solutions}改写为
+\begin{equation}
+  \label{eq:numlin-underdetermined-sys-solutions-permutation}
+  \tilde{A} \, \tilde{x} = b,
+\end{equation}
+进而$\tilde{x}$为
+\begin{equation*}
+  \tilde{x} =
+  \begin{pmatrix}
+    - A_{1}^{-1} A_{2} \\
+    I
+  \end{pmatrix}
+  \tilde{x}_{2} +
+  \begin{pmatrix}
+    A_{1}^{-1} b \\
+    0
+  \end{pmatrix}.
+\end{equation*}
+在此基础上，求得通解$x$
+\begin{equation*}
+  x = P \tilde{x} = P
+  \begin{pmatrix}
+    - A_{1}^{-1} A_{2} \\
+    I
+  \end{pmatrix}
+  z +
+  P
+  \begin{pmatrix}
+    A_{1}^{-1} b \\
+    0
+  \end{pmatrix},
+\end{equation*}
+其中$z \in \mathbb{R}^{n-p}$是自由参数。
+
+当我们能在$A$中识别出一个非奇异或是容易取逆的分块(如一个对角元素均不为零的对角矩阵)时，这个方法能提供较高的计算效率。
+
+\subsubsection{用QR因子分解法求解欠定系统}
+\label{sec:numlin-factorization-underdetermined-qr}
+如果$C \in \mathbb{R}^{n \times p}, \, p \le n, \, \rank C = p$，可以对$C$作因子分解如下
+\begin{equation}
+  \label{eq:numlin-factorization-qr}
+  C = \begin{pmatrix}
+  Q_{1} & Q_{2}
+  \end{pmatrix} \,
+  \begin{pmatrix}
+    R \\ 0
+  \end{pmatrix},
+\end{equation}
+其中$Q_{1} \in \mathbb{R}^{ n \times p}, \, Q_{2} \in \mathbb{R}^{n \times \left( n - p \right)}$满足
+\begin{equation*}
+  \begin{split}
+    & Q_{1}^{\top} Q_{1} = I, \\
+    & Q_{2}^{\top} Q_{2} = I, \\
+    & Q_{1}^{\top} Q_{2} =0,
+  \end{split}
+\end{equation*}
+$R \in \mathbb{R}^{p \times p}$是一个对角元素非零的三交矩阵。这称为对$C$的QR因子分解\index{matrix factorization!QR \dotfill QR分解}。共消耗$2 p^{2} \left( n - \frac{p}{3} \right)$ flops。
+
+QZ分解法可以用来求解欠定线性方程系统\eqref{eq:numlin-underdetermined-sys}，设
+\begin{equation*}
+  A^{\top} = \begin{pmatrix}
+  Q_{1}  & Q_{2}
+  \end{pmatrix}
+  \,
+  \begin{pmatrix}
+    R \\ 0
+  \end{pmatrix}
+\end{equation*}
+是一个对$A^{T}$的QR因子分解，代回\eqref{eq:numlin-underdetermined-sys}得
+\begin{equation*}
+  A \hat{x} = R^{\top} Q_{1}^{\top} Q_{1} R^{- \top} b = b,
+\end{equation*}
+此外$Q_{2}$的列由$A$的零空间的基构成，那么系统的完全解为
+\begin{equation*}
+  \left\{ x = \hat{x} + Q_{2} z | z \in \mathbb{R}^{n-p} \right\}.
+\end{equation*}
+
+对于欠定线性方程系统，最常见的求解方法是QR因子分解。这种方法的一个不足是，对稀疏矩阵难以处理：哪怕$C$非常稀疏，$Q$也往往是密集的。
+
+\subsubsection{用LU因子分解法求解欠定系统}
+\label{sec:numlin-factorization-underdetermined-lu}
+对于稀疏系数矩阵的欠定线性系统，常用LU因子分解法来求解。设$C \in \mathbb{R}^{n \times p}, \, \rank C = p$，那么可以将$C$作LU因子分解如下
+\begin{equation*}
+  C = P \, L \, U,
+\end{equation*}
+其中置换矩阵$P \in \mathbb{R}^{n \times n}$，$L \in \mathbb{R}^{n \times p}, \, U \in \mathbb{R}^{p \times n}$分别为单位下三角矩阵和非奇异上三角矩阵。在未对$C$的结构做进一步明确之前，计算消耗为$\frac{2}{3} p^{3} + p^{2} \left( n - p \right)$ flops。
+
+若$C$是系数矩阵，那么C的LU因子分解常常包含行、列置换，即可将$C$因子分解为
+\begin{equation*}
+  C = P_{1} \, L \, U \, P_{2}, \quad P_{1} \in \mathbb{R}^{n \times n}, \, P_{2} \in \mathbb{R}^{p \times p}.
+\end{equation*}
+对稀疏矩阵作LU分解，比起对密集矩阵的LU分解，计算效率提升显著。
+
+用稀疏矩阵的LU分解来求解欠定方程系统\eqref{eq:numlin-underdetermined-sys}，设$A^{\top}$可因式分解为
+\begin{equation*}
+  A^{\top} = P \, L \, U,
+\end{equation*}
+那么将$L$分块
+\begin{equation*}
+  L = \begin{pmatrix}
+  \underbrace{L_{1}}_{\left( p \times p \right)} \\
+  \underbrace{L_{2}}_{\left( \left( n - p \right) \times p \right)}
+  \end{pmatrix}.
+\end{equation*}
+
+不难证得，解的形式为\eqref{eq:numlin-underdetermined-sys-solutions}，其中参数$F, \hat{x}$为
+\begin{equation*}
+  F = P \begin{pmatrix}
+  -L_{1}^{- \top} L_{2}^{\top} \\
+  I
+\end{pmatrix}, \quad
+\hat{x} = P \begin{pmatrix}
+L_{1}^{-\top} U^{-\top} b \\
+0
+\end{pmatrix}.
+\end{equation*}
+
+
+
+
+
+
+
+
 
 
 
