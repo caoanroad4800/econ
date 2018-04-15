@@ -27,11 +27,11 @@
   \item Bayesian information criterion(BIC) \dotfill 贝叶斯信息量, 
 		496
   \item Bellman equation \dotfill 贝尔曼等式, 123, 218
-  \item Bernoulli trials \dotfill 伯努利实验, 539
+  \item Bernoulli trials \dotfill 伯努利实验, 545
   \item Bessel function \dotfill 贝塞尔方程, 390
   \item Beta distribution \dotfill 贝塔分布, 253
   \item Beta integral \dotfill 贝塔积分, 233
-  \item BFMG algorithm \dotfill BFMG算法, 547
+  \item BFMG algorithm \dotfill BFMG算法, 553
   \item bijection \dotfill 双射, 276
   \item binomial coefficients \dotfill 二项式系数, 512
   \item binomial theorem \dotfill 二项式定理, 232
@@ -51,7 +51,9 @@
 		334
   \item central limit theorem (CLT) \dotfill 中心极限定理, 514
   \item chain rule \dotfill 链式法则, 354
+  \item Chebyshev bound \dotfill 切比雪夫边界, 534
   \item Chebyshev distance \dotfill 切比雪夫距离, 327
+  \item Chernoff method \dotfill 切尔诺夫法, 534
   \item Christoffel numbers \dotfill 克里斯托费尔数, 243
   \item Christoffel-Darboux relation \dotfill 克里斯托费尔——达布关系, 
 		240
@@ -77,7 +79,7 @@
     \subitem imaginary part \dotfill 虚部(复数), 276
     \subitem real part \dotfill 实部(复数), 276
   \item complex plane \dotfill 复数平面, 333
-  \item conditional bias \dotfill 条件偏误, 536
+  \item conditional bias \dotfill 条件偏误, 542
   \item conditional density \dotfill 条件密度, 267
   \item conforming trial spaces \dotfill 协调检测空间, 439
   \item conjugate \dotfill 共轭复数, 333
@@ -88,7 +90,7 @@
   \item convolution \dotfill 卷积, 313
   \item countable additivity \dotfill 可数可加性, 325
   \item cover(topology) \dotfill 覆盖(拓扑学), 324
-  \item Cramér-Rao lower Bound \dotfill 克拉美罗下界, 537
+  \item Cramér-Rao lower Bound \dotfill 克拉美罗下界, 543
   \item curse of dimensionality \dotfill 维数灾难, 207, 210
   \item Céa lemma, \dotfill 齐亚引理, 277, 440
 
@@ -128,7 +130,7 @@
 		340
   \item embeddings \dotfill 嵌入, 340
   \item ensemble mean suqare error (EMSE)\dotfill 整体均方误差, 
-		536
+		542
   \item Envelope Theorem \dotfill 包络定理, 121
   \item equivalence of norms \dotfill 范数等价, 327, 343, 355
   \item ergodic set \dotfill 遍历集, 222
@@ -154,7 +156,7 @@
     \subitem neighboring \dotfill 相邻有限元, 455
     \subitem regular \dotfill 正则型有限元, 454, 460
   \item finite elements method \dotfill 有限元法, 211
-  \item Fischer information matrix \dotfill 费雪信息矩阵, 537
+  \item Fischer information matrix \dotfill 费雪信息矩阵, 543
   \item flops
     \subitem (floating points operations) \dotfill 浮点计算数, 517
   \item form function \dotfill 形式方程, 461
@@ -233,6 +235,8 @@
   \item Heaviside function \dotfill 黑维塞方程, 511
   \item Hermitian symmetric \dotfill 埃米特对称, 333
   \item Hilbert space \dotfill 希尔伯特空间, 274, 331
+  \item Hoeffding inequality \dotfill 霍夫丁不等式, 538
+  \item Hoeffding lemma \dotfill 霍夫丁引理, 536
   \item hp-adaptive finite elements \dotfill hp——有限元法, 213
   \item hyperbolic function
     \subitem cosine \dotfill 双曲线余弦方程, 508
@@ -286,6 +290,7 @@
   \indexspace
 
   \item Jacobian function \dotfill 雅各比方程, 313
+  \item Jensen inequality \dotfill 延森不等式, 537
 
   \indexspace
 
@@ -304,6 +309,9 @@
   \item Laplace function \dotfill 拉普拉斯方程, 391
   \item Laplace operator \dotfill 拉普拉斯算子, 387
   \item latent variable \dotfill 隐含变量, 491
+  \item law of large numbers (LLN)
+    \subitem  \dotfill 大数法则, 532
+    \subitem weak(WLLN) \dotfill 弱大数法则, 534
   \item Lax-Milgram theorem \dotfill 拉克斯一密格拉蒙定理, 
 		275, 362, 371
   \item Lebesgue integrable function \dotfill 勒贝格可积方程, 
@@ -314,7 +322,7 @@
   \item Lesbegue space \dotfill 勒贝格空间, 324
   \item Levenberg-Marquardt algorithm \dotfill 莱文贝格——马夸特方法, 
 		214
-  \item likelihood function \dotfill 似然方程, 535
+  \item likelihood function \dotfill 似然方程, 541
   \item linear frequency \dotfill 线频率, 301
   \item Lipschitz continuous function \dotfill 利普希茨连续方程, 
 		323
@@ -354,7 +362,7 @@
     \subitem QR \dotfill QR分解, 531
   \item matrix inversion lemma \dotfill 矩阵求逆引理, 528
   \item maximum norm \dotfill 最大范数, 327
-  \item mean square error (MSE) \dotfill 均方误差, 536
+  \item mean square error (MSE) \dotfill 均方误差, 542
   \item measurable sets \dotfill 可测集合, 325
   \item measurable space \dotfill 可测空间, 325
   \item measure
@@ -370,6 +378,7 @@
     \subitem integral \dotfill 闵可夫斯基积分不等式, 330
   \item Minkowski inequality \dotfill 闵可夫斯基不等式, 329
   \item moment \dotfill 矩, 237
+  \item moment generating function (MGF) \dotfill 矩生成方程, 534
   \item Monte Carlo method \dotfill 蒙特卡洛法, 492
 
   \indexspace
@@ -384,8 +393,8 @@
 		30, 479
   \item Newton algorithm \dotfill 牛顿算法, 214
   \item Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法, 
-		547
-  \item Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法, 548
+		553
+  \item Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法, 554
   \item Newton—Cotes Rule \dotfill 牛顿——寇特斯法则, 279
   \item node \dotfill 结点, 211, 453
   \item norm \dotfill 范数, 237, 275, 323, 326
@@ -461,7 +470,7 @@
   \item power series \dotfill 幂级数, 504
   \item powerset \dotfill 幂集, 324
   \item probability density function (PDF)
-    \subitem \dotfill 概率密度方程, 535
+    \subitem \dotfill 概率密度方程, 541
     \subitem Gaussian\dotfill 高斯概率密度方程, 509
   \item projection method \dotfill 映射法, 199
   \item pseudospectral \dotfill 伪光谱, 215
@@ -481,6 +490,9 @@
 
   \item r-refinement finite elements \dotfill r——改进(有限元分析), 
 		213
+  \item Radmacher random variable \dotfill 拉德马赫随机变量, 
+		535
+  \item random sign variable \dotfill 随机符号变量, 535
   \item random walk \dotfill 随机游走, 478
   \item range \dotfill 值域, 364
   \item rapidly decreasing function \dotfill 急减方程, 350
@@ -519,7 +531,7 @@
   \item Schur complement \dotfill Schur补, 526
   \item Schwarz inequality \dotfill 施瓦茨不等式, 346
   \item score (maximum likelihood) \dotfill 评分(最大似然估计), 
-		538
+		544
   \item second order linear differential equation
     \subitem Hermite polynomial \dotfill 二阶线性微分方程(埃米特多项式), 
 		248
@@ -536,7 +548,7 @@
     \subitem trivial \dotfill 平凡半范数, 327
   \item seminormed vector space \dotfill 半赋范向量空间, 330
   \item sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计), 
-		538
+		544
   \item sequence space
     \subitem countably infinite dimensional \dotfill 可数无限维数列空间, 
 		328
@@ -581,6 +593,8 @@
   \item subadditivity \dotfill 次可加, 326
   \item support \dotfill 支撑, 323
   \item surface integral \dotfill 表面积分, 395, 398
+  \item symmetrization (probaility theory) \dotfill 对称化(概率论), 
+		537
 
   \indexspace
 
@@ -622,7 +636,7 @@
 
   \indexspace
 
-  \item unbiased estimate \dotfill 无偏估计, 536
+  \item unbiased estimate \dotfill 无偏估计, 542
   \item underdetermined system \dotfill 欠定系统, 530
   \item uniform cone condition \dotfill 均匀法锥条件, 353
   \item uniform convergence \dotfill 均匀收敛, 215
