@@ -1,21 +1,21 @@
 # Fdb version 3
-["bibtex DSGEnotes"] 1523874541 "DSGEnotes.aux" "DSGEnotes.bbl" "DSGEnotes" 1523875390
+["bibtex DSGEnotes"] 1523874541 "DSGEnotes.aux" "DSGEnotes.bbl" "DSGEnotes" 1523875689
   "./model4-names.bst" 1523163596 28214 de501ffbf7fe1fde2983e5f043e9abba ""
   "./refs/papers.bib" 1523856290 682607 83cc4d40fa00689519cc2324aaaa1e87 ""
   "DSGEnotes.aux" 1523875373 338956 add55430e82f1ea09dcb93d0168ccac4 ""
   (generated)
-  "DSGEnotes.blg"
   "DSGEnotes.bbl"
-["makeindex DSGEnotes.idx"] 1523858993 "DSGEnotes.idx" "DSGEnotes.ind" "DSGEnotes" 1523875390
+  "DSGEnotes.blg"
+["makeindex DSGEnotes.idx"] 1523858993 "DSGEnotes.idx" "DSGEnotes.ind" "DSGEnotes" 1523875689
   "DSGEnotes.idx" 1523875373 35345 c42f7456d4f340cf287b3467134f39e6 ""
   (generated)
-  "DSGEnotes.ind"
   "DSGEnotes.ilg"
-["xdvipdfmx"] 1523875373 "DSGEnotes.xdv" "DSGEnotes.pdf" "DSGEnotes" 1523875390
+  "DSGEnotes.ind"
+["xdvipdfmx"] 1523875373 "DSGEnotes.xdv" "DSGEnotes.pdf" "DSGEnotes" 1523875689
   "DSGEnotes.xdv" 1523875373 9566848 26b11e8c0fda40cd5dd2101bf39d0b61 "xelatex"
   (generated)
   "DSGEnotes.pdf"
-["xelatex"] 1523875364 "DSGEnotes.tex" "DSGEnotes.xdv" "DSGEnotes" 1523875390
+["xelatex"] 1523875364 "DSGEnotes.tex" "DSGEnotes.xdv" "DSGEnotes" 1523875689
   "/dev/null" 1523861554 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1480098689 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -368,7 +368,7 @@
   "chapters/bem-fem-0902-finele.tex" 1523163596 23527 3f151337daa0b952095ca7dd77c8e39f ""
   "chapters/comparison.tex" 1523163596 4617 61972c27c7e63902efbe2cbdeb31dfb1 ""
   "chapters/connection-2.tex" 1523856290 31091 f22e9ad54e538f9233efd77997d761d3 ""
-  "chapters/connection-appendix-2.tex" 1523875363 26216 6360c82c7a8f6af41ad2ed371d1c22c8 ""
+  "chapters/connection-appendix-2.tex" 1523875688 26216 6360c82c7a8f6af41ad2ed371d1c22c8 ""
   "chapters/connection-appendix.tex" 1523856290 85828 0f9306f47d2f3d3ea9e70b9ea8bb6d98 ""
   "chapters/connection.tex" 1523264736 56241 2175e87c75f9ed4badcf4b7ab53a36ab ""
   "chapters/dynamic-programming.tex" 1523163596 27427 68602373eae24e7e7c29b231407716f0 ""
@@ -391,13 +391,13 @@
   "mmacells.sty" 1523163596 28058 a1091b5a73c18e759cbfd79621b1d025 ""
   "numcompress.sty" 1523163596 5571 cf097ecf807971c5a27366f7496e7d10 ""
   (generated)
-  "DSGEnotes.log"
-  "DSGEnotes.idx"
   "DSGEnotes.lot"
-  "tmpbib.tex"
+  "DSGEnotes.toc"
+  "DSGEnotes.log"
   "DSGEnotes.out"
+  "tmpbib.tex"
+  "DSGEnotes.tdo"
   "DSGEnotes.lof"
   "DSGEnotes.xdv"
   "DSGEnotes.aux"
-  "DSGEnotes.toc"
-  "DSGEnotes.tdo"
+  "DSGEnotes.idx"
