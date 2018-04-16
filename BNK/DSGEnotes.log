@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.26)  16 APR 2018 03:07
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.22)  16 APR 2018 18:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3684,18 +3684,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 515--516
  件[]和 霍 夫 丁 引 理
  []
 
-) [538] [539
+[538]) [539] [540
 
-] [540] (./chapters/mle.tex
+] [541] [542] (./chapters/mle.tex
 第十七章
-[541
+[543
 
-] [542] [543] [544] [545]
+] [544] [545] [546] [547]
 
 LaTeX Font Warning: Font shape `TU/NotoSansCJKSC(0)/m/it' undefined
 (Font)              using `TU/NotoSansCJKSC(0)/m/n' instead on input line 406.
 
-[546]
+[548]
 File: ./Figures/output_5_0.png Graphic file (type bmp)
 <./Figures/output_5_0.png>
 
@@ -3703,20 +3703,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 482--483
 
  []
 
-[547]
+[549]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [548]
+ [550]
 Underfull \hbox (badness 4217) in paragraph at lines 608--609
 []\TU/FandolSong-Regular(0)/m/n/10 在 很 多 情 况 下，|  我 们 无 法 通 过 解 析 法 求 得 最 大 化 的
  解。|  这 时 需 要 数 值 近 似 求 解，|  利
  []
 
-[549] [550]
+[551] [552]
 Overfull \hbox (6.8423pt too wide) detected at line 746
 []
  []
 
-[551]
+[553]
 File: ./Figures/output_12_1.png Graphic file (type bmp)
 <./Figures/output_12_1.png>
 
@@ -3724,60 +3724,60 @@ Underfull \hbox (badness 10000) in paragraph at lines 816--817
 
  []
 
-[552] [553] [554] [555]) (./chapters/housing.tex [556]
+[554] [555] [556] [557]) (./chapters/housing.tex [558]
 第十八章
-[557
+[559
 
-] [558] [559]) [560] [561
+] [560] [561]) [562] [563
 
-] [562] [563
+] [564] [565
 
-] [564] (./chapters/PK.tex
+] [566] (./chapters/PK.tex
 第一章
-[565
-
-]) (./chapters/KNKNCE.tex [566]
-第二章
 [567
 
-] [568] [569] [570] [571]) [572] (./DSGEnotes.bbl [573
+]) (./chapters/KNKNCE.tex [568]
+第二章
+[569
 
-] [574] [575]
-[576] [577] [578] [579] [580]
+] [570] [571] [572] [573]) [574] (./DSGEnotes.bbl [575
+
+] [576] [577]
+[578] [579] [580] [581] [582]
 Underfull \hbox (badness 1681) in paragraph at lines 1058--1064
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[581] [582] [583] [584] [585] [586] [587] [588]) [589] [590
+[583] [584] [585] [586] [587] [588] [589] [590]) [591] [592
 
 ] (./DSGEnotes.lof
-[591])
+[593])
 \tf@lof=\write9
 \openout9 = `DSGEnotes.lof'.
 
- [592] (./DSGEnotes.lot)
+ [594] (./DSGEnotes.lot)
 \tf@lot=\write10
 \openout10 = `DSGEnotes.lot'.
 
- [593
+ [595
 
-] [594
+] [596
 
-] (./DSGEnotes.tdo [595])
+] (./DSGEnotes.tdo [597])
 \tf@tdo=\write11
 \openout11 = `DSGEnotes.tdo'.
 
- [596]
+ [598]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
 
-(./DSGEnotes.ind [597
+(./DSGEnotes.ind [599
 
 
-] [598] [599] [600] [601] [602] [603] [604] [605] [606
-\indexentry{残差方程(映射法)}{606}
-] [607] [608]) [609]
+] [600] [601] [602] [603] [604] [605] [606] [607] [608
+\indexentry{残差方程(映射法)}{608}
+] [609] [610]) [611]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 494.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 494.
  (./DSGEnotes.aux)
@@ -3789,12 +3789,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 54847 strings out of 493007
- 1132219 string characters out of 6134605
- 1612759 words of memory out of 5000000
- 57837 multiletter control sequences out of 15000+600000
+ 54852 strings out of 493007
+ 1132353 string characters out of 6134605
+ 1612984 words of memory out of 5000000
+ 57842 multiletter control sequences out of 15000+600000
  545493 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  76i,27n,146p,10415b,3282s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (609 pages, 9544808 bytes).
+Output written on DSGEnotes.xdv (611 pages, 9566848 bytes).

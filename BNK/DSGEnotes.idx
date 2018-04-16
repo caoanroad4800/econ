@@ -507,17 +507,18 @@
 \indexentry{Jensen inequality \dotfill 延森不等式}{537}
 \indexentry{symmetrization (probaility theory) \dotfill 对称化(概率论)}{537}
 \indexentry{Hoeffding inequality \dotfill 霍夫丁不等式}{538}
-\indexentry{probability density function (PDF)!\dotfill 概率密度方程}{541}
-\indexentry{likelihood function \dotfill 似然方程}{541}
-\indexentry{conditional bias \dotfill 条件偏误}{542}
-\indexentry{unbiased estimate \dotfill 无偏估计}{542}
-\indexentry{mean square error (MSE) \dotfill 均方误差}{542}
-\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差}{542}
-\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界}{543}
-\indexentry{Fischer information matrix \dotfill 费雪信息矩阵}{543}
-\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)}{544}
-\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)}{544}
-\indexentry{Bernoulli trials \dotfill 伯努利实验}{545}
-\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}{553}
-\indexentry{BFMG algorithm \dotfill BFMG算法}{553}
-\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}{554}
+\indexentry{bounded differences \dotfill 差分有界}{539}
+\indexentry{probability density function (PDF)!\dotfill 概率密度方程}{543}
+\indexentry{likelihood function \dotfill 似然方程}{543}
+\indexentry{conditional bias \dotfill 条件偏误}{544}
+\indexentry{unbiased estimate \dotfill 无偏估计}{544}
+\indexentry{mean square error (MSE) \dotfill 均方误差}{544}
+\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差}{544}
+\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界}{545}
+\indexentry{Fischer information matrix \dotfill 费雪信息矩阵}{545}
+\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)}{546}
+\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)}{546}
+\indexentry{Bernoulli trials \dotfill 伯努利实验}{547}
+\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}{555}
+\indexentry{BFMG algorithm \dotfill BFMG算法}{555}
+\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}{556}

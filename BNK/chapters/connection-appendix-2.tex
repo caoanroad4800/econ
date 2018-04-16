@@ -607,8 +607,129 @@ $S$的取值定义，有
 \subsection{强一致大数法则}
 \label{sec:lln-sulln}
 
+大数法则的严谨脉络，基本与概率论的范式变化相一致。
+\begin{itemize}
+\item 在概率论的早期阶段，弱大数法则主要有伯努利、泊松及其相关改进如切比雪夫、马尔科夫等，基本反映早期概率论的核心思想。
+
+\item 随后发展起来的强大数法则如Borel, Cantelli, Kolmogorov等，反映了概率论进一步公理化、正规化，在20世纪上半叶逐渐成为测度论的一部分。
+
+\item 概率论的更新进展，以强一致大数法则为代表，它是1970年代开始，概率论与统计学习相交融的产物，如万普尼克(Vapnik)、泽凡尼杰斯(Chervonekis)等。
+\end{itemize}
+
+本节对强一致大数法则作介绍。先来对霍夫丁不等式(Theorem \ref{theorem:hoeffding-inequality})做更为一般的表述，把它写成一个关于独立随机变量的方程，满足差分有界(bounded diffrences)：
+
+\begin{definition}[差分有界]
+  \label{definition:bounded-diff}
+  设一个$n$维
+  标准向量空间$\mathbb{R}^{n}$中有一个标准向量(canonical vector)的集合$S \subset \mathbb{R}^{n}$，集合中$e_{i} \in \mathbb{R}^{n}$表示第i个标准向量，向量$e_{i}$中第$i$个元素的值为$1$，其余均为$0$。对于一个方程$h:S \mapsto \mathbb{R}$，如果满足
+  \begin{equation}
+    \label{eq:lln-sulln-bounded-diff}
+    \left| h(x) - h(x + t e_{i}) \right| \le c_{i}, \quad i=1,\ldots,n, \, \forall \, x \in S, \, \forall t \in \mathbb{R}, \, \left( x + t e_{i} \right) \in S,
+  \end{equation}
+  那么我们称方程$h$的差分有界(bounded differences)\index{bounded differences \dotfill 差分有界}，即是说，随着$x$的变化，$h$值的变化不会超过$c_{i}$.
+\end{definition}
+
+由差分有界可进一步引出McDiarmid不等式
+\begin{theorem}[McDiarmid不等式]
+  \label{theorem:mcdiamid-inequality}
+  设方程$h$差分有界，则有
+  \begin{equation}
+    \label{eq:mcdiamid-inequality}
+    P \left(
+    \left|
+    h \left( X_{1}, X_{2}, \ldots, X_{n} \right)
+    - E h
+    \right| \ge t
+     \right)
+     \le \exp
+     \left(
+     - \frac{2 t^{2}}{\sum_{i=1}^{n} c_{i}^{2}}
+     \right).
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  设
+  \begin{equation*}
+    h - E h = \sum_{i=1}^{n} Z_{i},
+  \end{equation*}
+  其中
+  \begin{equation*}
+    Z_{i} \left( X_{1}, \ldots, X_{i} \right) = E
+    \left[
+    h | X_{1},\ldots,X_{i}
+    \right]
+    - E
+    \left[
+    h | X_{1},\ldots,X_{i-1}
+    \right].
+  \end{equation*}
+
+  这一组$\left\{ Z_{i} \right\}$的均值为$0$，(几乎总是)有界，对应区间$\left[ L_{i}, U_{i} \right]$。由此可见，上下边界$L_{i}, U_{i}$都之和$X_{1},\ldots,X_{i-1}$有关，并且根据$h$差分有界的假定我们有$U_{i} - L_{i} \le c_{i}$。那么利用切尔诺夫法Theorem \ref{theorem:chernoff-method}和霍夫丁引理Lemma \ref{lemma:hoeffding-lemma}可得，
+  \begin{equation}
+    \label{eq:mcdiamid-inequality-mid1}
+    \begin{split}
+      P \left( h - Eh \ge t \right)
+      & = P
+      \left(
+      \exp \left[
+      s \left( h - Eh \right)
+      \right]
+      \ge \exp \left( s t \right)
+      \right) \\
+      & \min_{\left\{ s \ge 0 \right\}}
+      \le \frac{
+      E \exp \left[ s \left( h - E h \right) \right]
+      }{
+      \exp \left( st \right)
+      } \\
+      & = \min_{\left\{ s \ge 0 \right\}}
+      \exp \left( - s t \right) E
+      \left[
+      \exp \left(
+      s \sum_{i=1}^{n} Z_{i}
+      \right)
+      \right] \\
+      & = \min_{\left\{ s \ge 0 \right\}}
+      \exp \left( - s t \right)
+      E \left\{
+      s \sum_{i=1}^{n-1} Z_{i} \,
+      E \left[ \exp \left( s Z_{n} | X_{1}, \ldots, X_{n-1} \right) \right]
+      \right\} \\
+      & = \min_{\left\{ s \ge 0 \right\}}
+      \exp \left( - s t \right)
+      \exp \left[
+      s^{2} \sum_{i=1}^{n} \frac{c_{i}^{2}}{8}
+      \right]
+    \end{split}
+  \end{equation}
+
+求解最小化
+\begin{equation*}
+  s^{*} = \argmin_{\left\{s \ge 0\right\}}
+  \left[
+  s^{2} \sum_{i=1}^{n} \frac{c_{i}^{2}}{8} - st
+  \right]
+  = \frac{4 t}{\sum_{i=1}^{n} c_{i}},
+\end{equation*}
+
+代回\eqref{eq:mcdiamid-inequality-mid1}
+\begin{equation*}
+  P \left( h - Eh \ge t \right)
+  \le \exp \left( - s^{*} t \right)
+   \exp \left[
+   s^{*,2} \sum_{i=1}^{n} \frac{c_{i}^{2}}{8}
+   \right]
+   = \exp \left\{
+   - \frac{2 t^{2}}{\sum_{i=1}^{n} c_{i}}
+   \right\},
+\end{equation*}
+即McDiarmid不等式\eqref{eq:mcdiamid-inequality}成立。
+\end{proof}
 
 
+\begin{corollary}
+  当$h = \sum_{i=1}^{n} X_{i}$时，McDiarmid不等式\eqref{eq:mcdiamid-inequality}变为一种特殊情况即霍夫丁不等式\eqref{eq:hoeffding-inequality-upper}-\eqref{eq:hoeffding-inequality-lower}。
+\end{corollary}
 
 
 
