@@ -201,3 +201,143 @@ $\mu_{i}$如\eqref{eq:mle-linear-relationship-yx-np}所定义。RHS中可定义�
 
 \subsection{Wald检验}
 \label{sec:mle-wald-test}
+假设我们只检测系数向量$\beta$中某一系数$\beta_{j}$的显著性，如
+\begin{equation*}
+  H_{0}: \beta_{j} = 0,
+\end{equation*}
+如果零假设成立，那么其MLE $\hat{\beta}_{j}$的分布情况因此可写为$\sim \mathcal{N} \left( 0, \var \left( \hat{\beta}_{j} \right)  \right)$，
+其中方差 $\var \left( \hat{\beta}_{j} \right) $是方差协方差矩阵
+$\var \left( \hat{\beta} \right)$
+\eqref{eq:mle-hat-beta-varcov}中第$j$个对角元素的值。那么可以考虑如下比值，定义为Wald 统计量$t$
+\begin{equation}
+  \label{eq:mle-wald-t-def}
+  t_{j} = \frac{\hat{\beta}_{j}}{\sqrt{\var \left( \hat{\beta}_{j} \right)}},
+\end{equation}
+计算$t_{j}$的难度在于，\eqref{eq:mle-hat-beta-varcov}中全体方差$\sigma^{2}$常常未知。在实际应用中，常常将$\sigma^{2}$替换为无偏估计$\hat{\sigma}^{2}$
+\begin{equation}
+  \label{eq:mle-wald-hat-var}
+  \hat{\sigma}^{2} = \frac{\rss \left(\hat{\beta}\right)}{n-p}.
+\end{equation}
+
+假设观测数据符合正态分布，$\hat{\sigma}^{2}$依照\eqref{eq:mle-wald-hat-var}计算，那么在零假设下$\hat{\sigma}^{2}$呈学生$t$分布(student's t distribution)，DoF n-p。
+
+具体来说，若观测数据的二阶弱假设条件(均值、方差、方差协方差)得到满足，那么$t$值 \eqref{eq:mle-wald-t-def}在大样本下近似为标准正态分布。这为大样本数据下的近似推断打下良好基础。
+
+一些研究中，不考虑数据样本量的大小，直接将\eqref{eq:mle-wald-t-def}作为学生$t$统计，而且这值得进一步讨论。
+\begin{enumerate}
+  \item 若样本量大，假定条件``观测数据是否符合正态分布"的确不重要；
+  \item 若样本量相对较小，那么正态分布的假定是否成立，对Wald检测是否有效会产生决定性影响。
+  对于规模适中的观测样本，应当审慎使用$t$检测：Student's t值随着自由度趋近于无穷大而收敛至标准正态分布\footnote{如双边95$\%$的关键$t$值是2.09 (20 DoF)，1.98 (100 DoF)，而标准正态分布的关键$t$值是1.96 (100 DoF)。}。
+\end{enumerate}
+
+$t$值可用于描述一个系数估计的置信区间(confidence interval)\index{confidence interval \dotfill 置信区间}，例如，某个真实系数值$\beta_{j}$以$100 \times \left( 1 - \alpha \right) \%$的置信率落在统计区间中
+\begin{equation}
+  \label{eq:mle-wald-confidence-interval}
+  \hat{\beta}_{j} \pm t_{
+  \frac{1-\alpha}{2}, n-p
+  }
+  \sqrt{\var \left( \hat{\beta}_{j} \right)}.
+\end{equation}
+其中$t_{
+\frac{1-\alpha}{2}, n-p
+}$表示$n-p$ DoF，$\alpha$样本大小的学生$t$双边分布的关键值。
+
+Wald检验也可用于检测一组系数的联合置信区间。将系数向量$\beta$分解为两块
+\begin{equation*}
+  \underset{\left\{ 1 \times p \right\}}{\beta^{\top}} =
+  \left(
+  \underset{\left\{ 1 \times p_{1} \right\}}{\beta_{1}^{\top}},
+  \underset{\left\{ 1 \times p_{2} \right\}}{\beta_{2}^{\top}}
+  \right),
+\end{equation*}
+
+建立零假设
+\begin{equation*}
+  H_{0}:\beta_{2} = 0.
+\end{equation*}
+
+在求得MLE $\hat{\beta}$后，将Wald检验统计量表示为二次形式
+\begin{equation}
+  \label{eq:mle-wald-joint-statistic}
+  W =
+  \hat{\beta}_{2}^{\top}
+  \left( \var \left( \hat{\beta}_{2} \right) \right)^{-1}
+  \hat{\beta}_{2},
+\end{equation}
+如前所述，我们用$\frac{ \var \left( \hat{\beta} \right)}{n-p}$近似替代全$\sigma^{2}$，用于测算方差协方差矩阵$\var \left( \hat{\beta}_{2} \right)$。若$p_{2}=1$即$\beta_{2}$只有一个系数，那么\eqref{eq:mle-wald-joint-statistic}回复到
+\eqref{eq:mle-wald-hat-var}的形式。
+
+根据渐进理论(asymptotic theory)，在零假设$H_{0}$下，大样本MLE $\hat{\beta}_{2}$符合多元正态分布，均值向量为$0$，方差协方差矩阵为$\var \left( \hat{\beta}_{2} \right)$。由此可得，二次形Wald统计$W$ \eqref{eq:mle-wald-joint-statistic}在大样本下也是一个$\chi^{2}$分布，对应$p_{2}$ DoF。无论$\sigma^{2}$是实现给定的值，还是利用$\rss$作近似估计，上述结论都成立。
+
+如果我们持有更强形式的假定，即观测数据呈正态分布，那么检验的结果也是更强形式的。此时若$\sigma^{2}$值事先给定，$W$就恰好是$\chi^{2}$分布($p_{2}$ DoF)。若用$\frac{\rss \left( \hat{\beta} \right)}{n-p}$来近似估计$\sigma^{2}$ (对应$p_{2}$ DoF)，则$\frac{W}{p_{2}}$呈一个对应于$p_{2}$和DoF $n-p$ 的$F$分布。
+
+值得注意的是，给定$p$值不变，随着$n \rightarrow \infty$，$ \left( n-p \right) \rightarrow \infty$，$F_{p_{2}, n-p} \times p_{2} \rightarrow \chi^{2} \, \left( p_{2} \, DoF \right)$。这意味着在大样本情况下，将$W$统计量视作$\chi^{2}$分布，或是将$W/p_{2}$视作$F$分布，二者并无本质区别。
+
+\subsection{似然率检验}
+\label{sec:mle-lhr-test}
+还来看多系数联合显著水平检验的例子，对应零假设
+\begin{equation*}
+  H_{0}:\beta_{2} =0.
+\end{equation*}
+
+我们可以将模型矩阵$X$相应地分解为
+\begin{equation*}
+  \underset{\left\{p \times 1 \right\}}{X} = \left(
+  \underset{\left\{p_{1} \times 1 \right\}}{X_{1}},
+  \underset{\left\{p_{2} \times 1 \right\}}{X_{2}}
+  \right),
+\end{equation*}
+如果零假设成立，这意味着后面的$p_{2}$个解释变量$X_{2}$对观测数据$Y$无影响。
+
+可以建立似然率检验(likelihood ratio test, LHR)指标，
+对零假设做检验，分两步走
+\begin{enumerate}
+  \item 分别构建两个嵌入模型并作拟合。
+  \begin{enumerate}
+    \item 小模型：只考虑前$p_{1}$个解释变量$X_{1}$。
+    \item 大模型：用全部$p = p_{1} + p_{2}$ 个解释变量$X$。
+  \end{enumerate}
+  \item 比较两个模型的最大(对数)似然方程。
+\end{enumerate}
+
+先来看只考虑$X_{1}$的小模型。基于给定的方差$\sigma^{2}$，对应似然方程\eqref{eq:mle-lhf-pdf-product}，可得最大似然方程
+\begin{equation}
+  \label{eq:mle-mlh-small-model}
+  \max \log L \left( \beta_{1} \right) = c - \frac{1}{2} \frac{\rss \left( X_{1} \right)}{\sigma^{2}}, \quad c = - \frac{n}{2} \log \left( 2 \pi \sigma^{2} \right),
+\end{equation}
+其中常数$c$的值取决于$n$和$\sigma^{2}$。
+
+对应地，考虑$X = \left(X_{1}, X_{2} \right)$的大模型，最大似然方程
+\begin{equation}
+  \label{eq:mle-mlh-big-model}
+  \max \log L \left( \beta_{1}, \beta_{2} \right)
+  = c - \frac{1}{2} \frac{\rss \left( X_{1} + X_{2} \right)}{\sigma^{2}}.
+\end{equation}
+
+将两个最大似然方程\eqref{eq:mle-mlh-small-model}，\eqref{eq:mle-mlh-big-model}相减，定义为$\log \lambda$，作为似然率量(likelihood ratio criterion, LHRC)\index{likelihood ratio criterion (LHRC) \dotfill 似然率量}
+\begin{equation}
+  \label{eq:mle-mlh-lhrc}
+  - 2 \log \lambda = \max \log L \left( \beta_{1} \right) - \max \log L \left( X_{1}, X_{2} \right) = \frac{
+  \rss \left( X_{1} \right) - \rss \left( X_{1} + X_{2} \right)
+  }{
+  \sigma^{2}
+  }.
+\end{equation}
+
+关于LHRC，有两点说明
+\begin{enumerate}
+  \item 通过两个最大似然方程的差值，该指标反映在引入额外的$p_{2}$个解释变量$X_{2}$后，$\rss$的变化情况。通常来说，如果$\Delta \rss >0$，那么$X_{2}$对观测数据可能是有显著影响的。
+  \item 对$\Delta \rss$除以方差$\sigma^{2}$是作单位标准化处理，表示残差平方和的变化是以总方差的单位计。如果这个比值(最大似然率)超过了事先预期值，就表示$X_{2}$的确是显著的，零假设不成立。
+\end{enumerate}
+
+这就涉及到如何设定``事先预期”值，它与样本的分布有关。根据大样本定律可知，随着$n \rightarrow \infty$，样本分布逐渐收敛至$\chi^{2}$ ($p_{2}$ DoF)。对于$\chi^{2}$分布，已知期望值和方差分别为$\nu$和$2 \nu$，那么事先预期的设定可以使：每增加额外$1$个变量$p_{2} \rightarrow p_{2} + 1$，会导致$\Delta \rss$减少$\sigma^{2}$个单位，对应标准化后的单位$1$。具体说来，若$\rss$的下降幅度超过$95\%$百分位(percentile)的参考分布值，就表示为误差的缩减超出预期。
+
+类似地，LHRC \eqref{eq:mle-mlh-lhrc}的计算难度在于$\sigma^{2}$可能未知。可以用用大模型$\rss \left( X_{1} + X_{2} \right)$的方差估计$\hat{\sigma}^{2}$作近似替代，计算方法为
+\begin{equation*}
+  \hat{\sigma}^{2} = \frac{
+  \rss \left( X_{1} + X_{2} \right)
+  }{n-p},
+\end{equation*}
+代回\eqref{eq:mle-mlh-lhrc}，算得的大样本下LHRC分布依旧是$\chi^{2}$分布($p_{2}$ DoF)。
+
+若观测样本符合正态分布这一更强假定，结果也相应更强。如果$\sigma^{2}$是已知的，那么LHRC $- 2 \log \lambda$就恰好是$\chi^{2}$分布($p_{2}$ DoF)。如果$\sigma^{2}$未知，是用估计出的$\hat{\sigma}^{2}$作近似替代，那么对应的LHRC除以$p_{2}$，即$\frac{- 2 \log \lambda}{n-p}$就恰好是一个$F_{p_{2}, n-p}$分布。
