@@ -340,4 +340,46 @@ Wald检验也可用于检测一组系数的联合置信区间。将系数向量$
 \end{equation*}
 代回\eqref{eq:mle-mlh-lhrc}，算得的大样本下LHRC分布依旧是$\chi^{2}$分布($p_{2}$ DoF)。
 
-若观测样本符合正态分布这一更强假定，结果也相应更强。如果$\sigma^{2}$是已知的，那么LHRC $- 2 \log \lambda$就恰好是$\chi^{2}$分布($p_{2}$ DoF)。如果$\sigma^{2}$未知，是用估计出的$\hat{\sigma}^{2}$作近似替代，那么对应的LHRC除以$p_{2}$，即$\frac{- 2 \log \lambda}{n-p}$就恰好是一个$F_{p_{2}, n-p}$分布。
+若观测样本符合正态分布这一更强假定，结果也相应更强。如果$\sigma^{2}$是已知的，那么LHRC $- 2 \log \lambda$就恰好是$\chi^{2}$分布($p_{2}$ DoF)。如果$\sigma^{2}$未知，是用估计出的$\hat{\sigma}^{2}$作近似替代，那么对应的LHRC除以$p_{2}$，即$\frac{- 2 \log \lambda}{n-p}$就恰好是一个$F_{p_{2}, n-p}$分布，满足
+\begin{equation}
+  \label{eq:mle-mlh-lhrc-f}
+  F = \frac{
+  \frac{1}{p_{2}}
+  \left[
+  \rss \left( X_{1} \right) - \rss \left( X_{1} + X_{2} \right)
+  \right]
+  }{
+  \frac{1}{n-p} \rss \left( X_{1} + X_{2} \right)
+  },
+\end{equation}
+分子表示在每一单位自由度减少，导致$\rss$的减少幅度；分母是平均$\rss$，反映模型总体的噪声情况。通常来说，如果测得的$F$统计值高于$F$分布在$95\%$下对应$p_{2}, \, n-p$的关键值，那么我们可以拒绝零假设$H_{0}$，$X_{2}$的确对观测数据产生影响。
+
+\subsection{Anova表}
+\label{sec:mle-anova}
+在实际应用中，到底应该用基于大样本分布下最大似然估计的Wald检验，还是基于最大(对数)似然估计比较的似然率检验呢？答案是，随着$n$值逐渐增大，两种检测方法渐进等价。若模型是线性的，则回答更为明确：两种检测完全等价。详细证明过程略，我们可以在一些具体应用中涉及相关讨论。
+
+值得指出的是，两种检验的(渐进)等价基于模型的线性结构假定。对于非线性模型如logistic模型、泊松回归模型等，两种检测是有区别的。通常说来，对线性模型的检测而言，我们可以提出以下建议：
+\begin{itemize}
+  \item 对单个系数可用Wald检验 \eqref{eq:mle-wald-t-def}，
+  \item 多个系数的检验，或者进一步对多个嵌入模型的比较，可用LHRC的$F$检验 \eqref{eq:mle-mlh-lhrc-f}。
+\end{itemize}
+
+测算$F$统计所需的计算，常收录在anova表中(analysis of variance table, anova)\index{analysis of variance table (anova) \dotfill anova表}。表格将整体$\rss$分为三个部分，小模型$X_{1}$的$\rss$、加入$X_{2}$后大模型的$\rss$、剩余$\rss$。每个$\rss$项后还附有DoF，以及平均值$\frac{\rss}{DoF}$，如表所示。
+
+\begin{table}[h]
+\caption{anova表}
+\begin{center}
+\begin{threeparttable}
+\begin{tabular}{c c c}
+    \toprule
+     & $\rss$ & DoF \\ \midrule
+      QWERTY\tnote{1}   &                     &                       \\
+      ASDFGH\tnote{2}   &                     &                       \\ \bottomrule
+\end{tabular}
+\begin{tablenotes}
+\item[1] qwerty; \item[2] asdfgh
+\end{tablenotes}
+\end{threeparttable}
+\end{center}
+\label{table:simDisimCoefNewDef}
+\end{table}

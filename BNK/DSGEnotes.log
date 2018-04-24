@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.26)  23 APR 2018 13:04
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.26)  23 APR 2018 19:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3702,11 +3702,11 @@ File: ./Figures/20180421-pdf-function.pdf Graphic file (type pdf)
  [543
 
 ]
-[544] [545] [546] [547] [548]) (./chapters/mle.tex [549] [550
-
-]
+[544] [545] [546] [547] [548] [549]) (./chapters/mle.tex [550]
 第十八章
-[551] [552] [553] [554] [555]
+[551
+
+] [552] [553] [554] [555]
 
 LaTeX Font Warning: Font shape `TU/NotoSansCJKSC(0)/m/it' undefined
 (Font)              using `TU/NotoSansCJKSC(0)/m/n' instead on input line 405.
@@ -3805,12 +3805,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 55565 strings out of 493007
- 1141186 string characters out of 6134605
- 1613109 words of memory out of 5000000
- 58543 multiletter control sequences out of 15000+600000
+ 55568 strings out of 493007
+ 1141246 string characters out of 6134605
+ 1614237 words of memory out of 5000000
+ 58546 multiletter control sequences out of 15000+600000
  545493 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  76i,27n,146p,10415b,3282s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (619 pages, 9717576 bytes).
+Output written on DSGEnotes.xdv (619 pages, 9733500 bytes).

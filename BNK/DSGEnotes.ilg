@@ -11,8 +11,8 @@ Scanning input file DSGEnotes.idx....
 
 !! Input index error (file = DSGEnotes.idx, line = 225):
    -- Illegal null field.
-done (536 entries accepted, 4 rejected).
-Sorting entries.......done (5145 comparisons).
-Generating output file DSGEnotes.ind....done (691 lines written, 0 warnings).
+done (537 entries accepted, 4 rejected).
+Sorting entries.......done (5108 comparisons).
+Generating output file DSGEnotes.ind....done (692 lines written, 0 warnings).
 Output written in DSGEnotes.ind.
 Transcript written in DSGEnotes.ilg.
