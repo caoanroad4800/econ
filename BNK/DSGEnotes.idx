@@ -4,6 +4,9 @@
 \indexentry{Inada condition \dotfill 稻田条件}{122}
 \indexentry{value function \dotfill 价值方程}{123}
 \indexentry{Bellman equation \dotfill 贝尔曼等式}{123}
+\indexentry{linearization! \dotfill 线性化}{162}
+\indexentry{linearization!log \dotfill 对数线性化}{162}
+\indexentry{linearization!lognormal \dotfill 对数正态线性化}{183}
 \indexentry{projection method \dotfill 映射法}{199}
 \indexentry{weighted residual methods \dotfill 加权残差法}{199}
 \indexentry{basis function \dotfill 基方程}{199}
@@ -512,30 +515,44 @@
 \indexentry{Gaussian distribution \dotfill 高斯分布}{543}
 \indexentry{probability density function (PDF) \dotfill 概率密度方程}{543}
 \indexentry{normal distribution!multivariate \dotfill 多元正态分布}{543}
-\indexentry{model matrix \dotfill 模型矩阵}{543}
-\indexentry{design matrix \dotfill 设计矩阵}{543}
+\indexentry{model matrix \dotfill 模型矩阵}{544}
+\indexentry{design matrix \dotfill 设计矩阵}{544}
 \indexentry{null model \dotfill 零模型}{544}
 \indexentry{saturated model \dotfill 饱和模型}{544}
-\indexentry{likelihood function (LHF)\dotfill 似然方程}{544}
-\indexentry{residual sum of squares (RSS) \dotfill 残差平方和}{544}
+\indexentry{likelihood function (LHF)\dotfill 似然方程}{545}
+\indexentry{residual sum of squares (RSS) \dotfill 残差平方和}{545}
 \indexentry{normal equation \dotfill 正规方程}{545}
-\indexentry{best linear unbiased estimator (BLUE) \dotfill 最佳线性无偏估计}{545}
+\indexentry{best linear unbiased estimator (BLUE) \dotfill 最佳线性无偏估计}{546}
 \indexentry{efficient estimator \dotfill 有效估计}{546}
 \indexentry{profile likelihood function \dotfill 描述似然方程}{546}
-\indexentry{confidence interval \dotfill 置信区间}{547}
+\indexentry{confidence interval \dotfill 置信区间}{548}
 \indexentry{likelihood ratio criterion (LHRC) \dotfill 似然率量}{549}
 \indexentry{analysis of variance table (anova) \dotfill anova表}{550}
-\indexentry{probability density function (PDF)!\dotfill 概率密度方程}{551}
-\indexentry{likelihood function \dotfill 似然方程}{551}
-\indexentry{conditional bias \dotfill 条件偏误}{552}
-\indexentry{unbiased estimate \dotfill 无偏估计}{552}
-\indexentry{mean square error (MSE) \dotfill 均方误差}{552}
-\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差}{552}
-\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界}{553}
-\indexentry{Fischer information matrix \dotfill 费雪信息矩阵}{553}
-\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)}{554}
-\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)}{554}
-\indexentry{Bernoulli trials \dotfill 伯努利实验}{555}
-\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}{563}
-\indexentry{BFMG algorithm \dotfill BFMG算法}{563}
-\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}{564}
+\indexentry{coefficient of determination \dotfill 决定系数}{551}
+\indexentry{Person's linear correlation coefficient \dotfill 皮尔逊线性相关系数}{551}
+\indexentry{hat matrix \dotfill 帽子矩阵}{551}
+\indexentry{standardized residual \dotfill 标准化残差}{552}
+\indexentry{outlier \dotfill 离群值}{552}
+\indexentry{Jack-knifed residual \dotfill Jack-knifed残差}{552}
+\indexentry{studentized residual \dotfill 学生化残差}{552}
+\indexentry{standardized predictive residual \dotfill 标准化预测残差}{553}
+\indexentry{Bonferroni inequality \dotfill 邦费罗尼不等式}{554}
+\indexentry{leverage \dotfill 杠杆}{554}
+\indexentry{potential influence \dotfill 潜在影响因子}{554}
+\indexentry{Cook's distance \dotfill 库克距离}{554}
+\indexentry{variance-stablizing transformation (VST) \dotfill 方差稳定变换}{555}
+\indexentry{Box-Cox transformation \dotfill Box-Cox变换}{555}
+\indexentry{probability density function (PDF)!\dotfill 概率密度方程}{557}
+\indexentry{likelihood function \dotfill 似然方程}{557}
+\indexentry{conditional bias \dotfill 条件偏误}{558}
+\indexentry{unbiased estimate \dotfill 无偏估计}{558}
+\indexentry{mean square error (MSE) \dotfill 均方误差}{558}
+\indexentry{ensemble mean suqare error (EMSE)\dotfill 整体均方误差}{558}
+\indexentry{Cramér-Rao lower Bound \dotfill 克拉美罗下界}{559}
+\indexentry{Fischer information matrix \dotfill 费雪信息矩阵}{559}
+\indexentry{score (maximum likelihood) \dotfill 评分(最大似然估计)}{560}
+\indexentry{sensitivity function (maximum likelihood) \dotfill 敏感方程(最大似然估计)}{560}
+\indexentry{Bernoulli trials \dotfill 伯努利实验}{561}
+\indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}{569}
+\indexentry{BFMG algorithm \dotfill BFMG算法}{569}
+\indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}{570}

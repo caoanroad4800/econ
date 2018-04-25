@@ -1,4 +1,4 @@
-\begin{thebibliography}{299}
+\begin{thebibliography}{302}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -152,6 +152,12 @@
   economies}}.
 \newblock \bibinfo{journal}{Journal of Economic Dynamics and Control}
   \bibinfo{year}{2006};\bibinfo{volume}{30}(\bibinfo{number}{12}):\bibinfo{pages}{2477--2508}.
+%Type = Book
+\bibitem[{Atkinson(1985)}]{Atkinson:1985ug}
+\bibinfo{author}{Atkinson\xfnm[ A.C.]}.
+\newblock \bibinfo{title}{{Plots, Transformations, and Regression\textbf{: }An
+  Introduction to Graphical Methods of Diagnostic Regression Analysis}}.
+\newblock \bibinfo{publisher}{Clarendon Press}, \bibinfo{year}{1985}.
 %Type = Book
 \bibitem[{Atkinson(1996)}]{Atkinson:1996vm}
 \bibinfo{author}{Atkinson\xfnm[ K.E.]}.
@@ -352,6 +358,12 @@
   Shocks}}.
 \newblock \bibinfo{journal}{Journal of Monetary Economics}
   \bibinfo{year}{2005};\bibinfo{volume}{52}(\bibinfo{number}{6}):\bibinfo{pages}{1073--1088}.
+%Type = Article
+\bibitem[{Box and Cox(1964)}]{Box:1964ut}
+\bibinfo{author}{Box\xfnm[ G.E.]}, \bibinfo{author}{Cox\xfnm[ D.R.]}.
+\newblock \bibinfo{title}{{An analysis of transformations}}.
+\newblock \bibinfo{journal}{Journal of the Royal Statistical Society Series B
+  (Methodological)} \bibinfo{year}{1964};:\bibinfo{pages}{211--252}.
 %Type = Book
 \bibitem[{Boyd(2001)}]{Boyd:2001wt}
 \bibinfo{author}{Boyd\xfnm[ J.P.]}.
@@ -610,6 +622,11 @@
   Puzzle}}.
 \newblock \bibinfo{journal}{Journal of Political Economy}
   \bibinfo{year}{1990};\bibinfo{volume}{98}(\bibinfo{number}{3}):\bibinfo{pages}{519--543}.
+%Type = Book
+\bibitem[{Cook and Weisberg(1982)}]{Cook:1982wb}
+\bibinfo{author}{Cook\xfnm[ D.R.]}, \bibinfo{author}{Weisberg\xfnm[ S.]}.
+\newblock \bibinfo{title}{{Residual and Influence in Regression}}.
+\newblock \bibinfo{publisher}{Chapman and Hall}, \bibinfo{year}{1982}.
 %Type = Book
 \bibitem[{Cooley(1995)}]{Cooley:1995tq}
 \bibinfo{author}{Cooley\xfnm[ T.F.]}.

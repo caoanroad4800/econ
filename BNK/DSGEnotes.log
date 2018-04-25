@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.26)  23 APR 2018 19:26
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.22)  25 APR 2018 22:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2791,15 +2791,15 @@ LaTeX Font Info:    Font shape `TU/FandolSong-Regular(0)/m/sl' in size <10> not
 (Font)              Font shape `TU/FandolSong-Regular(0)/m/it' tried instead on
  input line 111.
  [4]
-[5] [6] [7] [8] [9] [10] [11] [12])
+[5] [6] [7] [8] [9] [10] [11] [12] [13])
 \tf@toc=\write8
 \openout8 = `DSGEnotes.toc'.
 
- (./chapters/preface.tex [13] [14
-
-]
+ (./chapters/preface.tex [14]
 第一章
-) [15] [16
+) [15
+
+] [16
 
 ] [17] [18] (./chapters/basic-BNK.tex
 第二章
@@ -3702,115 +3702,121 @@ File: ./Figures/20180421-pdf-function.pdf Graphic file (type pdf)
  [543
 
 ]
-[544] [545] [546] [547] [548] [549]) (./chapters/mle.tex [550]
-第十八章
-[551
+[544] [545] [546] [547] [548] [549] [550] [551] [552]
+Underfull \hbox (badness 4634) in paragraph at lines 602--603
+[]\TU/FandolSong-Regular(0)/m/n/10 建 立 一 个 零 假 设 用 于 检 测 $\OML/cmm/m/it/10 y[]$
+ \TU/FandolSong-Regular(0)/m/n/10 是 不 是 离 群 值，|  即 $\OML/cmm/m/it/10 y[]$ \TU/F
+andolSong-Regular(0)/m/n/10 是 否 与 其 他 $\OML/cmm/m/it/10 n \OMS/cmsy/m/n/10 ^^@ 
+\OT1/cmr/m/n/10 1$ \TU/FandolSong-Regular(0)/m/n/10 个 观 测
+ []
 
-] [552] [553] [554] [555]
+[553] [554] [555] [556] [557] [558] [559] [560] [561]
 
 LaTeX Font Warning: Font shape `TU/NotoSansCJKSC(0)/m/it' undefined
-(Font)              using `TU/NotoSansCJKSC(0)/m/n' instead on input line 405.
+(Font)              using `TU/NotoSansCJKSC(0)/m/n' instead on input line 1233.
 
-[556]
+
+[562]
 File: ./Figures/output_5_0.png Graphic file (type bmp)
 <./Figures/output_5_0.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 481--482
+Underfull \hbox (badness 10000) in paragraph at lines 1309--1310
 
  []
 
-[557]
+[563]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
- [558]
-Underfull \hbox (badness 4217) in paragraph at lines 607--608
+ [564]
+Underfull \hbox (badness 4217) in paragraph at lines 1436--1437
 []\TU/FandolSong-Regular(0)/m/n/10 在 很 多 情 况 下，|  我 们 无 法 通 过 解 析 法 求 得 最 大 化 的
  解。|  这 时 需 要 数 值 近 似 求 解，|  利
  []
 
-[559] [560]
-Overfull \hbox (6.8423pt too wide) detected at line 745
+[565] [566]
+Overfull \hbox (6.8423pt too wide) detected at line 1576
 []
  []
 
-[561]
+[567]
 File: ./Figures/output_12_1.png Graphic file (type bmp)
 <./Figures/output_12_1.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 815--816
+Underfull \hbox (badness 10000) in paragraph at lines 1646--1647
 
  []
 
-[562] [563] [564] [565]) (./chapters/housing.tex [566]
-第十九章
-[567
+[568] [569] [570] [571]) (./chapters/housing.tex [572]
+第十八章
+[573
 
-] [568] [569]) [570] [571
+] [574] [575]) [576] [577
 
-] [572] [573
+] [578] [579
 
-] [574] (./chapters/PK.tex
+] [580] (./chapters/PK.tex
 第一章
-[575
+[581
 
-]) (./chapters/KNKNCE.tex [576]
+]) (./chapters/KNKNCE.tex [582]
 第二章
-[577
+[583
 
-] [578] [579] [580] [581]) [582] (./DSGEnotes.bbl [583
+] [584] [585] [586] [587]) [588] (./DSGEnotes.bbl [589
 
-] [584] [585]
-[586] [587] [588] [589] [590]
-Underfull \hbox (badness 1681) in paragraph at lines 1058--1064
+] [590] [591]
+[592] [593] [594] [595] [596]
+Underfull \hbox (badness 1681) in paragraph at lines 1075--1081
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[591] [592] [593] [594] [595] [596] [597] [598]) [599] [600
+[597] [598] [599] [600] [601] [602] [603] [604]) [605] [606
 
 ] (./DSGEnotes.lof
-[601])
+[607])
 \tf@lof=\write9
 \openout9 = `DSGEnotes.lof'.
 
- [602] (./DSGEnotes.lot)
+ [608] (./DSGEnotes.lot)
 \tf@lot=\write10
 \openout10 = `DSGEnotes.lot'.
 
- [603
+ [609
 
-] [604
+] [610
 
-] (./DSGEnotes.tdo [605])
+] (./DSGEnotes.tdo [611])
 \tf@tdo=\write11
 \openout11 = `DSGEnotes.tdo'.
 
- [606]
+ [612]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
 
-(./DSGEnotes.ind [607
+(./DSGEnotes.ind [613
 
 
-] [608] [609] [610] [611] [612] [613] [614] [615] [616
-\indexentry{残差方程(映射法)}{616}
-] [617] [618]) [619]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 498.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 498.
+] [614] [615] [616] [617] [618] [619] [620] [621] [622]
+[623
+\indexentry{残差方程(映射法)}{623}
+] [624] [625]) [626]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 497.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 497.
  (./DSGEnotes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 498.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 498.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 497.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 497.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 55568 strings out of 493007
- 1141246 string characters out of 6134605
- 1614237 words of memory out of 5000000
- 58546 multiletter control sequences out of 15000+600000
+ 55614 strings out of 493007
+ 1142546 string characters out of 6134605
+ 1615190 words of memory out of 5000000
+ 58595 multiletter control sequences out of 15000+600000
  545493 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  76i,27n,146p,10415b,3282s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (619 pages, 9733500 bytes).
+Output written on DSGEnotes.xdv (626 pages, 9901664 bytes).

@@ -66,7 +66,7 @@
 与传统线性近似法相比(\citep{King:1988bk,King:1988kf,King:2002ih}，本文第\ref{sec:rational-exp-chap}章)，线性近似与一阶扰动法基本等同。而更高阶扰动法是将一阶扰动(近似线性)化的经济系统结构一般化到更一般的形式，引入额外项，从而使得近似式具有更高的解释效力。
 \begin{remark}[扰动法的线性化和对数线性化]
   \label{remark:loglinearization}
-  通常来说，线性化是指对状态变量(或对状态变量针对模型中的某些量做预处理后)进行线性调整。类似地，对数线性化描述状态变量距离其稳定状态的对数偏离程度，以某一变量$x \in \bm{x}$举例，定义$\hat{x} = \log \left(x / \bar{x} \right)$，其中$\bar{x}$是稳态值。则二阶近似
+  通常来说，线性化(linearization)\index{linearization! \dotfill 线性化}是指对状态变量(或对状态变量针对模型中的某些量做预处理后)进行线性调整。类似地，对数线性化(log-linearization)\index{linearization!log \dotfill 对数线性化}描述状态变量距离其稳定状态的对数偏离程度，以某一变量$x \in \bm{x}$举例，定义$\hat{x} = \log \left(x / \bar{x} \right)$，其中$\bar{x}$是稳态值。则二阶近似
   \begin{equation*}
     d_i^2(\hat{\bm{x}},\theta) = \theta_{i,0} + \theta_{i,1} (\hat{\bm{x}} - \hat{\bm{x}}_0)^{\top} +  (\hat{\bm{x}} - \hat{\bm{x}}_0) \theta_{i,2} (\hat{\bm{x}} - \hat{\bm{x}}_0)^{\top}, \quad i=1,2,\ldots m,
   \end{equation*}
@@ -1342,7 +1342,7 @@ k_{t+1} = a_0 + a_1 \left( a_0 + a_1 k_{t-1} + a_2 k_{t-1}^2 \right) + a_2 \left
 
 \subsection{对数线性化和对数正态线性化}
 \label{sec:perturbation-log-normal-lin}
-如前文所述，标准的对数线性近似法，常常是对差分变量取对数后做一阶扰动近似。金融学研究中有时也会遇到另一种对数正态线性化方法(lognormal-loglinearization)，二者有所不同，容易引起混淆，有必要建模做简要说明。
+如前文所述，标准的对数线性近似法，常常是对差分变量取对数后做一阶扰动近似。金融学研究中有时也会遇到另一种对数正态线性化方法(lognormal-linearization)\index{linearization!lognormal \dotfill 对数正态线性化}，二者有所不同，容易引起混淆，有必要建模做简要说明。
 
 假定经济模型中一个代表性家庭，效用函数和预算约束条件分别为
 \begin{equation*}

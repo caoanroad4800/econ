@@ -631,8 +631,6 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang2.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang3.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang3.sty
 INPUT ./Figures/20180421-pdf-function.pdf
-INPUT ./chapters/mle.tex
-INPUT ./chapters/mle.tex
 INPUT ./Figures/output_5_0.png
 INPUT ./Figures/output_12_1.png
 INPUT ./chapters/housing.tex
