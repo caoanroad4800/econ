@@ -622,8 +622,8 @@ INPUT ./Figures/20180405-fourier-transform-mma.png
 INPUT ./Figures/20180405-kernel-compare.png
 INPUT ./chapters/connection-appendix-2.tex
 INPUT ./chapters/connection-appendix-2.tex
-INPUT ./chapters/lm.tex
-INPUT ./chapters/lm.tex
+INPUT ./chapters/mle.tex
+INPUT ./chapters/mle.tex
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang2.sty
@@ -633,8 +633,8 @@ INPUT /usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang3.sty
 INPUT ./Figures/20180421-pdf-function.pdf
 INPUT ./Figures/output_5_0.png
 INPUT ./Figures/output_12_1.png
-INPUT ./chapters/housing.tex
-INPUT ./chapters/housing.tex
+INPUT ./chapters/qmle.tex
+INPUT ./chapters/qmle.tex
 INPUT ./chapters/PK.tex
 INPUT ./chapters/PK.tex
 INPUT ./chapters/KNKNCE.tex

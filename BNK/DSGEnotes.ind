@@ -105,6 +105,7 @@
 
   \indexspace
 
+  \item data genrating process (DGP) \dotfill 数据生成过程, 575
   \item De Moivre Theorem \dotfill 棣莫弗定理, 507
   \item decomposition
     \subitem  \dotfill 分解(有限元), 453
@@ -142,6 +143,7 @@
   \item embeddings \dotfill 嵌入, 340
   \item ensemble mean suqare error (EMSE)\dotfill 整体均方误差, 
 		558
+  \item entropy \dotfill 熵, 573
   \item Envelope Theorem \dotfill 包络定理, 121
   \item equivalence of norms \dotfill 范数等价, 327, 343, 355
   \item ergodic set \dotfill 遍历集, 222
@@ -283,6 +285,8 @@
   \item index family \dotfill 索引族, 323
   \item indicator function \dotfill 指示方程, 488, 497
   \item inf-sup condition \dotfill 上极限——下极限条件, 275
+  \item infor mation
+    \subitem  \dotfill 信息, 573
   \item injection \dotfill 内射, 373
   \item injection \dotfill 单射, 276
   \item inner product
@@ -314,6 +318,8 @@
     \subitem Gaussian, culmulative \dotfill 累积高斯核方程, 511
   \item Korn inequality \dotfill 科恩不等式, 275
   \item Kronecker product\dotfill 克罗内克乘积, 237
+  \item Kullback-Leibler information criterion (KLIC) \dotfill Kullback-Leibler信息准则, 
+		574
 
   \indexspace
 
@@ -337,8 +343,7 @@
   \item Levenberg-Marquardt algorithm \dotfill 莱文贝格——马夸特方法, 
 		214
   \item leverage \dotfill 杠杆, 554
-  \item likelihood function (LHF)\dotfill 似然方程, 545
-  \item likelihood function \dotfill 似然方程, 557
+  \item likelihood function (LHF)\dotfill 似然方程, 545, 557
   \item likelihood ratio criterion (LHRC) \dotfill 似然率量, 549
   \item linear frequency \dotfill 线频率, 301
   \item linearization
@@ -382,6 +387,8 @@
     \subitem LU \dotfill LU分解, 522
     \subitem QR \dotfill QR分解, 531
   \item matrix inversion lemma \dotfill 矩阵求逆引理, 528
+  \item maximum likelihood estimator (MLE)
+    \subitem quasi \dotfill 准最大似然估计, 576
   \item maximum norm \dotfill 最大范数, 327
   \item mean square error (MSE) \dotfill 均方误差, 558
   \item measurable sets \dotfill 可测集合, 325
@@ -419,6 +426,8 @@
   \item Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法, 570
   \item Newton—Cotes Rule \dotfill 牛顿——寇特斯法则, 279
   \item node \dotfill 结点, 211, 453
+  \item nonlinear regression (NLS) \dotfill 非线性最小二乘法, 
+		577
   \item norm \dotfill 范数, 237, 275, 323, 326
   \item norm equivalence theorem of Sobolev space, 342
   \item normal distribution
@@ -503,6 +512,7 @@
   \item probability density function (PDF)
     \subitem \dotfill 概率密度方程, 557
     \subitem Gaussian\dotfill 高斯概率密度方程, 509
+    \subitem joint \dotfill 联合概率密度方程, 574
   \item probability density function (PDF) \dotfill 概率密度方程, 
 		543
   \item profile likelihood function \dotfill 描述似然方程, 546
@@ -516,6 +526,9 @@
   \item quadrature weights \dotfill 求积权重, 279
   \item quansi-uniform
     \subitem globally \dotfill 全局拟一致, 455, 466
+  \item quasi-likelihood function (QLHF)\dotfill 准似然方程, 575
+  \item quasi-maximum likelihood estimation (QMLE) \dotfill 准最大似然估计, 
+		573
   \item quasi-uniform
     \subitem locally \dotfill 局部拟一致, 455
   \item quotient space \dotfill 商空间, 327

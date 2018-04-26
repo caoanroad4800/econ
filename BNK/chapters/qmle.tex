@@ -1,0 +1,284 @@
+%!TEX root = ../DSGEnotes.tex
+\chapter{准最大似然估计}
+\label{sec:qmle-model}
+
+对于一组随机变量，
+不再假设一个关于这组随机变量均值的方程，而是采取更通用的形式，假定它们的联合分布(密度方程)是正确设定的，在此基础上可以进行最大似然估计(第\ref{sec:mle-model}章)。传统最大似然估计法假设，事先设定的密度方程就等于真实的密度方程，从而根据这样的假设，设定误差是不存在的。但是从实际观测的数据来看，``正确设定”的情况很少见——如何在可能存在模型误设定的情况下，更有效地进行统计推断？将MLE作一个一般化扩展，就有了准最大似然估计(quasi-maximum likelihood estimation, QMLE)\index{quasi-maximum likelihood estimation (QMLE) \dotfill 准最大似然估计}，将假定条件放宽到，认为事先设定的密度方程在多数情况下只是对真实值的一种近似。这里以\cite{White:1994vu}为例介绍QMLE，更多相关讨论可参考如\cite{White:1982bm, Amemiya:1985uq, Gourieroux:1993bj, Chen:2013bk}。
+
+\section{Kullback-Leibler信息准则}
+\label{sec:qmle-klic-intro}
+
+\subsection{信息}
+\label{sec:qmle-klic-information}
+
+假设在一项随机实验中，$A$事件发生的概率是$0 \le p \le 1$。我们关注于``事件A会发生"这一信号，其价值或重要性，对于不同$p$值来说是不同的：当$p$值较小时，信号的价值高；反之当$p$值很大时，信号的价值低。那么，信号``事件A会发生"所含有的信息量(information content) ，应当理解为一个随$p$而递减的方程$\tau \left(p \right)$，其形式可以设定如下
+\begin{equation*}
+%\begin{split}
+    \tau \left( p \right) = \log \left( \frac{1}{p} \right),
+%\end{split}
+\end{equation*}
+需要注意的是，``事件$A$不会发生"的信息量$\tau \left( 1 - p \right)$，将不同于$\tau \left( p \right)$，除了当$p=0.5$时
+\begin{equation}
+    \tau(1-p)
+    \begin{cases}
+        \neq \tau(p) & p \neq 0.5 \\
+        = \tau \left( p \right)  & p = 0.5 .
+    \end{cases}
+\end{equation}
+
+从这个角度，我们可以将$\tau(p)$理解为，在知道了``事件$A$会以概率$P(A)=p$发生"时的``惊讶"程度。将全部$p \in [0,1]$下的惊讶作加权平均，可得期望信息(information)\index{infor
+mation! \dotfill 信息} $I$。$I$可理解为事件$A$的熵(entropy)\index{entropy \dotfill 熵}。
+
+现在来看信号``事件$A$发生的概率从$p$变为$q$''的价值：$\left| q-p \right|$大时价值高，小时价值低，其信息含量之差
+\begin{equation*}
+    \tau (p) - \tau(q) = \log \left( \frac{q}{p} \right)
+    \begin{cases}
+        > 0 & q > p \\
+        <0, & q < p.
+    \end{cases}
+\end{equation*}
+现在将$A$扩展到一组$n$个事件$A_{1},\ldots,A_{n}$的情况，其中$A_{i}, \, i=1,\ldots,n$的信息量为$\log \left( q_{i}/p_{i} \right)$，那么全部信息的加权期望值为
+\begin{equation*}
+    I = \sum_{i=1}^{n} q_{i} \log \left( \frac{q_{i}}{p_{i}} \right).
+\end{equation*}
+
+这样我们可以进一步讨论密度方程的信息含量了。
+
+\subsection{Kullback-Leibler信息准则}
+\label{sec:qmle-klic}
+假定对于一组随机变量，存在一个未知的真实密度方程$g(\xi)$，和一个猜测的密度方程$f(\xi)$。由于$g$未知，我们将$g$相对于$f$的Kullback-Leibler信息准则(Kullback-Leibler information criterion, KLIC)\index{Kullback-Leibler information criterion (KLIC) \dotfill Kullback-Leibler信息准则} $KL \left( g:f \right)$定义为
+\begin{equation}
+    \label{eq:qmle-klic-def}
+    KL \left( g:f \right)
+    \coloneqq \int_{\mathbb{R}} \log
+    \left(
+    \frac{g \left( \xi \right)}{g \left( \xi \right)}
+    \right)
+    g \left( \xi \right)
+    \, \mathrm{d} \xi,
+\end{equation}
+用于描述当知道当$g \left( \xi \right)$是随机变量$z$的真实密度之后的期望``惊讶"程度。
+
+\begin{theorem}[KLIC非负]
+    \label{theorem:qmle-klic-nonnegative}
+    KLIC \eqref{eq:qmle-klic-def}满足
+    \begin{equation}
+        \label{eq:qmle-klic-nonnegative}
+        KL \left( g:f \right) \ge 0
+    \end{equation}
+    并且当且仅当$g \overset{\text{a.e.}}{=} f$时，等号成立
+    \footnote{
+    \text{a.e.}是几乎处处(almost everywhere)的缩写，这里指的$g=f$除了一个勒贝格测度为$0$的集合之外，都成立。
+    }。
+\end{theorem}
+\begin{proof}
+    已知
+    \begin{equation*}
+    \begin{split}
+    & \log \left( 1 + x \right) < x \quad \forall \, x > -1, \\
+    & \hookrightarrow \log \left( \frac{g}{f} \right) = - \log \left( 1 + \frac{f-g}{g} \right) > 1 - \frac{f}{g}, %\\
+%    & \hookrightarrow
+    \end{split}
+    \end{equation*}
+
+    进而
+    \begin{equation*}
+        \begin{split}
+            \int_{\mathbb{R}} \log \left( \frac{g}{f} \right) g \, \mathrm{d} \xi \,
+            & > \int_{\mathbb{R}} \log \left( 1 - \frac{f}{g} \right) g \, \mathrm{d} \xi = \int_{\mathbb{R}} \left( g - f \right) \, \mathrm{d} \xi = 0.
+        \end{split}
+    \end{equation*}
+
+    显然，$g \overset{\text{a.e.}}{=}$时，$KL \left(g:f \right)=0$。反之，如果已知$KL \left(g:f \right)=0$，那么假设条件$g \overset{\text{a.e.}}{=}$成立。
+\end{proof}
+
+然而值得注意的是，KLIC第一不适合用作无方向的公制测量单位，这是因为通常来说$KL(g:f) \neq KL(f:g)$，第二不满足三角不等式关系。因此只适合将KLIC看做是一个测度密度方程$f$和$g$的接近程度的简便工具。
+
+设$\left\{ z_{t} \right\} \in \mathbb{R}^{\nu}$为一个定义在概率空间$\left( \Omega, \mathbb{F}, \mathbb{P}_{0} \right)$中的实值随机变量数列\footnote{
+$\Omega$是样本空间，指所有可能结果(输出)的集合；$\mathbb{F}$是事件集合，单独某一事件或一组事件组成，含有0个或更多输出；$\mathbb{P}_{0}$是将事件和事件发生概率联系在一起的方程集合。}。在不产生混淆的情况下，我们将随机变量向量，及其实现(realization)表示为相同的符号$z$，用
+\begin{equation*}
+    z^{T} = \left( z_{1}, z_{2}, \ldots, z_{T} \right)
+\end{equation*}
+表示$\left\{ z_{t} \right\}$生成的全部信息集合。向量$z_{t} \in \mathbb{R}^{\nu \times 1}$包括两部分，分别是标量$y_{t}$和向量$\omega_{t} \in \mathbb{R}^{\left( \nu-1 \right) \times 1}$。那么对应于$\mathbb{P}_{0}$，存在一个关于$z^{T}$的联合概率密度方程(joint probability density function, JPDF)\index{probability density function (PDF)!joint \dotfill 联合概率密度方程} $g^{T}\left( z^{T} \right) $，满足
+\begin{equation}
+    \label{eq:qmle-klic-jpdf-true-g}
+    g^{T} \left( z^{T} \right) = g\left( z_{1} \right)
+    \, \prod_{t=2}^{T} \frac{g^{t} \left( z^{t} \right)}{g^{t-1} \left( z^{t-1} \right)}
+    = g \left( z_{1} \right) \prod_{t=2}^{T} g_{t} \left(z_{t} | z^{t-1} \right),
+\end{equation}
+其中
+\begin{itemize}
+    \item $g^{t}$是JPDF表示$t$个随机变量$z_{1}, z_{2}, \ldots, z_{t}$的JPDF，
+    \item $g_{t}$是PDF，表示基于全部过去信息$z_{1},\ldots,z_{t-1}$基础上，现有随机事件$z_{t}$的密度方程，
+    \item $g \left( z_{1} \right)$是初始无条件PDF，
+    \item 因而我们可以将$g^{T}$理解为一个描述随机行为$z^{T}$的机制，又称$Z^{T}$的数据生成过程(data generating process, DGP)\index{data genrating process (DGP) \dotfill 数据生成过程}。
+\end{itemize}
+
+由于真实的DGP $g^{T}$未知，我们要猜测条件PDF $f_{t} \left( z_{t} | z^{t-1} ; \theta \right)$用作$g^{T}$的近似，其中参数向量$\theta \in \Theta \subseteq \mathbb{R}^{k}$。在此基础上，猜测的JPDF $f^{T}$为
+\begin{equation}
+    \label{eq:qmle-klic-jpdf-quasi-f}
+    f^{T} \left( z^{T}; \theta \right) = f \left( z_{1} \right)
+    \prod_{t=2}^{T} f_{t} \left( z_{t} | z^{t-1} ; \theta \right),
+\end{equation}
+类似地，$f \left( z_{1} \right)$也是初始无条件PDF。上式
+称为关于$g^{T}$的准似然方程(quasi-likelihood function)\index{quasi-likelihood function (QLHF)\dotfill 准似然方程}，``准"是因为，基于这样的设定，$f^{T}$ \eqref{eq:qmle-klic-jpdf-quasi-f}可以与$g^{T} \left( z^{T}; \theta \right)$ \eqref{eq:qmle-klic-jpdf-true-g}不一致。
+
+为了表述方便，将非条件密度写成条件密度的形式$f\left( z_{1} \right), \, g \left(z_{1} \right)$；进而可以将$f^{T} \left( z^{T}; \theta \right), \, g^{T} \left( z^{T} \right)$表示为全部有条件PDF的乘积。显然，猜测JPDF $f^{T}$越是接近真实DGP $y^{T}$，信号的价值越高。$g^{T}$相对于$f^{T}$的KLIC写为
+\begin{equation}
+    \label{eq:qmle-klic-gf}
+    KL \left(g^{T}:f^{T}; \theta \right)
+    = \int_{\mathbb{R}^{T}} \log
+    \left(
+    \frac{
+    g^{T} \left(\xi^{T}\right)
+    }{
+    f^{T} \left(\xi^{T}; \theta \right)
+    }
+    \right) g^{T} \left(\xi^{T}\right) \,
+    \mathrm{d} \left( \xi^{T} \right).
+\end{equation}
+那么可以考虑如下优化方案，对于DGP $g^{T}$，选择近似方程$f^{T}$使$KL \left(g^{T}:f^{T}; \theta \right)$最小化，即生成的``惊讶"水平最低。
+由于$g^{T}$与系数$\theta$无关，最小化\eqref{eq:qmle-klic-gf}的问题等价于最大化如下问题
+\begin{equation}
+    \label{eq:qmle-klic-gf-expectation}
+    \int_{\mathbb{R}^{T}}
+    \left[
+    \log f^{T} \left( \xi^{T}; \theta \right)
+    \right]
+    g^{T} \left( \xi^{T} \right) \,
+    \mathrm{d} \left( \xi^{T} \right) =
+    E \log f^{T} \left( z^{T}; \theta \right),
+\end{equation}
+$E$表示期望值。最大化\eqref{eq:qmle-klic-gf-expectation}的问题又进一步等价于最大化条件JPDF的平均期望值：汇总$f_{t} \left(z_{t} | z^{t-1}; \theta \right) \, \forall \, t=1,\ldots,T$，有
+\begin{equation}
+    \label{eq:qmle-klic-gf-expectation-avg}
+    \overline{L}_{T} \left( \theta \right) =
+    \frac{1}{T} E \left[
+    \log f^{T} \left(z^{T}; \theta \right)
+    \right]
+    = \frac{1}{T} E
+    \left[ \sum_{t=1}^{T} \log f_{t} \left( z_{t} | z^{t-1}; \theta \right)\right].
+\end{equation}
+
+对\eqref{eq:qmle-klic-gf-expectation-avg}作最大似然处理，算得最优参数$\theta^{*}$
+\begin{equation}
+    \label{eq:qmle-klic-gf-expectation-avg-estimation}
+    \theta^{*} = \underset{\theta}{\argmax} \, \overline{L}_{T} \left( \theta \right),
+\end{equation}
+同时也是\eqref{eq:qmle-klic-gf-expectation-avg}、\eqref{eq:qmle-klic-gf-expectation}的最优参数。
+
+\begin{definition}[正确设定的识别条件]
+    \label{definition:qmle-correct-specification-identification}
+如果$\exists! \theta_{0} \in \Theta$，\footnote{$\exists!$表示存在且存在唯一一个，有时也表示为$\exists_{=1}$。}满足
+\begin{equation*}
+    f^{T} \left(z^{T}; \theta_{0} \right) = g^{T} \left(z^{T} \right)\, \forall t \in T,
+\end{equation*}
+那么我们说$\left\{ f_{t} \left(z^{t} | z^{t-1}; \theta \right) \right\}_{t=1}^{T}$对$\left\{ z_{t} \right\}_{t=1}^{T}$整体上是正确设定的(correct specification in its entirety for $\left\{ z_{t} \right\}_{t=1}^{T}$)，此时最优系数被识别为$\theta_{0}$，满足KLIC的最小化
+\begin{equation*}
+    KL \left(g^{T}:f^{T}; \theta_{0} \right) = 0.
+\end{equation*}
+\end{definition}
+
+根据这样的识别条件可得，$\theta^{*} = \theta_{0}$。
+
+尽管道理上来说是这样，可实际操作过程中\eqref{eq:qmle-klic-gf-expectation-avg-estimation}不易估计：这是由于$\overline{L}_{T} \left( \theta \right)$ \eqref{eq:qmle-klic-gf-expectation-avg}的计算涉及到未知DGP $g^{T}$，和取期望值的计算。对此，我们常常采取近似的替代方案，将$\overline{L}_{T} \left( \theta \right)$替换为一个样本$\overline{L}_{T} \left( \theta \right)$下的
+QLHF $L_{T} \left( z^{T}; \theta \right)$
+\begin{equation}
+    \label{eq:qmle-klic-qlhf-lt}
+    L_{t} \left(z^{T}; \theta \right) \coloneqq \frac{1}{T} \sum_{t=1}^{T}
+    \log f_{t} \left(z_{t} | z^{t-1}; \theta \right),
+\end{equation}
+对应地，最优估计值
+\begin{equation*}
+    \tilde{\theta}_{T} = \underset{\theta}{\argmax} \, L_{T}(z^{T}; \theta),
+\end{equation*}
+称为$\theta$的准最大似然估计(quasi maximum likelihood estimator, QMLE)\index{maximum likelihood estimator (MLE)!quasi \dotfill 准最大似然估计}。加入前缀``准"(quasi)是为了表明，估计的解$\tilde{\theta}$来自于一个可能存在误设定问题的对数似然方程$\log f_{t}$。$\left\{ f_{t} \right\}$可能并非关于$\left\{ z_{t} \right\}$整体设定正确，此时$f^{T} \neq g^{T}, \, \tilde{\theta}_{T} \neq \theta, \, KL >0$。
+反之若$\left\{ f_{t} \right\}$设定正确，那么$f^{T} = g^{T}, \, \tilde{\theta}_{T} = \theta, \, KL =0$，此时准最大似然估计等价于前述的表准最大似然估计。
+
+在现实应用中，为$z^{T}$设置完整的概率模型可能是一项艰巨的任务，涉及到太多随机变量：例如$T$个随机变量的向量$z_{t}$，每个$z_{t}$中都含有$\nu$个随机变量。这就需要作以适当简化。对于经济学来说，往往只关心其中的一部分核心内容，例如对随机变量$y_{t}$建模，假定$y_{t}$与前定变量(preditermined variable, 如\cite{Klein:2000bc}的定义)的向量$x_{t}$有关，$x_{t}$中包含元素$\left( \omega_{t}, z^{t-1} \right)$。这样一来，模型中只需要考虑$y_{t}$的条件行为：
+除非$\omega_{t}$还有其他明确描述，条件PDF $g_{t} \left(y_{t} | x_{t} \right)$提供了关于$\left\{ z_{t} \right\}$的一些关键(而非全部)信息。在此基础上，可以构建QLHF $f_{t} \left(y_{t} | x_{t}; \theta \right) $来近似$g_{t} \left( y_{t} | x_{t} \right)$，KLIC如\eqref{eq:qmle-klic-gf}所示。
+对于全部$t=1,\ldots,T$，可定义平均KILC为 $\overline{KL} _{T} \left(
+\left\{g_{t} : f_{t} \right\}; \theta \right)$
+\begin{equation}
+    \label{eq:qmle-kilc-average}
+    \overline{KL} _{T} \left(
+    \left\{g_{t} : f_{t} \right\}; \theta \right)
+    \coloneqq \frac{1}{T} \sum_{t=1}^{T} KL \left(g_{t}:f_{t}; \theta \right),
+\end{equation}
+对应平均条件JPDF的平均期望
+\begin{equation}
+    \label{eq:qmle-conditional-pdf-avg-expectation}
+    \overline{L}_{T} \left( \theta \right) = \frac{1}{T}
+    \sum_{t=1}^{T} E \left[
+    \log f_{t} \left(y_{t}| x_{t} ; \theta \right)
+    \right].
+\end{equation}
+
+为了简化表述，设$y^{T} = \left(y_{1}, \ldots, y_{t} \right), x^{T} = \left(x_{1}, \ldots, x_{t} \right)$。则优化条件为，利用最大似然估计法求解QLME $\theta^{*}$
+\begin{equation*}
+\theta^{*} = \underset{\theta}{\argmax} \, \overline{L}_{T} \left( \theta \right),
+\end{equation*}
+同时也是$\underset{\theta}{\argmin} \,  \overline{KL}_{T} \left( \left\{g_{t} : f_{t} \right\}; \theta  \right)$的值。根据Definition \eqref{definition:qmle-correct-specification-identification}，识别条件为：如果$\exists! \theta_{0} \in \Theta$，满足
+\begin{equation*}
+    f_{t} \left(y_{t} | x_{t} ; \theta_{0} \right) = g \left( y_{t} | x_{t} \right) \, \forall t,
+\end{equation*}
+那么$\left\{ f_{t} \right\}$对$\left\{ y_{t} | x_{t} \right\}$整体设定正确。进而有$\overline{KL}_{T} \left( \left\{ g_{t}: f_{t} \right\}; \theta_{0} \right) = 0$，以及$\theta^{*} = \theta_{0}$。
+
+和前述情况一样，$\overline{L}_{T} \left( \theta \right)$ \eqref{eq:qmle-conditional-pdf-avg-expectation}无法直接计算，同样地，采用类似于\eqref{eq:qmle-klic-qlhf-lt}的方式，用样本QLHF $L_{T}\left( y^{T}, x^{T}; \theta \right)$作近似
+\begin{equation}
+    \label{eq:qmle-conditional-pdf-avg-expectation-approx}
+    L_{t} \left(y^{T}, x^{T}; \theta \right) \coloneqq
+    \frac{1}{T} \sum_{t=1}^{T} \log f_{t} \left(y_{t} | x_{t}; \theta \right).
+\end{equation}
+
+基于\eqref{eq:qmle-conditional-pdf-avg-expectation-approx}作准最大似然估计求得QMLE $\tilde{\theta}_{T}$
+\begin{equation*}
+    \tilde{\theta}_{t} = \underset{\theta}{\argmax} \, L_{t} \left( y^{T}, x^{T}; \theta \right).
+\end{equation*}
+若$\left\{f_{t} \right\}$对于$\left\{y_{t} | x_{t} \right\}$完整正确设定，则QMLE $\tilde{\theta}_{T}$可视为等价于标准MLE。
+
+现在来考虑另一个情况，$y_{t}$具有某些特殊性质，我们猜测该特性表现为条件正态分布，均值和方差分别为$\mu_{t} \left(x_{t}; \theta \right)$和$\sigma^{2}$，满足
+\begin{equation*}
+    y_{t} | x_{t} \sim \mathcal{N} \left( \mu_{t} \left(x_{t}; \beta \right) , \sigma^{2} \right).
+\end{equation*}
+根据高斯分布的性质可以算得
+\begin{equation*}
+    \theta = \left( \beta^{\top} \sigma^{2} \right)^{\top}.
+\end{equation*}
+
+首先列出QLHF的计算式及其样本近似
+\begin{equation*}
+    \overline{L} \left( \theta \right)
+    \approx L_{T} \left( y^{T}, x^{T} ； \theta \right)
+    = \frac{1}{T} \sum_{t=1}^{T} \log f \left(y_{t} | x_{t}; \theta \right),
+\end{equation*}
+进而QLME $\tilde{\beta}_{T}$
+\begin{equation*}
+    \tilde{\beta}_{T} = \underset{\beta}{\argmax} \, L_{T} \left( y^{T}, x^{T} ； \theta \right)，
+\end{equation*}
+同时也有
+\begin{equation*}
+    \tilde{\beta}_{T} = \underset{\beta}{\argmin} \,
+    \frac{1}{T} \sum_{t=1}^{T}
+    \left[
+    y_{t} - \mu_{t} \left( x_{t}; \beta \right)
+    \right]^{\top} \,
+    \left[
+    y_{t} - \mu_{t} \left(x_{t}; \beta \right)
+    \right]
+\end{equation*}
+关系成立，即它同时也是非线性最小二乘法(nonlinear regression, NLS)\index{nonlinear regression (NLS) \dotfill 非线性最小二乘法}的估计。由此可见，NLS可以看做是QMLE在某些假定条件下的特例，这个假定条件是：观测数据表现出有条件的正态分布，以及有条件的同方差。识别条件为，设$\exists! \theta_{0}$，满足
+\begin{equation*}
+    \mu_{t} \left( x_{t}; \theta_{0} \right) = E \left(y_{t}|x_{t} \right)
+\end{equation*}
+时，我们称$\left\{ \mu_{t} \right\}$对条件均值$\left\{ E \left(y_{t} | x_{t} \right) \right\}$整体正确设定。
+
+除此而外，也可以考虑一个更加灵活的设定方式，如
+\begin{equation*}
+    y_{t} | x_{t} \sim \mathcal{N} \left( \mu_{t} \left(x_{t} ; \beta \right), h\left(x_{t}; \alpha \right) \right),
+\end{equation*}
+可以帮助我们进一步分析、估计条件方差。
+
+\subsection{QMLE的渐进性质}
+\label{sec:qmle-asymptotic}
+通常来说，QLHF $L_{T} \left( \cdot ; \theta \right)$是一个关于系数向量$\theta$的非线性方程系统。非线性意味着我们往往无法直接求得解析解QMLE $\tilde{\theta}_{T}$，而是要靠非线性优化算法作数值近似。

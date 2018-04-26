@@ -35,43 +35,43 @@ while executing---line 1514 of file model4-names.bst
 Warning--empty journal in Wood:1975vn
 You've used 302 entries,
             2973 wiz_defined-function locations,
-            2329 strings with 48778 characters,
-and the built_in function-call counts, 221856 in all, are:
-= -- 19593
+            2326 strings with 48715 characters,
+and the built_in function-call counts, 220575 in all, are:
+= -- 19449
 > -- 5248
-< -- 265
+< -- 264
 + -- 2046
 - -- 1735
-* -- 24600
-:= -- 31751
-add.period$ -- 934
+* -- 24438
+:= -- 31617
+add.period$ -- 935
 call.type$ -- 302
-change.case$ -- 2053
+change.case$ -- 2051
 chr.to.int$ -- 302
 cite$ -- 319
-duplicate$ -- 17439
-empty$ -- 18104
-format.name$ -- 2607
-if$ -- 42982
+duplicate$ -- 17304
+empty$ -- 17978
+format.name$ -- 2601
+if$ -- 42714
 int.to.chr$ -- 10
 int.to.str$ -- 1
-missing$ -- 2588
+missing$ -- 2587
 newline$ -- 1513
 num.names$ -- 1224
-pop$ -- 2727
+pop$ -- 2737
 preamble$ -- 1
 purify$ -- 1780
 quote$ -- 0
-skip$ -- 4334
+skip$ -- 4336
 stack$ -- 0
-substring$ -- 19410
-swap$ -- 9787
+substring$ -- 19136
+swap$ -- 9758
 text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 2499
+type$ -- 2493
 warning$ -- 17
-while$ -- 1511
+while$ -- 1506
 width$ -- 0
-write$ -- 4146
+write$ -- 4145
 (There were 6 error messages)

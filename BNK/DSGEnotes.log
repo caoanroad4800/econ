@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.22)  25 APR 2018 22:03
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.22)  26 APR 2018 18:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3686,7 +3686,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 515--516
 
 [538]) [539] [540
 
-] [541] [542] (./chapters/lm.tex
+] [541] [542] (./chapters/mle.tex
 第十七章
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
@@ -3745,78 +3745,90 @@ Underfull \hbox (badness 10000) in paragraph at lines 1646--1647
 
  []
 
-[568] [569] [570] [571]) (./chapters/housing.tex [572]
+[568] [569] [570] [571]) (./chapters/qmle.tex [572]
 第十八章
 [573
 
-] [574] [575]) [576] [577
+] [574]
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
+[]\TU/FandolSong-Regular(0)/m/n/10 为 了 表 述 方 便，|  将 非 条 件 密 度 写 成 条 件 密 度 的 形 式
+ $\OML/cmm/m/it/10 f [] ;  g []$\TU/FandolSong-Regular(0)/m/n/10 ；|  进 而 可 以 将
+ []
 
-] [578] [579
+[575]
+Missing character: There is no ； in font [lmroman10-regular]:mapping=tex-text;!
+ [576]
+Missing character: There is no ； in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
+) [577] [578
 
-] [580] (./chapters/PK.tex
+] [579] [580] [581
+
+] [582] (./chapters/PK.tex
 第一章
-[581
-
-]) (./chapters/KNKNCE.tex [582]
-第二章
 [583
 
-] [584] [585] [586] [587]) [588] (./DSGEnotes.bbl [589
+]) (./chapters/KNKNCE.tex [584]
+第二章
+[585
 
-] [590] [591]
-[592] [593] [594] [595] [596]
-Underfull \hbox (badness 1681) in paragraph at lines 1075--1081
+] [586] [587] [588] [589]) [590] (./DSGEnotes.bbl [591
+
+] [592] [593]
+[594] [595] [596] [597] [598]
+Underfull \hbox (badness 1681) in paragraph at lines 1083--1089
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[597] [598] [599] [600] [601] [602] [603] [604]) [605] [606
+[599] [600] [601] [602] [603] [604] [605] [606]) [607] [608
 
 ] (./DSGEnotes.lof
-[607])
+[609])
 \tf@lof=\write9
 \openout9 = `DSGEnotes.lof'.
 
- [608] (./DSGEnotes.lot)
+ [610] (./DSGEnotes.lot)
 \tf@lot=\write10
 \openout10 = `DSGEnotes.lot'.
 
- [609
+ [611
 
-] [610
+] [612
 
-] (./DSGEnotes.tdo [611])
+] (./DSGEnotes.tdo)
 \tf@tdo=\write11
 \openout11 = `DSGEnotes.tdo'.
 
- [612]
+ [613] [614
+
+]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
 
-(./DSGEnotes.ind [613
+(./DSGEnotes.ind [615
 
-
-] [614] [615] [616] [617] [618] [619] [620] [621] [622]
-[623
-\indexentry{残差方程(映射法)}{623}
-] [624] [625]) [626]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 497.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 497.
+] [616] [617] [618] [619] [620] [621] [622] [623] [624]
+[625
+\indexentry{残差方程(映射法)}{625}
+] [626] [627]) [628]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 498.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 498.
  (./DSGEnotes.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 497.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 497.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 498.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 498.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 55614 strings out of 493007
- 1142546 string characters out of 6134605
- 1615190 words of memory out of 5000000
- 58595 multiletter control sequences out of 15000+600000
+ 55595 strings out of 493007
+ 1142094 string characters out of 6134605
+ 1615165 words of memory out of 5000000
+ 58576 multiletter control sequences out of 15000+600000
  545493 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  76i,27n,146p,10415b,3282s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (626 pages, 9901664 bytes).
+Output written on DSGEnotes.xdv (628 pages, 9890172 bytes).

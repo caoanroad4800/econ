@@ -543,7 +543,7 @@
 \indexentry{variance-stablizing transformation (VST) \dotfill 方差稳定变换}{555}
 \indexentry{Box-Cox transformation \dotfill Box-Cox变换}{555}
 \indexentry{probability density function (PDF)!\dotfill 概率密度方程}{557}
-\indexentry{likelihood function \dotfill 似然方程}{557}
+\indexentry{likelihood function (LHF)\dotfill 似然方程}{557}
 \indexentry{conditional bias \dotfill 条件偏误}{558}
 \indexentry{unbiased estimate \dotfill 无偏估计}{558}
 \indexentry{mean square error (MSE) \dotfill 均方误差}{558}
@@ -556,3 +556,12 @@
 \indexentry{Newton Conjugate Gradient Method (Newton-CG method) \dotfill 牛顿共轭梯度法}{569}
 \indexentry{BFMG algorithm \dotfill BFMG算法}{569}
 \indexentry{Newton-Raphson Algorithm \dotfill 牛顿拉夫森算法}{570}
+\indexentry{quasi-maximum likelihood estimation (QMLE) \dotfill 准最大似然估计}{573}
+\indexentry{infor mation! \dotfill 信息}{573}
+\indexentry{entropy \dotfill 熵}{573}
+\indexentry{Kullback-Leibler information criterion (KLIC) \dotfill Kullback-Leibler信息准则}{574}
+\indexentry{probability density function (PDF)!joint \dotfill 联合概率密度方程}{574}
+\indexentry{data genrating process (DGP) \dotfill 数据生成过程}{575}
+\indexentry{quasi-likelihood function (QLHF)\dotfill 准似然方程}{575}
+\indexentry{maximum likelihood estimator (MLE)!quasi \dotfill 准最大似然估计}{576}
+\indexentry{nonlinear regression (NLS) \dotfill 非线性最小二乘法}{577}

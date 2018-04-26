@@ -80,6 +80,11 @@
   Cycles}}.
 \newblock \bibinfo{journal}{Journal of Political Economy}
   \bibinfo{year}{2004};\bibinfo{volume}{112}(\bibinfo{number}{6}):\bibinfo{pages}{1223--1256}.
+%Type = Book
+\bibitem[{Amemiya(1985)}]{Amemiya:1985uq}
+\bibinfo{author}{Amemiya\xfnm[ T.]}.
+\newblock \bibinfo{title}{{Advanced Econometrics}}.
+\newblock \bibinfo{publisher}{Harvard University Press}, \bibinfo{year}{1985}.
 %Type = Article
 \bibitem[{An and Schorfheide(2007)}]{An:2007cv}
 \bibinfo{author}{An\xfnm[ S.]}, \bibinfo{author}{Schorfheide\xfnm[ F.]}.
@@ -506,6 +511,13 @@
   external finance premium}}.
 \newblock \bibinfo{journal}{Cambridge Working Papers in Economics}
   \bibinfo{year}{2008};\bibinfo{volume}{0852}.
+%Type = Book
+\bibitem[{Chen and Swanson(2013)}]{Chen:2013bk}
+\bibinfo{author}{Chen\xfnm[ X.]}, \bibinfo{author}{Swanson\xfnm[ N.R.]}.
+\newblock \bibinfo{title}{{Recent Advances and Future Directions in Causality,
+  Prediction, and Specification Analysis}}.
+\newblock Essays in Honor of Halbert L. White Jr. \bibinfo{publisher}{Springer
+  Science {\&} Business Media}, \bibinfo{year}{2013}.
 %Type = Article
 \bibitem[{Cheng and Cheng(2005)}]{Cheng:2005cd}
 \bibinfo{author}{Cheng\xfnm[ A.H.D.]}, \bibinfo{author}{Cheng\xfnm[ D.T.]}.
@@ -890,12 +902,6 @@
   Macroeconomics Vol. 2}. \bibinfo{publisher}{Elsevier}; \bibinfo{year}{2016}.
   p. \bibinfo{pages}{527--724}.
 %Type = Article
-\bibitem[{Forlati and Lambertini(2011)}]{Forlati:2011wy}
-\bibinfo{author}{Forlati\xfnm[ C.]}, \bibinfo{author}{Lambertini\xfnm[ L.]}.
-\newblock \bibinfo{title}{{Risky Mortgages in a DSGE Model}}.
-\newblock \bibinfo{journal}{International Journal of Central Banking}
-  \bibinfo{year}{2011};\bibinfo{volume}{7}(\bibinfo{number}{1}):\bibinfo{pages}{285--336}.
-%Type = Article
 \bibitem[{Fornberg(1996)}]{Fornberg:1996to}
 \bibinfo{author}{Fornberg\xfnm[ B.]}.
 \newblock \bibinfo{title}{{A Practical Guide to Pseudospectral Methods}}
@@ -956,12 +962,6 @@
 \newblock \bibinfo{journal}{Macroeconomic Dynamics}
   \bibinfo{year}{1997};\bibinfo{volume}{1}(\bibinfo{number}{1}):\bibinfo{pages}{45--75}.
 %Type = Article
-\bibitem[{Gertler and Karadi(2011)}]{Gertler:2011fs}
-\bibinfo{author}{Gertler\xfnm[ M.]}, \bibinfo{author}{Karadi\xfnm[ P.]}.
-\newblock \bibinfo{title}{{A Model of Unconventional Monetary Policy}}.
-\newblock \bibinfo{journal}{Journal of Monetary Economics}
-  \bibinfo{year}{2011};\bibinfo{volume}{58}(\bibinfo{number}{1}):\bibinfo{pages}{17--34}.
-%Type = Article
 \bibitem[{Gilchrist(2007)}]{Gilchrist:2007iv}
 \bibinfo{author}{Gilchrist\xfnm[ S.]}.
 \newblock \bibinfo{title}{{Comment on: Banking and interest rates in monetary
@@ -999,6 +999,14 @@
 \newblock \bibinfo{title}{{Computing Dynamic Heterogeneous-Agent Economies:
   Tracking the Distribution}}.
 \newblock \bibinfo{journal}{PIER Working Paper} \bibinfo{year}{2011};.
+%Type = Article
+\bibitem[{Gourieroux et~al.(1993)Gourieroux, Monfort and
+  Renault}]{Gourieroux:1993bj}
+\bibinfo{author}{Gourieroux\xfnm[ C.]}, \bibinfo{author}{Monfort\xfnm[ A.]},
+  \bibinfo{author}{Renault\xfnm[ E.]}.
+\newblock \bibinfo{title}{{Indirect inference}}.
+\newblock \bibinfo{journal}{Journal of Applied Econometrics}
+  \bibinfo{year}{1993};\bibinfo{volume}{8}(\bibinfo{number}{S1}):\bibinfo{pages}{S85--S118}.
 %Type = Book
 \bibitem[{Gradshteyn and Ryzhik(2014)}]{Gradshteyn:2014uy}
 \bibinfo{author}{Gradshteyn\xfnm[ I.S.]}, \bibinfo{author}{Ryzhik\xfnm[ I.M.]}.
@@ -1164,13 +1172,6 @@
 \newblock \bibinfo{title}{{The Finite Element Method: Linear Static and Dynamic
   Finite Element Analysis}}.
 \newblock \bibinfo{publisher}{Dover Publications}, \bibinfo{year}{2000}.
-%Type = Article
-\bibitem[{Iacoviello and Neri(2010)}]{Iacoviello:2010fo}
-\bibinfo{author}{Iacoviello\xfnm[ M.]}, \bibinfo{author}{Neri\xfnm[ S.]}.
-\newblock \bibinfo{title}{{Housing Market Spillovers: Evidence from an
-  Estimated DSGE Model}}.
-\newblock \bibinfo{journal}{American Economic Journal: Macroeconomics}
-  \bibinfo{year}{2010};\bibinfo{volume}{2}(\bibinfo{number}{2}):\bibinfo{pages}{125--164}.
 %Type = Article
 \bibitem[{Inada(1963)}]{Inada1963}
 \bibinfo{author}{Inada\xfnm[ K.I.]}.
@@ -2007,13 +2008,6 @@
 \newblock \bibinfo{title}{{Recursive Methods in Economic Dynamics}},
   \bibinfo{year}{1989}.
 %Type = Article
-\bibitem[{Suh(2012)}]{Suh:2012dp}
-\bibinfo{author}{Suh\xfnm[ H.]}.
-\newblock \bibinfo{title}{{Macroprudential Policy: Its Effects and Relationship
-  to Monetary Policy}}.
-\newblock \bibinfo{journal}{Federal Researve Bank of Philadelphia Working
-  Paper} \bibinfo{year}{2012};\bibinfo{volume}{12}(\bibinfo{number}{28}).
-%Type = Article
 \bibitem[{Sveen and Weinke(2005)}]{Sveen:2005db}
 \bibinfo{author}{Sveen\xfnm[ T.]}, \bibinfo{author}{Weinke\xfnm[ L.]}.
 \newblock \bibinfo{title}{{New perspectives on capital, sticky prices, and the
@@ -2116,6 +2110,19 @@
 \newblock \bibinfo{address}{New York}: \bibinfo{publisher}{Marcel Dekker},
   \bibinfo{year}{1971}.
 %Type = Article
+\bibitem[{White(1982)}]{White:1982bm}
+\bibinfo{author}{White\xfnm[ H.]}.
+\newblock \bibinfo{title}{{Maximum Likelihood Estimation of Misspecified
+  Models}}.
+\newblock \bibinfo{journal}{Econometrica}
+  \bibinfo{year}{1982};\bibinfo{volume}{50}(\bibinfo{number}{1}):\bibinfo{pages}{1}.
+%Type = Book
+\bibitem[{White(1994)}]{White:1994vu}
+\bibinfo{author}{White\xfnm[ H.]}.
+\newblock \bibinfo{title}{{Estimation, Inference and Specification Analysis}}.
+\newblock \bibinfo{publisher}{Cambridge University Press},
+  \bibinfo{year}{1994}.
+%Type = Article
 \bibitem[{Wood(1975)}]{Wood:1975vn}
 \bibinfo{author}{Wood\xfnm[ A.]}.
 \newblock \bibinfo{title}{{A Theory of Profits}} \bibinfo{year}{1975};.
@@ -2143,11 +2150,5 @@
   and business cycles}}.
 \newblock \bibinfo{journal}{Journal of Monetary Economics}
   \bibinfo{year}{1996};\bibinfo{volume}{37}(\bibinfo{number}{2}):\bibinfo{pages}{345--370}.
-%Type = Book
-\bibitem[{朱彦元(2018)}]{Zhuyanyuan:2018tm}
-\bibinfo{author}{朱彦元\xfnm[]}.
-\newblock \bibinfo{title}{{DSGE \textbf{模型笔记 }}}.
-\newblock \bibinfo{address}{同济大学中德工程学院},
-  \bibinfo{year}{2018}.
 
 \end{thebibliography}
