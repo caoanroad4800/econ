@@ -249,6 +249,7 @@
   \item hat matrix \dotfill 帽子矩阵, 551
   \item Heaviside function \dotfill 黑维塞方程, 511
   \item Hermitian symmetric \dotfill 埃米特对称, 333
+  \item Hessian matrix \dotfill 海森矩阵, 577
   \item Hilbert space \dotfill 希尔伯特空间, 274, 331
   \item Hoeffding inequality \dotfill 霍夫丁不等式, 538
   \item Hoeffding lemma \dotfill 霍夫丁引理, 536
@@ -287,6 +288,9 @@
   \item inf-sup condition \dotfill 上极限——下极限条件, 275
   \item infor mation
     \subitem  \dotfill 信息, 573
+  \item information matrix \dotfill 信息矩阵, 578
+  \item information matrix equality (IME) \dotfill 信息矩阵等式, 
+		579
   \item injection \dotfill 内射, 373
   \item injection \dotfill 单射, 276
   \item inner product

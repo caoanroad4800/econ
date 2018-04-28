@@ -1,22 +1,22 @@
 # Fdb version 3
-["bibtex DSGEnotes"] 1524740030 "DSGEnotes.aux" "DSGEnotes.bbl" "DSGEnotes" 1524740259
+["bibtex DSGEnotes"] 1524890534 "DSGEnotes.aux" "DSGEnotes.bbl" "DSGEnotes" 1524900282
   "./model4-names.bst" 1523163596 28214 de501ffbf7fe1fde2983e5f043e9abba ""
   "./refs/papers.bib" 1524712179 684779 54e4097dfa3d6beca9bd8b6d6e7a2ecd ""
-  "DSGEnotes.aux" 1524740242 347706 700738d1fe640f5a81647c915865b495 ""
+  "DSGEnotes.aux" 1524900263 349484 ff77c700c9d0e678a3448f19b8aff1d5 ""
   (generated)
-  "DSGEnotes.blg"
   "DSGEnotes.bbl"
-["makeindex DSGEnotes.idx"] 1524739883 "DSGEnotes.idx" "DSGEnotes.ind" "DSGEnotes" 1524740259
-  "DSGEnotes.idx" 1524740242 38270 287b5f547150043711d269232e8fab2c ""
+  "DSGEnotes.blg"
+["makeindex DSGEnotes.idx"] 1524887602 "DSGEnotes.idx" "DSGEnotes.ind" "DSGEnotes" 1524900282
+  "DSGEnotes.idx" 1524900263 38464 b113adf79d1dcde9c0c74902754cb0b9 ""
   (generated)
   "DSGEnotes.ind"
   "DSGEnotes.ilg"
-["xdvipdfmx"] 1524740243 "DSGEnotes.xdv" "DSGEnotes.pdf" "DSGEnotes" 1524740259
-  "DSGEnotes.xdv" 1524740242 9890172 1aa9133771c36f8dc3ac5a4eb1b5c221 "xelatex"
+["xdvipdfmx"] 1524900264 "DSGEnotes.xdv" "DSGEnotes.pdf" "DSGEnotes" 1524900282
+  "DSGEnotes.xdv" 1524900263 9937004 7f4fde0d22da3b79f5c1d42325423ffe "xelatex"
   (generated)
   "DSGEnotes.pdf"
-["xelatex"] 1524740233 "DSGEnotes.tex" "DSGEnotes.xdv" "DSGEnotes" 1524740259
-  "/dev/null" 1524709501 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1524900254 "DSGEnotes.tex" "DSGEnotes.xdv" "DSGEnotes" 1524900282
+  "/dev/null" 1524881045 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2017/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1480098689 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2017/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1480098698 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -266,15 +266,15 @@
   "/usr/local/texlive/2017/texmf-dist/web2c/texmf.cnf" 1518824182 33095 db9a077a3f94a5d0b580d566a7906714 ""
   "/usr/local/texlive/2017/texmf-var/web2c/xetex/xelatex.fmt" 1521689406 3705420 d2344c619bef1b03e6a0cff5c806e192 ""
   "/usr/local/texlive/2017/texmf.cnf" 1520323655 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "DSGEnotes.aux" 1524740242 347706 700738d1fe640f5a81647c915865b495 ""
-  "DSGEnotes.bbl" 1524740030 112486 08f9ed813bace3b839e6d504bec06e10 "bibtex DSGEnotes"
-  "DSGEnotes.ind" 1524740242 32171 7a0a1b8b3252879a275db3390a420516 "makeindex DSGEnotes.idx"
-  "DSGEnotes.lof" 1524740242 9440 36f1dd45b9f2a5e317f1dc2ec768bfd2 ""
-  "DSGEnotes.lot" 1524740242 1579 83090d86f73401e7dfa9863b1d2d381f ""
-  "DSGEnotes.out" 1524740242 55093 616964c10c663be9e3d7f76eeb2dde27 ""
-  "DSGEnotes.tdo" 1524740242 4851 0bc95925c391c0af7ce04ac1361d58bd ""
+  "DSGEnotes.aux" 1524900263 349484 ff77c700c9d0e678a3448f19b8aff1d5 ""
+  "DSGEnotes.bbl" 1524890534 112486 08f9ed813bace3b839e6d504bec06e10 "bibtex DSGEnotes"
+  "DSGEnotes.ind" 1524900263 32353 e721f9c7b4d4b38242fd43c6b708b934 "makeindex DSGEnotes.idx"
+  "DSGEnotes.lof" 1524900263 9440 36f1dd45b9f2a5e317f1dc2ec768bfd2 ""
+  "DSGEnotes.lot" 1524900263 1579 83090d86f73401e7dfa9863b1d2d381f ""
+  "DSGEnotes.out" 1524900263 55199 d025aaf02a216e779b5b56299eead762 ""
+  "DSGEnotes.tdo" 1524900263 4851 0bc95925c391c0af7ce04ac1361d58bd ""
   "DSGEnotes.tex" 1524715947 22822 daeff70cb6fc6f1b5a2b6d03f5791684 ""
-  "DSGEnotes.toc" 1524740242 60869 00d6433143cc6b7281a8f744e0a628d1 ""
+  "DSGEnotes.toc" 1524900263 60950 18f9adf402ec29505618749372c81f4b ""
   "Figures/20170227-nc-adaptive-quadrature.png" 1523163596 18727 4c22ccc5916c4a40cd4feeb168535e23 ""
   "Figures/20170324-CIA-outline.pdf" 1523163596 13444 0fbcfab11c5d5ac247f3be41753e2c70 ""
   "Figures/20170701-DSGE-workflow.pdf" 1523163596 24784 3dad30f7cd4c3d60db20c6400a8a86df ""
@@ -371,7 +371,7 @@
   "chapters/bem-fem-0902-finele.tex" 1523163596 23527 3f151337daa0b952095ca7dd77c8e39f ""
   "chapters/comparison.tex" 1523163596 4617 61972c27c7e63902efbe2cbdeb31dfb1 ""
   "chapters/connection-2.tex" 1523856290 31091 f22e9ad54e538f9233efd77997d761d3 ""
-  "chapters/connection-appendix-2.tex" 1524710153 26216 6360c82c7a8f6af41ad2ed371d1c22c8 ""
+  "chapters/connection-appendix-2.tex" 1524816928 26216 b4aa56c4c8c37df23ce9c24e730f7726 ""
   "chapters/connection-appendix.tex" 1523856290 85828 0f9306f47d2f3d3ea9e70b9ea8bb6d98 ""
   "chapters/connection.tex" 1524665004 56247 34e8f4ee5faa6a076444a0f023c16e80 ""
   "chapters/dynamic-programming.tex" 1523163596 27427 68602373eae24e7e7c29b231407716f0 ""
@@ -386,7 +386,7 @@
   "chapters/projection-appendices-3.tex" 1523163596 62467 b43e2c648675e604906ecb06be382dd3 ""
   "chapters/projection-appendices.tex" 1523163596 153959 4872b4bb017a3d88e761034de8b8163f ""
   "chapters/projection.tex" 1523163596 95753 bc94bae413b6075849b76531ad24d149 ""
-  "chapters/qmle.tex" 1524740232 18499 34ab485aa44471a5a075462af81df2b2 ""
+  "chapters/qmle.tex" 1524900253 32092 01d353235af3f02e4a32f0c6bc042dd0 ""
   "chapters/rational-expectation-solutions-2.tex" 1523163596 30059 44fc349cae1716b0913867c9c2d7bc0c ""
   "chapters/rational-expectation-solutions.tex" 1523163596 65045 7ebf78865e7450e65d9bb6bf5a2bd786 ""
   "chapters/solution-strategies.tex" 1523163596 25654 a5d93fc820374b52ca43d3ed666a132e ""
@@ -394,13 +394,13 @@
   "mmacells.sty" 1523163596 28058 a1091b5a73c18e759cbfd79621b1d025 ""
   "numcompress.sty" 1523163596 5571 cf097ecf807971c5a27366f7496e7d10 ""
   (generated)
-  "DSGEnotes.xdv"
   "DSGEnotes.lof"
   "DSGEnotes.toc"
-  "DSGEnotes.aux"
+  "DSGEnotes.out"
   "tmpbib.tex"
+  "DSGEnotes.tdo"
+  "DSGEnotes.log"
+  "DSGEnotes.xdv"
+  "DSGEnotes.aux"
   "DSGEnotes.lot"
   "DSGEnotes.idx"
-  "DSGEnotes.tdo"
-  "DSGEnotes.out"
-  "DSGEnotes.log"

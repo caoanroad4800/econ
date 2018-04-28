@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.22)  26 APR 2018 18:57
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.22)  28 APR 2018 15:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3760,58 +3760,67 @@ Missing character: There is no ； in font [lmroman10-regular]:mapping=tex-text;
  [576]
 Missing character: There is no ； in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
-) [577] [578
+ [577]
+Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
+ [578]
+Underfull \hbox (badness 1163) in paragraph at lines 459--460
+[][]\TU/lmr/bx/n/10 Corollary 18.1 \TU/lmr/m/n/10 (QMLE \TU/FandolSong-Regular(
+0)/m/n/10 的 渐 进 正 态 分 布 特 征\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/lmr/m/it/10 
+QMLE \TU/FandolSong-Regular(0)/m/it/10 系 数 距 其 真 实 系 数 的 标 准 化 距 离
+ []
 
-] [579] [580] [581
+[579]) [580] [581
 
-] [582] (./chapters/PK.tex
+] [582] [583
+
+] [584] (./chapters/PK.tex
 第一章
-[583
-
-]) (./chapters/KNKNCE.tex [584]
-第二章
 [585
 
-] [586] [587] [588] [589]) [590] (./DSGEnotes.bbl [591
+]) (./chapters/KNKNCE.tex [586]
+第二章
+[587
 
-] [592] [593]
-[594] [595] [596] [597] [598]
+] [588] [589] [590] [591]) [592] (./DSGEnotes.bbl [593
+
+] [594] [595]
+[596] [597] [598] [599] [600]
 Underfull \hbox (badness 1681) in paragraph at lines 1083--1089
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[599] [600] [601] [602] [603] [604] [605] [606]) [607] [608
+[601] [602] [603] [604] [605] [606] [607] [608]) [609] [610
 
 ] (./DSGEnotes.lof
-[609])
+[611])
 \tf@lof=\write9
 \openout9 = `DSGEnotes.lof'.
 
- [610] (./DSGEnotes.lot)
+ [612] (./DSGEnotes.lot)
 \tf@lot=\write10
 \openout10 = `DSGEnotes.lot'.
 
- [611
+ [613
 
-] [612
+] [614
 
 ] (./DSGEnotes.tdo)
 \tf@tdo=\write11
 \openout11 = `DSGEnotes.tdo'.
 
- [613] [614
+ [615] [616
 
 ]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
 
-(./DSGEnotes.ind [615
+(./DSGEnotes.ind [617
 
-] [616] [617] [618] [619] [620] [621] [622] [623] [624]
-[625
-\indexentry{残差方程(映射法)}{625}
-] [626] [627]) [628]
+] [618] [619] [620] [621] [622] [623] [624] [625] [626]
+[627
+\indexentry{残差方程(映射法)}{627}
+] [628] [629]) [630]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 498.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 498.
  (./DSGEnotes.aux)
@@ -3823,12 +3832,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 55595 strings out of 493007
- 1142094 string characters out of 6134605
- 1615165 words of memory out of 5000000
- 58576 multiletter control sequences out of 15000+600000
+ 55612 strings out of 493007
+ 1142641 string characters out of 6134605
+ 1615911 words of memory out of 5000000
+ 58593 multiletter control sequences out of 15000+600000
  545493 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  76i,27n,146p,10415b,3282s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (628 pages, 9890172 bytes).
+Output written on DSGEnotes.xdv (630 pages, 9937004 bytes).

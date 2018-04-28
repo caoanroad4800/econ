@@ -281,4 +281,294 @@ QLHF $L_{T} \left( z^{T}; \theta \right)$
 
 \subsection{QMLE的渐进性质}
 \label{sec:qmle-asymptotic}
-通常来说，QLHF $L_{T} \left( \cdot ; \theta \right)$是一个关于系数向量$\theta$的非线性方程系统。非线性意味着我们往往无法直接求得解析解QMLE $\tilde{\theta}_{T}$，而是要靠非线性优化算法作数值近似。
+通常来说，QLHF $L_{T} \left( \cdot ; \theta \right)$是一个关于系数向量$\theta$的非线性方程系统。非线性意味着我们往往无法直接求得解析解QMLE $\tilde{\theta}_{T}$，而是要靠非线性优化算法作数值近似。那么在数值近似之前，就需要探讨QMLE的金斯特征。本节中，我们假定QLHF $L_{T} \left( \cdot ; \theta \right)$在紧凑参数空间$\Theta$中的概率为$1$，1次、2次连续可导，积分和微分运算可交换顺序，并且识别条件成立：$\exists! \theta^{*} \in \Theta$，使得KLIC \eqref{eq:qmle-klic-def}或\eqref{eq:qmle-klic-gf}最大化。要求$\theta^{*} \in \Theta$是为了确保平均值扩展\eqref{eq:qmle-mean-value-expansion}和随后QLHF $L_{T}$的渐进分析是有效的。
+
+以关于$z^{T}$的QLHF $L_{T} \left( z^{T}; \tilde{\theta}_{T} \right)$为例，由于可能存在误设定问题，QMLE $\tilde{\theta}_{T}$可能不同于$\theta^{*}$。
+将一阶矩条件$\triangledown L_{T} \left( z^{T}; \tilde{\theta}_{T} \right)$针对$\theta^{*}$作平均值扩展
+\begin{equation}
+    \label{eq:qmle-mean-value-expansion}
+    \triangledown L_{T} \left( z^{T}; \tilde{\theta}_{T} \right) \approx
+    \triangledown L_{T} \left(z^{T}; \theta^{*} \right)
+    + \triangledown^{2} L_{t} \left(z^{T}; \theta_{T}^{\dagger} \right) \left(\tilde{\theta}_{T} - \theta^{*} \right),
+\end{equation}
+其中$\theta_{T}^{\dagger} \in \Theta$是个在$\tilde{\theta}_{T}$和$\theta^{*}$之间的参数向量。通过选取合适的$\tilde{\theta}_{T}$值，使得\eqref{eq:qmle-mean-value-expansion} LHS =0，进而我们有一阶矩条件和二阶矩条件的关系
+\begin{equation*}
+    \triangledown L_{T} \left(z^{T}; \theta^{*} \right)
+    = -\triangledown^{2} L_{t} \left(z^{T}; \theta_{T}^{\dagger} \right) \left(\tilde{\theta}_{T} - \theta^{*} \right).
+\end{equation*}
+
+假定$\triangledown^{2} L_{t} \left(z^{T}; \theta_{T}^{\dagger} \right)$可逆，即要求QLHF $L_{T}$在给定的$\theta^{*}$系数下为局部二次形式。集合全部$\theta_{T}^{\dagger} \in \Theta$的取值，将二阶矩的期望值设为期望海森矩阵(expected Hessian matrix)\index{Hessian matrix \dotfill 海森矩阵}
+\begin{equation}
+    \label{eq:qmle-hessian-matrix-def}
+    H_{T} \left( \theta \right) \coloneqq E
+    \left[
+    \triangledown^{2} L_{T} \left( z^{T}; \theta \right)
+    \right].
+\end{equation}
+
+如果$\triangledown^{2} L_{T} \left(z^{T}; \theta_{T}^{\dagger} \right)$遵循弱均匀大数法则(WULLN, 第\ref{sec:lln}节)，那么如下条件在参数空间$\Theta$中均匀成立
+\begin{equation*}
+    \triangledown^{2} L_{T} \left( z^{T}; \theta \right)
+    -\underbrace{
+    E
+    \left[
+    \triangledown^{2} L_{T} \left( z^{T}; \theta \right)
+    \right]
+    } _{=H_{T} \left( \theta \right)}
+    \overset{\mathbb{P}}{\longrightarrow} 0.
+\end{equation*}
+
+因此可将\eqref{eq:qmle-mean-value-expansion}改写为
+\begin{equation}
+    \label{eq:qmle-mean-value-expansion-hessian}
+    \sqrt{T} \left( \tilde{\theta}_{T} - \theta^{*} \right)
+    = - \left( H_{T} \left(\theta^{*} \right) \right)^{-1} \,
+    \sqrt{T} \,
+    \triangledown L_{T} \left( z^{T}; \theta^{*} \right)
+    + \mathcal{O}_{p} \left( 1 \right),
+\end{equation}
+就是说，QMLE系数距其真实系数的标准化距离 $\sqrt{T} \left( \tilde{\theta}_{T} - \theta^{*} \right)$ 的渐进分布，就事实上取决于标准化core方程 $\sqrt{T} \,
+\triangledown L_{T} \left( z^{T}; \theta^{*} \right)$ 的渐进分布。
+
+将标准化socre方程的方差协方差矩阵设为$B_{T} \left( \theta \right)$
+\begin{equation}
+    \label{eq:qmle-score-information-matrix-def}
+    B_{T} \left( \theta \right) = \var
+    \left(
+    \sqrt{T} \,
+    \triangledown L_{T} \left( z^{T}; \theta^{*} \right)
+    \right),
+\end{equation}
+又称信息矩阵(information matrix)\index{information matrix \dotfill 信息矩阵}。
+
+若假定$\log f_{t} \left( z_{t} | z^{t-1} \right)$满足中心极限定理(CLT, 第\ref{sec:kernel-gaussian-central-limit-theorem})，可得
+\begin{equation}
+    \label{eq:qmle-info-matrix-distribution}
+    \left( B_{T} \left(\theta^{*} \right) \right)^{-\frac{1}{2}}
+    \sqrt{T}
+    \triangledown L_{T} \left(z^{T}; \theta^{*} \right)
+    - \underbrace{
+    E \left[
+    \triangledown L_{t} \left( z^{T}; \theta^{*} \right)
+    \right]
+    }_{\eqqcolon \mathcal{A}}
+    \overset{D}{\longrightarrow} \mathcal{N} \left(0, I_{k} \right).
+\end{equation}
+
+\begin{proposition}
+    \eqref{eq:qmle-info-matrix-distribution}中的$\mathcal{A}=0$。
+\end{proposition}
+\begin{proof}
+根据微分和积分顺序可以互换的假定，有
+\begin{equation}
+    \label{eq:qmle-klic-gf-expectation-avg-1derivative}
+    E \left[
+    \triangledown L_{t} \left( z^{T}; \theta \right)
+    \right]
+    =
+    \triangledown E \left[
+    L_{T} \left( z^{T}; \theta \right)
+    \right]
+    \triangledown \overline{L}_{T} \left( \theta \right),
+\end{equation}
+其中RHS是\eqref{eq:qmle-klic-gf-expectation-avg}的一阶导数。
+
+根据QMLE $\theta^{*}$的性质，以下关系依次成立
+\begin{equation*}
+    \begin{split}
+        & \theta^{*} = \underset{\theta}{\argmin} \, KL \left(z^{T}; \theta \right), \\
+        \hookrightarrow & KL \left(z^{T}; \theta^{*} \right) = 0, \\
+        \hookrightarrow & \triangledown \overline{L}_{T} \left( \theta^{*} \right) = 0,
+    \end{split}
+\end{equation*}
+进一步代入关于$\theta^{*}$的关系式\eqref{eq:qmle-klic-gf-expectation-avg-1derivative}可得
+\begin{equation*}
+    \mathcal{A} =
+    E \left[
+    \triangledown L_{t} \left( z^{T}; \theta^{*} \right)
+    \right]
+    = 0.
+\end{equation*}
+\end{proof}
+
+\eqref{eq:qmle-info-matrix-distribution}改写为
+\begin{equation*}
+    %\label{eq:qmle-info-matrix-distribution-2}
+    \left( B_{T} \left(\theta^{*} \right) \right)^{-\frac{1}{2}}
+    \sqrt{T}
+    \triangledown L_{T} \left(z^{T}; \theta^{*} \right)
+    \overset{D}{\longrightarrow} \mathcal{N} \left(0, I_{k} \right)，
+\end{equation*}
+
+进一步代回\eqref{eq:qmle-mean-value-expansion-hessian}，改写成
+\begin{equation*}
+%    \label{eq:qmle-mean-value-expansion-hessian-2}
+    \sqrt{T} \left( \tilde{\theta}_{T} - \theta^{*} \right)
+    = - \left( H_{T} \left(\theta^{*} \right) \right)^{-1} \,
+    B_{T} \left(\theta^{*} \right)^{\frac{1}{2}}
+    \underbrace{
+    \left[
+    B_{T} \left(\theta^{*} \right)^{- \frac{1}{2}}
+    \sqrt{T}
+    \triangledown L_{T} \left( z^{T}; \theta^{*} \right)
+    \right]
+    }_{\overset{D}{\longrightarrow} \mathcal{N} \left(0, I_{k} \right)}
+    + \mathcal{O}_{p} \left( 1 \right),
+\end{equation*}
+表现为渐进的正态分布特征。由此可得以下结论
+\begin{theorem}[QMLE的渐进正态分布特征]
+    \label{theorem:qmle-asymptotic-normal-distribution}
+    若\eqref{eq:qmle-mean-value-expansion}，
+    \eqref{eq:qmle-mean-value-expansion-hessian}，
+    \eqref{eq:qmle-info-matrix-distribution}均成立，那么有
+    QMLE系数距其真实系数的标准化距离 $\sqrt{T} \left( \tilde{\theta}_{T} - \theta^{*} \right)$表现为渐进正态分布，满足
+    \begin{equation}
+        \label{eq:qmle-asymptotic-normal-distribution}
+        C_{T} \left( \theta^{*} \right)^{-\frac{1}{2}}
+        \sqrt{T} \left( \tilde{\theta}_{T} - \theta^{*} \right)
+        \overset{D}{\longrightarrow} \mathcal{N} \left(0, I_{k} \right),
+    \end{equation}
+    其中方差协方差矩阵$C_{T} \left( \theta^{*} \right)$满足关系
+    \begin{equation}
+        \label{eq:qmle-asymptotic-normal-distribution-c}
+            C_{T} \left( \theta^{*} \right) =
+            \left[
+            H_{T} \left( \theta^{*} \right)
+            \right]^{-1}
+            B_{T} \left( \theta^{*} \right)
+            \left[
+            H_{T} \left( \theta^{*} \right)
+            \right]^{-1},
+    \end{equation}
+    $B_{T} \left( \theta^{*} \right), \, H_{T} \left( \theta^{*} \right)$分别表示标准化score方程的方差协方差矩阵(信息矩阵)和期望海森矩阵，由  \eqref{eq:qmle-score-information-matrix-def}和\eqref{eq:qmle-hessian-matrix-def}可得
+    \begin{equation*}
+        \begin{split}
+            & B_{T} \left( \theta^{*} \right) = \var
+            \left(
+            \sqrt{T} \triangledown L_{T} \left( z^{T}; \theta^{*} \right)
+            \right), \\
+            & H_{T} \left( \theta^{*} \right) = E \triangledown^{2}
+            L_{T} \left( z^{T}; \theta^{*} \right).
+        \end{split}
+    \end{equation*}
+\end{theorem}
+
+再来看关于$\left\{ y_{t}|x_{t} \right\}_{t=1}^{T}$的QLHF $L_{T} \left(y^{T} , x^{T}; \theta \right)$的情况。类似于，我们可得QMLE$\tilde{\theta}_{T}$的渐进正态分布特征
+\begin{corollary}[QMLE的渐进正态分布特征]
+    \label{corollary:qmle-asymptotic-normal-distribution}
+    QMLE系数距其真实系数的标准化距离 $\sqrt{T} \left( \tilde{\theta}_{T} - \theta^{*} \right)$表现为渐进正态分布，满足
+    \begin{equation*}
+        C_{T} \left( \theta^{*} \right)^{-\frac{1}{2}}
+        \sqrt{T} \left( \tilde{\theta}_{T} - \theta^{*} \right)
+        \overset{D}{\longrightarrow} \mathcal{N} \left(0, I_{k} \right),
+    \end{equation*}
+    其中
+    \begin{equation*}
+        \begin{split}
+            &C_{T} \left( \theta^{*} \right) =
+            \left[
+            H_{T} \left( \theta^{*} \right)
+            \right]^{-1}
+            B_{T} \left( \theta^{*} \right)
+            \left[
+            H_{T} \left( \theta^{*} \right)
+            \right]^{-1},\\
+            & B_{T} \left( \theta^{*} \right) = \var
+            \left(
+            \sqrt{T} \triangledown L_{T} \left( y^{T}, x^{T}; \theta^{*} \right)
+            \right), \\
+            & H_{T} \left( \theta^{*} \right) = E \triangledown^{2}
+            L_{T} \left( y^{T}, x^{T}; \theta^{*} \right).
+        \end{split}
+    \end{equation*}
+\end{corollary}
+
+\section{信息矩阵等式}
+\label{eq:qlme-ime}
+准最大似然估计的一个重要结论是信息矩阵等式(information matrix equality, IME)\index{information matrix equality (IME) \dotfill 信息矩阵等式}，是说在特定条件下，信息矩阵$B_{T} \left( \theta \right)$ \eqref{eq:qmle-score-information-matrix-def}等于海森矩阵期望值\eqref{eq:qmle-hessian-matrix-def}的负数$- E H_{T} \left( \theta \right)$。
+IME可以简化方差协方差矩阵\eqref{eq:qmle-asymptotic-normal-distribution-c} $C_{T} \left( \theta \right)$的计算。
+
+将score方程定义为$s_{t} \left( z^{t}; \theta \right)$，反映对数PDF的一阶变化
+\begin{equation*}
+    %\label{eq:qlme-ime-def}
+    s_{t} \left( z^{t}; \theta \right) = \triangledown \log f_{t}  \left( z_{t} | z^{t-1} ; \theta \right),
+\end{equation*}
+从而
+\begin{equation*}
+    \triangledown f_{t} \left( z_{t} | z^{t-1} ; \theta \right)
+    = s_{t} \left(z^{t}; \theta \right)
+    f_{t} \left( z_{t} | z^{t-1} ; \theta \right),
+\end{equation*}
+
+汇总全部$t=1,\ldots,T$的score方程，有加权平均
+\begin{equation}
+    \label{eq:qlme-ime-def}
+    s^{T} \left( z^{T}; \theta \right) = \frac{1}{T} \sum_{t=1}^{T} s_{t}  \left(z^{t}; \theta \right).
+\end{equation}
+
+进而有
+\begin{equation*}
+    \label{eq:qmle-ime-mid-equality}
+    \begin{split}
+        s^{T} \left(z^{T}; \theta \right) \, f^{T} \left(z^{T}; \theta \right) & =
+        \left[
+        \frac{1}{T} \sum_{t=1}^{T} s_{t} \left(z^{t}; \theta \right)
+        \right] \,
+        \left[
+        \prod_{\tau=1}^{T} f^{\tau} \left(z_{t} | z^{\tau-1} ; \theta \right)
+        \right] \\
+        & = \frac{1}{T} \sum_{t=1}^{T}
+        \left[
+        \triangledown \log f_{t} \left(z_{t} | z^{t-1}; \theta \right) \,
+        \prod_{\tau=1,\tau \neq t}^{T} f^{\tau} \left(z_{\tau} | z^{\tau - 1}; \theta \right)
+        \right] \\
+        & = \frac{1}{T} \triangledown f^{T} \left(z^{T}; \theta \right)
+    \end{split}
+\end{equation*}
+
+根据PDF的定义
+\begin{equation*}
+    \int_{\mathbb{R}} f^{T} \left(z^{T}; \theta \right) \, \mathrm{d} z^{T} = 1,
+\end{equation*}
+可得导数的积分必为$0$，
+\begin{align*}
+    & \int_{\mathbb{R}} \triangledown f^{T} \left(z^{T}; \theta \right) \, \mathrm{d} z^{T} = 0, \\
+    & \int_{\mathbb{R}} \triangledown^{2} f^{T} \left(z^{T}; \theta \right) \, \mathrm{d} z^{T} = 0.
+\end{align*}
+
+设积分微分顺序可以互换，则
+\begin{align}
+    \label{eq:qmle-ime-mid-int1}
+    & \frac{1}{T} \int_{\mathbb{R}} \triangledown f^{T} \left( z^{T}; \theta \right) \, \mathrm{d} z^{T} = \int_{\mathbb{R}} s^{T} \left(z^{T}; \theta \right) \, \mathrm{d} z^{T} =0, \\
+    \label{eq:qmle-ime-mid-int2}
+    & \frac{1}{T} \int_{\mathbb{R}} \triangledown^{2} f^{T} \left(z^{T}; \theta \right) \, \mathrm{d} z^{T} = \int_{\mathbb{R}}
+    \left\{
+    \triangledown s^{T} \left( z^{T}; \theta \right)
+    % f^{T} \left(z^{T}; \theta \right)
+    + T \left[
+    s^{T} \left(z^{T} ; \theta \right) \, s^{T} \left(z^{T} ; \theta \right)^{\top}
+    \right]
+    \right\} f^{T} \left(z^{T}; \theta \right)
+    \, \mathrm{d} z^{T} =0.
+\end{align}
+
+进一步的分析需要分两种情况来讨论。第一种情况，设$\left\{ f_{t} \left(z^{t}|z^{t-1} ; \theta \right) \right\}_{t=1}^{T}$对$\left\{ z_{t} \right\}_{t=1}^{T}$整体正确设定。那么
+在真实(但未知的)PDF $g^{T} \left(z^{T} \right)$对应的系数$\theta_{0}$下，对近似PDF $f^{T} \left( z^{T} ; \theta_{0} \right)$取期望值，由\eqref{eq:qmle-ime-mid-int1}-\eqref{eq:qmle-ime-mid-int2}可得
+\begin{align}
+    \label{eq:qmle-ime-mid-correct-int1}
+    & E \left[ s^{T} \left( z^{T} ; \theta_{0} \right) \right]=0, \\
+    \label{eq:qmle-ime-mid-correct-int2}
+    & \underbrace{
+    E \left[
+    \triangledown s^{T} \left( z^{T} ; \theta_{0} \right)
+    \right]
+    }_{\eqqcolon \mathcal{A}}
+     + \underbrace{
+     T \, E
+    \left[
+    s^{T} \left( z^{T}; \theta_{0} \right) \,
+    s^{T} \left( z^{T}; \theta_{0} \right)^{\top}
+    \right]
+    }_{\eqqcolon \mathcal{B}}
+     =0,
+\end{align}

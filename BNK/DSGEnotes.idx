@@ -565,3 +565,6 @@
 \indexentry{quasi-likelihood function (QLHF)\dotfill 准似然方程}{575}
 \indexentry{maximum likelihood estimator (MLE)!quasi \dotfill 准最大似然估计}{576}
 \indexentry{nonlinear regression (NLS) \dotfill 非线性最小二乘法}{577}
+\indexentry{Hessian matrix \dotfill 海森矩阵}{577}
+\indexentry{information matrix \dotfill 信息矩阵}{578}
+\indexentry{information matrix equality (IME) \dotfill 信息矩阵等式}{579}
