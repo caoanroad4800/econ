@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.22)  28 APR 2018 15:24
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2018.3.26)  1 MAY 2018 14:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3750,7 +3750,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1646--1647
 [573
 
 ] [574]
-Underfull \hbox (badness 10000) in paragraph at lines 126--127
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
 []\TU/FandolSong-Regular(0)/m/n/10 为 了 表 述 方 便，|  将 非 条 件 密 度 写 成 条 件 密 度 的 形 式
  $\OML/cmm/m/it/10 f [] ;  g []$\TU/FandolSong-Regular(0)/m/n/10 ；|  进 而 可 以 将
  []
@@ -3758,69 +3758,86 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--127
 [575]
 Missing character: There is no ； in font [lmroman10-regular]:mapping=tex-text;!
  [576]
-Missing character: There is no ； in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
  [577]
 Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
  [578]
-Underfull \hbox (badness 1163) in paragraph at lines 459--460
+Underfull \hbox (badness 1163) in paragraph at lines 457--458
 [][]\TU/lmr/bx/n/10 Corollary 18.1 \TU/lmr/m/n/10 (QMLE \TU/FandolSong-Regular(
 0)/m/n/10 的 渐 进 正 态 分 布 特 征\TU/lmr/m/n/10 )\TU/lmr/bx/n/10 . []\TU/lmr/m/it/10 
 QMLE \TU/FandolSong-Regular(0)/m/it/10 系 数 距 其 真 实 系 数 的 标 准 化 距 离
  []
 
-[579]) [580] [581
+[579] [580]
+Missing character: There is no ， in font [lmroman10-regular]:mapping=tex-text;!
+ [581] [582] [583]
+Overfull \hbox (11.53815pt too wide) detected at line 1038
+[]
+ []
 
-] [582] [583
 
-] [584] (./chapters/PK.tex
+Overfull \hbox (25.0pt too wide) detected at line 1038
+[][][]
+ []
+
+[584] [585]
+Underfull \hbox (badness 10000) in paragraph at lines 1299--1301
+\TU/FandolSong-Regular(0)/m/n/10 其 中 $[]$ 是 \TU/lmr/m/n/10 OLS \TU/FandolSong-R
+egular(0)/m/n/10 估 计 的 残 差。| $\OML/cmm/m/it/10 H[] [] ; B[] []$ \TU/FandolSong-
+Regular(0)/m/n/10 都 是 块 对 角 矩 阵，|  因 此
+ []
+
+) [586] [587
+
+] [588] [589
+
+] [590] (./chapters/PK.tex
 第一章
-[585
+[591
 
-]) (./chapters/KNKNCE.tex [586]
+]) (./chapters/KNKNCE.tex [592]
 第二章
-[587
+[593
 
-] [588] [589] [590] [591]) [592] (./DSGEnotes.bbl [593
+] [594] [595] [596] [597]) [598] (./DSGEnotes.bbl [599
 
-] [594] [595]
-[596] [597] [598] [599] [600]
+] [600] [601]
+[602] [603] [604] [605] [606]
 Underfull \hbox (badness 1681) in paragraph at lines 1083--1089
 []\TU/lmr/m/n/10 Harcourt GC, Kenyon P.  PRICING AND THE INVESTMENT DECISION.  
 Kyklos
  []
 
-[601] [602] [603] [604] [605] [606] [607] [608]) [609] [610
+[607] [608] [609] [610] [611] [612] [613] [614]) [615] [616
 
 ] (./DSGEnotes.lof
-[611])
+[617])
 \tf@lof=\write9
 \openout9 = `DSGEnotes.lof'.
 
- [612] (./DSGEnotes.lot)
+ [618] (./DSGEnotes.lot)
 \tf@lot=\write10
 \openout10 = `DSGEnotes.lot'.
 
- [613
+ [619
 
-] [614
+] [620
 
-] (./DSGEnotes.tdo)
+] (./DSGEnotes.tdo [621])
 \tf@tdo=\write11
 \openout11 = `DSGEnotes.tdo'.
 
- [615] [616
-
-]
+ [622]
 runsystem(makeindex DSGEnotes.idx)...executed safely (allowed).
 
 
-(./DSGEnotes.ind [617
+(./DSGEnotes.ind [623
 
-] [618] [619] [620] [621] [622] [623] [624] [625] [626]
-[627
-\indexentry{残差方程(映射法)}{627}
-] [628] [629]) [630]
+
+] [624] [625] [626] [627] [628] [629] [630] [631] [632]
+[633
+\indexentry{残差方程(映射法)}{633}
+] [634] [635]) [636]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 498.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 498.
  (./DSGEnotes.aux)
@@ -3832,12 +3849,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 55612 strings out of 493007
- 1142641 string characters out of 6134605
- 1615911 words of memory out of 5000000
- 58593 multiletter control sequences out of 15000+600000
+ 55670 strings out of 493007
+ 1144247 string characters out of 6134605
+ 1618948 words of memory out of 5000000
+ 58651 multiletter control sequences out of 15000+600000
  545493 words of font info for 130 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  76i,27n,146p,10415b,3282s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on DSGEnotes.xdv (630 pages, 9937004 bytes).
+Output written on DSGEnotes.xdv (636 pages, 10044712 bytes).

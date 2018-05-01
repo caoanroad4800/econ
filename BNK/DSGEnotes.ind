@@ -99,7 +99,8 @@
   \item Cook's distance \dotfill 库克距离, 554
   \item countable additivity \dotfill 可数可加性, 325
   \item cover(topology) \dotfill 覆盖(拓扑学), 324
-  \item Cramér-Rao lower Bound \dotfill 克拉美罗下界, 559
+  \item Cramér-Rao lower Bound \dotfill 克拉美罗下界, 559, 580, 
+		582
   \item curse of dimensionality \dotfill 维数灾难, 207, 210
   \item Céa lemma, \dotfill 齐亚引理, 277, 440
 
@@ -250,6 +251,7 @@
   \item Heaviside function \dotfill 黑维塞方程, 511
   \item Hermitian symmetric \dotfill 埃米特对称, 333
   \item Hessian matrix \dotfill 海森矩阵, 577
+  \item heteroskedasticity \dotfill, 585
   \item Hilbert space \dotfill 希尔伯特空间, 274, 331
   \item Hoeffding inequality \dotfill 霍夫丁不等式, 538
   \item Hoeffding lemma \dotfill 霍夫丁引理, 536
@@ -333,6 +335,8 @@
   \item Laplace function \dotfill 拉普拉斯方程, 391
   \item Laplace operator \dotfill 拉普拉斯算子, 387
   \item latent variable \dotfill 隐含变量, 491
+  \item law of iterated expectations (LIE) \dotfill 迭代期望法则, 
+		582
   \item law of large numbers (LLN)
     \subitem  \dotfill 大数法则, 532
     \subitem weak(WLLN) \dotfill 弱大数法则, 534

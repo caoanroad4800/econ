@@ -1,4 +1,4 @@
-\begin{thebibliography}{302}
+\begin{thebibliography}{303}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
@@ -2132,6 +2132,12 @@
 \newblock \bibinfo{title}{{Interest and Prices}}.
 \newblock Foundations of a Theory of Monetary Policy.
   \bibinfo{publisher}{Princeton University Press}, \bibinfo{year}{2011}.
+%Type = Book
+\bibitem[{Wooldridge(2002)}]{Wooldridge:2002vr}
+\bibinfo{author}{Wooldridge\xfnm[ J.M.]}.
+\newblock \bibinfo{title}{{Econometric Analysis of Cross Section and Panel
+  Data}}.
+\newblock \bibinfo{publisher}{MIT Press}, \bibinfo{year}{2002}.
 %Type = Article
 \bibitem[{Wu and Wu(2011)}]{Wu:2011uc}
 \bibinfo{author}{Wu\xfnm[ H.H.]}, \bibinfo{author}{Wu\xfnm[ S.]}.
