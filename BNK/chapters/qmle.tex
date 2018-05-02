@@ -277,7 +277,7 @@ QLHF $L_{T} \left( z^{T}; \theta \right)$
 \end{equation*}
 可以帮助我们进一步分析、估计条件方差。
 
-\subsection{QMLE的渐进性质}
+\section{QMLE的渐进性质}
 \label{sec:qmle-asymptotic}
 通常来说，QLHF $L_{T} \left( \cdot ; \theta \right)$是一个关于系数向量$\theta$的非线性方程系统。非线性意味着我们往往无法直接求得解析解QMLE $\tilde{\theta}_{T}$，而是要靠非线性优化算法作数值近似。那么在数值近似之前，就需要探讨QMLE的金斯特征。本节中，我们假定QLHF $L_{T} \left( \cdot ; \theta \right)$在紧凑参数空间$\Theta$中的概率为$1$，1次、2次连续可导，积分和微分运算可交换顺序，并且识别条件成立：$\exists! \theta^{*} \in \Theta$，使得KLIC \eqref{eq:qmle-klic-def}或\eqref{eq:qmle-klic-gf}最大化。要求$\theta^{*} \in \Theta$是为了确保平均值扩展\eqref{eq:qmle-mean-value-expansion}和随后QLHF $L_{T}$的渐进分析是有效的。
 
@@ -1303,4 +1303,4 @@ $\tilde{\theta}_{T} = \left( \tilde{\beta}_{T}^{\top} \tilde{\sigma}_{T}^{2} \ri
     \left( \frac{1}{T} \sum_{t=1}^{T} \hat{e}_{t} x_{t}x_{t}^{\top} \right)
     \left( \frac{1}{T} \sum_{t=1}^{T} x_{t} x_{t}^{\top} \right)^{-1},
 \end{equation*}
-时OLS估计$\hat{\beta}_{T}$的方差协方差矩阵的Eicker-White estimator\todo{考虑一下，要不要做个section？}。
+是OLS估计$\hat{\beta}_{T}$的方差协方差矩阵的Eicker-White estimator\todo{考虑一下，要不要做个section？}。

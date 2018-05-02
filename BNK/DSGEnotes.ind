@@ -251,7 +251,7 @@
   \item Heaviside function \dotfill 黑维塞方程, 511
   \item Hermitian symmetric \dotfill 埃米特对称, 333
   \item Hessian matrix \dotfill 海森矩阵, 577
-  \item heteroskedasticity \dotfill, 585
+  \item heteroskedasticity \dotfill, 586
   \item Hilbert space \dotfill 希尔伯特空间, 274, 331
   \item Hoeffding inequality \dotfill 霍夫丁不等式, 538
   \item Hoeffding lemma \dotfill 霍夫丁引理, 536
@@ -336,7 +336,7 @@
   \item Laplace operator \dotfill 拉普拉斯算子, 387
   \item latent variable \dotfill 隐含变量, 491
   \item law of iterated expectations (LIE) \dotfill 迭代期望法则, 
-		582
+		583
   \item law of large numbers (LLN)
     \subitem  \dotfill 大数法则, 532
     \subitem weak(WLLN) \dotfill 弱大数法则, 534
